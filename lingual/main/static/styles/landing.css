@@ -1,0 +1,190 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #EFFCFF;
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --font-h1: 4rem;
+    --font-subtitle: 2.25rem;
+    --font-card: 1.75rem;
+    --line-tight: 1.1;
+    --line-normal: 1.4;
+}
+
+/* NAVIGATION */
+nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo nav-links get-started-btn";
+    align-items: center;
+    background: #E4F5E6;
+    height: 100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav a#logo {
+    grid-area: logo;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul#nav-links {
+    grid-area: nav-links;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: max(40px, 5%);
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+
+nav ul#nav-links li a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul#nav-links li a:hover {
+    cursor: pointer;
+}
+
+nav ul#nav-links li.taster a {
+    background: #FFB350;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+nav ul#nav-links li.taster a:hover {
+    background: #FFA500;
+    font-size: 1.75rem;
+}
+
+nav a#get-started-btn {
+    grid-area: get-started-btn;
+    background: linear-gradient(90deg, rgba(162,226,159,0.4), rgba(21,182,13,0.4));
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    transition: background 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+nav a#get-started-btn:hover {
+    background: linear-gradient(90deg, rgba(162,226,159,0.6), rgba(21,182,13,0.6));
+    font-size: 1.6rem;
+}
+
+/* LANDING SECTION */
+section#welcome {
+    background: #EFFCFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 10%;
+    min-height: calc(100vh);
+    box-sizing: border-box;
+    position: relative;
+}
+
+section#welcome h1 {
+    font-size: var(--font-h1);
+    line-height: var(--line-tight);
+    margin: 0;
+}
+
+section#welcome p.subtitle {
+    font-family: "Hannari";
+    font-size: var(--font-subtitle);
+    line-height: var(--line-normal);
+    max-width: 800px;
+    margin-top: 15px;
+}
+
+section#welcome .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section#welcome .cards .card {
+    width: 250px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+section#welcome .cards .card.method {
+    background: #C5EDFF;
+}
+
+section#welcome .cards .card.why {
+    background: #FFDFC5;
+}
+
+section#welcome .cards .card:hover {
+    transform: scale(1.05);
+}
+
+/* SHARED SECTION STYLE */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 60px 10%;
+    height: calc(100vh - 75px);
+}
+
+.info-section h2 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.info-section p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    line-height: var(--line-normal);
+    margin-top: 20px;
+}
+
+/* INDIVIDUAL SECTIONS */
+#purpose {
+    background: #eff3ff;
+}
+
+#why-lingual {
+    background: #fff0e4;
+}

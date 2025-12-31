@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/landing.css') }}">
+    <script src="{{ url_for('main.static', filename='js/landing.js') }}" defer></script>
+    <title>Lingual HSC</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="{{ url_for('main.landing') }}" id="logo">Lingual HSC</a>
+
+            <ul id="nav-links">
+                <li class="taster"><a href="">Get a FREE Taster!</a></li>
+                <li><a onclick="whyUsScroll()">For HSC Students</a></li>
+                <li><a onclick="purposeScroll()">About Lingual</a></li>
+            </ul>
+
+            <a href="{{ url_for('main.register') }}" id="get-started-btn">Get Started</a>
+        </nav>
+    </header>
+
+    <div class="landing-container">
+        <section id="welcome">
+            <h1>Welcome to Lingual HSC!</h1>
+            <p class="subtitle">
+                Where HSC Languages students can learn curated, syllabus-aligned language content.
+            </p>
+
+            <div class="cards">
+                <div class="card method" onclick="purposeScroll()">Learn More</div>
+                <div class="card why" onclick="whyUsScroll()">Why Us?</div>
+            </div>
+        </section>
+
+
+        <section id="purpose" class="info-section">
+            <h2>OUR MISSION</h2>
+            <p>
+                At Lingual HSC, our mission is to empower HSC Languages students by providing a comprehensive
+                platform that offers curated, syllabus-aligned content. We aim to enhance language learning through
+                interactive resources, expert guidance, and a supportive community, ensuring every student has the tools
+                they need to succeed in their HSC journey.
+            </p>
+            <p>
+                We are committed to fostering a love for languages and cultural understanding, while helping students
+                achieve their academic goals with confidence and ease.
+            </p>
+        </section>
+
+        <section id="why-lingual" class="info-section">
+            <h2>WHY US?</h2>
+            <p>
+                Lingual HSC is designed specifically for HSC Languages students, providing them with resources that are
+                directly aligned with their syllabus. Our platform offers curated content, interactive learning tools,
+                and expert guidance to help students excel in their language studies. By focusing on the unique needs of
+                HSC Languages students, Lingual HSC ensures that learners have access to the most relevant and effective
+                materials to support their academic success.
+            </p>
+            <p>
+                With Lingual HSC, students can enjoy a tailored learning experience that not only enhances their
+                language skills but also builds their confidence in using the language in real-world contexts. Our
+                commitment to quality and relevance makes Lingual HSC the ideal choice for HSC Languages students
+                seeking to achieve their best results.
+            </p>
+        </section>
+
+
+    </div>
+
+</body>
+
+</html>

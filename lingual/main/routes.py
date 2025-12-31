@@ -1,4 +1,4 @@
-from flask import url_for, redirect
+from flask import url_for, redirect, render_template
 from flask.blueprints import Blueprint
 
 main_bp = Blueprint(
@@ -11,7 +11,7 @@ main_bp = Blueprint(
 
 @main_bp.route('/')
 def landing():
-    return "Welcome to the Lingual HSC Module!"
+    return render_template('landing.html')
 
 @main_bp.route('/login')
 def login():
@@ -20,3 +20,7 @@ def login():
 @main_bp.route('/register')
 def register():
     return "This is the registration page for Lingual HSC."
+
+@main_bp.route('/app', strict_slashes=False)
+def app():
+    return "This is the main app page for Lingual HSC."
