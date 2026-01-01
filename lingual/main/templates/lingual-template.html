@@ -1,0 +1,6 @@
+{% extends "app-container.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+{% endblock %}

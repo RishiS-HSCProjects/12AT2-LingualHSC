@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "lingual-template.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set title = "Welcome to Lingual HSC" %}
+
+{% block meta %}
+    {{ super() }}
     <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/landing.css') }}">
-    <script src="{{ url_for('main.static', filename='js/landing.js') }}" defer></script>
-    <title>Lingual HSC</title>
-</head>
+{% endblock %}
 
-<body>
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('main.static', filename='js/landing.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
 
     <header>
         <nav>
@@ -73,6 +76,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock body %}
