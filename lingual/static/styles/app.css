@@ -1,4 +1,6 @@
 :root {
+    font-size: 16px;
+
     /* Z-INDEXES */
     --z-index-top: 999;
     --z-index-nav: 1000;
@@ -13,6 +15,10 @@
     --z-index-cloud: 50;
     --z-index-sky: 60;
 
+    /* SOFTENING RADIUS */
+    --radius-small: 8px;
+    --radius-medium: 20px;
+    --radius-large: 50px;
 }
 
 /* Flash Styles */
