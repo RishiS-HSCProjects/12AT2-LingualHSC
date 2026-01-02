@@ -2,18 +2,12 @@
     font-size: 16px;
 
     /* Z-INDEXES */
+    --z-index-overlay: 100;
     --z-index-top: 999;
     --z-index-nav: 1000;
     --z-index-modal: 1100;
     --z-index-flash: 1200;
     --z-index-god: 10000;
-
-    --z-index-overlay: 10;
-    --z-index-jump: 20;
-    --z-index-tower: 30;
-    --z-index-bird: 40;
-    --z-index-cloud: 50;
-    --z-index-sky: 60;
 
     /* SOFTENING RADIUS */
     --radius-small: 8px;

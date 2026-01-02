@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const messages = Array.from(document.querySelectorAll('#flash-container .flash-message'));
 
     // Duration for each message to be visible (in milliseconds)
-    const DURATION = 10000; // todo: change to user preference later
+    const DURATION = 10000; // TODO: change to user preference later
 
     // Following code handles the display, timing, and interactions of flash messages
     messages.forEach((msg, i) => {
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // click to dismiss event
             msg.addEventListener('click', () => {
-                msg.style.cursor = 'pointer';
                 pauseTimer(msg);
                 fadeOut(msg);
             });
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Handles flash countdown.
      * Calls helper functions to handle timing and fading.
      * @param {HTMLElement} msg Flash message element
-     * @returns 
      */
     function tick(msg) {
         const now = Date.now();

@@ -11,10 +11,6 @@ main_bp = Blueprint(
 
 @main_bp.route('/')
 def landing():
-    flash("Welcome to Lingual HSC!", "success")
-    flash("Welcome to Lingual HSC!", "warning")
-    flash("Welcome to Lingual HSC!", "info")
-    flash("Welcome to Lingual HSC!", "error")
     return render_template('landing.html')
 
 @main_bp.route('/login')
