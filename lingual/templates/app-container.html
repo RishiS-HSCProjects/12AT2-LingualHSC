@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Lingual HSC</title>
+    {% endif %}
+
+    {% block meta %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block body %}
+    {% endblock %}
+
+    <div id="flash-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash-message {{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% endblock %}
+
+</body>
+</html>

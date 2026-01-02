@@ -1,0 +1,22 @@
+:root {
+    --color-bg-white: #ffffff;
+    --color-bg-accent-1: #effcff;
+    --color-bg-accent-2: #e2f7ff;
+
+    --color-primary: #2bda68;
+    --color-secondary: #50c7ff;
+    --color-soft-purple: #eff3ff;
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 70px;
+
+    --font-heading: "Poppins", Inter, Arial, sans-serif;
+    --font-display: "Public Sans", Inter, Arial, sans-serif;
+    --font-body: "Inter", Arial, sans-serif;
+
+    --text-primary: #0E0E0E;
+    --text-secondary: #505050;
+}
