@@ -1,0 +1,248 @@
+#form {
+    min-height: calc(100vh - var(--nav-height));
+    margin: var(--nav-height) auto;
+    margin-bottom: calc(0 - var(--nav-height));
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - var(--nav-height));
+    width: 80%;
+}
+
+#form section {
+    min-height: calc(100vh - var(--nav-height));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    display: none;
+}
+
+#form section.active {
+    display: block;
+}
+
+#form h1 {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+}
+
+#form .form-body {
+    width: 100%;
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#form .form-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form h2 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    margin-bottom: var(--space-sm);
+    color: #003C13;
+}
+
+#form input,
+#form select {
+    width: 30rem;
+    font-size: 2.5rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid #BFAEFF;
+    border-radius: var(--border-radius);
+    background-color: #ffffff;
+    color: #003C13;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form input:focus,
+#form select:focus {
+    outline: none;
+    border-color: #a38eff;
+    box-shadow: 0 0 6px rgba(163, 142, 255, 0.6);
+}
+
+#form .select-wrapper {
+    position: relative;
+    width: 30rem;
+}
+
+#form select option {
+    font-size: 2.2rem;
+    padding: 1rem;
+    background-color: #f4f0ff;
+    color: #003C13;
+}
+
+#form select option:hover {
+    background-color: #e8e0ff;
+}
+
+#form select option:checked {
+    background-color: #d8ccff;
+    color: #002a0e;
+}
+
+#form select option[disabled] {
+    display: none;
+}
+
+#form .custom-dropdown {
+    position: relative;
+    width: 30rem;
+    font-size: 2.5rem;
+}
+
+#form .custom-dropdown .dropdown-toggle {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    border-radius: 50px;
+    border: 2px solid #BFAEFF;
+    background: linear-gradient(145deg, #cbbaff, #a38eff);
+    color: #8702C0;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.35s ease;
+    user-select: none;
+}
+
+#form .custom-dropdown .dropdown-toggle::before,
+#form .custom-dropdown .dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: opacity 0.35s ease;
+}
+
+#form .custom-dropdown .dropdown-toggle:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 0 8px rgba(163, 142, 255, 0.6);
+}
+
+#form .custom-dropdown .dropdown-toggle:hover::before {
+    opacity: 0;
+}
+
+#form .custom-dropdown .dropdown-toggle:hover::after {
+    opacity: 1;
+}
+
+#form .custom-dropdown .dropdown-toggle:focus {
+    outline: none;
+    border-color: #a38eff;
+}
+
+#form .custom-dropdown .dropdown-toggle span.dropdown-label {
+    color: #29003c;
+}
+
+#form .custom-dropdown .dropdown-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid #BFAEFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#form .custom-dropdown.open .dropdown-menu {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#form .custom-dropdown .dropdown-option {
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    background: #f7f4ff;
+    color: #003C13;
+    transition: background 0.2s ease;
+}
+
+#form .custom-dropdown .dropdown-option:hover {
+    background: #e8e0ff;
+}
+
+#form section .group-fields {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+#form section small {
+    font-size: 1.25rem;
+    color: #555555;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+#form section button.next {
+    margin: 2rem 0;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #DC89EA, #B02CD9);
+    color: #ffffff;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease, background-color 0.35s ease;
+}
+
+#form section button.next:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 0 8px rgba(220, 137, 234, 0.6);
+}
+
+#form section button.next:disabled {
+    filter: grayscale(50%);
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#form section small#password-help > ul#password-requirements {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+#form section small#password-help > ul#password-requirements > li.invalid {
+    color: #D9534F;
+    transition: color 0.5s ease;
+}
+
+#form section small#password-help > ul#password-requirements > li.valid {
+    color: #3ea43e;
+    transition: color 0.5s ease;
+}

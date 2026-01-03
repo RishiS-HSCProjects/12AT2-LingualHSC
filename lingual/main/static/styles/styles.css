@@ -17,6 +17,27 @@
     --font-display: "Public Sans", Inter, Arial, sans-serif;
     --font-body: "Inter", Arial, sans-serif;
 
-    --text-primary: #0E0E0E;
-    --text-secondary: #505050;
+    --nav-height: 100px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg-accent-1);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+nav {
+    padding: 20px 40px;
+    max-height: var(--nav-height);
+    position: fixed;
+}
+
+nav a#logo {
+    /* Does not impact landing page navigation. */
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
 }
