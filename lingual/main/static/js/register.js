@@ -61,20 +61,28 @@ function handleLanguageSelect(selectedLanguage) {
 /**
  * @param {HTMLElement} element
  */
-function verifyName(element) {
+function verifyName(element, onSubmit = false) {
     const name = element.value.trim();
-    const nameRegex = /^[A-Za-z'\- ]{0,50}$/;
-    if (name.length === 0) {
+    const nameRegex = /^[A-Za-z'\- ]{1,50}$/;
+    if (name.length === 0 && !onSubmit) {
         element.style.borderColor = "";
         element.style.boxShadow = "";
         return false;
     } if (nameRegex.test(name)) {
         element.style.borderColor = "green";
         element.style.boxShadow = "0 0 5px green";
+        element.title = "";
         return true;
     } else {
         element.style.borderColor = "red";
         element.style.boxShadow = "0 0 5px red";
+        if (onSubmit) {
+            element.classList.add('error');
+            setTimeout(() => {
+                element.classList.remove('error');
+            }, 1000);
+        }
+        element.title = "Names can be up to 50 characters long and only include letters, spaces, apostrophes, and hyphens.";
         return false;
     }
 }
@@ -84,20 +92,28 @@ function verifyName(element) {
  * 
  * @param {HTMLElement} element
  */
-function verifyEmail(element) {
+function verifyEmail(element, onSubmit = false) {
     const email = element.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email.length === 0) {
+    if (email.length === 0 && !onSubmit) {
         element.style.borderColor = "";
         element.style.boxShadow = "";
         return false;
     } else if (emailRegex.test(email)) {
         element.style.borderColor = "green";
         element.style.boxShadow = "0 0 5px green";
+        element.title = "";
         return true;
     } else {
         element.style.borderColor = "red";
         element.style.boxShadow = "0 0 5px red";
+        if (onSubmit) {
+            element.classList.add('error');
+            setTimeout(() => {
+                element.classList.remove('error');
+            }, 1000);
+        }
+        element.title = "Please enter a valid email address.";
         return false;
     }
 }
@@ -106,8 +122,7 @@ function handleNameInput() {
     const fnameElement = document.getElementById('first-name');
     const lnameElement = document.getElementById('last-name');
 
-    if (!verifyName(fnameElement) || !verifyName(lnameElement)) {
-        alert("Names can only include letters and spaces.");
+    if (!verifyName(fnameElement, true) || !verifyName(lnameElement, true)) {
         return;
     }
 
@@ -138,7 +153,7 @@ function handleNameInput() {
 
 function handleEmailInput() {
     const emailElement = document.getElementById('email');
-    if (!verifyEmail(emailElement)) {
+    if (!verifyEmail(emailElement, onSubmit=true)) {
         return;
     }
     fetch('/register/u/send_verification_code', {
@@ -179,7 +194,6 @@ function resendVerificationCode() {
     }).then(response => response.json())
         .then(data => {
             // TODO: Implement spam prevention
-            alert("Verification code resent to your email.");
         })
         .catch(error => {
             console.error("Error resending verification code:", error);
@@ -200,13 +214,17 @@ function handleVerificationCodeInput() {
     })
         .then(response => response.json())
         .then(data => {
+            const txt = document.getElementById('secret-text');
             if (data.success) {
 
-                document.getElementById('secret-text').textContent = data.secret_text;
+                txt.textContent = data.secret_text;
 
                 handleSectionScroll('reg-verify', 'reg-pwd', 'secret-text');
             } else {
-                alert("Invalid verification code. Please try again.");
+                element.classList.add('error');
+                setTimeout(() => {
+                    element.classList.remove('error');
+                }, 1000);
             }
         })
         .catch(error => {
@@ -246,13 +264,13 @@ function validatePassword(element) {
     return false;
 }
 
-function validatePasswordMatch(element) {
+function validatePasswordMatch(element, onSubmit = false) {
     const password = document.getElementById('password').value;
     const confirmPassword = element.value;
 
     document.getElementById('pwd-match').className = ((password === confirmPassword) && password.length > 0)  ? 'valid' : 'invalid';
 
-    if (confirmPassword.length === 0) {
+    if (confirmPassword.length === 0 && !onSubmit) {
         element.style.borderColor = "";
         element.style.boxShadow = "";
     } else if (password === confirmPassword) {
@@ -262,15 +280,22 @@ function validatePasswordMatch(element) {
     } else {
         element.style.borderColor = "red";
         element.style.boxShadow = " 0 0 5px red"
+        element.classList.add('error');
+        if (onSubmit) {
+            element.classList.add('error');
+            setTimeout(() => {
+                element.classList.remove('error');
+            }, 1000);
+        }
     }
     return false;
 }
 
 function checkSubmit() {
-    const password = document.getElementById('password').value;
-    const confirm_password = document.getElementById('confirm-password').value;
+    const password = document.getElementById('password');
+    const confirm_password = document.getElementById('confirm-password');
 
-    if (validatePassword(document.getElementById('password')) && validatePasswordMatch(document.getElementById('confirm-password'))) {
+    if (validatePassword(password) && validatePasswordMatch(confirm_password)) {
         const submit = document.getElementById('pwd-submit');
         submit.disabled = false;
     }
@@ -288,7 +313,7 @@ function submitRegistrationForm() {
     }).then(response => response.json())
         .then(data => {
             if (!data.error) {
-                window.location.href = '/app';
+                window.location.href = '/login';
             } else {
                 alert("Error creating account: " + data.error);
             }

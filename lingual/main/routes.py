@@ -1,6 +1,8 @@
-from flask import jsonify, render_template, request, session
+from flask import jsonify, render_template, request, session, current_app
 from flask.blueprints import Blueprint
+from flask_login import login_required
 from lingual.utils.languages import Languages, get_translatable
+from lingual.models import User
 
 main_bp = Blueprint(
     'main',
@@ -14,13 +16,13 @@ main_bp = Blueprint(
 def landing():
     return render_template('landing.html')
 
-
 @main_bp.route('/login')
 def login():
     return "This is the login page for Lingual HSC."
 
 @main_bp.route('/register', strict_slashes=False)
 def register():
+    current_app.logger.info("Clearing registration session data.")
     session.pop('reg', None)  # Clear any existing registration data
     return render_template('register.html', languages=list(Languages))
 
@@ -28,9 +30,9 @@ def register():
 def register_util(step):
 
     def save_to_session(key: str, value) -> None:
-        if 'reg' not in session:
-            session['reg'] = {}
-        session['reg'][key] = value
+        reg = session.get('reg', {})
+        reg[key] = value
+        session['reg'] = reg
     
     def get_from_session(key: str) -> str | None:
         return session.get('reg', {}).get(key) or None
@@ -67,15 +69,17 @@ def register_util(step):
             first_name: str = data.get("first_name").strip().title()
             last_name: str = data.get("last_name").strip().title()
 
-            save_to_session('first_name', first_name)
-            save_to_session('last_name', last_name)
-
             if not first_name:
                 return jsonify({"error": "Missing 'first_name'"}), 400
             translated = get_translatable(get_from_session('language') or 'en', "signup_user_hello")
             txt = translated.replace("{first_name}", first_name)
+
+            save_to_session('first_name', first_name)
+            save_to_session('last_name', last_name)
+
             return jsonify({"text": txt})
         except Exception as e:
+            raise ValueError(e)
             print(f"Error processing request: {e}")
             return jsonify({"error": "Internal server error"}), 500
         
@@ -91,9 +95,11 @@ def register_util(step):
             if not email:
                 return jsonify({"error": "Missing 'email'"}), 400
 
+            if User.query.filter_by(email=email).first():
+                return jsonify({"error": "Email already registered"}), 400
+
             save_to_session('email', email)
 
-            # TODO : Send verification code to email here
             from lingual.core.auth.routes import verify_email
             verify_email()
 
@@ -132,7 +138,7 @@ def register_util(step):
 
     return jsonify({"error": "Invalid step"}), 400
 
-
+@login_required
 @main_bp.route('/app', strict_slashes=False)
 def app():
     return "This is the main app page for Lingual HSC."

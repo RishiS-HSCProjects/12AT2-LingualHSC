@@ -27,6 +27,7 @@
 }
 
 #form h1 {
+    margin-top: 0;
     text-align: center;
     font-family: var(--font-heading);
     font-size: 4rem;
@@ -64,6 +65,11 @@
     background-color: #ffffff;
     color: #003C13;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form input.error,
+#form select.error {
+    animation: error-shake 0.4s;
 }
 
 #form input:focus,
@@ -245,4 +251,14 @@
 #form section small#password-help > ul#password-requirements > li.valid {
     color: #3ea43e;
     transition: color 0.5s ease;
+}
+
+@keyframes error-shake {
+    0% { transform: translateX(0) rotate(0deg); }
+    15% { transform: translateX(-6px) rotate(-3deg); }
+    30% { transform: translateX(6px) rotate(3deg); }
+    45% { transform: translateX(-6px) rotate(-2deg); }
+    60% { transform: translateX(6px) rotate(2deg); }
+    75% { transform: translateX(-3px) rotate(-1deg); }
+    100% { transform: translateX(0) rotate(0deg); }
 }
