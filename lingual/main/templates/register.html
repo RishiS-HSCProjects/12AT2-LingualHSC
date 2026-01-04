@@ -13,12 +13,12 @@
 {% endblock %}
 
 {% block body %}
-<div id="form">
+<form id="form" onsubmit="return false;" novalidate>
     <section id="reg-lang" class="active">
         <h1>Your HSC Journey Starts Here</h1>
         <div class="form-body">
             <div class="form-elements">
-                <h2 for="language-select">First, choose a language</h2>
+                <h2 id="language-select">First, choose a language</h2>
                 <div class="select-wrapper">
                     <div class="custom-dropdown" id="language-dropdown">
                         <button class="dropdown-toggle" type="button">
@@ -59,13 +59,13 @@
             <div class="form-elements">
                 <h2>What should we call you by?</h2>
                 <div class="group-fields">
-                    <input type="text" oninput="verifyName(this)" id="first-name" name="first-name"
+                    <input type="text" autocomplete="given-name" autocapitalize="words" oninput="verifyName(this)" id="first-name" name="first-name"
                         placeholder="First Name" required>
-                    <input type="text" oninput="verifyName(this)" id="last-name" name="last-name"
+                    <input type="text" autocomplete="family-name" autocapitalize="words" oninput="verifyName(this)" id="last-name" name="last-name"
                         placeholder="Last Name" required>
                 </div>
                 <div class="next-btn">
-                    <button class="next" onclick="handleNameInput()">Next</button>
+                    <button type="button" class="next" onclick="handleNameInput()">Next</button>
                 </div>
             </div>
         </div>
@@ -75,10 +75,10 @@
         <div class="form-body">
             <div class="form-elements">
                 <h2>How should we contact you?</h2>
-                <input type="email" oninput="verifyEmail(this)" id="email" name="email" placeholder="Email" required>
+                <input type="email" autocomplete="email" oninput="verifyEmail(this)" id="email" name="email" placeholder="Email" required>
                 <small>You will also use this email to log into your account.</small>
                 <div class="next-btn">
-                    <button class="next" onclick="handleEmailInput()">Send Verification Code</button>
+                    <button type="button" class="next" onclick="handleEmailInput()">Send Verification Code</button>
                 </div>
             </div>
         </div>
@@ -94,10 +94,10 @@
                 <small>Please check your spam folder if you don't see the email in your inbox.</small>
                 <div class="presubmit-options">
                     <button class="option" onclick="scrollToEmail()">Update Email</button>
-                    <button class="option" onclick="handleEmailInput()">Resend Verification Code</button>
+                    <button class="option" onclick="resendVerificationCode()">Resend Verification Code</button>
                 </div>
                 <div class="next-btn">
-                    <button class="next" onclick="handleVerificationCodeInput()">Verify</button>
+                    <button type="button" class="next" onclick="handleVerificationCodeInput()">Verify</button>
                 </div>
             </div>
         </div>
@@ -108,10 +108,10 @@
             <div class="form-elements">
                 <h2>Please create a strong password</h2>
                 <div class="group-fields">
-                    <input type="password" oninput="validatePassword(this); checkSubmit();" id="password"
+                    <input type="password" autocomplete="new-password" oninput="validatePassword(this); checkSubmit();" id="password"
                         name="password" placeholder="Password" required>
 
-                    <input type="password" oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
+                    <input type="password" autocomplete="new-password" oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
                         name="confirm-password" placeholder="Confirm Password" required>
                 </div>
 
@@ -126,12 +126,12 @@
                     </ul>
                 </small>
                 <div class="next-btn">
-                    <button id="pwd-submit" class="next" onclick="submitRegistrationForm()" disabled>Done!</button>
+                    <button id="pwd-submit" type="submit" class="next" disabled>Done!</button>
                 </div>
             </div>
         </div>
     </section>
 
-</div>
+</form>
 
 {% endblock body %}

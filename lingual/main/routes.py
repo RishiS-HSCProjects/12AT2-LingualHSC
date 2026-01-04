@@ -1,4 +1,4 @@
-from flask import jsonify, render_template, request, session, current_app
+from flask import jsonify, render_template, request, session, current_app, flash
 from flask.blueprints import Blueprint
 from flask_login import login_required
 from lingual.utils.languages import Languages, get_translatable
@@ -79,8 +79,6 @@ def register_util(step):
 
             return jsonify({"text": txt})
         except Exception as e:
-            raise ValueError(e)
-            print(f"Error processing request: {e}")
             return jsonify({"error": "Internal server error"}), 500
         
     elif step == "send_verification_code":
@@ -96,7 +94,7 @@ def register_util(step):
                 return jsonify({"error": "Missing 'email'"}), 400
 
             if User.query.filter_by(email=email).first():
-                return jsonify({"error": "Email already registered"}), 400
+                return jsonify({"error": "Email already registered. Please use a different email address or log in."}), 400
 
             save_to_session('email', email)
 
@@ -128,12 +126,15 @@ def register_util(step):
 
             # TODO : Verify OTP code here
             from lingual.core.auth.routes import verify_otp
-            response = verify_otp().get_json()['success']
+            response = verify_otp(code)
+
+            if response:
+                return jsonify({"error": response}), 400
 
             secret_text = get_translatable(get_from_session('language') or 'en', "signup_password_title")
-            return jsonify({"success": response, "secret_text": secret_text})
+            return jsonify({"error": None, "secret_text": secret_text})
         except Exception as e:
-            print(f"Error processing request: {e}")
+            current_app.logger.error(e)
             return jsonify({"error": "Internal server error"}), 500
 
     return jsonify({"error": "Invalid step"}), 400

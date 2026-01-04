@@ -45,6 +45,12 @@ function handleLanguageSelect(selectedLanguage) {
         body: JSON.stringify({ language: selectedLanguage })
     }).then(response => response.json())
         .then(data => {
+            error = data.error;
+            if (error) {
+                sendFlashMessage(error, 'error');
+                return;
+            }
+
             const welcomeTextElement = document.getElementById('welcome-text');
             if (welcomeTextElement) {
                 welcomeTextElement.textContent = data.text;
@@ -134,6 +140,13 @@ function handleNameInput() {
         body: JSON.stringify({ first_name: fnameElement.value, last_name: lnameElement.value })
     }).then(response => response.json())
         .then(data => {
+
+            error = data.error;
+            if (error) {
+                sendFlashMessage(error, 'error');
+                return;
+            }
+
             const helloElement = document.getElementById('hello-text');
 
             if (!helloElement) {
@@ -153,7 +166,7 @@ function handleNameInput() {
 
 function handleEmailInput() {
     const emailElement = document.getElementById('email');
-    if (!verifyEmail(emailElement, onSubmit=true)) {
+    if (!verifyEmail(emailElement, onSubmit = true)) {
         return;
     }
     fetch('/register/u/send_verification_code', {
@@ -164,6 +177,12 @@ function handleEmailInput() {
         body: JSON.stringify({ email: emailElement.value })
     }).then(response => response.json())
         .then(data => {
+            error = data.error;
+            if (error) {
+                sendFlashMessage(error, 'error');
+                return;
+            }
+
             const emailDisplayElement = document.getElementById('email-display');
             if (emailDisplayElement) {
                 emailDisplayElement.textContent = data.email;
@@ -186,14 +205,20 @@ function scrollToEmail() {
 }
 
 function resendVerificationCode() {
-    fetch('/auth/verify_email/', {
+    fetch('/auth/verify_email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
     }).then(response => response.json())
         .then(data => {
+            error = data.error;
+            if (error) {
+                sendFlashMessage(error, 'error');
+                return;
+            }
             // TODO: Implement spam prevention
+            sendFlashMessage("Verification code resent to your email.", 'info');
         })
         .catch(error => {
             console.error("Error resending verification code:", error);
@@ -202,8 +227,16 @@ function resendVerificationCode() {
 }
 
 function handleVerificationCodeInput() {
+
     const codeElement = document.getElementById('verification-code');
     const code = codeElement.value.trim();
+
+    if (code.length === 0) {
+        codeElement.style.borderColor = "red";
+        codeElement.style.boxShadow = "0 0 5px red";
+        sendFlashMessage("Please enter the verification code sent to your email.", 'error');
+        return;
+    }
 
     fetch('/register/u/verify_otp', {
         method: 'POST',
@@ -214,16 +247,23 @@ function handleVerificationCodeInput() {
     })
         .then(response => response.json())
         .then(data => {
+
+            error = data.error;
+            if (error) {
+                sendFlashMessage(error, 'error');
+                return;
+            }
+
             const txt = document.getElementById('secret-text');
-            if (data.success) {
+            if (data.error === null) {
 
                 txt.textContent = data.secret_text;
 
                 handleSectionScroll('reg-verify', 'reg-pwd', 'secret-text');
             } else {
-                element.classList.add('error');
+                codeElement.classList.add('error');
                 setTimeout(() => {
-                    element.classList.remove('error');
+                    codeElement.classList.remove('error');
                 }, 1000);
             }
         })
@@ -264,13 +304,13 @@ function validatePassword(element) {
     return false;
 }
 
-function validatePasswordMatch(element, onSubmit = false) {
+function validatePasswordMatch(element) {
     const password = document.getElementById('password').value;
     const confirmPassword = element.value;
 
-    document.getElementById('pwd-match').className = ((password === confirmPassword) && password.length > 0)  ? 'valid' : 'invalid';
+    document.getElementById('pwd-match').className = ((password === confirmPassword) && password.length > 0) ? 'valid' : 'invalid';
 
-    if (confirmPassword.length === 0 && !onSubmit) {
+    if (confirmPassword.length === 0) {
         element.style.borderColor = "";
         element.style.boxShadow = "";
     } else if (password === confirmPassword) {
@@ -280,13 +320,6 @@ function validatePasswordMatch(element, onSubmit = false) {
     } else {
         element.style.borderColor = "red";
         element.style.boxShadow = " 0 0 5px red"
-        element.classList.add('error');
-        if (onSubmit) {
-            element.classList.add('error');
-            setTimeout(() => {
-                element.classList.remove('error');
-            }, 1000);
-        }
     }
     return false;
 }
@@ -315,13 +348,13 @@ function submitRegistrationForm() {
             if (!data.error) {
                 window.location.href = '/login';
             } else {
-                alert("Error creating account: " + data.error);
+                sendFlashMessage(data.error, 'error');
             }
         }
         ).catch(error => {
             console.error("Error creating account:", error);
         }
-    );
+        );
 }
 
 /**
@@ -365,4 +398,9 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.classList.remove("open");
         }
     });
+});
+
+document.getElementById('form').addEventListener('submit', e => {
+    e.preventDefault();
+    submitRegistrationForm();
 });

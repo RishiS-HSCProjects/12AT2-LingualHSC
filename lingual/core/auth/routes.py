@@ -1,3 +1,4 @@
+from threading import Thread
 from flask import Blueprint, current_app, session, request, jsonify
 from time import time
 from werkzeug.security import generate_password_hash
@@ -8,62 +9,70 @@ auth_bp = Blueprint(
     url_prefix='/auth'
 )
 
-@auth_bp.route('/verify_email')
+@auth_bp.route('/verify_email', methods=['POST'], strict_slashes=False)
 def verify_email():
     reg = session.get('reg')
     if not reg:
-        return "Registration information not found", 400
+        return jsonify({"error": "Registration information not found"}), 400
 
     email = reg.get('email')
     if not email:
-        return "Email not found in registration information", 400
-
+        return jsonify({"error": "Email not found in registration information"}), 400
     from secrets import choice
     from bcrypt import hashpw, gensalt
     from lingual import mail
 
     # Generate OTP
-    # otp = ''.join(choice('0123456789') for _ in range(6))
-    otp = '123456'  # For testing purposes, use a fixed OTP. Replace with the above line in production.
+    otp = ''.join(choice('0123456789') for _ in range(6))
 
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
 
-    # mail.send_message(
-    #     subject=f"Your Verification Code is {otp}",
-    #     recipients=[session.get('reg', {}).get('email')],
-    #     body=f"Your verification code is: {otp}. This code will expire in 5 minutes. If you did not request this, please ignore this email."
-    # )
+    def send_verification_email(app, email, otp):
+        with app.app_context():
+            from lingual import mail
+            mail.send_message(
+                subject=f"Your Verification Code is {otp}",
+                recipients=[email],
+                body=(
+                    f"Your verification code is: {otp}.\n\n"
+                    "This code will expire in 5 minutes."
+                )
+            )
 
-    return jsonify(success=True)
+    Thread(
+        target=send_verification_email,
+        args=(current_app._get_current_object(), email, otp),
+        daemon=True
+    ).start()
 
-@auth_bp.route('/verify_otp', methods=['POST'])
-def verify_otp():
+    return jsonify({"error": None}), 200
+
+def verify_otp(otp_code: str) -> str | None:
+    """    
+    :return: Error message if verification fails, None if successful
+    :rtype: str | None
+    """
     from bcrypt import checkpw
-    data = request.get_json()
-    if not data or 'code' not in data:
-        return jsonify(success=False), 400
-    
+
     otp_data = session.get('otp')
 
     if not otp_data:
-        return jsonify(success=False), 400
+        return "OTP data not found"
     
     if time() - otp_data[1] > 300:
-        return jsonify(success=False), 400
+        return "OTP has expired. Please request a new one."
 
-    input_otp = data['code']
+    if checkpw(otp_code.encode(), otp_data[0]):
+        return None
 
-    if checkpw(input_otp.encode(), otp_data[0]):
-        return jsonify(success=True)
-
-    return jsonify(success=False)
+    return "Invalid verification code"
 
 @auth_bp.route('/create', methods=['POST'])
 def create_user():
     reg = session.pop('reg', None)
     
     if not reg:
-        return jsonify(error="Registration information not found"), 400
+        return jsonify({"error": "Registration information not found"}), 400
     
     from lingual import db
     from lingual.models import User
@@ -78,4 +87,4 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify(error=None), 200
+    return jsonify({"error": None}), 200
