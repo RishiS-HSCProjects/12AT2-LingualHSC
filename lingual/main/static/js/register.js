@@ -32,6 +32,7 @@ function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) 
     setTimeout(() => {
         sourceElement.classList.remove('active');
         document.body.style.overflowY = 'auto';
+        document.querySelector('.active input[autofocus]').focus();
     }, 500);
 
 }
@@ -101,9 +102,12 @@ function handleNameInput(element = null) {
     const lnameElement = document.getElementById('last-name');
     const next = document.querySelector('.active .next');
 
-    if (!element) {
+    submit = !element;
+
+    if (submit) {
         if (!fnameElement.value) {
-            if (!element) sendFlashMessage("First name input element not found.", 'error');
+            sendFlashMessage("First name input element not found.", 'error');
+            addErrorStyling(fnameElement, submit);
             next.disabled = true;
             return;
         }
@@ -114,35 +118,7 @@ function handleNameInput(element = null) {
 
     next.disabled = false;
 
-    if (element) {
-        fetch('register/u/verify_name', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: element.value, type: element.id })
-        }).then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    if (!element) sendFlashMessage(data.error, 'error');
-                    addErrorStyling(fnameElement, !element);
-                    addErrorStyling(lnameElement, !element);
-                    return;
-                } else if (data.f_error) {
-                    if (!element) sendFlashMessage(data.f_error, 'error');
-                    addErrorStyling(fnameElement, !element);
-                    return;
-                } else if (data.l_error) {
-                    if (!element) sendFlashMessage(data.l_error, 'error');
-                    addErrorStyling(lnameElement, !element);
-                    return;
-                }
-
-                addSuccessStyling(element)
-            });
-    }
-
-    if (!element) {
+    if (submit) {
         fetch('/register/u/user_hello', {
             method: 'POST',
             headers: {
@@ -172,6 +148,32 @@ function handleNameInput(element = null) {
                 console.error("Error fetching translation:", error);
             }
             );
+    } else {
+        fetch('register/u/verify_name', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: element.value, type: element.id })
+        }).then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    if (submit) sendFlashMessage(data.error, 'error');
+                    addErrorStyling(fnameElement, submit);
+                    addErrorStyling(lnameElement, submit);
+                    return;
+                } else if (data.f_error) {
+                    if (submit) sendFlashMessage(data.f_error, 'error');
+                    addErrorStyling(fnameElement, submit);
+                    return;
+                } else if (data.l_error) {
+                    if (submit) sendFlashMessage(data.l_error, 'error');
+                    addErrorStyling(lnameElement, submit);
+                    return;
+                }
+
+                addSuccessStyling(element)
+            });
     }
 }
 

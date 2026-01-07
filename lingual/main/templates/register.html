@@ -61,7 +61,7 @@
                 <div class="group-fields">
                     <input type="text" autocomplete="given-name" autocapitalize="words"
                         oninput="handleNameInput(element=this)" id="first-name" name="first-name"
-                        placeholder="First Name" required>
+                        placeholder="First Name" required autofocus>
                     <input type="text" autocomplete="family-name" autocapitalize="words"
                         oninput="handleNameInput(element=this)" id="last-name" name="last-name" placeholder="Last Name (optional)">
                 </div>
@@ -77,7 +77,7 @@
             <div class="form-elements">
                 <h2>How should we contact you?</h2>
                 <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email"
-                    placeholder="Email" required>
+                    placeholder="Email" required autofocus>
                 <small>You will also use this email to log into your account.</small>
                 <div class="next-btn">
                     <button type="button" class="next" id="verify-code-btn" onclick="handleEmailInput(true); spamPrevention(this);"disabled>Send Verification Code</button>
@@ -91,7 +91,7 @@
             <div class="form-elements">
                 <h2>Enter the verification code we sent to your email</h2>
                 <input type="text" id="verification-code" name="verification-code" placeholder="Verification Code"
-                    autocomplete="off" required oninput="handleVerificationCodeInput()">
+                    autocomplete="off" required autofocus oninput="handleVerificationCodeInput()">
                 <small>We have sent this email to <span id="email-display"></span>.</small>
                 <small>Please check your spam folder if you don't see the email in your inbox.</small>
                 <div class="presubmit-options">
@@ -110,7 +110,7 @@
             <div class="form-elements">
                 <h2>Please create a strong password</h2>
                 <div class="group-fields">
-                    <input type="password" autocomplete="new-password" oninput="validatePassword(this); checkSubmit();"
+                    <input type="password" autocomplete="new-password" autofocus oninput="validatePassword(this); checkSubmit();"
                         id="password" name="password" placeholder="Password" required>
 
                     <input type="password" autocomplete="new-password"
