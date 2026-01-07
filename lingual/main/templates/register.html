@@ -59,13 +59,14 @@
             <div class="form-elements">
                 <h2>What should we call you by?</h2>
                 <div class="group-fields">
-                    <input type="text" autocomplete="given-name" autocapitalize="words" oninput="handleNameInput(element=this)" id="first-name" name="first-name"
+                    <input type="text" autocomplete="given-name" autocapitalize="words"
+                        oninput="handleNameInput(element=this)" id="first-name" name="first-name"
                         placeholder="First Name" required>
-                    <input type="text" autocomplete="family-name" autocapitalize="words" oninput="handleNameInput(element=this)" id="last-name" name="last-name"
-                        placeholder="Last Name" required>
+                    <input type="text" autocomplete="family-name" autocapitalize="words"
+                        oninput="handleNameInput(element=this)" id="last-name" name="last-name" placeholder="Last Name (optional)">
                 </div>
                 <div class="next-btn">
-                    <button type="button" class="next" onclick="handleNameInput()">Next</button>
+                    <button type="button" class="next" onclick="handleNameInput(); spamPrevention(this);" disabled>Next</button>
                 </div>
             </div>
         </div>
@@ -75,10 +76,11 @@
         <div class="form-body">
             <div class="form-elements">
                 <h2>How should we contact you?</h2>
-                <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email" placeholder="Email" required>
+                <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email"
+                    placeholder="Email" required>
                 <small>You will also use this email to log into your account.</small>
                 <div class="next-btn">
-                    <button type="button" class="next" onclick="handleEmailInput(true)">Send Verification Code</button>
+                    <button type="button" class="next" id="verify-code-btn" onclick="handleEmailInput(true); spamPrevention(this);"disabled>Send Verification Code</button>
                 </div>
             </div>
         </div>
@@ -89,15 +91,15 @@
             <div class="form-elements">
                 <h2>Enter the verification code we sent to your email</h2>
                 <input type="text" id="verification-code" name="verification-code" placeholder="Verification Code"
-                    required>
+                    autocomplete="off" required oninput="handleVerificationCodeInput()">
                 <small>We have sent this email to <span id="email-display"></span>.</small>
                 <small>Please check your spam folder if you don't see the email in your inbox.</small>
                 <div class="presubmit-options">
-                    <button class="option" onclick="scrollToEmail()">Update Email</button>
-                    <button class="option" onclick="resendVerificationCode()">Resend Verification Code</button>
+                    <button class="option" onclick="scrollToEmail(); spamPrevention(this);">Update Email</button>
+                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 60*1000);">Resend Verification Code</button>
                 </div>
                 <div class="next-btn">
-                    <button type="button" class="next" onclick="handleVerificationCodeInput()">Verify</button>
+                    <button type="button" class="next" onclick="handleVerificationCodeInput(true); spamPrevention(this);" disabled>Verify</button>
                 </div>
             </div>
         </div>
@@ -108,10 +110,11 @@
             <div class="form-elements">
                 <h2>Please create a strong password</h2>
                 <div class="group-fields">
-                    <input type="password" autocomplete="new-password" oninput="validatePassword(this); checkSubmit();" id="password"
-                        name="password" placeholder="Password" required>
+                    <input type="password" autocomplete="new-password" oninput="validatePassword(this); checkSubmit();"
+                        id="password" name="password" placeholder="Password" required>
 
-                    <input type="password" autocomplete="new-password" oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
+                    <input type="password" autocomplete="new-password"
+                        oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
                         name="confirm-password" placeholder="Confirm Password" required>
                 </div>
 
@@ -126,7 +129,7 @@
                     </ul>
                 </small>
                 <div class="next-btn">
-                    <button id="pwd-submit" type="submit" class="next" disabled>Done!</button>
+                    <button id="pwd-submit" type="submit" class="next" disabled onclick="submitRegistrationForm(this)">Done!</button>
                 </div>
             </div>
         </div>

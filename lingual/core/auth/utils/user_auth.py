@@ -1,3 +1,5 @@
+from lingual.models import User
+
 class RegUser:
     first_name: str
     last_name: str
@@ -109,6 +111,14 @@ class RegUser:
         self.language = language
         return None
     
+    def build_user(self) -> 'User':
+        user = User(
+            first_name=self.first_name,
+            last_name=(self.last_name if self.last_name else None),
+            email=self.email
+        )
+        return user
+
 def deserialize_RegUser(data: dict) -> RegUser:
     """
     This function takes a dictionary `data` and returns an instance of RegUser.

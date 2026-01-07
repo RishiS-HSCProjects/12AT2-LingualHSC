@@ -58,6 +58,16 @@ function resetStyling(element) {
 
 }
 
+function spamPrevention(button, timeout = 3000) {
+    button.disabled = true;
+    button.title = "Button temporarily disabled for " + (timeout / 1000) + " seconds.";
+
+    setTimeout(() => {
+        button.disabled = false;
+        button.title = "";
+    }, timeout);
+}
+
 function handleLanguageSelect(selectedLanguage) {
     fetch('/register/u/welcome_text', {
         method: 'POST',
@@ -89,15 +99,20 @@ function handleLanguageSelect(selectedLanguage) {
 function handleNameInput(element = null) {
     const fnameElement = document.getElementById('first-name');
     const lnameElement = document.getElementById('last-name');
+    const next = document.querySelector('.active .next');
+
     if (!element) {
-        if (!fnameElement.value || !lnameElement.value) {
-            if (!element) sendFlashMessage("First name or last name input element not found.", 'error');
+        if (!fnameElement.value) {
+            if (!element) sendFlashMessage("First name input element not found.", 'error');
+            next.disabled = true;
             return;
         }
     } else if (!element.value) {
         resetStyling(element);
         return;
     }
+
+    next.disabled = false;
 
     if (element) {
         fetch('register/u/verify_name', {
@@ -127,44 +142,50 @@ function handleNameInput(element = null) {
             });
     }
 
-    if (!element) fetch('/register/u/user_hello', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ first_name: fnameElement.value, last_name: lnameElement.value })
-    }).then(response => response.json())
-        .then(data => {
-            error = data.error;
-            if (error) {
-                sendFlashMessage(error, 'error');
-                return;
+    if (!element) {
+        fetch('/register/u/user_hello', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ first_name: fnameElement.value, last_name: lnameElement.value })
+        }).then(response => response.json())
+            .then(data => {
+                error = data.error;
+                if (error) {
+                    sendFlashMessage(error, 'error');
+                    return;
+                }
+
+                const helloElement = document.getElementById('hello-text');
+
+                if (!helloElement) {
+                    console.error("Hello text element not found");
+                    return;
+                }
+
+                helloElement.textContent = data.text;
+
+                handleSectionScroll('reg-name', 'reg-email', 'hello-text');
+            })
+            .catch(error => {
+                console.error("Error fetching translation:", error);
             }
-
-            const helloElement = document.getElementById('hello-text');
-
-            if (!helloElement) {
-                console.error("Hello text element not found");
-                return;
-            }
-
-            helloElement.textContent = data.text;
-
-            handleSectionScroll('reg-name', 'reg-email', 'hello-text');
-        })
-        .catch(error => {
-            console.error("Error fetching translation:", error);
-        }
-        );
+            );
+    }
 }
 
 function handleEmailInput(submit = false) {
     const emailElement = document.getElementById('email');
+    const next = document.querySelector('.active .next');
 
     if (!emailElement.value) {
         resetStyling(emailElement);
+        next.disabled = true;
         return;
     }
+
+    next.disabled = false;
 
     fetch('/register/u/send_verification_code', {
         method: 'POST',
@@ -172,30 +193,30 @@ function handleEmailInput(submit = false) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email: emailElement.value })
-    }).then(response => response.json())
+    })
+        .then(response => response.json())
         .then(data => {
-            error = data.error;
+            const error = data.error;  // Assume error is coming from the response
             if (error) {
-                if (submit) sendFlashMessage(error, 'error');
-                addErrorStyling(emailElement, submit);
+                if (submit) sendFlashMessage(error, 'error');  // Flash error message
+                addErrorStyling(emailElement, submit);  // Add error styling to email input
                 return;
             }
 
-            addSuccessStyling(emailElement)
+            addSuccessStyling(emailElement);  // Add success styling to email input
 
             if (submit) {
                 const emailDisplayElement = document.getElementById('email-display');
                 if (emailDisplayElement) {
-                    emailDisplayElement.textContent = data.email;
+                    emailDisplayElement.textContent = data.email;  // Display email
                 }
-    
-                handleSectionScroll('reg-email', 'reg-verify', 'verify-text');
+
+                handleSectionScroll('reg-email', 'reg-verify', 'verify-text');  // Scroll to the next section
             }
         })
         .catch(error => {
             console.error("Error sending verification code:", error);
-        }
-        );
+        });
 }
 
 function scrollToEmail() {
@@ -219,7 +240,6 @@ function resendVerificationCode() {
                 sendFlashMessage(error, 'error');
                 return;
             }
-            // TODO: Implement spam prevention
             sendFlashMessage("Verification code resent to your email.", 'info');
         })
         .catch(error => {
@@ -228,19 +248,26 @@ function resendVerificationCode() {
         );
 }
 
-function handleVerificationCodeInput() {
+function handleVerificationCodeInput(submit = false) {
 
     const codeElement = document.getElementById('verification-code');
     const code = codeElement.value.trim();
+    const next = document.querySelector('.active .next');
 
-    if (code.length === 0) {
-        codeElement.style.borderColor = "red";
-        codeElement.style.boxShadow = "0 0 5px red";
-        sendFlashMessage("Please enter the verification code sent to your email.", 'error');
+    if (!code) {
+        resetStyling(codeElement)
+        next.disabled = true;
+        return;
+    } else if (!/^\d{6}$/.test(code)) {
+        addErrorStyling(codeElement);
+        next.disabled = true;
         return;
     }
 
-    fetch('/register/u/verify_otp', {
+    addSuccessStyling(codeElement)
+    next.disabled = false;
+
+    if (submit) fetch('/register/u/verify_otp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -337,7 +364,7 @@ function checkSubmit() {
 }
 
 function submitRegistrationForm() {
-    fetch('auth/create', {
+    fetch('/auth/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -405,4 +432,16 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById('form').addEventListener('submit', e => {
     e.preventDefault();
     submitRegistrationForm();
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+
+        btn = document.querySelector('.active .next');
+        if (btn) {
+            btn.focus()
+            btn.click();
+        }
+    }
 });

@@ -14,10 +14,10 @@ user_languages = db.Table(
 
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
-    first_name: Mapped[str] = mapped_column(db.String(150))
-    last_name: Mapped[str] = mapped_column(db.String(150))
-    email: Mapped[str] = mapped_column(db.String(150), unique=True, index=True)
-    password_hash: Mapped[str] = mapped_column(db.String(256))
+    first_name: Mapped[str] = mapped_column(db.String(150), nullable=False)
+    last_name: Mapped[str] = mapped_column(db.String(150), nullable=True)
+    email: Mapped[str] = mapped_column(db.String(150), unique=True, index=True, nullable=False)
+    password_hash: Mapped[str] = mapped_column(db.String(256), nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
     last_login: Mapped[datetime | None] = mapped_column(db.DateTime)

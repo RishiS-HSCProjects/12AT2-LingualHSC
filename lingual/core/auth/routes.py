@@ -23,32 +23,33 @@ def verify_email():
     from bcrypt import hashpw, gensalt
 
     # Generate OTP
-    otp = ''.join(choice('0123456789') for _ in range(6))
+    # otp = ''.join(choice('0123456789') for _ in range(6))
+    otp = "123456"  # For testing purposes
 
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
 
-    def send_verification_email(app, email, otp):
-        with app.app_context():
-            from lingual import mail
-            mail.send_message(
-                subject=f"Your Verification Code is {otp}",
-                recipients=[email],
-                body=(
-                    f"Your verification code is: {otp}.\n\n" \
-                    "This code will expire in 5 minutes. " \
-                    "If you did not request this code, please ignore this email."
-                )
-            )
+    # def send_verification_email(app, email, otp):
+    #     with app.app_context():
+    #         from lingual import mail
+    #         mail.send_message(
+    #             subject=f"Your Verification Code is {otp}",
+    #             recipients=[email],
+    #             body=(
+    #                 f"Your verification code is: {otp}.\n\n" \
+    #                 "This code will expire in 5 minutes. " \
+    #                 "If you did not request this code, please ignore this email."
+    #             )
+    #         )
 
-    try:
-        Thread(
-            target=send_verification_email,
-            args=(current_app._get_current_object(), email, otp), # type: ignore
-            daemon=True
-        ).start()
-    except Exception as e:
-        current_app.logger.error(f"Error when sending verification email: {e}")
-        return jsonify({"error": "Something went wrong when sending the verification code."}), 400
+    # try:
+    #     Thread(
+    #         target=send_verification_email,
+    #         args=(current_app._get_current_object(), email, otp), # type: ignore
+    #         daemon=True
+    #     ).start()
+    # except Exception as e:
+    #     current_app.logger.error(f"Error when sending verification email: {e}")
+    #     return jsonify({"error": "Something went wrong when sending the verification code."}), 400
 
     return jsonify({"error": None}), 200
 
@@ -74,22 +75,17 @@ def verify_otp(otp_code: str) -> str | None:
 
 @auth_bp.route('/create', methods=['POST'])
 def create_user():
-    reg = session.pop('reg', None)
-    
+    reg = session.pop('reg_user', None)
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
     
     from lingual import db
-    from lingual.models import User
 
-    new_user = User(
-        first_name=reg['first_name'],
-        last_name=reg['last_name'],
-        email=reg['email'],
-        password_hash=generate_password_hash(request.get_json().get('password'))
-    )
-
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({"error": None}), 200
+    try:
+        new_user = deserialize_RegUser(reg).build_user()
+        new_user.set_password(request.json.get('password'))
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({"error": None}), 200
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500

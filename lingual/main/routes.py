@@ -90,9 +90,10 @@ def register_util(step):
             if result:
                 return jsonify({"error": result})
 
-            result = user.set_lname(last_name)
-            if result:
-                return jsonify({"error": result})
+            if last_name:
+                result = user.set_lname(last_name)
+                if result:
+                    return jsonify({"error": result})
 
             translated = get_translatable(user.language or 'en', "signup_user_hello")
             txt = translated.replace("{first_name}", first_name)
