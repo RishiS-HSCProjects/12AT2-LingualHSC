@@ -2,6 +2,7 @@ from threading import Thread
 from flask import Blueprint, current_app, session, request, jsonify
 from time import time
 from werkzeug.security import generate_password_hash
+from lingual.core.auth.utils.user_auth import deserialize_RegUser
 
 auth_bp = Blueprint(
     'auth',
@@ -15,7 +16,7 @@ def verify_email():
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
 
-    email = reg.deserialize().email
+    email = deserialize_RegUser(reg).email
     if not email:
         return jsonify({"error": "Email not found in registration information"}), 400
     from secrets import choice
@@ -39,11 +40,15 @@ def verify_email():
                 )
             )
 
-    Thread(
-        target=send_verification_email,
-        args=(current_app._get_current_object(), email, otp), # type: ignore
-        daemon=True
-    ).start()
+    try:
+        Thread(
+            target=send_verification_email,
+            args=(current_app._get_current_object(), email, otp), # type: ignore
+            daemon=True
+        ).start()
+    except Exception as e:
+        current_app.logger.error(f"Error when sending verification email: {e}")
+        return jsonify({"error": "Something went wrong when sending the verification code."}), 400
 
     return jsonify({"error": None}), 200
 

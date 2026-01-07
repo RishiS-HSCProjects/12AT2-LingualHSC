@@ -23,7 +23,6 @@ def login():
 
 @main_bp.route('/register', strict_slashes=False)
 def register():
-    current_app.logger.info("Clearing registration session data.")
     session.pop('reg_user', None)  # Clear any existing registration data
 
     # if current_user.is_authenticated:
@@ -42,8 +41,6 @@ def register_util(step):
         user_data = session.get('reg_user', None)
         if not user_data:
             return jsonify({"error": "No user data found in session"}), 400
-
-        current_app.logger.info(f"Session data found: {user_data}")
 
         data = request.get_json()
         if not data:
@@ -107,8 +104,6 @@ def register_util(step):
             data = request.get_json()
             if not data:
                 return jsonify({"error": "No JSON payload provided"}), 400
-            
-            current_app.logger.info(f"Received data for send_verification_code: {data}")
 
             email: str = data.get("email", "").strip()
             if not email:

@@ -161,6 +161,11 @@ function handleNameInput(element = null) {
 function handleEmailInput(submit = false) {
     const emailElement = document.getElementById('email');
 
+    if (!emailElement.value) {
+        resetStyling(emailElement);
+        return;
+    }
+
     fetch('/register/u/send_verification_code', {
         method: 'POST',
         headers: {
@@ -176,12 +181,16 @@ function handleEmailInput(submit = false) {
                 return;
             }
 
-            const emailDisplayElement = document.getElementById('email-display');
-            if (emailDisplayElement) {
-                emailDisplayElement.textContent = data.email;
-            }
+            addSuccessStyling(emailElement)
 
-            handleSectionScroll('reg-email', 'reg-verify', 'verify-text');
+            if (submit) {
+                const emailDisplayElement = document.getElementById('email-display');
+                if (emailDisplayElement) {
+                    emailDisplayElement.textContent = data.email;
+                }
+    
+                handleSectionScroll('reg-email', 'reg-verify', 'verify-text');
+            }
         })
         .catch(error => {
             console.error("Error sending verification code:", error);
