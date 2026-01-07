@@ -3,11 +3,7 @@ from typing import List
 from flask_login import UserMixin
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
-from lingual import db, login_manager
-
-@login_manager.user_loader
-def load_user(user_id: int) -> "User | None":
-    return db.session.get(User, int(user_id))
+from lingual import db
 
 user_languages = db.Table(
     'user_languages',

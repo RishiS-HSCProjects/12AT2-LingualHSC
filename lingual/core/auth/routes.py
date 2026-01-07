@@ -11,16 +11,15 @@ auth_bp = Blueprint(
 
 @auth_bp.route('/verify_email', methods=['POST'], strict_slashes=False)
 def verify_email():
-    reg = session.get('reg')
+    reg = session.get('reg_user')
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
 
-    email = reg.get('email')
+    email = reg.deserialize().email
     if not email:
         return jsonify({"error": "Email not found in registration information"}), 400
     from secrets import choice
     from bcrypt import hashpw, gensalt
-    from lingual import mail
 
     # Generate OTP
     otp = ''.join(choice('0123456789') for _ in range(6))
@@ -34,14 +33,15 @@ def verify_email():
                 subject=f"Your Verification Code is {otp}",
                 recipients=[email],
                 body=(
-                    f"Your verification code is: {otp}.\n\n"
-                    "This code will expire in 5 minutes."
+                    f"Your verification code is: {otp}.\n\n" \
+                    "This code will expire in 5 minutes. " \
+                    "If you did not request this code, please ignore this email."
                 )
             )
 
     Thread(
         target=send_verification_email,
-        args=(current_app._get_current_object(), email, otp),
+        args=(current_app._get_current_object(), email, otp), # type: ignore
         daemon=True
     ).start()
 

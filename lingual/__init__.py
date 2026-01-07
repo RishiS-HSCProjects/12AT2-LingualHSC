@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 mail = Mail()  # Initialize main module
 db = SQLAlchemy()  # Placeholder for database instance
 login_manager = LoginManager() # Placeholder for login manager
-login_manager.login_view = 'main.login'  # Set login view
+login_manager.login_view = 'main.register'  # Set login view
 login_manager.login_message_category = 'warning'  # Set login message category
 migrate = Migrate()  # Placeholder for database migration
 
@@ -17,17 +17,25 @@ class Config:
     """ Configuration settings for Lingual HSC Flask application. """
     load_dotenv()  # Load environment variables from .env file
 
-    SECRET_KEY          =      os.getenv('SECRET_KEY')
-    MAIL_SERVER         =      'smtp.gmail.com'
-    MAIL_PORT           =      587
-    MAIL_USE_TLS        =      True
-    MAIL_USE_SSL        =      False
-    MAIL_USERNAME       =      os.getenv('MAIL_USERNAME')
-    MAIL_PASSWORD       =      os.getenv('MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER =      os.getenv('MAIL_DEFAULT_SENDER')
+    DEBUG                           =      True
+    FLASK_ENV                       =      'development'
 
-    SQLALCHEMY_DATABASE_URI = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
+    SECRET_KEY                      =      os.getenv('SECRET_KEY')
+    MAIL_SERVER                     =      'smtp.gmail.com'
+    MAIL_PORT                       =      587
+    MAIL_USE_TLS                    =      True
+    MAIL_USE_SSL                    =      False
+    MAIL_USERNAME                   =      os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
 
+    SQLALCHEMY_DATABASE_URI         = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
+    SQLALCHEMY_TRACK_MODIFICATIONS  = True
+
+@login_manager.user_loader
+def load_user(user_id):
+    from lingual.models import User
+    return User.query.get(int(user_id))
 
 def create_app():
     app = Flask(__name__, template_folder='templates', static_folder='static') # Create app instance

@@ -36,6 +36,28 @@ function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) 
 
 }
 
+function addErrorStyling(element, submit = false) {
+    element.style.borderColor = "red";
+    element.style.boxShadow = "0 0 5px red";
+    if (submit) {
+        element.classList.add('error');
+        setTimeout(() => {
+            element.classList.remove('error');
+        }, 1000);
+    }
+}
+
+function addSuccessStyling(element) {
+    element.style.borderColor = "green";
+    element.style.boxShadow = "0 0 5px green";
+}
+
+function resetStyling(element) {
+    element.style.borderColor = "";
+    element.style.boxShadow = "";
+
+}
+
 function handleLanguageSelect(selectedLanguage) {
     fetch('/register/u/welcome_text', {
         method: 'POST',
@@ -64,75 +86,48 @@ function handleLanguageSelect(selectedLanguage) {
         );
 }
 
-/**
- * @param {HTMLElement} element
- */
-function verifyName(element, onSubmit = false) {
-    const name = element.value.trim();
-    const nameRegex = /^[A-Za-z'\- ]{1,50}$/;
-    if (name.length === 0 && !onSubmit) {
-        element.style.borderColor = "";
-        element.style.boxShadow = "";
-        return false;
-    } if (nameRegex.test(name)) {
-        element.style.borderColor = "green";
-        element.style.boxShadow = "0 0 5px green";
-        element.title = "";
-        return true;
-    } else {
-        element.style.borderColor = "red";
-        element.style.boxShadow = "0 0 5px red";
-        if (onSubmit) {
-            element.classList.add('error');
-            setTimeout(() => {
-                element.classList.remove('error');
-            }, 1000);
-        }
-        element.title = "Names can be up to 50 characters long and only include letters, spaces, apostrophes, and hyphens.";
-        return false;
-    }
-}
-
-/**
- * Tests is email includes "@" and "." to confirm basic validity.
- * 
- * @param {HTMLElement} element
- */
-function verifyEmail(element, onSubmit = false) {
-    const email = element.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email.length === 0 && !onSubmit) {
-        element.style.borderColor = "";
-        element.style.boxShadow = "";
-        return false;
-    } else if (emailRegex.test(email)) {
-        element.style.borderColor = "green";
-        element.style.boxShadow = "0 0 5px green";
-        element.title = "";
-        return true;
-    } else {
-        element.style.borderColor = "red";
-        element.style.boxShadow = "0 0 5px red";
-        if (onSubmit) {
-            element.classList.add('error');
-            setTimeout(() => {
-                element.classList.remove('error');
-            }, 1000);
-        }
-        element.title = "Please enter a valid email address.";
-        return false;
-    }
-}
-
-function handleNameInput() {
+function handleNameInput(element = null) {
     const fnameElement = document.getElementById('first-name');
     const lnameElement = document.getElementById('last-name');
-
-    if (!verifyName(fnameElement, true) || !verifyName(lnameElement, true)) {
+    if (!element) {
+        if (!fnameElement.value || !lnameElement.value) {
+            if (!element) sendFlashMessage("First name or last name input element not found.", 'error');
+            return;
+        }
+    } else if (!element.value) {
+        resetStyling(element);
         return;
     }
 
-    fetch('/register/u/user_hello', {
+    if (element) {
+        fetch('register/u/verify_name', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: element.value, type: element.id })
+        }).then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    if (!element) sendFlashMessage(data.error, 'error');
+                    addErrorStyling(fnameElement, !element);
+                    addErrorStyling(lnameElement, !element);
+                    return;
+                } else if (data.f_error) {
+                    if (!element) sendFlashMessage(data.f_error, 'error');
+                    addErrorStyling(fnameElement, !element);
+                    return;
+                } else if (data.l_error) {
+                    if (!element) sendFlashMessage(data.l_error, 'error');
+                    addErrorStyling(lnameElement, !element);
+                    return;
+                }
+
+                addSuccessStyling(element)
+            });
+    }
+
+    if (!element) fetch('/register/u/user_hello', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -140,7 +135,6 @@ function handleNameInput() {
         body: JSON.stringify({ first_name: fnameElement.value, last_name: lnameElement.value })
     }).then(response => response.json())
         .then(data => {
-
             error = data.error;
             if (error) {
                 sendFlashMessage(error, 'error');
@@ -164,11 +158,9 @@ function handleNameInput() {
         );
 }
 
-function handleEmailInput() {
+function handleEmailInput(submit = false) {
     const emailElement = document.getElementById('email');
-    if (!verifyEmail(emailElement, onSubmit = true)) {
-        return;
-    }
+
     fetch('/register/u/send_verification_code', {
         method: 'POST',
         headers: {
@@ -179,7 +171,8 @@ function handleEmailInput() {
         .then(data => {
             error = data.error;
             if (error) {
-                sendFlashMessage(error, 'error');
+                if (submit) sendFlashMessage(error, 'error');
+                addErrorStyling(emailElement, submit);
                 return;
             }
 

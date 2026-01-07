@@ -59,9 +59,9 @@
             <div class="form-elements">
                 <h2>What should we call you by?</h2>
                 <div class="group-fields">
-                    <input type="text" autocomplete="given-name" autocapitalize="words" oninput="verifyName(this)" id="first-name" name="first-name"
+                    <input type="text" autocomplete="given-name" autocapitalize="words" oninput="handleNameInput(element=this)" id="first-name" name="first-name"
                         placeholder="First Name" required>
-                    <input type="text" autocomplete="family-name" autocapitalize="words" oninput="verifyName(this)" id="last-name" name="last-name"
+                    <input type="text" autocomplete="family-name" autocapitalize="words" oninput="handleNameInput(element=this)" id="last-name" name="last-name"
                         placeholder="Last Name" required>
                 </div>
                 <div class="next-btn">
@@ -75,10 +75,10 @@
         <div class="form-body">
             <div class="form-elements">
                 <h2>How should we contact you?</h2>
-                <input type="email" autocomplete="email" oninput="verifyEmail(this)" id="email" name="email" placeholder="Email" required>
+                <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email" placeholder="Email" required>
                 <small>You will also use this email to log into your account.</small>
                 <div class="next-btn">
-                    <button type="button" class="next" onclick="handleEmailInput()">Send Verification Code</button>
+                    <button type="button" class="next" onclick="handleEmailInput(true)">Send Verification Code</button>
                 </div>
             </div>
         </div>
