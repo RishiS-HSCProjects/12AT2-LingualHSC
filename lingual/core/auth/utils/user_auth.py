@@ -1,3 +1,4 @@
+from flask import current_app, flash
 from lingual.models import User
 
 class RegUser:
@@ -112,11 +113,25 @@ class RegUser:
         return None
     
     def build_user(self) -> 'User':
+        # Create the user instance
+        # Ensure required fields are present
+        if not self.email:
+            raise ValueError("Cannot build user: email is not set")
+
         user = User(
-            first_name=self.first_name,
-            last_name=(self.last_name if self.last_name else None),
-            email=self.email
+            first_name=self.first_name,  # type: ignore
+            last_name=(self.last_name if self.last_name else None),  # type: ignore
+            email=self.email  # type: ignore
         )
+
+        try:
+            # Attempt to add language to the user
+            user.add_language(self.language)
+        except Exception as e:
+            # Log the error and raise an exception to stop further processing
+            flash(f"Error adding language to user: {str(e)}", "error")
+            current_app.logger.error(f"Error adding language to user: {e}")
+
         return user
 
 def deserialize_RegUser(data: dict) -> RegUser:

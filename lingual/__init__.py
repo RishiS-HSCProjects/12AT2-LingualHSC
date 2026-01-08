@@ -1,21 +1,22 @@
 import os
 from flask import Flask
-from dotenv import load_dotenv
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
 mail = Mail()  # Initialize main module
 db = SQLAlchemy()  # Placeholder for database instance
 login_manager = LoginManager() # Placeholder for login manager
-login_manager.login_view = 'main.register'  # Set login view
+login_manager.login_view = 'main.login'  # type: ignore -> Set login view
 login_manager.login_message_category = 'warning'  # Set login message category
 migrate = Migrate()  # Placeholder for database migration
 
 class Config:
     """ Configuration settings for Lingual HSC Flask application. """
-    load_dotenv()  # Load environment variables from .env file
 
     DEBUG                           =      True
     FLASK_ENV                       =      'development'
@@ -30,7 +31,7 @@ class Config:
     MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
 
     SQLALCHEMY_DATABASE_URI         = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
-    SQLALCHEMY_TRACK_MODIFICATIONS  = True
+    SQLALCHEMY_TRACK_MODIFICATIONS  = False
 
 @login_manager.user_loader
 def load_user(user_id):

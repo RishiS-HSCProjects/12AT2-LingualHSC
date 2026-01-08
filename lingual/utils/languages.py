@@ -2,26 +2,34 @@ import json
 from enum import Enum
 
 class Language:
-    def __init__(self, code: str, name: str, native_name: str):
+    def __init__(
+            self,
+            code: str,
+            name: str,
+            native_name: str,
+            app_name: str
+        ):
         self.code = code
         self.name = name
         self.native_name = native_name
+        self.app_name = app_name
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Language(code='{self.code}', name='{self.name}', native_name='{self.native_name}')"
 
 
 class Languages(Enum):
-    ENGLISH = Language('en', 'English', 'English')
-    JAPANESE = Language('jp', 'Japanese', '日本語')
+    JAPANESE = Language('jp', 'Japanese', '日本語', 'nihongo')
 
+    def obj(self) -> Language:
+        return self.value
 
-def get_language_by_code(code: str):
-    for lang in Languages:
-        if lang.value.code == code:
-            return lang.value
-    return None
-
+    @classmethod
+    def get_language_by_code(cls, code: str) -> Language | None:
+        for lang in cls:
+            if lang.value.code == code:
+                return lang.value
+        return None
 
 def get_translatable(language_code: str, key: str) -> str:
     try:

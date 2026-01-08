@@ -5,10 +5,24 @@
     <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/styles.css') }}">
 {% endblock %}
 
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/registeration.js') }}" defer></script>
+{% endblock %}
+
+{% if 'login' in request.path %}
+    {% set link = url_for('main.register') %}
+    {% set text = "I don't have an account." %}
+{% else %}
+    {% set link = url_for('main.login') %}
+    {% set text = "I already have an account." %}
+{% endif %}
+
 {% block header %}
 <header>
     <nav>
         <a href="{{ url_for('main.landing') }}" id="logo">Lingual HSC</a>
+        <a href="{{ link }}" id="redirect-link">{{ text }}</a>
     </nav>
 </header>
 {% endblock header %}

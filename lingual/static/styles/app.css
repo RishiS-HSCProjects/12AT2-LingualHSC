@@ -26,6 +26,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    max-height: calc(70vh);
+    width: auto;
 }
 
 #flash-container .flash-message {

@@ -23,7 +23,7 @@ def verify_email():
     from bcrypt import hashpw, gensalt
 
     # Generate OTP
-    # otp = ''.join(choice('0123456789') for _ in range(6))
+    otp = ''.join(choice('0123456789') for _ in range(6))
     otp = "123456"  # For testing purposes
 
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
@@ -60,7 +60,7 @@ def verify_otp(otp_code: str) -> str | None:
     """
     from bcrypt import checkpw
 
-    otp_data = session.get('otp')
+    otp_data = session.pop('otp', None)
 
     if not otp_data:
         return "OTP data not found"
@@ -80,12 +80,35 @@ def create_user():
         return jsonify({"error": "Registration information not found"}), 400
     
     from lingual import db
+    from lingual.models import User
 
     try:
         new_user = deserialize_RegUser(reg).build_user()
-        new_user.set_password(request.json.get('password'))
+
+        password = request.json.get('password')
+        if not password:
+            return jsonify({"error": "Missing password"}), 400
+
+        # Prevent creating duplicate accounts
+        existing = User.query.filter_by(email=new_user.email.lower()).first()
+        if existing:
+            return jsonify({"error": "An account with that email already exists."}), 400
+
+        new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()
+
+        # Ensure no login session is created during registration
+        try:
+            # Remove Flask-Login session keys if present
+            session.pop('_user_id', None)
+            session.pop('_fresh', None)
+            session.pop('_remember', None)
+        except Exception:
+            current_app.logger.debug("Could not clear login session keys after registration")
+
+        current_app.logger.info(f"User created: {new_user.email}")
         return jsonify({"error": None}), 200
     except Exception as e:
+        current_app.logger.error(f"Unexpected error creating user: {e}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
