@@ -23,7 +23,7 @@
             <li><a onclick="purposeScroll()">About Lingual</a></li>
         </ul>
 
-        <a href="{{ url_for('main.register') }}" id="get-started-btn">Get Started</a>
+        <a href="{{ url_for('main.app') }}" id="get-started-btn">{% if current_user.is_authenticated %}Go to App{% else %}Get Started{% endif %}</a>
     </nav>
 </header>
 {% endblock header %}
@@ -31,10 +31,22 @@
 {% block body %}
 <div class="landing-container">
     <section id="welcome">
+        {% if current_user.is_authenticated %}
+        <h1>Hey, {{ current_user.first_name }}!</h1>
+        <h1>Welcome back to Lingual HSC!</h1>
+        <p class="subtitle">
+            Where you will learn curated, syllabus-aligned language content for your
+            {% for language in current_user.get_languages() %}
+            {{ language.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            HSC examination{% if not current_user.get_languages()|length == 1 %}s{% endif %}.
+        </p>
+        {% else %}
         <h1>Welcome to Lingual HSC!</h1>
         <p class="subtitle">
             Where HSC Languages students can learn curated, syllabus-aligned language content.
         </p>
+        {% endif %}
 
         <div class="cards">
             <div class="card method" onclick="purposeScroll()">Learn More</div>

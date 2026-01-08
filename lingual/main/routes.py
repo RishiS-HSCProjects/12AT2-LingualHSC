@@ -62,14 +62,11 @@ def login():
 @main_bp.route('/register', strict_slashes=False)
 def register():
     if current_user.is_authenticated:
+        flash("You are already logged in.", "info")
         return redirect(url_for('main.app'))
 
 
-    session.pop('reg_user', None)  # Clear any existing registration data
-
-    # if current_user.is_authenticated:
-    #     flash("You are already logged in.", "info")
-    #     return redirect('main.app')
+    session.clear()
 
     user = RegUser()
 

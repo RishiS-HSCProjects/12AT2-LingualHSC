@@ -189,3 +189,10 @@ nav a#login-link {
     75% { transform: translateX(-3px) rotate(-1deg); }
     100% { transform: translateX(0) rotate(0deg); }
 }
+
+#form .subtitle {
+    margin-bottom: var(--space-md);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555555;
+}
