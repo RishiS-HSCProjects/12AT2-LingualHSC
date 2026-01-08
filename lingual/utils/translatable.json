@@ -1,0 +1,14 @@
+{
+    "signup_welcome_text": {
+        "en": "Hello there!",
+        "jp": "ようこそ！"
+    },
+    "signup_user_hello": {
+        "en": "Welcome, {first_name}!",
+        "jp": "こんにちは、{first_name}"
+    },
+    "signup_password_title": {
+        "en": "Shhh... It's a Secret!",
+        "jp": "話さないでください！"
+    }
+}

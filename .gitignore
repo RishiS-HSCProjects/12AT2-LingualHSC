@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 .venv/
+migrations/
 .env
 .sql
 
@@ -402,3 +403,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+lingual/core/data/lingual.db

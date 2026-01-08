@@ -17,6 +17,182 @@
     --font-display: "Public Sans", Inter, Arial, sans-serif;
     --font-body: "Inter", Arial, sans-serif;
 
-    --text-primary: #0E0E0E;
-    --text-secondary: #505050;
+    --nav-height: 100px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg-accent-1);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Nav changes do not impact landing page navigation. */
+nav {
+    padding: 20px 30px;
+    max-height: var(--nav-height);
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box; /* Prevents padding from causing overflow */
+    z-index: var(--z-index-nav);
+}
+
+nav a {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+nav a#logo {
+    text-align: left;
+}
+
+nav a#login-link {
+    text-align: right;
+}
+
+#form {
+    min-height: calc(100vh - var(--nav-height));
+    margin: var(--nav-height) auto;
+    margin-bottom: calc(0 - var(--nav-height));
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - var(--nav-height));
+    width: 80%;
+}
+
+#form h1 {
+    margin-top: 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+}
+
+#form section {
+    min-height: calc(100vh - var(--nav-height));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    display: none;
+}
+
+#form section.active {
+    display: block;
+}
+
+#form .form-body {
+    width: 100%;
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#form .form-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form section .group-fields {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+#form h2 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    margin-bottom: var(--space-sm);
+    color: #003C13;
+}
+
+#form input,
+#form select {
+    width: 30rem;
+    font-size: 2.5rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid #BFAEFF;
+    border-radius: var(--border-radius);
+    background-color: #ffffff;
+    color: #003C13;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form input.error,
+#form select.error {
+    animation: error-shake 0.4s;
+}
+
+#form input:focus,
+#form select:focus {
+    outline: none;
+    border-color: #a38eff;
+    box-shadow: 0 0 6px rgba(163, 142, 255, 0.6);
+}
+
+#form section small {
+    font-size: 1.25rem;
+    color: #555555;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+#form section button.next {
+    margin: 2rem 0;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #DC89EA, #B02CD9);
+    color: #ffffff;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease, background-color 0.35s ease;
+}
+
+#form section button.next:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 0 8px rgba(220, 137, 234, 0.6);
+}
+
+#form section button.next:disabled {
+    filter: grayscale(50%);
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+@keyframes error-shake {
+    0% { transform: translateX(0) rotate(0deg); }
+    15% { transform: translateX(-6px) rotate(-3deg); }
+    30% { transform: translateX(6px) rotate(3deg); }
+    45% { transform: translateX(-6px) rotate(-2deg); }
+    60% { transform: translateX(6px) rotate(2deg); }
+    75% { transform: translateX(-3px) rotate(-1deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+}
+
+#form .subtitle {
+    margin-bottom: var(--space-md);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555555;
 }

@@ -1,7 +1,9 @@
 from flask import Blueprint
+from flask_login import login_required
+from lingual.utils.languages import Languages
 
 nihongo_bp = Blueprint(
-    'nihongo',
+    Languages.JAPANESE.obj().app_name,
     __name__,
     url_prefix='/nihongo',
     template_folder='templates',
@@ -10,6 +12,7 @@ nihongo_bp = Blueprint(
 )
 
 @nihongo_bp.route('/')
+@login_required
 def home():
     return "Welcome to the Nihongo Module!"
 

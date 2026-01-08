@@ -1,6 +1,19 @@
 {% extends "app-container.html" %}
 
 {% block meta %}
-{{ super() }}
-<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/styles.css') }}">
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/styles.css') }}">
 {% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/registration.js') }}" defer></script>
+{% endblock %}
+
+{% block header %}
+<header>
+    <nav>
+        <a href="{{ url_for('main.landing') }}" id="logo">Lingual HSC</a>
+    </nav>
+</header>
+{% endblock header %}
