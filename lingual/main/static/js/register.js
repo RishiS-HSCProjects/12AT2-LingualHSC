@@ -345,7 +345,6 @@ function submitRegistrationForm() {
     }).then(response => response.json())
         .then(data => {
             if (!data.error) {
-                alert("Account created successfully! Redirecting to login page.");
                 window.location.href = '/login';
             } else {
                 sendFlashMessage(data.error, 'error');

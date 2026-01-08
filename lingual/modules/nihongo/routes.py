@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, url_for
-from flask_login import current_user, login_required
+from flask_login import login_required
 from lingual.utils.languages import Languages
 
 nihongo_bp = Blueprint(
@@ -11,12 +11,9 @@ nihongo_bp = Blueprint(
     static_url_path='/modules/nihongo/static'
 )
 
-@login_required
 @nihongo_bp.route('/')
+@login_required
 def home():
-    if not current_user.is_authenticated:
-        return redirect(url_for('main.login'))
-    
     return "Welcome to the Nihongo Module!"
 
 @nihongo_bp.route('/grammar')

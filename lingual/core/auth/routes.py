@@ -98,15 +98,6 @@ def create_user():
         db.session.add(new_user)
         db.session.commit()
 
-        # Ensure no login session is created during registration
-        try:
-            # Remove Flask-Login session keys if present
-            session.pop('_user_id', None)
-            session.pop('_fresh', None)
-            session.pop('_remember', None)
-        except Exception:
-            current_app.logger.debug("Could not clear login session keys after registration")
-
         current_app.logger.info(f"User created: {new_user.email}")
         return jsonify({"error": None}), 200
     except Exception as e:

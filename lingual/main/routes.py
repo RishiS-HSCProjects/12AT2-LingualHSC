@@ -19,6 +19,7 @@ def landing():
 @main_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     if current_user.is_authenticated:
+        flash("You are already logged in.", "info")
         return redirect(url_for('main.app'))
 
     from lingual.main.forms import LoginForm
@@ -188,7 +189,6 @@ def register_util(step):
         current_app.logger.error(f"Error processing request: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-@login_required
 @main_bp.route('/app', strict_slashes=False)
 def app():
     if not current_user.is_authenticated:
