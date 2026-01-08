@@ -1,6 +1,6 @@
 from flask import jsonify, redirect, render_template, request, session, current_app, flash, url_for
 from flask.blueprints import Blueprint
-from flask_login import current_user, login_required
+from flask_login import current_user
 from lingual.utils.languages import Languages, get_translatable
 from lingual.core.auth.utils.user_auth import RegUser, deserialize_RegUser
 
@@ -29,8 +29,6 @@ def login():
         # Pre-fill form if data exists in session
         form_data = session.pop('form_data', None)
         if form_data: form.email.data = form_data.get('email', '')
-
-        return render_template('login.html', form=form)
     
     elif request.method == 'POST':
         if form.validate_on_submit():
@@ -48,14 +46,13 @@ def login():
             flash("Login successful!", "success")
             return redirect(url_for('main.app'))
         else:
-            for error in form.errors.values():
-                flash(error[1], "error") # type: ignore
+            for errors in form.errors.values():
+                for error in errors:
+                    flash(error, "error")  # type: ignore
 
             session['form_data'] = {
                 "email": form.email.data,
             }
-
-        return redirect(url_for('main.login'))
 
     return render_template('login.html', form=form)
 
@@ -116,7 +113,7 @@ def register_util(step):
                 if result:
                     return jsonify({"l_error": result})
             
-            return jsonify({"error": None}) # Cancels the error
+            return jsonify({}) # No error
 
         elif step == "user_hello":
             first_name = data.get("first_name", "").strip().title()
@@ -156,7 +153,12 @@ def register_util(step):
                 return jsonify({"error": "Error during email verification"}), 400
 
             local, domain = email.split('@')
-            redacted_local = local[:3] + '*****' + local[-2:] if len(local) > 5 else local[0] + '***' + local[-1]
+
+            if len(local) > 5:
+                redacted_local = local[:3] + '*****' + local[-2:]
+            else:
+                redacted_local = local[0] + '***' + local[-1] if len(local) > 2 else local[0] + '***'
+
             redacted_email = f"{redacted_local}@{domain}"
 
             return jsonify({"email": redacted_email})
@@ -197,6 +199,8 @@ def app():
         if current_user.get_languages():
             # Set the first language as the last language if not set
             current_user.set_last_language(current_user.languages[0])
+            from lingual import db
+            db.session.commit()
             last_lang = current_user.get_last_language()  # Retrieve the updated last language
     
     if last_lang:

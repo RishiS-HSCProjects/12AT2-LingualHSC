@@ -22,6 +22,7 @@ class Config:
     FLASK_ENV                       =      'development'
 
     SECRET_KEY                      =      os.getenv('SECRET_KEY')
+    if not SECRET_KEY: raise ValueError("No SECRET_KEY set for Flask application. Required for session security.")
     MAIL_SERVER                     =      'smtp.gmail.com'
     MAIL_PORT                       =      587
     MAIL_USE_TLS                    =      True

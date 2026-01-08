@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for
+from flask import Blueprint
 from flask_login import login_required
 from lingual.utils.languages import Languages
 

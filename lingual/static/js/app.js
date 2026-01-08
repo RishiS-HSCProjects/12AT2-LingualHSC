@@ -6,27 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('#flash-container .flash-message')
     );
 
-    messages.forEach((msg, index) => initFlashMessage(msg, index)); // Initialises each message
+    messages.forEach((msg, index) => initFlashMessage(msg, index)); // Initialize each message
 });
 
 function initFlashMessage(msg, index = 0) {
+    // Set initial display and styling
     setTimeout(() => {
         msg.style.display = 'block';
 
-        // force reflow so transitions don't skip
+        // Force reflow so transitions don't skip
         void msg.offsetWidth;
 
         msg.style.opacity = '0.95';
         msg.style.transform = 'scale(1)';
 
-        // internal state
+        // Initialize internal state
         msg.remaining = FLASH_DURATION;
         msg.lastTick = Date.now();
         msg.fadeOutStarted = false;
 
         msg.timer = requestAnimationFrame(() => tick(msg));
 
-        /* hover pause */
+        // Hover to pause
         msg.addEventListener('mouseenter', () => {
             if (msg.fadeOutStarted) return;
             pauseTimer(msg);
@@ -34,15 +35,17 @@ function initFlashMessage(msg, index = 0) {
             msg.style.transform = 'scale(1.05)';
         });
 
-        /* hover resume */
+        // Hover to resume
         msg.addEventListener('mouseleave', () => {
             if (msg.fadeOutStarted) return;
+            // Increase the remaining time by 2 seconds, but ensure it doesn't exceed 10 seconds
+            msg.remaining = Math.min(msg.remaining + 2000, 10000); // Max 10 seconds
             resumeTimer(msg);
             msg.style.opacity = '0.95';
             msg.style.transform = 'scale(1)';
         });
 
-        /* click dismiss */
+        // Click to dismiss
         msg.addEventListener('click', () => {
             pauseTimer(msg);
             fadeOut(msg);
@@ -90,7 +93,7 @@ function fadeOut(msg) {
 
     setTimeout(() => {
         msg.remove();
-    }, 450);
+    }, 450); // Ensure message removal after fade-out
 }
 
 function sendFlashMessage(message, category = 'info') {
@@ -106,7 +109,7 @@ function sendFlashMessage(message, category = 'info') {
 
     container.appendChild(msg);
 
-    // initialise immediately (no stagger for dynamic)
+    // Initialize immediately (no stagger for dynamic messages)
     initFlashMessage(msg);
 }
 

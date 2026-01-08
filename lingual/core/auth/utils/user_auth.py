@@ -23,13 +23,13 @@ class RegUser:
 
     def verify_name(self, name: str) -> int | None:
         if not name:
-            return NameError.EMPTY_NAME
+            return NameValidationError.EMPTY_NAME
         
         if len(name) > 50:
-            return NameError.TOO_LONG
+            return NameValidationError.TOO_LONG
         
         if not all(c.isalpha() or c in " -'" for c in name):
-            return NameError.INVALID_CHARACTERS
+            return NameValidationError.INVALID_CHARACTERS
         
         return None
 
@@ -39,14 +39,14 @@ class RegUser:
         """
         first_name = first_name.strip().title()
         
-        if (err := self.verify_name(first_name)) == None:
+        if (err := self.verify_name(first_name)) is None:
             self.first_name = first_name
             return None
-        elif err == NameError.EMPTY_NAME:
+        elif err == NameValidationError.EMPTY_NAME:
             return "First name cannot be empty."
-        elif err == NameError.TOO_LONG:
+        elif err == NameValidationError.TOO_LONG:
             return "First name cannot exceed 50 characters."
-        elif err == NameError.INVALID_CHARACTERS:
+        elif err == NameValidationError.INVALID_CHARACTERS:
             return "First name can only contain letters, spaces, apostrophes, and hyphens."
         
         return "Unknown error." # Fallback, should never reach here
@@ -58,14 +58,14 @@ class RegUser:
 
         last_name = last_name.strip().title()
         
-        if (err := self.verify_name(last_name)) == None:
+        if (err := self.verify_name(last_name)) is None:
             self.last_name = last_name
             return None
-        elif err == NameError.EMPTY_NAME:
+        elif err == NameValidationError.EMPTY_NAME:
             return "Last name cannot be empty."
-        elif err == NameError.TOO_LONG:
+        elif err == NameValidationError.TOO_LONG:
             return "Last name cannot exceed 50 characters."
-        elif err == NameError.INVALID_CHARACTERS:
+        elif err == NameValidationError.INVALID_CHARACTERS:
             return "Last name can only contain letters, spaces, apostrophes, and hyphens."
         
         return "Unknown error." # Fallback, should never reach here
@@ -140,20 +140,26 @@ def deserialize_RegUser(data: dict) -> RegUser:
     The dictionary should have the following keys: 'first_name', 'last_name', 'email', 'language'.
     """
     user = RegUser()
+    error = None
 
     # Set the fields if they exist in the input dictionary
     if 'first_name' in data and data['first_name']:
-        user.set_fname(data['first_name'])
+        error = user.set_fname(data['first_name'])
     if 'last_name' in data and data['last_name']:
-        user.set_lname(data['last_name'])
+        error = user.set_lname(data['last_name'])
     if 'email' in data and data['email']:
-        user.set_email(data['email'])
+        error = user.set_email(data['email'])
     if 'language' in data and data['language']:
-        user.set_language(data['language'])
+        error = user.set_language(data['language'])
+
+    if error:
+        flash(f"Error deserializing RegUser: {error}", "error")
+        current_app.logger.error(f"Error deserializing RegUser: {error}")
+        raise ValueError(error)        
 
     return user
 
-class NameError():
+class NameValidationError():
     EMPTY_NAME = 0
     TOO_LONG = 1
     INVALID_CHARACTERS = 2

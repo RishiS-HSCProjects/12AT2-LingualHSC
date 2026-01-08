@@ -1,4 +1,3 @@
-
 function addErrorStyling(element, submit = false) {
     element.style.borderColor = "red";
     element.style.boxShadow = "0 0 5px red";
@@ -18,7 +17,6 @@ function addSuccessStyling(element) {
 function resetStyling(element) {
     element.style.borderColor = "";
     element.style.boxShadow = "";
-
 }
 
 function spamPrevention(button, timeout = 3000) {

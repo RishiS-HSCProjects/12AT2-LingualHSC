@@ -1,9 +1,10 @@
 /**
- * 
- * @param {HTMLElement} sourceSection 
- * @param {*} targetSection 
- * @param {*} targetId 
- * @returns 
+ * Handles scrolling from one section to another and optionally to a specific target element.
+ *
+ * @param {string} sourceSectionId - The ID of the source section element.
+ * @param {string} targetSectionId - The ID of the target section element to activate and scroll to.
+ * @param {string|null} [targetId] - Optional ID of a specific element within the target section to scroll into view.
+ * @returns {void}
  */
 function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) {
     const sourceElement = document.getElementById(sourceSectionId);
@@ -32,7 +33,10 @@ function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) 
     setTimeout(() => {
         sourceElement.classList.remove('active');
         document.body.style.overflowY = 'auto';
-        document.querySelector('.active input[autofocus]').focus();
+        const autofocusInput = document.querySelector('.active input[autofocus]');
+        if (autofocusInput) {
+            autofocusInput.focus();
+        }
     }, 500);
 
 }
@@ -46,7 +50,7 @@ function handleLanguageSelect(selectedLanguage) {
         body: JSON.stringify({ language: selectedLanguage })
     }).then(response => response.json())
         .then(data => {
-            error = data.error;
+            const error = data.error;
             if (error) {
                 sendFlashMessage(error, 'error');
                 return;
@@ -70,11 +74,11 @@ function handleNameInput(element = null) {
     const lnameElement = document.getElementById('last-name');
     const next = document.querySelector('.active .next');
 
-    submit = !element;
+    const submit = !element;
 
     if (submit) {
         if (!fnameElement.value) {
-            sendFlashMessage("First name input element not found.", 'error');
+            sendFlashMessage("First name is required.", 'error');
             addErrorStyling(fnameElement, submit);
             next.disabled = true;
             return;
@@ -95,7 +99,7 @@ function handleNameInput(element = null) {
             body: JSON.stringify({ first_name: fnameElement.value, last_name: lnameElement.value })
         }).then(response => response.json())
             .then(data => {
-                error = data.error;
+                const error = data.error;
                 if (error) {
                     sendFlashMessage(error, 'error');
                     return;
@@ -117,7 +121,7 @@ function handleNameInput(element = null) {
             }
             );
     } else {
-        fetch('register/u/verify_name', {
+        fetch('/register/u/verify_name', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -126,21 +130,18 @@ function handleNameInput(element = null) {
         }).then(response => response.json())
             .then(data => {
                 if (data.error) {
-                    if (submit) sendFlashMessage(data.error, 'error');
                     addErrorStyling(fnameElement, submit);
                     addErrorStyling(lnameElement, submit);
                     return;
                 } else if (data.f_error) {
-                    if (submit) sendFlashMessage(data.f_error, 'error');
                     addErrorStyling(fnameElement, submit);
                     return;
                 } else if (data.l_error) {
-                    if (submit) sendFlashMessage(data.l_error, 'error');
                     addErrorStyling(lnameElement, submit);
                     return;
                 }
 
-                addSuccessStyling(element)
+                addSuccessStyling(element);
             });
     }
 }
@@ -190,8 +191,6 @@ function handleEmailInput(submit = false) {
 }
 
 function scrollToEmail() {
-    emailElement = document.getElementById('reg-email');
-
     handleSectionScroll('reg-verify', 'reg-email');
 
     document.getElementById('reg-email').focus({ preventScroll: true });
@@ -205,7 +204,7 @@ function resendVerificationCode() {
         },
     }).then(response => response.json())
         .then(data => {
-            error = data.error;
+            const error = data.error;
             if (error) {
                 sendFlashMessage(error, 'error');
                 return;
@@ -246,25 +245,19 @@ function handleVerificationCodeInput(submit = false) {
     })
         .then(response => response.json())
         .then(data => {
-
-            error = data.error;
+            const error = data.error;
             if (error) {
                 sendFlashMessage(error, 'error');
-                return;
-            }
-
-            const txt = document.getElementById('secret-text');
-            if (data.error === null) {
-
-                txt.textContent = data.secret_text;
-
-                handleSectionScroll('reg-verify', 'reg-pwd', 'secret-text');
-            } else {
                 codeElement.classList.add('error');
                 setTimeout(() => {
                     codeElement.classList.remove('error');
                 }, 1000);
+                return;
             }
+
+            const txt = document.getElementById('secret-text');
+            txt.textContent = data.secret_text;
+            handleSectionScroll('reg-verify', 'reg-pwd', 'secret-text');
         })
         .catch(error => {
             console.error("Error verifying code:", error);
@@ -318,7 +311,7 @@ function validatePasswordMatch(element) {
         return true;
     } else {
         element.style.borderColor = "red";
-        element.style.boxShadow = " 0 0 5px red"
+        element.style.boxShadow = "0 0 5px red";
     }
     return false;
 }
@@ -408,7 +401,7 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
         e.preventDefault();
 
-        btn = document.querySelector('.active .next');
+        const btn = document.querySelector('.active .next');
         if (btn) {
             btn.focus()
             btn.click();

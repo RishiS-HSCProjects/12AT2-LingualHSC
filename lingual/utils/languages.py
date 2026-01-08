@@ -31,10 +31,22 @@ class Languages(Enum):
                 return lang.value
         return None
 
+_TRANSLATABLES = None
+def _load_translatables() -> dict:
+    """
+    Load translatable strings from JSON file once and cache them in memory.
+    This makes accessing translatable strings more efficient by avoiding 
+    repeatedly opening and reading the file.
+    """
+    global _TRANSLATABLES
+    if _TRANSLATABLES is None:
+        with open('lingual/utils/translatable.json', 'r', encoding='utf-8') as f:
+            _TRANSLATABLES = json.load(f)
+    return _TRANSLATABLES
+
 def get_translatable(language_code: str, key: str) -> str:
     try:
-        with open('lingual/utils/translatable.json', 'r', encoding='utf-8') as f:
-            translatables = json.load(f)
+        translatables = _load_translatables()
 
         if key not in translatables:
             raise KeyError(f"Translatable key '{key}' not found.")
@@ -46,8 +58,9 @@ def get_translatable(language_code: str, key: str) -> str:
             return translations[language_code]
 
         # Fallback to English
-        return translations.get("en")
+        return translations.get("en", "Translation not available.")
 
     except Exception as e:
-        print(f"Error loading translatable data for key '{key}' on language '{language_code}': {e}")
+        from flask import current_app
+        current_app.logger.error(f"Error loading translatable data for key '{key}' on language '{language_code}': {e}")
         return "ERROR"

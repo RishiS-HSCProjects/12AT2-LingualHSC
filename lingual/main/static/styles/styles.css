@@ -37,7 +37,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box; /* Prevents padding from causing overflow */
-    z-index: var(--nav-height);
+    z-index: var(--z-index-nav);
 }
 
 nav a {

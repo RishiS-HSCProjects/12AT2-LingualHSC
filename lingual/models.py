@@ -4,9 +4,6 @@ from sqlalchemy.orm import Mapped, mapped_column
 from werkzeug.security import generate_password_hash, check_password_hash
 from lingual import db
 from lingual.utils.languages import Language, Languages
-from sqlalchemy import String
-from datetime import datetime, timezone
-from flask_login import UserMixin
 
 from sqlalchemy.types import JSON
 
@@ -20,7 +17,7 @@ class User(UserMixin, db.Model):
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
     last_login: Mapped[datetime | None] = mapped_column(db.DateTime)
 
-    languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=[])
+    languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list)
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
     def set_password(self, password: str):

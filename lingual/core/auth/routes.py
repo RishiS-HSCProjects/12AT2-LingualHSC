@@ -1,7 +1,5 @@
-from threading import Thread
-from flask import Blueprint, current_app, session, request, jsonify
+from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
-from werkzeug.security import generate_password_hash
 from lingual.core.auth.utils.user_auth import deserialize_RegUser
 
 auth_bp = Blueprint(
@@ -16,7 +14,13 @@ def verify_email():
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
 
-    email = deserialize_RegUser(reg).email
+    try:
+        email = deserialize_RegUser(reg).email
+    except Exception as e:
+        current_app.logger.error(f"Error deserializing RegUser for email verification: {e}")
+        flash("Registration information corrupted. Please try registering again.", "error")
+        return redirect(url_for('main.register'))
+
     if not email:
         return jsonify({"error": "Email not found in registration information"}), 400
     from secrets import choice
