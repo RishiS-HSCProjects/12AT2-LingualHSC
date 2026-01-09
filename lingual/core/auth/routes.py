@@ -10,6 +10,9 @@ auth_bp = Blueprint(
 
 @auth_bp.route('/verify_email', methods=['POST'], strict_slashes=False)
 def verify_email():
+    import colorama
+    current_app.logger.debug(f"{colorama.Fore.RED}Starting email verification process.{colorama.Style.RESET_ALL}")
+
     reg = session.get('reg_user')
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
@@ -23,37 +26,47 @@ def verify_email():
 
     if not email:
         return jsonify({"error": "Email not found in registration information"}), 400
-    from secrets import choice
+
     from bcrypt import hashpw, gensalt
-
     # Generate OTP
-    otp = ''.join(choice('0123456789') for _ in range(6))
-    otp = "123456"  # For testing purposes
+    VERIFY_REQ = current_app.config.get('REQUIRE_EMAIL_VERIFICATION', True)
+    if not VERIFY_REQ:
+        otp = "123456"
+    else:
+        from secrets import choice
+        otp = ''.join(choice('0123456789') for _ in range(6))
 
+    # Store the OTP in the session (hashed)
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
 
-    # def send_verification_email(app, email, otp):
-    #     with app.app_context():
-    #         from lingual import mail
-    #         mail.send_message(
-    #             subject=f"Your Verification Code is {otp}",
-    #             recipients=[email],
-    #             body=(
-    #                 f"Your verification code is: {otp}.\n\n" \
-    #                 "This code will expire in 5 minutes. " \
-    #                 "If you did not request this code, please ignore this email."
-    #             )
-    #         )
+    # Exit early if email verification is not required
+    if not VERIFY_REQ:
+        return jsonify({"error": None}), 200
 
-    # try:
-    #     Thread(
-    #         target=send_verification_email,
-    #         args=(current_app._get_current_object(), email, otp), # type: ignore
-    #         daemon=True
-    #     ).start()
-    # except Exception as e:
-    #     current_app.logger.error(f"Error when sending verification email: {e}")
-    #     return jsonify({"error": "Something went wrong when sending the verification code."}), 400
+    # If email verification is required, send the OTP email
+    def send_verification_email(app, email, otp):
+        with app.app_context():
+            from lingual import mail
+            mail.send_message(
+                subject=f"Your Verification Code is {otp}",
+                recipients=[email],
+                body=(
+                    f"Your verification code is: {otp}.\n\n"
+                    "This code will expire in 5 minutes. "
+                    "If you did not request this code, please ignore this email."
+                )
+            )
+
+    try:
+        from threading import Thread
+        Thread(
+            target=send_verification_email,
+            args=(current_app._get_current_object(), email, otp),  # type: ignore
+            daemon=True # Makes asyncronous to not halt application flow while sending email
+        ).start()
+    except Exception as e:
+        current_app.logger.error(f"Error when sending verification email: {e}")
+        return jsonify({"error": "Something went wrong when sending the verification code."}), 400
 
     return jsonify({"error": None}), 200
 
@@ -64,7 +77,7 @@ def verify_otp(otp_code: str) -> str | None:
     """
     from bcrypt import checkpw
 
-    otp_data = session.pop('otp', None)
+    otp_data = session.get('otp', None)
 
     if not otp_data:
         return "OTP data not found"

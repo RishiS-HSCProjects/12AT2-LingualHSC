@@ -12,7 +12,7 @@ nav {
     grid-template-columns: auto 1fr auto;
     grid-template-areas: "logo nav-links get-started-btn";
     align-items: center;
-    background: #E4F5E6;
+    background: #e4f5e6;
     height: var(--nav-height);
     padding: 0 20px;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ nav {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: var(--z-index-nav);
 }
 
 nav a#logo {

@@ -3,7 +3,7 @@ from flask_login import login_required
 from lingual.utils.languages import Languages
 
 nihongo_bp = Blueprint(
-    Languages.JAPANESE.obj().app_name,
+    Languages.JAPANESE.obj().app_code,
     __name__,
     url_prefix='/nihongo',
     template_folder='templates',

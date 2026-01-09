@@ -1,0 +1,28 @@
+{% extends 'lingual-template.html' %}
+
+{% set title = "App Directory - Lingual HSC" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/app-directory.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/app-directory.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+<h1>Your Apps</h1>
+<div class="app-directory">
+    {% for language in languages %}
+    <div class="app-card">
+        <h2>{{ language.name }}</h2>
+        <p>{{ language.description }}</p>
+        <a class="open-app-button">Open <span>{{ language.app_name }}</span></a>
+    </div>
+    {% else %}
+    <p>You have no apps yet. Start by adding a new language!</p>
+    {% endfor %}
+</div>
+{% endblock body %}

@@ -10,7 +10,6 @@ from sqlalchemy.types import JSON
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     first_name: Mapped[str] = mapped_column(db.String(150), nullable=False)
-    last_name: Mapped[str] = mapped_column(db.String(150), nullable=True)
     email: Mapped[str] = mapped_column(db.String(150), unique=True, index=True, nullable=False)
     password_hash: Mapped[str] = mapped_column(db.String(256), nullable=False)
 

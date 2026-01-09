@@ -5,6 +5,7 @@
 {% block meta %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/login.css') }}">
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/registration.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -14,7 +15,7 @@
         <h1>Welcome Back!</h1>
         <div class="form-body">
             <div class="form-elements">
-                <h2>Log In to Your Account</h2>
+                <h2>Log in to your account</h2>
                 <div class="group-fields">
                     {{ form.email(placeholder="Email", autocomplete="email", autofocus=True) }}
                     {{ form.password(placeholder="Password", autocomplete="current-password") }}

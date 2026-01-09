@@ -1,6 +1,6 @@
 from flask import jsonify, redirect, render_template, request, session, current_app, flash, url_for
 from flask.blueprints import Blueprint
-from flask_login import current_user
+from flask_login import current_user, login_required
 from lingual.utils.languages import Languages, get_translatable
 from lingual.core.auth.utils.user_auth import RegUser, deserialize_RegUser
 
@@ -31,6 +31,10 @@ def login():
         if form_data: form.email.data = form_data.get('email', '')
     
     elif request.method == 'POST':
+        session['form_data'] = {
+            "email": form.email.data,
+        }
+
         if form.validate_on_submit():
             email = form.email.data
             password = form.password.data
@@ -39,20 +43,20 @@ def login():
             user: User | None = User.query.filter_by(email=email.lower()).first() # type: ignore
             if not user or not user.check_password(password):
                 flash("Invalid email or password.", "error")
-                return redirect(url_for('main.login'))
+                return redirect(url_for('main.login', next=request.args.get('next')))  # type: ignore
 
             from flask_login import login_user
             login_user(user)
             flash("Login successful!", "success")
+
+            if 'next' in request.args:
+                return redirect(request.args.get('next'))  # type: ignore
+
             return redirect(url_for('main.app'))
         else:
             for errors in form.errors.values():
                 for error in errors:
                     flash(error, "error")  # type: ignore
-
-            session['form_data'] = {
-                "email": form.email.data,
-            }
 
     return render_template('login.html', form=form)
 
@@ -103,30 +107,18 @@ def register_util(step):
             if not name:
                 return jsonify({'error': "Missing name"}), 400
 
-            name_type = data.get("type")
-            if name_type == 'first-name':
-                result = user.set_fname(name)
-                if result:
-                    return jsonify({"f_error": result})
-            else:
-                result = user.set_lname(name)
-                if result:
-                    return jsonify({"l_error": result})
+            result = user.set_fname(name)
+            if result:
+                return jsonify({"error": result})
             
             return jsonify({}) # No error
 
         elif step == "user_hello":
             first_name = data.get("first_name", "").strip().title()
-            last_name = data.get("last_name", "").strip().title()
 
             result = user.set_fname(first_name)
             if result:
                 return jsonify({"error": result})
-
-            if last_name:
-                result = user.set_lname(last_name)
-                if result:
-                    return jsonify({"error": result})
 
             translated = get_translatable(user.language or 'en', "signup_user_hello")
             txt = translated.replace("{first_name}", first_name)
@@ -145,8 +137,12 @@ def register_util(step):
 
             session['reg_user'] = user.serialize()
 
+            if data.get("submit", False): return jsonify({})  # No error, no email sent
+
             try:
                 from lingual.core.auth.routes import verify_email
+                import colorama
+                current_app.logger.debug(f"{colorama.Fore.RED}Sending verification email to {email}{colorama.Style.RESET_ALL}")
                 verify_email()  # Send email verification
             except Exception as e:
                 current_app.logger.error(f"Error in verify_email: {e}")
@@ -205,6 +201,13 @@ def app():
     
     if last_lang:
         # Now that we know last_lang is not None, perform the redirect
-        return redirect(url_for(last_lang.app_name + '.home'))
+        return redirect(url_for(last_lang.app_code + '.home'))
     
     return f"<h1>Hello {current_user.first_name}</h1>\nNo languages available for your profile."
+
+@main_bp.route('/app/directory', strict_slashes=False)
+@login_required
+def app_directory():
+
+    languages = current_user.get_languages()
+    return render_template('app-directory.html', languages=languages)

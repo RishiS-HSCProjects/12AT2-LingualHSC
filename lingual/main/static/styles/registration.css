@@ -1,73 +1,9 @@
-:root {
-    --color-bg-white: #ffffff;
-    --color-bg-accent-1: #effcff;
-    --color-bg-accent-2: #e2f7ff;
-
-    --color-primary: #2bda68;
-    --color-secondary: #50c7ff;
-    --color-soft-purple: #eff3ff;
-
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 40px;
-    --space-xl: 70px;
-
-    --font-heading: "Poppins", Inter, Arial, sans-serif;
-    --font-display: "Public Sans", Inter, Arial, sans-serif;
-    --font-body: "Inter", Arial, sans-serif;
-
-    --nav-height: 100px;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-bg-accent-1);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-}
-
-/* Nav changes do not impact landing page navigation. */
-nav {
-    padding: 20px 30px;
-    max-height: var(--nav-height);
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box; /* Prevents padding from causing overflow */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: var(--z-index-nav);
-    background-color: var(--color-bg-accent-1);
-}
-
-nav a {
-    font-size: 1.75rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap; /* Prevents text from wrapping */
-}
-
-nav a#logo {
-    text-align: left;
-}
-
-nav a#login-link {
-    text-align: right;
-}
-
 #form {
-    min-height: calc(100vh - var(--nav-height));
-    margin: var(--nav-height) auto;
-    margin-bottom: calc(0 - var(--nav-height));
     flex: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: calc(100vh - var(--nav-height));
     width: 80%;
 }
 

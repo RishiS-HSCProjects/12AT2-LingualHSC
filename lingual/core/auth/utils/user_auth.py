@@ -3,20 +3,17 @@ from lingual.models import User
 
 class RegUser:
     first_name: str
-    last_name: str
     email: str
     language: str
 
     def __init__(self):
         self.first_name = ""
-        self.last_name = ""
         self.email = ""
         self.language = ""
 
     def serialize(self) -> dict:
         return {
             'first_name': self.first_name or None,
-            'last_name': self.last_name or None,
             'email': self.email or None,
             'language': self.language or None
         }
@@ -48,25 +45,6 @@ class RegUser:
             return "First name cannot exceed 50 characters."
         elif err == NameValidationError.INVALID_CHARACTERS:
             return "First name can only contain letters, spaces, apostrophes, and hyphens."
-        
-        return "Unknown error." # Fallback, should never reach here
-    
-    def set_lname(self, last_name: str) -> str | None:
-        """
-            Returns None if successful, else error message string.
-        """
-
-        last_name = last_name.strip().title()
-        
-        if (err := self.verify_name(last_name)) is None:
-            self.last_name = last_name
-            return None
-        elif err == NameValidationError.EMPTY_NAME:
-            return "Last name cannot be empty."
-        elif err == NameValidationError.TOO_LONG:
-            return "Last name cannot exceed 50 characters."
-        elif err == NameValidationError.INVALID_CHARACTERS:
-            return "Last name can only contain letters, spaces, apostrophes, and hyphens."
         
         return "Unknown error." # Fallback, should never reach here
     
@@ -120,7 +98,6 @@ class RegUser:
 
         user = User(
             first_name=self.first_name,  # type: ignore
-            last_name=(self.last_name if self.last_name else None),  # type: ignore
             email=self.email  # type: ignore
         )
 
@@ -137,7 +114,7 @@ class RegUser:
 def deserialize_RegUser(data: dict) -> RegUser:
     """
     This function takes a dictionary `data` and returns an instance of RegUser.
-    The dictionary should have the following keys: 'first_name', 'last_name', 'email', 'language'.
+    The dictionary should have the following keys: 'first_name', 'email', 'language'.
     """
     user = RegUser()
     error = None
@@ -145,8 +122,6 @@ def deserialize_RegUser(data: dict) -> RegUser:
     # Set the fields if they exist in the input dictionary
     if 'first_name' in data and data['first_name']:
         error = user.set_fname(data['first_name'])
-    if 'last_name' in data and data['last_name']:
-        error = user.set_lname(data['last_name'])
     if 'email' in data and data['email']:
         error = user.set_email(data['email'])
     if 'language' in data and data['language']:
