@@ -11,6 +11,7 @@
 {% block scripts %}
 {{ super() }}
 <script src="{{ url_for('main.static', filename='js/register.js') }}" defer></script>
+<script src="{{ url_for('main.static', filename='js/password-match.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}

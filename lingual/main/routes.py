@@ -66,7 +66,6 @@ def register():
         flash("You are already logged in.", "info")
         return redirect(url_for('main.app'))
 
-
     session.clear()
 
     user = RegUser()
@@ -183,6 +182,74 @@ def register_util(step):
         # Log the error and stack trace
         current_app.logger.error(f"Error processing request: {e}")
         return jsonify({"error": "Internal server error"}), 500
+
+@main_bp.route('/login/reset', methods=['GET', 'POST'], strict_slashes=False)
+def reset():
+    if current_user.is_authenticated:
+        flash("You are already logged in.", "info")
+        return redirect(url_for('main.app'))
+    
+    from lingual.main.forms import RequestForm
+    form = RequestForm()
+
+    if request.method == 'POST':
+        email = request.form.get('email', '').strip()
+        if not email:
+            flash("Please enter your email address.", "error")
+            return redirect(url_for('main.reset'))
+
+        from lingual.models import User
+        user: User | None = User.query.filter_by(email=email.lower()).first() # type: ignore
+
+        if user:
+            try:
+                from lingual.core.auth.routes import send_password_reset_email
+                send_password_reset_email(user)
+            except Exception as e:
+                current_app.logger.error(f"Error sending password reset email: {e}")
+                flash("An error occurred while attempting to send the reset email. Please try again later.", "error")
+                return redirect(url_for('main.reset'))
+            
+        else:
+            current_app.logger.info(f"Password reset requested for non-existent email: {email}")
+            
+        flash("A reset link has been sent to that email.", "info")
+
+    return render_template('reset.html', form=form)
+
+@main_bp.route('/login/reset_request/<token>', methods=['GET', 'POST'], strict_slashes=False)
+def reset_token(token):
+    if current_user.is_authenticated:
+        flash("To change your password, head to your account settings.", "info")
+        return redirect(url_for('main.app'))
+
+    from lingual.models import User
+    user = User.verify_reset_token(token)
+
+    if not user:
+        flash("Invalid or expired token. Please request a new password reset.", "error")
+        return redirect(url_for('main.reset'))
+    
+    if request.method == 'POST':
+        password = request.form.get('password', '').strip()
+        confirm_password = request.form.get('confirm-password', '').strip()
+
+        if not password or not confirm_password:
+            flash("Please fill out all password fields.", "error")
+            return redirect(url_for('main.reset_token', token=token))
+
+        if password != confirm_password:
+            flash("Passwords do not match. Please try again.", "error")
+            return redirect(url_for('main.reset_token', token=token))
+
+        user.set_password(password)
+        from lingual import db
+        db.session.commit()
+
+        flash("Your password has been updated! You can now log in.", "success")
+        return redirect(url_for('main.login'))
+
+    return render_template('reset-token.html', user=user, token=token)
 
 @main_bp.route('/app', strict_slashes=False)
 def app():

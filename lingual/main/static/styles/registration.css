@@ -134,3 +134,18 @@
     font-size: 1.5rem;
     color: #555555;
 }
+
+#form section small#password-help > ul#password-requirements {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+#form section small#password-help > ul#password-requirements > li.invalid {
+    color: #D9534F;
+    transition: color 0.5s ease;
+}
+
+#form section small#password-help > ul#password-requirements > li.valid {
+    color: #3ea43e;
+    transition: color 0.5s ease;
+}

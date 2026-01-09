@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/registration.css') }}">
 {% endblock %}
 
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/login.js') }}" defer></script>
+{% endblock %}
+
 {% block body %}
 <form id="form" action="{{ url_for('main.login') }}" method="POST">
     {{ form.hidden_tag() }}
@@ -17,12 +22,12 @@
             <div class="form-elements">
                 <h2>Log in to your account</h2>
                 <div class="group-fields">
-                    {{ form.email(placeholder="Email", autocomplete="email", autofocus=True) }}
+                    {{ form.email(placeholder="Email", autocomplete="email") }}
                     {{ form.password(placeholder="Password", autocomplete="current-password") }}
                 </div>
                 <button type="submit" id="login-btn" class="next login-action">Log In</button>
-                <button type="button" id="forgot-password-btn" class="next login-action">Reset Password</button>
-                <p class="subtitle">I don't have an account. <a href="{{ url_for('main.register') }}">Register here</a>.</p>
+                <button type="button" id="forgot-password-btn" class="next login-action" onclick="location.href='{{ url_for('main.register') }}'">I don't have an account</button>
+                <p class="subtitle">I forgot my password. <a href="{{ url_for('main.reset') }}">Request a reset</a>.</p>
             </div>
         </div>
     </section>

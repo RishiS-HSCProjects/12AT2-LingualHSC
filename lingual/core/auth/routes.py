@@ -1,6 +1,8 @@
 from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
 from lingual.core.auth.utils.user_auth import deserialize_RegUser
+from lingual.models import User
+from threading import Thread
 
 auth_bp = Blueprint(
     'auth',
@@ -10,9 +12,6 @@ auth_bp = Blueprint(
 
 @auth_bp.route('/verify_email', methods=['POST'], strict_slashes=False)
 def verify_email():
-    import colorama
-    current_app.logger.debug(f"{colorama.Fore.RED}Starting email verification process.{colorama.Style.RESET_ALL}")
-
     reg = session.get('reg_user')
     if not reg:
         return jsonify({"error": "Registration information not found"}), 400
@@ -29,7 +28,7 @@ def verify_email():
 
     from bcrypt import hashpw, gensalt
     # Generate OTP
-    VERIFY_REQ = current_app.config.get('REQUIRE_EMAIL_VERIFICATION', True)
+    VERIFY_REQ = current_app.config.get('ALLOW_SEND_EMAILS', True)
     if not VERIFY_REQ:
         otp = "123456"
     else:
@@ -58,7 +57,6 @@ def verify_email():
             )
 
     try:
-        from threading import Thread
         Thread(
             target=send_verification_email,
             args=(current_app._get_current_object(), email, otp),  # type: ignore
@@ -120,3 +118,32 @@ def create_user():
     except Exception as e:
         current_app.logger.error(f"Unexpected error creating user: {e}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+def send_password_reset_email(user: 'User'):
+
+    if current_app.config.get('ALLOW_SEND_EMAILS', True) is False:
+        flash("Email sending is disabled.", "warning")
+        return
+
+    def send_verification_email(app, email, token):
+        with app.app_context():
+            from lingual import mail
+            mail.send_message(
+                subject="Password Reset Request",
+                recipients=[email],
+                body=(
+                    f"To reset your password, visit the following link: {url_for('main.reset_token', token=token, _external=True)}\n\n"
+                    "This link will expire in 5 minutes.\n\n"
+                    "If you did not make this request, simply ignore this email."
+                )
+            )
+
+    try:
+        Thread(
+            target=send_verification_email,
+            args=(current_app._get_current_object(), user.email, user.get_reset_token()),  # type: ignore
+            daemon=True # Makes asyncronous to not halt application flow while sending email
+        ).start()
+    except Exception as e:
+        current_app.logger.error(f"Error when sending password reset email: {e}")
+        return jsonify({"error": "Something went wrong when sending the password reset email."}), 400

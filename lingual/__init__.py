@@ -32,10 +32,13 @@ class Config:
     MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
 
     # REGISTRATION
-    REQUIRE_EMAIL_VERIFICATION      =      True   # Set to True to send OTP emails on registration. False sets OTP to 123456.
+    ALLOW_SEND_EMAILS      =      True   # Set to True to send OTP emails on registration. False sets OTP to 123456.
 
     SQLALCHEMY_DATABASE_URI         = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
     SQLALCHEMY_TRACK_MODIFICATIONS  = False
+
+    SERVER_NAME ='localhost:5000'  # Default to localhost for local development
+    PREFERRED_URL_SCHEME = 'http'
 
 @login_manager.user_loader
 def load_user(user_id):

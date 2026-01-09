@@ -1,6 +1,8 @@
 from datetime import datetime, timezone
+from flask import current_app
 from flask_login import UserMixin
 from sqlalchemy.orm import Mapped, mapped_column
+from itsdangerous import URLSafeTimedSerializer as URLSafe
 from werkzeug.security import generate_password_hash, check_password_hash
 from lingual import db
 from lingual.utils.languages import Language, Languages
@@ -64,3 +66,22 @@ class User(UserMixin, db.Model):
 
     def __repr__(self) -> str:
         return f"<User {self.email} ({len(self.languages)} languages)>"
+
+    def get_reset_token(self, expires_seconds=1800) -> str:
+        from datetime import timedelta
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
+        expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp()
+        return s.dumps({'user_id': self.id, 'expires_at': expires_at})
+    
+    @staticmethod
+    def verify_reset_token(token):
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
+        try:
+            data = s.loads(token)
+            if datetime.now(timezone.utc).timestamp() > data['expires_at']:
+                return None
+            return User.query.get(data['user_id'])
+        except Exception:
+            return None
+        
+    

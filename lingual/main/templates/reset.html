@@ -1,0 +1,27 @@
+{% extends 'lingual-template.html' %}
+
+{% set title = "Welcome Back! - Lingual HSC" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/registration.css') }}">
+{% endblock %}
+
+{% block body %}
+<form id="form" action="{{ url_for('main.reset') }}" method="POST">
+    {{ form.hidden_tag() }}
+    <section class="active">
+        <h1>Whoops! Forgot my password!</h1>
+        <div class="form-body">
+            <div class="form-elements">
+                <h2>Enter your email address</h2>
+                <div class="group-fields">
+                    {{ form.email(placeholder="Email", autocomplete="email", required=True) }}
+                </div>
+                <button type="submit" id="login-btn" class="next login-action">Send Reset Link</button>
+                <a href="{{ url_for('main.landing') }}" class="subtitle">Return Home</a>.
+            </div>
+        </div>
+    </section>
+</form>
+{% endblock body %}
