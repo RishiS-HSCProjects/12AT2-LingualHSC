@@ -5,11 +5,13 @@
 {% block meta %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/register.css') }}">
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/registration.css') }}">
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
 <script src="{{ url_for('main.static', filename='js/register.js') }}" defer></script>
+<script src="{{ url_for('main.static', filename='js/password-match.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -61,13 +63,11 @@
                 <h2>What should we call you by?</h2>
                 <div class="group-fields">
                     <input type="text" autocomplete="given-name" autocapitalize="words"
-                        oninput="handleNameInput(element=this)" id="first-name" name="first-name"
+                        oninput="handleNameInput()" id="first-name" name="first-name"
                         placeholder="First Name" required autofocus>
-                    <input type="text" autocomplete="family-name" autocapitalize="words"
-                        oninput="handleNameInput(element=this)" id="last-name" name="last-name" placeholder="Last Name (optional)">
                 </div>
                 <div class="next-btn">
-                    <button type="button" class="next" onclick="handleNameInput(); spamPrevention(this);" disabled>Next</button>
+                    <button type="button" class="next" onclick="handleNameInput(true); spamPrevention(this);" disabled>Next</button>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
                 <small>Please check your spam folder if you don't see the email in your inbox.</small>
                 <div class="presubmit-options">
                     <button class="option" onclick="scrollToEmail(); spamPrevention(this);">Update Email</button>
-                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 60*1000);">Resend Verification Code</button>
+                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 60*1000);" id="resend-code-btn">Resend Verification Code</button>
                 </div>
                 <div class="next-btn">
                     <button type="button" class="next" onclick="handleVerificationCodeInput(true); spamPrevention(this);" disabled>Verify</button>

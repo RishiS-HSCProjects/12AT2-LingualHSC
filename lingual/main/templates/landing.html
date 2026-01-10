@@ -18,7 +18,9 @@
         <a href="{{ url_for('main.landing') }}" id="logo">Lingual HSC</a>
 
         <ul id="nav-links">
+            {% if not current_user.is_authenticated %}
             <li class="taster"><a href="">Get a FREE Taster!</a></li>
+            {% endif %}
             <li><a onclick="whyUsScroll()">For HSC Students</a></li>
             <li><a onclick="purposeScroll()">About Lingual</a></li>
         </ul>

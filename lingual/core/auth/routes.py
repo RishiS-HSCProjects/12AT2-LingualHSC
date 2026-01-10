@@ -1,6 +1,8 @@
 from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
 from lingual.core.auth.utils.user_auth import deserialize_RegUser
+from lingual.models import User
+from threading import Thread
 
 auth_bp = Blueprint(
     'auth',
@@ -23,37 +25,46 @@ def verify_email():
 
     if not email:
         return jsonify({"error": "Email not found in registration information"}), 400
-    from secrets import choice
+
     from bcrypt import hashpw, gensalt
-
     # Generate OTP
-    otp = ''.join(choice('0123456789') for _ in range(6))
-    otp = "123456"  # For testing purposes
+    VERIFY_REQ = current_app.config.get('ALLOW_SEND_EMAILS', True)
+    if not VERIFY_REQ:
+        otp = "123456"
+    else:
+        from secrets import choice
+        otp = ''.join(choice('0123456789') for _ in range(6))
 
+    # Store the OTP in the session (hashed)
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
 
-    # def send_verification_email(app, email, otp):
-    #     with app.app_context():
-    #         from lingual import mail
-    #         mail.send_message(
-    #             subject=f"Your Verification Code is {otp}",
-    #             recipients=[email],
-    #             body=(
-    #                 f"Your verification code is: {otp}.\n\n" \
-    #                 "This code will expire in 5 minutes. " \
-    #                 "If you did not request this code, please ignore this email."
-    #             )
-    #         )
+    # Exit early if email verification is not required
+    if not VERIFY_REQ:
+        return jsonify({"error": None}), 200
 
-    # try:
-    #     Thread(
-    #         target=send_verification_email,
-    #         args=(current_app._get_current_object(), email, otp), # type: ignore
-    #         daemon=True
-    #     ).start()
-    # except Exception as e:
-    #     current_app.logger.error(f"Error when sending verification email: {e}")
-    #     return jsonify({"error": "Something went wrong when sending the verification code."}), 400
+    # If email verification is required, send the OTP email
+    def send_verification_email(app, email, otp):
+        with app.app_context():
+            from lingual import mail
+            mail.send_message(
+                subject=f"Your Verification Code is {otp}",
+                recipients=[email],
+                body=(
+                    f"Your verification code is: {otp}.\n\n"
+                    "This code will expire in 5 minutes. "
+                    "If you did not request this code, please ignore this email."
+                )
+            )
+
+    try:
+        Thread(
+            target=send_verification_email,
+            args=(current_app._get_current_object(), email, otp),  # type: ignore
+            daemon=True # Makes asynchronous to not halt application flow while sending email
+        ).start()
+    except Exception as e:
+        current_app.logger.error(f"Error when sending verification email: {e}")
+        return jsonify({"error": "Something went wrong when sending the verification code."}), 400
 
     return jsonify({"error": None}), 200
 
@@ -64,7 +75,7 @@ def verify_otp(otp_code: str) -> str | None:
     """
     from bcrypt import checkpw
 
-    otp_data = session.pop('otp', None)
+    otp_data = session.get('otp', None)
 
     if not otp_data:
         return "OTP data not found"
@@ -73,6 +84,7 @@ def verify_otp(otp_code: str) -> str | None:
         return "OTP has expired. Please request a new one."
 
     if checkpw(otp_code.encode(), otp_data[0]):
+        session.pop('otp', None)
         return None
 
     return "Invalid verification code"
@@ -107,3 +119,32 @@ def create_user():
     except Exception as e:
         current_app.logger.error(f"Unexpected error creating user: {e}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+def send_password_reset_email(user: 'User'):
+
+    if current_app.config.get('ALLOW_SEND_EMAILS', True) is False:
+        flash("Email sending is disabled.", "warning")
+        return
+
+    def send_verification_email(app, email, token):
+        with app.app_context():
+            from lingual import mail
+            mail.send_message(
+                subject="Password Reset Request",
+                recipients=[email],
+                body=(
+                    f"To reset your password, visit the following link: {url_for('main.reset_token', token=token, _external=True)}\n\n"
+                    "This link will expire in 30 minutes.\n\n"
+                    "If you did not make this request, simply ignore this email."
+                )
+            )
+
+    try:
+        Thread(
+            target=send_verification_email,
+            args=(current_app._get_current_object(), user.email, user.get_reset_token()),  # type: ignore
+            daemon=True # Makes asynchronous to not halt application flow while sending email
+        ).start()
+    except Exception as e:
+        current_app.logger.error(f"Error when sending password reset email: {e}")
+        return jsonify({"error": "Something went wrong when sending the password reset email."}), 400

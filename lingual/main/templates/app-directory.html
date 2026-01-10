@@ -1,0 +1,55 @@
+{% extends 'lingual-template.html' %}
+
+{% set title = "App Directory - Lingual HSC" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/app-directory.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/app-directory.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div id="nav-spacer"></div>
+<div id="page-container">
+    <h1>Your Apps</h1>
+    {% if user_languages %}
+    <div class="app-directory">
+        {% for language in user_languages %}
+        <div class="app-card" onclick="window.location.href='{{ url_for('main.app_redirect', code=language.code) }}'">
+            <div class="app-logo-container">
+                <img src="{{ url_for(language.app_code ~ '.static', filename='app_assets/flag.svg') }}"
+                    alt="{{ language.app_name }} logo" class="app-logo"
+                    onerror="this.style.backgroundColor='gray'; this.src='';">
+            </div>
+            <h2>{{ language.name }}</h2>
+            <p>{{ language.app_name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-languages-text">You haven't added any language apps yet. Explore other languages below!</p>
+    {% endif %}
+    <h1>Other Languages</h1>
+    {% if languages %}
+    <div class="app-directory">
+        {% for language in languages %}
+        <div class="app-card" onclick="window.location.href='{{ url_for('main.app_redirect', code=language.code) }}'" tabindex="0">
+            <div class="app-logo-container">
+                <img src="{{ url_for(language.app_code ~ '.static', filename='app_assets/flag.svg') }}"
+                    alt="{{ language.app_name }} logo" class="app-logo"
+                    onerror="this.style.backgroundColor='gray'; this.src='';">
+            </div>
+            <h2>{{ language.name }}</h2>
+            <p>{{ language.app_name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-languages-text">There are no other languages available at the moment. Check back later!</p>
+    {% endif %}
+</div>
+{% endblock body %}

@@ -19,8 +19,10 @@
 <body>
     {% block header %}
     {% endblock header %}
-    {% block body %}
-    {% endblock %}
+    <div id="body">
+        {% block body %}
+        {% endblock %}
+    </div>
 
     <div id="flash-container">
         {% with messages = get_flashed_messages(with_categories=true) %}

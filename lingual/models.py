@@ -1,16 +1,16 @@
 from datetime import datetime, timezone
+from flask import current_app
 from flask_login import UserMixin
 from sqlalchemy.orm import Mapped, mapped_column
+from itsdangerous import URLSafeTimedSerializer as URLSafe
 from werkzeug.security import generate_password_hash, check_password_hash
 from lingual import db
 from lingual.utils.languages import Language, Languages
-
 from sqlalchemy.types import JSON
 
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     first_name: Mapped[str] = mapped_column(db.String(150), nullable=False)
-    last_name: Mapped[str] = mapped_column(db.String(150), nullable=True)
     email: Mapped[str] = mapped_column(db.String(150), unique=True, index=True, nullable=False)
     password_hash: Mapped[str] = mapped_column(db.String(256), nullable=False)
 
@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
     def set_password(self, password: str):
+        # Todo: add password strength validation
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password: str) -> bool:
@@ -65,3 +66,22 @@ class User(UserMixin, db.Model):
 
     def __repr__(self) -> str:
         return f"<User {self.email} ({len(self.languages)} languages)>"
+
+    def get_reset_token(self, expires_seconds=1800) -> str:
+        from datetime import timedelta
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
+        expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp()
+        return s.dumps({'user_id': self.id, 'expires_at': expires_at})
+    
+    @staticmethod
+    def verify_reset_token(token):
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
+        try:
+            data = s.loads(token)
+            if datetime.now(timezone.utc).timestamp() > data['expires_at']:
+                return None
+            return db.session.get(User, data['user_id'])
+        except Exception:
+            return None
+        
+    

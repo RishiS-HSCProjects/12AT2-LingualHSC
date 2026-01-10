@@ -7,19 +7,20 @@ class Language:
             code: str,
             name: str,
             native_name: str,
+            app_code: str,
             app_name: str
         ):
         self.code = code
         self.name = name
         self.native_name = native_name
+        self.app_code = app_code
         self.app_name = app_name
 
     def __repr__(self) -> str:
-        return f"Language(code='{self.code}', name='{self.name}', native_name='{self.native_name}')"
-
+        return f"Language(code={self.code!r}, name={self.name!r}, native_name={self.native_name!r}, app_code={self.app_code!r}, app_name={self.app_name!r})"
 
 class Languages(Enum):
-    JAPANESE = Language('jp', 'Japanese', '日本語', 'nihongo')
+    JAPANESE = Language('jp', 'Japanese', '日本語', 'nihongo', '日本Go!')
 
     def obj(self) -> Language:
         return self.value

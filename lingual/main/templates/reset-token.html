@@ -1,0 +1,49 @@
+{% extends 'lingual-template.html' %}
+
+{% set title = "Welcome Back! - Lingual HSC" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/registration.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/password-match.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+<form id="form" action="{{ url_for('main.reset_token', token=token) }}" method="POST">
+    <section class="active">
+        <h1>Hey again, {{ user.first_name }}!</h1>
+        <div class="form-body">
+            <div class="form-elements">
+                <h2>Don't forget this one too!</h2>
+                <div class="group-fields">
+                    <input type="password" autocomplete="new-password" autofocus
+                        oninput="validatePassword(this); checkSubmit();" id="password" name="password"
+                        placeholder="New Password" required>
+
+                    <input type="password" autocomplete="new-password"
+                        oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
+                        name="confirm-password" placeholder="Confirm New Password" required>
+                </div>
+
+                <small id="password-help">
+                    <ul id="password-requirements">
+                        <li class="invalid" id="pwd-char">At least 8 characters</li>
+                        <li class="invalid" id="pwd-special">At least one special character</li>
+                        <li class="invalid" id="pwd-num">At least one number</li>
+                        <li class="invalid" id="pwd-upper">At least one uppercase letter</li>
+                        <li class="invalid" id="pwd-lower">At least one lowercase letter</li>
+                        <li class="invalid" id="pwd-match">Passwords must match</li>
+                    </ul>
+                </small>
+                <div class="next-btn">
+                    <button id="pwd-submit" type="submit" class="next" disabled>Done!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+{% endblock body %}
