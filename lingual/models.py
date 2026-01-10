@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
     def set_password(self, password: str):
+        # Todo: add password strength validation
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password: str) -> bool:
@@ -79,7 +80,7 @@ class User(UserMixin, db.Model):
             data = s.loads(token)
             if datetime.now(timezone.utc).timestamp() > data['expires_at']:
                 return None
-            return User.query.get(data['user_id'])
+            return db.session.get(User, data['user_id'])
         except Exception:
             return None
         

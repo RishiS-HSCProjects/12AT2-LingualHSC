@@ -37,7 +37,7 @@
     {% if languages %}
     <div class="app-directory">
         {% for language in languages %}
-        <div class="app-card" onclick="window.location.href='{{ url_for('main.app_redirect', code=language.code) }}'">
+        <div class="app-card" onclick="window.location.href='{{ url_for('main.app_redirect', code=language.code) }}'" tabindex="0">
             <div class="app-logo-container">
                 <img src="{{ url_for(language.app_code ~ '.static', filename='app_assets/flag.svg') }}"
                     alt="{{ language.app_name }} logo" class="app-logo"

@@ -26,7 +26,7 @@
                     {{ form.password(placeholder="Password", autocomplete="current-password") }}
                 </div>
                 <button type="submit" id="login-btn" class="next login-action">Log In</button>
-                <button type="button" id="forgot-password-btn" class="next login-action" onclick="location.href='{{ url_for('main.register') }}'">I don't have an account</button>
+                <button type="button" id="register-btn" class="next login-action" onclick="location.href='{{ url_for('main.register') }}'">I don't have an account</button>
                 <p class="subtitle">I forgot my password. <a href="{{ url_for('main.reset') }}">Request a reset</a>.</p>
             </div>
         </div>

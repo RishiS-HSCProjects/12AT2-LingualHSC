@@ -140,8 +140,6 @@ def register_util(step):
 
             try:
                 from lingual.core.auth.routes import verify_email
-                import colorama
-                current_app.logger.debug(f"{colorama.Fore.RED}Sending verification email to {email}{colorama.Style.RESET_ALL}")
                 verify_email()  # Send email verification
             except Exception as e:
                 current_app.logger.error(f"Error in verify_email: {e}")

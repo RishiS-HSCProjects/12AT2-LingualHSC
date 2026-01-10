@@ -17,8 +17,7 @@ class Language:
         self.app_name = app_name
 
     def __repr__(self) -> str:
-        return f"Language(code={self.code}, name={self.name}, native_name={self.native_name}, app_code={self.app_code}, app_name={self.app_name})"
-
+        return f"Language(code={self.code!r}, name={self.name!r}, native_name={self.native_name!r}, app_code={self.app_code!r}, app_name={self.app_name!r})"
 
 class Languages(Enum):
     JAPANESE = Language('jp', 'Japanese', '日本語', 'nihongo', '日本Go!')

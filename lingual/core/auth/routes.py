@@ -60,7 +60,7 @@ def verify_email():
         Thread(
             target=send_verification_email,
             args=(current_app._get_current_object(), email, otp),  # type: ignore
-            daemon=True # Makes asyncronous to not halt application flow while sending email
+            daemon=True # Makes asynchronous to not halt application flow while sending email
         ).start()
     except Exception as e:
         current_app.logger.error(f"Error when sending verification email: {e}")
@@ -84,6 +84,7 @@ def verify_otp(otp_code: str) -> str | None:
         return "OTP has expired. Please request a new one."
 
     if checkpw(otp_code.encode(), otp_data[0]):
+        session.pop('otp', None)
         return None
 
     return "Invalid verification code"
@@ -133,7 +134,7 @@ def send_password_reset_email(user: 'User'):
                 recipients=[email],
                 body=(
                     f"To reset your password, visit the following link: {url_for('main.reset_token', token=token, _external=True)}\n\n"
-                    "This link will expire in 5 minutes.\n\n"
+                    "This link will expire in 30 minutes.\n\n"
                     "If you did not make this request, simply ignore this email."
                 )
             )
@@ -142,7 +143,7 @@ def send_password_reset_email(user: 'User'):
         Thread(
             target=send_verification_email,
             args=(current_app._get_current_object(), user.email, user.get_reset_token()),  # type: ignore
-            daemon=True # Makes asyncronous to not halt application flow while sending email
+            daemon=True # Makes asynchronous to not halt application flow while sending email
         ).start()
     except Exception as e:
         current_app.logger.error(f"Error when sending password reset email: {e}")

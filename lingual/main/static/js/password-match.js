@@ -55,5 +55,7 @@ function checkSubmit() {
     const confirm_password = document.getElementById('confirm-password');
     const submit = document.getElementById('pwd-submit');
     
-    submit.disabled = !(validatePassword(password) && validatePasswordMatch(confirm_password));
+    if (submit) { // Ensure the submit button exists to avoid null error
+        submit.disabled = !(validatePassword(password) && validatePasswordMatch(confirm_password));
+    }
 }
