@@ -14,17 +14,6 @@
     font-size: 4rem;
 }
 
-#form section {
-    min-height: calc(100vh - var(--nav-height));
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    scroll-snap-align: start;
-    display: none;
-}
-
 #form section.active {
     display: block;
 }

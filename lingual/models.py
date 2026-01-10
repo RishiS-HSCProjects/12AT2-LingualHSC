@@ -6,7 +6,6 @@ from itsdangerous import URLSafeTimedSerializer as URLSafe
 from werkzeug.security import generate_password_hash, check_password_hash
 from lingual import db
 from lingual.utils.languages import Language, Languages
-
 from sqlalchemy.types import JSON
 
 class User(UserMixin, db.Model):

@@ -275,6 +275,26 @@ def app():
 @main_bp.route('/app/directory', strict_slashes=False)
 @login_required
 def app_directory():
+    languages = [lang.obj() for lang in Languages]
+    user_languages = current_user.get_languages()
 
-    languages = current_user.get_languages()
-    return render_template('app-directory.html', languages=languages)
+    return render_template(
+        'app-directory.html',
+        user_languages=user_languages,
+        languages=[lang for lang in languages if lang not in user_languages]
+    )
+
+@main_bp.route('/app/<string:code>', strict_slashes=False)
+@login_required
+def app_redirect(code: str):
+    try:
+        current_user.add_language(code) # type: ignore -> If language is already added, this does nothing
+    except ValueError:
+        flash("The requested language app does not exist.", "error")
+        return redirect(url_for('main.app_directory'))
+
+    current_user.set_last_language(code)
+    from lingual import db
+    db.session.commit()
+
+    return redirect(url_for('main.app'))
