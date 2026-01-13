@@ -1,0 +1,7 @@
+{% extends "app-container.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
+{% endblock %}
+

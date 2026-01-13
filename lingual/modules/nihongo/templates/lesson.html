@@ -1,0 +1,15 @@
+{% extends "nihongo-template.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="lesson-container">
+        <h1>{{ lesson.meta.title }}</h1>
+        <div class="lesson-content">
+            {{ lesson.content | safe }}
+        </div>
+    </div>
+{% endblock %}

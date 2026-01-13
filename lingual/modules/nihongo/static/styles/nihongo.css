@@ -1,0 +1,66 @@
+:root {
+    /* Backgrounds */
+    --bg-main: #EFFCFF;
+    --bg-card: #FFD4D4;
+    --bg-kanji-card: #F0CAD9;
+    --bg-option-1: #A8DD2C;
+    --bg-option-2: #E853D1;
+
+    /* Font Colors */
+    --color-primary: #000000;
+    /* Main text */
+    --color-secondary: #787878;
+    /* Icon / placeholder text */
+
+    /* Borders / lines */
+    --border-main: 1px solid #000000;
+    --border-radius-card: 50px;
+    --border-radius-small: 25px;
+    --border-radius-image: 30px;
+
+    /* Typography */
+    --font-family-main: 'Noto Sans JP', sans-serif;
+    --font-family-title: 'Noto Serif JP', serif;
+
+    --font-size-title-lg: 75px;
+    /* 日本GO! */
+    --font-size-nav: 46px;
+    --font-size-header-lg: 65px;
+    /* Section headers inside cards */
+    --font-size-header-md: 60px;
+    /* Lesson / grammar titles */
+    --font-size-body: 34px;
+    --font-size-small: 27px;
+
+    --line-height-title-lg: 90px;
+    --line-height-nav: 55px;
+    --line-height-header-lg: 78px;
+    --line-height-header-md: 72px;
+    --line-height-body: 41px;
+    --line-height-small: 32px;
+
+    /* Layout spacing */
+    --gap-main: 75px;
+    --gap-small: 39px;
+    --padding-card: 10px;
+    --scroll-width: 593px;
+    /* Frame 3 scroll container width */
+    --scroll-height: 334px;
+    /* Frame 3 scroll container height */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    font-family: var(--font-family-main);
+    overflow-x: hidden;
+}
+
+nav a {
+    font-size: var(--font-size-nav);
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
