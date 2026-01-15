@@ -48,6 +48,7 @@ class BaseLessonProcessor:
             return f'<a href="{url_for(f"{self.language.app_code}.{route}", slug=slug)}">{label}</a>'
 
         return LINK_RE.sub(repl, text)
+
     def transform_quizzes(self, text: str) -> str:
         def repl(match):
             lesson, quiz, params = match.groups() # Separates str into a tuple including lesson, quiz, and params
@@ -87,7 +88,6 @@ class BaseLessonProcessor:
         """
         self.transformers.append(transform)
 
-    # ---------- PIPELINE ----------
     def apply_transforms(self, content: str) -> str:
         for transform in self.transformers:
             content = transform(content)
@@ -99,17 +99,19 @@ class BaseLessonProcessor:
         if not path.exists():
             raise FileNotFoundError(f"Lesson not found: {path}")
 
-        post = frontmatter.load(path) # type: ignore -> Separates yaml metadata from md content
-        content = self.apply_transforms(post.content) # Applies custom transformations
+        post = frontmatter.load(path)  # Separates YAML metadata from MD content
+        content = self.apply_transforms(post.content)  # Applies custom transformations
 
-        html = markdown.markdown( # Convert md to html
+        # Convert MD to HTML
+        html = markdown.markdown( 
             content,
-            extensions=MARKDOWN_EXTENSIONS, # Install extensions
-            output_format="html5", # type:ignore -> HTML5 output
+            extensions=MARKDOWN_EXTENSIONS,  # Install extensions
+            output_format="html5",           # HTML5 output
         )
 
         return {
-            "meta": post.metadata, # YAML metadata
-            "content": html, # HTML content
-            "slug": slug, # Lesson slug 
+            "meta": post.metadata,  # YAML metadata
+            "content": html,        # HTML content
+            "slug": slug,           # Lesson slug
+            "data_root": self.data_root,
         }

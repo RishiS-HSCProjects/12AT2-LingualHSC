@@ -70,7 +70,7 @@
                 "answer": 0
             },
             {
-                "question": "～食べます → て",
+                "question": "食べます → て",
                 "options": [
                     "食べって",
                     "食べて",
@@ -80,7 +80,7 @@
                 "answer": 1
             },
             {
-                "question": "～見ます → て",
+                "question": "見ます → て",
                 "options": [
                     "見いて",
                     "見んで",

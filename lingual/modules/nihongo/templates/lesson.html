@@ -1,15 +1,18 @@
 {% extends "nihongo-template.html" %}
 
+{% set title = lesson.meta.title %}
+
 {% block meta %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson.css') }}">
 {% endblock %}
 
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/lesson-utils.js') }}"></script>
+{% endblock %}
+
 {% block body %}
-    <div id="lesson-container">
-        <h1>{{ lesson.meta.title }}</h1>
-        <div class="lesson-content">
-            {{ lesson.content | safe }}
-        </div>
-    </div>
+    {% import "lesson-content-macro.html" as lesson_macros %}
+    {{ lesson_macros.lesson_content(lesson) }}
 {% endblock %}
