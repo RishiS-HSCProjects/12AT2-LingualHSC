@@ -48,6 +48,7 @@ They conjugate by removing the final る and adding the appropriate ending.
 - 起[お]きる - to wake up
 - 寝[ね]る - to sleep
 - 教[お]しる - to teach
+
 ## Group 3: Irregular Verbs
 There are only two main irregular verbs in Japanese: する (suru - to do) and 来[く]る (kuru - to come). These verbs do not follow the standard conjugation patterns of Godan or Ichidan verbs and are different on a case-by-case basis.
 
@@ -56,3 +57,5 @@ There are only two main irregular verbs in Japanese: する (suru - to do) and �
 # Summary
 Understanding the three verb groups in Japanese is crucial for mastering verb conjugation. Each group has its own set of rules and patterns that you will need to learn to use verbs correctly in various contexts.
 By familiarizing yourself with Godan, Ichidan, and Irregular verbs, you'll be well on your way to becoming proficient in Japanese verb usage!
+
+~quizzes:verb-groups:quiz?shuffle&limit=5~

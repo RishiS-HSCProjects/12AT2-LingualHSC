@@ -32,7 +32,7 @@ class BaseLessonProcessor:
     def __init__(self, language: Language, data_root: Path):
         self.language: Language = language
         self.data_root: Path = data_root
-        self.transformers = [ # Languages will extend this list
+        self.transformers = [ # Languages can add on to this list
             self.transform_links,
             self.transform_quizzes,
             self.transform_notes,

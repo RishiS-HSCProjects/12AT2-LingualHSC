@@ -24,6 +24,7 @@ This pattern can be sung in a song to help remember it!
 
 ### Group 1 Rules
 If the plain verb ends with:
+
 - う, つ, or る → change to って
 - ぶ, む, or ぬ → change to んで
 - く → change to いて

@@ -1,9 +1,9 @@
 {
     "group1": {
         "title": "Group 1 Verbs て-Form",
-        "random": true,
         "bank": [
             {
+                "type": "mc",
                 "question": "～ちます → て",
                 "options": [
                     "って",
@@ -14,6 +14,7 @@
                 "answer": 0
             },
             {
+                "type": "mc",
                 "question": "～ります → て",
                 "options": [
                     "んで",
@@ -24,6 +25,7 @@
                 "answer": 3
             },
             {
+                "type": "mc",
                 "question": "～みます → て",
                 "options": [
                     "って",
@@ -34,6 +36,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "～ぶ → て",
                 "options": [
                     "んで",
@@ -44,6 +47,7 @@
                 "answer": 0
             },
             {
+                "type": "mc",
                 "question": "～きます → て",
                 "options": [
                     "って",
@@ -57,9 +61,18 @@
     },
     "group2": {
         "title": "Group 2 Verbs て-Form",
-        "random": true,
         "bank": [
             {
+                "type": "input",
+                "question": "Convert the verb 'ねます' (to sleep) to its て-form.",
+                "valid": [
+                    "寝て",
+                    "ねて",
+                    "nete"
+                ]
+            },
+            {
+                "type": "mc",
                 "question": "～ます → て",
                 "options": [
                     "て",
@@ -70,6 +83,7 @@
                 "answer": 0
             },
             {
+                "type": "mc",
                 "question": "食べます → て",
                 "options": [
                     "食べって",
@@ -80,6 +94,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "見ます → て",
                 "options": [
                     "見いて",
@@ -93,10 +108,9 @@
     },
     "quiz": {
         "title": "Japanese て-Form Quiz",
-        "limit": 5,
-        "random": true,
         "bank": [
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '食べる' (to eat)?",
                 "options": [
                     "食べて",
@@ -107,6 +121,7 @@
                 "answer": 0
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '行く' (to go)?",
                 "options": [
                     "行て",
@@ -117,6 +132,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '読む' (to read)?",
                 "options": [
                     "読んて",
@@ -127,6 +143,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '書く' (to write)?",
                 "options": [
                     "書きて",
@@ -137,6 +154,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb 'きます' (to wear)?",
                 "options": [
                     "くて",
@@ -147,6 +165,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb 'きます' (to come)?",
                 "options": [
                     "くて",
@@ -157,6 +176,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb 'おきます' (to wake up)?",
                 "options": [
                     "おきって",
@@ -167,6 +187,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb 'しる'? ",
                 "options": [
                     "して",
@@ -177,6 +198,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb 'する' (to do)?",
                 "options": [
                     "すて",
@@ -187,6 +209,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '飲む' (to drink)?",
                 "options": [
                     "飲いて",
@@ -197,6 +220,7 @@
                 "answer": 1
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '話す' (to speak)?",
                 "options": [
                     "話んで",
@@ -207,6 +231,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '買う' (to buy)?",
                 "options": [
                     "買って",
@@ -217,6 +242,7 @@
                 "answer": 0
             },
             {
+                "type": "mc",
                 "question": "What is the て-form of the verb '待つ' (to wait)?",
                 "options": [
                     "待つて",
@@ -227,6 +253,7 @@
                 "answer": 2
             },
             {
+                "type": "mc",
                 "question": "What is the rule of conjugating a Godan verb to its て-form?",
                 "options": [
                     "Drop the character before ます and add て",
@@ -235,6 +262,15 @@
                     "Add て directly to the dictionary form"
                 ],
                 "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Convert the Godan verb 'はしります' (to run) to its て-form.",
+                "valid": [
+                    "はしって",
+                    "走って",
+                    "hashitte"
+                ]
             }
         ]
     }
