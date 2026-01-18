@@ -263,7 +263,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.quiz-summary subtitle.quiz-subtitle {
+.quiz-summary p.quiz-subtitle {
     text-align: center;
     font-size: 1.2rem;
     color: #57606a;

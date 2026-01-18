@@ -1,5 +1,6 @@
 import os
-from flask import Blueprint, flash, redirect, render_template, url_for
+import re
+from flask import Blueprint, abort, flash, json, jsonify, redirect, render_template, url_for
 from flask_login import login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
@@ -13,6 +14,8 @@ nihongo_bp = Blueprint(
     static_url_path='/modules/nihongo/static'
 )
 
+VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
+
 @nihongo_bp.route('/')
 @login_required
 def home():
@@ -22,12 +25,13 @@ def home():
 @nihongo_bp.route('/grammar/<slug>')
 @login_required
 def grammar(slug):
-    if not slug:
-        return "Nihongo Grammar Home"
+    # Validate slug to prevent directory traversal attacks
+    if not VALID_SLUG.match(slug):
+        abort(400, description="Invalid lesson slug.")
+
     try:
         lesson_data = get_processor().load(slug)
-    except FileNotFoundError as e:
-        lesson_data = None
+    except FileNotFoundError:
         flash("Lesson not found.", "error")
         return redirect(url_for('nihongo.grammar'))
     except Exception as e:
@@ -38,10 +42,25 @@ def grammar(slug):
 
 @nihongo_bp.route('/api/quiz/<lesson_slug>', methods=['GET'])
 def get_quizzes(lesson_slug):
-    path = os.path.join(get_processor().data_root, 'quizzes', f"{lesson_slug}.json")
+    # Validate slug to prevent directory traversal attacks
+    if not VALID_SLUG.match(lesson_slug):
+        abort(400, description="Invalid lesson slug.")
+
+    base_dir = os.path.join(get_processor().data_root, 'quizzes')
+    path = os.path.join(base_dir, f"{lesson_slug}.json")
+
+    # Ensure the resolved path is still inside the quizzes directory
+    if not os.path.realpath(path).startswith(os.path.realpath(base_dir)):
+        abort(400, description="Invalid path.")
+
     if not os.path.exists(path):
-        return {"error": "Quiz not found."}, 404
+        return jsonify({"error": "Quiz not found."}), 404
+
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f) # Validates JSON by attempting to load it
+    except:
+        return jsonify({"error": "Malformed quiz JSON."}), 500
+
+    return jsonify(data)
     
-    with open(path, 'r', encoding='utf-8') as f:
-        quiz_data = f.read()
-    return quiz_data, 200, {'Content-Type': 'application/json'}

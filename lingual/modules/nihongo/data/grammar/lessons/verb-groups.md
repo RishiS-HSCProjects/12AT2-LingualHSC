@@ -21,7 +21,7 @@ They conjugate by changing the final syllable of the verb stem according to a sp
 - 書[か]く - to write
 - 話[は]す - to speak
 - 飲[の]む - to drink
-- 歩[あるき]る - to walk
+- 歩[ある]く - to walk
 - 泳[およ]ぐ - to swim
 ### Conjugation Cheatsheet
 
@@ -47,12 +47,12 @@ They conjugate by removing the final る and adding the appropriate ending.
 - 見[み]る - to see
 - 起[お]きる - to wake up
 - 寝[ね]る - to sleep
-- 教[お]しる - to teach
+- 教[おし]える - to teach
 
 ## Group 3: Irregular Verbs
 There are only two main irregular verbs in Japanese: する (suru - to do) and 来[く]る (kuru - to come). These verbs do not follow the standard conjugation patterns of Godan or Ichidan verbs and are different on a case-by-case basis.
 
-/i 行[い]く sometimes is counted as an irregular verb as it sometimes takes the rules of the other Godan verbs and other time decides to do it's own thing. E.g. 行く in て-form becomes 行って, not 行いて. \
+/i 行[い]く is sometimes counted as an irregular verb as it takes the rules of the other Godan verbs in some cases and decides to do its own thing in others. E.g. 行く in て-form becomes 行って, not 行いて. \
 
 # Summary
 Understanding the three verb groups in Japanese is crucial for mastering verb conjugation. Each group has its own set of rules and patterns that you will need to learn to use verbs correctly in various contexts.

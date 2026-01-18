@@ -1,10 +1,11 @@
 from pathlib import Path
-from functools import lru_cache
-from flask import url_for
+# from functools import lru_cache
+from flask import current_app, url_for
 import frontmatter
 import markdown
 import re
 from lingual.utils.languages import Language
+from werkzeug.routing import BuildError
 
 MARKDOWN_EXTENSIONS = [
     "extra",
@@ -15,7 +16,7 @@ MARKDOWN_EXTENSIONS = [
     "md_in_html",
 ]
 
-# REGEXE PATTERNS
+# REGEX PATTERNS
 LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)\)')
 QUIZ_RE = re.compile(r'~quizzes:([\w\-]+):([\w\-]+)(?:\?([^\~]+))?~')
 NOTE_RE = re.compile(r'/i\s+(.*?)\\', re.DOTALL)
@@ -45,7 +46,13 @@ class BaseLessonProcessor:
             route = match.group(2)
             slug = match.group(3)
 
-            return f'<a href="{url_for(f"{self.language.app_code}.{route}", slug=slug)}">{label}</a>'
+            try:
+                href = url_for(f"{self.language.app_code}.{route}", slug=slug)
+            except BuildError:
+                href = "#"
+                current_app.logger.warning(f"Failed to build URL for route '{route}' with slug '{slug}'")
+
+            return f'<a href="{href}">{label}</a>'
 
         return LINK_RE.sub(repl, text)
 
@@ -93,8 +100,11 @@ class BaseLessonProcessor:
             content = transform(content)
         return content
 
-    # @lru_cache(maxsize=128)
+    # @lru_cache(maxsize=128) todo: enable caching
     def load(self, slug: str) -> dict:
+        if not re.fullmatch(r"[A-Za-z0-9\-]+", slug):
+            raise ValueError("Invalid lesson slug.")
+
         path = self.data_root / "lessons" / f"{slug}.md"
         if not path.exists():
             raise FileNotFoundError(f"Lesson not found: {path}")

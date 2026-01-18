@@ -127,7 +127,21 @@ class QuizRenderer {
             if (!this.quizCache[lesson]) {
                 // Fetch quiz data for the lesson if not already cached
                 const res = await fetch(`/nihongo/api/quiz/${lesson}`);
-                if (!res.ok) throw new Error("Network response was not ok");
+
+                if (!res.ok) {
+                    let msg = "Unknown error";
+
+                    try {
+                        const err = await res.json(); // Attempt to parse error message from JSON
+                        msg = err.error || msg; // Set msg to parsed error if available
+                    } catch (_) {
+                        // If JSON parsing fails, fallback to statusText
+                        msg = res.statusText;
+                    }
+
+                    throw new Error("Network response was not ok: " + msg);
+                }
+
 
                 this.quizCache[lesson] = await res.json(); // Cache quiz data for the lesson
             }
@@ -169,11 +183,13 @@ class QuizRenderer {
             questions = questions.slice(0, limit);
         }
 
-        this.renderQuestion(container, quiz, questions, index = 0, score = {
-            correct: 0, // Reset score
-            total: questions.length,
-            missed: [] // Track missed questions for review
-        }, isReview = false);
+        this.renderQuestion(
+            container, quiz, questions, 0, {
+                correct: 0,
+                total: questions.length,
+                missed: []
+            }, false
+        );
     }
 
     /**
@@ -255,7 +271,7 @@ class QuizRenderer {
 
         setTimeout(() => locked = false, this.lockDelay); // Only run the below logic after delay
 
-        const markIncorrect = () => { // Anononymous function to handle incorrect answers
+        const markIncorrect = () => { // Anonymous function to handle incorrect answers
             if (!isReview) score.missed.push(q); // Add to missed questions if not in review mode
         };
 
@@ -364,7 +380,7 @@ class QuizRenderer {
         container.innerHTML = `
             <div class="quiz-summary">
                 <p class="quiz-header">${header}</p>
-                <subtitle class="quiz-subtitle">${subtitle}</subtitle>
+                <p class="quiz-subtitle">${subtitle}</p>
                 <div class="quiz-score">
                     ${score.correct} / ${score.total} (${percent}%)
                 </div>

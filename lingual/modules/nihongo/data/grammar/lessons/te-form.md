@@ -38,7 +38,7 @@ If the plain verb ends with:
 | 書[か]く | 書いて | to write |
 | 話[は]す | 話して | to speak |
 | 飲[の]む | 飲んで | to drink |
-| 歩[あるき]る | 歩って | to walk |
+| 歩[ある]く | 歩って | to walk |
 | 泳[およ]ぐ | 泳いで | to swim |
 ~quizzes:te-form:group1?shuffle~
 
@@ -52,7 +52,7 @@ Ichidan verbs are simpler to conjugate into the て form. You simply remove the 
 | 見[み]る | 見て | to see |
 | 起[お]きる | 起きて | to wake up |
 | 寝[ね]る | 寝て | to sleep |
-| 教[お]しる | 教して | to teach |
+| 教[おし]える | 教えて | to teach |
 ~quizzes:te-form:group2?shuffle~
 
 ## Irregular Verbs

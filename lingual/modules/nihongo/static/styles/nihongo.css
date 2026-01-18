@@ -81,7 +81,7 @@ nav>div#nav-wrapper {
     height: 100%;
     margin: auto 20px;
 }
-nav#nav-logo {
+nav #nav-logo {
     font-family: var(--font-family-title);
     font-size: var(--font-size-nav);
     color: black;
@@ -104,5 +104,5 @@ nav a {
     font-size: var(--font-size-nav);
     text-decoration: none;
     color: black;
-    white-space: nowrap;/
+    white-space: nowrap;
 }
