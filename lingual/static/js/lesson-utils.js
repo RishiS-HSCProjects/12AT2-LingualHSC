@@ -161,8 +161,7 @@ class QuizRenderer {
             `;
 
             // Log error details to console for debugging
-            console.error(`Failed to load quiz data for lesson "${lesson}", quiz ID "${id}".`);
-            console.error(e);
+            console.error(`Failed to load quiz data for lesson "${lesson}", quiz ID "${id}".\n Error:`, e);
         }
     }
 
@@ -172,9 +171,9 @@ class QuizRenderer {
         const limit = Number(container.dataset.limit); // Set question limit if specified
         const shuffle = container.dataset.shuffle !== undefined; // Enable shuffling if attribute is present
 
-        if (shuffle) { // Shuffle question order if enabled
+        if (shuffle) { // Shuffle question order if enabled using Fisher-Yates algorithm
             for (let i = questions.length - 1; i > 0; i--) {
-                const j = Math.random() * (i + 1) | 0;
+                const j = Math.floor(Math.random() * (i + 1));
                 [questions[i], questions[j]] = [questions[j], questions[i]];
             }
         }
@@ -203,6 +202,13 @@ class QuizRenderer {
      * @param {boolean} isReview - Flag indicating if the quiz is in review mode for missed questions.
      */
     renderQuestion(container, quiz, questions, index, score, isReview) {
+        const normaliseAnswer = (str) =>
+            str.normalize('NFC')
+            .replace(/\s+/g, ' ')
+            .replace(/\u00A0/g, ' ')
+            .trim()
+            .toLowerCase();
+        
         const q = questions[index]; // Current question to render
         if (!q) return; // No question found at the given index. Should never happen.
 
@@ -220,7 +226,7 @@ class QuizRenderer {
             if (allowShuffle) {
                 // Shuffle options if specified using Fisher-Yates algorithm
                 for (let i = shuffledOptions.length - 1; i > 0; i--) {
-                    const j = Math.random() * (i + 1) | 0;
+                    const j = Math.floor(Math.random() * (i + 1));
                     [shuffledOptions[i], shuffledOptions[j]] =
                         [shuffledOptions[j], shuffledOptions[i]];
                 }
@@ -317,8 +323,8 @@ class QuizRenderer {
                 if (locked || answered) return;
                 answered = true;
 
-                const val = input.value.trim();
-                const correct = q.valid.includes(val); // Check if input matches any valid answers
+                const val = normaliseAnswer(input.value);
+                const correct = q.valid.some(answer => normaliseAnswer(answer) === val); // Check if input matches any valid answers
 
                 input.classList.add(correct ? this.correctClass : this.incorrectClass);
                 input.disabled = true;

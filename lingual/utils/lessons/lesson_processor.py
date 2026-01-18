@@ -6,6 +6,7 @@ import markdown
 import re
 from lingual.utils.languages import Language
 from werkzeug.routing import BuildError
+from markupsafe import escape
 
 MARKDOWN_EXTENSIONS = [
     "extra",
@@ -83,7 +84,7 @@ class BaseLessonProcessor:
     def transform_color(self, text: str) -> str:
         return COLOR_RE.sub(
             r'<span style="color:\1">\2</span>',
-            text
+            escape(text)
         )
 
 

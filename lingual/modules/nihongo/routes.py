@@ -59,7 +59,7 @@ def get_quizzes(lesson_slug):
     try:
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f) # Validates JSON by attempting to load it
-    except:
+    except Exception:
         return jsonify({"error": "Malformed quiz JSON."}), 500
 
     return jsonify(data)
