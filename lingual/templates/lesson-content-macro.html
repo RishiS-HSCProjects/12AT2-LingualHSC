@@ -1,0 +1,19 @@
+<!-- Dependencies -->
+<!--
+    - lesson-utils.js
+    - lesson.css
+-->
+
+{% macro lesson_content(lesson) %}
+    <div id="lesson-content-wrapper">
+        <div id="lesson-container">
+            <h1 class="lesson-title">{{ lesson.meta.title }}</h1>
+            <div class="lesson-content">
+                {{ lesson.content | safe }}
+            </div>
+        </div>
+        <div id="directory-panel">
+            <div id="directory-results"></div>
+        </div>
+    </div>
+{% endmacro %}

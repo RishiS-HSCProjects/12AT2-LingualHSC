@@ -1,0 +1,24 @@
+{% extends "app-container.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
+{% endblock %}
+
+{% block header %}
+<nav>
+    <div id="nav-wrapper">
+        <div id="nav-logo"><a href="{{ url_for('nihongo.home') }}">日本Go!</a></div>
+        <div id="nav-opt">
+            <a href="">Quiz</a>
+            <a href="{{ url_for('nihongo.grammar') }}">Grammar</a>
+            <a href="">Kanji</a>
+            <img src="{{ url_for('static', filename='assets/account.svg') }}" alt="Account Menu">
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

@@ -1,0 +1,130 @@
+{
+    "quiz": {
+        "title": "Japanese Verb Groups",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which verb group is also known as consonant-stem verbs?",
+                "options": [
+                    "Ichidan verbs",
+                    "Irregular verbs",
+                    "Godan verbs",
+                    "Potential verbs"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following verbs is an Ichidan verb?",
+                "options": [
+                    "書く",
+                    "食べる",
+                    "話す",
+                    "泳ぐ"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What is the basic rule for conjugating Ichidan verbs?",
+                "options": [
+                    "Change the final syllable according to vowel patterns",
+                    "Add ます directly to the dictionary form",
+                    "They do not conjugate",
+                    "Remove the final る and add the ending"
+                ],
+                "answer": 3
+            },
+            {
+                "type": "mc",
+                "question": "Which verb is considered irregular in Japanese?",
+                "options": [
+                    "飲む",
+                    "見る",
+                    "する",
+                    "歩く"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Why are Godan verbs called \"five-step\" verbs?",
+                "options": [
+                    "They have five tenses",
+                    "They use five different vowel sounds when conjugated",
+                    "They are taught in five lessons",
+                    "They only work with five particles"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which verb sometimes behaves irregularly despite being a Godan verb?",
+                "options": [
+                    "行く",
+                    "書く",
+                    "食べる",
+                    "見る"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "What is the rule for conjugating Irregular verbs?",
+                "options": [
+                    "They follow the same rules as Ichidan verbs",
+                    "They follow the same rules as Godan verbs",
+                    "They have unique conjugation patterns that must be memorised",
+                    "They do not conjugate at all"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "What is the present potential form of the Godan verb '書く' (to write)?",
+                "valid": [
+                    "書ける",
+                    "書けます",
+                    "かける",
+                    "かけます",
+                    "kakeru",
+                    "kakemasu"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "What is Volitional form?",
+                "options": [
+                    "A form used to make suggestions or express intentions",
+                    "A form used to express desires",
+                    "A form used for past actions",
+                    "A form used for commands"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Convert the Ichidan verb '食べる' (to eat) to its Volitional form.",
+                "valid": [
+                    "食べよう",
+                    "食べましょう",
+                    "たべよう",
+                    "たべましょう",
+                    "tabeyou",
+                    "tabemashou"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "How can you identify an Ichidan verb?",
+                "options": [
+                    "It ends with る with no specific preceding character rule.",
+                    "It ends with る preceded by a single character or an え or い sound",
+                    "It ends with る with rules changing on a case-by-case basis",
+                    "It ends with an う sound preceded by a single character or an え or い sound"
+                ],
+                "answer": 1
+            }
+        ]
+    }
+}
