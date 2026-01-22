@@ -126,7 +126,7 @@ class QuizRenderer {
         try {
             if (!this.quizCache[lesson]) {
                 // Fetch quiz data for the lesson if not already cached
-                const res = await fetch(`/nihongo/api/quiz/${lesson}`);
+                const res = await fetch(`api/quiz/${lesson}`);
 
                 if (!res.ok) {
                     let msg = "Unknown error";
@@ -202,129 +202,196 @@ class QuizRenderer {
      * @param {boolean} isReview - Flag indicating if the quiz is in review mode for missed questions.
      */
     renderQuestion(container, quiz, questions, index, score, isReview) {
-        const normaliseAnswer = (str) =>
-            str.normalize('NFC')
-            .replace(/\s+/g, ' ')
-            .replace(/\u00A0/g, ' ')
-            .trim()
-            .toLowerCase();
-        
-        const q = questions[index]; // Current question to render
-        if (!q) return; // No question found at the given index. Should never happen.
+        /**
+         * Normalises an answer string (supports various language scripts) for flexible matching.
+         */
+        const normaliseAnswer = (raw) => {
+            if (raw == null) return "";
 
-        let bodyHTML = '';
+            let s = String(raw).normalize("NFKC").normalize("NFC");
 
-        if (q.type === 'mc') {
-            let shuffledOptions = null;
-            const allowShuffle = q['allow-shuffle'] !== false; // Default to true if not specified
+            s = s.replace(/<[^>]*>/g, ""); // Remove HTML tags
+            s = s.replace(/[\u200B-\u200F\uFEFF]/g, ""); // Remove zero-width and formatting chars
+            s = s.replace(/[\x00-\x1F\x7F]/g, ""); // Remove control characters
+            s = s.replace(/\u00A0/g, " "); // Replace non-breaking spaces with regular spaces
+            s = s.replace(/\s+/g, " ").trim(); // Normalise whitespace
+            s = s.replace(/[\p{P}\p{S}]/gu, ""); // Remove punctuation and symbols
+            s = s.replace(/[-_]{2,}/g, "-"); // Replace multiple hyphens/underscores with single hyphen
+            s = s.toLowerCase(); // Case insensitive matching
 
-            shuffledOptions = q.options.map((text, originalIndex) => ({
-                text,
-                originalIndex
-            }));
+            return s;
+        };
+
+        const q = questions[index]; // Current question object
+        if (!q) return;
+
+        let bodyHTML = ""; // HTML for question body will be constructed here
+
+        /* ---- Explanation and sample answer block construction ---- */
+        const explanationParts = []; // Parts of the explanation block
+
+        if (q.explanation) {
+            // Add explanation block if provided
+            explanationParts.push(`
+            <div class="quiz-explanation-block">
+                <strong>Explanation:</strong><br>
+                ${q.explanation}
+            </div>
+        `);
+        }
+
+        if (q.sample_answer) {
+            // Add sample answer block if provided
+            explanationParts.push(`
+            <div class="quiz-explanation-block">
+                <strong>Sample answer:</strong><br>
+                ${q.sample_answer}
+            </div>
+        `);
+        }
+
+        // Combine explanation parts into final HTML block
+        const explanationHTML = explanationParts.length
+            ? `<div class="quiz-explanation" hidden>${explanationParts.join("")}</div>` : "";
+        /* ---------------------------------------------------------- */
+
+        // Multiple choice rendering
+        if (q.type === "mc") {
+            const allowShuffle = q["allow-shuffle"] !== false;
+            let shuffledOptions = q.options.map((text, originalIndex) => ({ text, originalIndex }));
 
             if (allowShuffle) {
-                // Shuffle options if specified using Fisher-Yates algorithm
                 for (let i = shuffledOptions.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
-                    [shuffledOptions[i], shuffledOptions[j]] =
-                        [shuffledOptions[j], shuffledOptions[i]];
+                    [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
                 }
             }
 
-            // Generate HTML for multiple-choice options
             bodyHTML = `
-                <ul class="quiz-options">
-                    ${shuffledOptions.map((opt, i) => `
-                        <li class="${this.optionClass}"
-                            data-display-index="${i}"
-                            data-original-index="${opt.originalIndex}">
-                            ${opt.text}
-                        </li>
-                    `).join('')}
-                </ul>
-            `;
-        } else if (q.type === 'input') {
-            bodyHTML = `
-                <div class="quiz-input-container">
-                    <input type="text" class="quiz-input" autocomplete="off">
-                    <button class="quiz-submit-btn" disabled>Submit</button>
-                </div>
-            `;
+            <ul class="quiz-options">
+                ${shuffledOptions.map(opt => `
+                    <li class="${this.optionClass}"
+                        data-original-index="${opt.originalIndex}">
+                        ${opt.text}
+                    </li>
+                `).join("")}
+            </ul>
+        `;
         }
 
-        container.innerHTML = `
-            <div class="quiz-title">
-                ${quiz.title ?? 'Quiz'}
-                ${isReview ? ' (Review)' : ''}
-            </div>
-            <div class="${this.questionClass}">${q.question}</div>
-            ${bodyHTML}
-            <div class="quiz-controls">
-                <span class="quiz-progress">
-                    ${index + 1} / ${questions.length}
-                </span>
-                <button class="quiz-next-btn" disabled>
-                    ${index + 1 < questions.length ? 'Next' : 'Finish'}
-                </button>
+        // Input rendering
+        else if (q.type === "input") {
+            bodyHTML = `
+            <div class="quiz-input-container">
+                <input type="text" class="quiz-input" autocomplete="off" />
+                <button class="quiz-submit-btn" disabled>Submit</button>
             </div>
         `;
+        }
 
-        const nextBtn = container.querySelector('.quiz-next-btn');
+        // Render block
+        container.innerHTML = `
+        <div class="quiz-title">
+            ${quiz.title ?? "Quiz"}${isReview ? " (Review)" : ""}
+        </div>
+        <div class="${this.questionClass}">${q.question}</div>
+        ${bodyHTML}
+        ${explanationHTML}
+        <div class="quiz-controls">
+            <span class="quiz-progress">
+                ${index + 1} / ${questions.length}
+            </span>
+            <button class="quiz-next-btn" disabled>
+                ${index + 1 < questions.length ? "Next" : "Finish"}
+            </button>
+        </div>
+    `;
 
-        let answered = false; // Track if the question has been answered
-        let locked = true; // Track if input is locked to prevent accidental submissions
+        if (index !== 0 && q.type === "input") {
+            setTimeout(() => container.querySelector(".quiz-input")?.focus(), 0);
+        }
 
-        setTimeout(() => locked = false, this.lockDelay); // Only run the below logic after delay
+        const nextBtn = container.querySelector(".quiz-next-btn");
+        let answered = false;
+        let locked = true;
+        setTimeout(() => locked = false, this.lockDelay);
 
-        const markIncorrect = () => { // Anonymous function to handle incorrect answers
-            if (!isReview) score.missed.push(q); // Add to missed questions if not in review mode
+        const markIncorrect = () => {
+            if (!isReview) score.missed.push(q);
         };
 
-        if (q.type === 'mc') {
+        /* ---------- MC handling ---------- */
+        if (q.type === "mc") {
             const options = container.querySelectorAll(`.${this.optionClass}`);
-
             options.forEach(opt => {
-                opt.addEventListener('click', () => {
-                    if (locked || answered) return; // Ignore clicks if locked or already answered
-                    answered = true; // Mark question as answered
+                opt.addEventListener("click", () => {
+                    if (locked || answered) return;
+                    answered = true;
 
-                    // Since options may be shuffled, we use originalIndex to check correctness
-                    const chosenOriginalIndex = Number(opt.dataset.originalIndex);
+                    const chosen = Number(opt.dataset.originalIndex);
 
-                    // Disable all options and apply formatting for answers
                     options.forEach(o => {
-                        o.style.pointerEvents = 'none';
-                        const original = Number(o.dataset.originalIndex);
-                        if (original === q.answer)
-                            o.classList.add(this.correctClass); // Mark correct answer
+                        o.style.pointerEvents = "none";
+                        if (Number(o.dataset.originalIndex) === q.answer) {
+                            o.classList.add(this.correctClass);
+                        }
                     });
-                    if (chosenOriginalIndex === q.answer) {
-                        if (!isReview) score.correct++; // Increment score if correct and not in review mode
+
+                    if (chosen === q.answer) {
+                        if (!isReview) score.correct++;
                     } else {
-                        opt.classList.add(this.incorrectClass); // Mark chosen option as incorrect
-                        markIncorrect(); // Add to missed questions
+                        opt.classList.add(this.incorrectClass);
+                        markIncorrect();
                     }
 
-                    nextBtn.disabled = false; // Enable the next button
+                    const explanation = container.querySelector(".quiz-explanation");
+                    if (explanation) explanation.hidden = false;
+
+                    nextBtn.disabled = false;
                 });
             });
-        } else if (q.type === 'input') {
-            const input = container.querySelector('.quiz-input');
-            const submit = container.querySelector('.quiz-submit-btn');
+        }
 
-            // Enable submit button only when there is input
-            input.addEventListener('input', () => {
+        /* ---------- input handling ---------- */
+        else if (q.type === "input") {
+            const input = container.querySelector(".quiz-input");
+            const submit = container.querySelector(".quiz-submit-btn");
+            const explanation = container.querySelector(".quiz-explanation");
+
+            input.addEventListener("input", () => {
                 submit.disabled = !input.value.trim();
             });
 
-            // Handle submission of input answer
-            submit.addEventListener('click', () => {
+            const matchIncludes = (userNorm, includes) => {
+                const missing = [];
+
+                for (const group of includes) {
+                    const groupArr = Array.isArray(group) ? group : [group];
+                    const ok = groupArr.some(p => userNorm.includes(normaliseAnswer(p)));
+                    if (!ok) missing.push(groupArr);
+                }
+
+                return { correct: missing.length === 0, missing };
+            };
+
+            submit.addEventListener("click", () => {
                 if (locked || answered) return;
                 answered = true;
 
-                const val = normaliseAnswer(input.value);
-                const correct = q.valid.some(answer => normaliseAnswer(answer) === val); // Check if input matches any valid answers
+                const userNorm = normaliseAnswer(input.value);
+                let correct = false;
+                let missingGroups = [];
+
+                if (Array.isArray(q.includes) && q.includes.length) {
+                    const res = matchIncludes(userNorm, q.includes);
+                    correct = res.correct;
+                    missingGroups = res.missing;
+                } else if (Array.isArray(q.valid) && q.valid.length) {
+                    // Checks that user answer matches one of the valid answers
+                    correct = q.valid.some(v => normaliseAnswer(v) === userNorm);
+                } else {
+                    correct = true;
+                }
 
                 input.classList.add(correct ? this.correctClass : this.incorrectClass);
                 input.disabled = true;
@@ -334,23 +401,25 @@ class QuizRenderer {
                     if (!isReview) score.correct++;
                 } else {
                     markIncorrect();
-                    const answerBlock = document.createElement('div');
-                    answerBlock.className = 'quiz-valid-answers';
+
+                    const answerBlock = document.createElement("div");
+                    answerBlock.className = "quiz-valid-answers";
                     answerBlock.innerHTML = `
-                    <div class="quiz-valid-label">Accepted answers:</div>
+                    <div class="quiz-valid-label">Missing required elements:</div>
                     <ul class="quiz-valid-list">
-                        ${q.valid.map(v => `<li>${v}</li>`).join('')}
+                        ${missingGroups.map(g => `<li>${g.join(" / ")}</li>`).join("")}
                     </ul>
                 `;
                     input.parentElement.appendChild(answerBlock);
                 }
 
+                if (explanation) explanation.hidden = false;
                 nextBtn.disabled = false;
             });
         }
 
-        // Handle navigation to next question or summary
-        nextBtn.addEventListener('click', () => {
+        /* ---------- navigation ---------- */
+        nextBtn.addEventListener("click", () => {
             if (index + 1 < questions.length) {
                 this.renderQuestion(container, quiz, questions, index + 1, score, isReview);
             } else if (!isReview && score.missed.length) {
@@ -401,8 +470,44 @@ class QuizRenderer {
     }
 }
 
+function scrollToAnchorWithOffset(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const y = target.getBoundingClientRect().top + window.scrollY - 120; // Adjust for fixed header offset
+
+    window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize directory panel and quiz renderer on page load
     new DirectoryPanel();
     new QuizRenderer();
+
+    if (window.location.hash) {
+        const id = window.location.hash.slice(1); // Get ID from URL hash
+        // Delay ensures content + headings are fully rendered
+        setTimeout(() => {
+            scrollToAnchorWithOffset(id);
+        }, 0);
+    }
+});
+
+document.addEventListener('click', (e) => {
+    // Show spoiler content when spoiler elements are clicked
+    const spoiler = e.target.closest('.spoiler');
+    if (spoiler) {
+        spoiler.classList.add('revealed');
+        spoiler.removeAttribute('title');
+    }
+});
+
+window.addEventListener('hashchange', () => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+
+    scrollToAnchorWithOffset(id);
 });

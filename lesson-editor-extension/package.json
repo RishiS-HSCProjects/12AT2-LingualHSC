@@ -1,0 +1,63 @@
+{
+  "name": "lingual-lesson-syntax",
+  "displayName": "Lingual HSC Lesson Syntax Support",
+  "description": "Syntax highlighting, snippets, and authoring tools for Lingual HSC lesson markup.",
+  "version": "0.0.2",
+  "publisher": "RishiS",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "markdown",
+        "aliases": ["Markdown", "markdown"],
+        "extensions": [".md"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "markdown",
+        "scopeName": "source.lesson",
+        "path": "./syntaxes/lesson.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./snippets/lesson-snippets.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "lesson.insertNote",
+        "title": "Lesson: Insert Info Note"
+      },
+      {
+        "command": "lesson.insertWarning",
+        "title": "Lesson: Insert Warning Note"
+      },
+      {
+        "command": "lesson.insertTip",
+        "title": "Lesson: Insert Tip Note"
+      },
+      {
+        "command": "lesson.wrapSpoiler",
+        "title": "Lesson: Wrap Selection in Spoiler"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  }
+}

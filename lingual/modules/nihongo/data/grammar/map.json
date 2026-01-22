@@ -1,5 +1,15 @@
 {
     "map": [
-        "te-form"
+        "verb-groups",
+        "te-form",
+        "plain-form",
+        "particle-he",
+        "tari-tari",
+        "ta-ato-de",
+        "ga-kedo",
+        "verb-normalisation"
+    ],
+    "extra": [
+        "ha-vs-ga"
     ]
 }

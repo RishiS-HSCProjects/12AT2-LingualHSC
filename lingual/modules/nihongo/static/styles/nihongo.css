@@ -15,7 +15,7 @@
 
     --font-size-title-lg: 4rem;
     --font-size-nav: 2.25rem;
-    --font-size-header-1: 3.25rem;
+    --font-size-header-1: 3.5rem;
     --font-size-header-2: 3rem;
     --font-size-header-3: 2.5rem;
     --font-size-header-4: 2.25rem;
@@ -105,4 +105,8 @@ nav a {
     text-decoration: none;
     color: black;
     white-space: nowrap;
+}
+
+#lesson-container ruby rt {
+    margin-top: 2px;
 }

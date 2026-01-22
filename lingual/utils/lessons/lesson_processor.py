@@ -18,18 +18,18 @@ MARKDOWN_EXTENSIONS = [
 ]
 
 # REGEX PATTERNS
-LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)\)')
-QUIZ_RE = re.compile(r'~quizzes:([\w\-]+):([\w\-]+)(?:\?([^\~]+))?~')
-NOTE_RE = re.compile(r'/i\s+(.*?)\\', re.DOTALL)
-WARNING_RE = re.compile(r'/w\s+(.*?)\\', re.DOTALL)
-COLOR_RE = re.compile(r'::([a-zA-Z]+|#[0-9a-fA-F]{3,6})\{([^}]+)\}')
+LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)(?:#([\w\-]+))?\)') # [label](route:slug#anchor) Optional anchor
+QUIZ_RE = re.compile(r'~quizzes:([\w\-]+):([\w\-]+)(?:\?([^\~]+))?~') # ~quizzes:lesson:quiz?param1=value1&param2=value2~
+NOTE_RE = re.compile(r'/([iwt])\s+(.*?)\\', re.DOTALL) # /type text\, either i (info), w (warning), t (tip)
+FORMAT_RE = re.compile(r'::([a-zA-Z]+|#[0-9a-fA-F]{3,6})\{([^}]+)\}') # ::color{text} / ::bold/italic{text}
+BLOCK_RE = re.compile(r':::(\w+)\s+(.*?):::', re.DOTALL) # :::type ... :::, either blockquote or warning.
+SPOILER_RE = re.compile(r'\|\|(.*?)\|\|', re.DOTALL) # ||spoiler content||
 
 class BaseLessonProcessor:
     """
     Base processor for all languages.
     Languages extend this by registering extra transformers.
     """
-
 
     def __init__(self, language: Language, data_root: Path):
         self.language: Language = language
@@ -38,7 +38,9 @@ class BaseLessonProcessor:
             self.transform_links,
             self.transform_quizzes,
             self.transform_notes,
-            self.transform_color,
+            self.transform_formatting,
+            self.transform_blocks,
+            self.transform_spoilers,
         ]
 
     def transform_links(self, text: str) -> str:
@@ -46,14 +48,17 @@ class BaseLessonProcessor:
             label = match.group(1)
             route = match.group(2)
             slug = match.group(3)
+            anchor = match.group(4)
 
             try:
-                href = url_for(f"{self.language.app_code}.{route}", slug=slug)
+                href = url_for(f"{self.language.app_code}.{route}", slug=slug) # Build URL for route
+                if anchor: href += f"#{anchor}" # Append anchor if present
             except BuildError:
+                # In case of BuildError, fallback to empty URL and log warning
                 href = "#"
                 current_app.logger.warning(f"Failed to build URL for route '{route}' with slug '{slug}'")
 
-            return f'<a href="{href}">{label}</a>'
+            return f'<a href="{href}">{label}</a>' # Return HTML anchor tag
 
         return LINK_RE.sub(repl, text)
 
@@ -73,20 +78,50 @@ class BaseLessonProcessor:
         return QUIZ_RE.sub(repl, text)
 
     def transform_notes(self, text: str) -> str:
-        text = NOTE_RE.sub(
-            r'<div class="note"><strong>Note:</strong><p>\1</p></div>', text
-        )
-        text = WARNING_RE.sub(
-            r'<div class="warning"><strong>Warning:</strong><p>\1</p></div>', text
-        )
-        return text
-    
-    def transform_color(self, text: str) -> str:
-        return COLOR_RE.sub(
-            r'<span style="color:\1">\2</span>',
-            escape(text)
-        )
+        def repl(match):
+            note_type = match.group(1)
+            content = match.group(2)
 
+            mapping = {
+                "i": ("info", "Info"),
+                "w": ("warning", "Warning"),
+                "t": ("tip", "Tip"),
+            }
+
+            css_class, label = mapping.get(note_type, ("info", "Note"))
+
+            return f'\n<div class="note {css_class}"><strong class="label">{label}:</strong><p>{content}</p></div>\n'
+
+        return NOTE_RE.sub(repl, text)
+    
+    def transform_formatting(self, text: str):
+        def repl(match):
+            formatting = match.group(1)
+            content = match.group(2)
+
+            # Handle formatting while parsing "escaped" content to prevent XSS
+            if formatting.lower() == "bold":
+                return f'<strong>{escape(content)}</strong>'
+            elif formatting.lower() == "italic":
+                return f'<em>{escape(content)}</em>'
+
+            return f'<span style="color:{formatting}">{escape(content)}</span>' # Assume colour
+
+        return FORMAT_RE.sub(repl, text)
+
+    def transform_blocks(self, text: str) -> str:
+        def repl(match):
+            block_type = match.group(1)
+            content = match.group(2)
+            return f'<div class="block {block_type}">{content}</div>'
+
+        return BLOCK_RE.sub(repl, text)
+    
+    def transform_spoilers(self, text: str) -> str:
+        def repl(match):
+            content = match.group(1)
+            return f'<span class="spoiler" title="Click to reveal">{content}</span>'
+        return SPOILER_RE.sub(repl, text)
 
     def add_transform(self, transform) -> None:
         """

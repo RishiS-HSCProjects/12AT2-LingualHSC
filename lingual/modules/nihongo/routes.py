@@ -40,7 +40,7 @@ def grammar(slug):
 
     return render_template('lesson.html', lesson=lesson_data, data_root=lesson_data.get("data_root"))
 
-@nihongo_bp.route('/api/quiz/<lesson_slug>', methods=['GET'])
+@nihongo_bp.route('grammar/api/quiz/<lesson_slug>', methods=['GET'])
 def get_quizzes(lesson_slug):
     # Validate slug to prevent directory traversal attacks
     if not VALID_SLUG.match(lesson_slug):
@@ -59,6 +59,20 @@ def get_quizzes(lesson_slug):
     try:
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f) # Validates JSON by attempting to load it
+
+            processor = get_processor()
+
+            def transform_quiz_text(data, processor):
+                if isinstance(data, dict):
+                    return {k: transform_quiz_text(v, processor) for k, v in data.items()} # Recursive transformation of all strings
+                elif isinstance(data, list):
+                    return [transform_quiz_text(item, processor) for item in data] 
+                elif isinstance(data, str):
+                    return processor.apply_transforms(data)
+                else:
+                    return data
+
+            data = transform_quiz_text(data, processor)
     except Exception:
         return jsonify({"error": "Malformed quiz JSON."}), 500
 

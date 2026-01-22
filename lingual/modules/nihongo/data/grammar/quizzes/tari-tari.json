@@ -1,0 +1,49 @@
+{
+    "quiz": {
+        "title": "Using ～たり～たりする",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate into Japanese using ～たり～たりする: 'On weekends, I do things like reading books and watching movies.'",
+                "includes": [
+                    ["週末", "しゅうまつ", "shuumatsu"],
+                    ["本", "ほん", "hon"],
+                    ["読んだり", "よんだり", "yondari"],
+                    ["映画", "えいが", "eiga"],
+                    ["見たり", "みたり", "mitari"],
+                    ["する", "します", "suru", "shimasu"]
+                ],
+                "sample_answer": "週[しゅう]末[まつ]は本を読[よ]んだり、映[えい]画[が]を見たりします。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using ～たり～たりする: 'During my holidays, I did things like traveling and eating delicious food.'",
+                "includes": [
+                    ["休み", "やすみ", "yasumi"],
+                    ["旅行", "りょこう", "ryokou"],
+                    ["したり", "shitari"],
+                    ["美味しい", "おいしい", "oishii"],
+                    ["食べたり", "たべたり", "tabetari"],
+                    ["した", "しました", "shita", "shimashita"]
+                ],
+                "sample_answer": "休[やす]みの間[あいだ]に旅[りょ]行[こう]したり、美味[おい]しい食べ物[もの]を食べたりしました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using ～たり～たりする: 'When you have free time, can you please do things like cleaning your room and cooking dinner?'",
+                "includes": [
+                    ["暇", "ひま", "hima"],
+                    ["時間", "じかん", "jikan", "時", "とき", "toki"],
+                    ["部屋", "へや", "heya"],
+                    ["掃除", "そうじ", "souji"],
+                    ["したり", "shitari"],
+                    ["晩", "夕飯", "ばん", "ゆうはん", "ban", "yuuhan"],
+                    ["作ったり", "つくったり", "tsukuttari"],
+                    ["して", "して", "shite"],
+                    ["ください", "下さい", "kudasai"]
+                ],
+                "sample_answer": "暇[ひま]な時[じ]間[かん]がある時[とき]に、部屋[へや]を掃除[そうじ]したり、夕[ゆう]飯[はん]を作[つく]ったりしてください。"
+            }
+        ]
+    }
+}
