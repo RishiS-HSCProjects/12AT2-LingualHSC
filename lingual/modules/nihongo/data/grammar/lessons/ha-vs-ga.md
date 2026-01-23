@@ -2,7 +2,7 @@
 
 title: "Particle は vs が"
 slug: "ha-vs-ga"
-tags: ["grammar", "particles"]
+tags: ["particles"]
 summary: "Learn about the differences between the particles は and が in Japanese and how to use them correctly."
 
 ---

@@ -2,7 +2,7 @@
 
 title: "The ～たり ～たり Pattern"
 slug: "tari-tari"
-tags: ["grammar", "tari-tari", "verb-form"]
+tags: ["tari-tari", "verb-form"]
 summary: "Learn about how to use the ～たり ～たり pattern in Japanese to list actions or states."
 
 ---

@@ -1,0 +1,52 @@
+{
+    "quiz": {
+        "title": "Acknowledging Favours with ～てくれる",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ～てくれる to acknowledge a favour done for you?",
+                "options": [
+                    "友[とも]達[だち]が本を貸[か]してくれました。",
+                    "友[とも]達[だち]が本を貸[か]すくれました。",
+                    "友[とも]達[だち]が本を貸[か]くれました。",
+                    "友[とも]達[だち]が本を貸[か]してくれてです。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nMy older sister made lunch for me.",
+                "includes": [
+                    ["姉", "あね", "ane"],
+                    ["昼ご飯", "ひるごはん", "hirugohan"],
+                    ["作って", "つくって", "tsukette"],
+                    ["くれました", "くれた", "kuremashita", "kureta"]
+                ],
+                "sample_answer": "姉[あね]が昼[ひる]ご飯[はん]を作[つく]ってくれました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\n田中さんは私に日本語を教[おし]えてくれます。",
+                "includes": [
+                    ["Mr. Tanaka"],
+                    ["teaches"],
+                    ["me"],
+                    ["Japanese"]
+                ],
+                "sample_answer": "Mr. Tanaka teaches me Japanese."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI cleaned my friend's house for them.",
+                "includes": [
+                    ["友達", "ともだち", "tomodachi"],
+                    ["家", "いえ", "ie"],
+                    ["掃除して", "そうじして", "soujishite"],
+                    ["あげました", "あげた", "agemashita", "ageta"]
+                ],
+                "sample_answer": "友[とも]達[だち]の家[いえ]を掃除[そうじ]してあげました。",
+                "explanation": "Remember to use ～てあげる when doing a favour for someone else."
+            }
+        ]
+    }
+}

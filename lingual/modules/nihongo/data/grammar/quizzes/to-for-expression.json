@@ -1,0 +1,192 @@
+{
+    "quote-speech": {
+        "title": "〜と for Quoting Speech",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the following sentence imply?\n\n彼[かれ]は行くと言[い]いました。",
+                "options": [
+                    "He said he will go.",
+                    "He said I will go.",
+                    "I said he will go.",
+                    "He is saying he will go."
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Who is saying 'their friend is coming' in the sentence below?\n\nリアさんはリリさんが友[とも]達[だち]が来[く]ると言[い]うと言[い]った。",
+                "options": [
+                    "Ria",
+                    "Lily",
+                    "The speaker",
+                    "Both Ria and Lily"
+                ],
+                "answer": 1,
+                "explanation": "The sentence can be split like this to be more clear: リアさんは [リリさんが'友[とも]達[だち]が来[く]る'と言う]と言った。This means that the speaker is saying 'Ria said [Lily says 'their friend is coming']'. Thus, Lily is the one saying 'their friend is coming'. /t Note that a better way of phrasing this sentence would be: リアさんは、リリさんが「友[とも]達[だち]が来[く]る」と言[い]ったと話した。This removes some ambiguity.\\"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nShe said she will study tomorrow.",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["勉強する", "べんきょうする", "benkyousuru"],
+                    ["と", "to"],
+                    ["言いました", "言った", "いいました", "いった", "iimashita"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は明日[あした]勉[べん]強[きょう]すると言いました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese: His dad said the bus is more convenient.",
+                "includes": [
+                    ["お父さん", "おとうさん", "otousan"],
+                    ["バス", "basu"],
+                    ["もっと", "motto"],
+                    ["便利", "べんり", "benri"],
+                    ["だ", "da"],
+                    ["と", "to"],
+                    ["言いました", "言った", "いいました", "いった", "iimashita"]
+                ],
+                "sample_answer": "父[とう]さんはバスはもっとべんりだと言いました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: アロンくんは魚[さかな]が好きだと言[い]いました。",
+                "includes": [
+                    ["Aron"],
+                    ["said"],
+                    ["likes"],
+                    ["fish"]
+                ],
+                "sample_answer": "Aaron said that he likes fish."
+            }
+        ]
+    },
+    "naming-things": {
+        "title": "〜と for Naming Things",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the name of the taco shop?\n\nあの店[みせ]はタコベルと言[い]うタコス屋[や]です。",
+                "options": [
+                    "Taco Bell",
+                    "Taco Shop",
+                    "Taco Room",
+                    "Taco House"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nThat over there is a famous mountain called Mount Fuji.",
+                "includes": [
+                    ["あれ", "are"],
+                    ["富士", "ふじ", "fuji"],
+                    ["山", "さん", "san"],
+                    ["と", "to"],
+                    ["言う", "いう", "iu"],
+                    ["有名", "ゆうめい", "yuumei"],
+                    ["な"],
+                    ["山", "やま", "yama"]
+                ],
+                "sample_answer": "あれは富[ふ]士[じ]山[さん]と言[い]う有[ゆう]名[めい]な山[やま]です。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\nこれはポケモンと言う楽[たの]しいなゲームです。",
+                "includes": [
+                    ["This"],
+                    ["fun"],
+                    ["game"],
+                    ["Pokemon"]
+                ],
+                "sample_answer": "This is a fun game called Pokemon."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese using the と言[い]う grammar pattern:\n\nMy dog's name is Pochi.",
+                "includes": [
+                    ["犬", "いぬ", "inu"],
+                    ["ポチ", "pochi"],
+                    ["と", "to"],
+                    ["言う", "いう", "iu"],
+                    ["名前", "なまえ", "namae"]
+                ],
+                "sample_answer": "私[わたし]の犬[いぬ]はポチと言[い]う名前[なまえ]です。",
+                "explanation": "This is a common way to say 'X's name is Y' in Japanese using the と言う grammar pattern. It is a good structure to remember!\n\nThis structure can also be used to identify yourself. For example, 私[わたし]はアリスと言[い]います。 (\"I am called Alice.\")."
+            }
+        ]
+    },
+    "expressing-thoughts": {
+        "title": "〜と for Expressing Thoughts",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the following sentence imply?\n\n彼[かれ]は明日[あした]来[く]ると思[おも]います。",
+                "options": [
+                    "I think he will come tomorrow.",
+                    "He thinks I will come tomorrow.",
+                    "He thinks he will come tomorrow.",
+                    "I think I will come tomorrow."
+                ],
+                "answer": 0,
+                "explanation": "The 思[おも]う ending indicates that it is the speaker's thought or opinion."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI think that sushi is delicious.",
+                "includes": [
+                    ["寿司", "すし", "sushi"],
+                    ["美味しい", "おいしい", "oishii"],
+                    ["と思う", "とおもう", "toomou"],
+                    [ "います", "imasu", "う", "u"]
+                ],
+                "sample_answer": "寿[す]司[し]は美[お]味[い]しいと思[おも]います。",
+                "explanation": "The 思[おも]います ending indicates that it is the speaker's thought or opinion."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\n彼女[かのじょ]は明日[あした]雨[あめ]が降[ふ]ると思[おも]っています。",
+                "includes": [
+                    ["She"],
+                    ["think", "believe"],
+                    ["will", "going", "be"],
+                    ["rain"],
+                    ["tomorrow"]
+                ],
+                "sample_answer": "She thinks that it will rain tomorrow.",
+                "explanation": "The 思[おも]っています ending indicates that it is her thought or opinion."
+            }
+        ]
+    },
+    "other-verbs": {
+        "title": "Other Verbs that use 〜と",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI heard that Tanaka-san is coming.",
+                "includes": [
+                    ["田中さん", "たなかさん", "tanakasan"],
+                    ["来る", "くる", "kuru", "来ている", "きている", "kiteiru"],
+                    ["と", "to"],
+                    ["聞いた", "きいた", "kiita", "聞きました", "ききました", "kikimashita"]
+                ],
+                "sample_answer": "田[た]中[なか]さんは来[く]ると聞[き]きました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nMy mum shouted that dinner is ready.",
+                "includes": [
+                    ["母", "はは", "haha"],
+                    ["夕飯", "晩ご飯", "ゆうはん", "ばんごはん", "yuuhan", "bangohan"],
+                    ["準備", "じゅんび", "junbi"],
+                    ["できている", "dekiteiru"],
+                    ["と", "to"],
+                    ["叫んだ", "さけんだ", "sakenda", "叫びました", "さけびました", "sakebimashita"]
+                ],
+                "sample_answer": "母は夕[ゆう]飯[はん]がじゅんびができているとさけびました。"
+            }
+        ]
+    }
+}

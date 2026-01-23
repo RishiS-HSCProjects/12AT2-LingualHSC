@@ -1,0 +1,104 @@
+{
+    "quiz": {
+        "title": "Giving Reasons",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 〜から to give a reason?",
+                "options": [
+                    "さむいだから、コートを着[き]ます",
+                    "さむいから、コートを着[き]ます",
+                    "コートから、さむいです",
+                    "コートだから、さむいです"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence requires だ before the particle から?",
+                "options": [
+                    "いそがしい ___ 、行けません。",
+                    "ねむい ___ 、帰ります。",
+                    "うんてんしている ___ 、今話せません。",
+                    "きれい ___ 、好きです。"
+                ],
+                "answer": 3,
+                "explanation": "You need to add だ before から if the preceding word is a な-adjective or a noun."
+            },
+            {
+                "type": "input",
+                "question": "Write a sentence explaining that you can't do something because you are busy. (You can choose what you can't do.)",
+                "includes": [
+                    [
+                        "忙しい",
+                        "いそがしい",
+                        "isogashii"
+                    ],
+                    [
+                        "から",
+                        "ので",
+                        "kara",
+                        "node"
+                    ]
+                ],
+                "sample_answer": "忙[いそが]しいから、行[い]けません。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nShe is studying because she likes Japanese.",
+                "includes": [
+                    [
+                        "日本語",
+                        "にほんご",
+                        "nihongo"
+                    ],
+                    [
+                        "好き",
+                        "すき",
+                        "suki"
+                    ],
+                    [
+                        "だ",
+                        "da"
+                    ],
+                    [
+                        "から",
+                        "ので",
+                        "kara",
+                        "node"
+                    ],
+                    [
+                        "勉強",
+                        "べんきょう",
+                        "benkyou"
+                    ],
+                    [
+                        "しています",
+                        "している",
+                        "shiteimasu",
+                        "shiteiru"
+                    ]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は日本語が好きだから、勉[べん]強[きょう]しています。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 天[てん]気[き]がいいから、散[さん]歩[ぽ]します。",
+                "includes": [
+                    [
+                        "weather"
+                    ],
+                    [
+                        "good",
+                        "nice"
+                    ],
+                    [
+                        "walk",
+                        "stroll"
+                    ]
+                ],
+                "sample_answer": "The weather is good, so I will go for a walk."
+            }
+        ]
+    }
+}
