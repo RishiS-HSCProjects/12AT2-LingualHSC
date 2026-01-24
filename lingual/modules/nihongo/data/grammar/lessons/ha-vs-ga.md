@@ -55,6 +55,8 @@ In this paragraph, we can see both は and が being used.
 - The second は marks "tomorrow" as the new topic of interest. This has the same effect as the first は, allowing us to make further statements about tomorrow without needing to repeat "tomorrow" in each sentence.
 - The が marks "rain" as the specific subject that will be falling tomorrow. This is new information to the listener, and we are emphasising that it is rain that will be falling, rather than any other weather condition. However, we are not telling the listener that "rain" is the new topic of interest and all further statements will be about rain, since we are using が.
 
+/i Another way to think about it is that, in a sentence, は is the main topic, while が is a specific subject in that matter. \
+
 ## Emphasis
 Tofugu's article goes into depth about this section really nicely.
 

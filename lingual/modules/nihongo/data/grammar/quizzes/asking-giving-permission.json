@@ -1,0 +1,72 @@
+{
+    "quiz": {
+        "title": "Asking for and Giving Permission",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the grammar pattern ～てもいいですか express?",
+                "options": [
+                    "An obligation",
+                    "A prohibition",
+                    "A request for permission",
+                    "A strong command"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nMay I use my phone?",
+                "includes": [
+                    ["使って", "つかって", "tsukatte"],
+                    ["もいい", "moii"]
+                ],
+                "sample_answer": "携帯を使ってもいいですか。"
+            },
+            {
+                "type": "mc",
+                "question": "What does ～てはいけません mean?",
+                "options": [
+                    "You may do something",
+                    "You should do something",
+                    "You must not do something",
+                    "You want to do something"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nYou must not enter this room.",
+                "includes": [
+                    ["この", "kono"],
+                    ["部屋", "へや", "heya"],
+                    ["に", "ni"],
+                    ["入って", "はいって", "haitte"],
+                    ["はだめ", "hadame"]
+                ],
+                "sample_answer": "この部[へ]屋[や]に入[はい]ってはだめです。"
+            },
+            {
+                "type": "mc",
+                "question": "Choose the phrase that is most likely to be present around a government building.",
+                "options": [
+                    "中で撮[と]ってはだめですが、外[そと]で撮[と]ってはいいです。",
+                    "中で撮[と]ってはいけない。でも、外[そと]で撮[と]っていいです。",
+                    "中で撮[と]ってはいけないですが、外[そと]で撮[と]ってもいいです。",
+                    "中で撮[と]ってもだめですが、外[そと]で撮[と]ります。"
+                ],
+                "answer": 0,
+                "explanation": "Remember that ～てはいいです is a more formal way of expressing permission. (Furthermore, all other options contain grammatical errors.)" 
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\nここでタバコを吸[す]ってはだめです。",
+                "includes": [
+                    ["not"],
+                    ["smoke"],
+                    ["here"]
+                ],
+                "sample_answer": "You must not smoke here."
+            }
+        ]
+    }
+}

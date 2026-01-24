@@ -121,6 +121,57 @@
             }
         ]
     },
+    "past-experiences": {
+        "title": "Talking about Past Experiences",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I have been to Kyoto.'",
+                "includes": [
+                    ["京都", "きょうと", "Kyoto"],
+                    ["に", "へ", "ni", "e"],
+                    ["行く", "いく", "iku"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["あります", "ある", "arimasu", "aru"]
+                ],
+                "sample_answer": "京[きょう]都[と]に行くのがあります。"
+            },
+            {
+                "type": "input",
+                "question": "Answer in Japanese:\n\n午[ご]後[ご]までねたことがありますか。",
+                "includes": [
+                    ["はい", "いいえ", "hai", "iie"],
+                    ["寝る", "ねる", "neru"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["あります", "ある", "ありません", "あらない", "arimasu", "aru", "arimasen", "aranai"]
+                ],
+                "sample_answer": "はい、午[ご]後[ご]まで寝[ね]たことがあります。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 富[ふ]士[じ]山[さん]に登[のぼ]ったことがあります。",
+                "includes": [
+                    ["have"],
+                    ["climb"],
+                    ["Fuji"]
+                ],
+                "sample_answer": "I have climbed Mount Fuji."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 私は寿司を食べたことがありません。",
+                "includes": [
+                    ["I"],
+                    ["never", "have"],
+                    ["eat", "ate"],
+                    ["sushi"]
+                ],
+                "sample_answer": "I have never eaten sushi."
+            }
+        ]
+    },
     "quiz": {
         "title": "Using Verb Normalisation",
         "bank": [
@@ -193,6 +244,29 @@
                 ],
                 "sample_answer": "I am bad at playing soccer.",
                 "explanation": "The term '下[へ]手[た]' is used to express that you are not good at something. While you can use 下[へ]手[た] when referring to others, it is much more direct and can come off as rude in many situations. As a result, it is best to only use 下[へ]手[た] when referring to yourself (or close friends)."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I have never been to Osaka.'",
+                "includes": [
+                    ["大阪", "おおさか", "Osaka"],
+                    ["に", "へ", "ni", "e"],
+                    ["行く", "いく", "iku"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["ありません", "ある", "arimasen", "aru"]
+                ],
+                "sample_answer": "大[おお]阪[さか]に行くことがありません。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 京都に行ったことがあります。",
+                "includes": [
+                    ["have"],
+                    ["been", "go"],
+                    ["Kyoto"]
+                ],
+                "sample_answer": "I have been to Kyoto."
             }
         ]
     }

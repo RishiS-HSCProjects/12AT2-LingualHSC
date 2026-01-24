@@ -62,7 +62,6 @@ For example:
 - ピアノをひく**こと**::blue{が}::green{上[じょう]手[ず]}です。→ They are good at playing the piano.
 - 日本語を話す**の**::blue{が}::green{上[じょう]手[ず]}ですね。→ You are good at speaking Japanese.
 
----
 ## Weaknesses
 :::blockquote [Verb in Plain Present Form] + の/こと + ::blue{が} + ::green{下手[へた] / にがて} :::
 
@@ -75,6 +74,27 @@ For example:
 
 Now it's your turn! Try forming sentences about strengths and weaknesses using the verbs below:
 ~quizzes:verb-normalisation:strengths-weaknesses?shuffle&limit=4~
+
+---
+
+# Talking about Past Experiences
+
+/t This structure is very common in speaking exams, as they are usually interviews about you. \
+
+You can also use verb normalisation to talk about past experiences. The structure is as follows:
+:::blockquote [Verb in Plain Past Form] + の/こと + ::blue{が} + ::green{あります/ありません} :::
+
+For example:
+
+- 日本に行った**こと**::blue{が}::green{あります}。→ I have been to Japan.
+- 富[ふ]士[じ]山[さん]を登[のぼ]った**の**::blue{が}::green{ありません}。→ I have never climbed Mount Fuji.
+
+You can also ask others about their past experiences by adding か at the end of the sentence.
+
+- ボートに乗った**こと**::blue{が}::green{ありますか}。→ Have you ever ridden a boat?
+- すしを食べた**の**::blue{が}::green{ありませんか}。→ Have you never eaten sushi?
+
+~quizzes:verb-normalisation:past-experiences?shuffle&limit=4~
 
 ---
 

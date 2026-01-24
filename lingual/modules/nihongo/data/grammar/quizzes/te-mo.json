@@ -1,0 +1,43 @@
+{
+    "te-mo": {
+        "title":"ても basics",
+        "bank":[
+            {
+                "type":"mc",
+                "question":"which of the following is grammatically correct?",
+                "allow-shuffle":false,
+                "options":[
+                    "アルバイトがしても、お金[かね]がない。",
+                    "アルバイトをしも、しなくもいい。",
+                    "アルバイトをしても、お金[かね]がない。"
+                ],
+                "answer":2,
+                "explanation":"The first options misuses the paritcle が, the second option lacks the て of the ても structure."
+            },
+            {
+                "type" :"input",
+                "question" : "translate the following into english: \"お金がなくても、買い物をします\" ",
+                "includes" :[
+                    ["shopping"],
+                    ["money"],
+                    ["even","although"]
+                ],
+                "sample_answer" :"Even though I dont have money, I'm going shopping"
+            },
+            {
+                "type" :"input",
+                "question" : "translate the following into Japanese: \"even though I didn't study, the test results were good\"",
+                "includes" :[
+                    ["成績 ", "せいせき"],
+                    ["勉強しなくても","べんきょうしなくても"],
+                    ["よかった"]
+                ],
+                "sample_answer": "勉強[べんきょう]しなくてもしけんの成績[せいせき]がかった。"
+            }
+        ]
+    },
+    "ikura": {
+    },
+    "temoii": {
+    }
+}

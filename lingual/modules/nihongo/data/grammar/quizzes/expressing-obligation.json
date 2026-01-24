@@ -1,0 +1,29 @@
+{
+    "quiz": {
+        "title": "Expressing Obligation",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly expresses: \"You must do your homework by tomorrow.\"?",
+                "options": [
+                    "明日[あした]までに宿題[しゅくだい]をしなければなりません。",
+                    "明日[あした]までに宿題[しゅくだい]をするべきです。",
+                    "明日[あした]までに宿題[しゅくだい]をしなくてはいけません。",
+                    "All of the above."
+                ],
+                "answer": 3,
+                "explanation": "All three sentences correctly express the obligation to complete homework by tomorrow using different grammatical structures."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n毎[まい]日[にち]運[うん]動[どう]しなければなりません。",
+                "includes": [
+                    ["daily", "day"],
+                    ["exercise"],
+                    ["must", "have to", "need to"]
+                ],
+                "sample_answer": "You must exercise every day."
+            }
+        ]
+    }
+}
