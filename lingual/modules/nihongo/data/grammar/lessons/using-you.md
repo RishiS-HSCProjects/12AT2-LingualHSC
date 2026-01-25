@@ -2,7 +2,6 @@
 
 title: "Using 〜よう"
 slug: "using-you"
-tags: ["grammar", "verbs"]
 summary: "Learn all the common uses of the 〜よう form in Japanese."
 
 ---

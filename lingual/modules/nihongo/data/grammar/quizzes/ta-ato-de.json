@@ -40,7 +40,7 @@
             },
             {
                 "type": "input",
-                "question":"Translate into English: '学校から帰[かえ]った後[あと]で、宿[しゅく]題[だい]をしました。'",
+                "question": "Translate into English: '学校から帰[かえ]った後[あと]で、宿[しゅく]題[だい]をしました。'",
                 "includes": [
                     ["After"], ["return", "came back"], ["from school"], ["homework"], ["did"]
                 ],

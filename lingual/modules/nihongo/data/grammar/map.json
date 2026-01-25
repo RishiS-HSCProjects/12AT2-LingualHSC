@@ -23,7 +23,11 @@
         "only",
         "start-finish",
         "houga",
-        "using-you"
+        "using-you",
+        "using-sou",
+        "intent-plans",
+        "time-references",
+        "conditional-form"
     ],
     "extra": [
         "ha-vs-ga"

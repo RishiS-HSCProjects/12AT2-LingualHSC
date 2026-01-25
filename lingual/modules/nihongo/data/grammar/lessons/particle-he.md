@@ -2,7 +2,6 @@
 
 title: "The Particle へ"
 slug: "particle-he"
-tags: ["particles", "intent"]
 summary: "Learn about the Japanese particle へ, which indicates direction or destination in a sentence."
 
 ---

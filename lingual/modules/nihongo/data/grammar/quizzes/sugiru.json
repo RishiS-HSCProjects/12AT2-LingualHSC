@@ -1,0 +1,104 @@
+{
+    "quiz": {
+        "title": "Using すぎる",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure means 'to do something too much'?",
+                "options": [
+                    "Verb (dictionary) + すぎる",
+                    "Verb (stem) + すぎる",
+                    "Verb (ない-form) + すぎる",
+                    "Verb (て-form) + すぎる"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you say 'too expensive'?",
+                "options": [
+                    "高[たか]いすぎる",
+                    "高[たか]すぎる",
+                    "高[たか]くすぎる",
+                    "高[たか]さすぎる"
+                ],
+                "answer": 1,
+                "explanation": "Drop the final い from い-adjectives before adding すぎる."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence means 'Please don't drink too much alcohol.'?",
+                "options": [
+                    "お酒[さけ]を飲[の]みすぎてください",
+                    "お酒[さけ]を飲[の]みすぎないでください",
+                    "お酒[さけ]を飲[の]みすぎますください",
+                    "お酒[さけ]を飲[の]まなすぎないでください"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I ate too much.",
+                "includes": [
+                    ["食べ", "たべ", "tabe"],
+                    ["すぎる", "sugiru"]
+                ],
+                "sample_answer": "食べすぎました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: It's too quiet.",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["すぎる", "sugiru"]
+                ],
+                "sample_answer": "しずかすぎます。"
+            },
+            {
+                "type": "mc",
+                "question": "For な-adjectives...",
+                "options": [
+                    "Drop な and add すぎる",
+                    "Keep な and add すぎる",
+                    "Add の then すぎる",
+                    "Change to て-form then すぎる"
+                ],
+                "answer": 1,
+                "explanation": "For example, かんたん (な) → かんたんすぎる."
+            },
+            {
+                "type": "mc",
+                "question": "Choose the best translation: 勉[べん]強[きょう]しすぎて、疲[つか]れました。",
+                "options": [
+                    "I was tired so I didn't study too much.",
+                    "I studied too much and got tired.",
+                    "I studied and then I wasn't tired.",
+                    "I didn't study because I was tired."
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Make a sentence saying: 'It's too cold to go outside.'",
+                "includes": [
+                    ["寒い", "さむい", "samui"],
+                    ["外", "そと", "soto"],
+                    ["すぎ", "sugi"]
+                ],
+                "sample_answer": "寒[さむ]すぎて、外[そと]に出[で]られない。"
+            },
+            {
+                "type": "mc",
+                "question": "What kind of verb is すぎる itself?",
+                "options": [
+                    "Godan verb",
+                    "Ichidan verb",
+                    "Irregular verb",
+                    "Adverb"
+                ],
+                "answer": 1,
+                "explanation": "For more information, see the [verb groups lesson](grammar:verb-groups)."
+            }
+        ]
+    }
+}

@@ -2,7 +2,6 @@
 
 title: "が ・ けど as Conjunctions"
 slug: "ga-kedo"
-tags: ["conjunctions"]
 summary: "Learn how to use the Japanese conjunctions が and けど to connect contrasting ideas or soften statements."
 
 ---

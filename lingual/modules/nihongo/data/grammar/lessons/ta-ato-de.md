@@ -2,7 +2,6 @@
 
 title: "た後で"
 slug: "ta-ato-de"
-tags: ["ta-ato-de", "verb-form"]
 summary: "Learn about how to use the た後で pattern in Japanese to indicate actions that occur after another action."
 
 ---

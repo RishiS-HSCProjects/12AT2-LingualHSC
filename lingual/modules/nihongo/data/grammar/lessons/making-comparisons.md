@@ -2,7 +2,6 @@
 
 title: "Making Comparisons"
 slug: "making-comparisons"
-tags: ["particles", "conjunctions", "comparisons"]
 summary: "Learn how to make comparisons in Japanese using various grammatical structures."
 
 ---

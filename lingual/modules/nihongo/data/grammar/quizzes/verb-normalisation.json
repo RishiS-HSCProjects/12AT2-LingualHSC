@@ -51,7 +51,7 @@
         "title": "Expressing Strengths and Weaknesses",
         "bank": [
             {
-                "type":"input",
+                "type": "input",
                 "question": "Translate to Japanese: 'I am good at playing tennis.'",
                 "includes": [
                     ["テニス", "tenisu"],
@@ -64,7 +64,7 @@
                 "sample_answer": "テニスをするのがとくいです。"
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "Translate to Japanese: 'I am not good at singing.'",
                 "includes": [
                     ["歌う", "うたう", "utau"],
@@ -75,18 +75,18 @@
                 "sample_answer": "歌[うた]うことがにがてです。"
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "Translate to English: ピアノを弾[ひ]くのが上手です。",
                 "includes": [
-                    ["I", "He", "She", "They"],
-                    ["am", "is", "are"],
-                    ["good at"],
-                    ["playing piano", "play piano"]
+                    ["He", "She", "They", "You"],
+                    ["good"],
+                    ["piano"]
                 ],
-                "sample_answer": "I am good at playing piano."
+                "sample_answer": "He is good at playing piano.",
+                "explanation": "The term '上[じょう]手[ず]' is used to express that someone else is good at something. Do not use 上[じょう]手[ず] when referring to yourself."
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "Translate to English: サッカーをするのが下手です。",
                 "includes": [
                     ["bad at", "not good at"],
@@ -96,25 +96,25 @@
                 "sample_answer": "I am bad at playing soccer."
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "What is the Hiragana for 'good at' when referring to yourself?",
                 "valid": ["とくい", "tokui"],
                 "explanation": "The term 'とくい' is used to express that **you** are good at something. Do not use 上[じょう]手[ず] when referring to yourself."
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "What is the Hiragana for 'good at' when referring to others?",
                 "valid": ["じょうず", "jouzu"],
                 "explanation": "The term 'じょうず' is used to express that **others** are good at something. Do not use とくい when referring to others."
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "What is the Hiragana for 'not good at' when referring to yourself?",
                 "valid": ["にがて", "nigate"],
                 "explanation": "The term 'にがて' is used to express that **you** are not good at something. Do not use 下[へ]手[た] when referring to yourself."
             },
             {
-                "type":"input",
+                "type": "input",
                 "question": "What is the Hiragana for 'not good at' when referring to others?",
                 "valid": ["へた", "heta"],
                 "explanation": "The term 'へた' is used to express that **others** are not good at something. Do not use にがて when referring to others."

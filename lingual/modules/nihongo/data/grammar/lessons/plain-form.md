@@ -2,7 +2,6 @@
 
 title: "The Plain Form"
 slug: "plain-form"
-tags: ["plain-form", "dictionary-form"]
 summary: "Learn about the plain form (dictionary form) of Japanese verbs."
 
 ---

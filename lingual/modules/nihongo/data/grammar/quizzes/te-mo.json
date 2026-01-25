@@ -1,43 +1,269 @@
 {
     "te-mo": {
-        "title":"ても basics",
-        "bank":[
+        "title": "ても Basics",
+        "bank": [
             {
-                "type":"mc",
-                "question":"which of the following is grammatically correct?",
-                "allow-shuffle":false,
-                "options":[
+                "type": "mc",
+                "question": "Which of the following is grammatically correct?",
+                "allow-shuffle": false,
+                "options": [
                     "アルバイトがしても、お金[かね]がない。",
                     "アルバイトをしも、しなくもいい。",
-                    "アルバイトをしても、お金[かね]がない。"
+                    "アルバイトをしても、お金[かね]がない。",
+                    "アルバイトをしても、なくてもいい."
                 ],
-                "answer":2,
-                "explanation":"The first options misuses the paritcle が, the second option lacks the て of the ても structure."
+                "answer": 2,
+                "explanation": "The first option misuses the particle が, the second option lacks the て of the ても structure. The fourth option includes なくても without a verb stem."
             },
             {
-                "type" :"input",
-                "question" : "translate the following into english: \"お金がなくても、買い物をします\" ",
+                "type": "input",
+                "question" : "Translate into English:\n\nお金[かね]がなくても、買[か]い物[もの]をします",
                 "includes" :[
                     ["shopping"],
                     ["money"],
-                    ["even","although"]
+                    ["even", "although"]
                 ],
-                "sample_answer" :"Even though I dont have money, I'm going shopping"
+                "sample_answer": "Even though I don't have money, I'm going shopping."
             },
             {
-                "type" :"input",
-                "question" : "translate the following into Japanese: \"even though I didn't study, the test results were good\"",
-                "includes" :[
-                    ["成績 ", "せいせき"],
-                    ["勉強しなくても","べんきょうしなくても"],
-                    ["よかった"]
+                "type": "mc",
+                "question": "Which form do you use with い-adjectives to create ても?",
+                "options": [
+                    "Remove い and add くても",
+                    "Add ても directly",
+                    "Remove い and add いても",
+                    "Change to te-form and add も"
                 ],
-                "sample_answer": "勉強[べんきょう]しなくてもしけんの成績[せいせき]がかった。"
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which form do you use with な-adjectives/nouns to create ても?",
+                "options": [
+                    "Add ても directly",
+                    "Remove な and add でも",
+                    "Remove な and add なても",
+                    "Change to te-form and add も"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese\n\nEven if it rains, I will go.",
+                "includes": [
+                    ["雨", "あめ", "ame"],
+                    ["降っ", "ふっ", "fut"],
+                    ["ても", "temo"],
+                    ["行", "い", "i"]
+                ],
+                "sample_answer": "雨[あめ]が降[ふ]っても、行きます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ても with an い-adjective in the negative?",
+                "options": [
+                    "安[やす]くても、買[か]いません。",
+                    "安[やす]いくても、買[か]いません。",
+                    "安[やす]いても、買[か]いません。",
+                    "安[やす]くなくても、買[か]いません。"
+                ],
+                "answer": 3,
+                "explanation": "For negative い-adjectives, remove the final い and add くなくても."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Even if it's not quiet, it's fine.",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["じゃなくても", "janakutemo"],
+                    ["大丈夫", "だいじょうぶ", "daijoubu", "いい", "ii"]
+                ],
+                "sample_answer": "しずかじゃなくても、大[だい]丈[じょう]夫[ぶ]です。",
+                "explanation": "For negative な-adjectives, add じゃなくても after the adjective stem."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: いそがしくても、運[うん]動[どう]する時[じ]間[かん]を作[つく]ります。",
+                "includes": [
+                    ["busy"],
+                    ["exercise", "sport"],
+                    ["time"]
+                ],
+                "sample_answer": "Even if I'm busy, I make time to exercise."
+            },
+            {
+                "type": "mc",
+                "question": "What does ても generally mean?",
+                "options": [
+                    "Because of",
+                    "In order to",
+                    "Even if / Even though",
+                    "Instead of"
+                ],
+                "answer": 2
             }
         ]
     },
     "ikura": {
+        "title": "Using いくら～ても",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which of the following correctly uses いくらでも?",
+                "options": [
+                    "いくらお金[かね]がかかっても、このドレスを買[か]います。",
+                    "お金[かね]がかかっていくらても、このドレスを買[か]います。",
+                    "いくらこのドレスを買[か]ってもかかります。",
+                    "いくらお金[かね]がかかっでも、このドレスを買[か]います。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "What does いくら～ても express?",
+                "options": [
+                    "A specific amount of money",
+                    "No matter how much or how...",
+                    "How much does it cost",
+                    "It depends on the amount"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: No matter how much I study, I don't understand.",
+                "includes": [
+                    ["いくら", "ikura"],
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["しても", "shitemo"],
+                    ["分か", "わか", "waka"]
+                ],
+                "sample_answer": "いくら勉[べん]強[きょう]しても、分[わ]かりません。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses いくら～ても with a negative verb?",
+                "options": [
+                    "いくら行かなくても、大[たい]丈[じょう]夫[ぶ]です。",
+                    "いくら行ってても、大[たい]丈[じょう]夫[ぶ]です。",
+                    "いくら行かなても、大[たい]丈[じょう]夫[ぶ]です。",
+                    "いくら行きでも、大[たい]丈[じょう]夫[ぶ]です。"
+                ],
+                "answer": 0,
+                "explanation": "Translates to 'No matter how much I don't go, it's fine.' The verb 行く is in its negative ない-form before ても."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: No matter how delicious the food is, I won't eat it.",
+                "includes": [
+                    ["いくら", "ikura"],
+                    ["食べ物", "たべもの", "tabemono"],
+                    ["美味しくても", "おいしくても", "oishikutemo"],
+                    ["食べ", "たべ", "tabe"]
+                ],
+                "sample_answer": "いくら食[た]べ物[もの]が美[お]味[い]しくても、食[た]べません。"
+            }
+        ]
     },
     "temoii": {
+        "title": "Using てもいい and なくてもいい",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does 食べてもいいですか literally translate to?",
+                "options": [
+                    "Should I eat?",
+                    "Even if I eat, is it okay?",
+                    "I want to eat.",
+                    "I can't eat."
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses なくてもいい?",
+                "options": [
+                    "公[こう]園[えん]に来[こ]ってもいいです。",
+                    "公[こう]園[えん]に来[こ]なくてもいいです。",
+                    "公[こう]園[えん]に来[こ]なもいいです。",
+                    "公[こう]園[えん]に来[こ]ないでもいいです。"
+                ],
+                "answer": 1,
+                "explanation": "来[こ]なくてもいいです means 'You don't have to come to the park.'"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: You don't have to write in a book.",
+                "includes": [
+                    ["本", "ほん", "hon"],
+                    ["書", "か", "ka"],
+                    ["なくてもいい", "nakutemoii"]
+                ],
+                "sample_answer": "本に書[か]かなくてもいいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: May I go?",
+                "includes": [
+                    ["行", "い", "i"],
+                    ["ってもいい", "ttemoii"],
+                    ["か", "ka"]
+                ],
+                "sample_answer": "行ってもいいですか。"
+            },
+            {
+                "type": "mc",
+                "question": "Which structure means 'It's okay regardless of whether you do or don't'?",
+                "options": [
+                    "Verb (te-form) + ても + Verb (ない) + でもいい",
+                    "Verb (te-form) + ても + Verb (ない, remove い) + くてもいい",
+                    "Verb (te-form) + ても + Verb + てもいい",
+                    "Verb + てもいい / ないでもいい"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: It's okay regardless of whether you come or not.",
+                "includes": [
+                    ["来", "き", "ki"],
+                    ["ても", "temo"],
+                    ["来", "こ", "ko"],
+                    ["なくてもいい", "nakutemoii"]
+                ],
+                "sample_answer": "来[き]ても来[こ]なくてもいいです。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence grants permission correctly?",
+                "options": [
+                    "朝[あさ]シャワーを浴[あ]びてもいいです。",
+                    "朝[あさ]シャワーを浴[あ]びなくてもいいです。",
+                    "朝[あさ]シャワーを浴[あ]びましょう。",
+                    "朝[あさ]シャワーを浴[あ]びてください。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 宿[しゅく]題[だい]をしなくてもいいです。",
+                "includes": [
+                    ["homework"],
+                    ["don't", "have", "not", "okay"]
+                ],
+                "sample_answer": "You don't have to do your homework."
+            },
+            {
+                "type": "mc",
+                "question": "What does なくてもいい literally mean?",
+                "options": [
+                    "Even if you do it, it's okay",
+                    "Even if you don't do it, it's okay",
+                    "You must not do it",
+                    "You should do it"
+                ],
+                "answer": 1
+            }
+        ]
     }
 }

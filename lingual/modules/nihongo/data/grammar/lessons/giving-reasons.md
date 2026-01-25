@@ -2,7 +2,6 @@
 
 title: "Using から and ので to Give Reasons"
 slug: "giving-reasons"
-tags: ["particles", "conjunctions", "giving-reasons"]
 summary: "Learn how to use the particles から and ので to give reasons in Japanese sentences."
 
 ---

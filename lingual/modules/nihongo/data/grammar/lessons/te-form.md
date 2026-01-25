@@ -2,7 +2,6 @@
 
 title: "The て Form"
 slug: "te-form"
-tags: ["verbs", "adjectives", "conjugation"]
 summary: "Learn how to conjugate Japanese verbs into the て form, a crucial aspect of Japanese grammar used in various contexts such as making requests, connecting actions, and forming progressive tenses."
 
 ---

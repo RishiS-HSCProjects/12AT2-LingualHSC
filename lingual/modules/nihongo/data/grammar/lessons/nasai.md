@@ -2,7 +2,6 @@
 
 title: Using ～なさい to Give Commands
 slug: nasai
-tags: ["nasai", "command"]
 summary: Learn how to use the ～なさい construction in Japanese to give commands or instructions.
 
 ---

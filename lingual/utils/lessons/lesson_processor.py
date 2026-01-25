@@ -145,14 +145,14 @@ class BaseLessonProcessor:
         if not path.exists():
             raise FileNotFoundError(f"Lesson not found: {path}")
 
-        post = frontmatter.load(path)  # Separates YAML metadata from MD content
+        post = frontmatter.load(path) # type: ignore -> Separates YAML metadata from MD content
         content = self.apply_transforms(post.content)  # Applies custom transformations
 
         # Convert MD to HTML
         html = markdown.markdown( 
             content,
-            extensions=MARKDOWN_EXTENSIONS,  # Install extensions
-            output_format="html5",           # HTML5 output
+            extensions=MARKDOWN_EXTENSIONS,  #                 Install extensions
+            output_format="html5",           # type: ignore -> HTML5 output
         )
 
         return {

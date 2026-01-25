@@ -1,0 +1,100 @@
+{
+    "younishimasu": {
+        "title": "Using 〜ようにする",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "In this lesson's context, what does ようにする express?",
+                "options": [
+                    "A command",
+                    "An attempt/effort to make something a habit",
+                    "A completed action",
+                    "Permission"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best means 'I will try to wake up by 7 o'clock.'?",
+                "options": [
+                    "七[しち]時[じ]まで起[お]きるようにします",
+                    "七[しち]時[じ]まで起[お]きますよう",
+                    "七[しち]時[じ]まで起[お]きたいです",
+                    "七[しち]時[じ]まで起[お]きることができます"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form comes before ようにします?",
+                "options": [
+                    "Plain present",
+                    "Plain past",
+                    "て-form",
+                    "ない-form only"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I keep in mind to exercise every day for my health.",
+                "includes": [
+                    ["毎日", "まいにち", "mainichi"],
+                    ["健康", "けんこう", "kenkou"],
+                    ["に", "ni"],
+                    ["運動", "うんどう", "undou"],
+                    ["する", "suru"],
+                    ["ように", "youni"]
+                ],
+                "sample_answer": "けんこうのために毎[まい]日[にち]運[うん]動[どう]するようにしています。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Please keep in mind to call me tomorrow.",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["電話", "でんわ", "denwa"],
+                    ["する", "suru"],
+                    ["ようにしてください", "younishitekudasai"]
+                ],
+                "sample_answer": "明日[あした]電[でん]話[わ]するようにしてください。"
+            },
+            {
+                "type": "mc",
+                "question": "Which option uses ように to mean 'avoid doing'?",
+                "options": [
+                    "遅[お]くれないようにします",
+                    "遅[お]くれたようにします",
+                    "遅[お]くれようにします",
+                    "遅[お]くれませんようにします"
+                ],
+                "answer": 0,
+                "explanation": "You can pair ない-form + ようにする to express trying <em>not</em> to do something."
+            },
+            {
+                "type": "mc",
+                "question": "ようにする often implies...",
+                "options": [
+                    "one-time completed action",
+                    "habit-forming effort or intention",
+                    "strong command",
+                    "asking for permission"
+                ],
+                "answer": 1,
+                "explanation": "The phrase ようにする translates to 'keep in mind to' or 'make an effort to', indicating a habitual action."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence politely tells someone to be careful not to forget?",
+                "options": [
+                    "忘[わす]れるようにしてください",
+                    "忘[わす]れないようにしてください",
+                    "忘[わす]れたようにしてください",
+                    "忘[わす]れようにしてください"
+                ],
+                "answer": 1,
+                "explanation": "Using ない-form + ようにしてください is a polite way to tell someone to be careful not to do something."
+            }
+        ]
+    }
+}

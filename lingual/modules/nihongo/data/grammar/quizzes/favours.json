@@ -29,7 +29,7 @@
                 "question": "Translate the following sentence into English:\n\n田中さんは私に日本語を教[おし]えてくれます。",
                 "includes": [
                     ["Mr. Tanaka"],
-                    ["teaches"],
+                    ["teach"],
                     ["me"],
                     ["Japanese"]
                 ],

@@ -2,7 +2,6 @@
 
 title: "Using と for Expression"
 slug: "to-for-expression"
-tags: ["particles"]
 summary: "Learn how to use the particle と to express speech, thoughts, and other actions."
 
 ---

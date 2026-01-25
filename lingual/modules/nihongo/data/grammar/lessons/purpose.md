@@ -2,7 +2,6 @@
 
 title: "Expressing Purpose with ～ために"
 slug: "purpose"
-tags: ["grammar", "purpose", "particles"]
 summary: "Learn how to express purpose in Japanese using the ～ために structure."
 
 ---

@@ -1,0 +1,104 @@
+{
+    "quiz": {
+        "title": "Conditional Forms: 〜と and 〜ら",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "When should you use ら instead of と?",
+                "options": [
+                    "When the result is automatic or inevitable",
+                    "When the result is a suggestion, request, command, or speaker's choice",
+                    "When describing past events only",
+                    "When using nouns"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form is used with ら to express conditions?",
+                "options": [
+                    "Plain present form",
+                    "ます-form",
+                    "た-form (past tense)",
+                    "て-form"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form is used with と to express natural consequences?",
+                "options": [
+                    "Plain present form",
+                    "た-form",
+                    "ない-form",
+                    "て-form"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best illustrates the use of ら?",
+                "options": [
+                    "雨[あめ]が降[ふ]ると、地[じ]面[めん]が濡[ぬ]れます。",
+                    "雨[あめ]が降[ふ]ったら、傘[かさ]を持[も]ちましょう。",
+                    "雨[あめ]が降[ふ]ると、虹[にじ]が出[で]ます。",
+                    "雨[あめ]が降[ふ]ると、空[そら]が暗[くら]くなります。"
+                ],
+                "answer": 1,
+                "explanation": "The sentence suggests an action (bringing an umbrella) based on a condition (if it rains), which is appropriate for ら. /t ら is used for suggestions or actions taken based on conditions (non-automatic). \\"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best illustrates the use of と?",
+                "options": [
+                    "冬[ふゆ]になったら、スキーに行[い]きたいです。",
+                    "冬[ふゆ]になると、雪[ゆき]が降[ふ]ります。",
+                    "冬[ふゆ]になったら、コートを買[か]おうかな。",
+                    "冬[ふゆ]になると、もっと勉[べん]強[きょう]します。"
+                ],
+                "answer": 1,
+                "explanation": "The sentence describes a natural consequence (it snows when it becomes winter), which is appropriate for と. /t と is used for automatic or inevitable results. \\"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese using と: When you turn on the light, the room becomes bright.",
+                "includes": [
+                    ["と"],
+                    ["電気", "でんき", "denki"],
+                    ["点ける", "つける", "tsukeru"],
+                    ["と"],
+                    ["部屋", "へや", "heya"],
+                    ["明るく", "あかるく", "akaruku"],
+                    ["なる", "なります", "naru", "narimasu"]
+                ],
+                "sample_answer": "電[でん]気[き]を点[つ]けると、部[へ]屋[や]が明[あか]るくなります。",
+                "explanation": "/t If you want to learn how to say 'something becomes [adjective]', check out the Using [なる](grammar:using-naru) lesson! \\"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ら with an adjective?",
+                "options": [
+                    "新[あたら]しいと、買[か]いたいです。",
+                    "新[あたら]しかったら、買[か]いたいです。",
+                    "新[あたら]しいら、買[か]いたいです。",
+                    "新[あたら]しいから、買[か]いたいです。"
+                ],
+                "answer": 1,
+                "explanation": "When using ら with adjectives, use the た-form (past tense) of the adjective."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: If it's sunny tomorrow, we will go to the beach.",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["晴れる", "はれる", "hareru"],
+                    ["ら"],
+                    ["海", "うみ", "ビーチ", "umi", "biichi"],
+                    ["行きます", "いきます", "ikimasu"]
+                ],
+                "sample_answer": "明日[あした]晴[は]れたら、海[うみ]に行きます。",
+                "explanation": "Remember ら is used for conditions that lead to suggestions or actions based on the speaker's choice. Going to the beach is not a natural consequence of it being sunny."
+            }
+        ]
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "quiz": {
+        "title": "Starting and Finishing Actions",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure means 'to start doing X'?",
+                "options": [
+                    "Verb stem + 終[お]わる",
+                    "Verb stem + 始[はじ]める",
+                    "Verb stem + すぎる",
+                    "Verb stem + たい"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which structure means 'to finish doing X'?",
+                "options": [
+                    "Verb stem + 終[お]わる",
+                    "Verb stem + 始[はじ]まる",
+                    "Verb stem + られる",
+                    "Verb stem + らしい"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I will start studying at 7.",
+                "includes": [
+                    ["七時", "しちじ", "shichiji"],
+                    ["に", "から", "ni", "kara"],
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["始めます", "はじめます", "hajimemasu", "始める", "はじめる", "hajimeru"]
+                ]
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I finished my homework.",
+                "includes": [
+                    ["宿題", "しゅくだい", "shukudai"],
+                    ["を"],
+                    ["終わりました", "おわりました", "owarimashita", "終わった", "おわった", "owatta"]
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Choose the best translation for 'to finish eating'.",
+                "options": [
+                    "食[た]べ始[はじ]める",
+                    "食[た]べ終[お]わる",
+                    "食[た]べる終[お]わる",
+                    "食[た]べて始[はじ]める"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Make a sentence: 'She started watching the movie.'",
+                "includes": [
+                    ["映画", "えいが", "eiga"],
+                    ["見", "み", "mi"],
+                    ["始め", "はじめ", "hajime"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は映[えい]画[が]を見[み]始[はじ]めました。"
+            },
+            {
+                "type": "input",
+                "question": "Make a sentence: 'Please finish reading this book.'",
+                "includes": [
+                    ["この", "kono"],
+                    ["本", "ほん", "hon"],
+                    ["読み", "よみ", "yomi"],
+                    ["終わって", "おわって", "owatte"],
+                    ["ください", "kudasai"]
+                ],
+                "sample_answer": "この本[ほん]を読[よ]み終[お]わってください。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 昼[ひる]ご飯[はん]を食べ終[お]わってから、出[で]かけます。",
+                "includes": [
+                    ["after"],
+                    ["finish"],
+                    ["lunch"],
+                    ["go", "out", "leave"]
+                ],
+                "sample_answer": "After finishing lunch, I will go out."
+            }
+        ]
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "quiz": {
+        "title": "Expressing Intentions and Plans",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which of the following sentences correctly expresses an intention to study Japanese tomorrow?",
+                "options": [
+                    "明日[あした]日本語を勉[べん]強[きょう]しよていです。",
+                    "明日[あした]日本語を勉[べん]強[きょう]するつもりです。",
+                    "明日[あした]日本語を勉[べん]強[きょう]しつもりです。",
+                    "明日[あした]日本語を勉[べん]強[きょう]するよていです。"
+                ],
+                "answer": 1,
+                "explanation": "Remember, 〜つもりです is used to express intentions while 〜予[よ]定[てい]です is used for plans."
+            },
+            {
+                "type": "mc",
+                "question": "How would you express a plan to visit Kyoto next month in Japanese?",
+                "options": [
+                    "来月[らいげつ]京[きょう]都[と]を訪[おとず]れるつもりです。",
+                    "来月[らいげつ]京[きょう]都[と]を訪[おとず]れるよていです。",
+                    "来月[らいげつ]京[きょう]都[と]を訪[おとず]れます。",
+                    "来月[らいげつ]京[きょう]都[と]を訪[おとず]れしようと思[おも]います。"
+                ],
+                "answer": 1,
+                "explanation": "Use 〜予[よ]定[てい]です to indicate plans, while 〜つもりです indicates intentions."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI intend to practice kanji more this year.",
+                "includes": [
+                    ["今年", "ことし", "kotoshi"],
+                    ["漢字", "かんじ", "kanji"],
+                    ["もっと", "motto"],
+                    ["練習する", "れんしゅうする", "renshuusuru"],
+                    ["つもり", "tsumori"]
+                ],
+                "sample_answer": "今[こ]年[とし]漢[かん]字[じ]をもっとれんしゅうするつもりです。"
+            },
+            {
+                "type": "input",
+                "question": "How do you say 'We plan to go hiking next weekend' in Japanese?",
+                "includes": [
+                    ["来週末", "らいしゅうまつ", "raishuumatsu"],
+                    ["ハイキング", "haikingu"],
+                    ["行く", "いく", "iku"],
+                    ["予定", "よてい", "yotei"]
+                ],
+                "sample_answer": "私たちは来[らい]週[しゅう]末[まつ]ハイキングに行[い]く予[よ]定[てい]です。"
+            },
+            {
+                "type": "mc",
+                "question": "Which expression would you use to indicate a firm intention to quit smoking?",
+                "options": [
+                    "たばこをやめるつもりです。",
+                    "たばこをやめる予定です。",
+                    "たばこをやめたいです.",
+                    "たばこをやめようと思います。"
+                ],
+                "answer": 0,
+                "explanation": "Use 〜つもりです to express a firm intention, while 〜予[よ]定[てい]です indicates a plan."
+            },
+            {
+                "type": "mc",
+                "question": "What is the difference between 〜つもりです and 〜予[よ]定[てい]です in Japanese?",
+                "options": [
+                    "〜つもりです indicates a plan, while 〜予[よ]定[てい]です indicates an intention.",
+                    "〜つもりです indicates an intention, while 〜予[よ]定[てい]です indicates a plan.",
+                    "Both expressions mean the same thing and can be used interchangeably.",
+                    "〜つもりです is used for past actions, while 〜予[よ]定[てい]です is used for future actions."
+                ],
+                "answer": 1
+            }
+        ]
+    },
+    "declining-invitations": {
+        "title": "Declining Invitations",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Decline the following invitation politely in Japanese:\n\n\"Would you like to join us for dinner tomorrow?\"",
+                "includes": [
+                    ["予定", "よてい", "yotei"],
+                    ["なん", "nan"]
+                ],
+                "sample_answer": "すみません。明日[あした]の夜[よる]は仕[し]事[ごと]に行く予[よ]定[てい]なんです。"
+            },
+            {
+                "type": "mc",
+                "question": "How would you politely decline an invitation to a party in Japanese?",
+                "options": [
+                    "すみません、勉[べん]強[きょう]する予[よ]定[てい]なんです。",
+                    "すみません、勉[べん]強[きょう]が予[よ]定[てい]なんです。",
+                    "すみません、勉[べん]強[きょう]し予[よ]定[てい]なんです。",
+                    "すみません、勉[べん]強[きょう]す予[よ]定[てい]なんです。"
+                ],
+                "answer": 1
+            }
+        ]
+    }
+}

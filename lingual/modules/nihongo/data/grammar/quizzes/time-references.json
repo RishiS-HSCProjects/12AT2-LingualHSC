@@ -1,0 +1,103 @@
+{
+    "quiz": {
+        "title": "Referencing Time",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure means 'before doing X'?",
+                "options": [
+                    "Verb (plain) + 前[まえ]に",
+                    "Verb (た-form) + 前[まえ]に"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which structure means 'when doing X'?",
+                "options": [
+                    "Verb (plain) + 時[とき]に",
+                    "Verb (any tense) + 時[とき]に",
+                    "Verb (plain) + の + 時[とき]に",
+                    "Verb (any tense) + の + 時[とき]に"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which structure means 'while doing X'?",
+                "options": [
+                    "Verb (plain) + 間",
+                    "Verb (ている) + 間",
+                    "Verb (plain) + の + 間",
+                    "Verb (ている) + の + 間"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I wash my hands before eating.",
+                "includes": [
+                    ["食べる", "たべる", "taberu"],
+                    ["前に", "まえに", "maeni"],
+                    ["手", "て", "te"],
+                    ["洗います", "あらいます", "araimasu", "洗う", "あらう", "arau"]
+                ],
+                "sample_answer": "食べる前[まえ]に手[て]を洗[あら]います。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I listen to music when I study.",
+                "includes": [
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["時に", "ときに", "tokini"],
+                    ["音楽", "おんがく", "ongaku"],
+                    ["聞きます", "ききます", "kikimasu", "聞く", "きく", "kiku"]
+                ],
+                "sample_answer": "勉[べん]強[きょう]する時[とき]に音[おん]楽[がく]を聞きます。"
+            },
+            {
+                "type": "mc",
+                "question": "Choose the correct option for 'during the meeting'.",
+                "options": [
+                    "会[かい]議[ぎ]間[あいだ]に",
+                    "会[かい]議[ぎ]の間[あいだ]に",
+                    "会[かい]議[ぎ]前[ま]えに",
+                    "会[かい]議[ぎ]時[とき]に"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 日[に]本[ほん]にいる____に、たくさん写[しゃ]真[しん]を撮[と]りました。",
+                "valid": [
+                    "間",
+                    "あいだ",
+                    "aida"
+                ],
+                "explanation": "This sentence translates to 'While I was in Japan, I took a lot of photos.' The correct word to fill in the blank is 間[あいだ], which means 'while' or 'during'."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 時[とき]に with a noun?",
+                "options": [
+                    "学[がく]生[せい]の時[とき]にアルバイトをしました",
+                    "学[がく]生[せい]時[とき]にのアルバイトをしました",
+                    "学[がく]生[せい]時[とき]アルバイトをしました",
+                    "学[がく]生[せい]に時[とき]アルバイトをしました"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 昼[ひる]休[やす]みの間[あいだ]に友[とも]達[だち]と話[はな]します。",
+                "includes": [
+                    ["during"],
+                    ["lunch"],
+                    ["talk"],
+                    ["friends"]
+                ],
+                "sample_answer": "I talk with friends during the lunch break."
+            }
+        ]
+    }
+}

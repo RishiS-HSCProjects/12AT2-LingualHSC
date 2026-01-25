@@ -1,0 +1,88 @@
+{
+    "quiz": {
+        "title": "Using 〜そう",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the 〜そう form express in Japanese?",
+                "options": [
+                    "A completed action",
+                    "Something that looks or seems a certain way",
+                    "A future intention",
+                    "A habitual action"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you form the 〜そう form for い-adjectives when expressing appearance or seeming?",
+                "options": [
+                    "Add そう directly to the adjective",
+                    "Remove the final い and add そう",
+                    "Change the final い to くて and add そう",
+                    "Add です after the adjective"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you form the 〜そう form for verbs when expressing appearance or seeming?",
+                "options": [
+                    "Add そう directly to the verb",
+                    "Use the verb's dictionary form and add そう",
+                    "Use the verb stem and add そう",
+                    "Change the verb to its て-form and add そう"
+                ],
+                "answer": 2,
+                "explanation": "Remember, verbs use their stem form to create the 〜そう form when expressing appearance or seeming. If you want to express hearsay, you would then use the dictionary form plus そう."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following sentences correctly uses the 〜そう form?",
+                "options": [
+                    "いそがしそうです。",
+                    "いそがしいですそう。",
+                    "いそがしくてそうです。",
+                    "いそがしそうにです。"
+                ],
+                "answer": 0,
+                "explanation": "The correct formation for い-adjectives in the 〜そう form is to remove the final い and add そう, as in いそがしそうです (looks busy)."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\n'It looks she will come early.'",
+                "includes": [
+                    ["早く", "はやく", "hayaku"],
+                    ["来", "き", "ki"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は早[はや]く来そうです。",
+                "explanation": "The verb 来[く]る is converted to its stem 来[き] and then そう is added to express that it looks like she will come early. /t When putting an い adjective directly before a verb, you need to replace the final い with く to connect them. \\"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\nI heard that this movie is interesting.",
+                "includes": [
+                    ["この", "kono"],
+                    ["映画", "えいが", "eiga"],
+                    ["面白い", "おもしろい", "omoshiroi"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "この映[えい]画[が]は面[おも]白[しろ]いそうです。",
+                "explanation": "When using そう for hearsay, you do not change the adjective form."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following sentences uses 〜そう to express hearsay correctly?",
+                "options": [
+                    "彼[かれ]は元[げん]気[き]そうです。",
+                    "彼[かれ]は元[げん]気[き]だそうです。",
+                    "彼[かれ]は元[げん]気[き]にそうです。",
+                    "彼[かれ]は元[げん]気[き]ですそう。"
+                ],
+                "answer": 1,
+                "explanation": "Do not forget to use だ before そう when a な adjective is used for hearsay!"
+            }
+        ]
+    }
+}

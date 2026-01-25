@@ -2,7 +2,6 @@
 
 title: Acknowledging Favours
 slug: favours
-tags: ["te-form", "favours"]
 summary: Learn how to use the ～てくれる construction in Japanese to acknowledge favours done for you or others.
 
 ---
