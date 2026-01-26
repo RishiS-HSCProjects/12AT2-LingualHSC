@@ -1,3 +1,10 @@
+/**
+ * Global Application Styles
+ * 
+ * This file contains styles for global application features that appear
+ * across all pages and modules (flash messages, modals, utilities, etc.)
+ */
+
 :root {
     font-size: 14px;
 
@@ -15,7 +22,9 @@
     --radius-large: 50px;
 }
 
-/* Flash Styles */
+/* ============================================
+   FLASH MESSAGE SYSTEM
+   ============================================ */
 
 #flash-container {
     position: fixed;

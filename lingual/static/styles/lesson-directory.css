@@ -1,12 +1,21 @@
+/**
+ * Lesson Directory Styles
+ * 
+ * This file contains styles for lesson directory/listing pages.
+ * It uses CSS variables defined in variables.css for theming.
+ */
+
 .lesson-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid var(--border-block-quote);
+    border-radius: var(--radius-medium);
     padding: 15px;
     margin-bottom: 15px;
-    background-color: #f9f9f9;
+    background-color: var(--bg-block-quote);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .lesson-item:hover {
     background-color: #f1f1f1;
+    box-shadow: var(--shadow-card);
     cursor: pointer;
 }

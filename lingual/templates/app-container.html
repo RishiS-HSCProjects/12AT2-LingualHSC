@@ -11,6 +11,7 @@
     {% endif %}
 
     {% block meta %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/variables.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
     {% endblock %}
 
