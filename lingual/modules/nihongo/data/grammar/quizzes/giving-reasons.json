@@ -29,55 +29,21 @@
                 "type": "input",
                 "question": "Write a sentence explaining that you can't do something because you are busy. (You can choose what you can't do.)",
                 "includes": [
-                    [
-                        "忙しい",
-                        "いそがしい",
-                        "isogashii"
-                    ],
-                    [
-                        "から",
-                        "ので",
-                        "kara",
-                        "node"
-                    ]
+                    ["忙しい", "いそがしい", "isogashii"],
+                    ["から", "ので", "kara", "node"]
                 ],
-                "sample_answer": "忙[いそが]しいから、行[い]けません。"
+                "sample_answer": "忙[いそが]しいから、行けません。"
             },
             {
                 "type": "input",
                 "question": "Translate the following sentence into Japanese:\n\nShe is studying because she likes Japanese.",
                 "includes": [
-                    [
-                        "日本語",
-                        "にほんご",
-                        "nihongo"
-                    ],
-                    [
-                        "好き",
-                        "すき",
-                        "suki"
-                    ],
-                    [
-                        "だ",
-                        "da"
-                    ],
-                    [
-                        "から",
-                        "ので",
-                        "kara",
-                        "node"
-                    ],
-                    [
-                        "勉強",
-                        "べんきょう",
-                        "benkyou"
-                    ],
-                    [
-                        "しています",
-                        "している",
-                        "shiteimasu",
-                        "shiteiru"
-                    ]
+                    ["日本語", "にほんご", "nihongo"],
+                    ["好き", "すき", "suki"],
+                    ["だ", "da"],
+                    ["から", "ので", "kara", "node"],
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["しています", "している", "shiteimasu", "shiteiru"]
                 ],
                 "sample_answer": "彼[かの]女[じょ]は日本語が好きだから、勉[べん]強[きょう]しています。"
             },
@@ -85,19 +51,21 @@
                 "type": "input",
                 "question": "Translate to English: 天[てん]気[き]がいいから、散[さん]歩[ぽ]します。",
                 "includes": [
-                    [
-                        "weather"
-                    ],
-                    [
-                        "good",
-                        "nice"
-                    ],
-                    [
-                        "walk",
-                        "stroll"
-                    ]
+                    ["weather"],
+                    ["good", "nice"],
+                    ["walk", "stroll"]
                 ],
                 "sample_answer": "The weather is good, so I will go for a walk."
+            },
+            {
+                "type": "mc",
+                "question": "Is から or ので more appropriate in the following sentence?\n\nごめんなさい。元[げん]気[き]がない___、今日は早[はや]く帰[かえ]らないといけません。",
+                "options": [
+                    "から",
+                    "ので"
+                ],
+                "answer": 1,
+                "explanation": "In this context, ので is more appropriate as it conveys a softer and more apologetic tone."
             }
         ]
     }

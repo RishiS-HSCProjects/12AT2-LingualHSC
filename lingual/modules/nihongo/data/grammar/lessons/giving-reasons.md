@@ -26,6 +26,8 @@ For example:
 # Using ので to Give Reasons
 ので is considered more polite and formal than から. It is often used in written language or polite speech. Like から, it is placed after the reason clause and before the result clause.
 
+ので also holds the nuance of being more softer and more apologetic than から, which is helpful when offering reasons or excuses while maintaining politeness.
+
 :::blockquote Verb/Adjective + ので :::
 
 /w Similar to から, when using ので with な-adjectives and nouns, you need to add だ before ので. \

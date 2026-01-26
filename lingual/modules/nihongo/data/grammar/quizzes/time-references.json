@@ -97,6 +97,48 @@
                     ["friends"]
                 ],
                 "sample_answer": "I talk with friends during the lunch break."
+            },
+            {
+                "type": "mc",
+                "question": "Which structure is used to indicate two simultaneous actions, with one being secondary?",
+                "options": [
+                    "Verb (stem form) + ながら",
+                    "Verb (plain) + 間"
+                ],
+                "answer": 0,
+                "explanation": "The structure Verb (stem form) + ながら is used to indicate that two actions are happening simultaneously, with one action being the main focus and the other being secondary."
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 映[えい]画[が]を見[み]ている____にポップコーンを食[た]べます。",
+                "valid": [
+                    "間",
+                    "あいだ",
+                    "aida"
+                ],
+                "explanation": "This sentence translates to 'I eat popcorn while watching a movie.' The correct word to fill in the blank is 間[あいだ], which indicates that one action occurs during the duration of another action."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following sentences correctly uses ながら?",
+                "options": [
+                    "音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]を聞[き]きのながら勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]を聞[き]きているながら勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]を聞[き]かながら勉[べん]強[きょう]します"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: While swimming, I become happy.",
+                "includes": [
+                    ["泳ぎ", "およぎ", "oyogi"],
+                    ["ながら", "nagara"],
+                    ["うれし", "ureshi"]
+                ],
+                "sample_answer": "泳[およ]ぎながら、うれしくなります。",
+                "explanation": "The sentence uses the ながら structure since it describes two simultaneous actions, with swimming being the primary action and becoming happy being the secondary action. (The setence isn't \"While I become happy, I swim\"!)"
             }
         ]
     }

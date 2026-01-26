@@ -6,7 +6,7 @@ summary: "Learn how to use 前, 後, and 間 to reference time in Japanese."
 
 --- 
 
-In Japanese, you can reference time using the words 前[まえ], 後[ご], and 間[あいだ]. These words help indicate when an action takes place in relation to other events.
+In Japanese, you can reference time to indicate when an action takes place in relation to other events.
 
 # 時に (When)
 
@@ -61,5 +61,29 @@ The word 間[あいだ] means "during" or "while" and is used to indicate that o
 :::blockquote Noun + の + 間 :::
 - 会議[かいぎ]の間[あいだ]にメモを取[と]ります → I take notes during the meeting.
 - 昼休[ひるやす]みの間[あいだ]に友達[ともだち]と話[はな]します → I talk with my friends during lunch break.
+
+# ながら (While)
+The structure Verb (stem form) + ながら is used to indicate that two actions are happening simultaneously. The action described by the verb in the ながら form is usually a secondary action that occurs while the main action is taking place.
+
+:::blockquote Verb (stem form) + ながら :::
+
+The primary action (the main thing you are doing) comes after ～ながら in the sentence.
+
+- 音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]します → I study while listening to music.
+    - Here, the main action is studying, and listening to music is the secondary action.
+- テレビを見[み]ながら食[た]べます → I eat while watching TV.
+    - Here, the main action is eating, and watching TV is the secondary action.
+- 散歩[さんぽ]しながら話[はな]します → I talk while taking a walk.
+    - Here, the main action is talking, and taking a walk is the secondary action.
+
+/w Don't let the な in ながら confuse you! ながら requires the verb stem, NOT the ない form of the verb! \
+
+## 間 vs ながら
+Both 間 and ながら can be used to express simultaneous actions, but they have different nuances and structures.
+
+- 間 is used to indicate that one action occurs during the duration of another action. It often implies that the two actions are happening over a period of time.
+    - Example: 映画を見ている間にポップコーンを食べます → I eat popcorn while watching a movie.
+- ながら is used to indicate that two actions are happening at the same time, with one action being the main focus and the other being secondary.
+    - Example: 音楽を聞きながら勉強します → I study while listening to music.
 
 ~quizzes:time-references:quiz?shuffle&limit=5~

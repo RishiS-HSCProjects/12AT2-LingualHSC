@@ -41,3 +41,14 @@ In Japanese, there are several particles that can be used to express the concept
 - ケーキ**しか**食べませんでした → I ate nothing but cake. (implies that the speaker is dissatisfied with only eating cake)
 
 ~quizzes:only:quiz?shuffle&limit=5~
+
+# Saying *Not only... but also...* using だけでなく
+だけでなく is used to express "not only... but also..." in Japanese. It is used to add additional information to a statement.
+
+:::blockquote Noun A + だけでなく + Noun B + も + Verb :::
+
+- 英[えい]語[ご]**だけでなく**、日本語も話せます。→ I can speak not only English, but also Japanese.
+- 彼[かの]女[じょ]は美[うつく]しい**だけでなく**、あたまも良[よ]いです。→ My girlfriend is not only beautiful, but also smart. (ooo lala)
+- この本[ほん]は面[おも]白[しろ]い**だけでなく**、ためになります。→ This book is not only interesting, but also informative.
+
+~quizzes:only:dakedenaku?shuffle&limit=5~

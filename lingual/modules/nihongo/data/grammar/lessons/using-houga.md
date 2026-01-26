@@ -1,7 +1,7 @@
 ---
 
 title: "Saying \"Better if you ...\""
-slug: "houga"
+slug: "using-houga"
 summary: "Learn how to say 'had better' in Japanese using the ～ほうがいい structure."
 
 ---
@@ -20,4 +20,4 @@ In Japanese, you can express the idea of "had better" or "it is better to" do so
 - タバコを吸[す]わない方[ほう]がいいです → It is better not to smoke.
 - 夜[よる]遅[おそ]くまで起[お]きない方[ほう]がいいです → It is better not to stay up late.
 
-~quizzes:houga:quiz?shuffle&limit=5~
+~quizzes:using-houga:quiz?shuffle&limit=5~

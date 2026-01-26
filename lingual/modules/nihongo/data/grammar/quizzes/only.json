@@ -101,5 +101,67 @@
                 "explanation": "Recall that しか pairs with a negative verb to express 'nothing but'."
             }
         ]
+    },
+    "dakedenaku": {
+        "title": "Using だけでなく",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does だけでなく mean?",
+                "options": [
+                    "Not only... but also...",
+                    "Only...",
+                    "Nothing but...",
+                    "Even..."
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Not only can she sing, but she can also dance.",
+                "includes": [
+                    ["だけでなく"],
+                    ["歌", "うた", "uta"],
+                    ["踊", "おど", "odo", "ダンス", "dansu"]
+                ],
+                "sample_answer": "彼女はうたえるだけでなく、おどることもできます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses だけでなく?",
+                "options": [
+                    "彼はピアノを弾[ひ]くだけでなく、ギターも弾[ひ]きます。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターを弾[ひ]きます。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターも弾[ひ]かないです。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターを弾[ひ]かないです。"
+                ],
+                "answer": 0,
+                "explanation": "When using だけでなく to connect two actions, the second action uses も to indicate 'also'."
+            },
+            {
+                "type": "mc",
+                "question": "What is the correct placement of だけでなく?",
+                "options": [
+                    "After the verb or adjective it modifies",
+                    "Before the noun it modifies",
+                    "At the start of the sentence",
+                    "At the end of the sentence"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 東[とう]京[きょう]に行くだけでなく、大[おお]阪[さか]にも行ったことがあります。",
+                "includes": [
+                    ["Not only", "not only"],
+                    ["also", "too", "as well"],
+                    ["went", "been", "go", "have"],
+                    ["Osaka"],
+                    ["Tokyo"]
+                ],
+                "sample_answer": "Not only have I been to Tokyo, but I have also been to Osaka.",
+                "explanation": "Recall that ことがある is used to express having the experience of doing something. /t For more information, see the [Verb Normalisation](grammar:verb-normalisation#talking-about-past-experiences) module. \\"
+            }
+        ]
     }
 }

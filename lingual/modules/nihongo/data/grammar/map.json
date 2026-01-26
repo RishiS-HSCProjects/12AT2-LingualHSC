@@ -22,12 +22,16 @@
         "purpose",
         "only",
         "start-finish",
-        "houga",
+        "using-houga",
         "using-you",
         "using-sou",
         "intent-plans",
         "time-references",
-        "conditional-form"
+        "conditional-form",
+        "using-naide",
+        "using-kata",
+        "expressing-difficulty",
+        "using-shimaimasu"
     ],
     "extra": [
         "ha-vs-ga"

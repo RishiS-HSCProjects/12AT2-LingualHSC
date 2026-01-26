@@ -1,0 +1,57 @@
+{
+    "quiz": {
+        "title": "Using ～しまいます to Indicate Completion or Regret",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the nuance added by using ～しまいます in the sentence: 本を読んでしまいました？",
+                "options": [
+                    "Indicates that the action was completed with a sense of regret or unintentionally.",
+                    "Indicates that the act was completed successfully.",
+                    "Indicates a habitual action.",
+                    "Indicates a future intention."
+                ],
+                "answer": 0,
+                "explanation": "Using ～しまいます often conveys that the action was completed with a sense of regret or that it was done unintentionally. In this case, the speaker may feel that they finished reading the book sooner than expected, possibly with some regret since they can't read it again for the first time."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI accidentally dropped my phone.",
+                "includes": [
+                    ["携帯", "けいたい", "keitai", "電話", "でんわ", "denwa"],
+                    ["落として", "おとして", "otoshite"],
+                    ["しまいました", "しまった", "shimaimashita", "しまった"]
+                ],
+                "sample_answer": "携帯電話を落[お]としてしまいました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\nケーキを全[ぜん]部[ぶ]食[た]べてしまいました。",
+                "includes": [
+                    ["entire", "all", "whole", "complete"],
+                    ["cake"],
+                    ["ate", "finish", "eat"]
+                ],
+                "sample_answer": "I completely ate the cake."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nShe finished reading the book.",
+                "includes": [
+                    ["本", "ほん", "hon"],
+                    ["読み終わって", "よみおわって", "yomiowatte"],
+                    ["しまいました", "しまった", "shimaimashita", "しまった"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は本を読[よ]み終[お]わってしまいました。"
+            },
+            {
+                "type": "input",
+                "question": "What is the nuance of ～てしまう when used in the sentence: さいふをわすれてしまいました？",
+                "includes": [
+                    ["regret", "accident"]
+                ],
+                "sample_answer": "The nuance of ～てしまう in this sentence indicates that the speaker is suggesting the person forgot their wallet, and feels regret or that it was an accident."                           
+            }
+        ]
+    }
+}

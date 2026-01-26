@@ -1,0 +1,65 @@
+{
+    "quiz": {
+        "title": "Using ないで",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'Please don't speak during the movie.'",
+                "includes": [
+                    ["映画", "えいが", "eiga"],
+                    ["話さ", "はなさ", "hanasa"],
+                    ["ないで", "naide"],
+                    ["ください", "kudasai"]
+                ],
+                "sample_answer": "映[えい]画[が]の間[あいだ]に話[はな]さないでください。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'I will go home without eating dinner.'",
+                "includes": [
+                    ["家", "いえ", "ie"],
+                    ["帰る", "かえる", "kaeru"],
+                    ["飯", "はん", "han"],
+                    ["食べ", "たべ", "tabe"],
+                    ["ないで", "naide"]
+                ],
+                "sample_answer": "夕[ゆう]飯[はん]を食[た]べないで家[いえ]に帰[かえ]ります。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'She studied without using a dictionary.'",
+                "includes": [
+                    ["彼女", "かのじょ", "kanojo"],
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["辞書", "じしょ", "jisho"],
+                    ["使い", "つかい", "tsukai"],
+                    ["ないで", "naide"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は辞[じ]書[しょ]を使[つか]わないで勉[べん]強[きょう]しました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'Don't forget to bring your umbrella.'",
+                "includes": [
+                    ["傘", "かさ", "kasa"],
+                    ["持", "も", "mo"],
+                    ["忘れ", "わすれ", "wasure"],
+                    ["ないで", "naide"]
+                ],
+                "sample_answer": "傘[かさ]を持[も]って来[く]るのを忘[わす]れないでください。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: はをみがかないで朝[あさ]ご飯[はん]を食[た]べました。",
+                "includes": [
+                    ["brush", "clean"],
+                    ["teeth"],
+                    ["without"],
+                    ["breakfast"],
+                    ["ate", "eat"]
+                ],
+                "sample_answer": "I ate breakfast without brushing my teeth."
+            }
+        ]
+    }
+}
