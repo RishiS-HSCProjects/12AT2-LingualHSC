@@ -4,6 +4,7 @@ from flask import Blueprint, abort, flash, json, jsonify, redirect, render_templ
 from flask_login import login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
+from lingual.utils.lessons.lesson_processor import Lesson
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -21,24 +22,30 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 def home():
     return "Welcome to the Nihongo Module!"
 
-@nihongo_bp.route('/grammar/', defaults={'slug': None})
+@nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
 @login_required
-def grammar(slug):
+def grammar(slug=None):
     # Validate slug to prevent directory traversal attacks
-    if not VALID_SLUG.match(slug):
-        abort(400, description="Invalid lesson slug.")
+    if slug and VALID_SLUG.match(slug):
+        try:
+            lesson_data = get_processor().load(slug)
+        except FileNotFoundError:
+            flash("Lesson not found.", "error")
+            return redirect(url_for('nihongo.grammar'))
+        except Exception as e:
+            flash(f"An error occurred while loading the lesson: {str(e)}", "error")
+            return redirect(url_for('nihongo.grammar'))
 
-    try:
-        lesson_data = get_processor().load(slug)
-    except FileNotFoundError:
-        flash("Lesson not found.", "error")
-        return redirect(url_for('nihongo.grammar'))
-    except Exception as e:
-        flash(f"An error occurred while loading the lesson: {str(e)}", "error")
-        return redirect(url_for('nihongo.grammar'))
+        return render_template(
+            'lesson.html',
+            lesson=lesson_data,
+            data_root=lesson_data.get("data_root")
+        )
 
-    return render_template('lesson.html', lesson=lesson_data, data_root=lesson_data.get("data_root"))
+    lessons: list["Lesson"] = get_processor().get_lessons()
+    return render_template('grammar.html', lessons=lessons)
+
 
 @nihongo_bp.route('grammar/api/quiz/<lesson_slug>', methods=['GET'])
 def get_quizzes(lesson_slug):

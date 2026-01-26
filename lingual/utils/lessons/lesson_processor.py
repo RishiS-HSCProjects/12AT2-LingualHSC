@@ -1,6 +1,7 @@
+from dataclasses import dataclass
 from pathlib import Path
 # from functools import lru_cache
-from flask import current_app, url_for
+from flask import current_app, url_for, flash
 import frontmatter
 import markdown
 import re
@@ -161,3 +162,75 @@ class BaseLessonProcessor:
             "slug": slug,           # Lesson slug
             "data_root": self.data_root,
         }
+
+    def get_lessons(self) -> list[dict]:
+        """
+        Returns a list of categories, each containing its lessons:
+        [
+            {
+                "category": "map",
+                "lessons": [Lesson(...), Lesson(...)]
+            },
+            {
+                "category": "extra",
+                "lessons": [...]
+            }
+        ]
+        """
+        lesson_slugs_path = self.data_root / "map.json"
+
+        if lesson_slugs_path.exists():
+            import json
+            with open(lesson_slugs_path, "r", encoding="utf-8") as f:
+                slug_data = json.load(f)
+        else:
+            slug_data = {}
+
+        categories: list[dict] = []
+
+        for category_name, slugs in slug_data.items(): # Iterate through each category
+            category_lessons: list[Lesson] = [] # Lessons in this category
+
+            for slug in slugs:
+                try:
+                    lesson_data = self.load(slug)
+                    meta = lesson_data.get("meta", None)
+
+                    if meta is None:
+                        current_app.logger.warning(
+                            f"Lesson '{slug}' in category '{category_name}' is missing metadata."
+                        )
+                        continue
+
+                    # Run title & summary through the same transformation pipeline
+                    title_raw = meta.get("title", "Untitled")
+                    summary_raw = meta.get("summary", "")
+
+                    title = self.apply_transforms(title_raw)
+                    summary = self.apply_transforms(summary_raw)
+
+                    category_lessons.append(
+                        Lesson(
+                            slug=slug,
+                            title=title,
+                            summary=summary,
+                        )
+                    )
+                except Exception as e:
+                    current_app.logger.warning(
+                        f"Failed to load lesson '{slug}' in category '{category_name}': {str(e)}"
+                    )
+
+
+            categories.append({
+                "category": category_name,
+                "lessons": category_lessons
+            })
+
+        return categories
+
+@dataclass
+class Lesson:
+    slug: str
+    title: str
+    summary: str
