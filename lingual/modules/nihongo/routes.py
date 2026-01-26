@@ -43,7 +43,7 @@ def grammar(slug=None):
             data_root=lesson_data.get("data_root")
         )
 
-    lessons: list["Lesson"] = get_processor().get_lessons()
+    lessons = get_processor().get_lessons() # Get all grammar lessons and categories
     return render_template('grammar.html', lessons=lessons)
 
 

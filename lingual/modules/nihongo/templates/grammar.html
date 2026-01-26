@@ -2,20 +2,18 @@
 
 {% block title %}Grammar Lessons{% endblock %}
 
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson-directory.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/lesson-directory-utils.js') }}"></script>
+{% endblock %}
+
+{% from "lesson-directory-macro.html" import lesson_directory %}
+
 {% block body %}
-
-{% for group in lessons %}
-<h1 style="margin-top: 30px;">{{ group.category|capitalize }}</h1>
-
-{% for lesson in group.lessons %}
-    <div class="lesson-item" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;"
-        onclick="location.href='{{ url_for('nihongo.grammar', slug=lesson.slug) }}'">
-
-        <!-- The 'safe' filter is used to render HTML content safely -->
-        <h2>{{ lesson.title | safe }}</h2>
-        <p>{{ lesson.summary | safe }}</p>
-    </div>
-{% endfor %}
-{% endfor %}
-
+    {{ lesson_directory(lessons, app_code, 'grammar') }}
 {% endblock %}

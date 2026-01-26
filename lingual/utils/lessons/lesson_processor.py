@@ -163,20 +163,7 @@ class BaseLessonProcessor:
             "data_root": self.data_root,
         }
 
-    def get_lessons(self) -> list[dict]:
-        """
-        Returns a list of categories, each containing its lessons:
-        [
-            {
-                "category": "map",
-                "lessons": [Lesson(...), Lesson(...)]
-            },
-            {
-                "category": "extra",
-                "lessons": [...]
-            }
-        ]
-        """
+    def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
         lesson_slugs_path = self.data_root / "map.json"
 
         if lesson_slugs_path.exists():
@@ -186,7 +173,7 @@ class BaseLessonProcessor:
         else:
             slug_data = {}
 
-        categories: list[dict] = []
+        categories: list[dict[str, list["Lesson"]]] = []
 
         for category_name, slugs in slug_data.items(): # Iterate through each category
             category_lessons: list[Lesson] = [] # Lessons in this category

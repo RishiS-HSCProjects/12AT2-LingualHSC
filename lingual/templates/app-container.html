@@ -17,8 +17,22 @@
 </head>
 
 <body>
+    {% if current_user.is_authenticated %}
+        {% set last_language = current_user.get_last_language() %}
+
+        {% if last_language %}
+            {% set app_code = last_language.app_code %}
+        {% else %}
+            {% set app_code = None %}
+        {% endif %}
+
+    {% else %}
+        {% set last_language = None %}
+    {% endif %}
+
     {% block header %}
     {% endblock header %}
+
     <div id="body">
         {% block body %}
         {% endblock %}

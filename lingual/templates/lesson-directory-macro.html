@@ -1,0 +1,33 @@
+<!-- Dependencies -->
+<!--
+    - lesson-directory-utils.js
+    - lesson-directory.css
+-->
+
+{% macro lesson_directory(lessons, app_code, route) %}
+
+<div id="lesson-directory-wrapper">
+    <h1>Grammar Lessons</h1>
+
+    <div id="lesson-directory-list">
+        {% for group in lessons %}
+            <h1 class="lesson-category">{{ group.category|capitalize }}</h1>
+
+            <div class="lesson-category-list">
+                {% for lesson in group.lessons %}
+                    <div class="lesson-item" onclick="goToLesson('{{ lesson.slug }}')">
+                        <h2>{{ lesson.title | safe }}</h2>
+                        <p>{{ lesson.summary | safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    const lessonUrl = "{{ url_for(app_code ~ '.' ~ route, slug='__SLUG__') }}";
+</script>
+
+
+{% endmacro %}
