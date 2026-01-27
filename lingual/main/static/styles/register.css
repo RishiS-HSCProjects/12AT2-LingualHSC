@@ -1,61 +1,9 @@
-#form section {
-    min-height: calc(100vh - var(--nav-height));
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    scroll-snap-align: start;
-    display: none;
-}
-
-#form section.active {
-    display: block;
-}
-
-#form .form-body {
-    width: 100%;
-    flex: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#form .form-elements {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#form .select-wrapper {
-    position: relative;
-    width: 30rem;
-}
-
-#form select option {
-    font-size: 2.2rem;
-    padding: 1rem;
-    background-color: #f4f0ff;
-    color: #003C13;
-}
-
-#form select option:hover {
-    background-color: #e8e0ff;
-}
-
-#form select option:checked {
-    background-color: #d8ccff;
-    color: #002a0e;
-}
-
-#form select option[disabled] {
-    display: none;
-}
+/* || Register Page - Custom Dropdown Styles */
 
 #form .custom-dropdown {
     position: relative;
-    width: 30rem;
-    font-size: 2.5rem;
+    width: 100%;
+    font-size: 1.125rem;
 }
 
 #form .custom-dropdown #dropdown-arrow {
@@ -70,12 +18,12 @@
 
 #form .custom-dropdown .dropdown-toggle {
     width: 100%;
-    padding: 1.2rem 2rem;
+    padding: 0.875rem 1.5rem;
     border-radius: 50px;
     border: 2px solid #BFAEFF;
     background: linear-gradient(145deg, #cbbaff, #a38eff);
     color: #8702C0;
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,6 +32,8 @@
     overflow: hidden;
     transition: box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.35s ease;
     user-select: none;
+    font-family: var(--font-body);
+    font-weight: 500;
 }
 
 #form .custom-dropdown .dropdown-toggle::before,
@@ -120,6 +70,7 @@
 
 #form .custom-dropdown .dropdown-toggle span.dropdown-label {
     color: #29003c;
+    font-weight: 500;
 }
 
 #form .custom-dropdown .dropdown-menu {
@@ -138,6 +89,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    z-index: 10;
 }
 
 #form .custom-dropdown.open .dropdown-menu {
@@ -147,14 +99,21 @@
 }
 
 #form .custom-dropdown .dropdown-option {
-    padding: 1.2rem 2rem;
+    padding: 0.875rem 1.5rem;
     cursor: pointer;
     background: #f7f4ff;
     color: #003C13;
+    font-size: 1.125rem;
     transition: background 0.2s ease;
+    font-family: var(--font-body);
 }
 
 #form .custom-dropdown .dropdown-option:hover {
     background: #e8e0ff;
+}
+
+#form .custom-dropdown .dropdown-option.selected {
+    background: #e8e0ff;
+    font-weight: 600;
 }
 

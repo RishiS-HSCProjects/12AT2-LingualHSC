@@ -5,8 +5,10 @@
  * across all pages and modules (flash messages, modals, utilities, etc.)
  */
 
+/* || Root Variables */
+
 :root {
-    font-size: 14px;
+    font-size: 16px;
 
     /* Z-INDEXES */
     --z-index-overlay: 100;
@@ -17,25 +19,22 @@
     --z-index-god: 10000;
 
     /* SOFTENING RADIUS */
-    --radius-small: 8px;
-    --radius-medium: 20px;
-    --radius-large: 50px;
+    --radius-small: 0.5rem;
+    --radius-medium: 1.25rem;
+    --radius-large: 3.125rem;
 }
 
-/* ============================================
-   FLASH MESSAGE SYSTEM
-   ============================================ */
+/* || Flash Messages */
 
 #flash-container {
     position: fixed;
-    top: 40px;
-    right: 20px;
+    top: 2.5rem;
+    right: 1.25rem;
     z-index: var(--z-index-flash);
-    padding: 20px 10px;
-
+    padding: 1.25rem 0.625rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
     overflow-y: auto;
     scrollbar-width: none;
     align-items: center;
@@ -43,15 +42,16 @@
 }
 
 #flash-container .flash-message {
-    font-size: 20px;
-    padding: 15px 25px;
-    border: black 1px solid;
-    border-radius: 5px;
-    width: 250px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.875rem 1.25rem;
+    border: none;
+    border-radius: var(--radius-medium);
+    width: 20rem;
     color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-flash);
     display: none;
-    transform: scale(0.95);
+    transform: translateY(-20px);
     opacity: 0;
     transition: opacity 0.4s ease, transform 0.4s ease-out;
     user-select: none;
@@ -59,19 +59,20 @@
 }
 
 #flash-container .flash-message.success {
-    background-color: #4CAF50;
+    background-color: #48A868;
 }
 
 #flash-container .flash-message.error {
-    background-color: #f44336;
+    background-color: #EF4444;
 }
 
 #flash-container .flash-message.warning {
-    background-color: #ff9800;
+    background-color: #FFB84D;
+    color: #1F2937;
 }
 
 #flash-container .flash-message.info {
-    background-color: #2196F3;
+    background-color: #5A9FD4;
 }
 
 #flash-container .flash-message.fade-out {

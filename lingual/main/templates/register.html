@@ -16,41 +16,36 @@
 
 {% block body %}
 <form id="form" onsubmit="return false;" novalidate>
+    {{ form.hidden_tag() }}
     <section id="reg-lang" class="active">
         <h1>Your HSC Journey Starts Here</h1>
         <div class="form-body">
             <div class="form-elements">
-                <h2 id="language-select">First, choose a language</h2>
-                <div class="select-wrapper">
-                    <div class="custom-dropdown" id="language-dropdown">
-                        <button class="dropdown-toggle" type="button">
-                            <span class="dropdown-label">Select a language</span>
-                            <span id="dropdown-arrow">
-                                <svg width="30" height="30" viewBox="0 0 55 51" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27.5 50
-                                        C22 50 18 46 15.5 42
-                                        L3.5 20
-                                        C-1 12 4 2 13 2
-                                        H42
-                                        C51 2 56 12 51.5 20
-                                        L39.5 42
-                                        C37 46 33 50 27.5 50Z" fill="#8702C0" />
-                                </svg>
-                            </span>
-
-                        </button>
-
-                        <ul class="dropdown-menu">
-                            {% for lang in languages %}
-                            <li class="dropdown-option" data-value="{{ lang.value.code }}">
-                                {{ lang.value.name }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-
-                        <input type="hidden" name="lang" id="language-hidden">
-                    </div>
-
+                <h2>First, choose a language</h2>
+                <div class="custom-dropdown" id="language-dropdown">
+                    <button class="dropdown-toggle" type="button">
+                        <span class="dropdown-label">Select a language</span>
+                        <span id="dropdown-arrow">
+                            <svg width="30" height="30" viewBox="0 0 55 51" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M27.5 50
+                                    C22 50 18 46 15.5 42
+                                    L3.5 20
+                                    C-1 12 4 2 13 2
+                                    H42
+                                    C51 2 56 12 51.5 20
+                                    L39.5 42
+                                    C37 46 33 50 27.5 50Z" fill="#8702C0" />
+                            </svg>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for lang in languages %}
+                        <li class="dropdown-option" data-value="{{ lang.value.code }}">
+                            {{ lang.value.name }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <input type="hidden" name="lang" id="language-hidden">
                 </div>
             </div>
         </div>
@@ -99,7 +94,7 @@
                 <small>Please check your spam folder if you don't see the email in your inbox.</small>
                 <div class="presubmit-options">
                     <button class="option" onclick="scrollToEmail(); spamPrevention(this);">Update Email</button>
-                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 60*1000);" id="resend-code-btn">Resend Verification Code</button>
+                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 120*1000);" id="resend-code-btn">Resend Verification Code</button>
                 </div>
                 <div class="next-btn">
                     <button type="button" class="next" onclick="handleVerificationCodeInput(true); spamPrevention(this);" disabled>Verify</button>

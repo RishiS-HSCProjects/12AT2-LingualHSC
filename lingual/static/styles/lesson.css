@@ -5,9 +5,7 @@
  * It uses CSS variables defined in variables.css for theming.
  */
 
-/* ============================================
-   LAYOUT
-   ============================================ */
+/* || General Layout */
 
 body {
     overflow-x: auto;
@@ -18,50 +16,75 @@ body {
     grid-template-columns: 1fr 30%;
     gap: 3vw;
     padding: 3vw;
+    transition: grid-template-columns 0.25s ease, gap 0.25s ease, padding 0.25s ease;
+}
+
+.directory-collapsed #lesson-content-wrapper {
+    grid-template-columns: 1fr;
+}
+
+.directory-collapsed #lesson-container {
+    max-width: 90vw;
 }
 
 #lesson-container {
     max-width: 70vw;
     margin: 0 auto;
-    padding: 0 3vw;
-    box-shadow: var(--shadow-card);
+    padding: 2.5rem 3vw;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-soft);
 }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
+/* || Typography */
 
 #lesson-container .lesson-title {
     text-align: center;
     font-size: var(--font-size-title-lg);
     line-height: var(--line-height-title-lg);
-    margin: 3rem auto;
+    margin: 2rem auto 2.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 #lesson-container h1 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-header-1);
     line-height: var(--line-height-header-lg);
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 #lesson-container h2 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-header-2);
     line-height: var(--line-height-header-md);
-    margin-bottom: 8px;
+    margin-bottom: 0.625rem;
+    margin-top: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 #lesson-container h3 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-header-3);
-    margin-bottom: 6px;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 #lesson-container h4 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-header-4);
-    margin-bottom: 4px;
+    margin-bottom: 0.375rem;
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 #lesson-content {
@@ -69,78 +92,80 @@ body {
     line-height: 1.6;
 }
 
-/* ============================================
-   NOTE BLOCKS
-   ============================================ */
+/* || Note Blocks */
 
 #lesson-container .note {
     background-color: var(--bg-note-info);
     border-left: 4px solid var(--border-note-info);
+    border-radius: var(--radius-medium);
     padding: 1rem;
-    padding-top: 0;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-card);
 }
 
 #lesson-container .note p {
-    margin: 0;
+    margin: 0.3rem 0 0 0;
+    color: var(--color-primary);
 }
 
 #lesson-container .note strong.label {
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
 }
 
 #lesson-container .note.info {
-    background-color: var(--bg-note-info);
-    border-left-color: var(--border-note-info);
+    background-color: #E8F1FF;
+    border-left-color: var(--color-accent);
 }
 
 #lesson-container .note.tip {
-    background-color: var(--bg-note-tip);
-    border-left-color: var(--border-note-tip);
+    background-color: #E8F5E9;
+    border-left-color: #48A868;
 }
 
 #lesson-container .note.warning {
-    background-color: var(--bg-note-warning);
-    border-left-color: var(--border-note-warning);
+    background-color: #FFF3E0;
+    border-left-color: #FFB84D;
 }
 
-/* ============================================
-   CONTENT BLOCKS
-   ============================================ */
+/* || Content Blocks */
 
 #lesson-container .block {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem 1rem;
-    border-radius: var(--radius-medium);
+    margin-bottom: 1rem;
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-round);
     box-shadow: var(--shadow-card);
     text-align: center;
-    font-size: 1.75rem;
+    font-size: 1.125rem;
+    border: 1px solid var(--border-subtle);
 }
 
 #lesson-container .block.blockquote {
-    background-color: var(--bg-block-quote);
-    border: 1px solid var(--border-block-quote);
+    background: linear-gradient(135deg, var(--bg-surface-muted) 0%, var(--bg-surface) 100%);
+    border-color: var(--border-subtle);
+    color: var(--color-primary);
 }
 
 #lesson-container .block.warning {
-    background-color: var(--bg-block-warning);
-    border: 1px solid var(--border-block-warning);
-    box-shadow: var(--shadow-warning);
+    background-color: #FFF8E1;
+    border-color: #FFB84D;
+    box-shadow: var(--shadow-soft);
+    color: var(--color-primary);
 }
 
-/* ============================================
-   SPOILER ELEMENTS
-   ============================================ */
+/* || Spoiler Elements */
 
 #lesson-container .spoiler {
     filter: blur(8px);
-    padding: 0 4px;
+    padding: 0 0.25rem;
     cursor: pointer;
-    transition: filter .2s ease;
+    transition: filter 0.2s ease;
     user-select: none;
-    background-color: #00000009;
+    background-color: rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-small);
 }
 
@@ -155,87 +180,206 @@ body {
     user-select: text;
 }
 
-/* ============================================
-   DIRECTORY PANEL
-   ============================================ */
+/* || Directory Panel */
 
 #directory-panel {
     position: fixed;
-    top: 280px;
-    right: 3rem;
-    height: calc(100vh - 120px);
-    padding: 0.5rem 0;
+    top: 120px;
+    right: 2rem;
+    height: calc(100vh - 140px);
+    width: 16rem;
+    padding: 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.directory-collapsed #directory-panel {
+    transform: translateX(110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.directory-open #directory-panel {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.directory-toggle {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: calc(var(--z-index-nav) + 1);
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.directory-toggle-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.directory-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+    background: var(--color-accent-strong);
+}
+
+.directory-collapsed .directory-toggle {
+    display: inline-flex;
+}
+
+.directory-toggle.is-open .directory-toggle-icon {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+    #directory-panel {
+        width: 75vw;
+        max-width: 20rem;
+        right: 1rem;
+        top: calc(var(--nav-height) + 1rem);
+        height: calc(100vh - var(--nav-height) - 2rem);
+    }
+
+    .directory-toggle {
+        display: inline-flex;
+    }
+}
+
+#directory-panel .directory-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-surface-muted);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 #directory-results {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    flex: 1;
+    padding: 0.5rem 0;
+}
+
+#directory-results:empty::after {
+    content: "No headings";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
 .directory-indent {
     display: flex;
     align-items: center;
     border-left: 3px solid transparent;
-    height: 2.4rem;
+    min-height: 2rem;
     transition: border-color 0.2s ease, background-color 0.2s ease;
+    margin: 0.125rem 0;
 }
 
 .directory-link {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.8125rem;
     color: var(--color-secondary);
     text-decoration: none;
-    padding: 4px 8px;
-    transition: color 0.2s ease;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-base);
+    display: block;
+    line-height: 1.4;
 }
 
 .directory-indent:hover .directory-link {
-    color: var(--color-link);
+    color: var(--color-accent);
 }
 
 .directory-indent.active {
-    border-left-color: var(--color-link);
-    background: rgba(9, 105, 218, 0.06);
+    border-left-color: var(--color-accent);
+    background: var(--color-accent-soft);
 }
 
 .directory-indent.active .directory-link {
-    color: var(--color-link);
+    color: var(--color-accent);
+    font-weight: 600;
 }
 
 /* Directory indentation levels */
-.level-1 { padding-left: 8px; }
-.level-2 { padding-left: 20px; }
-.level-3 { padding-left: 32px; }
-.level-4 { padding-left: 44px; }
-.level-5 { padding-left: 56px; }
-.level-6 { padding-left: 68px; }
+.level-1 { padding-left: 0.75rem; }
+.level-2 { padding-left: 1.5rem; }
+.level-3 { padding-left: 2.25rem; }
+.level-4 { padding-left: 3rem; }
+.level-5 { padding-left: 3.75rem; }
+.level-6 { padding-left: 4.5rem; }
 
-/* ============================================
-   QUIZ STYLES
-   ============================================ */
+/* || Quiz Styles */
 
 .quiz {
-    margin: 3rem;
-    padding: 1rem;
-    border: 2px solid var(--border-block-quote);
-    border-radius: var(--radius-medium);
-    background-color: var(--bg-block-quote);
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-round);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-muted) 100%);
+    box-shadow: var(--shadow-soft);
 }
 
 .quiz .quiz-loading {
-    height: 250px;
+    height: 15rem;
 }
 
 .quiz .quiz-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-subtle);
 }
 
 .quiz .quiz-question {
     margin-bottom: 1.5rem;
     font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-primary);
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--radius-medium);
+    border-left: 4px solid var(--color-accent);
+    box-shadow: var(--shadow-card);
 }
 
 /* Quiz options list */
@@ -243,23 +387,30 @@ body {
     list-style-type: none;
     padding: 0;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.5rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(40px, auto));
+    grid-template-rows: repeat(auto-fit, minmax(2.5rem, auto));
 }
 
 .quiz ul li {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border-block-quote);
-    border-radius: var(--radius-small);
-    background-color: #ffffff;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
+    background-color: var(--bg-surface);
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: all var(--transition-base);
+    color: var(--color-primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
 }
 
 .quiz ul li:hover {
-    background-color: #f0f3f6;
-    border-color: #c6d1db;
+    background-color: var(--bg-surface-muted);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 124, 255, 0.2);
 }
 
 .quiz ul li.quiz-correct {
@@ -279,18 +430,20 @@ body {
 /* Quiz input fields */
 .quiz input.quiz-input {
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.875rem 1.25rem;
     font-size: 1rem;
-    border: 1px solid var(--border-block-quote);
-    border-radius: var(--radius-small);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--bg-surface);
+    font-weight: 500;
 }
 
 .quiz input.quiz-input:focus {
-    border-color: var(--color-link);
+    border-color: var(--color-accent);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+    box-shadow: 0 0 0 3px rgba(91, 124, 255, 0.2);
 }
 
 .quiz input.quiz-input.quiz-correct {
@@ -305,60 +458,77 @@ body {
 
 /* Quiz validation feedback */
 .quiz div.quiz-valid-label {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     font-weight: 600;
 }
 
 .quiz ul.quiz-valid-list {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     color: var(--color-secondary);
 }
 
 /* Quiz controls and progress */
 .quiz .quiz-controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
 }
 
 .quiz .quiz-progress {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-align: left;
-    margin-left: 1rem;
-    font-size: 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--bg-surface);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
 }
 
 /* Quiz buttons */
 .quiz button {
-    font-weight: 500;
-    font-size: 1.3rem;
+    font-weight: 600;
+    font-size: 1rem;
     color: #ffffff;
-    background-color: #5b90cc;
+    background-color: var(--color-accent);
     border: none;
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-medium);
+    padding: 0.75rem 2rem;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.2s;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-card);
+    letter-spacing: 0.02em;
 }
 
 .quiz button:hover {
-    background-color: #4985ca;
+    background-color: var(--color-accent-strong);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
 }
 
 .quiz button:disabled {
-    background-color: #98bfeb;
+    background-color: var(--color-muted);
     cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
 }
 
 /* Quiz explanation */
 .quiz .quiz-explanation {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--border-subtle);
 }
 
 .quiz-explanation[hidden] {
@@ -366,11 +536,12 @@ body {
 }
 
 .quiz .quiz-explanation > .quiz-explanation-block {
-    padding: 0.75rem 1rem;
-    background: #f5f5f5;
-    border-left: 4px solid #888;
-    border-radius: var(--radius-small);
-    font-size: 1rem;
+    padding: 1rem;
+    background: var(--bg-surface-muted);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Quiz navigation buttons */
@@ -402,6 +573,8 @@ body {
     font-weight: 700;
     margin: 0;
     margin-bottom: 1rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
 }
 
 .quiz-summary p.quiz-subtitle {
@@ -414,5 +587,14 @@ body {
 }
 
 .quiz-summary .quiz-score {
-    margin-left: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--bg-surface);
+    border-radius: var(--radius-round);
+    border: 2px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
 }

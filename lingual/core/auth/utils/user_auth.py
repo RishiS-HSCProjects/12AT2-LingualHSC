@@ -18,74 +18,34 @@ class RegUser:
             'language': self.language or None
         }
 
-    def verify_name(self, name: str) -> int | None:
-        if not name:
-            return NameValidationError.EMPTY_NAME
-        
-        if len(name) > 50:
-            return NameValidationError.TOO_LONG
-        
-        if not all(c.isalpha() or c in " -'" for c in name):
-            return NameValidationError.INVALID_CHARACTERS
-        
-        return None
-
-    def set_fname(self, first_name: str) -> str | None:
+    def set_fname(self, first_name: str) -> None:
         """
             Returns None if successful, else error message string.
         """
         first_name = first_name.strip().title()
+
+        from lingual.core.auth.utils.utils import validate_name
+        err = validate_name(first_name)
+        if err: raise RegUserValueException(str(err))
         
-        if (err := self.verify_name(first_name)) is None:
-            self.first_name = first_name
-            return None
-        elif err == NameValidationError.EMPTY_NAME:
-            return "First name cannot be empty."
-        elif err == NameValidationError.TOO_LONG:
-            return "First name cannot exceed 50 characters."
-        elif err == NameValidationError.INVALID_CHARACTERS:
-            return "First name can only contain letters, spaces, apostrophes, and hyphens."
-        
-        return "Unknown error." # Fallback, should never reach here
+        self.first_name = first_name
     
-    def set_email(self, email: str) -> str | None:
+    def set_email(self, email: str) -> None:
         """
             Returns None if successful, else error message string.
         """
-        email = email.strip()
-        if not email:
-            return "Email cannot be empty."
         
-        from lingual.models import User
-        if User.query.filter_by(email=email.lower()).first():
-            return "Email already registered. Please use a different email address or log in."
+        from lingual.core.auth.utils.utils import validate_email
+        err = validate_email(email, exists=False)
+        if err: raise RegUserValueException(str(err))
 
-        # Following (AI generated) regex line ensures the:
-        #  -  Local part is alphanumeric + [._%+-], no leading/trailing dots, no consecutive dots
-        #  -  Domain part is alphanumeric + [-], must have a dot and 2+ char TLD
-
-        email_regex = r"^(?!\.)(?!.*?\.\.)[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-
-        if email.count('@') != 1:
-            return "Invalid format: Email must contain exactly one '@' symbol."
-
-        import re
-        if not re.fullmatch(email_regex, email, re.IGNORECASE):
-            return "Invalid format: Please recheck your email."
-
-        local_part, domain_part = email.split('@')
-        if len(local_part) > 64:
-            return "Email prefix too long (max 64 characters)."
-        if len(email) > 254:
-            return "Total email address length exceeds limit (254 characters)."
-
-        self.email = email.lower()
+        self.email = email.strip().lower()
         return None
     
-    def set_language(self, language: str) -> str | None:
+    def set_language(self, language: str) -> None:
         import lingual.utils.languages as lang_utils
         if language not in [lang.value.code for lang in lang_utils.Languages]:
-            return "Invalid language selection."
+            raise RegUserValueException("Invalid language selection.")
 
         self.language = language
         return None
@@ -94,11 +54,11 @@ class RegUser:
         # Create the user instance
         # Ensure required fields are present
         if not self.email:
-            raise ValueError("Cannot build user: email is not set")
+            raise RegUserValueException("Cannot build user: email is not set")
 
         user = User(
-            first_name=self.first_name,  # type: ignore
-            email=self.email  # type: ignore
+            first_name=self.first_name.strip().title(),  # type: ignore
+            email=self.email.strip().lower()  # type: ignore
         )
 
         try:
@@ -117,24 +77,17 @@ def deserialize_RegUser(data: dict) -> RegUser:
     The dictionary should have the following keys: 'first_name', 'email', 'language'.
     """
     user = RegUser()
-    error = None
 
     # Set the fields if they exist in the input dictionary
     if 'first_name' in data and data['first_name']:
-        error = user.set_fname(data['first_name'])
+        user.set_fname(data['first_name'])
     if 'email' in data and data['email']:
-        error = user.set_email(data['email'])
+        user.set_email(data['email'])
     if 'language' in data and data['language']:
-        error = user.set_language(data['language'])
-
-    if error:
-        flash(f"Error deserializing RegUser: {error}", "error")
-        current_app.logger.error(f"Error deserializing RegUser: {error}")
-        raise ValueError(error)        
+        user.set_language(data['language'])    
 
     return user
 
-class NameValidationError():
-    EMPTY_NAME = 0
-    TOO_LONG = 1
-    INVALID_CHARACTERS = 2
+class RegUserValueException(Exception):
+    def __init__(self, message: str):
+        super().__init__(message)
