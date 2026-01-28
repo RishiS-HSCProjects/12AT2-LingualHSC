@@ -26,6 +26,8 @@ html, body {
     background-color: var(--color-bg-accent-1);
     font-family: var(--font-body);
     overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
 }
 
 /* || Navigation */
@@ -34,10 +36,12 @@ nav {
     padding: 1.25rem 1.75rem;
     height: var(--nav-height);
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     box-sizing: border-box;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 999;
@@ -63,27 +67,52 @@ nav a#login-link {
 /* || Form Layout */
 
 #form {
-    max-height: calc(100vh - var(--nav-height));
     margin-top: var(--nav-height);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: var(--space-lg);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    min-height: calc(100vh - var(--nav-height));
     box-sizing: border-box;
+    padding: 0;
+
+    /* Hide scrollbar*/
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+#form::-webkit-scrollbar {
+    width: 8px;
+}
+
+#form::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#form::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#form::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
 }
 
 #form section {
-    max-height: calc(100vh - var(--nav-height));
+    min-height: calc(100vh - var(--nav-height));
     width: 100%;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
-    padding: var(--space-lg);
+    scroll-snap-stop: always;
     box-sizing: border-box;
+    padding: var(--space-lg);
+    gap: var(--space-md);
 }
 
 #form section.active {
@@ -112,7 +141,7 @@ nav a#login-link {
 
 #form .form-body {
     width: 100%;
-    flex: auto;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,6 +213,11 @@ nav a#login-link {
     transition: all 0.3s ease;
 }
 
+#form button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+} 
+
 #form button.next {
     padding: 0.95rem 2.6rem;
     font-size: 1.25rem;
@@ -198,9 +232,9 @@ nav a#login-link {
 }
 
 #form button.next:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
     box-shadow: none;
+    background: linear-gradient(145deg, #b8a0d1, #8b1db5);
+    transform: scale(0.98);
 }
 
 #form button.option {
@@ -215,6 +249,13 @@ nav a#login-link {
 #form button.option:hover {
     background: #e8e0ff;
     border-color: #a38eff;
+}
+
+#form button.option:disabled {
+    border-color: #d1c4e9;
+    background: #f0ecf8;
+    color: #aaa;
+    transform: scale(0.98);
 }
 
 /* || Text Elements */

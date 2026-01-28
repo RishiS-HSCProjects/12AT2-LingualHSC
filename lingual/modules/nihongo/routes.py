@@ -1,6 +1,6 @@
 import os
 import re
-from flask import Blueprint, abort, flash, json, jsonify, redirect, render_template, url_for
+from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
 from flask_login import login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
@@ -34,7 +34,8 @@ def grammar(slug=None):
             flash("Lesson not found.", "error")
             return redirect(url_for('nihongo.grammar'))
         except Exception as e:
-            flash(f"An error occurred while loading the lesson: {str(e)}", "error")
+            current_app.logger.error(f"An error occurred while loading the lesson {slug}: {str(e)}")
+            flash(f"An error occurred while loading the lesson.", "error")
             return redirect(url_for('nihongo.grammar'))
 
         return render_template(

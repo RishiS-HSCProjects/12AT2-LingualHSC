@@ -20,7 +20,6 @@ function getHeaders() {
  * Handles scrolling between registration sections.
  */
 function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) {
-    // todo: make transition smoother
     const sourceElement = document.getElementById(sourceSectionId);
     const targetElement = document.getElementById(targetSectionId);
 
@@ -29,24 +28,41 @@ function handleSectionScroll(sourceSectionId, targetSectionId, targetId = null) 
         return;
     }
 
+    // Add active class to make target visible and in document flow
     targetElement.classList.add('active');
 
-    if (targetId) {
-        const scrollTargetElement = document.getElementById(targetId);
-        if (scrollTargetElement) {
-            scrollTargetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    } else {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Use requestAnimationFrame to ensure the element is laid out before scrolling
+    requestAnimationFrame(() => {
+        if (targetId) {
+            const scrollTargetElement = document.getElementById(targetId);
+            if (scrollTargetElement) {
+                scrollTargetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                console.error("Invalid target ID for scrolling");
+            }
+        } else {
+            // Check if the target is above or below the current scroll position
+            const targetPosition = targetElement.getBoundingClientRect().top;
+            const currentPosition = sourceElement.getBoundingClientRect().top;
 
-    setTimeout(() => {
-        sourceElement.classList.remove('active');
-        const autofocusInput = targetElement.querySelector('input[autofocus]');
-        if (autofocusInput) {
-            autofocusInput.focus();
+            if (targetPosition < currentPosition) {
+                // Scroll upwards
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // Scroll downwards
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
-    }, 500);
+
+        // Remove active from source after animation completes
+        setTimeout(() => {
+            sourceElement.classList.remove('active');
+            const autofocusInput = targetElement.querySelector('input[autofocus]');
+            if (autofocusInput) {
+                autofocusInput.focus();
+            }
+        }, 600);
+    });
 }
 
 function handleLanguageSelect(selectedLanguage) {
@@ -68,7 +84,7 @@ function handleLanguageSelect(selectedLanguage) {
                 welcomeTextElement.textContent = data.text;
             }
 
-            handleSectionScroll('reg-lang', 'reg-name', 'welcome-text');
+            handleSectionScroll('reg-lang', 'reg-name', 'name-input-container');
         })
         .catch(error => {
             console.error("Error fetching translation:", error);
@@ -117,7 +133,7 @@ function handleNameInput(submit = false) {
 
                 helloElement.textContent = data.text;
 
-                handleSectionScroll('reg-name', 'reg-email', 'hello-text');
+                handleSectionScroll('reg-name', 'reg-email', 'email-input-container');
             })
             .catch(error => {
                 console.error("Error fetching translation:", error);
@@ -170,7 +186,7 @@ function handleEmailInput(submit = false) {
             addSuccessStyling(emailElement); // Add success styling to email input
 
             if (submit) {
-                handleSectionScroll('reg-email', 'reg-verify', 'verify-text'); // Scroll to the next section
+                handleSectionScroll('reg-email', 'reg-verify', 'verification-code-container'); // Scroll to the next section
                 const emailDisplayElement = document.getElementById('email-display');
 
                 if (emailDisplayElement) {
@@ -186,9 +202,7 @@ function handleEmailInput(submit = false) {
 }
 
 function scrollToEmail() {
-    handleSectionScroll('reg-verify', 'reg-email');
-
-    document.getElementById('reg-email').focus({ preventScroll: true });
+    handleSectionScroll('reg-verify', 'reg-email', 'email-input-container');
 }
 
 function resendVerificationCode() {
@@ -248,7 +262,7 @@ function handleVerificationCodeInput(submit = false) {
 
             const txt = document.getElementById('secret-text');
             txt.textContent = data.secret_text;
-            handleSectionScroll('reg-verify', 'reg-pwd', 'secret-text');
+            handleSectionScroll('reg-verify', 'reg-pwd', 'password-input-container');
         })
         .catch(error => {
             console.error("Error verifying code:", error);
@@ -261,7 +275,8 @@ function submitRegistrationForm() {
         method: 'POST',
         headers: getHeaders(),
         body: JSON.stringify({
-            password: document.getElementById('password').value
+            password: document.getElementById('password').value,
+            confirm_password: document.getElementById('confirm-password').value
         })
     }).then(response => response.json())
         .then(data => {

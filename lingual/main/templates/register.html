@@ -18,121 +18,140 @@
 <form id="form" onsubmit="return false;" novalidate>
     {{ form.hidden_tag() }}
     <section id="reg-lang" class="active">
-        <h1>Your HSC Journey Starts Here</h1>
-        <div class="form-body">
-            <div class="form-elements">
-                <h2>First, choose a language</h2>
-                <div class="custom-dropdown" id="language-dropdown">
-                    <button class="dropdown-toggle" type="button">
-                        <span class="dropdown-label">Select a language</span>
-                        <span id="dropdown-arrow">
-                            <svg width="30" height="30" viewBox="0 0 55 51" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27.5 50
-                                    C22 50 18 46 15.5 42
-                                    L3.5 20
-                                    C-1 12 4 2 13 2
-                                    H42
-                                    C51 2 56 12 51.5 20
-                                    L39.5 42
-                                    C37 46 33 50 27.5 50Z" fill="#8702C0" />
-                            </svg>
-                        </span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        {% for lang in languages %}
-                        <li class="dropdown-option" data-value="{{ lang.value.code }}">
-                            {{ lang.value.name }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    <input type="hidden" name="lang" id="language-hidden">
+        <div class="form-content-container" id="language-selection-container">
+            <h1>Your HSC Journey Starts Here</h1>
+            <div class="form-body">
+                <div class="form-elements">
+                    <h2>First, choose a language</h2>
+                    <div class="custom-dropdown" id="language-dropdown">
+                        <button class="dropdown-toggle" type="button">
+                            <span class="dropdown-label">Select a language</span>
+                            <span id="dropdown-arrow">
+                                <svg width="30" height="30" viewBox="0 0 55 51" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M27.5 50
+                                            C22 50 18 46 15.5 42
+                                            L3.5 20
+                                            C-1 12 4 2 13 2
+                                            H42
+                                            C51 2 56 12 51.5 20
+                                            L39.5 42
+                                            C37 46 33 50 27.5 50Z" fill="#8702C0" />
+                                </svg>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for lang in languages %}
+                            <li class="dropdown-option" data-value="{{ lang.value.code }}">
+                                {{ lang.value.name }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <input type="hidden" name="lang" id="language-hidden">
+                    </div>
                 </div>
             </div>
         </div>
-        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in here</a>.</p>
+        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in
+                here</a>.</p>
     </section>
     <section id="reg-name">
-        <h1 id="welcome-text"></h1>
-        <div class="form-body">
-            <div class="form-elements">
-                <h2>What should we call you by?</h2>
-                <div class="group-fields">
-                    <input type="text" autocomplete="given-name" autocapitalize="words"
-                        oninput="handleNameInput()" id="first-name" name="first-name"
-                        placeholder="First Name" required autofocus>
-                </div>
-                <div class="next-btn">
-                    <button type="button" class="next" onclick="handleNameInput(true); spamPrevention(this);" disabled>Next</button>
+        <div class="form-content-container" id="name-input-container">
+            <h1 id="welcome-text"></h1>
+            <div class="form-body">
+                <div class="form-elements">
+                    <h2>What should we call you by?</h2>
+                    <div class="group-fields">
+                        <input type="text" autocomplete="given-name" autocapitalize="words" oninput="handleNameInput()"
+                            id="first-name" name="first-name" placeholder="First Name" required autofocus>
+                    </div>
+                    <div class="next-btn">
+                        <button type="button" class="next" onclick="handleNameInput(true); spamPrevention(this);"
+                            disabled>Next</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in here</a>.</p>
+        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in
+                here</a>.</p>
     </section>
     <section id="reg-email">
-        <h1 id="hello-text"></h1>
-        <div class="form-body">
-            <div class="form-elements">
-                <h2>How should we contact you?</h2>
-                <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email"
-                    placeholder="Email" required autofocus>
-                <small>You will also use this email to log into your account.</small>
-                <div class="next-btn">
-                    <button type="button" class="next" id="verify-code-btn" onclick="handleEmailInput(true); spamPrevention(this);" disabled>Send Verification Code</button>
+        <div class="form-content-container" id="email-input-container">
+            <h1 id="hello-text"></h1>
+            <div class="form-body">
+                <div class="form-elements">
+                    <h2>How should we contact you?</h2>
+                    <input type="email" autocomplete="email" oninput="handleEmailInput()" id="email" name="email"
+                        placeholder="Email" required autofocus>
+                    <small>You will also use this email to log into your account.</small>
+                    <div class="next-btn">
+                        <button type="button" class="next" id="verify-code-btn"
+                            onclick="handleEmailInput(true); spamPrevention(this);" disabled>Send Verification
+                            Code</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in here</a>.</p>
+        <p class="subtitle login-prompt">I already have an account. <a href="{{ url_for('main.login') }}">Log in
+                here</a>.</p>
     </section>
     <section id="reg-verify">
-        <h1 id="verify-text">Just Checking!</h1>
-        <div class="form-body">
-            <div class="form-elements">
-                <h2>Enter the verification code we sent to your email</h2>
-                <input type="text" id="verification-code" name="verification-code" placeholder="Verification Code"
-                    autocomplete="off" required autofocus oninput="handleVerificationCodeInput()">
-                <small>We have sent this email to <span id="email-display"></span>.</small>
-                <small>Please check your spam folder if you don't see the email in your inbox.</small>
-                <div class="presubmit-options">
-                    <button class="option" onclick="scrollToEmail(); spamPrevention(this);">Update Email</button>
-                    <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 120*1000);" id="resend-code-btn">Resend Verification Code</button>
-                </div>
-                <div class="next-btn">
-                    <button type="button" class="next" onclick="handleVerificationCodeInput(true); spamPrevention(this);" disabled>Verify</button>
+        <div class="form-content-container" id="verification-code-container">
+            <h1 id="verify-text">Just Checking!</h1>
+            <div class="form-body">
+                <div class="form-elements">
+                    <h2>Enter the verification code we sent to your email</h2>
+                    <input type="text" id="verification-code" name="verification-code" placeholder="Verification Code"
+                        autocomplete="off" required autofocus oninput="handleVerificationCodeInput()">
+                    <small>We have sent this email to <span id="email-display"></span>.</small>
+                    <small>Please check your spam folder if you don't see the email in your inbox.</small>
+
+                    <div class="next-btn">
+                        <button type="button" class="next"
+                            onclick="handleVerificationCodeInput(true); spamPrevention(this);" disabled>Verify</button>
+                    </div>
+
+                    <div class="presubmit-options">
+                        <button class="option" onclick="scrollToEmail(); spamPrevention(this);">Update Email</button>
+                        <button class="option" onclick="resendVerificationCode(); spamPrevention(this, 120*1000);"
+                            id="resend-code-btn">Resend Verification Code</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <section id="reg-pwd">
-        <h1 id="secret-text"></h1>
-        <div class="form-body">
-            <div class="form-elements">
-                <h2>Please create a strong password</h2>
-                <div class="group-fields">
-                    <input type="password" autocomplete="new-password" autofocus oninput="validatePassword(this); checkSubmit();"
-                        id="password" name="password" placeholder="Password" required>
+        <div class="form-content-container" id="password-input-container">
+            <h1 id="secret-text"></h1>
+            <div class="form-body">
+                <div class="form-elements">
+                    <h2>Please create a strong password</h2>
+                    <div class="group-fields">
+                        <input type="password" autocomplete="new-password" autofocus
+                            oninput="validatePassword(this); checkSubmit();" id="password" name="password"
+                            placeholder="Password" required>
 
-                    <input type="password" autocomplete="new-password"
-                        oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
-                        name="confirm-password" placeholder="Confirm Password" required>
-                </div>
+                        <input type="password" autocomplete="new-password"
+                            oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
+                            name="confirm-password" placeholder="Confirm Password" required>
+                    </div>
 
-                <small id="password-help">
-                    <ul id="password-requirements">
-                        <li class="invalid" id="pwd-char">At least 8 characters</li>
-                        <li class="invalid" id="pwd-special">At least one special character</li>
-                        <li class="invalid" id="pwd-num">At least one number</li>
-                        <li class="invalid" id="pwd-upper">At least one uppercase letter</li>
-                        <li class="invalid" id="pwd-lower">At least one lowercase letter</li>
-                        <li class="invalid" id="pwd-match">Passwords must match</li>
-                    </ul>
-                </small>
-                <div class="next-btn">
-                    <button id="pwd-submit" type="submit" class="next" disabled>Done!</button>
+                    <small id="password-help">
+                        <ul id="password-requirements">
+                            <li class="invalid" id="pwd-char">At least 8 characters</li>
+                            <li class="invalid" id="pwd-special">At least one special character</li>
+                            <li class="invalid" id="pwd-num">At least one number</li>
+                            <li class="invalid" id="pwd-upper">At least one uppercase letter</li>
+                            <li class="invalid" id="pwd-lower">At least one lowercase letter</li>
+                            <li class="invalid" id="pwd-match">Passwords must match</li>
+                        </ul>
+                    </small>
+                    <div class="next-btn">
+                        <button id="pwd-submit" type="submit" class="next" disabled>Done!</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
 </form>
 
 {% endblock body %}

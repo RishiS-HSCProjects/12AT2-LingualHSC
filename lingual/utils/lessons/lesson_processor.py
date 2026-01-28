@@ -208,7 +208,6 @@ class BaseLessonProcessor:
                         f"Failed to load lesson '{slug}' in category '{category_name}': {str(e)}"
                     )
 
-
             categories.append({
                 "category": category_name,
                 "lessons": category_lessons

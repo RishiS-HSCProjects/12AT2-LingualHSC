@@ -5,6 +5,7 @@ from lingual.core.auth.utils.user_auth import RegUserValueException, deserialize
 from lingual.models import User
 from threading import Thread
 from lingual.utils.form_manager import validate_ajax_form, FormValidationError
+from functools import wraps
 
 auth_bp = Blueprint(
     'auth',
@@ -14,21 +15,23 @@ auth_bp = Blueprint(
 
 def validate_reg_user():
     def wrapper(func):
-        """Decorator to ensure registration info is in session."""
+        @wraps(func)
         def decorated_function(*args, **kwargs):
             reg = session.get('reg_user')
             if not reg:
-                # Reg info not found in session
-                flash("Registration information not found. Please try registering again.", "error")
+                flash(
+                    "Registration information not found. Please try registering again.",
+                    "error"
+                )
                 return redirect(url_for('main.register'))
 
-            kwargs['reg'] = reg # Pass reg to the decorated function
-            return func(*args, **kwargs) # Call initial function with reg kwarg
+            kwargs['reg'] = reg
+            return func(*args, **kwargs)
         return decorated_function
     return wrapper
 
-@validate_reg_user()
 @auth_bp.route('/verify_email', methods=['POST'], strict_slashes=False)
+@validate_reg_user()
 def verify_email(reg = None):
     # Decorator ensures reg is present
     if not reg:
@@ -139,8 +142,8 @@ def verify_otp(otp_code: str) -> str | None:
 
     return "Invalid verification code" # Return error message if verification fails. 
 
-@validate_reg_user()
 @auth_bp.route('/create', methods=['POST'])
+@validate_reg_user()
 def create_user(reg = None):
     if not reg: # Decorator ensures reg is present
         return jsonify({"error": "Registration information not found."}), 400
@@ -150,7 +153,6 @@ def create_user(reg = None):
     from lingual.core.auth.forms import UserCreationForm
 
     try:
-        new_user = deserialize_RegUser(reg)
 
         password = request.json.get('password') # Get password from AJAX request
         confirm_password = request.json.get('confirm_password')
@@ -163,23 +165,27 @@ def create_user(reg = None):
             # No need to repopulate form for AJAX request
             return jsonify({"error": error}), 400
 
+        reg_user = deserialize_RegUser(reg)
+
         # Check for duplicate accounts
-        existing = User.query.filter_by(email=new_user.email.lower()).first()
+        existing = User.query.filter_by(email=reg_user.email.lower()).first()
         if existing:
             # In theory, this should never happen due to earlier validation.
             # If this does occur, it indicates a serious issue in the registration flow.
             # As a result, we need to log this event for further investigation.
-            current_app.logger.error(f"Duplicate account creation attempt for email: {new_user.email}")
+            current_app.logger.error(f"Duplicate account creation attempt for email: {reg_user.email}")
 
             # We also need to inform the user that their attempt failed.
             return jsonify({"error": "An account with that email already exists."}), 400
 
-        new_user.set_password(password)
+        user = reg_user.build_user() # Build User object and set password
+        user.set_password(password)  # Set password
         # Add new user to the database and commit
-        db.session.add(new_user)
+        db.session.add(user)
         db.session.commit()
 
-        current_app.logger.info(f"User created: {new_user.email}") # Log user creation event
+        current_app.logger.info(f"User created: {user.email}") # Log user creation event
+        flash("Account created successfully! You can now log in.", "success")
         return jsonify({"error": None}), 200 # Success
     except FormValidationError as e:
         current_app.logger.error(f"Form validation error creating user: {e}\nReg: {reg}")
@@ -187,7 +193,7 @@ def create_user(reg = None):
     except Exception as e:
         db.session.rollback() # Rollback in case of error during DB operations. This prevents partial commits and maintains database integrity.
         current_app.logger.error(f"Unexpected error creating user: {e}\nReg: {reg}") # Log detailed error
-        return jsonify({"error": f"An error occurred: {str(e)}"}), 500 # 500 Internal Server Error
+        return jsonify({"error": f"An unexpected error occurred."}), 500 # 500 Internal Server Error
 
 def send_password_reset_email(user: 'User'):
     """Send a password reset email to the specified user."""

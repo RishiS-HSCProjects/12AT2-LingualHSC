@@ -20,11 +20,26 @@ function resetStyling(element) {
 }
 
 function spamPrevention(button, timeout = 3000) {
-    button.disabled = true;
-    button.title = "Button temporarily disabled for " + (timeout / 1000) + " seconds.";
+    button.disabled = true; // Disable the button
+    let timeRemaining = timeout / 1000; // Convert to seconds
+    button.title = `Button temporarily disabled for ${timeRemaining} seconds.`;
 
-    setTimeout(() => {
-        button.disabled = false;
-        button.title = "";
-    }, timeout);
+    if (button.disabledInterval) {
+        // Clear any existing interval to avoid overlaps
+        clearInterval(button.disabledInterval);
+    }
+
+    // Start a new interval to countdown the time
+    button.disabledInterval = setInterval(() => {
+        timeRemaining--;
+        button.title = `Button temporarily disabled for ${timeRemaining} seconds.`;
+        
+        if (timeRemaining <= 0) {
+            clearInterval(button.disabledInterval); // Clear interval when time is up
+            button.disabled = false; // Enable button
+            button.title = ""; // Remove tooltip text
+            button.disabledInterval = null; // Clean up the reference
+        }
+    }, 1000); // Run every second
 }
+
