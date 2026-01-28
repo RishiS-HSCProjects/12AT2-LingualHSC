@@ -1,0 +1,38 @@
+{
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "markup.note.info.lesson",
+                "settings": {
+                    "foreground": "#4FC3F7",
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "markup.note.warning.lesson",
+                "settings": {
+                    "foreground": "#FFB74D",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "markup.note.tip.lesson",
+                "settings": {
+                    "foreground": "#81C784"
+                }
+            },
+            {
+                "scope": "markup.inline.spoiler.lesson",
+                "settings": {
+                    "foreground": "#9E9E9E"
+                }
+            },
+            {
+                "scope": "markup.inline.quiz.lesson",
+                "settings": {
+                    "foreground": "#BA68C8"
+                }
+            }
+        ]
+    }
+}
