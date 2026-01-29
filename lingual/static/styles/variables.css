@@ -71,6 +71,7 @@
    --color-quiz-incorrect: #d73a49;
    --bg-quiz-correct: #d4f8e8;
    --bg-quiz-incorrect: #ffeef0;
+   --color-thead: #374151;
 
    /* Note Colors */
    --bg-note-info: #e1f5fe;
@@ -125,6 +126,7 @@
 
    /* || Z-Index Layers */
 
+   --z-index-background: -1; /* Decorations & Backgrounds */
    --z-index-overlay: 100;
    --z-index-top: 999;
    --z-index-nav: 1000;

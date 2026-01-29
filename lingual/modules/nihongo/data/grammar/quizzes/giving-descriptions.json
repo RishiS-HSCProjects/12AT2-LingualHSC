@@ -1,0 +1,193 @@
+{
+    "using-sou": {
+        "title": "Using 〜そう",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the 〜そう form express in Japanese?",
+                "options": [
+                    "A completed action",
+                    "Something that looks or seems a certain way",
+                    "A future intention",
+                    "A habitual action"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you form the 〜そう form for い-adjectives when expressing appearance or seeming?",
+                "options": [
+                    "Add そう directly to the adjective",
+                    "Remove the final い and add そう",
+                    "Change the final い to くて and add そう",
+                    "Add です after the adjective"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you form the 〜そう form for verbs when expressing appearance or seeming?",
+                "options": [
+                    "Add そう directly to the verb",
+                    "Use the verb's dictionary form and add そう",
+                    "Use the verb stem and add そう",
+                    "Change the verb to its て-form and add そう"
+                ],
+                "answer": 2,
+                "explanation": "Remember, verbs use their stem form to create the 〜そう form when expressing appearance or seeming. If you want to express hearsay, you would then use the dictionary form plus そう."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following sentences correctly uses the 〜そう form?",
+                "options": [
+                    "いそがしそうです。",
+                    "いそがしいですそう。",
+                    "いそがしくてそうです。",
+                    "いそがしそうにです。"
+                ],
+                "answer": 0,
+                "explanation": "The correct formation for い-adjectives in the 〜そう form is to remove the final い and add そう, as in いそがしそうです (looks busy)."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\n'It looks she will come early.'",
+                "includes": [
+                        ["早く", "はやく", "hayaku"],
+                        ["来", "き", "ki"],
+                        ["そう", "sou"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は早[はや]く来そうです。",
+                "explanation": "The verb 来[く]る is converted to its stem 来[き] and then そう is added to express that it looks like she will come early. /t When putting an い adjective directly before a verb, you need to replace the final い with く to connect them. \\"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\nI heard that this movie is interesting.",
+                "includes": [
+                        ["この", "kono"],
+                        ["映画", "えいが", "eiga"],
+                        ["面白い", "おもしろい", "omoshiroi"],
+                        ["そう", "sou"]
+                ],
+                "sample_answer": "この映[えい]画[が]は面[おも]白[しろ]いそうです。",
+                "explanation": "When using そう for hearsay, you do not change the adjective form."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following sentences uses 〜そう to express hearsay correctly?",
+                "options": [
+                    "彼[かれ]は元[げん]気[き]そうです。",
+                    "彼[かれ]は元[げん]気[き]だそうです。",
+                    "彼[かれ]は元[げん]気[き]にそうです。",
+                    "彼[かれ]は元[げん]気[き]ですそう。"
+                ],
+                "answer": 1,
+                "explanation": "Do not forget to use だ before そう when a な adjective is used for hearsay!"
+            }
+        ]
+    },
+    "using-mitai-you": {
+        "title": "Using 〜みたい and 〜よう",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does 〜みたいだ express when attached to a noun?",
+                "options": [
+                    "Direct hearsay",
+                    "Similarity or resemblance",
+                    "Completed action",
+                    "Obligation"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 〜ようだ to express inference based on evidence?",
+                "options": [
+                    "雨[あめ]みたいです。",
+                    "雨[あめ]のようにふります。",
+                    "雨[あめ]がふりそうです。",
+                    "雨[あめ]がふっているようです。"
+                ],
+                "answer": 3,
+                "explanation": "〜ようです is used when the speaker infers something based on evidence, such as seeing wet ground."
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following best describes the nuance of 〜ようだ?",
+                "options": [
+                    "A casual guess",
+                    "A resemblance based on appearance",
+                    "A formal or objective inference",
+                    "A direct quote"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence translates to \"That person looks like a teacher\" correctly?",
+                "options": [
+                    "あの人[ひと]は先生[せんせい]みたいです。",
+                    "あの人[ひと]は先生[せんせい]ようです。",
+                    "あの人[ひと]は先生[せんせい]にみたいです。",
+                    "あの人[ひと]は先生[せんせい]なようです。"
+                ],
+                "answer": 0,
+                "explanation": "〜みたい is used casually to express that something looks like or resembles something else."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\n\"It looks like the students are enjoying the school trip.\"",
+                "includes": [
+                    ["生徒", "せいと", "seito", "学生", "がくせい", "gakusei"],
+                    ["楽しい", "たのしい", "tanoshii"],
+                    ["みたい", "mitai", "よう", "you"],
+                    ["旅行", "りょこう", "ryokou"]
+                ],
+                "sample_answer": "生[せい]徒[と]は修[しゅう]学[がく]旅[りょ]行[こう]を楽[たの]しんでいるみたいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\n\"It seems that the teacher is angry.\"",
+                "includes": [
+                    ["先生", "せんせい", "sensei"],
+                    ["怒っている", "おこっている", "okotteiru"],
+                    ["みたい", "mitai", "よう", "you"]
+                ],
+                "sample_answer": "先生[せんせい]は怒[おこ]っているようです。"
+            },
+            {
+                "type": "mc",
+                "question": "Which expression is more casual?",
+                "options": [
+                    "〜ようだ",
+                    "〜みたいだ"
+                ],
+                "answer": 1,
+                "explanation": "〜みたいだ is conversational and casual, while 〜ようだ is more formal."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly describes manner or similarity?",
+                "options": [
+                    "犬[いぬ]はみたいに走[はし]ります。",
+                    "犬[いぬ]のように走[はし]ります。",
+                    "犬[いぬ]ように走[はし]ります。",
+                    "犬[いぬ]ようです。"
+                ],
+                "answer": 1,
+                "explanation": "〜のように is used to describe how an action is performed, similar to 'like a dog' in English."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\n\"It seems that tomorrow will be cold.\"",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["寒い", "さむい", "samui"],
+                    ["よう", "you"]
+                ],
+                "sample_answer": "明日[あした]は寒[さむ]いようです。",
+                "explanation": "〜ようです expresses an inference, often based on information such as a weather forecast."
+            }
+        ]
+    }
+}

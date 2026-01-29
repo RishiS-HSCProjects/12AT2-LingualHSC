@@ -9,7 +9,7 @@ summary: "Learn how to make comparisons in Japanese using various grammatical st
 There are several ways to make comparisons in Japanese. This lesson will cover some of the most common methods found in the HSC syllabus.
 
 # どちら ・ より
-The word **どちら** (dochira) is used to ask "which one" when comparing two items. It can be used in questions like:
+The word **どちら** is used to ask "which one" when comparing two items. It can be used in questions like:
 
 - **どちら**が好きですか？ "Which one do you like?"
 - **どちら**の本が面[おも]白[しろ]いですか？ "Which book is interesting?"

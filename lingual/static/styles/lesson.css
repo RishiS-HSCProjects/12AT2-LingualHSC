@@ -157,6 +157,57 @@ body {
     color: var(--color-primary);
 }
 
+/* || Tables */
+
+#lesson-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-round);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+#lesson-container table thead {
+    background: var(--color-thead);
+    color: #ffffff;
+}
+
+#lesson-container table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#lesson-container table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--color-text);
+}
+
+#lesson-container table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+#lesson-container table tbody tr:hover {
+    background-color: var(--bg-surface-muted);
+}
+
+#lesson-container table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#lesson-container table tbody tr:nth-child(odd) {
+    background-color: var(--bg-card);
+}
+
+#lesson-container table tbody tr:nth-child(even) {
+    background-color: var(--bg-surface-muted);
+}
+
 /* || Spoiler Elements */
 
 #lesson-container .spoiler {
@@ -169,6 +220,12 @@ body {
     border-radius: var(--radius-small);
 }
 
+#lesson-container .spoiler a,
+#lesson-container .spoiler button,
+#lesson-container .spoiler input {
+    pointer-events: none;
+}
+
 #lesson-container .spoiler:hover,
 #lesson-container .spoiler:active {
     filter: blur(5px);
@@ -178,6 +235,12 @@ body {
     filter: none;
     cursor: default;
     user-select: text;
+}
+
+#lesson-container .spoiler.revealed a,
+#lesson-container .spoiler.revealed button,
+#lesson-container .spoiler.revealed input {
+    pointer-events: auto;
 }
 
 /* || Directory Panel */
@@ -428,6 +491,12 @@ body {
 }
 
 /* Quiz input fields */
+.quiz .quiz-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
 .quiz input.quiz-input {
     width: 100%;
     padding: 0.875rem 1.25rem;

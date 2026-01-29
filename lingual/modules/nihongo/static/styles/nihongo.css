@@ -8,7 +8,6 @@
 /* || Theme Variables */
 
 :root {
-   /* Nihongo-specific theme colors (Sakura) */
    --bg-main: #FFF8FA;
    --bg-card: #FFFAFC;
    --bg-surface-muted: #FFF0F5;
@@ -22,6 +21,7 @@
    --color-accent-strong: #D63A6A;
    --color-accent-soft: #FFE4ED;
    --color-accent-amber: #FFB84D;
+   --color-thead: #794784;
    --shadow-card: 0 2px 8px rgba(232, 81, 122, 0.08);
    --shadow-nav: 0 2px 12px rgba(232, 81, 122, 0.1);
    --shadow-soft: 0 8px 24px rgba(232, 81, 122, 0.12);
@@ -187,4 +187,3 @@ nav #nav-opt img:hover {
 
 #lesson-container ruby rt {
    margin-top: 2px;
-}

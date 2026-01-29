@@ -1,0 +1,145 @@
+{
+    "sou-or-rashii": {
+        "title": "〜そう / 〜らしい (Referencing Information)",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "When directly quoting information you have heard from a reliable source, which of the following endings would you use?",
+                "options": [
+                    "〜そうだ",
+                    "〜らしい",
+                    "Both 〜そうだ and 〜らしい",
+                    "Neither 〜そうだ nor 〜らしい"
+                ],
+                "answer": 0,
+                "explanation": "〜そうだ is more commonly used for information that is directly heard, while 〜らしい is often used for information that is inferred or reported for expressing hearsay."
+            },
+            {
+                "type": "mc",
+                "question": "In the following sentence, should you use そう or らしい?\n\nAccording to the newspaper, the city will face a record-breaking heatwave.",
+                "options": [
+                    "そう",
+                    "らしい"
+                ],
+                "answer": 0,
+                "explanation": "The correct answer is そう, as the information is coming from a reliable source (the newspaper) and is being reported by the speaker directly."
+            },
+            {
+                "type": "input",
+                "question": "What nuance is carried in the following sentence?\n\nこの都[と]市[し]はさいきんとても安[あん]全[ぜん]になったらしいです。",
+                "includes": [
+                    ["uncertain", "unreliable", "hearsay", "sure", "direct"]
+                ],
+                "sample_answer": "/i The sentence translates to \"This city has recently become very safe.\" \\\nThe speaker is conveying hearsay information about the city's safety, indicating that they have heard this from others."
+            },
+            {
+                "type": "mc",
+                "question": "If you were to say \"I heard the tickets are selling out quickly,\" which ending would you use and why?",
+                "options": [
+                    "そうだ",
+                    "らしい",
+                    "Both 〜そうだ and 〜らしい"
+                ],
+                "answer": 2,
+                "explanation": "Both そう and らしい can be applicable depending on the context. For example, if you say the website saying \"Tickets selling out quickly!\" then そう would be more appropriate. However, if you heard from an influencer that tickets are selling out quickly because of the popularity of the event, then らしい would be more fitting."
+            },
+            {
+                "type": "mc",
+                "question": "If you are telling someone that your friend said that they heard a storm was coming from a reliable source, which ending should <strong>you</strong> use?",
+                "options": [
+                    "そう",
+                    "らしい"
+                ],
+                "answer": 1,
+                "explanation": "Use らしい because you are reporting indirect information. Your friend heard the storm warning from someone else, and you are summarising what they told you. Since you are not quoting the original source directly, らしい is the appropriate ending."
+            }
+        ]
+    },
+    "quiz": {
+        "title": "によると Quiz",
+        "bank": [
+            {
+                "type": "input",
+                "question": "If you were to directly quote your friend, how would you say \"According to my friend, the curry was too spicy.\" in Japanese?",
+                "includes": [
+                    ["友達", "ともだち", "tomodachi"],
+                    ["によると", "niyoruto"],
+                    ["カレー", "カレー", "kare-"],
+                    ["辛", "から", "kara"],
+                    ["すぎた", "すぎた", "sugita"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "友[とも]達[だち]によると、カレーは辛すぎたそうです。",
+                "explanation": "Since you are directly quoting your friend, you use そう to indicate that the information is coming straight from them."
+            },
+            {
+                "type": "input",
+                "question": "If you were to say you heard from Tanaka that John got a girlfriend, how would you say it in Japanese?",
+                "includes": [
+                    ["ジョン", "jon", "jyon"],
+                    ["田中", "たなか", "tanaka"],
+                    ["さん", "くん", "san", "kun"],
+                    ["によると", "niyoruto"],
+                    ["彼女", "かのじょ", "kanojo"],
+                    ["できた", "できました", "dekita", "dekimashita"],
+                    ["らしい", "rashii"]
+                ],
+                "sample_answer": "田[た]中[なか]さんによると、ジョンくんは彼[かの]女[じょ]ができたらしいです。",
+                "explanation": "Since you are reporting what Tanaka said about John, you use らしい to indicate that this is hearsay information."
+            },
+            {
+                "type": "input",
+                "question": "If you were directly quoting your teacher who said \"The exam will be difficult,\" how would you say this in Japanese?",
+                "includes": [
+                    ["先生", "せんせい", "sensei"],
+                    ["によると", "niyoruto"],
+                    ["試験", "しけん", "shiken"],
+                    ["難しい", "むずかしい", "muzukashii"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "先生[せんせい]によると、試[し]験[けん]は難[むずか]しいそうです。",
+                "explanation": "You are directly reporting what your teacher said, so そうだ is the appropriate ending."
+            },
+            {
+                "type": "input",
+                "question": "If you heard from a classmate that the school festival will be cancelled, how would you say it in Japanese?",
+                "includes": [
+                    ["クラスメート", "kurasume-to", "クラスメイト", "kurasumeito"],
+                    ["によると", "niyoruto"],
+                    ["らしい", "rashii"]
+                ],
+                "sample_answer": "クラスメートによると、学校祭[まつ]りはキャンセルするらしいです。",
+                "explanation": "You are summarising what a classmate heard, not quoting the original source, so らしい is used."
+            },
+            {
+                "type": "input",
+                "question": "If the news directly stated that a new phone will be made next year, how would you say it in Japanese?",
+                "includes": [
+                    ["ニュース", "nyu-su"],
+                    ["によると", "niyoruto"],
+                    ["来年", "らいねん", "rainen"],
+                    ["新しい", "あたらしい", "atarashii"],
+                    ["スマホ", "電話", "けいたい", "でんわ", "denwa", "sumaho", "keitai"],
+                    ["作る", "つくる", "tsukuru"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "ニュースによると、新[しん]しいスマホは来[らい]年[ねん]作[つく]るそうです。",
+                "explanation": "You are directly reporting what the news stated, so そうだ is appropriate."
+            },
+            {
+                "type": "input",
+                "question": "If your mother told you directly that dinner will be ready soon, how would you say it in Japanese?",
+                "includes": [
+                    ["母", "はは", "haha"],
+                    ["によると", "niyoruto"],
+                    ["夕飯", "ゆうはん", "yuuhan", "晩ご飯", "ばんごはん", "bangohan"],
+                    ["もうすぐ", "mousugu"],
+                    ["できる", "dekiru"],
+                    ["そう", "sou"]
+                ],
+                "sample_answer": "母[はは]によると、夕[ゆう]飯[はん]はもうすぐできるそうです。",
+                "explanation": "You are directly quoting what your mother said, so そうだ is the correct ending."
+            }
+        ]
+    }
+}

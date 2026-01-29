@@ -10,7 +10,8 @@ summary: "Learn how to use the ても form in Japanese to express 'even if' or '
 
 :::blockquote [Condition] Verb ([て-Form](grammar:te-form)) + ても + [Result] :::
 :::blockquote [Condition] い-adjective (remove い) + くても + [Result] :::
-:::blockquote [Condition] な-adjective (remove な) / Noun + でも + [Result] :::
+:::blockquote [Condition] な-adjective (remove な) + でも + [Result] :::
+:::blockquote [Condition] Noun + でも + [Result] :::
 
 All three forms translate to Even if [condition], [result].
 
@@ -36,6 +37,12 @@ To say "no matter what" or "regardless of how much," you can use いくら～て
 - いくら勉[べん]強[きょう]し**ても**、合[ごう]格[かく]しないかもしれません → No matter how much I study, I might not pass.
 - いくら高[たか]く**ても**、買[か]います → No matter how expensive it is, I will buy it.
 - いくらいそがしく**ても**、運[うん]動[どう]する時[じ]間[かん]を作[つく]ります → No matter how busy I am, I make time to exercise.
+- いくらべんり**でも**、使[つか]わないこともあります → No matter how convenient it is, there are times I don't use it.
+- いくら大[たい]切[せつ]**でも**、お金[かね]が入[い]れるから、このゆびわを売[う]らないといけません → No matter how important it is, since I need money, I have to sell this ring.
+- いくら先生**でも**、あのしつもんをこたえることはありません → Although they are the teacher, they can not answer this question.
+- いくらバカ**でも**、そんなことはしないよ → No matter how foolish you are, you wouldn't do such a thing.
+- いくらとしをとっても、みんなはまだことものように私と話しています → No matter how old I get, everyone talks to me like I'm still a child.
+- いくら部[へ]屋[や]は広[ひろ]くても、このベッドは大きすぎますから、せまくみます → No matter how spacious the room is, since the bed is too big, it looks cramped.
 
 ~quizzes:te-mo:ikura?shuffle&limit=5~
 

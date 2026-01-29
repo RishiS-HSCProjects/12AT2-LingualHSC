@@ -24,14 +24,17 @@
         "start-finish",
         "using-houga",
         "using-you",
-        "using-sou",
+        "giving-descriptions",
         "intent-plans",
         "time-references",
         "conditional-form",
         "using-naide",
         "using-kata",
         "expressing-difficulty",
-        "using-shimaimasu"
+        "using-shimaimasu",
+        "using-noni",
+        "referencing-information",
+        "potential-form"
     ],
     "extra": [
         "ha-vs-ga"

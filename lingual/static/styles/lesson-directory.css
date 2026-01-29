@@ -5,22 +5,102 @@
  * It uses CSS variables defined in variables.css for theming.
  */
 
+/* || Lesson Directory Wrapper */
+
+#lesson-directory-wrapper {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#lesson-directory-wrapper > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* || Lesson Categories */
+
+.lesson-category {
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+}
+
+.lesson-category:first-of-type {
+    margin-top: 0;
+}
+
+/* || Lesson Grid */
+
+.lesson-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .lesson-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .lesson-category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #lesson-directory-wrapper {
+        padding: 1rem;
+    }
+    
+    #lesson-directory-wrapper > h1 {
+        font-size: 2rem;
+    }
+    
+    .lesson-category {
+        font-size: 1.5rem;
+    }
+}
+
 /* || Lesson Items */
 
 .lesson-item {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-round);
-    padding: 1.25rem;
-    margin-bottom: 1rem;
+    padding: 1.5rem;
     background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-muted) 100%);
     box-shadow: var(--shadow-card);
     transition: all var(--transition-base);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 150px;
 }
 
 .lesson-item:hover {
     background: linear-gradient(135deg, var(--bg-surface-muted) 0%, var(--bg-surface) 100%);
     border-color: var(--color-accent);
-    transform: translateY(-4px);
+    transform: scale(1.02);
     box-shadow: var(--shadow-soft);
-    cursor: pointer;
+}
+
+.lesson-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.lesson-summary {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+    flex-grow: 1;
 }

@@ -1,0 +1,28 @@
+{
+    "quiz": {
+        "title": "Potential Form Quiz",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate to Japanese.\n\nI can cancel the meeting.",
+                "includes": [
+                    ["ミーティング", "mi-tingu"],
+                    ["キャンセル", "kyanseru"],
+                    ["できる", "できます", "dekiru", "dekimasu"]
+                ],
+                "sample_answer": "ミーティングをキャンセルできます。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese without using verb normalisation.\n\nShe can come to the party tonight.",
+                "includes": [
+                    ["今夜", "こんや", "konya"],
+                    ["パーティー", "pa-ti-"],
+                    ["こられる", "こられます", "korareru", "koraremasu"]
+                ],
+                "sample_answer": "彼女は今夜パーティーにこられます。",
+                "explanation": "The verb '来[く]る' becomes '来[こ]られる' in its potential form."
+            }
+        ]
+    }
+}

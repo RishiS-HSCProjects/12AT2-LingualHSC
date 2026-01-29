@@ -1,0 +1,76 @@
+{
+    "quiz": {
+        "title": "Using ～のに",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Choose the correct translation for the sentence: いしゃなのに、ニュロフィンを使い方がわからない。",
+                "options": [
+                    "Even though he is a doctor, he doesn't know how to use Neurophin.",
+                    "Because he is a doctor, he knows how to use Neurophin.",
+                    "Even though he does not know how to use Neurophin, he is a doctor.",
+                    "He is a Neurophin and he knows how to use doctor."
+                ],
+                "answer": 0,
+                "explanation": "のに applies 'even though' or 'despite' to the clause before it."
+            },
+            {
+                "type": "mc",
+                "question": "What does the ～のに grammar structure express?",
+                "options": [
+                    "Causation",
+                    "Contrast or unexpected outcome",
+                    "Condition",
+                    "Purpose"
+                ],
+                "answer": 1,
+                "explanation": "～のに is used to express contrast or an unexpected outcome between two clauses."
+            },
+            {
+                "type": "mc",
+                "question": "Select the correct usage of ～のに in a sentence.",
+                "options": [
+                    "彼は学生なのに、毎[まい]日[にち]バイトをしている。",
+                    "彼は学生だから、毎[まい]日[にち]バイトをしている。",
+                    "彼は学生ので、毎[まい]日[にち]バイトをしている。",
+                    "彼は学生ので、毎[まい]日[にち]バイトをしている。"
+                ],
+                "answer": 0,
+                "explanation": "The sentence correctly uses ～のに to indicate that despite being a student, he works a part-time job every day."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese: 'Even though I like chocolate, I don't eat it often.'",
+                "includes": [
+                    ["チョコレート", "chocore-to"],
+                    ["好き", "すき"],
+                    ["あまり", "amari"],
+                    ["食べない", "たべない", "tabenai", "食べません", "たべません", "tabemasen"]
+                ],
+                "answer": "チョコレートが好きなのに、あまり食べない。",
+                "explanation": "The sentence uses ～のに to express that despite liking chocolate, the speaker does not eat it often. /w Remember to use あまり with negative verbs to indicate 'not often', instead of よく with a negative verb. \\"
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank: 彼は医者_____、ニュロフィンを使い方がわからない。",
+                "valid": [
+                    "なのに",
+                    "nanoni"
+                ],
+                "answer": "なのに",
+                "explanation": "The correct particle to express 'even though' in this context is ～のに."
+            },
+            {
+                "type": "input",
+                "question": "Construct a sentence using ～のに to express: 'Even though it is raining, I will go outside.'",
+                "includes": [
+                    ["雨", "あめ", "ame"],
+                    ["降っている", "ふっている", "futteiru"],
+                    ["外", "そと", "soto"],
+                    ["行く", "いく", "iku", "行きます", "いきます", "ikimasu"]
+                ],
+                "answer": "雨が降っているのに、外に行く。"
+            }
+        ]
+    }
+}

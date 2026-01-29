@@ -2,11 +2,14 @@
 
 {% block meta %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/module-base.css') }}">
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/sakura.css') }}">
 {% endblock %}
 
 {% block header %}
+<div class="sakura-tree-bg"></div>
+
 <nav>
     <div id="nav-wrapper">
         <div id="nav-logo"><a href="{{ url_for('nihongo.home') }}">日本Go!</a></div>
@@ -22,4 +25,8 @@
 
 {% block body %}
 
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
 {% endblock %}

@@ -11,13 +11,13 @@
 
     <div id="lesson-directory-list">
         {% for group in lessons %}
-            <h1 class="lesson-category">{{ group.category|capitalize }}</h1>
+            <h2 class="lesson-category">{{ group.category|capitalize }}</h2>
 
-            <div class="lesson-category-list">
+            <div class="lesson-category-grid">
                 {% for lesson in group.lessons %}
                     <div class="lesson-item" onclick="goToLesson('{{ lesson.slug }}')">
-                        <h2>{{ lesson.title | safe }}</h2>
-                        <p>{{ lesson.summary | safe }}</p>
+                        <h3 class="lesson-title">{{ lesson.title | safe }}</h3>
+                        <p class="lesson-summary">{{ lesson.summary | safe }}</p>
                     </div>
                 {% endfor %}
             </div>
@@ -28,6 +28,5 @@
 <script>
     const lessonUrl = "{{ url_for(app_code ~ '.' ~ route, slug='__SLUG__') }}";
 </script>
-
 
 {% endmacro %}

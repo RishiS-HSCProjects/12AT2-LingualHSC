@@ -100,3 +100,35 @@ You can also ask others about their past experiences by adding か at the end of
 # Quiz
 
 ~quizzes:verb-normalisation:quiz?shuffle&limit=6~
+
+---
+
+# Using ない～ことはない for "Not Impossible"
+
+/w This is not prescribed in the HSC syllabus, but it is a useful structure to know! \
+
+You can use the structure **ない～ことはない** to express that something is **not impossible** or that there is a possibility of something happening, even if it is unlikely.
+
+Note: Unlike other cases of verb normalisation, you can not use **の** with this structure; only **こと** is used.
+
+/t ことはない is the same as ことはありません as ない is the plain form of ありません. \
+
+:::blockquote Verb (ない form) + ことはない :::
+
+- スキーはできないことはないけど、あまり上[じょう]手[ず]じゃない。→ It's not that I can't ski, but I'm not very good at it.
+- 車[くるま]は運[うん]転[てん]できないことはないんですが、ほとんどしません → It's not that I can't drive, but I hardly ever do.
+
+:::blockquote い-adjective (ない form) + ことはない :::
+
+- 高くないことはないけど、買わないといけないよ → It's not that it's not expensive, but I have to buy it.
+- 冬の時はさむくないことはないけど、ジャケットはいらないよ → It's not that it's not cold in winter, but you don't need a jacket.
+
+:::blockquote な-adjective (remove な) + ではない・じゃない + ことはない :::
+
+- 有[ゆう]名[めい]ではないことはありませんが、オーストラリア人はあの人を知りません → It's not that he isn't famous, but Australians don't know him.
+- 便利[べんり]じゃないことはないけど、あまり使いません → It's not that it's not convenient, but I don't use it much.
+
+:::blockquote Noun + ではない・じゃない + ことはない :::
+
+- あのいしゃはいいいしゃしゃないことはないけど、はいしゃじゃないよ → It's not that that doctor isn't a good doctor, but he's not a dentist.
+- 高[たか]いホテルではないことはありませんが、あまり高くないです → It's not that the hotel isn't expensive, but it's not very expensive.
