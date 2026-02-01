@@ -19,18 +19,44 @@
     text-align: center;
 }
 
+/* || Lesson Search Box */
+
+#lesson-search-box {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#lesson-search-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
+    background-color: var(--bg-surface);
+    color: var(--color-primary);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+#lesson-search-input::placeholder {
+    color: var(--color-secondary);
+}
+
+#lesson-search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
 /* || Lesson Categories */
 
 .lesson-category {
     font-size: 1.75rem;
-    margin: 2.5rem 0 1.5rem 0;
+    margin: 2rem 0 1rem 0;
     color: var(--color-accent);
     border-bottom: 2px solid var(--border-subtle);
     padding-bottom: 0.5rem;
-}
-
-.lesson-category:first-of-type {
-    margin-top: 0;
 }
 
 /* || Lesson Grid */
@@ -40,6 +66,22 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
+
+/* Sort items by relevance score during search */
+#lesson-directory-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.lesson-category,
+.lesson-category-grid {
+    order: 0;
+}
+
+.lesson-category-grid .lesson-item {
+    order: 0;
 }
 
 /* Responsive breakpoints */
@@ -94,13 +136,13 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 0.75rem 0;
-    color: var(--text-primary);
+    color: var(--color-primary);
 }
 
 .lesson-summary {
     font-size: 0.95rem;
     line-height: 1.5;
-    color: var(--text-secondary);
+    color: var(--color-secondary);
     margin: 0;
     flex-grow: 1;
 }

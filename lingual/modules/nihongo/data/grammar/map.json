@@ -1,5 +1,5 @@
 {
-    "map": [
+    "senior-structures": [
         "verb-groups",
         "te-form",
         "plain-form",
@@ -7,6 +7,7 @@
         "tari-tari",
         "ta-ato-de",
         "ga-kedo",
+        "using-naru",
         "verb-normalisation",
         "to-for-expression",
         "giving-reasons",
@@ -34,9 +35,12 @@
         "using-shimaimasu",
         "using-noni",
         "referencing-information",
-        "potential-form"
+        "potential-form",
+        "relative-clauses",
+        "setting-expectations"
     ],
     "extra": [
-        "ha-vs-ga"
+        "ha-vs-ga",
+        "adjective-rules"
     ]
 }

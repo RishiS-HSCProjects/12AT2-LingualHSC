@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
-    <title>{{ title }}</title>
+    <title>{{ title }} - Lingual HSC</title>
     {% else %}
     <title>Lingual HSC</title>
     {% endif %}
@@ -16,7 +16,6 @@
     {% endblock %}
 
 </head>
-
 <body>
     {% if current_user.is_authenticated %}
         {% set last_language = current_user.get_last_language() %}
@@ -53,6 +52,7 @@
 
     {% block scripts %}
         <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/module-base.js') }}"></script>
     {% endblock %}
 
 </body>

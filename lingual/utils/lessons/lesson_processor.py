@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
-# from functools import lru_cache
-from flask import current_app, url_for, flash
+from functools import lru_cache
+from flask import current_app, url_for
 import frontmatter
 import markdown
 import re
@@ -137,7 +137,10 @@ class BaseLessonProcessor:
             content = transform(content)
         return content
 
-    # @lru_cache(maxsize=128) todo: enable caching
+    # Cache up to 16 lessons in memory for performance
+    # Has the issue of not updating if lesson files change on disk,
+    # however, a "cache clear" mechanism can be implemented later.
+    @lru_cache(maxsize=16)
     def load(self, slug: str) -> dict:
         if not re.fullmatch(r"[A-Za-z0-9\-]+", slug):
             raise ValueError("Invalid lesson slug.")
@@ -180,8 +183,16 @@ class BaseLessonProcessor:
 
             for slug in slugs:
                 try:
-                    lesson_data = self.load(slug)
-                    meta = lesson_data.get("meta", None)
+                    # Load just the metadata and raw markdown content for search
+                    lesson_path = self.data_root / "lessons" / f"{slug}.md"
+                    if not lesson_path.exists():
+                        current_app.logger.warning(
+                            f"Lesson file '{slug}' not found in category '{category_name}'."
+                        )
+                        continue
+                    
+                    post = frontmatter.load(lesson_path)  # type: ignore
+                    meta = post.metadata
 
                     if meta is None:
                         current_app.logger.warning(
@@ -193,14 +204,46 @@ class BaseLessonProcessor:
                     title_raw = meta.get("title", "Untitled")
                     summary_raw = meta.get("summary", "")
 
-                    title = self.apply_transforms(title_raw)
-                    summary = self.apply_transforms(summary_raw)
+                    title = self.apply_transforms(title_raw) # type: ignore -> Transform title
+                    summary = self.apply_transforms(summary_raw) # type: ignore -> Transform summary
+                    
+                    # Get plain text content directly from markdown (before HTML conversion)
+                    # Only extract content from within :::blockquote, :::warning, and similar blocks
+                    import re
+                    from html import unescape
+                    
+                    content_plain = ""
+                    raw_content = post.content
+                    
+                    # Extract content within ::: blocks (blockquote, warning, etc.)
+                    block_pattern = r':::(?:blockquote|warning|note|tip)\s+(.*?):::'
+                    matches = re.findall(block_pattern, raw_content, re.DOTALL)
+                    
+                    for match in matches:
+                        # Clean up the extracted content
+                        cleaned = match
+                        # Remove custom markers like /i, /t, /w
+                        cleaned = re.sub(r'/[itwb]\s+', '', cleaned)
+                        # Remove color/formatting markers like ::blue{}, ::green{}
+                        cleaned = re.sub(r'::[a-z]+\{([^}]*)\}', r'\1', cleaned)
+                        # Remove ruby/furigana brackets but keep text
+                        cleaned = re.sub(r'\[([^\]]+)\]', r'\1', cleaned)
+                        # Remove markdown links but keep text
+                        cleaned = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', cleaned)
+                        # Remove markdown formatting
+                        cleaned = re.sub(r'[*_`#]', '', cleaned)
+                        
+                        content_plain += " " + cleaned
+                    
+                    # Normalize whitespace
+                    content_plain = re.sub(r'\s+', ' ', content_plain).strip()
 
                     category_lessons.append(
                         Lesson(
                             slug=slug,
                             title=title,
                             summary=summary,
+                            content=content_plain,
                         )
                     )
                 except Exception as e:
@@ -220,3 +263,4 @@ class Lesson:
     slug: str
     title: str
     summary: str
+    content: str = ""

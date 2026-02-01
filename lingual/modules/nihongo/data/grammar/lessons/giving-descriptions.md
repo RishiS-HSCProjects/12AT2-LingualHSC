@@ -96,4 +96,4 @@ Both みたい and よう can be used to describe nouns by adding な after them
 - 走[はし]るみたいな犬[いぬ]を見ました → I saw a dog that looks like it's running.
 - 飲[の]むような音[おと]が聞[き]こえます → I can hear a sound that seems like drinking.
 
-~quizzes:giving-descriptions:using-mitai-you?shuffle&limit=115~
+~quizzes:giving-descriptions:using-mitai-you?shuffle&limit=5~

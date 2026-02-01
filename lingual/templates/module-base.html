@@ -1,0 +1,26 @@
+{% extends "app-container.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/module-base.css') }}">
+{% endblock %}
+
+{% block header %}
+<nav>
+    <div id="nav-wrapper">
+        <div id="nav-logo">
+            {% block nav_logo %}
+            <a href="/">Lingual</a>
+            {% endblock %}
+        </div>
+        <div id="nav-opt">
+            {% block nav_links %}
+            {% endblock %}
+            <a class="nav-account" href="/account" aria-label="Account">
+                <img src="/static/assets/account.svg" alt="Account" aria-hidden="true">
+                <span class="nav-account-label">Account</span>
+            </a>
+        </div>
+    </div>
+</nav>
+{% endblock %}

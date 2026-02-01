@@ -31,9 +31,7 @@ class Config:
     MAIL_USERNAME                   =      os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
-
-    # REGISTRATION
-    ALLOW_SEND_EMAILS               =      False   # Set to True to send OTP emails on registration. False sets OTP to 123456.
+    ALLOW_SEND_EMAILS               =      os.getenv('ALLOW_SEND_EMAILS', 'True').lower() in ['true', '1', 'yes']   # Set to True to send OTP emails on registration. False sets OTP to 123456.
 
     SQLALCHEMY_DATABASE_URI         = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
     SQLALCHEMY_TRACK_MODIFICATIONS  = False

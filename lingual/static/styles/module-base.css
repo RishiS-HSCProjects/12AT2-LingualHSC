@@ -78,15 +78,15 @@ nav #nav-opt img {
     height: 2.5rem;
     width: 2.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: var(--radius-pill);
-    background-color: var(--bg-surface-muted);
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
     transition: background-color var(--transition-base), transform var(--transition-base);
 }
 
 nav #nav-opt img:hover {
-    background-color: var(--color-accent-soft);
-    transform: scale(1.08);
+    background-color: transparent;
+    transform: none;
 }
 
 nav a {
@@ -103,4 +103,76 @@ nav a {
 nav a:hover {
     color: var(--color-accent);
     background-color: var(--color-accent-soft);
+}
+
+/* || Responsive Navigation */
+
+nav #nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    border: none;
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-surface-muted);
+    cursor: pointer;
+    transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+nav #nav-toggle:hover {
+    background-color: var(--color-accent-soft);
+    transform: scale(1.05);
+}
+
+nav #nav-toggle svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+nav .nav-account-label {
+    display: none;
+    margin-left: 0.5rem;
+    font-size: 0.95em;
+    color: inherit;
+}
+
+nav.nav-collapsed #nav-opt {
+    gap: 0.75rem;
+}
+
+nav.nav-collapsed #nav-toggle {
+    display: inline-flex;
+}
+
+nav.nav-collapsed #nav-opt a,
+nav.nav-collapsed #nav-opt .nav-account {
+    display: none;
+}
+
+nav.nav-collapsed.nav-open #nav-opt {
+    position: absolute;
+    top: calc(var(--nav-height) + 0.5rem);
+    right: 2rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
+    padding: 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-nav);
+    z-index: calc(var(--z-index-nav) + 1);
+}
+
+nav.nav-collapsed.nav-open #nav-opt a,
+nav.nav-collapsed.nav-open #nav-opt .nav-account {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+nav.nav-collapsed.nav-open .nav-account-label {
+    display: inline;
 }

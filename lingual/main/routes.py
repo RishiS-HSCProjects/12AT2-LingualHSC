@@ -5,7 +5,7 @@ from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
 from lingual.utils.languages import Languages, get_translatable
 from lingual.core.auth.utils.user_auth import RegUser, RegUserValueException, deserialize_RegUser
 from lingual.utils.form_manager import (
-    repopulate_form, save_form_to_session, restore_form_from_session, clear_form_session,
+    save_form_to_session, restore_form_from_session, clear_form_session,
     validate_ajax_form, flash_all_form_errors, FormValidationError
 )
 

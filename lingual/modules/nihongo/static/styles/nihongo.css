@@ -71,10 +71,23 @@ nav #nav-opt img {
    transition: background-color var(--transition-base), transform var(--transition-base);
 }
 
+nav #nav-opt .nav-account img {
+   padding: 0;
+   border-radius: 0;
+   background: transparent;
+   box-shadow: none;
+}
+
 nav #nav-opt img:hover {
    background-color: var(--color-accent-soft);
    transform: scale(1.08);
    box-shadow: 0 4px 12px rgba(232, 81, 122, 0.15);
+}
+
+nav #nav-opt .nav-account img:hover {
+   background-color: transparent;
+   transform: none;
+   box-shadow: none;
 }
 
 #body {
@@ -187,3 +200,4 @@ nav #nav-opt img:hover {
 
 #lesson-container ruby rt {
    margin-top: 2px;
+}

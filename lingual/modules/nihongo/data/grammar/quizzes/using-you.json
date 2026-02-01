@@ -96,5 +96,191 @@
                 "explanation": "Using ない-form + ようにしてください is a polite way to tell someone to be careful not to do something."
             }
         ]
+    },
+    "in-order-to": {
+        "title": "Using 〜ように for 'In order to...'",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "In this lesson's context, what does ように express?",
+                "options": [
+                    "A command",
+                    "An attempt/effort to make something a habit",
+                    "Purpose or goal",
+                    "Permission"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form comes before ように to express 'avoiding an undesired outcome'?",
+                "options": [
+                    "Plain present",
+                    "Plain past",
+                    "て-form",
+                    "ない-form only"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I go to the library in order to study.",
+                "includes": [
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["ができる", "gadekiru"],
+                    ["ように", "youni"],
+                    ["図書館", "としょかん", "toshokan"],
+                    ["行く", "いく", "iku", "行きます", "いきます", "ikimasu"]
+                ],
+                "sample_answer": "勉[べん]強[きょう]ができるように図書館[としょかん]に行[い]きます。",
+                "explanation": "Remember, you should use the potential form of the verb before ように when expressing purpose. /i The potential form of する is できる. \\"                
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I exercise every day so that I don't get sick.",
+                "includes": [
+                    ["病気", "びょうき", "byouki"],
+                    ["にならない", "ninaranai"],
+                    ["ように", "youni"],
+                    ["毎日", "まいにち", "mainichi"],
+                    ["運動", "うんどう", "undou"],
+                    ["する", "suru"]
+                ],
+                "sample_answer": "毎[まい]日[にち]病[びょう]気[き]にならないように運[うん]動[どう]します。"
+            },
+            {
+                "type": "input",
+                "question": "Which option uses ように to mean 'in order to avoid worry my mum, I called her when I arrived'?",
+                "includes": [
+                    ["母", "はは", "haha"],
+                    ["心配", "しんぱい", "shinpai"],
+                    ["しない", "shinai"],
+                    ["ように", "youni"],
+                    ["電話", "でんわ", "denwa"]
+                ],
+                "sample_answer": "母[はは]が心[しん]配[ぱい]しないように着[つ]いた時電話[でんわ]しました。",
+                "explanation": "You can pair ない-form + ように to express avoiding an undesired outcome."
+            }
+        ]
+        },
+    "change-of-state": {
+        "title": "Using 〜ようになる",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does 〜ようになる express in this lesson?",
+                "options": [
+                    "A habitual effort",
+                    "A change in ability or state",
+                    "A strong command",
+                    "A request"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best means 'I have become able to read Japanese.'?",
+                "options": [
+                    "日本語を読[よ]むようにします",
+                    "日本語を読[よ]めるようになりました",
+                    "日本語を読[よ]んでいます",
+                    "日本語を読[よ]まないようになりました"
+                ],
+                "answer": 1,
+                "explanation": "Use potential form + ようになる to express a change in ability."
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form comes before ようになる?",
+                "options": [
+                    "Potential form",
+                    "て-form",
+                    "Plain past",
+                    "Imperative form"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence expresses a change from 'not doing' to 'doing'?",
+                "options": [
+                    "毎[まい]日[にち]走[はし]らないようにします",
+                    "毎[まい]日[にち]走[はし]るようになりました",
+                    "毎[まい]日[にち]走[はし]っています",
+                    "毎[まい]日[にち]走[はし]るようにしてください"
+                ],
+                "answer": 1,
+                "explanation": "Use plain present + ようになる to express a change in habit. Remember, potential form is only used to express a change in ability."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I have started eating vegetables.",
+                "includes": [
+                    ["やさい", "yasai"],
+                    ["食べる", "たべる", "taberu"],
+                    ["ように", "youni"],
+                    ["なりました", "なった", "narimashita", "natta"]
+                ],
+                "sample_answer": "やさいを食[た]べるようになりました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I have become able to swim.",
+                "includes": [
+                    ["泳ぐ", "およぐ", "oyogu"],
+                    ["泳げる", "およげる", "oyogeru"],
+                    ["ように", "youni"],
+                    ["なりました", "なった", "narimashita", "natta"]
+                ],
+                "sample_answer": "泳[およ]げるようになりました。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence means 'I have stopped drinking coffee.'?",
+                    "options": [
+                    "コーヒーを飲[の]むようになりました",
+                    "コーヒーを飲[の]めるようになりました",
+                    "コーヒーを飲[の]まないようになりました",
+                    "コーヒーを飲[の]みません"
+                ],
+                "answer": 2,
+                "explanation": "Use plain negative + ようになる to express a change from doing something to not doing it."
+            },
+            {
+                "type": "mc",
+                "question": "Which option correctly expresses a new ability?",
+                "options": [
+                    "早[はや]く起[お]きるようにします",
+                    "早[はや]く起[お]きられるようになりました",
+                    "早[はや]く起[お]きています",
+                    "早[はや]く起[お]きないようになりました"
+                ],
+                "answer": 1,
+                "explanation": "Use potential form + ようになる to express a new ability."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I have started going to bed early.",
+                "includes": [
+                    ["早く", "はやく", "hayaku"],
+                    ["寝る", "ねる", "neru"],
+                    ["ように", "youni"],
+                    ["なりました", "なった", "narimashita", "natta"]
+                ],
+                "sample_answer": "早[はや]く寝[ね]るようになりました。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best expresses 'I have become able to cook.'?",
+                "options": [
+                    "料理[りょうり]を作[つく]るようにします",
+                    "料理[りょうり]を作[つく]らないようになりました",
+                    "料理[りょうり]を作[つく]れるようになりました",
+                    "料理[りょうり]を作[つく]っています"
+                ],
+                "answer": 2,
+                "explanation": "Use potential form + ようになる to express a new ability."
+            }
+        ]
     }
 }

@@ -1,6 +1,6 @@
 {% extends "nihongo-template.html" %}
 
-{% block title %}Grammar Lessons{% endblock %}
+{% set title = "Grammar" %}
 
 {% block meta %}
 {{ super() }}
@@ -15,5 +15,5 @@
 {% from "lesson-directory-macro.html" import lesson_directory %}
 
 {% block body %}
-    {{ lesson_directory(lessons, app_code, 'grammar') }}
+    {{ lesson_directory(lessons, app_code, 'grammar', title) }}
 {% endblock %}

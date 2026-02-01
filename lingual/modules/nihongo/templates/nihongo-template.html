@@ -1,32 +1,27 @@
-{% extends "app-container.html" %}
+{% extends "module-base.html" %}
 
 {% block meta %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/module-base.css') }}">
 <link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
 <link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/sakura.css') }}">
 {% endblock %}
 
 {% block header %}
 <div class="sakura-tree-bg"></div>
+{{ super() }}
+{% endblock %}
 
-<nav>
-    <div id="nav-wrapper">
-        <div id="nav-logo"><a href="{{ url_for('nihongo.home') }}">日本Go!</a></div>
-        <div id="nav-opt">
-            <a href="">Quiz</a>
-            <a href="{{ url_for('nihongo.grammar') }}">Grammar</a>
-            <a href="">Kanji</a>
-            <img src="{{ url_for('static', filename='assets/account.svg') }}" alt="Account Menu">
-        </div>
-    </div>
-</nav>
+{% block nav_logo %}
+<a href="{{ url_for('nihongo.home') }}">日本Go!</a>
+{% endblock %}
+
+{% block nav_links %}
+<a href="">Quiz</a>
+<a href="{{ url_for('nihongo.grammar') }}">Grammar</a>
+<a href="">Kanji</a>
+<a href="">Vocab</a>
 {% endblock %}
 
 {% block body %}
 
-{% endblock %}
-
-{% block scripts %}
-{{ super() }}
 {% endblock %}

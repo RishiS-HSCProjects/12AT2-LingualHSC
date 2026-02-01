@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField, ValidationError
 from wtforms.validators import DataRequired, Email, Length, EqualTo
-import re
 
 from lingual.core.auth.utils.utils import validate_email, validate_name, validate_password_strength
 
@@ -10,9 +9,7 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log In')
-
     # Email and password validation is handled in the route logic.
-    pass
 
 class RequestForm(FlaskForm):
     """ Form for requesting password reset. """
@@ -20,7 +17,6 @@ class RequestForm(FlaskForm):
     submit = SubmitField('Request Password Reset')
 
     # Email validation is handled in the route logic.
-    pass
 
 class PasswordResetForm(FlaskForm):
     """ Form for resetting password with token. """

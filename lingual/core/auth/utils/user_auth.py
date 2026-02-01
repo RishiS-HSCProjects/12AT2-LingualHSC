@@ -66,8 +66,8 @@ class RegUser:
             user.add_language(self.language)
         except Exception as e:
             # Log the error and raise an exception to stop further processing
-            flash(f"Error adding language to user: {str(e)}", "error")
-            current_app.logger.error(f"Error adding language {self.language} to user.")
+            flash(f"Error adding language to user.", "error")
+            current_app.logger.error(f"Error adding language {self.language} to user: {str(e)}")
 
         return user
 

@@ -494,7 +494,6 @@ class QuizRenderer {
             // Get references to input elements
             const input = container.querySelector(".quiz-input");
             const submit = container.querySelector(".quiz-submit-btn");
-            const explanation = container.querySelector(".quiz-explanation");
 
             input.addEventListener("input", () => {
                 submit.disabled = !input.value.trim(); // Enable submit only if input is non-empty. (I love truthy/falsy values in JS!!)

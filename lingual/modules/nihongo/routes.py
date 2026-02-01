@@ -20,7 +20,7 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 @nihongo_bp.route('/')
 @login_required
 def home():
-    return "Welcome to the Nihongo Module!"
+    return render_template('home.html')
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
@@ -48,10 +48,10 @@ def grammar(slug=None):
     return render_template('grammar.html', lessons=lessons)
 
 
-@nihongo_bp.route('grammar/api/quiz/<lesson_slug>', methods=['GET'])
+@nihongo_bp.route('/grammar/api/quiz/<lesson_slug>', methods=['GET'])
 def get_quizzes(lesson_slug):
     # Validate slug to prevent directory traversal attacks
-    if not VALID_SLUG.match(lesson_slug):
+    if not lesson_slug or not VALID_SLUG.match(lesson_slug):
         abort(400, description="Invalid lesson slug.")
 
     base_dir = os.path.join(get_processor().data_root, 'quizzes')
