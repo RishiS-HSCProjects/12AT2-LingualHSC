@@ -16,7 +16,7 @@
             },
             {
                 "type": "input",
-                "question": "How do you say 'Busses are becoming convinient' in Japanese?",
+                "question": "How do you say 'Buses are becoming convenient' in Japanese?",
                 "includes": [
                     ["バス", "basu"],
                     ["べんり", "benri"],

@@ -208,10 +208,7 @@ class BaseLessonProcessor:
                     summary = self.apply_transforms(summary_raw) # type: ignore -> Transform summary
                     
                     # Get plain text content directly from markdown (before HTML conversion)
-                    # Only extract content from within :::blockquote, :::warning, and similar blocks
-                    import re
-                    from html import unescape
-                    
+                    # Only extract content from within :::blockquote, :::warning, and similar blocks                    
                     content_plain = ""
                     raw_content = post.content
                     
