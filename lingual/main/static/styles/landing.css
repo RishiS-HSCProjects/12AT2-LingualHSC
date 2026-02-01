@@ -1,12 +1,21 @@
-:root {
-    --font-h1: 4rem;
-    --font-subtitle: 2.25rem;
+/* || Root Variables */
 
-    --line-tight: 1.1;
-    --line-normal: 1.4;
+:root {
+    --font-h1: 3rem;
+    --font-subtitle: 1.4rem;
+    --font-nav-logo: 1.65rem;
+    --font-nav-link: 1.2rem;
+    --font-section-h2: 2.25rem;
+    --font-section-p: 1.4rem;
+    --font-card: 1.25rem;
+
+    --line-tight: 1.2;
+    --line-normal: 1.5;
+    --line-relaxed: 1.75;
 }
 
-/* NAVIGATION */
+/* || Navigation */
+
 nav {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -14,7 +23,7 @@ nav {
     align-items: center;
     background: #e4f5e6;
     height: var(--nav-height);
-    padding: 0 20px;
+    padding: 0 2rem;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -26,11 +35,12 @@ nav {
 
 nav a#logo {
     grid-area: logo;
-    font-size: 2rem;
+    font-size: var(--font-nav-logo);
     font-weight: 700;
     margin: 0;
     text-decoration: none;
-    color: black;
+    color: #1F2937;
+    letter-spacing: -0.02em;
 }
 
 nav ul#nav-links {
@@ -39,69 +49,76 @@ nav ul#nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: max(40px, 5%);
+    gap: 2.5rem;
     padding: 0;
     margin: 0;
     font-weight: 500;
 }
 
 nav ul#nav-links li a {
-    font-size: 1.5rem;
+    font-size: var(--font-nav-link);
     text-decoration: none;
-    color: black;
+    color: #1F2937;
+    transition: color 0.2s ease;
 }
 
 nav ul#nav-links li a:hover {
+    color: #5B7CFF;
     cursor: pointer;
 }
 
 nav ul#nav-links li.taster a {
     background: #FFB350;
-    padding: 6px 14px;
-    border-radius: 20px;
-    transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    color: #1F2937;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 nav ul#nav-links li.taster a:hover {
     background: #FFA500;
-    font-size: 1.75rem;
+    transform: scale(1.05);
 }
 
 nav a#get-started-btn {
     grid-area: get-started-btn;
-    background: linear-gradient(90deg, rgba(162,226,159,0.4), rgba(21,182,13,0.4));
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1.5rem;
+    background: linear-gradient(90deg, rgba(162,226,159,0.5), rgba(21,182,13,0.5));
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: var(--font-nav-link);
     text-align: center;
     text-decoration: none;
-    color: black;
-    font-weight: 700;
-    transition: background 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    color: #1F2937;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 nav a#get-started-btn:hover {
-    background: linear-gradient(90deg, rgba(162,226,159,0.6), rgba(21,182,13,0.6));
-    font-size: 1.6rem;
+    background: linear-gradient(90deg, rgba(162,226,159,0.7), rgba(21,182,13,0.7));
+    transform: scale(1.05);
 }
 
-/* LANDING SECTION */
+/* || Landing Section */
+
 section#welcome {
     background: var(--color-bg-accent-1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 60px 10%;
-    min-height: calc(100vh);
+    padding: 5rem 10%;
+    min-height: calc(100vh - var(--nav-height));
     box-sizing: border-box;
     position: relative;
+    margin-top: var(--nav-height);
 }
 
 section#welcome h1 {
     font-size: var(--font-h1);
     line-height: var(--line-tight);
     margin: 0;
+    color: #1F2937;
+    font-weight: 700;
 }
 
 section#welcome p.subtitle {
@@ -109,7 +126,8 @@ section#welcome p.subtitle {
     font-size: var(--font-subtitle);
     line-height: var(--line-normal);
     max-width: 800px;
-    margin-top: 15px;
+    margin-top: 1.5rem;
+    color: #6B7280;
 }
 
 section#welcome .cards {
@@ -117,24 +135,26 @@ section#welcome .cards {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 28px;
-    margin-top: 40px;
+    gap: 1.75rem;
+    margin-top: 3rem;
     width: 100%;
     box-sizing: border-box;
 }
 
 section#welcome .cards .card {
-    width: 250px;
-    height: 90px;
-    border-radius: 20px;
+    width: 14rem;
+    height: 5rem;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    font-weight: 700;
-    transition: transform 0.3s ease-in-out;
+    font-size: var(--font-card);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     cursor: pointer;
+    color: #1F2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 section#welcome .cards .card.method {
@@ -146,33 +166,41 @@ section#welcome .cards .card.why {
 }
 
 section#welcome .cards .card:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* SHARED SECTION STYLE */
+/* || Shared Section Styles */
+
 .info-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 60px 10%;
-    height: calc(100vh - 75px);
+    padding: 5rem 10%;
+    min-height: 100vh;
 }
 
 .info-section h2 {
-    font-size: 3rem;
+    font-size: var(--font-section-h2);
     margin: 0;
+    color: #1F2937;
+    font-weight: 700;
+    text-align: center;
 }
 
 .info-section p {
-    font-size: 1.5rem;
+    font-size: var(--font-section-p);
     max-width: 800px;
-    line-height: var(--line-normal);
-    margin-top: 20px;
+    line-height: var(--line-relaxed);
+    margin-top: 1.5rem;
+    color: #6B7280;
+    text-align: center;
 }
 
-/* INDIVIDUAL SECTIONS */
+/* || Individual Sections */
+
 #purpose {
     background: var(--color-soft-purple);
 }

@@ -1,0 +1,51 @@
+{
+    "quiz": {
+        "title": "Using ん (の) to Soften Statements",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ん?",
+                "options": [
+                    "今日は雨が降るんです。",
+                    "今日は雨が降るですん。",
+                    "今日は雨が降んです。",
+                    "今日は雨んが降るです。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which pattern is required to use ん(の)です after a noun?",
+                "options": [
+                    "Noun + んです",
+                    "Noun + のです",
+                    "Noun + だ + んです",
+                    "Noun + な + のです"
+                ],
+                "answer": 3,
+                "explanation": "When using ん(の)です after a noun, you need to add な before ん(の)です."
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank with any adjective that you find appropriate (using Hiragana or Kanji):\n\n今日は____です。",
+                "includes": [
+                    ["ん","の"]
+                ],
+                "sample_answer": "今日はいそがしいんです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\n明日[あした]しけんがあるんです。今日はあそべないんです。",
+                "includes": [
+                    ["tomorrow"],
+                    ["exam", "test"],
+                    ["have", "is", "got"],
+                    ["today"],
+                    ["can't", "can", "cannot", "not"],
+                    ["hang", "play"]
+                ],
+                "sample_answer": "Tomorrow I have an exam. So I can't hang out today."
+            }
+        ]
+    }
+}

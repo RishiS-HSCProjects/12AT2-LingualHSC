@@ -1,0 +1,19 @@
+{% extends "nihongo-template.html" %}
+
+{% set title = "Grammar" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson-directory.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/lesson-directory-utils.js') }}"></script>
+{% endblock %}
+
+{% from "lesson-directory-macro.html" import lesson_directory %}
+
+{% block body %}
+    {{ lesson_directory(lessons, app_code, 'grammar', title) }}
+{% endblock %}

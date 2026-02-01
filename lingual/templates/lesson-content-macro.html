@@ -12,6 +12,9 @@
                 {{ lesson.content | safe }}
             </div>
         </div>
+        <button id="directory-toggle" class="directory-toggle" type="button" aria-expanded="false" aria-controls="directory-panel" aria-label="Show Directory">
+            <img src="{{ url_for('static', filename='assets/directory-arrow.svg') }}" alt="Directory" class="directory-toggle-icon" />
+        </button>
         <div id="directory-panel">
             <div id="directory-results"></div>
         </div>

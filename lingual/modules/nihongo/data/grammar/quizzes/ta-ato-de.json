@@ -1,0 +1,69 @@
+{
+    "quiz": {
+        "title": "Using ～た後[あと]で",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'After eating breakfast, I go to school.'",
+                "includes": [
+                    ["ご飯", "ごはん", "gohan"],
+                    ["食べた", "たべた", "tabeta"],
+                    ["後で", "あとで", "atode"],
+                    ["学校", "がっこう", "gakkou"],
+                    ["行きます", "いきます", "ikimasu", "行く", "いく", "iku"]
+                ],
+                "sample_answer": "朝[あさ]ご飯[はん]を食べた後[あと]で、学[がっ]校[こう]に行きます。"
+            },
+            {
+                "type": "mc",
+                "question": "What is the correct way to say 'After finishing homework, I watch TV.' in Japanese?",
+                "options": [
+                    "しゅくだいを終[お]わった後で、テレビを見ます。",
+                    "しゅくだいを終[お]わた後で、テレビを見ます。",
+                    "しゅくだいを終[お]わりた後で、テレビを見ます。",
+                    "しゅくだいを終[お]わらた後で、テレビを見ます。"
+                ],
+                "answer": 0,
+                "explanation": "The correct past tense form of 終わる (to finish) is 終わった. Therefore, the correct sentence is しゅくだいを終わった後で、テレビを見ます。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese: 'After I took a bath, I read a book.'",
+                "includes": [
+                    ["風呂", "ふろ", "furo"],
+                    ["入った", "はいった", "haitta"],
+                    ["後で", "あとで", "atode"],
+                    ["本", "ほん", "hon"],
+                    ["読みました", "よみました", "yomimashita", "読んだ", "よんだ", "yonda"]
+                ],
+                "sample_answer": "お風[ふ]呂[ろ]に入[はい]った後[あと]で、本を読みました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into English: '学校から帰[かえ]った後[あと]で、宿[しゅく]題[だい]をしました。'",
+                "includes": [
+                    ["After"], ["return", "came back"], ["from school"], ["homework"], ["did"]
+                ],
+                "sample_answer": "After I returned from school, I did my homework."
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank: 'シャワーを______、友達[ともだち]とカフェに行[い]きました。'",
+                "includes": [
+                    ["浴び", "あび", "abi"],
+                    ["た", "ta"],
+                    ["後で", "あとで", "atode"]
+                ],
+                "explanation": "Remember the word シャワー always take the ichidan verb 浴[あ]びる (to take [a shower])."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English: お昼[ひる]ご飯[はん]を食べた後で、きんかくじまでバスにのりました。",
+                "includes": [
+                    ["After"], ["lunch"], ["Kinkakuji", "Kinkaku-ji", "Golden Pavilion"], ["bus"]
+                ],
+                "sample_answer": "After eating lunch, I took a bus to Kinkakuji (the Golden Pavilion)."
+            }
+        ]
+    }
+}

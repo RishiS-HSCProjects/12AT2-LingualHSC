@@ -1,6 +1,6 @@
 {% extends 'lingual-template.html' %}
 
-{% set title = "Welcome Back! - Lingual HSC" %}
+{% set title = "Reset Password" %}
 
 {% block meta %}
 {{ super() }}
@@ -14,19 +14,20 @@
 
 {% block body %}
 <form id="form" action="{{ url_for('main.reset_token', token=token) }}" method="POST">
+    {{ form.hidden_tag() }}
     <section class="active">
         <h1>Hey again, {{ user.first_name }}!</h1>
         <div class="form-body">
             <div class="form-elements">
                 <h2>Don't forget this one too!</h2>
                 <div class="group-fields">
-                    <input type="password" autocomplete="new-password" autofocus
-                        oninput="validatePassword(this); checkSubmit();" id="password" name="password"
-                        placeholder="New Password" required>
+                    {{ form.password(class="form-control", type="password", autocomplete="new-password", autofocus=True,
+                        oninput="validatePassword(this); checkSubmit();", id="password",
+                        placeholder="New Password", required=True) }}
 
-                    <input type="password" autocomplete="new-password"
-                        oninput="validatePasswordMatch(this); checkSubmit()" id="confirm-password"
-                        name="confirm-password" placeholder="Confirm New Password" required>
+                    {{ form.confirm_password(class="form-control", type="password", autocomplete="new-password",
+                        oninput="validatePasswordMatch(this); checkSubmit()", id="confirm-password",
+                        placeholder="Confirm New Password", required=True) }}
                 </div>
 
                 <small id="password-help">

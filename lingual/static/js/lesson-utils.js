@@ -4,10 +4,16 @@ class DirectoryPanel {
         contentSelector = '.lesson-content',
         offset = 120 // Pixel offset for fixed headers
     } = {}) {
+        // Initialize document elements so they can be used later on without querying the DOM repeatedly.
         this.container = document.getElementById(containerId);
         this.content = document.querySelector(contentSelector);
+        this.panel = document.getElementById('directory-panel');
+        this.toggleButton = document.getElementById('directory-toggle');
         this.offset = offset;
+
+        // Array to hold heading data extracted from lesson content
         this.headings = [];
+        this.isCollapsed = false;
 
         if (!this.container || !this.content) return; // Required elements not found. Should never happen.
 
@@ -16,11 +22,17 @@ class DirectoryPanel {
 
     init() {
         this.extractHeadings();
-        if (!this.headings.length) return; // No headings found. Exit early.
-
+        
+        // Always render (even if empty) to show the directory structure
         this.render();
-        window.addEventListener('scroll', () => this.updateActive()); // Add scroll listener to update active heading
-        this.updateActive();
+        
+        // Only add scroll listener if there are headings
+        if (this.headings.length) {
+            window.addEventListener('scroll', () => this.updateActive());
+            this.updateActive(); // Initial update to set active heading
+        }
+
+        this.setupResponsiveHandling(); // Setup responsive collapse/expand handling
     }
 
     extractHeadings() {
@@ -41,6 +53,14 @@ class DirectoryPanel {
     }
 
     render() {
+        // Add header if it doesn't exist
+        if (!this.container.previousElementSibling?.classList.contains('directory-header')) {
+            const header = document.createElement('div');
+            header.className = 'directory-header';
+            header.textContent = 'Directory';
+            this.container.parentElement.insertBefore(header, this.container);
+        }
+
         // Create HTML
         this.container.innerHTML = this.headings.map(h => `
             <div class="directory-indent level-${h.level}" data-id="${h.id}">
@@ -56,6 +76,7 @@ class DirectoryPanel {
                 const target = document.getElementById(id);
                 if (!target) return;
 
+                // Smooth scroll to the target heading with offset
                 window.scrollTo({
                     top: target.offsetTop - this.offset,
                     behavior: 'smooth'
@@ -64,22 +85,64 @@ class DirectoryPanel {
         });
     }
 
+    setupResponsiveHandling() { // Handle collapse/expand based on viewport size and overlap
+        if (!this.panel || !this.toggleButton) return;
+
+        const applyState = (collapsed) => { // Apply the collapsed/open state to the panel
+            this.isCollapsed = collapsed;
+            document.body.classList.toggle('directory-collapsed', collapsed);
+            document.body.classList.toggle('directory-open', !collapsed);
+            this.toggleButton.setAttribute('aria-expanded', (!collapsed).toString());
+            this.toggleButton.setAttribute('aria-label', collapsed ? 'Show Directory' : 'Hide Directory');
+            this.toggleButton.classList.toggle('is-open', !collapsed);
+        };
+
+        const shouldCollapse = () => { // Determine if the directory panel should be collapsed
+            // Collapse only on small viewports or when panel overlaps lesson
+            if (window.innerWidth < 1024) return true;
+
+            const lesson = document.getElementById('lesson-container'); // Main lesson content area
+            if (!lesson || !this.panel.offsetParent) return false;
+
+            const panelRect = this.panel.getBoundingClientRect();
+            const lessonRect = lesson.getBoundingClientRect();
+
+            // If panel's left edge intrudes into lesson area by 40px or more, collapse
+            return panelRect.left < lessonRect.left + 40;
+        };
+
+        const handleResize = () => {
+            // After resizing, check if we need to collapse or expand the panel
+            const collapse = shouldCollapse();
+            applyState(collapse);
+        };
+
+        this.toggleButton.addEventListener('click', () => {
+            applyState(!this.isCollapsed); // Toggle collapsed state on button click
+        });
+
+        window.addEventListener('resize', handleResize); // Listen for window resize events
+
+        handleResize(); // Initial check on load
+    }
+
     updateActive() {
-        const pos = window.scrollY + this.offset + 1;
-        let active = null;
+        const pos = window.scrollY + this.offset + 1; // Current scroll position with offset
+        let active = null; // ID of the currently active heading
 
         for (const h of this.headings) {
-            if (pos >= h.element.offsetTop) active = h.id;
+            if (pos >= h.element.offsetTop) active = h.id; // Update active if the user scrolled past this heading
         }
 
         this.container.querySelectorAll('.directory-indent').forEach(el => {
+            // Toggle 'active' class based on whether this heading is the active one
             el.classList.toggle('active', el.dataset.id === active);
         });
     }
 }
 
 class QuizRenderer {
-    constructor({
+    constructor({ // Default configuration options
         quizSelector = '.quiz',
         questionClass = 'quiz-question',
         optionClass = 'quiz-option',
@@ -87,6 +150,7 @@ class QuizRenderer {
         incorrectClass = 'quiz-incorrect',
         lockDelay = 500
     } = {}) {
+        // Initialize configuration options
         this.quizSelector = quizSelector;
         this.questionClass = questionClass;
         this.optionClass = optionClass;
@@ -126,7 +190,7 @@ class QuizRenderer {
         try {
             if (!this.quizCache[lesson]) {
                 // Fetch quiz data for the lesson if not already cached
-                const res = await fetch(`/nihongo/api/quiz/${lesson}`);
+                const res = await fetch(`api/quiz/${lesson}`);
 
                 if (!res.ok) {
                     let msg = "Unknown error";
@@ -146,7 +210,7 @@ class QuizRenderer {
                 this.quizCache[lesson] = await res.json(); // Cache quiz data for the lesson
             }
 
-            const quiz = this.quizCache[lesson][id];
+            const quiz = this.quizCache[lesson][id]; // Get specific quiz by ID
             if (!quiz?.bank?.length) {
                 throw new Error("Quiz data is invalid or empty");
             }
@@ -182,7 +246,7 @@ class QuizRenderer {
             questions = questions.slice(0, limit);
         }
 
-        this.renderQuestion(
+        this.renderQuestion( // Start rendering the first question
             container, quiz, questions, 0, {
                 correct: 0,
                 total: questions.length,
@@ -202,160 +266,345 @@ class QuizRenderer {
      * @param {boolean} isReview - Flag indicating if the quiz is in review mode for missed questions.
      */
     renderQuestion(container, quiz, questions, index, score, isReview) {
-        const normaliseAnswer = (str) =>
-            str.normalize('NFC')
-            .replace(/\s+/g, ' ')
-            .replace(/\u00A0/g, ' ')
-            .trim()
-            .toLowerCase();
-        
-        const q = questions[index]; // Current question to render
-        if (!q) return; // No question found at the given index. Should never happen.
+        /**
+         * Normalises an answer string (supports various language scripts) for flexible matching.
+         */
+        const normaliseAnswer = (raw) => {
+            if (raw == null) return "";
 
-        let bodyHTML = '';
+            let s = String(raw).normalize("NFKC").normalize("NFC"); // Unicode normalisation
 
-        if (q.type === 'mc') {
-            let shuffledOptions = null;
-            const allowShuffle = q['allow-shuffle'] !== false; // Default to true if not specified
+            s = s.replace(/<[^>]*>/g, ""); // Remove HTML tags
+            s = s.replace(/[\u200B-\u200F\uFEFF]/g, ""); // Remove zero-width and formatting chars
+            s = s.replace(/[\x00-\x1F\x7F]/g, ""); // Remove control characters
+            s = s.replace(/\u00A0/g, " "); // Replace non-breaking spaces with regular spaces
+            s = s.replace(/\s+/g, " ").trim(); // Normalise whitespace
+            s = s.replace(/[\p{P}\p{S}]/gu, ""); // Remove punctuation and symbols
+            s = s.replace(/[-_]{2,}/g, "-"); // Replace multiple hyphens/underscores with single hyphen
+            s = s.toLowerCase(); // Case insensitive matching
 
-            shuffledOptions = q.options.map((text, originalIndex) => ({
-                text,
-                originalIndex
-            }));
+            return s; // Return the normalised string
+        };
+
+        /**
+         * Adds a correct/incorrect result indicator to an explanation block.
+         * @param {HTMLElement} explanation - The explanation element to add the indicator to.
+         * @param {boolean} isCorrect - Whether the answer was correct.
+         */
+        const addResultIndicator = (explanation, isCorrect) => {
+            // During intial user testing, I found some users incorrectly believing that they got a question wrong because a grey explanation box appeared.
+            // I learnt that the use of a neutral styling for the explanation block is rather confusing, and I needed to improve the quiz's UI's clarity.
+            // I still wanted to always show the 'explanation' block since it may contain useful information, especially since the 'sample answer' may clarify the
+            // correct option in case the user was unsure or got it wrong (even if the system marked it as correct).
+            // As a result, I have decided to add a correct/incorrect indicator to the top of the explanation block to make it abundantly clear whether the user got the question right or wrong.
+            // This should improve UX and reduce confusion when reviewing answers.
+            // Documented on 27 Jan 2026.
+ 
+            if (!explanation) return;
+
+            const resultIndicator = document.createElement("div");
+            resultIndicator.className = "quiz-result-indicator";
+            // Keeping styling inline here to avoid needing extra CSS rules for an element used only once.
+            resultIndicator.style.cssText = "font-weight: 700; font-size: 1.125rem; margin-bottom: 0.75rem; padding: 0.5rem; border-radius: 0.5rem; text-align: center;";
+            
+            // Not using var(--color-quiz-correct) or var(--color-quiz-incorrect) here as to provide sufficient contrast with the correct/incorrect option stylings.
+            if (isCorrect) {
+                resultIndicator.textContent = "✓ Correct!";
+                resultIndicator.style.color = "#34d058";
+                resultIndicator.style.background = "#d4f8e8";
+            } else {
+                resultIndicator.textContent = "✗ Incorrect";
+                resultIndicator.style.color = "#d73a49";
+                resultIndicator.style.background = "#ffeef0";
+            }
+            
+            explanation.insertBefore(resultIndicator, explanation.firstChild);
+            explanation.hidden = false;
+        };
+
+        const q = questions[index]; // Current question object
+        if (!q) return;
+
+        let bodyHTML = ""; // HTML for question body will be constructed here
+
+        /* ---- Explanation and sample answer block construction ---- */
+        const explanationParts = []; // Parts of the explanation block
+
+        if (q.explanation) {
+            // Add explanation block if provided
+            explanationParts.push(`
+            <div class="quiz-explanation-block">
+                <strong>Explanation:</strong><br>
+                ${q.explanation}
+            </div>
+        `);
+        }
+
+        if (q.sample_answer) {
+            // Add sample answer block if provided
+            explanationParts.push(`
+            <div class="quiz-explanation-block">
+                <strong>Sample answer:</strong><br>
+                ${q.sample_answer}
+            </div>
+        `);
+        }
+
+        // Combine explanation parts into final HTML block
+        const explanationHTML = explanationParts.length
+            ? `<div class="quiz-explanation" hidden>${explanationParts.join("")}</div>` : "";
+
+        // Multiple choice rendering
+        if (q.type === "mc") {
+            const allowShuffle = q["allow-shuffle"] !== false; // Check if answers can be shuffled. Using '!== false' to default to true.
+            let shuffledOptions = q.options.map((text, originalIndex) => ({ text, originalIndex })); // Shuffle display order while keeping track of original indices
 
             if (allowShuffle) {
-                // Shuffle options if specified using Fisher-Yates algorithm
+                // If shuffling is allowed, shuffle using Fisher-Yates algorithm
+                // Fisher-Yates is suitable here as it provides a satisfactory shuffle very quickly.
                 for (let i = shuffledOptions.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [shuffledOptions[i], shuffledOptions[j]] =
-                        [shuffledOptions[j], shuffledOptions[i]];
+                    const j = Math.floor(Math.random() * (i + 1)); // No security implications here, so Math.random() is sufficient
+                    [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
                 }
             }
 
-            // Generate HTML for multiple-choice options
             bodyHTML = `
-                <ul class="quiz-options">
-                    ${shuffledOptions.map((opt, i) => `
-                        <li class="${this.optionClass}"
-                            data-display-index="${i}"
-                            data-original-index="${opt.originalIndex}">
-                            ${opt.text}
-                        </li>
-                    `).join('')}
-                </ul>
-            `;
-        } else if (q.type === 'input') {
-            bodyHTML = `
-                <div class="quiz-input-container">
-                    <input type="text" class="quiz-input" autocomplete="off">
-                    <button class="quiz-submit-btn" disabled>Submit</button>
-                </div>
-            `;
+            <ul class="quiz-options">
+                ${shuffledOptions.map(opt => `
+                    <li class="${this.optionClass}"
+                        data-original-index="${opt.originalIndex}">
+                        ${opt.text}
+                    </li>
+                `).join("")}
+            </ul>
+        `;
         }
 
-        container.innerHTML = `
-            <div class="quiz-title">
-                ${quiz.title ?? 'Quiz'}
-                ${isReview ? ' (Review)' : ''}
-            </div>
-            <div class="${this.questionClass}">${q.question}</div>
-            ${bodyHTML}
-            <div class="quiz-controls">
-                <span class="quiz-progress">
-                    ${index + 1} / ${questions.length}
-                </span>
-                <button class="quiz-next-btn" disabled>
-                    ${index + 1 < questions.length ? 'Next' : 'Finish'}
-                </button>
+        // Input rendering
+        else if (q.type === "input") {
+            bodyHTML = `
+            <div class="quiz-input-container">
+                <input type="text" class="quiz-input" autocomplete="off" />
+                <button class="quiz-submit-btn" disabled>Submit</button>
             </div>
         `;
+        }
 
-        const nextBtn = container.querySelector('.quiz-next-btn');
+        // Render block
+        container.innerHTML = `
+        <div class="quiz-title">
+            ${quiz.title ?? "Quiz"}${isReview ? " (Review)" : ""}
+        </div>
+        <div class="${this.questionClass}">${q.question}</div>
+        ${bodyHTML}
+        ${explanationHTML}
+        <div class="quiz-controls">
+            <span class="quiz-progress">
+                ${index + 1} / ${questions.length}
+            </span>
+            <button class="quiz-next-btn" disabled>
+                ${index + 1 < questions.length ? "Next" : "Finish"}
+            </button>
+        </div>
+    `;
 
-        let answered = false; // Track if the question has been answered
-        let locked = true; // Track if input is locked to prevent accidental submissions
+        if (index !== 0 && q.type === "input") {
+            // Focus input if user is working through a specific quiz
+            // This allows for faster answering without needing to click the input box,
+            // while still allowing multiple quizzes on the same page to not steal focus from each other.
+            setTimeout(() => container.querySelector(".quiz-input")?.focus(), 0);
+        }
 
-        setTimeout(() => locked = false, this.lockDelay); // Only run the below logic after delay
+        // Scroll quiz into view when rendering new question
+        // Solves issue where long quizzes cause next question to be offscreen
+        // Overall, great for UX.
+        if (index !== 0) {
+            setTimeout(() => {
+                container.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100);
+        }
 
-        const markIncorrect = () => { // Anonymous function to handle incorrect answers
-            if (!isReview) score.missed.push(q); // Add to missed questions if not in review mode
+        const nextBtn = container.querySelector(".quiz-next-btn");
+        let answered = false;
+        let locked = true;
+        setTimeout(() => locked = false, this.lockDelay); // Lock inputs briefly to prevent accidental double-clicks
+
+        const markIncorrect = () => {
+            // Mark question as incorrect in score tracking
+            // Pushes question object to missed array for review later
+            if (!isReview) score.missed.push(q);
         };
 
-        if (q.type === 'mc') {
+        /* ---------- MC handling ---------- */
+        if (q.type === "mc") {
             const options = container.querySelectorAll(`.${this.optionClass}`);
-
             options.forEach(opt => {
-                opt.addEventListener('click', () => {
-                    if (locked || answered) return; // Ignore clicks if locked or already answered
-                    answered = true; // Mark question as answered
+                // Add listener for selecting an option
+                // This is needed since we are not using native radio buttons,
+                // rather ul/li elements for better styling control.
+                opt.addEventListener("click", () => {
+                    if (locked || answered) return;
+                    answered = true; // Prevent multiple answers
 
-                    // Since options may be shuffled, we use originalIndex to check correctness
-                    const chosenOriginalIndex = Number(opt.dataset.originalIndex);
+                    const chosen = Number(opt.dataset.originalIndex); // Get original index of chosen option as a number
 
-                    // Disable all options and apply formatting for answers
+                    // Disable all options and mark correct/incorrect
                     options.forEach(o => {
-                        o.style.pointerEvents = 'none';
-                        const original = Number(o.dataset.originalIndex);
-                        if (original === q.answer)
+                        o.style.pointerEvents = "none"; // Disable further clicks
+                        if (Number(o.dataset.originalIndex) === q.answer) {
                             o.classList.add(this.correctClass); // Mark correct answer
+                        }
                     });
-                    if (chosenOriginalIndex === q.answer) {
+
+                    if (chosen === q.answer) {
                         if (!isReview) score.correct++; // Increment score if correct and not in review mode
                     } else {
                         opt.classList.add(this.incorrectClass); // Mark chosen option as incorrect
-                        markIncorrect(); // Add to missed questions
+                        markIncorrect(); // Record question as missed
                     }
 
-                    nextBtn.disabled = false; // Enable the next button
+                    const explanation = container.querySelector(".quiz-explanation");
+                    addResultIndicator(explanation, chosen === q.answer);
+
+                    nextBtn.disabled = false; // Enable next button
+
+                    // Add Enter key listener for next button (delayed to avoid same keypress)
+                    setTimeout(() => {
+                        const handleEnter = (e) => {
+                            if (e.key === "Enter" && !nextBtn.disabled) {
+                                nextBtn.click();
+                            }
+                        };
+                        document.addEventListener("keydown", handleEnter, { once: true }); // Add one-time listener to avoid multiple triggers
+                    }, 50);
+
+                    // Scroll to show the controls and next button
+                    setTimeout(() => {
+                        const controls = container.querySelector(".quiz-controls");
+                        if (controls) {
+                            controls.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                        }
+                    }, 100);
                 });
-            });
-        } else if (q.type === 'input') {
-            const input = container.querySelector('.quiz-input');
-            const submit = container.querySelector('.quiz-submit-btn');
-
-            // Enable submit button only when there is input
-            input.addEventListener('input', () => {
-                submit.disabled = !input.value.trim();
-            });
-
-            // Handle submission of input answer
-            submit.addEventListener('click', () => {
-                if (locked || answered) return;
-                answered = true;
-
-                const val = normaliseAnswer(input.value);
-                const correct = q.valid.some(answer => normaliseAnswer(answer) === val); // Check if input matches any valid answers
-
-                input.classList.add(correct ? this.correctClass : this.incorrectClass);
-                input.disabled = true;
-                submit.disabled = true;
-
-                if (correct) {
-                    if (!isReview) score.correct++;
-                } else {
-                    markIncorrect();
-                    const answerBlock = document.createElement('div');
-                    answerBlock.className = 'quiz-valid-answers';
-                    answerBlock.innerHTML = `
-                    <div class="quiz-valid-label">Accepted answers:</div>
-                    <ul class="quiz-valid-list">
-                        ${q.valid.map(v => `<li>${v}</li>`).join('')}
-                    </ul>
-                `;
-                    input.parentElement.appendChild(answerBlock);
-                }
-
-                nextBtn.disabled = false;
             });
         }
 
-        // Handle navigation to next question or summary
-        nextBtn.addEventListener('click', () => {
-            if (index + 1 < questions.length) {
+        /* ---------- Input Handling ---------- */
+        else if (q.type === "input") {
+            // Get references to input elements
+            const input = container.querySelector(".quiz-input");
+            const submit = container.querySelector(".quiz-submit-btn");
+
+            input.addEventListener("input", () => {
+                submit.disabled = !input.value.trim(); // Enable submit only if input is non-empty. (I love truthy/falsy values in JS!!)
+            });
+
+            // Add Enter key support for submitting answer
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" && !submit.disabled) {
+                    submit.click(); // Trigger submit button click
+                }
+            });
+
+            /**
+             * Checks if the user's normalised answer includes all required elements.
+             * @param {string} userNorm - The normalised user answer.
+             * @param {Array} includes - Array of required elements/groups.
+             * @returns {Object} - An object containing correctness and missing elements.
+             */
+            const matchIncludes = (userNorm, includes) => {
+                const missing = [];
+
+                for (const group of includes) { // Iterates over each group of required elements
+                    const groupArr = Array.isArray(group) ? group : [group]; // Ensure group is an array
+                    const ok = groupArr.some(p => userNorm.includes(normaliseAnswer(p))); // Check if any element in group is included in user answer
+                    if (!ok) { // People ask me if I'm fine and I say I'm fine but I'm not really fine... I say I'm ` {!ok} `...
+                        // For legal reasons, that was a joke. Hope you got a good eye roll from reviewing that.
+                        // If you didn't understand it, please ignore it. It's a meme :)
+                        /** @see https://www.youtube.com/watch?v=aS0-P4JR9PU */
+
+                        missing.push(groupArr); // Anyways, this line adds the missing group to the list
+                    }
+                }
+
+                return { correct: missing.length === 0, missing }; // Return whether all groups were matched and the list of missing groups
+            };
+
+            submit.addEventListener("click", () => {
+                if (locked || answered) return;
+                answered = true; // Prevent multiple answers (omg this looks familiar!)
+
+                const userNorm = normaliseAnswer(input.value); // Normalise user input for comparison
+
+                // Initialise properties for answer checking
+                let correct = false; // Guilty until proven innocent, apparently.
+                let missingGroups = [];
+
+                if (Array.isArray(q.includes) && q.includes.length) {
+                    // Run matchIncludes and respond based on it's response!
+                    const res = matchIncludes(userNorm, q.includes);
+                    correct = res.correct; // Truthy/falsy value! You have no idea how much I love JS for this feature.
+                    missingGroups = res.missing; // res.missing is always an array. Just need to override.
+                } else if (Array.isArray(q.valid) && q.valid.length) {
+                    // Checks that user answer matches one of the valid answers
+                    correct = q.valid.some(v => normaliseAnswer(v) === userNorm);
+                } else {
+                    correct = true; // No valid/includes specified, so all answers are correct!
+                }
+
+                input.classList.add(correct ? this.correctClass : this.incorrectClass); // Mark input as correct/incorrect
+                input.disabled = true; // Disable further input
+                submit.disabled = true; // Disable submit button
+
+                if (correct) {
+                    if (!isReview) score.correct++; // Increment score if correct and not in review mode
+                } else {
+                    markIncorrect(); // Record question as missed
+
+                    // Show missing required elements if applicable
+                    const answerBlock = document.createElement("div");
+                    answerBlock.className = "quiz-valid-answers";
+                    answerBlock.innerHTML = `
+                    <div class="quiz-valid-label">Missing required elements:</div>
+                    <ul class="quiz-valid-list">
+                        ${missingGroups.map(g => `<li>${g.join(" / ")}</li>`).join("")}
+                    </ul>
+                `;
+                    input.parentElement.appendChild(answerBlock); // Append missing elements block
+                }
+
+                const explanation = container.querySelector(".quiz-explanation");
+                addResultIndicator(explanation, correct); // Add correct/incorrect indicator to explanation
+
+                nextBtn.disabled = false; // Enable next button
+
+                // Add Enter key listener for next button (delayed to avoid same keypress)
+                setTimeout(() => {
+                    const handleEnter = (e) => {
+                        if (e.key === "Enter" && !nextBtn.disabled) {
+                            nextBtn.click();
+                        }
+                    };
+                    document.addEventListener("keydown", handleEnter, { once: true });
+                }, 50);
+
+                // Scroll to show the controls and next button
+                setTimeout(() => {
+                    const controls = container.querySelector(".quiz-controls");
+                    if (controls) {
+                        controls.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                    }
+                }, 100);
+            });
+        }
+
+        /* ---------- Navigation ---------- */
+        nextBtn.addEventListener("click", () => {
+            if (index + 1 < questions.length) { // More questions remain
                 this.renderQuestion(container, quiz, questions, index + 1, score, isReview);
             } else if (!isReview && score.missed.length) {
-                this.renderQuestion(container, quiz, score.missed, 0, score, true);
-            } else {
+                this.renderQuestion(container, quiz, score.missed, 0, score, true); // Start review of missed questions
+            } else { // Quiz complete
                 this.renderSummary(container, quiz, score);
             }
         });
@@ -364,8 +613,9 @@ class QuizRenderer {
     renderSummary(container, quiz, score) {
         const percent = Math.round((score.correct / score.total) * 100);
 
-        let header, subtitle;
+        let header, subtitle; // Initialize header and subtitle variables
 
+        // Determine header and subtitle based on score percentage
         if (percent === 100) {
             header = "Perfect Score!";
             subtitle = "You're a natural!";
@@ -383,26 +633,71 @@ class QuizRenderer {
             subtitle = "Review the lesson and retry.";
         }
 
+        // Render summary HTML
         container.innerHTML = `
             <div class="quiz-summary">
                 <p class="quiz-header">${header}</p>
                 <p class="quiz-subtitle">${subtitle}</p>
                 <div class="quiz-score">
-                    ${score.correct} / ${score.total} (${percent}%)
+                    ${score.correct} / ${score.total}
+                    <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--color-accent);">${percent}%</div>
                 </div>
                 <button class="quiz-restart-btn">Retry Quiz</button>
             </div>
         `;
 
+        // Add listener to restart quiz button
         container.querySelector('.quiz-restart-btn')
             .addEventListener('click', () => {
-                this.startQuiz(container, quiz);
+                this.startQuiz(container, quiz); // Restart the quiz
             });
     }
+}
+
+/**
+ * Scrolls to an anchor with a fixed offset for headers.
+ * Used for navigating to headings while accounting for fixed header height.
+ * @param {string} id 
+ * @returns {void}
+ */
+function scrollToAnchorWithOffset(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const y = target.getBoundingClientRect().top + window.scrollY - 120; // Get target position minus offset
+
+    window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize directory panel and quiz renderer on page load
     new DirectoryPanel();
     new QuizRenderer();
+
+    if (window.location.hash) {
+        const id = window.location.hash.slice(1); // Get ID from URL hash
+        // Delay ensures content + headings are fully rendered
+        setTimeout(() => {
+            scrollToAnchorWithOffset(id);
+        }, 0);
+    }
+});
+
+document.addEventListener('click', (e) => {
+    // Show spoiler content when spoiler elements are clicked
+    const spoiler = e.target.closest('.spoiler'); // Find closest spoiler element to clicked target
+    if (spoiler) {
+        spoiler.classList.add('revealed'); // Reveal spoiler content
+        spoiler.removeAttribute('title'); // Remove tooltip
+    }
+});
+
+window.addEventListener('hashchange', () => { // Handle URL hash changes for navigation
+    const id = window.location.hash.slice(1); // Get ID from URL hash
+    if (!id) return; // Cancel if no ID present
+
+    scrollToAnchorWithOffset(id); // Scroll to the target heading with offset
 });

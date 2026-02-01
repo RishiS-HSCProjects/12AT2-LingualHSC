@@ -1,0 +1,41 @@
+{
+    "quiz": {
+        "title": "Giving Commands with ～なさい",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence below is grammatically correct and complete?",
+                "options": [
+                    "宿[しゅく]題[だい]を終[お]わらなさい。",
+                    "宿[しゅく]題[だい]を終[お]わりなさい。",
+                    "宿[しゅく]題[だい]を終[お]わりなさいです。",
+                    "宿[しゅく]題[だい]を終[お]わらなさいです。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese: Read this book.",
+                "includes": [
+                    ["この", "kono"],
+                    ["本", "ほん", "hon"],
+                    ["読み", "よみ", "yomi"],
+                    ["なさい", "nasai"]
+                ],
+                "sample_answer": "この本[ほん]を読[よ]みなさい。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\n先生は学生にもっと勉[べん]強[きょう]しなさいと言[い]いました。",
+                "includes": [
+                    ["teacher"],
+                    ["told", "said"],
+                    ["students"],
+                    ["study"],
+                    ["more"]
+                ],
+                "sample_answer": "The teacher told the students to study more."
+            }
+        ]
+    }
+}

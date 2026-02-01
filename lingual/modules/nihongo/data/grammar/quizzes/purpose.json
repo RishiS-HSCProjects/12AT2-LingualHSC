@@ -1,0 +1,108 @@
+{
+    "quiz": {
+        "title": "Expressing Purpose with ～ために",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure is correct for stating purpose with a verb?",
+                "options": [
+                    "Verb (plain past) + ために",
+                    "Verb (plain present) + ために",
+                    "Verb (ます-stem) + ために",
+                    "Verb (て-form) + ために"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence means 'I went to the supermarket to buy vegetables.'?",
+                "options": [
+                    "やさいを買[か]ったためにスーパーに行きました",
+                    "やさいを買[か]うためにスーパーに行きました",
+                    "やさいを買[か]うのためにスーパーに行きました",
+                    "やさいを買[か]いますためにスーパーに行きました"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which option correctly uses Noun + の + ために?",
+                "options": [
+                    "けんこうために走[はし]ります",
+                    "けんこうので走[はし]ります",
+                    "けんこうのために走[はし]ります",
+                    "けんこうためで走[はし]ります"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: He works for his family.",
+                "includes": [
+                    ["家族", "かぞく", "kazoku"],
+                    ["ために", "tameni"],
+                    ["働きます", "はたらきます", "hatarakimasu", "働く", "はたらく", "hataraku"]
+                ],
+                "sample_answer": "彼[かれ]は家族[かぞく]のために働[はたら]きます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence shows purpose with a noun?",
+                "options": [
+                    "友[とも]達[だち]ために電[でん]話[わ]します",
+                    "友[とも]達[だち]のために電[でん]話[わ]します",
+                    "友[とも]達[だち]でために電[でん]話[わ]します",
+                    "友[とも]達[だち]にために電[でん]話[わ]します"
+                ],
+                "answer": 1,
+                "explanation": "Use の to link the noun (友[とも]達[だち]) to ために when expressing purpose."
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using ～ために: けんこうで自[じ]転[てん]車[しゃ]に乗[の]ります。",
+                "includes": [
+                    ["けんこう", "けんこう", "kenkou"],
+                    ["のために", "notameni"],
+                    ["自転車", "じてんしゃ", "jitensha"],
+                    ["乗ります", "乗る", "のります", "のる", "norimasu", "noru"]
+                ],
+                "sample_answer": "けんこうのために自転車に乗ります。"
+            },
+            {
+                "type": "mc",
+                "question": "Which nuance best fits ～ために in this lesson?",
+                "options": [
+                    "Cause/Reason",
+                    "Purpose/Goal",
+                    "Comparison",
+                    "Ability"
+                ],
+                "answer": 1,
+                "explanation": "ために is used to express purpose or goal."
+            },
+            {
+                "type": "mc",
+                "question": "Select the sentence using the correct verb form:",
+                "options": [
+                    "走[はし]っているために健[けん]康[こう]です",
+                    "走[はし]るために健[けん]康[こう]です",
+                    "けんこうのために走[はし]っています",
+                    "走[はし]ったために健[けん]康[こう]です"
+                ],
+                "answer": 2,
+                "explanation": "The <em>purpose</em> is to be healthy. Thus, けんこう must be followed by のために."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 家族[かぞく]のために料[りょう]理[り]を習[なら]っています。",
+                "includes": [
+                    ["for"],
+                    ["family"],
+                    ["learn"],
+                    ["cook", "cook"]
+                ],
+                "sample_answer": "I am learning to cook for my family."
+            }
+        ]
+    }
+}

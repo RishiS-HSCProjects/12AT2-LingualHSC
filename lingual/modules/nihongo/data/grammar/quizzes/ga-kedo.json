@@ -1,0 +1,42 @@
+{
+    "quiz": {
+        "title": "Using が and けど",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate into Japanese using が or けど: 'I like sushi, but I don't like wasabi.'",
+                "includes": [
+                    ["寿司", "すし", "sushi"],
+                    ["好き", "すき", "suki"],
+                    ["が", "けど"],
+                    ["わさび", "wasabi"],
+                    ["嫌い", "きらい", "kirai"]
+                ],
+                "sample_answer": "寿[す]司[し]は好[す]きですけど、わさびは嫌[きら]いです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using が or けど using plain form: 'It's raining, but I will go outside.'",
+                "includes": [
+                    ["雨", "あめ", "ame"],
+                    ["降っている", "ふっている", "futteiru"],
+                    ["が", "けど"],
+                    ["外", "そと", "soto"],
+                    ["行く", "いく", "iku", "行きます", "いきます", "ikimasu"]
+                ],
+                "sample_answer": "雨[あめ]が降[ふ]っているけど、外[そと]に行[い]きます。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using が or けど: 'I studied hard, but I didn't understand the lesson.'",
+                "includes": [
+                    ["勉強","べんきょう", "benkyou"],
+                    ["した", "しました", "shita", "shimashita"],
+                    ["が", "けど"],
+                    ["分からなかった", "分かりませんでした", "わからなかった", "わかりませんでした", "wakaranakatta", "wakarimasendeshita"]
+                ],
+                "sample_answer": "一生懸命[いっしょうけんめい]勉[べん]強[きょう]したけど、授[じゅ]業[ぎょう]が分[わ]からなかった。"
+            }
+        ]
+    }
+}

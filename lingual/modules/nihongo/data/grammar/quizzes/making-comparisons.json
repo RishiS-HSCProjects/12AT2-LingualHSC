@@ -1,0 +1,225 @@
+{
+    "quiz": {
+        "title": "Making Comparisons",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly asks: \"Between tea and coffee, which is cheaper?\"",
+                "options": [
+                    "お茶[ちゃ]とコーヒーとどちらが安いですか。",
+                    "お茶[ちゃ]とコーヒーとどちらのほうが安いですか。",
+                    "お茶[ちゃ]はコーヒーよりどちらが安いですか。",
+                    "お茶[ちゃ]とコーヒーとどちらのほうは安いですか。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "In the sentence 日本は韓[かん]国[こく]より大きいです, which country is larger?",
+                "options": [
+                    "Japan",
+                    "Korea"
+                ],
+                "answer": 0,
+                "explanation": "The adjective applies to the noun marked by は. 日本 is being described as larger than 韓[かん]国[こく]."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is grammatically incorrect?",
+                "options": [
+                    "犬[いぬ]はねこよりかわいいです。",
+                    "犬[いぬ]のほうがねこよりかわいいです。",
+                    "犬[いぬ]はねこほどかわいいです。",
+                    "犬[いぬ]はねこほどかわいくないです。"
+                ],
+                "answer": 2,
+                "explanation": "Sentence is incorrect because ほど requires a negative adjective to express 'not as [adjective] as'."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best translates \"Summer is not as hot as winter?\"?",
+                "options": [
+                    "夏は冬より暑[あつ]くないです。",
+                    "夏は冬ほど暑[あつ]くないです。",
+                    "冬は夏より暑[あつ]くないです。",
+                    "夏は冬より暑[あつ]いです。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What nuance does も〜し〜も add?",
+                "options": [
+                    "Opposition",
+                    "Comparison strength",
+                    "Similarity / accumulation",
+                    "Exclusion"
+                ],
+                "answer": 2,
+                "explanation": "The も〜し〜も pattern is used to list multiple positive (or negative) traits, indicating that both/all listed items share those traits."
+            },
+            {
+                "type": "mc",
+                "question": "Which particle directly marks the comparison baseline (the benchmark the subject is being compared to)?",
+                "options": [
+                    "は",
+                    "も",
+                    "より",
+                    "のほうが"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nCats are not as big as dogs.",
+                "includes": [
+                    ["猫", "ねこ", "neko"],
+                    ["犬", "いぬ", "inu"],
+                    ["ほど", "hodo"],
+                    ["大き", "おおき", "ooki"],
+                    ["くない", "kunai"]
+                ],
+                "sample_answer": "ねこは犬[いぬ]ほど大きくないです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nBetween trains and buses, which one is faster?",
+                "includes": [
+                    ["電車", "でんしゃ", "densha"],
+                    ["と"],
+                    ["バス", "ばす", "basu"],
+                    ["どちら"],
+                    ["のほうが"],
+                    ["早い", "はやい", "hayai"]
+                ],
+                "sample_answer": "電車とバスとどちらのほうが早いですか。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nCoffee is more expensive than tea.",
+                "includes": [
+                    ["コーヒー", "koohii"],
+                    ["お茶", "おちゃ", "ocha"],
+                    ["より", "yori"],
+                    ["高い", "たかい", "takai"]
+                ],
+                "sample_answer": "コーヒーはお茶[ちゃ]より高いです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using のほうが:\n\nWinter is colder than summer.",
+                "includes": [
+                    ["冬", "ふゆ", "fuyu"],
+                    ["より", "yori"],
+                    ["夏", "なつ", "natsu"],
+                    ["のほうが", "nohouga", "は", "ha"],
+                    ["寒", "さむ", "samu"]
+                ],
+                "sample_answer": "冬[ふゆ]のほうが夏[なつ]よりさむいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nThis movie is not as interesting as that one.",
+                "includes": [
+                    ["この", "kono"],
+                    ["あの", "ano", "その", "sono"],
+                    ["映画", "えいが", "eiga"],
+                    ["ほど", "hodo"],
+                    ["面白", "おもしろ", "omoshiro"],
+                    ["ない", "nai"]
+                ],
+                "sample_answer": "この映[えい]画[が]はあの映[えい]画[が]ほど面[おも]白[しろ]くないです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nDogs are cuter than cats.",
+                "includes": [
+                    ["犬", "いぬ", "inu"],
+                    ["猫", "ねこ", "neko"],
+                    ["より", "yori"],
+                    ["かわい", "kawaii"]
+                ],
+                "sample_answer": "犬はねこよりかわいいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese using は–が–は:\n\nThis phone is expensive, but the camera is good.",
+                "includes": [
+                    ["この", "kono"],
+                    ["携帯", "けいたい", "keitai"],
+                    ["高", "たか", "taka"],
+                    ["が", "ga"],
+                    ["カメラ", "kamera"]
+                ],
+                "sample_answer": "このけいたいは高いが、カメラはいいです。"
+            },
+            {
+                "type": "mc",
+                "question": "Why is より not used in ほど sentences?",
+                "options": [
+                    "Because they mean the same thing",
+                    "Because ほど already encodes comparison extent",
+                    "Because より is informal",
+                    "Because ほど replaces adjectives"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What does のほうが add compared to は alone?",
+                "options": [
+                    "Formality",
+                    "Emphasis on comparison direction",
+                    "Past tense nuance",
+                    "Politeness"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which pattern best supports listing multiple supporting traits?",
+                "options": [
+                    "は–が–は",
+                    "より",
+                    "ほど",
+                    "も–し–も"
+                ],
+                "answer": 3
+            },
+            {
+                "type": "mc",
+                "question": "In どちら questions, why are nouns joined with と?",
+                "options": [
+                    "To show contrast",
+                    "To form a list being compared",
+                    "To mark the topic",
+                    "To show exclusion"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which comparison structure is safest for exams due to clarity?",
+                "options": [
+                    "は–が–は",
+                    "も–し–も",
+                    "A は B より〜",
+                    "省略した比較"
+                ],
+                "answer": 2,
+                "explanation": "Using A は B より〜 clearly marks the subject and comparison baseline, reducing ambiguity."
+            },
+            {
+                "type": "mc",
+                "question": "What is the main risk when misplacing より?",
+                "options": [
+                    "Sounding informal",
+                    "Changing politeness level",
+                    "Reversing the comparison meaning",
+                    "Breaking tense agreement"
+                ],
+                "answer": 2
+            }
+        ]
+    }
+}

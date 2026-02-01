@@ -1,0 +1,183 @@
+{
+    "quiz": {
+        "title": "Using はず",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the core meaning of はずだ?",
+                "options": [
+                    "A strong personal wish",
+                    "A logical expectation based on evidence",
+                    "A future plan",
+                    "A polite guess"
+                ],
+                "answer": 1,
+                "explanation": "はずだ expresses an expectation or assumption that is logically derived, not a hope or guess."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses a verb with はずだ?",
+                "options": [
+                    "彼[かれ]は来[き]てはずだ",
+                    "彼[かれ]は来[く]るはずだ",
+                    "彼[かれ]は来[き]ますはずだ",
+                    "彼[かれ]は来[こ]ようはずだ"
+                ],
+                "answer": 1,
+                "explanation": "The plain non-past form of the verb is used before はずだ."
+            },
+            {
+                "type": "mc",
+                "question": "Which tense can appear before はずだ?",
+                "options": [
+                    "Non-past only",
+                    "Past only",
+                    "Any plain-form tense",
+                    "て-form only"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I expected the test to be easy.",
+                "includes": [
+                    ["試", "し", "shi"],
+                    ["験", "けん", "ken"],
+                    ["簡", "かん", "kan"],
+                    ["単", "たん", "tan"],
+                    ["はず"]
+                ],
+                "sample_answer": "試[し]験[けん]は簡[かん]単[たん]なはずだった。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses a な-adjective with はずだ?",
+                "options": [
+                    "彼[かれ]は元[げん]気[き]はずだ",
+                    "彼[かれ]は元[げん]気[き]にのはずだ",
+                    "彼[かれ]は元[げん]気[き]なはずだ",
+                    "彼[かれ]は元[げん]気[き]だったなはずだ"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "What does はずだった usually imply?",
+                "options": [
+                    "The expectation was confirmed",
+                    "The expectation failed or did not happen",
+                    "The action is ongoing",
+                    "The speaker is unsure"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: She was supposed to be kind.",
+                "includes": [
+                    ["彼", "かれ", "kare"],
+                    ["女", "じょ", "jo"],
+                    ["やさ", "yasa"],
+                    ["はず"]
+                ],
+                "sample_answer": "彼[かれ]女[じょ]はやさしかったはずだ。"
+            },
+            {
+                "type": "mc",
+                "question": "Which structure is required when using a noun with はずだ?",
+                "options": [
+                    "Noun + はずだ",
+                    "Noun + に + はずだ",
+                    "Noun + の + はずだ",
+                    "Noun + だった + の + はずだ"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "今[いま]日[にち]は休[やす]みのはずだ",
+                    "彼[かれ]は学[がく]生[せい]のはずだ",
+                    "彼[かれ]は学[がく]生[せい]はずだ",
+                    "雨[あめ]が降[ふ]るはずだ"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence shows a past expectation about a noun?",
+                "options": [
+                    "彼[かれ]は先[せん]生[せい]のはずだ",
+                    "彼[かれ]は先[せん]生[せい]だったはずだ",
+                    "彼[かれ]は先[せん]生[せい]になるはずだ",
+                    "彼[かれ]は先[せん]生[せい]にいるはずだ"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: He is expected to come today.",
+                "includes": [
+                    ["今", "きょう", "kyou"],
+                    ["日", "hi"],
+                    ["来", "く", "ku"],
+                    ["はず"]
+                ],
+                "sample_answer": "彼[かれ]は今[きょう]日[ひ]来[く]るはずだ。"
+            },
+            {
+                "type": "mc",
+                "question": "Which idea does はずだ NOT express?",
+                "options": [
+                    "Logical reasoning",
+                    "Assumption",
+                    "Strong emotion",
+                    "Expectation"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Why is たぶん often inappropriate with はずだ?",
+                "options": [
+                    "It makes the sentence polite",
+                    "It weakens logical certainty",
+                    "It changes the tense",
+                    "It requires て-form"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 彼[かれ]は医[い]者[しゃ]____はずだ。",
+                "valid": [
+                    "の",
+                    "no"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which situation best fits はずだ?",
+                "options": [
+                    "Guessing with no information",
+                    "Expressing hope",
+                    "Making an inference from facts",
+                    "Giving a command"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence sounds logically weak without context?",
+                "options": [
+                    "彼[かれ]は来[く]るはずだ",
+                    "電[でん]車[しゃ]は遅[おく]れるはずだ",
+                    "雨[あめ]が降[ふ]るはずだ",
+                    "試[し]験[けん]は簡[かん]単[たん]なはずだ"
+                ],
+                "answer": 0
+            }
+        ]
+    }
+}

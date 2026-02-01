@@ -1,0 +1,93 @@
+{
+    "quiz": {
+        "title": "Relative Clauses",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which of the following sentences correctly uses a relative clause to describe 'the book that I bought yesterday'?",
+                "options": [
+                    "昨日[きのう]買[か]った本[ほん]は面白[おもしろ]いです。",
+                    "昨日[きのう]買[か]う本[ほん]は面白[おもしろ]いです。",
+                    "昨日[きのう]買[か]った本[ほん]を面白[おもしろ]いです。",
+                    "昨日[きのう]買[か]う本[ほん]を面白[おもしろ]いです。"
+                ],
+                "answer": 0,
+                "explanation": "The correct sentence is '昨日買った本は面白いです。' which uses the past tense verb '買った' to form the relative clause describing the book. Furthermore, the correct particle 'は' is used to mark the topic of the sentence."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n私[わたし]が作[つく]ったりょうりは美味[おい]しいです。",
+                "includes": [
+                    ["I", "me"],
+                    ["made", "created"],
+                    ["dish", "food"],
+                    ["is", "are"],
+                    ["delicious", "tasty"]
+                ],
+                "sample_answer": "The dish that I made is delicious.",
+                "explanation": "The sentence uses a relative clause '私が作った' to describe 'りょうり' (dish). The verb '作った' is in the past tense, indicating the dish was made in the past."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n私が昨日[きのう]見た映[えい]画[が]が好きだと言った友だちが作ったケーキは、とてもおいしかったです。",
+                "includes": [
+                    ["my", "I", "me"],
+                    ["yesterday"],
+                    ["watched", "saw"],
+                    ["movie", "film"],
+                    ["like", "love", "enjoy"],
+                    ["said", "told"],
+                    ["friend"],
+                    ["made", "created", "baked"],
+                    ["cake"],
+                    ["was", "is"],
+                    ["very", "extremely"],
+                    ["delicious", "tasty"]
+                ],
+                "sample_answer": "The cake made by my friend who said they liked the movie I watched yesterday was very delicious.",
+                "explanation": "This complex sentence contains multiple relative clauses.\n - '私が昨日見た映画' describes the movie I watched yesterday.\n - '好きだと言った友だち' describes the friend who said they liked that movie.\n - '友だちが作ったケーキ' describes the cake made by that friend.\n The overall meaning is that the cake made by my friend, who expressed their liking for the movie I watched yesterday, was very delicious."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n先生が昨日[きのう]話したゲームをした友[とも]達[だち]が作[つく]ったお弁[べん]当[とう]は、とても有[ゆう]名[めい]になりました。",
+                "includes": [
+                    ["the", "a"],
+                    ["lunchbox", "bento"],
+                    ["friend"],
+                    ["who"],
+                    ["played", "played"],
+                    ["the game"],
+                    ["the teacher"],
+                    ["talked about", "spoke about"],
+                    ["yesterday"],
+                    ["became", "become"],
+                    ["very", "extremely"],
+                    ["famous", "well-known"]
+                ],
+                "sample_answer": "The lunchbox made by my friend who played the game the teacher talked about yesterday became very famous.",
+                "explanation": "This sentence contains multiple relative clauses:\n - '先生が昨日話したゲーム' describes the game that the teacher talked about yesterday.\n - 'した友達' describes the friend who played that game.\n - '友達が作ったお弁当' describes the lunchbox made by that friend.\n The overall meaning is that the lunchbox made by my friend, who played the game discussed by the teacher yesterday, became very famous."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n私[わたし]が駅[えき]で会[あ]った人が買ったカメラを使[つか]って撮[と]った写[しゃ]真[しん]は、母が好きだと言ったざっしでありました。",
+                "includes": [
+                    ["photograph", "photo", "picture"],
+                    ["I", "me"],
+                    ["met", "meat"],
+                    ["station"],
+                    ["person", "people"],
+                    ["bought", "purchased", "got", "buy"],
+                    ["camera"],
+                    ["used", "had"],
+                    ["took", "captured", "shot"],
+                    ["mother", "mom", "mum"],
+                    ["liked", "loved", "enjoyed"],
+                    ["said", "told"],
+                    ["magazine"]
+                ],
+                "sample_answer": "The photograph taken using the camera bought by the person I met at the station was in the magazine that my mother said she liked.",
+                "explanation": "This sentence contains multiple relative clauses:\n - '私が駅で会った人' describes the person I met at the station.\n - 'が買ったカメラ' describes the camera bought by that person.\n - 'を使って撮った写真' describes the photograph taken using that camera.\n - '母が好きだと言ったざっし' describes the magazine that my mother said she liked.\n The overall meaning is that the photograph, which was taken using the camera bought by the person I met at the station, was featured in the magazine that my mother expressed her liking for."
+            }
+        ]
+    }
+}

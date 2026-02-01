@@ -5,20 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
-    <title>{{ title }}</title>
+    <title>{{ title }} - Lingual HSC</title>
     {% else %}
     <title>Lingual HSC</title>
     {% endif %}
 
     {% block meta %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/variables.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
     {% endblock %}
 
 </head>
-
 <body>
+    {% if current_user.is_authenticated %}
+        {% set last_language = current_user.get_last_language() %}
+
+        {% if last_language %}
+            {% set app_code = last_language.app_code %}
+        {% else %}
+            {% set app_code = None %}
+        {% endif %}
+
+    {% else %}
+        {% set last_language = None %}
+    {% endif %}
+
     {% block header %}
     {% endblock header %}
+
     <div id="body">
         {% block body %}
         {% endblock %}
@@ -38,6 +52,7 @@
 
     {% block scripts %}
         <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/module-base.js') }}"></script>
     {% endblock %}
 
 </body>

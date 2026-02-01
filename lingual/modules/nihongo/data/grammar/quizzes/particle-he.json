@@ -1,0 +1,48 @@
+{
+    "direction": {
+        "title": "へ for Direction",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does the particle へ indicate in a sentence?",
+                "options": [
+                    "The subject of the sentence",
+                    "The direction of an action",
+                    "The time of an action",
+                    "The object of a verb"
+                ],
+                "answer": 1,
+                "explanation": "Come on, if you said anything other than 'The direction of an action', you need to read this lesson more carefully!"
+            }
+            
+        ]
+    },
+    "intent": {
+        "title": "へ for Intent",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "True or False: The noun before the particle へ indicates the purpose of movement.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "answer": 1,
+                "explanation": "The particle へ indicates the direction or destination of movement, not the purpose."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses the particle へ for indicating direction?",
+                "allow-shuffle": false,
+                "options": [
+                    "友[とも]達[だち]へ手[て]紙[がみ]を書[か]きます。",
+                    "りょうしんへあそびます。",
+                    "私は家[いえ]へ来[き]ます。",
+                    "学校[がっこう]へ勉強[べんきょう]します。"
+                ],
+                "answer": 0,
+                "explanation": "The first sentence correctly uses へ to indicate that the letter is being written to a friend (direction). The second and fourth sentences incorrectly use へ with verbs that do not indicate movement towards a destination. The third sentence is correct in structure but contextually odd as 'coming to home' is less common than 'going home'."
+            }
+        ]
+    }
+}

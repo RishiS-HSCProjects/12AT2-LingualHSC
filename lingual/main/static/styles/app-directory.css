@@ -1,39 +1,51 @@
+/* || App Directory Page */
+
 #nav-spacer {
     height: var(--nav-height);
     width: 100%;
+    flex-shrink: 0;
 }
 
 #page-container {
     margin: auto;
     width: 90%;
+    padding: 48px 0;
+    margin-top: 4.5rem;
 }
 
 #page-container h1 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    margin-bottom: var(--space-lg);
+    font-family: "Poppins", Inter, Arial, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    color: #1F2937;
+    text-align: center;
 }
+
+/* || App Directory Grid */
 
 .app-directory {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-    gap: var(--space-xl);
-    width: 90%;
+    gap: 56px;
+    width: 100%;
     margin: 0 auto;
-    padding-bottom: var(--space-xl);
+    padding-bottom: 56px;
 }
+
+/* || App Cards */
 
 .app-directory .app-card {
     background-color: hsl(0, 0%, 0%, 0.03);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: var(--space-sm) var(--space-md);
+    padding: 18px 22px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 10rem;
-    max-width: 20rem;
+    max-width: 19rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -42,18 +54,15 @@
     /* Lift effect on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     user-select: none;
-    /* Prevent text selection on hover */
     cursor: pointer;
 }
 
 .app-directory .app-card .app-logo-container {
     border-radius: 50%;
     overflow: hidden;
-    width: 7rem;
-    /* Increased logo size for better visibility */
-    height: 7rem;
-    margin-bottom: var(--space-md);
-    /* Spacing below the logo */
+    width: 6.5rem;
+    height: 6.5rem;
+    margin-bottom: 20px;
 }
 
 .app-directory .app-card .app-logo-container .app-logo {
@@ -63,48 +72,40 @@
 }
 
 .app-directory .app-card h2 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    /* Slightly smaller for better balance */
+    font-family: "Poppins", Inter, Arial, sans-serif;
+    font-size: 1.2rem;
     font-weight: 600;
-    /* Make the title stand out more */
     color: hsl(0, 0%, 20%);
-    /* Darken the text for contrast */
-    margin-bottom: var(--space-sm);
-    /* Add spacing below the heading */
+    margin-bottom: 8px;
+    margin-top: 0;
 }
 
 .app-directory .app-card p {
-    font-family: var(--font-body);
+    font-family: "Inter", Arial, sans-serif;
     font-size: 1rem;
-    /* Default size for better readability */
     font-weight: 400;
     color: hsl(0, 0%, 50%);
-    /* Lighter shade for the description text */
     margin-top: 0;
     line-height: 1.5;
-    /* Adjust line-height for readability */
 }
 
 .app-directory .app-card:hover h2,
 .app-directory .app-card:hover p {
     color: hsl(0, 0%, 15%);
-    /* Slightly darken the text on hover for emphasis */
 }
 
 .app-directory .app-card p.no-app-text {
-    font-size: 1.2rem;
-    /* Slightly larger text to highlight the message */
+    font-size: 1.05rem;
     font-weight: 500;
     color: hsl(0, 0%, 40%);
-    /* A bit darker for contrast */
     text-align: center;
-    margin-top: var(--space-lg);
+    margin-top: 28px;
 }
 
 p.no-languages-text {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: hsl(0, 0%, 40%);
-    margin-top: var(--space-lg);
+    margin-top: 28px;
+    text-align: center;
 }

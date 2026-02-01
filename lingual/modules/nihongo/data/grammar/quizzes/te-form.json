@@ -80,7 +80,8 @@
                     "んで",
                     "って"
                 ],
-                "answer": 0
+                "answer": 0,
+                "explanation": "For Group 2 verbs, simply drop ます and add て."
             },
             {
                 "type": "mc",
@@ -184,7 +185,8 @@
                     "おきて",
                     "おいで"
                 ],
-                "answer": 2
+                "answer": 2,
+                "explanation": "While おきます looks like it should be a group 1 verb, it is actually a group 2 verb. This is one of the many exceptions you will need to remember."
             },
             {
                 "type": "mc",
@@ -195,7 +197,8 @@
                     "しりて",
                     "すて"
                 ],
-                "answer": 1
+                "answer": 1,
+                "explanation": "しる should not be confused with する (to do), which is an irregular verb. しる is a Godan verb meaning 'to know' and conjugates accordingly."
             },
             {
                 "type": "mc",
@@ -206,7 +209,8 @@
                     "しって",
                     "しで"
                 ],
-                "answer": 1
+                "answer": 1,
+                "explanation": "する is an irregular verb and its て-form is して."
             },
             {
                 "type": "mc",

@@ -1,0 +1,59 @@
+{
+    "quiz": {
+        "title": "Using なる",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the correct way to say 'The weather is becoming cold' in Japanese?",
+                "options": [
+                    "天[てん]気[き]はさむくなる",
+                    "天[てん]気[き]はさむいになる",
+                    "天[てん]気[き]はさむくになる",
+                    "天[てん]気[き]はさむいなる"
+                ],
+                "answer": 0,
+                "explanation": "For い-adjectives, replace the final い with く before adding なる."
+            },
+            {
+                "type": "input",
+                "question": "How do you say 'Buses are becoming convenient' in Japanese?",
+                "includes": [
+                    ["バス", "basu"],
+                    ["べんり", "benri"],
+                    ["に", "ni"],
+                    ["なる", "naru", "なります", "narimasu"]
+                ],
+                "sample_answer": "バスはべんりになります",
+                "explanation": "For な-adjectives, add に before なる."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\nThe movie is becoming interesting, right?",
+                "includes": [
+                    ["映画", "えいが", "eiga"],
+                    ["面白く", "おもしろく", "omoshiroku"],
+                    ["なって", "natte"],
+                    ["います", "imasu", "いる", "iru"],
+                    ["ね", "ne"]
+                ],
+                "sample_answer": "映[えい]画[が]は面[おも]白[しろ]くなっていますね",
+                "explanation": "For い-adjectives, replace the final い with く before adding なる."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\nThat shirt is becoming the new uniform.",
+                "includes": [
+                    ["その", "あの", "sono", "ano"],
+                    ["シャツ", "shatsu"],
+                    ["新しい", "あたらしい", "atarashii"],
+                    ["制服", "せいふく", "seifuku"],
+                    ["に", "ni"],
+                    ["なって", "natte"],
+                    ["います", "imasu", "いる", "iru"]
+                ],
+                "sample_answer": "そのシャツは新[あたら]しいせいふくになっています",
+                "explanation": "For nouns, add に before なる."
+            }
+        ]
+    }
+}

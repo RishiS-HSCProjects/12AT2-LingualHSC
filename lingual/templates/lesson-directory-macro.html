@@ -1,0 +1,53 @@
+<!-- Dependencies -->
+<!--
+    - lesson-directory-utils.js
+    - lesson-directory.css
+-->
+
+{% macro lesson_directory(lessons, app_code, route, title) %}
+<div id="lesson-directory-wrapper">
+    {% if title %}
+    <h1>{{ title }}</h1>
+    {% else %}
+    <h1>Directory</h1>
+    {% endif %}
+
+    <div id="lesson-search-box">
+        <input type="text" id="lesson-search-input" placeholder="Search lessons by title or content...">
+    </div>
+
+    <div id="lesson-directory-list">
+        {% for group in lessons %}
+        <div class="lesson-category-separator">
+        <h2 class="lesson-category">{{ group.category|replace('-', ' ')|title }}</h2>
+
+            <div class="lesson-category-grid">
+                {% for lesson in group.lessons %}
+                    <!-- Store lesson slug in data attribute to prevent XSS attacks. -->
+                    <!-- | e 'escapes' the string to make it safe for HTML attribute context -->
+                    <div class="lesson-item" 
+                         data-slug="{{ lesson.slug | e }}" 
+                         data-title="{{ lesson.title | e }}" 
+                         data-summary="{{ lesson.summary | e }}"
+                         data-content="{{ lesson.content | e }}">
+                        <h3 class="lesson-title">{{ lesson.title | safe }}</h3>
+                        <p class="lesson-summary">{{ lesson.summary | safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="lesson-empty" style="display: none;">No lessons found</div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js">
+    // Import Fuse.js for fuzzy searching
+</script>
+
+<script>
+    // Initialize lesson directory search functionality
+    const lessonUrl = "{{ url_for(app_code ~ '.' ~ route, slug='__SLUG__') }}";
+</script>
+
+{% endmacro %}

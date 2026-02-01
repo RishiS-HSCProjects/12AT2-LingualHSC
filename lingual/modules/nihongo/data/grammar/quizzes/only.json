@@ -1,0 +1,167 @@
+{
+    "quiz": {
+        "title": "Using しか and だけ",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which particle means 'Nothing but'?",
+                "options": [
+                    "だけ",
+                    "しか",
+                    "も",
+                    "まで"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses しか?",
+                "options": [
+                    "コーヒーしか飲[の]みます。",
+                    "コーヒーしか飲[の]みません。",
+                    "コーヒーしか飲[の]みたいです。",
+                    "コーヒーしか飲[の]めます。"
+                ],
+                "answer": 1,
+                "explanation": "しか pairs with a negative verb such as 飲[の]みません."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses だけ?",
+                "options": [
+                    "水[みず]だけ飲[の]みません。",
+                    "水[みず]だけ飲[の]みたいです。",
+                    "水[みず]だけ飲[の]まないです。",
+                    "水[みず]だけ飲[の]めないです。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What nuance difference is there between しか and だけ?",
+                "options": [
+                    "しか is neutral, だけ describes the speaker's feeling",
+                    "しか describes the speaker's feeling, だけ is neutral",
+                    "しか is polite, だけ is casual",
+                    "しか is casual, だけ is polite"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I spent only 500 yen.",
+                "includes": [
+                    ["だけ"],
+                    ["五百円", "ごひゃくえん", "gohyakuen", "500"],
+                    ["使いました", "使った", "つかいました", "つかった", "tsukaimashita", "tsukatta"]
+                ],
+                "sample_answer": "五百円だけ使いました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I ate nothing but cake.",
+                "includes": [
+                    ["しか"],
+                    ["ケーキ", "keeki"],
+                    ["食べました", "食べた", "たべました", "たべた", "tabemashita", "tabeta"]
+                ],
+                "sample_answer": "ケーキしか食べませんでした。"
+            },
+            {
+                "type": "mc",
+                "question": "Which placement is correct?",
+                "options": [
+                    "だけ comes before the noun it limits",
+                    "しか comes after the noun or verb stem and before the negative verb",
+                    "しか must follow です",
+                    "だけ must be followed by ない"
+                ],
+                "answer": 1,
+                "explanation": "しか comes after the clause you are saying 'nothing but' about, and before the negative verb.\nだけ comes after the noun it limits and can be followed by any です・ます form."
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank with しか or だけ to translate to \"This shop only sells fans\": この店[みせ]は扇[せん]子[す]____売[う]っていません。",
+                "valid": [
+                    "しか",
+                    "shika"
+                ],
+                "explanation": "The sentence seems to translate to 'This shop sells nothing but fans.', so しか is the correct choice here. Adding だけ here would change the meaning to 'This shop doesn't only sell fans.', which is incorrect in this context."
+            },
+            {
+                "type": "mc",
+                "question": "Choose the correct translation: He can speak only Japanese (and nothing else).",
+                "options": [
+                    "彼[かれ]は日本語だけ話せる",
+                    "彼[かれ]は日本語しか話せない",
+                    "彼[かれ]は日本語しか話せる",
+                    "彼[かれ]は日本語だけ話せない"
+                ],
+                "answer": 1,
+                "explanation": "Recall that しか pairs with a negative verb to express 'nothing but'."
+            }
+        ]
+    },
+    "dakedenaku": {
+        "title": "Using だけでなく",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does だけでなく mean?",
+                "options": [
+                    "Not only... but also...",
+                    "Only...",
+                    "Nothing but...",
+                    "Even..."
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Not only can she sing, but she can also dance.",
+                "includes": [
+                    ["だけでなく"],
+                    ["歌", "うた", "uta"],
+                    ["踊", "おど", "odo", "ダンス", "dansu"]
+                ],
+                "sample_answer": "彼女はうたえるだけでなく、おどることもできます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses だけでなく?",
+                "options": [
+                    "彼はピアノを弾[ひ]くだけでなく、ギターも弾[ひ]きます。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターを弾[ひ]きます。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターも弾[ひ]かないです。",
+                    "彼はピアノを弾[ひ]くだけでなく、ギターを弾[ひ]かないです。"
+                ],
+                "answer": 0,
+                "explanation": "When using だけでなく to connect two actions, the second action uses も to indicate 'also'."
+            },
+            {
+                "type": "mc",
+                "question": "What is the correct placement of だけでなく?",
+                "options": [
+                    "After the verb or adjective it modifies",
+                    "Before the noun it modifies",
+                    "At the start of the sentence",
+                    "At the end of the sentence"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 東[とう]京[きょう]に行くだけでなく、大[おお]阪[さか]にも行ったことがあります。",
+                "includes": [
+                    ["Not only", "not only"],
+                    ["also", "too", "as well"],
+                    ["went", "been", "go", "have"],
+                    ["Osaka"],
+                    ["Tokyo"]
+                ],
+                "sample_answer": "Not only have I been to Tokyo, but I have also been to Osaka.",
+                "explanation": "Recall that ことがある is used to express having the experience of doing something. /t For more information, see the [Verb Normalisation](grammar:verb-normalisation#talking-about-past-experiences) module. \\"
+            }
+        ]
+    }
+}

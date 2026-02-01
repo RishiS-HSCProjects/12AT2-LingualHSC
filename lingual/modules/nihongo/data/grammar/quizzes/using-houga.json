@@ -1,0 +1,104 @@
+{
+    "quiz": {
+        "title": "Using ～方がいい",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which form of the verb is used before ～方[ほう]がいい when giving positive advice?",
+                "options": [
+                    "Dictionary form",
+                    "ます-form",
+                    "た-form",
+                    "て-form"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best expresses 'You had better sleep early.'?",
+                "options": [
+                    "早[はや]くねる方[ほう]がいいです",
+                    "早[はや]くねた方[ほう]がいいです",
+                    "早[はや]くねって方[ほう]がいいです",
+                    "早[はや]くねった方[ほう]がいいです"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "How do you say 'You had better not smoke.'?",
+                "options": [
+                    "タバコを吸[す]った方[ほう]がいいです",
+                    "タバコを吸[す]わない方[ほう]がいいです",
+                    "タバコを吸[す]わなかった方[ほう]がいいです",
+                    "タバコを吸[す]います方[ほう]がいいです"
+                ],
+                "answer": 1,
+                "explanation": "For negative advice, use the ない-form of the verb before 方[ほう]がいい. /w Don't make the mistake of using the past tense た-form here! \\"
+            },
+            {
+                "type": "mc",
+                "question": "When using the negative form with ～方[ほう]がいい, which verb form comes before it?",
+                "options": [
+                    "ない-form",
+                    "Dictionary form",
+                    "て-form",
+                    "Negative た-form"
+                ],
+                "answer": 0,
+                "explanation": "For negative advice, pair the ない-form with 方[ほう]がいい."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: It's better to drink water.",
+                "includes": [
+                    ["水", "みず", "mizu"],
+                    ["飲む", "のむ", "nomu"],
+                    ["方[ほう]がいい", "hougaii"]
+                ],
+                "sample_answer": "水[みず]を飲[の]む方[ほう]がいいです。"
+            },
+            {
+                "type": "mc",
+                "question": "Which option correctly uses ～方[ほう]がいい in the past tense to soften advice?",
+                "options": [
+                    "もっと運[うん]動[どう]します方[ほう]がいいですね",
+                    "もっと運[うん]動[どう]する方[ほう]がいいですね",
+                    "もっと運[うん]動[どう]した方[ほう]がいいですね",
+                    "もっと運[うん]動[どう]して方[ほう]がいいですね"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best matches 'You'd better see a doctor.'?",
+                "options": [
+                    "医[い]者[しゃ]を見た方[ほう]がいいです",
+                    "医[い]者[しゃ]に行った方[ほう]がいいです",
+                    "医[い]者[しゃ]を行った方[ほう]がいいです",
+                    "医[い]者[しゃ]を行く方[ほう]がいいです"
+                ],
+                "answer": 1,
+                "explanation": "While 医者を見[み]る can mean 'to see a doctor', the more natural expression in Japanese is 医者に行[い]く, meaning 'to go to the doctor'."
+            },
+            {
+                "type": "input",
+                "question": "Write a sentence saying someone had better start studying.",
+                "includes": [
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["始める", "はじめる", "hajimeru"],
+                    ["方がいい", "houga ii"]
+                ],
+                "sample_answer": "勉[べん]強[きょう]を始[はじ]めた方[ほう]がいいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 野[や]菜[さい]をもっと食[た]べた方[ほう]がいいですよ。",
+                "includes": [
+                    ["better"], ["eat", "ate"], ["veg"]
+                ],
+                "sample_answer": "You'd better eat more vegetables."
+            }
+        ]
+    }
+}

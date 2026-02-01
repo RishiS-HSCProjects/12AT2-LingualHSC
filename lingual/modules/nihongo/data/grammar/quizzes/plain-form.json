@@ -1,0 +1,221 @@
+{
+    "present-positive": {
+        "title": "Present Positive Plain Form",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the plain form of the verb '会[あ]います' (to meet)?",
+                "options": [
+                    "会る",
+                    "会う",
+                    "会いる",
+                    "会うます"
+                ],
+                "answer": 1,
+                "explanation": "The sound before the ます (い) changes to it's corresponding u-row sound (う) to form the plain form."
+            },
+            {
+                "type": "mc",
+                "question": "What is the plain form of the verb '帰[かえ]ります' (to return)?",
+                "options": [
+                    "帰る",
+                    "帰う",
+                    "帰りる",
+                    "帰いる"
+                ],
+                "answer": 0,
+                "explanation": "The sound before the ます (り) changes to it's corresponding u-row sound (る) to form the plain form. Don't let the fact り changes to る confuse you!"
+            },
+            {
+                "type": "input",
+                "question": "What is the plain form of the verb '泳[およ]ぎます' (to swim)?",
+                "valid": [
+                    "泳ぐ",
+                    "およぐ",
+                    "oyogu"
+                ],
+                "explanation": "The sound before the ます (ぎ) changes to it's corresponding u-row sound (ぐ) to form the plain form."
+            },
+            {
+                "type": "input",
+                "question": "What is the plain form of the verb 'できます' (to be able to do)?",
+                "valid": [
+                    "できる",
+                    "dekiru"
+                ],
+                "explanation": "できます is a Group 2 verb, so to form the plain form, simply replace ます with る."
+            },
+            {
+                "type": "input",
+                "question": "What is the plain form of the verb '勉[べん]強[きょう]します' (to study)?",
+                "valid": [
+                    "勉強する",
+                    "べんきょうする",
+                    "benkyousuru"
+                ],
+                "explanation": "勉[べん]強[きょう]します is a combination of a noun (勉[べん]強[きょう]) and the verb for doing (します). Thus, to form the plain form, you only need to replace します with する."
+            },
+            {
+                "type": "input",
+                "question": "What is the plain form of the verb '来[き]ます' (to come)?",
+                "valid": [
+                    "来る",
+                    "くる",
+                    "kuru"
+                ],
+                "explanation": "来[き]ます is a Group 3 verb, so to form the plain form, replace 来ます with 来る. Remember this!"
+            }
+        ]
+    },
+    "present-negative": {
+        "title": "Present Negative Plain Form",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the present negative plain form of the verb '書[か]きます' (to write)?",
+                "options": [
+                    "書かない",
+                    "書きない",
+                    "書うない",
+                    "書ない"
+                ],
+                "answer": 0,
+                "explanation": "For Group 1 verbs, change the final ます sound to its corresponding a-row sound and add ない."
+            },
+            {
+                "type": "mc",
+                "question": "What is the present negative plain form of the verb '食べます' (to eat)?",
+                "options": [
+                    "食べない",
+                    "食ない",
+                    "食うない",
+                    "食きない"
+                ],
+                "answer": 0,
+                "explanation": "For Group 2 verbs, simply drop ます and add ない."
+            },
+            {
+                "type": "input",
+                "question": "What is the present negative plain form of the verb 'します' (to do)?",
+                "valid": [
+                    "しない",
+                    "shinai"
+                ],
+                "explanation": "します is a Group 3 verb. To form the present negative plain form, replace します with しない."
+            },
+            {
+                "type": "input",
+                "question": "What is the present negative plain form of the verb '来ます' (to come)? **Do not use kanji in your answer.**",
+                "valid": [
+                    "こない",
+                    "konai"
+                ],
+                "explanation": "Remember that 来ない is pronounced as ***こ**ない*!"
+            }
+        ]
+    },
+    "past-positive": {
+        "title": "Past Positive Plain Form",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the past positive plain form of the verb '知[し]ります' (to know)?",
+                "options": [
+                    "知[し]った",
+                    "知[し]りた",
+                    "知[し]んだ",
+                    "知[し]いた"
+                ],
+                "answer": 0,
+                "explanation": "For Group 1 verbs, convert the verb to its た-form. Note that the た-form is just the て-form with て replaced by た and で replaced by だ."
+            },
+            {
+                "type": "input",
+                "question": "What is the past positive plain form of the verb '分かります' (to understand)?",
+                "valid": [
+                    "分かった",
+                    "わかった",
+                    "wakatta"
+                ]
+            },
+            {
+                "type": "input",
+                "question": "What is the past positive plain form of the verb '借[か]ります' (to borrow)?",
+                "valid": [
+                    "借りた",
+                    "かりた",
+                    "karita"
+                ],
+                "explanation": "借ります is a Group 2 verb; simply remove ます and add た."
+            },
+            {
+                "type": "input",
+                "question": "What is the past positive plain form of the verb '勉[べん]強[きょう]します' (to study)?",
+                "valid": [
+                    "勉強した",
+                    "べんきょうした",
+                    "benkyoushita"
+                ],
+                "explanation": "勉強します is a Group 3 verb. To form the past positive plain form, replace します with した."
+            },
+            {
+                "type": "input",
+                "question": "What is the past positive plain form of the verb '来[き]ます' (to come)? **Do not use kanji in your answer.**",
+                "valid": [
+                    "きた",
+                    "kita"
+                ]
+            },
+            {
+                "type": "input",
+                "question": "What is the past positive plain form of the verb 'ワクワクします' (to be excited)?",
+                "valid": [
+                    "ワクワクした",
+                    "わくわくした",
+                    "wakuwakushita"
+                ]
+            }
+        ]
+    },
+    "past-negative": {
+        "title": "Past Negative Plain Form",
+        "bank": [
+            {
+                "type": "input",
+                "question": "What is the past negative plain form of the verb '泳[およ]ぎます' (to swim)?",
+                "valid": [
+                    "泳がなかった",
+                    "およがなかった",
+                    "oyoganakatta"
+                ]
+            },
+            {
+                "type": "input",
+                "question": "What is the past negative plain form of the verb to borrow?",
+                "valid": [
+                    "借りなかった",
+                    "かりなかった",
+                    "karinakatta"
+                ]
+            },
+            {
+                "type": "input",
+                "question": "What is the past negative plain form of the verb 'できる' (to be able to do)?",
+                "valid": [
+                    "できなかった",
+                    "dekinakatta"
+                ],
+                "explanation": "できます is a Group 2 verb, so to form the past negative plain form, simply drop ます and add なかった."
+            },
+            {
+                "type": "input",
+                "question": "What is the verb for 'did not study' in plain form?",
+                "valid": [
+                    "勉強しなかった",
+                    "べんきょうしなかった",
+                    "benkyoushinakatta"
+                ]
+            }
+        ]
+    }
+}

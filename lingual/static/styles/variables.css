@@ -1,0 +1,136 @@
+/**
+ * Base CSS Variables
+ * 
+ * This file contains default values for all CSS variables used across the application.
+ */
+
+/* || Root Variables */
+
+:root {
+   /* Base font size for rem calculations (1rem = 16px) */
+   font-size: 16px;
+
+   /* || Typography */
+
+   /* Font Families */
+   --font-family-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+   --font-family-title: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+   /* Font Sizes - all in rem for scalability */
+   --font-size-title-lg: 3rem;
+   --font-size-nav: 1.625rem;
+   --font-size-header-1: 2.25rem;
+   --font-size-header-2: 1.875rem;
+   --font-size-header-3: 1.5625rem;
+   --font-size-header-4: 1.375rem;
+   --font-size-body: 1rem;
+   --font-size-small: 0.875rem;
+   --font-size-nav-link: 1.1875rem;
+
+   /* Line Heights - all in rem for consistency */
+   --line-height-title-lg: 2.5rem;
+   --line-height-nav: 1.75rem;
+   --line-height-header-lg: 2.25rem;
+   --line-height-header-md: 2rem;
+   --line-height-body: 1.5rem;
+   --line-height-small: 1.25rem;
+
+   /* || Colors & Backgrounds */
+
+   /* Main Background Colors */
+   --bg-main: #F8F9FB;
+   --bg-card: #FFFFFF;
+
+    /* Surface & Border Colors */
+    --bg-surface: #FFFFFF;
+    --bg-surface-muted: #F0F4F8;
+    --bg-surface-strong: #E9EEF5;
+    --border-subtle: #DDE4EB;
+    --border-strong: #C0CAD6;
+
+   /* Option Colors (for interactive elements) */
+   --bg-option-1: #48A868;
+   --bg-option-2: #5A9FD4;
+
+    /* Accent Palette */
+    --color-accent: #5B7CFF;
+    --color-accent-strong: #3D5CE8;
+    --color-accent-soft: #E8ECFF;
+    --color-accent-amber: #FFB84D;
+
+   /* Text Colors */
+   --color-primary: #1F2937;
+   --color-secondary: #6B7280;
+   --color-link: #5B7CFF;
+   --color-link-hover: #3D5CE8;
+    --color-muted: #9CA3AF;
+    --color-contrast: #111827;
+
+   /* Quiz & Lesson Colors */
+   --color-quiz-correct: #34d058;
+   --color-quiz-incorrect: #d73a49;
+   --bg-quiz-correct: #d4f8e8;
+   --bg-quiz-incorrect: #ffeef0;
+   --color-thead: #374151;
+
+   /* Note Colors */
+   --bg-note-info: #e1f5fe;
+   --border-note-info: #03a9f4;
+   --bg-note-tip: #e8f5e9;
+   --border-note-tip: #4caf50;
+   --bg-note-warning: #fff3e0;
+   --border-note-warning: #ff9800;
+
+   /* Block Colors */
+   --bg-block-quote: #f6f8fa;
+   --border-block-quote: #d0d7de;
+   --bg-block-warning: #fff5b1;
+   --border-block-warning: #e9d570;
+
+   /* Gradients */
+   --gradient-soft-sunrise: linear-gradient(135deg, #f8f9fb 0%, #f0f4f8 45%, #f8f9fb 100%);
+   --gradient-highlight: linear-gradient(120deg, #e8ecff 0%, #f0f4f8 100%);
+
+   /* || Layout & Spacing */
+
+   /* Main Layout */
+   --nav-height: 4rem;
+   --gap-main: 4.5rem;
+   --gap-medium: 3rem;
+   --gap-small: 2rem;
+   --gap-xsmall: 1rem;
+   --padding-card: 0.625rem;
+   --padding-section: 1.5rem;
+
+   /* Scroll Dimensions */
+   --scroll-width: 37rem;
+   --scroll-height: 21rem;
+
+   /* Border Radius */
+   --radius-small: 0.25rem;
+   --radius-medium: 0.625rem;
+   --radius-large: 0.875rem;
+   --radius-round: 0.875rem;
+   --radius-pill: 999px;
+
+   /* Shadows */
+   --shadow-flash: 0 4px 12px rgba(31, 41, 55, 0.1);
+   --shadow-nav: 0 2px 12px rgba(31, 41, 55, 0.08);
+   --shadow-card: 0 2px 8px rgba(31, 41, 55, 0.06);
+   --shadow-warning: 0 3px 8px rgba(255, 152, 0, 0.12);
+   --shadow-soft: 0 8px 24px rgba(31, 41, 55, 0.1);
+   --shadow-strong: 0 12px 32px rgba(31, 41, 55, 0.15);
+
+   /* Motion */
+   --transition-base: 0.2s ease;
+
+   /* || Z-Index Layers */
+
+   --z-index-background: -1; /* Decorations & Backgrounds */
+   --z-index-overlay: 100;
+   --z-index-top: 999;
+   --z-index-nav: 1000;
+   --z-index-modal: 1100;
+   --z-index-flash: 1200;
+   --z-index-god: 10000;
+}

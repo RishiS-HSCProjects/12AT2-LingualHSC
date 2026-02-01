@@ -1,0 +1,273 @@
+{
+    "likes-dislikes": {
+        "title": "Expressing Likes and Dislikes",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I like to read books.'",
+                "includes": [
+                    ["本", "ほん", "hon"],
+                    ["読む", "よむ", "yomu"],
+                    ["のが", "ことが", "noga", "kotoga"],
+                    ["好き", "すき", "suki"]
+                ],
+                "sample_answer": "本を読[読]むのが好きです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I dislike eating vegetables.'",
+                "includes": [
+                    ["野菜", "やさい", "yasai"],
+                    ["食べる", "たべる", "taberu"],
+                    ["の", "こと", "no", "koto"],
+                    ["は", "が", "ha", "ga"],
+                    ["嫌い", "きらい", "kirai"]
+                ],
+                "sample_answer": "野[や]菜[さい]を食べるのが嫌[きら]いです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: おどるのが好きじゃないです。",
+                "includes": [
+                    ["like", "dislike", "don't like", "dont like"],
+                    ["dancing", "dance"]
+                ],
+                "sample_answer": "I don't like dancing."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 旅[りょ]行[こう]するのが大好きですか。",
+                "includes": [
+                    ["you"],
+                    ["love"],
+                    ["traveling", "travel"],
+                    ["?"]
+                ],
+                "sample_answer": "Do you love traveling?"
+            }
+        ]
+    },
+    "strengths-weaknesses": {
+        "title": "Expressing Strengths and Weaknesses",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I am good at playing tennis.'",
+                "includes": [
+                    ["テニス", "tenisu"],
+                    ["を", "wo"],
+                    ["する", "します", "suru", "shimasu"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["とくい", "tokui"]
+                ],
+                "sample_answer": "テニスをするのがとくいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I am not good at singing.'",
+                "includes": [
+                    ["歌う", "うたう", "utau"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["にがて", "nigate"]
+                ],
+                "sample_answer": "歌[うた]うことがにがてです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: ピアノを弾[ひ]くのが上手です。",
+                "includes": [
+                    ["He", "She", "They", "You"],
+                    ["good"],
+                    ["piano"]
+                ],
+                "sample_answer": "He is good at playing piano.",
+                "explanation": "The term '上[じょう]手[ず]' is used to express that someone else is good at something. Do not use 上[じょう]手[ず] when referring to yourself."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: サッカーをするのが下手です。",
+                "includes": [
+                    ["bad at", "not good at"],
+                    ["play"],
+                    ["soccer"]
+                ],
+                "sample_answer": "I am bad at playing soccer."
+            },
+            {
+                "type": "input",
+                "question": "What is the Hiragana for 'good at' when referring to yourself?",
+                "valid": ["とくい", "tokui"],
+                "explanation": "The term 'とくい' is used to express that **you** are good at something. Do not use 上[じょう]手[ず] when referring to yourself."
+            },
+            {
+                "type": "input",
+                "question": "What is the Hiragana for 'good at' when referring to others?",
+                "valid": ["じょうず", "jouzu"],
+                "explanation": "The term 'じょうず' is used to express that **others** are good at something. Do not use とくい when referring to others."
+            },
+            {
+                "type": "input",
+                "question": "What is the Hiragana for 'not good at' when referring to yourself?",
+                "valid": ["にがて", "nigate"],
+                "explanation": "The term 'にがて' is used to express that **you** are not good at something. Do not use 下[へ]手[た] when referring to yourself."
+            },
+            {
+                "type": "input",
+                "question": "What is the Hiragana for 'not good at' when referring to others?",
+                "valid": ["へた", "heta"],
+                "explanation": "The term 'へた' is used to express that **others** are not good at something. Do not use にがて when referring to others."
+            }
+        ]
+    },
+    "past-experiences": {
+        "title": "Talking about Past Experiences",
+        "bank": [
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I have been to Kyoto.'",
+                "includes": [
+                    ["京都", "きょうと", "Kyoto"],
+                    ["に", "へ", "ni", "e"],
+                    ["行く", "いく", "iku"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["あります", "ある", "arimasu", "aru"]
+                ],
+                "sample_answer": "京[きょう]都[と]に行くのがあります。"
+            },
+            {
+                "type": "input",
+                "question": "Answer in Japanese:\n\n午[ご]後[ご]までねたことがありますか。",
+                "includes": [
+                    ["はい", "いいえ", "hai", "iie"],
+                    ["寝る", "ねる", "neru"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["あります", "ある", "ありません", "あらない", "arimasu", "aru", "arimasen", "aranai"]
+                ],
+                "sample_answer": "はい、午[ご]後[ご]まで寝[ね]たことがあります。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 富[ふ]士[じ]山[さん]に登[のぼ]ったことがあります。",
+                "includes": [
+                    ["have"],
+                    ["climb"],
+                    ["Fuji"]
+                ],
+                "sample_answer": "I have climbed Mount Fuji."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 私は寿司を食べたことがありません。",
+                "includes": [
+                    ["I"],
+                    ["never", "have"],
+                    ["eat", "ate"],
+                    ["sushi"]
+                ],
+                "sample_answer": "I have never eaten sushi."
+            }
+        ]
+    },
+    "quiz": {
+        "title": "Using Verb Normalisation",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "If you were talking to your friend, which particle would you usually use to nominalise verbs?",
+                "options": [
+                    "の",
+                    "こと",
+                    "を",
+                    "が"
+                ],
+                "answer": 0,
+                "explanation": "The particle の is often used to nominalise verbs when the action is more immediate, personal, or when referring to specific instances of an action. It is commonly used in casual speech."
+            },
+            {
+                "type": "mc",
+                "question": "If you were writing a formal essay, which particle would be more appropriate to nominalise verbs?",
+                "options": [
+                    "の",
+                    "こと",
+                    "を",
+                    "に"
+                ],
+                "answer": 1,
+                "explanation": "The particle こと is used for more general or abstract actions, often in formal contexts. It can refer to habitual actions or general concepts."
+            },
+            {
+                "type": "mc",
+                "question": "If you were talking to your friend about your liking of reading books, which of the following sentences would be more natural?",
+                "options": [
+                    "本を読[よ]むのが好きです。",
+                    "本を読[よ]むことが好きです。",
+                    "本を読[よ]むのは好きです。",
+                    "本を読[よ]むことは好きです。"
+                ],
+                "answer": 0,
+                "explanation": "When talking about specific instances of an action, especially in casual conversation, using の is more natural. Additionally, が is the appropriate particle to indicate the subject of liking."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I dislike swimming.'",
+                "includes": [
+                    ["泳ぐ", "およぐ", "oyogu"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["嫌い", "きらい", "kirai"]
+                ],
+                "sample_answer": "泳[およ]ぐのが嫌[きら]いです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: ピアノを弾[ひ]くことが上[じょう]手[ず]です。",
+                "includes": [
+                    ["He", "She", "They", "You"],
+                    ["good at"],
+                    ["piano"]
+                ],
+                "sample_answer": "He/She is good at playing piano.",
+                "explanation": "The term '上[じょう]手[ず]' is used to express that someone else is good at something. Do not use 上[じょう]手[ず] when referring to yourself."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English (context: You are talking to your teacher): サッカーをするのが下[へ]手[た]です。",
+                "includes": [
+                    ["I"],
+                    ["bad at", "not good at"],
+                    ["play"],
+                    ["soccer"]
+                ],
+                "sample_answer": "I am bad at playing soccer.",
+                "explanation": "The term '下[へ]手[た]' is used to express that you are not good at something. While you can use 下[へ]手[た] when referring to others, it is much more direct and can come off as rude in many situations. As a result, it is best to only use 下[へ]手[た] when referring to yourself (or close friends)."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'I have never been to Osaka.'",
+                "includes": [
+                    ["大阪", "おおさか", "Osaka"],
+                    ["に", "へ", "ni", "e"],
+                    ["行く", "いく", "iku"],
+                    ["の", "こと", "no", "koto"],
+                    ["が", "は", "ga", "ha"],
+                    ["ありません", "ある", "arimasen", "aru"]
+                ],
+                "sample_answer": "大[おお]阪[さか]に行くことがありません。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 京都に行ったことがあります。",
+                "includes": [
+                    ["have"],
+                    ["been", "go"],
+                    ["Kyoto"]
+                ],
+                "sample_answer": "I have been to Kyoto."
+            }
+        ]
+    }
+}

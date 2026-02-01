@@ -1,0 +1,39 @@
+{
+    "quiz": {
+        "title": "Using ～こまる",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ～こまる to express being troubled by something?",
+                "options": [
+                    "雨[あめ]が降[ふ]り困[こま]る。",
+                    "明日[あした]休みは終[お]わって困[こま]る。",
+                    "暑[あつ]て困[こま]る。",
+                    "学校て困[こま]る。"
+                ],
+                "answer": 1,
+                "explanation": "The correct sentence is '明日休みは終わって困る。' which means 'I am troubled that the holiday ends tomorrow.' The other options contain grammatical errors."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nI am troubled because I have a lot of homework.",
+                "includes": [
+                    ["宿題", "しゅくだい", "shukudai"],
+                    ["多くて", "おおくて", "ookute", "たくさん", "takusan", "あって", "atte"],
+                    ["困", "こま", "koma"]
+                ],
+                "sample_answer": "宿題[しゅくだい]が多[おお]くて困[こま]ります。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\n彼[かの]女[じょ]は毎日いそがしくて困[こま]っています。",
+                "includes": [
+                    ["busy"],
+                    ["day", "daily"],
+                    ["difficult", "trouble"]
+                ],
+                "sample_answer": "She is troubled because she is busy every day."
+            }
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "quiz": {
+        "title": "Expressing Difficulty with ～にくい",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ～にくい to express difficulty?",
+                "options": [
+                    "この本は読み[よみ]にくいです。",
+                    "この本は読み[よみ]くにいです。",
+                    "この本は読み[よみ]にいいです。",
+                    "この本は読み[よみ]にくです。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nThis restaurant is difficult to find.",
+                "includes": [
+                    ["レストラン", "resutoran"],
+                    ["見つけにくい", "みつけにくい", "mitsukenikui"]
+                ],
+                "sample_answer": "このレストランは見[み]つけにくいです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into English:\n\nこの漢字は書きにくいです。",
+                "includes": [
+                    ["kanji"],
+                    ["difficult"],
+                    ["write"]
+                ],
+                "sample_answer": "This kanji is difficult to write."
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nThe new software is hard to use.",
+                "includes": [
+                    ["新しい", "あたらしい", "atarashii"],
+                    ["ソフトウェア", "sofutouea"],
+                    ["使いにくい", "つかいにくい", "tsukainikui"],
+                    ["です", "desu"]
+                ],
+                "sample_answer": "新[あたら]しいソフトウェアは使[つか]いにくいです。"
+            }
+        ]
+    }
+}

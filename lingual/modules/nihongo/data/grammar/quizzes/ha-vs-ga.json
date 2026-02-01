@@ -1,0 +1,112 @@
+{
+    "quiz": {
+        "title": "Particle は vs が",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence sounds like the speaker is surprised by the moon?",
+                "options": [
+                    "月[つき]はきれいだ。",
+                    "月[つき]がきれいだ。",
+                    "月[つき]をきれいだ。",
+                    "月[つき]にきれいだ。"
+                ],
+                "answer": 1,
+                "explanation": "が adds emphasis and a sense of discovery or surprise."
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank: これ___私のかばんです。(Emphasising that THIS is the bag)",
+                "valid": ["が", "ga"],
+                "explanation": "が emphasizes that this specific object is the bag."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese (context: specifically pointing out a person to be a teacher): 'That person is the teacher.'",
+                "includes": [
+                    ["あの", "ano"],
+                    ["人", "ひと", "hito"],
+                    ["先生", "せんせい", "sensei"],
+                    ["が", "ga"]
+                ],
+                "sample_answer": "あの人が先生です。",
+                "explanation": "が is used to single out one person from others."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'As for the teacher, they are kind.'",
+                "includes": [
+                    ["先生", "せんせい", "sensei"],
+                    ["は", "wa"],
+                    ["優しい", "やさしい", "yasashii"]
+                ],
+                "sample_answer": "先生はやさしいです。",
+                "explanation": "は sets the teacher as the topic being discussed."
+            },
+            {
+                "type": "mc",
+                "question": "Which particle would you expect in an answer to the question 「だれが来[き]ましたか」?",
+                "options": ["は", "が", "を", "に"],
+                "answer": 1,
+                "explanation": "Questions using が typically expect answers that also use が."
+            },
+            {
+                "type": "mc",
+                "question": "In 明日[あした]は雨[あめ]が降[ふ]るそうです, why is が used with 雨[あめ]?",
+                "options": [
+                    "Rain is new, specific information",
+                    "Rain is the topic",
+                    "Weather words always use が",
+                    "は cannot be used with verbs"
+                ],
+                "answer": 0,
+                "explanation": "Rain is new information, while the topic remains 'tomorrow'."
+            },
+            {
+                "type": "input",
+                "question": "What nuance is created by using が instead of は in 月[つき]がきれいだ?",
+                "includes": [["emphasis", "surprise", "new", "highlighting"]],
+                "explanation": "が highlights the subject as noteworthy or unexpected."
+            },
+            {
+                "type": "input",
+                "question": "What nuance is created by using は instead of が in 月[つき]はきれいだ?",
+                "includes": [["general", "topic", "familiar", "known"]],
+                "explanation": "は presents the moon as a familiar topic and makes a general comment."
+            },
+            {
+                "type": "mc",
+                "question": "Which particle is commonly used to contrast two topics (Aは…, Bは…)?",
+                "options": ["が", "は", "を", "で"],
+                "answer": 1,
+                "explanation": "は is frequently used to contrast topics, since it changes the 'topic' of the sentence."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: 'There is a dog.'",
+                "includes": [
+                    ["犬", "いぬ", "inu"],
+                    ["が", "ga"],
+                    ["いる", "います", "iru", "imasu"]
+                ],
+                "sample_answer": "犬[いぬ]がいます。",
+                "explanation": "が introduces the dog as new information. You wouldn't introduce a dog that has already been introduced!"
+            },
+            {
+                "type": "input",
+                "question": "Why is が and not は normally used with ある and いる?",
+                "includes": [["new", "introduce", "existence"]],
+                "sample_answer": "ある and いる are used to introduce the existence of something new, so が is used rather than は."
+            },
+            {
+                "type": "input",
+                "question": "Is this sentence natural in most contexts? If not, why? 「父はお茶[ちゃ]を飲みますが、母がコーヒーを飲みます」",
+                "includes": [
+                    ["contrast", "topic", "natural", "emphasis", "は", "が", "wa", "ga"]
+                ],
+                "sample_answer": "It is grammatically correct, but slightly unnatural. In a contrastive structure, 母は is more natural than 母が because both 父 and 母 are established as topics being compared.",
+                "explanation": "The sentence is grammatically valid, but when contrasting two known subjects, Japanese usually marks both with は to maintain parallel topics. Using が on 母 adds unnecessary emphasis, as if newly introducing her."
+            }
+        ]
+    }
+}

@@ -2,7 +2,6 @@
 
 title: "The て Form"
 slug: "te-form"
-tags: ["grammar", "verbs", "conjugation"]
 summary: "Learn how to conjugate Japanese verbs into the て form, a crucial aspect of Japanese grammar used in various contexts such as making requests, connecting actions, and forming progressive tenses."
 
 ---
@@ -61,5 +60,22 @@ There are two main irregular verbs in Japanese that have unique conjugation rule
 - する (to do) → して (shite)
 - 来[く]る (to come) → 来て (kite)
 
+# て-Form of Adjectives
+Adjectives in Japanese can also be conjugated into the て form, which is used to connect adjectives or describe ongoing states.
+
+To conjugate **い-adjectives** into the て form, you replace the final い with くて.
+
+- 楽[たの]しい → 楽しくて 
+- 高[たか]い → 高くて
+- 早[はや]い → 早くて
+
+To conjugate **な-adjectives** into the て form, you add で to the adjective stem.
+- 静[しず]か → 静かで
+- 便利[べんり] → 便利で
+- 元気[げんき] → 元気で
+
+---
+
 # Lesson Quiz
+/i The below quiz will test your knowledge of the て form for <strong>verbs only</strong>. \
 ~quizzes:te-form:quiz?shuffle&limit=5~

@@ -1,0 +1,883 @@
+{
+    "toki": {
+        "title": "Using 時[とき]に",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which form must come before 時[とき]に when using a verb?",
+                "options": [
+                    "Verb (plain form)",
+                    "Verb (て-form)",
+                    "Verb (stem form)",
+                    "Verb (た-form only)"
+                ],
+                "answer": 0,
+                "explanation": "時[とき] requires the plain form to describe the time an action occurs."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 時[とき]に with a noun?",
+                "options": [
+                    "学[がく]生[せい]時[とき]に勉[べん]強[きょう]します",
+                    "学[がく]生[せい]の時[とき]に勉[べん]強[きょう]します",
+                    "学[がく]生[せい]に時[とき]勉[べん]強[きょう]します",
+                    "学[がく]生[せい]時[とき]のに勉[べん]強[きょう]します"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: When I am busy, I listen to music.",
+                "includes": [
+                    ["忙", "いそが", "isoga"],
+                    ["時に"],
+                    ["音", "おん", "on"],
+                    ["楽", "がく", "gaku"],
+                    ["聞", "き", "ki"]
+                ],
+                "sample_answer": "忙[いそが]しい時[とき]に音[おん]楽[がく]を聞[き]きます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which tense before 時[とき] refers to a completed action?",
+                "options": [
+                    "Plain non-past",
+                    "Plain past (た-form)",
+                    "て-form",
+                    "Stem form"
+                ],
+                "answer": 1,
+                "explanation": "た時[とき] refers to the time after an action has been completed."
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 子[こ]供[ども]の____、日[に]本[ほん]に住[す]んでいました。",
+                "valid": [
+                    "時",
+                    "とき",
+                    "toki"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which meaning does 時[とき]に NOT express?",
+                "options": [
+                    "Exact timing",
+                    "General condition",
+                    "Simultaneous secondary action",
+                    "Situational context"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "行[い]く時[とき]に連[れん]絡[らく]します",
+                    "行[い]った時[とき]に連[れん]絡[らく]します",
+                    "行[い]き時[とき]に連[れん]絡[らく]します",
+                    "忙[いそが]しい時[とき]に手[て]伝[つだ]います"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 雨[あめ]の時[とき]に家[いえ]にいます。",
+                "includes": [
+                    ["when"],
+                    ["rain"],
+                    ["home"]
+                ],
+                "sample_answer": "I stay at home when it rains."
+            },
+            {
+                "type": "mc",
+                "question": "Why is の required before 時[とき] with nouns?",
+                "options": [
+                    "To mark possession",
+                    "To nominalise the noun",
+                    "To connect two nouns grammatically",
+                    "To indicate direction"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which structure best matches 'when studying for exams'?",
+                "options": [
+                    "試[し]験[けん]を勉[べん]強[きょう]する時[とき]に",
+                    "試[し]験[けん]勉[べん]強[きょう]時[とき]に",
+                    "試[し]験[けん]の勉[べん]強[きょう]時[とき]",
+                    "試[し]験[けん]を勉[べん]強[きょう]して時[とき]"
+                ],
+                "answer": 0
+            }
+        ]
+    },
+    "mae": {
+        "title": "Using 前[まえ]に",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which verb form must precede 前[まえ]に?",
+                "options": [
+                    "Plain form",
+                    "た-form",
+                    "て-form",
+                    "Stem form"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Before sleeping, I read.",
+                "includes": [
+                    ["寝る", "ねる", "neru"],
+                    ["前に", "まえに", "maeni"],
+                    ["読", "よ", "yo"]
+                ],
+                "sample_answer": "寝[ね]る前[まえ]に読[よ]みます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "食[た]べる前[まえ]に手[て]を洗[あら]います",
+                    "食[た]べた前[まえ]に手[て]を洗[あら]います",
+                    "出[しゅっ]発[ぱつ]の前[まえ]に確[かく]認[にん]します",
+                    "勉[べん]強[きょう]する前[まえ]に休[やす]みます"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What does 前[まえ]に emphasise?",
+                "options": [
+                    "Temporal sequence",
+                    "Simultaneous action",
+                    "Resulting state",
+                    "Habitual action"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 学[がっ]校[こう]に行[い]く____に朝[あさ]ご飯[はん]を食[た]べます。",
+                "valid": [
+                    "前",
+                    "まえ",
+                    "mae"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which particle is required with nouns before 前[まえ]に?",
+                "options": [
+                    "が",
+                    "を",
+                    "の",
+                    "に"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which structure matches 'before making a decision'?",
+                "options": [
+                    "決[けっ]定[てい]する前[まえ]に",
+                    "決[けっ]定[てい]した前[まえ]に",
+                    "決[けっ]定[てい]して前[まえ]に",
+                    "決[けっ]定[てい]の前[まえ]"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 会[かい]議[ぎ]の前[まえ]に準[じゅん]備[び]します。",
+                "includes": [
+                    ["before"],
+                    ["meeting"],
+                    ["prepare"]
+                ],
+                "sample_answer": "I prepare before the meeting."
+            },
+            {
+                "type": "mc",
+                "question": "Why is た-form incorrect before 前[まえ]に?",
+                "options": [
+                    "It implies completion",
+                    "It changes the subject",
+                    "It requires の",
+                    "It marks obligation"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which grammar idea does 前[まえ]に rely on?",
+                "options": [
+                    "Time sequencing",
+                    "Conditionals",
+                    "Comparison",
+                    "Permission"
+                ],
+                "answer": 0
+            }
+        ]
+    },
+    "aida": {
+        "title": "Using 間[あいだ]",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which verb form is required before 間[あいだ]?",
+                "options": [
+                    "Plain form",
+                    "ている form",
+                    "Stem form",
+                    "た-form"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which reading of 間 is correct here?",
+                "options": [
+                    "かん",
+                    "あいだ",
+                    "ま",
+                    "けん"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 日[に]本[ほん]にいる____に日[に]本[ほん]語[ご]を勉[べん]強[きょう]しました。",
+                "valid": [
+                    "間",
+                    "あいだ",
+                    "aida"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 間[あいだ]?",
+                "options": [
+                    "音[おん]楽[がく]を聞[き]く間[あいだ]に勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]を聞[き]いている間[あいだ]に勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]聞[き]く間[あいだ]に勉[べん]強[きょう]します",
+                    "音[おん]楽[がく]を聞[き]いた間[あいだ]に勉[べん]強[きょう]します"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What does 間[あいだ] emphasise?",
+                "options": [
+                    "Duration",
+                    "Sequence",
+                    "Intention",
+                    "Comparison"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 授[じゅ]業[ぎょう]の間[あいだ]にメモを取[と]ります。",
+                "includes": [
+                    ["during"],
+                    ["class"],
+                    ["notes"]
+                ],
+                "sample_answer": "I take notes during the class."
+            },
+            {
+                "type": "mc",
+                "question": "Why is ている required before 間[あいだ]?",
+                "options": [
+                    "To show ongoing action",
+                    "To show future action",
+                    "To show obligation",
+                    "To show desire"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "雨[あめ]が降[ふ]っている間[あいだ]に家[いえ]にいます",
+                    "勉[べん]強[きょう]している間[あいだ]に音[おん]楽[がく]を聞[き]きます",
+                    "勉[べん]強[きょう]する間[あいだ]に音[おん]楽[がく]を聞[き]きます",
+                    "日[に]本[ほん]にいる間[あいだ]に旅[りょ]行[こう]しました"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which structure contrasts directly with ながら?",
+                "options": [
+                    "Duration focus",
+                    "Secondary action focus",
+                    "Intentional action",
+                    "Result focus"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which meaning cannot be expressed with 間[あいだ]?",
+                "options": [
+                    "While something continues",
+                    "Before an action",
+                    "During a stay",
+                    "During an event"
+                ],
+                "answer": 1
+            }
+        ]
+    },
+    "nagara": {
+        "title": "Using ながら",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which verb form precedes ながら?",
+                "options": [
+                    "Plain form",
+                    "Stem form",
+                    "て-form",
+                    "ない-form"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "In a ながら sentence, which action is primary?",
+                "options": [
+                    "The first verb",
+                    "The second verb"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I listen to music while studying.",
+                "includes": [
+                    ["聞き", "き", "kiki"],
+                    ["音", "おん", "on"],
+                    ["楽", "がく", "gaku"],
+                    ["ながら", "nagara"],
+                    ["勉", "べん", "ben"],
+                    ["強", "きょう", "kyou"]
+                ],
+                "sample_answer": "音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "食[た]べながら話[はな]します",
+                    "食[た]べてながら話[はな]します",
+                    "歩[ある]きながら考[かんが]えます",
+                    "音[おん]楽[がく]を聞[き]きながら走[はし]ります"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What limitation does ながら have?",
+                "options": [
+                    "Both actions must be controllable",
+                    "Both actions must be long",
+                    "Both actions must be in the past",
+                    "Both actions must share a subject"
+                ],
+                "answer": 3
+            },
+            {
+                "type": "input",
+                "question": "Fill in: テレビを見[み]____食[た]べます。",
+                "valid": [
+                    "ながら",
+                    "nagara"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which grammar idea overlaps with ながら?",
+                "options": [
+                    "Simultaneity",
+                    "Sequence",
+                    "Condition",
+                    "Comparison"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Why is ている not used with ながら?",
+                "options": [
+                    "Stem form is required",
+                    "It changes tense",
+                    "It implies duration",
+                    "It removes intention"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 歩[ある]きながら考[かんが]えます。",
+                "includes": [
+                    ["while"],
+                    ["walk"],
+                    ["think"]
+                ],
+                "sample_answer": "I think while walking."
+            },
+            {
+                "type": "mc",
+                "question": "Which situation cannot use ながら?",
+                "options": [
+                    "Listening and studying",
+                    "Eating and talking",
+                    "Being tall and running",
+                    "Walking and thinking"
+                ],
+                "answer": 2
+            }
+        ]
+    },
+    "aida-vs-nagara": {
+        "title": "間[あいだ] vs ながら",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure focuses on the duration of an action?",
+                "options": [
+                    "間[あいだ]",
+                    "ながら"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which structure emphasises a secondary simultaneous action?",
+                "options": [
+                    "間[あいだ]",
+                    "ながら"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 音[おん]楽[がく]を聞[き]____勉[べん]強[きょう]します。",
+                "valid": [
+                    "ながら",
+                    "nagara"
+                ]
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 授[じゅ]業[ぎょう]の____にメモを取[と]ります。",
+                "valid": [
+                    "間",
+                    "あいだ",
+                    "aida"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses both structures?",
+                "options": [
+                    "音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]している間[あいだ]にメモを取[と]ります",
+                    "音[おん]楽[がく]を聞[き]きている間[あいだ]に勉[べん]強[きょう]ながらメモを取[と]ります",
+                    "音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]の間[あいだ]にメモを取[と]ります",
+                    "音[おん]楽[がく]を聞[き]いているながら勉[べん]強[きょう]している間[あいだ]にメモを取[と]ります"
+                ],
+                "answer": 0,
+                "explanation": "This sentence correctly uses ながら for the secondary action of listening to music while studying, and 間[あいだ] to indicate the duration during which notes are taken."
+            }
+        ]
+    },
+    "uchini": {
+        "title": "Using ～うちに",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the core meaning of ～うちに?",
+                "options": [
+                    "An action happens at an exact time",
+                    "An action happens before a condition changes",
+                    "Two actions happen with equal importance",
+                    "An action happens repeatedly"
+                ],
+                "answer": 1,
+                "explanation": "うちに emphasises acting while a condition still holds, before an expected but uncertain change."
+            },
+            {
+                "type": "mc",
+                "question": "Which verb form is required before うちに when describing an ongoing action?",
+                "options": [
+                    "Plain form",
+                    "た-form",
+                    "て-form + いる",
+                    "Stem form"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses Verb + うちに?",
+                "options": [
+                    "勉[べん]強[きょう]するうちに疲[つか]れました",
+                    "勉[べん]強[きょう]しているうちに疲[つか]れました",
+                    "勉[べん]強[きょう]したうちに疲[つか]れました",
+                    "勉[べん]強[きょう]しうちに疲[つか]れました"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "What nuance does ～うちに have compared to ～間[あいだ]?",
+                "options": [
+                    "Exact duration",
+                    "Speaker intention before change",
+                    "Simultaneous actions",
+                    "Completed sequence"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 日[に]本[ほん]にいる____に、友[とも]達[だち]に会[あ]いました。",
+                "valid": [
+                    "うち",
+                    "うちに",
+                    "uchini"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Which adjective form is correct before うちに?",
+                "options": [
+                    "暑[あつ]い → 暑[あつ]いうちに",
+                    "暑[あつ]い → 暑[あつ]くうちに",
+                    "暑[あつ]い → 暑[あつ]かったうちに",
+                    "暑[あつ]い → 暑[あつ]さうちに"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses a な-adjective with うちに?",
+                "options": [
+                    "元[げん]気[き]うちに旅[りょ]行[こう]します",
+                    "元[げん]気[き]なうちに旅[りょ]行[こう]します",
+                    "元[げん]気[き]にうちに旅[りょ]行[こう]します",
+                    "元[げん]気[き]だったうちに旅[りょ]行[こう]します"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which structure is required when using a noun with うちに?",
+                "options": [
+                    "Noun + うちに",
+                    "Noun + に + うち",
+                    "Noun + の + うちに",
+                    "Noun + うち"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Let's study while we are still students.",
+                "includes": [
+                    ["学", "がく", "gaku"],
+                    ["生", "せい", "sei"],
+                    ["うちに", "uchini"],
+                    ["勉", "べん", "ben"],
+                    ["強", "きょう", "kyou"]
+                ],
+                "sample_answer": "学[がく]生[せい]のうちに勉[べん]強[きょう]しましょう。"
+            },
+            {
+                "type": "mc",
+                "question": "What does ないうちに express?",
+                "options": [
+                    "After something happens",
+                    "Before a negative change occurs",
+                    "While an action is repeated",
+                    "At the same time as another action"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ないうちに?",
+                "options": [
+                    "忘[わす]れたうちにメモします",
+                    "忘[わす]れないうちにメモします",
+                    "忘[わす]れているうちにメモします",
+                    "忘[わす]れうちにメモします"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 雨[あめ]が降[ふ]ら____うちに帰[かえ]りましょう。",
+                "valid": [
+                    "ない",
+                    "nai"
+                ]
+            },
+            {
+                "type": "mc",
+                "question": "Why is the timing in ～うちに vague?",
+                "options": [
+                    "The speaker does not care about time",
+                    "The change is expected but uncertain",
+                    "The action happens repeatedly",
+                    "The action already finished"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which situation best suits ～うちに?",
+                "options": [
+                    "Describing a strict timetable",
+                    "Giving an order with a deadline",
+                    "Encouraging action before conditions change",
+                    "Listing completed events"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is NOT appropriate with ～うちに?",
+                "options": [
+                    "若[わか]いうちに色[いろ]々[いろ]経[けい]験[けん]します",
+                    "雨[あめ]が降[ふ]らないうちに出[で]ます",
+                    "三[さん]時[じ]のうちに会[あ]います",
+                    "静[しず]かなうちに本[ほん]を読[よ]みます"
+                ],
+                "answer": 2,
+                "explanation": "～うちに does not suit precise, fixed times such as 三時."
+            }
+        ]
+    },
+    "made": {
+        "title": "Using まで & までに",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What is the core difference between まで and までに?",
+                "options": [
+                    "まで marks a deadline, までに marks duration",
+                    "まで marks duration up to a point, までに marks a deadline",
+                    "Both mean exactly the same thing",
+                    "まで is only for verbs, までに is only for nouns"
+                ],
+                "answer": 1,
+                "explanation": "まで focuses on continuation up to a point, while までに focuses on completion before a point."
+            },
+            {
+                "type": "mc",
+                "question": "Which situation best fits まで?",
+                "options": [
+                    "Submitting homework",
+                    "Finishing an essay",
+                    "A shop staying open",
+                    "Completing a task early"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which situation best fits までに?",
+                "options": [
+                    "A train running all day",
+                    "Studying continuously",
+                    "A store opening hours",
+                    "A report submission deadline"
+                ],
+                "answer": 3
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses まで?",
+                "options": [
+                    "学[がっ]校[こう]は三[さん]時[じ]までに終[お]わります",
+                    "学[がっ]校[こう]は三[さん]時[じ]までです",
+                    "学[がっ]校[こう]は三[さん]時[じ]までにあります",
+                    "学[がっ]校[こう]は三[さん]時[じ]にまでです"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses までに?",
+                "options": [
+                    "宿[しゅく]題[だい]は明日[あした]までします",
+                    "宿[しゅく]題[だい]は明日[あした]までです",
+                    "宿[しゅく]題[だい]は明日[あした]までに出[だ]します",
+                    "宿[しゅく]題[だい]は明日[あした]にまで出[だ]します"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Fill in: 店[みせ]は午[ご]後[ご]九[きゅう]時[じ]____開[あ]いています。",
+                "valid": [
+                    "まで",
+                    "made"
+                ],
+                "explanation": "まで indicates the store remains open until 9 PM. You wouldn't use までに here because the closing time is not a deadline for an action to be completed."
+            },
+            {
+                "type": "input",
+                "question": "Fill in: レポートは来[らい]週[しゅう]____書[か]かなければなりません。",
+                "valid": [
+                    "までに",
+                    "madeni"
+                ],
+                "explanation": "までに indicates the report must be completed by next week, marking a deadline for the action. You wouldn't use まで here because doing so implies that the report must be completed continuously until next week."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is incorrect?",
+                "options": [
+                    "雨[あめ]が降[ふ]るまで待[ま]ちます",
+                    "五[ご]時[じ]まで勉[べん]強[きょう]します",
+                    "五[ご]時[じ]までに勉[べん]強[きょう]しています",
+                    "月[げつ]曜[よう]日[び]までに出[だ]します"
+                ],
+                "answer": 2,
+                "explanation": "までに requires an action to be completed, not an ongoing state."
+            }
+        ]
+    },
+    "quiz": {
+        "title": "Referencing Time",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which structure is used to show a deadline that must be met?",
+                "options": [
+                    "前[まえ]に",
+                    "間[あいだ]",
+                    "まで",
+                    "までに"
+                ],
+                "answer": 3,
+                "explanation": "までに marks the point by which an action must be completed, not continued."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I study until 9 o’clock.",
+                "includes": [
+                    ["九", "きゅう", "kyuu"],
+                    ["時", "じ", "ji"],
+                    ["まで", "made"],
+                    ["勉", "べん", "ben"],
+                    ["強", "きょう", "kyou"]
+                ],
+                "sample_answer": "九[きゅう]時[じ]まで勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I must finish the homework by tomorrow.",
+                "includes": [
+                    ["宿", "しゅく", "shuku"],
+                    ["題", "だい", "dai"],
+                    ["明", "あ", "a"],
+                    ["日", "した", "shita"],
+                    ["までに", "madeni"]
+                ],
+                "sample_answer": "宿[しゅく]題[だい]は明[あ]日[した]までに終[お]わらせなければなりません。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly shows an action continuing up to a time?",
+                "options": [
+                    "雨[あめ]が降[ふ]るまでに家[いえ]にいます",
+                    "雨[あめ]が降[ふ]るまで家[いえ]にいます",
+                    "雨[あめ]が降[ふ]ったまで家[いえ]にいます",
+                    "雨[あめ]が降[ふ]ってまでに家[いえ]にいます"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Before going to school, I eat breakfast.",
+                "includes": [
+                    ["学", "がっ", "gak"],
+                    ["校", "こう", "kou"],
+                    ["前", "まえ", "mae"],
+                    ["朝", "あさ", "asa"],
+                    ["飯", "はん", "han"]
+                ],
+                "sample_answer": "学[がっ]校[こう]に行[い]く前[まえ]に朝[あさ]ご飯[はん]を食[た]べます。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: While listening to music, I study.",
+                "includes": [
+                    ["音", "おん", "on"],
+                    ["楽", "がく", "gaku"],
+                    ["ながら", "nagara"],
+                    ["勉", "べん", "ben"],
+                    ["強", "きょう", "kyou"]
+                ],
+                "sample_answer": "音[おん]楽[がく]を聞[き]きながら勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "mc",
+                "question": "Which structure focuses on duration rather than a secondary action?",
+                "options": [
+                    "ながら",
+                    "時[とき]に",
+                    "間[あいだ]",
+                    "前[まえ]に"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: When I was a student, I lived in Japan.",
+                "includes": [
+                    ["学", "がく", "gaku"],
+                    ["生", "せい", "sei"],
+                    ["時", "とき", "toki"],
+                    ["日", "に", "ni"],
+                    ["本", "ほん", "hon"]
+                ],
+                "sample_answer": "学[がく]生[せい]の時[とき]に日[に]本[ほん]に住[す]んでいました。"
+            },
+            {
+                "type": "mc",
+                "question": "Which option correctly contrasts ながら and 間[あいだ]?",
+                "options": [
+                    "ながら shows duration; 間 shows priority",
+                    "ながら shows a secondary action; 間 shows duration",
+                    "ながら shows deadlines; 間 shows continuation",
+                    "ながら shows condition; 間 shows obligation"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Let’s study while it is still quiet.",
+                "includes": [
+                    ["静", "しず", "shizu"],
+                    ["うちに", "uchini"],
+                    ["勉", "べん", "ben"],
+                    ["強", "きょう", "kyou"]
+                ],
+                "sample_answer": "静[しず]かなうちに勉[べん]強[きょう]しましょう。"
+            }
+        ]
+    }
+}

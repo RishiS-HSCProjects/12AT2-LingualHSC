@@ -1,0 +1,59 @@
+{
+    "quiz": {
+        "title": "Using ～方[かた]",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does ～方[かた] mean when attached to the stem of a verb?",
+                "options": [
+                    "Method of doing something",
+                    "Future intention",
+                    "Obligation to do something",
+                    "Comparison between two things"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ～方[かた] to express 'How to write kanji'?",
+                "options": [
+                    "漢[かん]字[じ]の書[か]き方[かた]を学[まな]びます。",
+                    "漢[かん]字[じ]を書[か]く方[かた]を学[まな]びます。"
+                ],
+                "answer": 0,
+                "explanation": "Remember, ～方[かた] is attached to the stem form of the verb. Also, recall that 学[まな]ぶ means 'to learn'."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I will teach you how to cook sushi.",
+                "includes": [
+                    ["寿[す]司[し]", "sushi"],
+                    ["作[つく]り方[かた]", "tsukurikata"],
+                    ["教[おし]える", "oshieru"]
+                ],
+                "sample_answer": "寿[す]司[し]の作[つく]り方[かた]を教[おし]えます。"
+            },
+            {
+                "type": "mc",
+                "question": "Which of the following is correct?",
+                "options": [
+                    "飲[の]み方[かた]",
+                    "飲[の]むの方[かた]",
+                    "飲[の]みの方[かた]",
+                    "飲[の]む方[かた]"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank: ピアノの____を習[なら]っています。",
+                "valid": [
+                    "弾[ひ]き方",
+                    "ひき方",
+                    "hikikata"
+                ],
+                "explanation": "The sentence translates to 'I am learning how to play the piano.' The correct word to fill in the blank is 弾[ひ]き方, which means 'how to play (an instrument)'."
+            }
+        ]
+    }
+}

@@ -1,5 +1,46 @@
 {
-    "map": [
-        "te-form"
+    "senior-structures": [
+        "verb-groups",
+        "te-form",
+        "plain-form",
+        "particle-he",
+        "tari-tari",
+        "ta-ato-de",
+        "ga-kedo",
+        "using-naru",
+        "verb-normalisation",
+        "to-for-expression",
+        "giving-reasons",
+        "favours",
+        "using-komaru",
+        "nasai",
+        "using-n",
+        "asking-giving-permission",
+        "making-comparisons",
+        "expressing-obligation",
+        "te-mo",
+        "sugiru",
+        "purpose",
+        "only",
+        "start-finish",
+        "using-houga",
+        "using-you",
+        "giving-descriptions",
+        "intent-plans",
+        "time-references",
+        "conditional-form",
+        "using-naide",
+        "using-kata",
+        "expressing-difficulty",
+        "using-shimaimasu",
+        "using-noni",
+        "referencing-information",
+        "potential-form",
+        "relative-clauses",
+        "setting-expectations"
+    ],
+    "extra": [
+        "ha-vs-ga",
+        "adjective-rules"
     ]
 }

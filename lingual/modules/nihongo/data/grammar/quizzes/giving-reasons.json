@@ -1,0 +1,616 @@
+{
+    "kara": {
+        "title": "Using から",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 〜から to give a reason?",
+                "options": [
+                    "さむいだから、コートを着[き]ます",
+                    "さむいから、コートを着[き]ます",
+                    "コートから、さむいです",
+                    "コートだから、さむいです"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence requires だ before から?",
+                "options": [
+                    "いそがしい ___ 、行けません。",
+                    "ねむい ___ 、帰ります。",
+                    "うんてんしている ___ 、今話せません。",
+                    "きれい ___ 、好きです。"
+                ],
+                "answer": 3,
+                "explanation": "な-adjectives and nouns require だ before から."
+            },
+            {
+                "type": "input",
+                "question": "Write a sentence explaining that you can't do something because you are busy. (You can choose what you can't do.)",
+                "includes": [
+                    ["忙しい", "いそがしい", "isogashii"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "忙[いそが]しいから、行けません。"
+            },
+            {
+                "type": "input",
+                "question": "Translate the following sentence into Japanese:\n\nShe is studying because she likes Japanese.",
+                "includes": [
+                    ["日本語", "にほんご", "nihongo"],
+                    ["好き", "すき", "suki"],
+                    ["だ", "da"],
+                    ["から", "kara"],
+                    ["勉強", "べんきょう", "benkyou"],
+                    ["しています", "している", "shiteimasu", "shiteiru"]
+                ],
+                "sample_answer": "彼[かの]女[じょ]は日本語が好きだから、勉[べん]強[きょう]しています。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 天[てん]気[き]がいいから、散[さん]歩[ぽ]します。",
+                "includes": [
+                    ["weather"],
+                    ["good", "nice"],
+                    ["walk", "stroll"]
+                ],
+                "sample_answer": "The weather is good, so I will go for a walk."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best expresses a natural reason using から?",
+                "options": [
+                    "雨[あめ]が降[ふ]るですから、出かけません。",
+                    "雨[あめ]が降[ふ]っているから、出かけません。",
+                    "雨[あめ]が降[ふ]っているだから、出かけません。",
+                    "雨[あめ]が降[ふ]っているほうがいいから、出かけません。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese using から: I will ride the bus because it is convenient.",
+                "includes": [
+                    ["便利", "べんり", "benri"],
+                    ["だ", "da"],
+                    ["から", "kara"],
+                    ["バス", "basu"]
+                ],
+                "sample_answer": "便[べん]利[り]だから、バスに乗[の]ります。",
+                "explanation": "Since べんり is a な-adjective, だ is required before から."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 時[じ]間[かん]がないから、朝[あさ]ご飯[はん]を食[た]べませんでした。",
+                "includes": [
+                    ["time"],
+                    ["no", "didn't"],
+                    ["breakfast"]
+                ],
+                "sample_answer": "Because I had no time, I didn’t eat breakfast."
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using から:\n\nとしょかんで勉[べん]強[きょう]します。しずかです。",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["だ", "da"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "静[しず]かだから、図書館[としょかん]で勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese using から: I didn’t go to the beach because it was cold.",
+                "includes": [
+                    ["海", "うみ", "umi"],
+                    ["さむい", "samui"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "さむかったから、海[うみ]に行きませんでした。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses から correctly with a noun?",
+                "options": [
+                    "学生から、安[やす]いです。",
+                    "学生だから、安[やす]いです。",
+                    "学生なから、安[やす]いです。",
+                    "学生のから、安[やす]いです。"
+                ],
+                "answer": 1,
+                "explanation": "Nouns, like な-adjectives, require だ before から."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 今日は部活[ぶかつ]があるから、早[はや]く帰[かえ]ります。",
+                "includes": [
+                    ["today"],
+                    ["club", "activity"],
+                    ["early", "fast"],
+                    ["home", "return", "leave", "go"]
+                ],
+                "sample_answer": "Because I have club activities today, I will go home early."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I will study hard because the exam is tomorrow.",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["試験", "しけん", "shiken"],
+                    ["だ", "da"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "試[し]験[けん]は明日[あした]だから、一生[いっしょう]懸[けん]命[めい]勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using から:\n\n雨[あめ]です。外[そと]で運[うん]動[どう]しません。",
+                "includes": [
+                    ["雨", "あめ", "ame"],
+                    ["だ", "da"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "雨[あめ]だから、外[そと]で運[うん]動[どう]しません。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I bought this because it was cheap.",
+                "includes": [
+                    ["安い", "やすい", "yasui"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "安[やす]かったから、これを買[か]いました。"
+            },
+            {
+                "type": "mc",
+                "question": "Choose the correct sentence using から with a な-adjective.",
+                "options": [
+                    "有名から、この店[みせ]は人[ひと]が多[おお]いです。",
+                    "有名だ、からこの店[みせ]は人[ひと]が多[おお]いです。",
+                    "有名だから、この店[みせ]は人[ひと]が多[おお]いです。",
+                    "有名ので、この店[みせ]は人[ひと]が多[おお]いです。"
+                ],
+                "answer": 2,
+                "explanation": "な-adjectives require だ before から."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: しゅくだいが多[おお]いから、テレビを見[み]ません。",
+                "includes": [
+                    ["homework"],
+                    ["a lot"],
+                    ["don’t watch TV"]
+                ],
+                "sample_answer": "Because I have a lot of homework, I don’t watch TV."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I didn’t sleep well because it was noisy.",
+                "includes": [
+                    ["うるさい", "urusai"],
+                    ["から", "kara"]
+                ],
+                "sample_answer": "うるさかったから、よく寝[ね]られませんでした。"
+            }
+        ]
+    },
+    "node": {
+        "title": "Using ので",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses 〜ので to give a reason?",
+                "options": [
+                    "さむいので、コートを着[き]ます",
+                    "さむいだので、コートを着[き]ます",
+                    "コートので、さむいです",
+                    "コートだので、さむいです"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence requires だ before ので?",
+                "options": [
+                    "ひま ___ 、行きます。",
+                    "あつい ___ 、水を飲[の]みます。",
+                    "学生 ___ 、アルバイトができます。",
+                    "雨が降っている ___ 、出かけません。"
+                ],
+                "answer": 2,
+                "explanation": "Nouns and な-adjectives require だ before ので. /w ひま, while a noun, acts as an adjective in this sentence. As a result, it requires you to have a な before ので. \\ Therefore, the correct fill-in would be ひま<em>な</em>ので、行きます。"
+            },
+            {
+                "type": "input",
+                "question": "Write a sentence explaining that you can't do something because you are tired. (You can choose what you can't do.)",
+                "includes": [
+                    ["疲れた", "つかれた", "tsukareta"],
+                    ["ので", "node"]
+                ],
+                "sample_answer": "つかれたので、行けません。"
+            },
+            {
+                "type": "mc",
+                "question": "Which is more appropriate in this apologetic context?\n\nごめんなさい。元[げん]気[き]がない___、今日は早[はや]く帰[かえ]らないといけません。",
+                "options": [
+                    "から",
+                    "ので"
+                ],
+                "answer": 1,
+                "explanation": "ので is softer and more polite, fitting apologetic situations."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Because the wind is strong, please close the window.",
+                "includes": [
+                    ["風", "かぜ", "kaze"],
+                    ["強い", "つよい", "tsuyoi"],
+                    ["ので", "node"],
+                    ["窓", "まど", "mado"],
+                    ["閉めてください", "しめてください", "shimetekudasai"]
+                ],
+                "sample_answer": "風[かぜ]が強[つよ]いので、窓[まど]を閉[し]めてください。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence naturally uses ので to give a polite reason?",
+                "options": [
+                    "ねつがあるので、学校[がっこう]を休[やす]みます。",
+                    "ねつがあるだので、学校を休みます。",
+                    "ねつがあるからし、学校を休みます。",
+                    "ねつがあるほうがいいので、学校を休みます。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I will go home early because I have work tomorrow.",
+                "includes": [
+                    ["明日", "あした", "ashita"],
+                    ["仕事", "しごと", "shigoto"],
+                    ["ある", "だ", "aru", "da"],
+                    ["ので", "node"]
+                ],
+                "sample_answer": "明日[あした]は仕[し]事[ごと]なので、早[はや]く帰[かえ]ります。"
+            },
+            {
+                "type": "mc",
+                "question": "Choose the most natural sentence using ので in a casual context.",
+                "options": [
+                    "しずかなので、このカフェが好[す]きです。",
+                    "しずかだので、このカフェが好きです。",
+                    "しずかので、このカフェが好きです。",
+                    "しずかし、このカフェが好きです。"
+                ],
+                "answer": 0,
+                "explanation": "な-adjectives require だ before ので, but だ drops in 〜なので."
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using ので:\n\n雨[あめ]です。外[そと]で遊[あそ]びません。",
+                "includes": [
+                    ["雨", "あめ", "ame"],
+                    ["なので", "nanode"]
+                ],
+                "sample_answer": "雨[あめ]なので、外[そと]で遊[あそ]びません。",
+                "explanation": "Since 雨[あめ] is a noun, だ is required before ので in formal speech, but it is often dropped in casual speech. Since the verb 遊[あそ]ぶ is usually casual, dropping だ here sounds more natural."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I didn’t go jogging because it was too hot.",
+                "includes": [
+                    ["暑", "あつ", "atsu"],
+                    ["すぎた", "sugita"],
+                    ["ので", "node"]
+                ],
+                "sample_answer": "暑[あつ]すぎたので、ジョギングをしませんでした。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 今日は予[よ]定[てい]があるので、行[い]けません。",
+                "includes": [
+                    ["today"],
+                    ["plans"],
+                    ["no", "can"],
+                    ["go"]
+                ],
+                "sample_answer": "I can’t go because I have plans today."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I will study at the library because it is quiet.",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["ので", "node"],
+                    ["図書館", "としょかん", "toshokan"]
+                ],
+                "sample_answer": "静[しず]かなので、としょかんで勉[べん]強[きょう]します。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence naturally expresses a polite excuse?",
+                "options": [
+                    "雨[あめ]が降[ふ]っているので、遅[おく]れました。",
+                    "雨[あめ]が降[ふ]っているだので、遅れました。",
+                    "雨[あめ]が降[ふ]っているからし、遅れました。",
+                    "雨[あめ]が降[ふ]っているほうがいいので、遅れました。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using ので:\n\nねむいです。早[はや]く寝[ね]ます。",
+                "includes": [
+                    ["ねむい", "nemui"],
+                    ["ので", "node"]
+                ],
+                "sample_answer": "ねむいので、早[はや]く寝[ね]ます。",
+                "explanation": "Since ねむい is an い-adjective, no だ is needed before ので."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: しゅくだいが多[おお]いので、テレビを見[み]ません。",
+                "includes": [
+                    ["homework"],
+                    ["a lot"],
+                    ["TV", "television"],
+                    ["watch"]
+                ],
+                "sample_answer": "Because I have a lot of homework, I don’t watch TV."
+            }
+        ]
+    },
+    "shi": {
+        "title": "Using し",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does し express in this lesson?",
+                "options": [
+                    "A single strong reason",
+                    "A contrast",
+                    "Multiple reasons or 'not only... but also'",
+                    "A command"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses し?",
+                "options": [
+                    "雨が降[ふ]ったし、さむいです。",
+                    "雨が降[ふ]ったからし、さむいです。",
+                    "雨が降[ふ]ったのでし、さむいです。",
+                    "雨が降[ふ]ったしので、さむいです。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: He is kind and interesting.",
+                "includes": [
+                    ["優しい", "やさしい", "yasashii"],
+                    ["面白い", "おもしろい", "omoshiroi"],
+                    ["し", "shi"]
+                ],
+                "sample_answer": "優[やさ]しいし、面白[おもしろ]いです。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best expresses multiple reasons?",
+                "options": [
+                    "このレストランは安[やす]いし、美味[おい]しいです。",
+                    "このレストランは安[やす]いから、美味[おい]しいです。",
+                    "このレストランは安[やす]いので、美味[おい]しいです。",
+                    "このレストランは安[やす]いです。美味[おい]しいです。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 昨日[きのう]は雨[あめ]が降[ふ]ったし、風[かぜ]も強[つよ]かった。",
+                "includes": [
+                    ["rained"],
+                    ["wind"],
+                    ["strong"]
+                ],
+                "sample_answer": "It rained yesterday, and the wind was also strong."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses し to naturally list reasons?",
+                "options": [
+                    "部[へ]屋[や]が広[ひろ]いし、明[あか]るいです。",
+                    "部[へ]屋[や]が広[ひろ]し、明[あか]るいです。",
+                    "部[へ]屋[や]が広[ひろ]のし、明[あか]るいです。",
+                    "部[へ]屋[や]が広[ひろ]い、明[あか]るいしです。"
+                ],
+                "answer": 0,
+                "explanation": "し simply attaches to the end of the first clause to list multiple reasons."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese (using し): This town is quiet and safe.",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["安全", "あんぜん", "anzen"],
+                    ["し", "shi"]
+                ],
+                "sample_answer": "静[しず]かだし、安[あん]全[ぜん]です。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: この店[みせ]は安[やす]いし、店員[てんいん]も親切[しんせつ]だし、よく来ます。",
+                "includes": [
+                    ["since", "because", "as"],
+                    ["cheap"],
+                    ["kind"],
+                    ["staff"]
+                ],
+                "sample_answer": "I often come here because this shop is cheap and the staff are kind."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses し with a noun correctly?",
+                "options": [
+                    "学生し、時[じ]間[かん]がありません。",
+                    "学生だし、時[じ]間[かん]がありません。",
+                    "学生のし、時[じ]間[かん]がありません。",
+                    "学生なし、時[じ]間[かん]がありません。"
+                ],
+                "answer": 1,
+                "explanation": "Nouns and な-adjectives require だ before し."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I like this café because it is quiet and the coffee is delicious.",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["美味しい", "おいしい", "oishii"],
+                    ["し", "shi"]
+                ],
+                "sample_answer": "静[しず]かだし、コーヒーも美味[おい]しいので、このカフェが好[す]きです。"
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: I chose this apartment because it is big and close to the station.",
+                "includes": [
+                    ["広い", "ひろい", "hiroi"],
+                    ["駅", "えき", "eki"],
+                    ["近い", "ちかい", "chikai"],
+                    ["し", "shi"]
+                ],
+                "sample_answer": "広[ひろ]いし、駅[えき]に近[ちか]いので、このアパートにしました。",
+                "explanation": "Since 駅 is a noun, だ is required before ので. /w When describing a room as big, 広[ひろ]い is used instead of 大[おお]きい. \\ This is because 広[ひろ]い specifically refers to spaciousness, which is more appropriate for rooms and areas."
+            }
+        ]
+    },
+    "quiz": {
+        "title": "Giving Reasons",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which particle is generally softer and more polite when giving reasons?",
+                "options": [
+                    "から",
+                    "ので",
+                    "し"
+                ],
+                "answer": 1,
+                "explanation": "ので is considered more polite and formal than から."
+            },
+            {
+                "type": "mc",
+                "question": "Which particle is used to list multiple reasons?",
+                "options": [
+                    "から",
+                    "ので",
+                    "し"
+                ],
+                "answer": 2,
+                "explanation": "し is used to list multiple reasons or to express 'not only... but also...'"
+            },
+            {
+                "type": "mc",
+                "question": "Which particle often appears in casual speech but is still acceptable in HSC exams?",
+                "options": [
+                    "から",
+                    "ので",
+                    "し"
+                ],
+                "answer": 0,
+                "explanation": "から is commonly used in casual speech and is acceptable in HSC exams."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese: Because I am a student, I am busy.",
+                "includes": [
+                    ["学生", "がくせい", "gakusei"],
+                    ["だ", "da"],
+                    ["から", "ので", "kara", "node"],
+                    ["忙しい", "いそがしい", "isogashii"]
+                ],
+                "sample_answer": "学[がく]生[せい]だから、忙[いそが]しいです。",
+                "explanation": "Since 学生 is a noun, だ is required before から or ので. し cannot be used here as it is for listing multiple reasons."
+            },
+            {
+                "type": "mc",
+                "question": "Which option best matches the nuance of giving multiple supporting reasons rather than one direct cause?",
+                "options": [
+                    "から",
+                    "ので",
+                    "し"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses から most naturally?",
+                "options": [
+                    "雨[あめ]が降[ふ]っているから、行きません。",
+                    "雨[あめ]が降[ふ]っているのでし、行きません。",
+                    "雨[あめ]が降[ふ]っているだので、行きません。",
+                    "雨[あめ]が降[ふ]っているし、行きません。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses ので most politely?",
+                "options": [
+                    "ねむいので、帰[かえ]ります。",
+                    "ねむいだので、帰ります。",
+                    "ねむので、帰ります。",
+                    "ねむいなので、帰ります。"
+                ],
+                "answer": 0,
+                "explanation": "Since ねむい is an い-adjective, ので is simply attached in all contexts."
+            },
+            {
+                "type": "input",
+                "question": "Translate to English: 今日はしゅくだいが多[おお]いので、遊[あそ]べません。",
+                "includes": [
+                    ["homework"],
+                    ["lot", "plenty"],
+                    ["play", "hang", "out"]
+                ],
+                "sample_answer": "I can’t play today because I have a lot of homework."
+            },
+            {
+                "type": "mc",
+                "question": "Which particle best fits a formal apology?",
+                "options": [
+                    "から",
+                    "ので",
+                    "し"
+                ],
+                "answer": 1,
+                "explanation": "ので is softer and more polite."
+            },
+            {
+                "type": "input",
+                "question": "Rewrite using し:\n\nこの町[まち]はしずかです。きれいです。だから、好きです。",
+                "includes": [
+                    ["静か", "しずか", "shizuka"],
+                    ["きれい", "kirei"],
+                    ["だ", "da"],
+                    ["し", "shi"]
+                ],
+                "sample_answer": "この町[まち]は静[しず]かだし、きれいだし、好きです。"
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence uses から with a noun correctly?",
+                "options": [
+                    "学生から、安[やす]いです。",
+                    "学生だから、安いです。",
+                    "学生ので、安いです。",
+                    "学生し、安いです."
+                ],
+                "answer": 1
+            }
+        ]
+    }
+}
