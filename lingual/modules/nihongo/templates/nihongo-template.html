@@ -18,8 +18,8 @@
 {% block nav_links %}
 <a href="">Quiz</a>
 <a href="{{ url_for('nihongo.grammar') }}">Grammar</a>
-<a href="">Kanji</a>
-<a href="">Vocab</a>
+<a href="{{ url_for('nihongo.kanji') }}">Kanji</a>
+<a href="{{ url_for('nihongo.vocab') }}">Vocab</a>
 {% endblock %}
 
 {% block body %}
