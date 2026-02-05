@@ -1,5 +1,22 @@
 {
-    "quiz": {
+    "rules": {
+        "title": "Giving & Receiving - Rules",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "Which sentence would use やす?",
+                "options": [
+                    "I gave my friend a birthday gift",
+                    "I gave my teacher my homework",
+                    "I gave my twin sister a flower",
+                    "I watered my plants."
+                ],
+                "answer": 3,
+                "explanation": "やす is used for doing favours for children, animals, and plants."
+            }
+        ]
+    },
+    "favours": {
         "title": "Acknowledging Favours with ～てくれる",
         "bank": [
             {

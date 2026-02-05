@@ -149,3 +149,7 @@ function scrollToId(id) {
 
     element.scrollIntoView({ behavior: 'smooth' });
 }
+
+function redirectTo(url) {
+    window.location.href = url;
+}

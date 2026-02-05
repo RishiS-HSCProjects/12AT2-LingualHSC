@@ -1,7 +1,7 @@
 import os
 import re
 from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
-from flask_login import login_required
+from flask_login import current_user, login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
 from lingual.utils.lessons.lesson_processor import Lesson
@@ -20,7 +20,47 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 @nihongo_bp.route('/')
 @login_required
 def home():
-    return render_template('home.html')
+    from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
+    from lingual.utils.languages import get_translatable
+
+    config = HomeConfig()
+
+    welcome_banner = HomeBanner(get_translatable('jp', 'home_welcome_text').replace("{first_name}", current_user.first_name))
+    config.register_section(welcome_banner)
+
+    quick_access = HomeSection("Quick Access")
+
+    quick_access.add_items(
+        ItemBox(
+            title="Grammar",
+            body="Practise Practise Practise",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link=url_for('nihongo.grammar')
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link=url_for('nihongo.grammar')
+                )
+            ],
+            on_click=url_for('nihongo.grammar')
+        ),
+        ItemBox(
+            title="Vocab",
+            body="yes Yes yes"
+        ),
+        ItemBox(
+            title="Kanji",
+            body="0/XX Kanjis Mastered"
+        ),
+    )
+
+    config.register_section(quick_access)
+
+    recent = HomeSection("Recently Viewed") # todo: add recently viewed lessons based on user data
+
+    return render_template('home.html', config=config)
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')

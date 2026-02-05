@@ -63,9 +63,5 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
     app.register_blueprint(nihongo_bp)
-    
-    # Initialize nihongo module template filters
-    from lingual.modules.nihongo import init_app as init_nihongo
-    init_nihongo(app)
 
     return app

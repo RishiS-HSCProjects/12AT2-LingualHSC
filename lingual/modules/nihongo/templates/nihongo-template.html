@@ -2,12 +2,19 @@
 
 {% block meta %}
 {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/graphic-bg.css') }}">
 <link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
-<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/sakura.css') }}">
+
+<style>
+    :root {
+        --graphic-bg-url: url("{{ url_for('nihongo.static', filename='app_assets/sakura-tree.png') }}");
+    }
+</style>
+
 {% endblock %}
 
 {% block header %}
-<div class="sakura-tree-bg"></div>
+<div class="graphic-bg"></div>
 {{ super() }}
 {% endblock %}
 
@@ -18,8 +25,8 @@
 {% block nav_links %}
 <a href="">Quiz</a>
 <a href="{{ url_for('nihongo.grammar') }}">Grammar</a>
-<a href="{{ url_for('nihongo.kanji') }}">Kanji</a>
-<a href="{{ url_for('nihongo.vocab') }}">Vocab</a>
+<a href="{{ url_for('nihongo.home') }}">Kanji</a>
+<a href="{{ url_for('nihongo.home') }}">Vocab</a>
 {% endblock %}
 
 {% block body %}

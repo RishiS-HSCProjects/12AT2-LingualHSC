@@ -1,0 +1,88 @@
+class HomeConfig:
+    def __init__(self) -> None:
+        self.build: list["HomeSection"] = []
+
+    def register_section(self, section: "HomeSection"):
+        """ Registers section to config in order of registration. """
+        self.build.append(section)
+
+    def get_build(self) -> list["HomeSection"]:
+        return self.build
+
+    def add_separator(self):
+        self.build.append(None) # type: ignore -> None elements become separators.
+    
+
+class HomeSection:
+    def __init__(
+        self,
+        title: str = '',
+    ) -> None:
+        self.title: str = title
+        self.items: list["HomeItem"] = []
+    
+    def add_items(self, *items: "HomeItem"):
+        for item in items:
+            if not isinstance(item, HomeItem):
+                raise HomeConfigException("Attempted to add item of type " + str(type(item)) + ". home_config::HomeItem expected.")
+        
+        self.items.extend([*items])
+
+class HomeBanner (HomeSection):
+    
+    def __init__(self, content: str = "") -> None:
+        super().__init__()
+        self.content: str = content
+
+class HomeItem :
+    def __init__(self) -> None:
+        self.classes: str = "" # Custom CSS classes to add to the item container.
+
+    def add_classes(self, *classes: str) -> "HomeItem":
+        self.classes += " " + " ".join(classes)
+        return self
+
+class ItemParagraph (HomeItem):
+    content = ""
+
+    def __init__(
+        self,
+        content: str = ''
+    ) -> None:
+        super().__init__()
+        self.content = content
+
+class ItemBox(HomeItem):
+    def __init__(
+        self,
+        title: str,
+        body: str,
+        buttons: list["ItemBox.BoxButton"] = [],
+        on_click: str = None # type: ignore -> URL to open when box is clicked.
+    ) -> None:
+        super().__init__()
+        self.title = title
+        self.body = body
+        self.buttons: list["ItemBox.BoxButton"] = list(buttons)
+        self.on_click = on_click
+
+        if on_click: self.add_classes("clickable")
+
+    class BoxButton:
+        def __init__(self, text: str, link: str) -> None:
+            self.text = text
+            self.link = link
+
+    def add_buttons(self, buttons: list["BoxButton"]) -> "ItemBox":
+        for button in buttons:
+            if not isinstance(button, self.BoxButton):
+                raise HomeConfigException(
+                    f"Attempted to add button of type {type(button)}. home_config::ItemBox::BoxButton expected."
+                )
+        self.buttons.extend(buttons)
+        return self
+
+class HomeConfigException (Exception):
+    """ Exception called during home config setup. """
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)

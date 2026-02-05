@@ -140,7 +140,7 @@ class BaseLessonProcessor:
     # Cache up to 16 lessons in memory for performance
     # Has the issue of not updating if lesson files change on disk,
     # however, a "cache clear" mechanism can be implemented later.
-    @lru_cache(maxsize=16)
+    # @lru_cache(maxsize=16) todo: enable
     def load(self, slug: str) -> dict:
         if not re.fullmatch(r"[A-Za-z0-9\-]+", slug):
             raise ValueError("Invalid lesson slug.")
