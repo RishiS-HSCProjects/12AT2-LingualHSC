@@ -1,6 +1,6 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
+from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, session, url_for
 from flask_login import current_user, login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
@@ -48,17 +48,74 @@ def home():
         ),
         ItemBox(
             title="Vocab",
-            body="yes Yes yes"
+            body="yes Yes yes",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
+            on_click="#"
         ),
         ItemBox(
             title="Kanji",
-            body="0/XX Kanjis Mastered"
+            body="0/XX Kanjis Mastered",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
         ),
     )
 
     config.register_section(quick_access)
 
-    recent = HomeSection("Recently Viewed") # todo: add recently viewed lessons based on user data
+    config.add_separator()
+
+    # Assuming this is inside a method of a User class
+    recent = HomeSection("Recently Viewed")
+
+    lang_code = Languages.JAPANESE.obj().code
+
+    # Ensure the user's Japanese stats are created if they don't exist
+    if not current_user.get_language_stats(lang_code):
+        current_user.create_language_stats(lang_code)
+
+    recent.add_items(
+        ItemBox(
+            title="Grammar: Te-Form",
+            body="The Basics of Japanese Grammar",
+            buttons=[
+                ItemBox.BoxButton(
+                    text="View",
+                    link=url_for('nihongo.grammar', slug='te-form')
+                )
+            ],
+            on_click=url_for('nihongo.grammar', slug='te-form')
+        ),
+        ItemBox(
+            title="Kanji: Lesson 3",
+            body="Mastering the First 20 Kanji",
+            buttons=[
+                ItemBox.BoxButton(
+                    text="View",
+                    link="#"
+                )
+            ],
+            on_click="#"
+        )
+    )
+
+    config.register_section(recent)
 
     return render_template('home.html', config=config)
 

@@ -1,17 +1,10 @@
-/* ========================================
-   Module Home Styles
-   Using variables from variables.css
-   ======================================== */
-
 #home-container {
     max-width: 95%;
     margin: 0;
     padding: 0;
 }
 
-/* ========================================
-   Banner Section
-   ======================================== */
+/* || Banner */
 .home-banner {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
     color: white;
@@ -23,15 +16,14 @@
     font-size: var(--font-size-header-3);
     font-weight: 500;
     box-shadow: var(--shadow-nav);
+    border-radius: var(--radius-medium);
 }
 
 .home-banner strong {
     font-weight: 700;
 }
 
-/* ========================================
-   Separator
-   ======================================== */
+/* || Separator */
 .home-separator {
     border: none;
     border-top: 2px solid var(--border-subtle);
@@ -39,9 +31,7 @@
     opacity: 0.5;
 }
 
-/* ========================================
-   Section
-   ======================================== */
+/* || Section */
 .home-section {
     margin: 0 auto var(--gap-medium);
     padding: 0 var(--gap-small);
@@ -58,9 +48,7 @@
     display: inline-block;
 }
 
-/* ========================================
-   Section Items Grid
-   ======================================== */
+/* || Section Items Grid */
 .home-section-items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -68,17 +56,13 @@
     margin-top: var(--padding-section);
 }
 
-/* ========================================
-   Item Base
-   ======================================== */
+/* || Item Base */
 .home-item {
     background: var(--bg-card);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-/* ========================================
-   Paragraph Item
-   ======================================== */
+/* || Paragraph Item */
 .home-item-paragraph {
     padding: var(--padding-section);
     background: var(--bg-surface-muted);
@@ -88,9 +72,7 @@
     font-size: var(--font-size-body);
 }
 
-/* ========================================
-   Box Item
-   ======================================== */
+/* || Box Item */
 .home-item-box {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-large);
@@ -115,7 +97,7 @@
     user-select: none;
 }
 
-/* Box Title */
+/* || Box Title */
 .box-title {
     font-size: var(--font-size-header-3);
     font-weight: 600;
@@ -124,7 +106,7 @@
     line-height: 1.3;
 }
 
-/* Box Body */
+/* || Box Body */
 .box-body {
     flex: 1;
     font-size: var(--font-size-body);
@@ -133,14 +115,14 @@
     margin: 0 0 var(--padding-section) 0;
 }
 
-/* Box Buttons Container */
+/* || Box Buttons Container */
 .box-buttons {
     display: flex;
     gap: 0.75rem;
     margin-top: auto;
 }
 
-/* Individual Box Button */
+/* || Individual Box Button */
 .box-button {
     flex: 1;
     padding: 0.75rem 1.25rem;
@@ -174,9 +156,7 @@
     background: var(--color-contrast);
 }
 
-/* ========================================
-   Unknown Item Type
-   ======================================== */
+/* || Unknown Item Type */
 .home-item-unknown {
     padding: var(--padding-section);
     background: var(--bg-block-warning);
@@ -186,11 +166,9 @@
     font-weight: 500;
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
-
-/* Tablet */
+/* || Responsive Breakpoints */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+/* Medium devices */
 @media (max-width: 768px) {
     .home-banner {
         font-size: var(--font-size-header-4);
@@ -215,8 +193,8 @@
     }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
+/* Small devices */
+@media (max-width: 600px) {
     .home-banner {
         font-size: var(--font-size-header-4);
         padding: var(--padding-section) var(--gap-xsmall);

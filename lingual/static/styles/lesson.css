@@ -317,6 +317,8 @@ body {
     transform: rotate(180deg);
 }
 
+/* || Responsive Breakpoints */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 @media (max-width: 1024px) {
     #directory-panel {
         width: 75vw;

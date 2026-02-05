@@ -37,6 +37,9 @@ class User(UserMixin, db.Model):
         if language_code not in self.languages:
             self.languages.append(language_code)
 
+            # Dynamically create stats for the new language
+            self.create_language_stats(language_code)
+
     def get_last_language(self) -> Language | None:
         if self.last_language:
             return Languages.get_language_by_code(self.last_language)
@@ -51,6 +54,7 @@ class User(UserMixin, db.Model):
     def remove_language(self, language_code: str):
         if language_code in self.languages:
             self.languages.remove(language_code)
+        self.remove_language_stats(language_code)
 
     def get_language_codes(self) -> list[str]:
         return self.languages
@@ -72,7 +76,43 @@ class User(UserMixin, db.Model):
         s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
         expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp()
         return s.dumps({'user_id': self.id, 'expires_at': expires_at})
-    
+
+    def create_language_stats(self, language_code: str):
+        # Dynamically create stats for any language
+        if language_code == "jp":
+            # Check if stats already exist for this user in the database
+            existing_stats = db.session.query(JapaneseStats).filter_by(user_id=self.id).first()
+
+            if not existing_stats:
+                # If not found, create new stats for the user
+                japanese_stats = JapaneseStats(user_id=self.id) # type: ignore
+                db.session.add(japanese_stats) # Add to session so it gets an ID
+                db.session.commit() # Commit the changes to the database
+
+    def remove_language_stats(self, language_code: str):
+        # Dynamically remove stats for any language
+        if language_code == "jp" and hasattr(self, "jp_stats"):
+            db.session.delete(self.jp_stats)  # type: ignore
+
+    def get_language_stats(self, language_code: str):
+        if not Languages.get_language_by_code(language_code):  # Validate language code
+            raise ValueError(f"Language code '{language_code}' does not exist.")
+        
+        stats_attr = f"{language_code}_stats"
+        
+        return getattr(self, stats_attr, None)
+
+    def reset_stats(self):
+        # Reset all user stats related to language learning
+        for lang_code in self.languages:
+            self.remove_language_stats(lang_code)
+
+    def delete(self):
+        # Delete associated language stats first to maintain referential integrity
+        for lang_code in self.languages:
+            self.remove_language_stats(lang_code)
+        db.session.delete(self)
+
     @staticmethod
     def verify_reset_token(token):
         s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
@@ -83,5 +123,160 @@ class User(UserMixin, db.Model):
             return db.session.get(User, data['user_id'])
         except Exception:
             return None
+
+class LanguageStatsBase(db.Model):
+    __abstract__ = True
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(
+        db.ForeignKey("user.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+        index=True
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        default=lambda: datetime.now(timezone.utc)
+    )
+
+    updated_at: Mapped[datetime] = mapped_column(
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc)
+    )
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat()
+        }
+
+class JapaneseStats(LanguageStatsBase):
+    __tablename__ = "jp_stats"
+
+    # recent_new_kanji will store the list of kanji characters the user has recently added
+    # to their learned list which they haven't learned before. The order is static, showing
+    # the most recently added kanji at the end of the list.
+    kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list)
+
+    # kanji_practised will store the list of kanji characters the user has practiced,
+    # in the order they were last practiced. This allows features like "review old kanji"
+    # or "see recently practiced kanji".
+    kanji_practised: Mapped[list[str]] = mapped_column(JSON, default=list)
+
+    # Relationship back to User
+    user = db.relationship(
+        "User",
+        backref=db.backref(
+            "jp_stats",
+            uselist=False,
+            passive_deletes=True
+        )
+    )
+
+    def add_kanji_learned(self, kanji: str):
+        """
+        Add a kanji to the learned list if it's not already there.
         
-    
+        Results in the kanji being added to the end of the list, indicating it was recently learned.
+        """
+        if kanji not in self.kanji_learned:
+            self.kanji_learned.append(kanji)
+
+    def remove_kanji_learned(self, kanji: str):
+        """
+        Remove a kanji from the learned list if it exists.
+
+        Args:
+            kanji (str): The kanji character to be removed from the learned list.
+        """
+        if kanji in self.kanji_learned:
+            self.kanji_learned.remove(kanji)
+
+    def get_kanji_learned(self) -> list[str]:
+        """
+        Retrieve the list of kanji characters that the user has learned.
+
+        Returns:
+            list[str]: A list of learned kanji characters.
+        """
+        return self.kanji_learned
+
+    def add_kanji_practised(self, kanji: str):
+        """
+        Remove the kanji from the practised list if it already exists to avoid duplicates,
+        then add it to the end of the practised list to indicate it was recently practiced.
+
+        Args:
+            kanji (str): The kanji character to be added to the practiced list.
+        """
+        if kanji in self.kanji_practised:
+            self.kanji_practised.remove(kanji)
+        self.kanji_practised.append(kanji)
+
+    def remove_kanji_practised(self, kanji: str):
+        """
+        Remove a kanji from the practiced list if it exists.
+
+        Args:
+            kanji (str): The kanji character to be removed from the practiced list.
+        """
+        if kanji in self.kanji_practised:
+            self.kanji_practised.remove(kanji)
+
+    def get_kanji_practised(self) -> list[str]:
+        """
+        Retrieve the list of kanji characters that the user has practiced.
+        
+        More recently practiced kanji will be towards the end of the list.
+        """
+        return self.kanji_practised
+
+    def is_kanji_practiced(self, kanji: str) -> bool:
+        """
+        Check if a kanji has been practiced.
+
+        Args:
+            kanji (str): The kanji character to check.
+        """
+        return kanji in self.kanji_practised
+
+    def is_kanji_learned(self, kanji: str) -> bool:
+        """
+        Check if a kanji has been learned.
+
+        Args:
+            kanji (str): The kanji character to check.
+
+        Returns:
+            bool: True if the kanji is in the learned list, False otherwise.
+        """
+        return kanji in self.kanji_learned
+
+    def clear_practised_kanji(self):
+        """
+        Clears the entire list of practiced kanji. 
+
+        Warning: This will remove all kanji from the practiced list!
+        """
+        self.kanji_practised = []
+
+    def clear_kanji(self):
+        """
+        Clears the entire list of learned kanji. 
+
+        Warning: This will remove all kanji from the learned list!
+        """
+        self.kanji_learned = []
+        self.kanji_practised = []
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "kanji_learned": self.kanji_learned,
+            "kanji_practised": self.kanji_practised,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat()
+        }

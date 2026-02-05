@@ -1,1022 +1,203 @@
-[
-  {
-    "character": "日",
-    "type": "active"
-  },
-  {
-    "character": "一",
-    "type": "active"
-  },
-  {
-    "character": "国",
-    "type": "active"
-  },
-  {
-    "character": "人",
-    "type": "active"
-  },
-  {
-    "character": "年",
-    "type": "active"
-  },
-  {
-    "character": "大",
-    "type": "active"
-  },
-  {
-    "character": "十",
-    "type": "active"
-  },
-  {
-    "character": "二",
-    "type": "active"
-  },
-  {
-    "character": "本",
-    "type": "active"
-  },
-  {
-    "character": "中",
-    "type": "active"
-  },
-  {
-    "character": "長",
-    "type": "active"
-  },
-  {
-    "character": "出",
-    "type": "active"
-  },
-  {
-    "character": "三",
-    "type": "active"
-  },
-  {
-    "character": "時",
-    "type": "active"
-  },
-  {
-    "character": "行",
-    "type": "active"
-  },
-  {
-    "character": "見",
-    "type": "active"
-  },
-  {
-    "character": "月",
-    "type": "active"
-  },
-  {
-    "character": "分",
-    "type": "active"
-  },
-  {
-    "character": "後",
-    "type": "active"
-  },
-  {
-    "character": "前",
-    "type": "active"
-  },
-  {
-    "character": "生",
-    "type": "active"
-  },
-  {
-    "character": "五",
-    "type": "active"
-  },
-  {
-    "character": "間",
-    "type": "active"
-  },
-  {
-    "character": "上",
-    "type": "active"
-  },
-  {
-    "character": "東",
-    "type": "active"
-  },
-  {
-    "character": "四",
-    "type": "active"
-  },
-  {
-    "character": "今",
-    "type": "active"
-  },
-  {
-    "character": "金",
-    "type": "active"
-  },
-  {
-    "character": "九",
-    "type": "active"
-  },
-  {
-    "character": "入",
-    "type": "active"
-  },
-  {
-    "character": "学",
-    "type": "active"
-  },
-  {
-    "character": "高",
-    "type": "active"
-  },
-  {
-    "character": "円",
-    "type": "active"
-  },
-  {
-    "character": "子",
-    "type": "active"
-  },
-  {
-    "character": "外",
-    "type": "active"
-  },
-  {
-    "character": "八",
-    "type": "active"
-  },
-  {
-    "character": "六",
-    "type": "active"
-  },
-  {
-    "character": "下",
-    "type": "active"
-  },
-  {
-    "character": "来",
-    "type": "active"
-  },
-  {
-    "character": "気",
-    "type": "active"
-  },
-  {
-    "character": "小",
-    "type": "active"
-  },
-  {
-    "character": "七",
-    "type": "active"
-  },
-  {
-    "character": "山",
-    "type": "active"
-  },
-  {
-    "character": "話",
-    "type": "active"
-  },
-  {
-    "character": "女",
-    "type": "active"
-  },
-  {
-    "character": "北",
-    "type": "active"
-  },
-  {
-    "character": "午",
-    "type": "active"
-  },
-  {
-    "character": "百",
-    "type": "active"
-  },
-  {
-    "character": "書",
-    "type": "active"
-  },
-  {
-    "character": "先",
-    "type": "active"
-  },
-  {
-    "character": "名",
-    "type": "active"
-  },
-  {
-    "character": "川",
-    "type": "active"
-  },
-  {
-    "character": "千",
-    "type": "active"
-  },
-  {
-    "character": "水",
-    "type": "active"
-  },
-  {
-    "character": "半",
-    "type": "active"
-  },
-  {
-    "character": "男",
-    "type": "active"
-  },
-  {
-    "character": "西",
-    "type": "active"
-  },
-  {
-    "character": "電",
-    "type": "active"
-  },
-  {
-    "character": "校",
-    "type": "active"
-  },
-  {
-    "character": "語",
-    "type": "active"
-  },
-  {
-    "character": "土",
-    "type": "active"
-  },
-  {
-    "character": "木",
-    "type": "active"
-  },
-  {
-    "character": "文",
-    "type": "active"
-  },
-  {
-    "character": "車",
-    "type": "active"
-  },
-  {
-    "character": "何",
-    "type": "active"
-  },
-  {
-    "character": "南",
-    "type": "active"
-  },
-  {
-    "character": "万",
-    "type": "active"
-  },
-  {
-    "character": "毎",
-    "type": "active"
-  },
-  {
-    "character": "白",
-    "type": "active"
-  },
-  {
-    "character": "天",
-    "type": "active"
-  },
-  {
-    "character": "母",
-    "type": "active"
-  },
-  {
-    "character": "火",
-    "type": "active"
-  },
-  {
-    "character": "右",
-    "type": "active"
-  },
-  {
-    "character": "読",
-    "type": "active"
-  },
-  {
-    "character": "友",
-    "type": "active"
-  },
-  {
-    "character": "左",
-    "type": "active"
-  },
-  {
-    "character": "休",
-    "type": "active"
-  },
-  {
-    "character": "父",
-    "type": "active"
-  },
-  {
-    "character": "雨",
-    "type": "active"
-  },
-  {
-    "character": "買",
-    "type": "active"
-  },
-  {
-    "character": "店",
-    "type": "active"
-  },
-  {
-    "character": "足",
-    "type": "active"
-  },
-  {
-    "character": "手",
-    "type": "active"
-  },
-  {
-    "character": "目",
-    "type": "active"
-  },
-  {
-    "character": "口",
-    "type": "active"
-  },
-  {
-    "character": "週",
-    "type": "active"
-  },
-  {
-    "character": "駅",
-    "type": "active"
-  },
-  {
-    "character": "食",
-    "type": "active"
-  },
-  {
-    "character": "飲",
-    "type": "active"
-  },
-  {
-    "character": "新",
-    "type": "active"
-  },
-  {
-    "character": "古",
-    "type": "active"
-  },
-  {
-    "character": "青",
-    "type": "active"
-  },
-  {
-    "character": "赤",
-    "type": "active"
-  },
-  {
-    "character": "黒",
-    "type": "active"
-  },
-  {
-    "character": "色",
-    "type": "active"
-  },
-  {
-    "character": "花",
-    "type": "active"
-  },
-  {
-    "character": "魚",
-    "type": "active"
-  },
-  {
-    "character": "犬",
-    "type": "active"
-  },
-  {
-    "character": "猫",
-    "type": "active"
-  },
-  {
-    "character": "鳥",
-    "type": "active"
-  },
-  {
-    "character": "体",
-    "type": "active"
-  },
-  {
-    "character": "耳",
-    "type": "active"
-  },
-  {
-    "character": "頭",
-    "type": "active"
-  },
-  {
-    "character": "顔",
-    "type": "active"
-  },
-  {
-    "character": "力",
-    "type": "active"
-  },
-  {
-    "character": "音",
-    "type": "active"
-  },
-  {
-    "character": "楽",
-    "type": "active"
-  },
-  {
-    "character": "歌",
-    "type": "active"
-  },
-  {
-    "character": "聞",
-    "type": "active"
-  },
-  {
-    "character": "立",
-    "type": "active"
-  },
-  {
-    "character": "作",
-    "type": "active"
-  },
-  {
-    "character": "思",
-    "type": "active"
-  },
-  {
-    "character": "持",
-    "type": "active"
-  },
-  {
-    "character": "待",
-    "type": "active"
-  },
-  {
-    "character": "住",
-    "type": "active"
-  },
-  {
-    "character": "使",
-    "type": "active"
-  },
-  {
-    "character": "知",
-    "type": "active"
-  },
-  {
-    "character": "会",
-    "type": "active"
-  },
-  {
-    "character": "言",
-    "type": "active"
-  },
-  {
-    "character": "帰",
-    "type": "active"
-  },
-  {
-    "character": "送",
-    "type": "active"
-  },
-  {
-    "character": "売",
-    "type": "active"
-  },
-  {
-    "character": "貸",
-    "type": "active"
-  },
-  {
-    "character": "借",
-    "type": "active"
-  },
-  {
-    "character": "切",
-    "type": "active"
-  },
-  {
-    "character": "洗",
-    "type": "active"
-  },
-  {
-    "character": "泳",
-    "type": "active"
-  },
-  {
-    "character": "走",
-    "type": "active"
-  },
-  {
-    "character": "起",
-    "type": "active"
-  },
-  {
-    "character": "寝",
-    "type": "active"
-  },
-  {
-    "character": "開",
-    "type": "active"
-  },
-  {
-    "character": "閉",
-    "type": "active"
-  },
-  {
-    "character": "早",
-    "type": "active"
-  },
-  {
-    "character": "夜",
-    "type": "active"
-  },
-  {
-    "character": "朝",
-    "type": "active"
-  },
-  {
-    "character": "昼",
-    "type": "active"
-  },
-  {
-    "character": "晩",
-    "type": "active"
-  },
-  {
-    "character": "春",
-    "type": "active"
-  },
-  {
-    "character": "夏",
-    "type": "active"
-  },
-  {
-    "character": "秋",
-    "type": "active"
-  },
-  {
-    "character": "冬",
-    "type": "active"
-  },
-  {
-    "character": "暑",
-    "type": "active"
-  },
-  {
-    "character": "寒",
-    "type": "active"
-  },
-  {
-    "character": "暖",
-    "type": "active"
-  },
-  {
-    "character": "涼",
-    "type": "active"
-  },
-  {
-    "character": "空",
-    "type": "active"
-  },
-  {
-    "character": "海",
-    "type": "active"
-  },
-  {
-    "character": "風",
-    "type": "active"
-  },
-  {
-    "character": "雪",
-    "type": "active"
-  },
-  {
-    "character": "曇",
-    "type": "active"
-  },
-  {
-    "character": "野",
-    "type": "active"
-  },
-  {
-    "character": "森",
-    "type": "active"
-  },
-  {
-    "character": "林",
-    "type": "active"
-  },
-  {
-    "character": "町",
-    "type": "active"
-  },
-  {
-    "character": "村",
-    "type": "active"
-  },
-  {
-    "character": "市",
-    "type": "active"
-  },
-  {
-    "character": "都",
-    "type": "active"
-  },
-  {
-    "character": "県",
-    "type": "active"
-  },
-  {
-    "character": "道",
-    "type": "active"
-  },
-  {
-    "character": "京",
-    "type": "active"
-  },
-  {
-    "character": "室",
-    "type": "active"
-  },
-  {
-    "character": "家",
-    "type": "active"
-  },
-  {
-    "character": "屋",
-    "type": "active"
-  },
-  {
-    "character": "門",
-    "type": "active"
-  },
-  {
-    "character": "窓",
-    "type": "active"
-  },
-  {
-    "character": "台",
-    "type": "active"
-  },
-  {
-    "character": "場",
-    "type": "active"
-  },
-  {
-    "character": "所",
-    "type": "active"
-  },
-  {
-    "character": "近",
-    "type": "active"
-  },
-  {
-    "character": "遠",
-    "type": "active"
-  },
-  {
-    "character": "多",
-    "type": "active"
-  },
-  {
-    "character": "少",
-    "type": "active"
-  },
-  {
-    "character": "強",
-    "type": "active"
-  },
-  {
-    "character": "弱",
-    "type": "active"
-  },
-  {
-    "character": "好",
-    "type": "active"
-  },
-  {
-    "character": "元",
-    "type": "active"
-  },
-  {
-    "character": "兄",
-    "type": "active"
-  },
-  {
-    "character": "弟",
-    "type": "active"
-  },
-  {
-    "character": "姉",
-    "type": "active"
-  },
-  {
-    "character": "妹",
-    "type": "active"
-  },
-  {
-    "character": "夫",
-    "type": "active"
-  },
-  {
-    "character": "妻",
-    "type": "active"
-  },
-  {
-    "character": "主",
-    "type": "active"
-  },
-  {
-    "character": "親",
-    "type": "active"
-  },
-  {
-    "character": "私",
-    "type": "active"
-  },
-  {
-    "character": "私立",
-    "type": "recognition"
-  },
-  {
-    "character": "自",
-    "type": "active"
-  },
-  {
-    "character": "分野",
-    "type": "recognition"
-  },
-  {
-    "character": "勉強",
-    "type": "active"
-  },
-  {
-    "character": "宿題",
-    "type": "active"
-  },
-  {
-    "character": "質問",
-    "type": "active"
-  },
-  {
-    "character": "答",
-    "type": "active"
-  },
-  {
-    "character": "英",
-    "type": "active"
-  },
-  {
-    "character": "理",
-    "type": "active"
-  },
-  {
-    "character": "科",
-    "type": "active"
-  },
-  {
-    "character": "数",
-    "type": "active"
-  },
-  {
-    "character": "歴史",
-    "type": "active"
-  },
-  {
-    "character": "地理",
-    "type": "active"
-  },
-  {
-    "character": "美術",
-    "type": "active"
-  },
-  {
-    "character": "音楽",
-    "type": "active"
-  },
-  {
-    "character": "体育",
-    "type": "active"
-  },
-  {
-    "character": "図書",
-    "type": "active"
-  },
-  {
-    "character": "館",
-    "type": "active"
-  },
-  {
-    "character": "病",
-    "type": "active"
-  },
-  {
-    "character": "院",
-    "type": "active"
-  },
-  {
-    "character": "医者",
-    "type": "active"
-  },
-  {
-    "character": "薬",
-    "type": "active"
-  },
-  {
-    "character": "全",
-    "type": "active"
-  },
-  {
-    "character": "部",
-    "type": "active"
-  },
-  {
-    "character": "別",
-    "type": "active"
-  },
-  {
-    "character": "特",
-    "type": "active"
-  },
-  {
-    "character": "安",
-    "type": "active"
-  },
-  {
-    "character": "悪",
-    "type": "active"
-  },
-  {
-    "character": "明",
-    "type": "active"
-  },
-  {
-    "character": "暗",
-    "type": "active"
-  },
-  {
-    "character": "広",
-    "type": "active"
-  },
-  {
-    "character": "重",
-    "type": "active"
-  },
-  {
-    "character": "軽",
-    "type": "active"
-  },
-  {
-    "character": "短",
-    "type": "active"
-  },
-  {
-    "character": "低",
-    "type": "active"
-  },
-  {
-    "character": "若",
-    "type": "active"
-  },
-  {
-    "character": "老",
-    "type": "recognition"
-  },
-  {
-    "character": "正",
-    "type": "active"
-  },
-  {
-    "character": "真",
-    "type": "active"
-  },
-  {
-    "character": "同",
-    "type": "active"
-  },
-  {
-    "character": "他",
-    "type": "active"
-  },
-  {
-    "character": "有名",
-    "type": "active"
-  },
-  {
-    "character": "便利",
-    "type": "active"
-  },
-  {
-    "character": "不便",
-    "type": "active"
-  },
-  {
-    "character": "心配",
-    "type": "active"
-  },
-  {
-    "character": "安心",
-    "type": "active"
-  },
-  {
-    "character": "心",
-    "type": "active"
-  },
-  {
-    "character": "配",
-    "type": "recognition"
-  },
-  {
-    "character": "映画",
-    "type": "active"
-  },
-  {
-    "character": "写真",
-    "type": "active"
-  },
-  {
-    "character": "絵",
-    "type": "active"
-  },
-  {
-    "character": "画",
-    "type": "recognition"
-  },
-  {
-    "character": "真剣",
-    "type": "recognition"
-  },
-  {
-    "character": "試合",
-    "type": "active"
-  },
-  {
-    "character": "試験",
-    "type": "active"
-  },
-  {
-    "character": "練習",
-    "type": "active"
-  },
-  {
-    "character": "習",
-    "type": "recognition"
-  },
-  {
-    "character": "運動",
-    "type": "active"
-  },
-  {
-    "character": "動",
-    "type": "recognition"
-  },
-  {
-    "character": "仕事",
-    "type": "active"
-  },
-  {
-    "character": "事故",
-    "type": "recognition"
-  },
-  {
-    "character": "用事",
-    "type": "active"
-  },
-  {
-    "character": "用",
-    "type": "recognition"
-  },
-  {
-    "character": "旅行",
-    "type": "active"
-  },
-  {
-    "character": "旅",
-    "type": "recognition"
-  },
-  {
-    "character": "予定",
-    "type": "active"
-  },
-  {
-    "character": "定",
-    "type": "recognition"
-  },
-  {
-    "character": "約束",
-    "type": "active"
-  },
-  {
-    "character": "約",
-    "type": "recognition"
-  },
-  {
-    "character": "束",
-    "type": "recognition"
-  }
-]
+{
+	"大": 0,
+	"小": 0,
+	"新": 0,
+	"古": 0,
+	"高": 0,
+	"安": 0,
+	"多": 0,
+	"少": 0,
+	"長": 0,
+	"近": 0,
+	"広": 0,
+	"楽": 0,
+	"早": 0,
+	"好": 0,
+	"青": 0,
+	"白": 0,
+	"黒": 0,
+	"赤": 0,
+	"正": 1,
+	"茶": 1,
+	"目": 0,
+	"口": 0,
+	"耳": 0,
+	"手": 0,
+	"体": 0,
+	"心": 0,
+	"元": 0,
+	"気": 0,
+	"足": 1,
+	"和": 1,
+	"洋": 1,
+	"神": 1,
+	"様": 1,
+	"私": 0,
+	"家": 0,
+	"族": 0,
+	"父": 0,
+	"母": 0,
+	"兄": 0,
+	"姉": 0,
+	"妹": 0,
+	"弟": 0,
+	"子": 0,
+	"男": 0,
+	"女": 0,
+	"友": 0,
+	"達": 1,
+	"海": 0,
+	"山": 0,
+	"川": 0,
+	"田": 0,
+	"天": 0,
+	"雨": 0,
+	"雪": 0,
+	"花": 0,
+	"春": 0,
+	"夏": 0,
+	"秋": 0,
+	"冬": 0,
+	"地": 1,
+	"空": 1,
+	"島": 1,
+	"一": 0,
+	"二": 0,
+	"三": 0,
+	"四": 0,
+	"五": 0,
+	"六": 0,
+	"七": 0,
+	"八": 0,
+	"九": 0,
+	"十": 0,
+	"百": 0,
+	"千": 0,
+	"万": 0,
+	"人": 0,
+	"才": 0,
+	"円": 0,
+	"番": 0,
+	"本": 0,
+	"員": 1,
+	"仕": 1,
+	"事": 1,
+	"社": 1,
+	"所": 0,
+	"町": 0,
+	"駅": 0,
+	"店": 0,
+	"京": 1,
+	"都": 1,
+	"道": 1,
+	"県": 1,
+	"市": 1,
+	"区": 1,
+	"州": 1,
+	"場": 1,
+	"公": 1,
+	"園": 1,
+	"寺": 1,
+	"屋": 1,
+	"上": 0,
+	"下": 0,
+	"中": 0,
+	"外": 0,
+	"左": 0,
+	"右": 0,
+	"東": 0,
+	"西": 0,
+	"南": 0,
+	"北": 0,
+	"学": 0,
+	"校": 0,
+	"勉": 0,
+	"強": 0,
+	"国": 0,
+	"語": 0,
+	"文": 0,
+	"字": 0,
+	"漢": 1,
+	"英": 1,
+	"料": 1,
+	"理": 1,
+	"化": 1,
+	"室": 1,
+	"日": 0,
+	"月": 0,
+	"火": 0,
+	"水": 0,
+	"木": 0,
+	"金": 0,
+	"土": 0,
+	"曜": 0,
+	"毎": 0,
+	"年": 0,
+	"週": 0,
+	"間": 0,
+	"朝": 0,
+	"昼": 0,
+	"晩": 0,
+	"夜": 0,
+	"午": 0,
+	"前": 0,
+	"後": 0,
+	"時": 0,
+	"分": 0,
+	"半": 0,
+	"今": 0,
+	"先": 0,
+	"夕": 1,
+	"明": 1,
+	"電": 0,
+	"車": 0,
+	"旅": 1,
+	"行": 0,
+	"来": 0,
+	"帰": 0,
+	"着": 0,
+	"乗": 0,
+	"入": 0,
+	"出": 0,
+	"売": 0,
+	"買": 0,
+	"持": 0,
+	"見": 0,
+	"読": 0,
+	"書": 0,
+	"聞": 0,
+	"話": 0,
+	"会": 0,
+	"知": 0,
+	"思": 0,
+	"言": 0,
+	"立": 0,
+	"使": 0,
+	"作": 0,
+	"住": 0,
+	"生": 0,
+	"食": 0,
+	"飲": 0,
+	"休": 0,
+	"洗": 0,
+	"運": 1,
+	"働": 1,
+	"通": 1,
+	"歩": 1,
+	"待": 1,
+	"泊": 1,
+	"教": 1,
+	"始": 1,
+	"終": 1,
+	"何": 0,
+	"物": 0,
+	"自": 0,
+	"名": 0,
+	"方": 0,
+	"紙": 0,
+	"全": 1,
+	"活": 1,
+	"飯": 1,
+	"色": 1,
+	"々": 1
+}
