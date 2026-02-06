@@ -1,0 +1,75 @@
+{
+    "id": 510,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/510",
+    "data_updated_at": "2026-02-04T19:46:58.845735Z",
+    "data": {
+        "created_at": "2012-03-01T02:50:26.000000Z",
+        "level": 3,
+        "slug": "方",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%96%B9",
+        "characters": "方",
+        "meanings": [
+            {
+                "meaning": "Direction",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Way",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ほう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "かた",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            66
+        ],
+        "amalgamation_subject_ids": [
+            2612,
+            2701,
+            2716,
+            2717,
+            2766,
+            2853,
+            2858,
+            2897,
+            3216,
+            3419,
+            3437,
+            3450,
+            3499,
+            3555,
+            3773,
+            4030,
+            4106,
+            7463,
+            8300,
+            9077
+        ],
+        "visually_similar_subject_ids": [
+            495
+        ],
+        "meaning_mnemonic": "The radical and the kanji for <kanji>direction</kanji> are the same! Huzzah!\n\nThere is also another meaning too, though. This can also mean <kanji>way</kanji> as well. Think of it this way: When you move in one direction in your life, you are developing your own way. \"The way of [your name here].\"",
+        "meaning_hint": "The only direction you need to go in is forward, it's always the right way.",
+        "reading_mnemonic": "What <kanji>direction</kanji> do you always know? Which direction do you always want to go? <reading>Ho</reading>me (ほう). Something about your home always stays with you, no matter how far away you go. So if you're lost and you don't know which direction to go, just think of home!",
+        "reading_hint": "Close your eyes and picture your home in your mind. Can you tell which direction it is from where you are?",
+        "lesson_position": 44,
+        "spaced_repetition_system_id": 1
+    }
+}

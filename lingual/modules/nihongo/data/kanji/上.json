@@ -1,0 +1,109 @@
+{
+    "id": 450,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/450",
+    "data_updated_at": "2026-02-04T19:17:25.557896Z",
+    "data": {
+        "created_at": "2012-02-28T01:46:31.000000Z",
+        "level": 1,
+        "slug": "上",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%B8%8A",
+        "characters": "上",
+        "meanings": [
+            {
+                "meaning": "Above",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Up",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Over",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "じょう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "うえ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "あ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "のぼ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "うわ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "かみ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            10,
+            1
+        ],
+        "amalgamation_subject_ids": [
+            2489,
+            2490,
+            2491,
+            2492,
+            2539,
+            2817,
+            2939,
+            3304,
+            3441,
+            3461,
+            3745,
+            4051,
+            4743,
+            4825,
+            4910,
+            5841,
+            6038,
+            6086,
+            6544,
+            7087,
+            7459,
+            7577,
+            7598,
+            7968,
+            8959,
+            9238
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "You find a <radical>toe</radical> on the <radical>ground</radical>. It's weird, because it's <kanji>above</kanji> the ground, not where toes belong.",
+        "meaning_hint": "Focus your imagination on how body parts should be buried, not above ground like this. Sure, finding a toe is a little strange, but finding a toe above the ground? Downright silly.",
+        "reading_mnemonic": "Of course when you find a toe <kanji>above</kanji> the ground, you want to know where the toe came from. When you examine it, you see a name written on there. This toe belongs to the local clumsy farmhand, <reading>Joe</reading> (じょう).",
+        "reading_hint": "Try to remember Joe, the local farmhand. He is a recurring character that will come up anytime the reading for a kanji is じょう.\n\nHe is a very big man, and he wears farmer's clothes. It's important to imagine your version of Joe as very big, because it will help us to differentiate him from Jo-Anne, who is the character associated with the similar, but shorter reading (and character) じょ. Although Joe will develop as you go through all the じょう reading kanji, for now, just imagine him as a big, kinda slow dude, who works for a local farmer. Also, he only has nine or fewer toes, apparently.",
+        "lesson_position": 35,
+        "spaced_repetition_system_id": 2
+    }
+}

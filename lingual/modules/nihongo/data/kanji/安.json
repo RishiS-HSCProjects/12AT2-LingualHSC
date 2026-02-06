@@ -1,0 +1,64 @@
+{
+    "id": 612,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/612",
+    "data_updated_at": "2025-11-28T01:13:50.986424Z",
+    "data": {
+        "created_at": "2012-03-08T04:46:03.000000Z",
+        "level": 6,
+        "slug": "安",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%AE%89",
+        "characters": "安",
+        "meanings": [
+            {
+                "meaning": "Relax",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Cheap",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "あん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "やす",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            78,
+            19
+        ],
+        "amalgamation_subject_ids": [
+            2857,
+            2859,
+            2860,
+            2861,
+            2862,
+            3456,
+            4549,
+            6713,
+            6739,
+            8708
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "With a <radical>roof</radical> over her head, a <radical>woman</radical> can <kanji>relax</kanji>. She doesn't have to worry about rain or snow or finding a place to sleep. The roof also happened to be super <kanji>cheap</kanji>, so she can even relax about her finances.",
+        "meaning_hint": "Picture the super relaxed woman lounging under her cheap but sturdy roof. Ah, she doesn't have a care in the world!",
+        "reading_mnemonic": "As she <kanji>relax</kanji>es, she pulls out the <kanji>cheap</kanji>est, most relaxing food in the world: <reading>an</reading>chovies (あん).",
+        "reading_hint": "Think about it: anchovies cost next to nothing, they come in cans, you don't have to cook them or cut them up. You just munch them down. There's nothing more cheap and relaxing than eating anchovies under your own roof.",
+        "lesson_position": 121,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,65 @@
+[
+    {
+        "id": 643,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/643",
+        "data_updated_at": "2025-11-11T03:16:41.871147Z",
+        "data": {
+            "created_at": "2012-03-08T23:59:07.000000Z",
+            "level": 6,
+            "slug": "茶",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E8%8C%B6",
+            "characters": "茶",
+            "meanings": [
+                {
+                    "meaning": "Tea",
+                    "primary": true,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "ちゃ",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "さ",
+                    "primary": false,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                }
+            ],
+            "component_subject_ids": [
+                90,
+                8764,
+                130
+            ],
+            "amalgamation_subject_ids": [
+                2921,
+                2922,
+                3120,
+                3389,
+                4023,
+                4088,
+                5781,
+                8211,
+                8383,
+                9000,
+                9369
+            ],
+            "visually_similar_subject_ids": [
+                1469
+            ],
+            "meaning_mnemonic": "If you can steal the <radical>flowers</radical> that adorn a <radical>hat</radical> worn by an <radical>angel</radical>, you can use them to make delicious <kanji>tea</kanji>. Naturally, angels decorate their hats with only the most aromatic and delicious flowers fit for brewing.",
+            "meaning_hint": "Imagine wrestling with an angel for its flowery hat, then running home with it. Success! Oh yes, this tea is going to taste… <em>heavenly</em>. *rimshot*",
+            "reading_mnemonic": "After brewing the <kanji>tea</kanji>, you look at the hat again and find a nametag inside that says <reading>Cha</reading>d (ちゃ). You decide that from now on this tea variety will be known as Chad tea, in honor of Chad.",
+            "reading_hint": "For some reason knowing the angel's name makes you feel extra guilty. Chad the angel, flowerless and hatless... Oh well. At least its name lives on in this heavenly tea.",
+            "lesson_position": 31,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

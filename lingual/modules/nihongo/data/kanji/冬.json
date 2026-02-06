@@ -1,0 +1,52 @@
+{
+    "id": 516,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/516",
+    "data_updated_at": "2025-10-15T19:00:27.309779Z",
+    "data": {
+        "created_at": "2012-03-01T03:46:35.000000Z",
+        "level": 3,
+        "slug": "冬",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%86%AC",
+        "characters": "冬",
+        "meanings": [
+            {
+                "meaning": "Winter",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ふゆ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "とう",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            60,
+            123
+        ],
+        "amalgamation_subject_ids": [
+            2622,
+            3415,
+            6542
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "You’ve got a <radical>winter</radical> with lots of <radical>ice</radical>. But doesn't any winter have lots of ice? Exactly. That's why this is just <kanji>winter</kanji>.",
+        "meaning_hint": "You go outside. There's ice everywhere. It's freezing cold. Yep, this is definitely winter.",
+        "reading_mnemonic": "<kanji>Winter</kanji> is also the time of year you give out presents: \"One fu' you, one fu' you and… one <reading>fu' you</reading> (ふゆ)!\"",
+        "reading_hint": "Your pronunciation might be a little weird. But that’s okay. People still love your presents, and the way you say \"fu’ you!\" ",
+        "lesson_position": 49,
+        "spaced_repetition_system_id": 1
+    }
+}

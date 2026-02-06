@@ -4,7 +4,6 @@ from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect,
 from flask_login import current_user, login_required
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
-from lingual.utils.lessons.lesson_processor import Lesson
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -29,7 +28,6 @@ def home():
     config.register_section(welcome_banner)
 
     quick_access = HomeSection("Quick Access")
-
     quick_access.add_items(
         ItemBox(
             title="Grammar",
@@ -183,3 +181,12 @@ def get_quizzes(lesson_slug):
 
     return jsonify(data)
     
+@nihongo_bp.route('/kanji/')
+@login_required
+def kanji():
+    from lingual.modules.nihongo.utils.kanji_processor import Kanji
+    for k, t in Kanji.get_prescribed_kanji():
+        if not Kanji.is_cache_available(k):
+            Kanji.get_kanji(k) # This will fetch and cache the kanji data
+            current_app.logger.info(f"Updated cache for kanji: {k}")
+    return render_template('kanji.html')

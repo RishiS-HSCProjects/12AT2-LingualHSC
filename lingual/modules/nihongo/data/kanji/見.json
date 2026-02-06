@@ -1,0 +1,80 @@
+[
+    {
+        "id": 558,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/558",
+        "data_updated_at": "2026-01-12T00:59:34.993895Z",
+        "data": {
+            "created_at": "2012-03-02T18:11:17.000000Z",
+            "level": 4,
+            "slug": "見",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E8%A6%8B",
+            "characters": "見",
+            "meanings": [
+                {
+                    "meaning": "See",
+                    "primary": true,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "み",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "kunyomi"
+                },
+                {
+                    "reading": "けん",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "onyomi"
+                }
+            ],
+            "component_subject_ids": [
+                91
+            ],
+            "amalgamation_subject_ids": [
+                2696,
+                2697,
+                2698,
+                2699,
+                2700,
+                2701,
+                2702,
+                3136,
+                3317,
+                3453,
+                3476,
+                3509,
+                3554,
+                5025,
+                5242,
+                5404,
+                5790,
+                5957,
+                6148,
+                6935,
+                7237,
+                7540,
+                7600,
+                7627,
+                7677,
+                7747,
+                7864
+            ],
+            "visually_similar_subject_ids": [
+                1025,
+                559
+            ],
+            "meaning_mnemonic": "The radical <radical>see</radical> and the kanji <kanji>see</kanji> are exactly the same!",
+            "meaning_hint": "Make sure you're studying your radicals. If you do, you'll know a lot of kanji as well, almost magically!",
+            "reading_mnemonic": "You see something. It's walking towards you, but you need to see better. When the person comes close, you realize \"That person is <reading>me</reading> (み)!\"",
+            "reading_hint": "The struggling to see bit is pretty important — make sure that you slowly see a little better and better as the person comes closer, but it's difficult the whole time (struggles are good for memory). Then, it starts to become more and more clear, and you start saying \"that can't be <reading>me</reading>. No way it's me...\" When the person comes up to you (the person, being you) you learn about parallel universes and other fabulous things. Still, the whole time you can't stop thinking about how \"this person looks just like me... no, this person is me!\"",
+            "lesson_position": 73,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

@@ -1,0 +1,85 @@
+{
+    "id": 799,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/799",
+    "data_updated_at": "2025-12-31T22:15:32.161777Z",
+    "data": {
+        "created_at": "2012-04-26T06:15:05.000000Z",
+        "level": 11,
+        "slug": "神",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%A5%9E",
+        "characters": "神",
+        "meanings": [
+            {
+                "meaning": "God",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Spirit",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Mysterious",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "しん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "じん",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "かみ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            80,
+            190
+        ],
+        "amalgamation_subject_ids": [
+            3297,
+            3298,
+            3299,
+            3570,
+            3872,
+            5187,
+            5350,
+            5351,
+            5773,
+            5978,
+            7583,
+            8251,
+            8337,
+            8705
+        ],
+        "visually_similar_subject_ids": [
+            1047,
+            2317,
+            1617,
+            1430,
+            8885
+        ],
+        "meaning_mnemonic": "Your <radical>spirit</radical> should feel <radical>humble</radical> before a <kanji>god</kanji>'s <kanji>spirit</kanji>. You never really feel humble in front of anyone else, but if you meet a god's spirit… Well, you should probably lower yourself appropriately. Gods have powerful spirits.",
+        "meaning_hint": "Imagine a spirit appearing before you. It's a god. You should be as humble as possible. Out of respect and also because you don't want to be cursed or something.",
+        "reading_mnemonic": "When you meet a <kanji>god</kanji>'s <kanji>spirit</kanji>, you need to get down on your <reading>shin</reading>s (しん). Get down on your ankles? No, not low enough. Knees? No, no, get your shins flat on the ground to show how humble you really are. Luckily, you're wearing <reading>jean</reading>s (じん), so at least that will stop your poor shins getting chafed!",
+        "reading_hint": "If you don't get down on your shins before god's spirit, it could take them away. Even your jeans couldn't protect you then. You don't want to live a shin-less life, do you?",
+        "lesson_position": 39,
+        "spaced_repetition_system_id": 1
+    }
+}

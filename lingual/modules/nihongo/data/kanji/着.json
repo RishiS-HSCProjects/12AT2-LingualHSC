@@ -1,0 +1,78 @@
+{
+    "id": 846,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/846",
+    "data_updated_at": "2025-12-31T22:02:15.732560Z",
+    "data": {
+        "created_at": "2012-05-01T19:57:49.000000Z",
+        "level": 12,
+        "slug": "着",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%9D%80",
+        "characters": "着",
+        "meanings": [
+            {
+                "meaning": "Wear",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Arrive",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ちゃく",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "き",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "つ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            136,
+            53
+        ],
+        "amalgamation_subject_ids": [
+            3393,
+            3394,
+            3395,
+            3396,
+            3397,
+            3798,
+            3885,
+            5037,
+            6068,
+            6571,
+            7062,
+            7394,
+            8225,
+            8817
+        ],
+        "visually_similar_subject_ids": [
+            889,
+            1199,
+            1235
+        ],
+        "meaning_mnemonic": "There are <radical>sheep</radical> right before your <radical>eye</radical>s, because they just love what you <kanji>wear</kanji>. It's a little known fact that sheep are fashionistas, and they <kanji>arrive</kanji> daily to admire your style. These sheep are so stylish they wear their tail to one side - in the latest fashion (check out the sheep radical - the tail is sweeping stylishly to the left!).",
+        "meaning_hint": "Imagine all the chic sheep lining up to check out your style, with their carefully coiffed left-hanging tails!",
+        "reading_mnemonic": "More sheep <kanji>arrive</kanji> every day to admire the clothes you're <kanji>wear</kanji>ing. You use a <reading>chalk</reading> (ちゃく) board to keep count of how many sheep come by each day.",
+        "reading_hint": "Imagine yourself chalking up a line on a chalk board for each sheep that comes to admire you.",
+        "lesson_position": 57,
+        "spaced_repetition_system_id": 1
+    }
+}

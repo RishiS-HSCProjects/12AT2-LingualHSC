@@ -1,0 +1,92 @@
+{
+    "id": 487,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/487",
+    "data_updated_at": "2025-10-01T06:09:50.175411Z",
+    "data": {
+        "created_at": "2012-02-29T00:58:32.000000Z",
+        "level": 2,
+        "slug": "本",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%9C%AC",
+        "characters": "本",
+        "meanings": [
+            {
+                "meaning": "Book",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Origin",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Real",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Main",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ほん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "もと",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            50
+        ],
+        "amalgamation_subject_ids": [
+            2569,
+            2570,
+            2677,
+            2679,
+            2833,
+            2856,
+            2865,
+            3108,
+            3164,
+            3210,
+            3329,
+            3336,
+            3642,
+            3670,
+            3712,
+            3911,
+            4429,
+            4680,
+            4876,
+            4877,
+            5911,
+            6244,
+            6832,
+            6881,
+            7149,
+            7766,
+            8031,
+            8736,
+            8749
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The kanji and the radical are the same, so remembering the meaning of this kanji is as simple as making sure you know the radical for <radical>book</radical> first! If you know the radical, you know this kanji means <kanji>book</kanji> as well.\n\nTake note that the second, third, and fourth meanings of this kanji are <kanji>origin</kanji>, <kanji>real</kanji>, and <kanji>main</kanji>. You can figure this out by thinking about how books mainly have their origins in real life.",
+        "meaning_hint": "Make sure you know those radicals, yo! And good luck with all the meanings (sorry sorry sorry).",
+        "reading_mnemonic": "<kanji>Book</kanji>s are one of the best ways to <reading>hone</reading> (ほん) your intellect, you know?",
+        "reading_hint": "Just think about books and how you use them to hone your skills. Or read a book about honing things. Like swords.",
+        "lesson_position": 60,
+        "spaced_repetition_system_id": 2
+    }
+}

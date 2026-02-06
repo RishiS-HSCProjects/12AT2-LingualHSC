@@ -1,0 +1,83 @@
+{
+    "id": 669,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/669",
+    "data_updated_at": "2025-12-31T22:08:13.714269Z",
+    "data": {
+        "created_at": "2012-03-27T06:50:00.000000Z",
+        "level": 7,
+        "slug": "理",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%90%86",
+        "characters": "理",
+        "meanings": [
+            {
+                "meaning": "Reason",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "り",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ことわり",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            48,
+            125
+        ],
+        "amalgamation_subject_ids": [
+            2931,
+            2973,
+            2974,
+            3709,
+            3710,
+            3902,
+            3903,
+            3907,
+            4328,
+            4329,
+            4423,
+            4466,
+            4478,
+            4719,
+            4854,
+            4860,
+            4964,
+            5112,
+            5127,
+            5425,
+            5792,
+            7196,
+            7547,
+            7639,
+            7862,
+            8064,
+            8065,
+            8292,
+            8682,
+            9005
+        ],
+        "visually_similar_subject_ids": [
+            597,
+            1211,
+            1725
+        ],
+        "meaning_mnemonic": "The <radical>king</radical>'s <radical>village</radical> is the <kanji>reason</kanji> he's king. Without the village there would be no reason to have a king in the first place.",
+        "meaning_hint": "If a king has no one to rule then he has no reason to exist.",
+        "reading_mnemonic": "You can't have <kanji>reason</kanji> without <reading>re</reading> (り).",
+        "reading_hint": "Just like you can't have a king without a village, you can't have reason without re.",
+        "lesson_position": 49,
+        "spaced_repetition_system_id": 1
+    }
+}

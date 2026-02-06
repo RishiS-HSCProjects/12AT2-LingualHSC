@@ -1,0 +1,105 @@
+{
+    "id": 599,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/599",
+    "data_updated_at": "2026-01-05T08:21:15.235162Z",
+    "data": {
+        "created_at": "2012-03-06T07:41:36.000000Z",
+        "level": 5,
+        "slug": "学",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%AD%A6",
+        "characters": "学",
+        "meanings": [
+            {
+                "meaning": "Study",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Learn",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Learning",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "がく",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "まな",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            8769,
+            34
+        ],
+        "amalgamation_subject_ids": [
+            2787,
+            2788,
+            2789,
+            2790,
+            2791,
+            2792,
+            2793,
+            2920,
+            2951,
+            2973,
+            3002,
+            3032,
+            3033,
+            3068,
+            3166,
+            3379,
+            3436,
+            3449,
+            3451,
+            3469,
+            3474,
+            3852,
+            3918,
+            4029,
+            4059,
+            4216,
+            4344,
+            4354,
+            4851,
+            4954,
+            5114,
+            5440,
+            6575,
+            6754,
+            7345,
+            7568,
+            7637,
+            8064,
+            8595,
+            8666,
+            8668,
+            8696,
+            8711,
+            8745
+        ],
+        "visually_similar_subject_ids": [
+            545
+        ],
+        "meaning_mnemonic": "You have a wild <radical>viking</radical> <radical>child</radical> you have to take care of. He won't do anything but <kanji>study</kanji>, surprisingly. You can't get him to eat, use the bathroom, or anything else. He just wants to study.",
+        "meaning_hint": "Of course, this isn't what you'd expect of a little viking child. It's the opposite. That's why it's so surprising! He loves to study!",
+        "reading_mnemonic": "This crazy viking child who prefers <kanji>study</kanji> over pillaging (and other viking activities)... the other vikings just stop and <reading>gawk</reading> (がく) at him when they walk by.",
+        "reading_hint": "You should tell the other vikings to stop gawking at this child. Just because he likes to study doesn't mean he's a bad viking...",
+        "lesson_position": 64,
+        "spaced_repetition_system_id": 1
+    }
+}

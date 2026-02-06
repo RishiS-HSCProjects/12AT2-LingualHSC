@@ -1,0 +1,65 @@
+{
+    "id": 620,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/620",
+    "data_updated_at": "2025-11-24T20:17:58.379479Z",
+    "data": {
+        "created_at": "2012-03-08T09:08:51.000000Z",
+        "level": 8,
+        "slug": "京",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%BA%AC",
+        "characters": "京",
+        "meanings": [
+            {
+                "meaning": "Capital",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Metropolis",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Capital City",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "きょう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "みやこ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            299
+        ],
+        "amalgamation_subject_ids": [
+            3350,
+            3351,
+            3423,
+            3836
+        ],
+        "visually_similar_subject_ids": [
+            627,
+            910,
+            562
+        ],
+        "meaning_mnemonic": "Just like the radical, the kanji means <kanji>capital</kanji>.",
+        "meaning_hint": "Know your radicals!",
+        "reading_mnemonic": "To remember the reading きょう we use the old <kanji>capital</kanji> of Japan, Kyoto, which is spelled <reading>きょう</reading>と. It was the capital of Japan before Tokyo!",
+        "reading_hint": "When you think of the capital, any capital, think of きょうと.",
+        "lesson_position": 1,
+        "spaced_repetition_system_id": 1
+    }
+}

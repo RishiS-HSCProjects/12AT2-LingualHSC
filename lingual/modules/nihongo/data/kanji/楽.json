@@ -1,0 +1,92 @@
+{
+    "id": 704,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/704",
+    "data_updated_at": "2025-11-18T14:34:21.954280Z",
+    "data": {
+        "created_at": "2012-04-05T23:05:12.000000Z",
+        "level": 8,
+        "slug": "楽",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%A5%BD",
+        "characters": "楽",
+        "meanings": [
+            {
+                "meaning": "Comfort",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Ease",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Pleasure",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Music",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "らく",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "がく",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "たの",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            52,
+            123,
+            23
+        ],
+        "amalgamation_subject_ids": [
+            3071,
+            3072,
+            3073,
+            3147,
+            3484,
+            3491,
+            3534,
+            5040,
+            5819,
+            6176,
+            6452,
+            6802,
+            7659,
+            8279,
+            8451,
+            8452,
+            8495,
+            8616,
+            8676
+        ],
+        "visually_similar_subject_ids": [
+            997
+        ],
+        "meaning_mnemonic": "The <radical>white</radical> <radical>ice</radical> <radical>tree</radical> is a magical tree that radiates an aura of <kanji>comfort</kanji>, <kanji>ease</kanji>, and <kanji>pleasure</kanji>, with its icy foliage tinkling like beautiful <kanji>music</kanji> whenever it sways in the breeze.",
+        "meaning_hint": "Close your eyes and feel the aura of comfort wash over you. Listen to the musical tinkling of the tree's icy branches, setting you at ease. You never want this pleasurable moment to end!",
+        "reading_mnemonic": "You want more of this aura of <kanji>comfort</kanji>, so you chop down the magic tree and build a clothing <reading>rack</reading> (らく) out of it. Then, you put the rack in your house so you can enjoy that fuzzy feeling of comfort and ease every time you go to hang something up.",
+        "reading_hint": "Place a hanger on the rack. Feel the wave of pleasure that runs through you, and then bask in the afterglow of comfort and ease that it leaves behind. Now, go find something else to hang up on your rack. You need another hit of comfort and pleasure.",
+        "lesson_position": 56,
+        "spaced_repetition_system_id": 1
+    }
+}

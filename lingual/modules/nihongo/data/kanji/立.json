@@ -1,0 +1,75 @@
+{
+    "id": 494,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/494",
+    "data_updated_at": "2025-11-17T22:10:21.462077Z",
+    "data": {
+        "created_at": "2012-02-29T01:18:04.000000Z",
+        "level": 2,
+        "slug": "立",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%AB%8B",
+        "characters": "立",
+        "meanings": [
+            {
+                "meaning": "Stand",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "りつ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "りゅう",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "た",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            55
+        ],
+        "amalgamation_subject_ids": [
+            2586,
+            2587,
+            2636,
+            2771,
+            3009,
+            3015,
+            3716,
+            3918,
+            4312,
+            4439,
+            4899,
+            4953,
+            5076,
+            5116,
+            5457,
+            7536,
+            7876,
+            7891,
+            9081,
+            9237,
+            9283
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The radical <radical>stand</radical> and the kanji <kanji>stand</kanji> are the same thing, so now you know them both.",
+        "meaning_hint": "If you're keeping up with your radical studies, you're also keeping up with your kanji studies!",
+        "reading_mnemonic": "Think of someone who has to <kanji>stand</kanji> up straight for you. These people are pros in hospitality. These are the doormen at the <reading>Ritz</reading> (りつ).",
+        "reading_hint": "Imagine the doormen being extra straight… too straight in their standing. On their uniform is “The Ritz” written in fine lettering, and as you walk past them, they stand up straight and say “Welcome to the Ritz!” Whatever you do, while you’re thinking about it, make sure you think about how they stand up so straight, and associate it with these doormen, who work, specifically, at the Ritz. If you effectively imagine all this, you should be able to remember this on’yomi. Go through it like it’s a movie in your head!",
+        "lesson_position": 66,
+        "spaced_repetition_system_id": 2
+    }
+}

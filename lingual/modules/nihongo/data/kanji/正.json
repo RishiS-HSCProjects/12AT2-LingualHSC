@@ -1,0 +1,77 @@
+{
+    "id": 488,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/488",
+    "data_updated_at": "2026-02-02T21:29:30.856143Z",
+    "data": {
+        "created_at": "2012-02-29T01:04:20.000000Z",
+        "level": 2,
+        "slug": "正",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%AD%A3",
+        "characters": "正",
+        "meanings": [
+            {
+                "meaning": "Correct",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "せい",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "しょう",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ただ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "まさ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            1,
+            44
+        ],
+        "amalgamation_subject_ids": [
+            2571,
+            2572,
+            2739,
+            2904,
+            4095,
+            4205,
+            4311,
+            4467,
+            4476,
+            7382,
+            7654,
+            8642,
+            9069,
+            9241
+        ],
+        "visually_similar_subject_ids": [
+            514
+        ],
+        "meaning_mnemonic": "There is a line on the <radical>ground</radical> so you <radical>stop</radical>, making a giant sign pop up that says <kanji>CORRECT</kanji>! You obeyed the rules of the road and did the correct thing. Good on you.",
+        "meaning_hint": "Imagine walking, staring at the ground until you come across a line that you're supposed to stop at. If you stop, the big \"correct\" sign appears, chiming a happy tune.",
+        "reading_mnemonic": "You did the <kanji>correct</kanji> thing, so here's your reward: a <reading>sa</reading>ber (せい) from the <reading>Shou</reading>gun (しょう) himself! ",
+        "reading_hint": "Perhaps a slightly unorthodox weapon for a ruler of medieval Japan, but you won't complain about a saber from the Shogun himself! ",
+        "lesson_position": 61,
+        "spaced_repetition_system_id": 2
+    }
+}

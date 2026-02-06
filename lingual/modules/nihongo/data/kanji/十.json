@@ -1,0 +1,69 @@
+{
+    "id": 448,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/448",
+    "data_updated_at": "2026-02-02T21:21:22.981420Z",
+    "data": {
+        "created_at": "2012-02-28T01:36:02.000000Z",
+        "level": 1,
+        "slug": "十",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%8D%81",
+        "characters": "十",
+        "meanings": [
+            {
+                "meaning": "Ten",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "10",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "じゅう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "とお",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            15
+        ],
+        "amalgamation_subject_ids": [
+            2485,
+            2524,
+            2530,
+            2543,
+            2566,
+            2590,
+            2630,
+            3237,
+            3374,
+            4253,
+            6992,
+            7565,
+            7616,
+            9255,
+            9282,
+            9300
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "This <radical>cross</radical> is the symbol for the number <kanji>ten</kanji>. A good way to remember this is to think about all the religions that have crosses and also important sets of tens. ",
+        "meaning_hint": "If you're familiar with Christianity, they have a cross and ten commandments. Cross = ten, you see?",
+        "reading_mnemonic": "This cross in particular has <kanji>ten</kanji> <reading>jew</reading>els (じゅう) on it. Two on each arm and two in the middle. That's ten jewels!",
+        "reading_hint": "Picture the jewels on this cross. Maybe draw it out on a piece of paper so the visual really sticks. Each cross is really a symbol for different sets of ten things, and in this case, it's ten jewels.",
+        "lesson_position": 33,
+        "spaced_repetition_system_id": 2
+    }
+}

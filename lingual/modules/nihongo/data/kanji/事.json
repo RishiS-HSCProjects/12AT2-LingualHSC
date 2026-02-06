@@ -1,0 +1,115 @@
+{
+    "id": 708,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/708",
+    "data_updated_at": "2025-10-16T19:53:28.786524Z",
+    "data": {
+        "created_at": "2012-04-23T23:27:21.000000Z",
+        "level": 9,
+        "slug": "事",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%BA%8B",
+        "characters": "事",
+        "meanings": [
+            {
+                "meaning": "Occurrence",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Thing",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Matter",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Event",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Incident",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Circumstance",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Situation",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "じ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "こと",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "つか",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            15,
+            16,
+            105
+        ],
+        "amalgamation_subject_ids": [
+            3082,
+            3083,
+            3084,
+            3085,
+            3086,
+            3087,
+            3103,
+            3500,
+            3520,
+            3539,
+            3752,
+            3812,
+            3932,
+            3941,
+            4021,
+            4418,
+            4437,
+            4920,
+            4934,
+            6059,
+            6333,
+            7125,
+            7684,
+            7740,
+            7747,
+            7912,
+            7982,
+            8076,
+            8535,
+            8702
+        ],
+        "visually_similar_subject_ids": [
+            962
+        ],
+        "meaning_mnemonic": "You find a <radical>cross</radical> in the <radical>mouth</radical> of <radical>Wolverine</radical>. What a strange <kanji>occurrence</kanji>. I guess he put it there, but why would he do such a <kanji>thing</kanji>? You ask him, but he says it's a personal <kanji>matter</kanji> of utmost secrecy.",
+        "meaning_hint": "Imagine his muffled words as he tries to explain this with the cross in his mouth. Hm, better not pry further. Maybe he's trying to… X-orcize his demons… ",
+        "reading_mnemonic": "This <kanji>occurrence</kanji> doesn't impress <reading>Je</reading>sus (じ), who appears and gently removes the cross from Wolverine's mouth.",
+        "reading_hint": "Imagine Jesus gently taking the cross out of Wolverine's mouth. What a swell dude.",
+        "lesson_position": 26,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "id": 492,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/492",
+    "data_updated_at": "2025-10-01T06:09:50.214494Z",
+    "data": {
+        "created_at": "2012-02-29T01:14:43.000000Z",
+        "level": 2,
+        "slug": "目",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%9B%AE",
+        "characters": "目",
+        "meanings": [
+            {
+                "meaning": "Eye",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "め",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "もく",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            53
+        ],
+        "amalgamation_subject_ids": [
+            2583,
+            2584,
+            2872,
+            3480,
+            3481,
+            3553,
+            3603,
+            3713,
+            3912,
+            6237,
+            6332,
+            7372,
+            7737,
+            8386,
+            8489,
+            8539,
+            8600,
+            8699,
+            8712,
+            9161
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The <radical>eye</radical> radical and <kanji>eye</kanji> kanji are the same as each other, so now you know them both.",
+        "meaning_hint": "Well... you'll know them both as long as you studied your radicals, young grasshopper. If you didn't, then you're just a young grasshopper who needs to study their radicals.",
+        "reading_mnemonic": "Your <kanji>eyes</kanji> are important to you, right? Sadly, one of your eyes is missing right now, because a sheep grabbed it and pulled it out, and is now running away from you, yelling his sheep call.... \"<reading>Mehhhhhh</reading> (め)!\"",
+        "reading_hint": "Of course, feel the pain of your eye being gone... and struggle to get it back. You eventually give up because the sheep is too fast, but then you come up with an idea. What if I call out back to the sheep in its own language? Go ahead and cover one eye and start making \"MEHHH\" noises to see if you can get the sheep to come back to you and give you your eye. It's up to you whether it works or not, but be sure to feel frustrated by its reaction, or happy by it. Either one works.",
+        "lesson_position": 65,
+        "spaced_repetition_system_id": 2
+    }
+}

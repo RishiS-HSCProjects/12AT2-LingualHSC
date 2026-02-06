@@ -1,0 +1,76 @@
+{
+    "id": 485,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/485",
+    "data_updated_at": "2026-02-02T21:23:32.143331Z",
+    "data": {
+        "created_at": "2012-02-29T00:53:29.000000Z",
+        "level": 2,
+        "slug": "四",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%9B%9B",
+        "characters": "四",
+        "meanings": [
+            {
+                "meaning": "Four",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "4",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "し",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "よん",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "よ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            16,
+            28
+        ],
+        "amalgamation_subject_ids": [
+            2561,
+            2562,
+            2563,
+            2564,
+            2565,
+            2566,
+            2681,
+            2837,
+            2885,
+            3237,
+            3374,
+            3671,
+            6810,
+            7854
+        ],
+        "visually_similar_subject_ids": [
+            1891
+        ],
+        "meaning_mnemonic": "Imagine contorting yourself in such a way that your <radical>mouth</radical> now has your <radical>legs</radical> inside it. You've bent your body in all the wrong ways to achieve this. In fact, if you look at yourself, you look like a square now... You're just a person with <kanji>four</kanji> sides.",
+        "meaning_hint": "If you can see this kanji as a kind of square, you should be able to remember it means \"four\" as well, since squares always have four sides.",
+        "reading_mnemonic": "Now that you have <kanji>four</kanji> sides, you look like a four-sided animal: the <reading>shee</reading>p (し). Look at yourself in the mirror and see an adorable four-sided sheep looking back at you. Imagine yourself with perfectly square wool. (You can only see four sides because mirrors aren't 3D. So you're a flat, cartoonish sheep.)",
+        "reading_hint": "What's better than a four-sided sheep?",
+        "lesson_position": 58,
+        "spaced_repetition_system_id": 2
+    }
+}

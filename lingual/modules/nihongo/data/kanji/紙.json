@@ -1,0 +1,61 @@
+{
+    "id": 663,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/663",
+    "data_updated_at": "2025-10-01T14:32:25.711084Z",
+    "data": {
+        "created_at": "2012-03-27T00:25:12.000000Z",
+        "level": 7,
+        "slug": "紙",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%B4%99",
+        "characters": "紙",
+        "meanings": [
+            {
+                "meaning": "Paper",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "かみ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "し",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            86,
+            147
+        ],
+        "amalgamation_subject_ids": [
+            2963,
+            2964,
+            3917,
+            6271,
+            6952,
+            7102
+        ],
+        "visually_similar_subject_ids": [
+            783,
+            1020,
+            1655,
+            2138,
+            9381
+        ],
+        "meaning_mnemonic": "The <radical>thread</radical> that ties you to your <radical>clan</radical> is <kanji>paper</kanji>. Your papers, that is.",
+        "meaning_hint": "The paper itself was also made by your clan using thread woven really tightly together.",
+        "reading_mnemonic": "You need this specific <kanji>paper</kanji> to prove that you aren't a <reading>Commi</reading> (かみ), aka a Communist. Or that you are. It really depends on where you want to go and what decade this is.",
+        "reading_hint": "Imagine a big guard coming up to you and asking to see your papers so they can see what clan you belong to. Well you're from the Commi clan, so you really hope this guard is okay with that.",
+        "lesson_position": 43,
+        "spaced_repetition_system_id": 1
+    }
+}

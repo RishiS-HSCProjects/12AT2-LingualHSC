@@ -1,0 +1,92 @@
+{
+    "id": 712,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/712",
+    "data_updated_at": "2025-10-01T13:47:24.556850Z",
+    "data": {
+        "created_at": "2012-04-23T23:31:16.000000Z",
+        "level": 9,
+        "slug": "和",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%92%8C",
+        "characters": "和",
+        "meanings": [
+            {
+                "meaning": "Peace",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Japanese Style",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "わ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "お",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "なご",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "やわ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "かず",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "nanori"
+            },
+            {
+                "reading": "より",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "nanori"
+            }
+        ],
+        "component_subject_ids": [
+            135,
+            16
+        ],
+        "amalgamation_subject_ids": [
+            3092,
+            3093,
+            3094,
+            3095,
+            3096,
+            3788,
+            5605,
+            6051,
+            6730,
+            8089,
+            8338
+        ],
+        "visually_similar_subject_ids": [
+            1991,
+            631
+        ],
+        "meaning_mnemonic": "When everyone has <radical>grain</radical> in their <radical>mouth</radical>, you will have <kanji>peace</kanji>. That is the <kanji>Japanese style</kanji> of doing things.",
+        "meaning_hint": "Imagine Japanese people with grain in their mouth. The whole country is at peace.",
+        "reading_mnemonic": "<kanji>Peace</kanji> is the <kanji>Japanese style</kanji>. The <reading>wa</reading>lruses (わ) living off of Japan see this, and start to emulate.",
+        "reading_hint": "The walruses also achieve peace by putting grain in every walrus' mouth, following the Japanese style.",
+        "lesson_position": 30,
+        "spaced_repetition_system_id": 1
+    }
+}

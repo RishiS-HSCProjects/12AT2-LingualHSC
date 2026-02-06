@@ -1,0 +1,92 @@
+[
+    {
+        "id": 700,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/700",
+        "data_updated_at": "2026-01-28T14:46:05.364175Z",
+        "data": {
+            "created_at": "2012-04-05T19:50:21.000000Z",
+            "level": 8,
+            "slug": "道",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E9%81%93",
+            "characters": "道",
+            "meanings": [
+                {
+                    "meaning": "Road",
+                    "primary": true,
+                    "accepted_answer": true
+                },
+                {
+                    "meaning": "Street",
+                    "primary": false,
+                    "accepted_answer": true
+                },
+                {
+                    "meaning": "Path",
+                    "primary": false,
+                    "accepted_answer": true
+                },
+                {
+                    "meaning": "Way",
+                    "primary": false,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "どう",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "みち",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "kunyomi"
+                }
+            ],
+            "component_subject_ids": [
+                114,
+                156
+            ],
+            "amalgamation_subject_ids": [
+                3055,
+                3056,
+                3057,
+                3089,
+                3195,
+                3298,
+                3487,
+                4092,
+                4101,
+                4734,
+                5279,
+                5290,
+                5494,
+                5890,
+                6254,
+                6279,
+                6729,
+                7399,
+                7474,
+                7624,
+                8606,
+                8686,
+                8962
+            ],
+            "visually_similar_subject_ids": [
+                665,
+                734
+            ],
+            "meaning_mnemonic": "Aim the <radical>scooter</radical>'s <radical>neck</radical> at the <kanji>road</kanji>! Scooters are only meant for driving on <kanji>street</kanji>s and <kanji>path</kanji>s, and if you go the wrong <kanji>way</kanji>, you'll probably break your own neck!",
+            "meaning_hint": "Imagine riding your scooter down the road. You're carefully aiming the scooter's neck the right way so you don't end up going out of control and dying.",
+            "reading_mnemonic": "To remember the reading どう we use the word \"doughnut.\"\n\nYou're traveling down this <kanji>road</kanji> so fast that you don't see the giant <reading>dou</reading>ghnut (どう) that's rolling toward you until the last minute. You crash into it, and both you and the doughnut go tumbling down. Ahg, your neck!",
+            "reading_hint": "Alternate ending: You do a sweet jump, go right through the doughnut hole, take a bite, and land safely back onto the road!",
+            "lesson_position": 52,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

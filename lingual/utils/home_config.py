@@ -3,7 +3,7 @@ class HomeConfig:
         self.build: list["HomeSection"] = []
 
     def register_section(self, section: "HomeSection"):
-        """ Registers section to config in order of registration. """
+        """ Registers section to config in order of regisstion. """
         self.build.append(section)
 
     def get_build(self) -> list["HomeSection"]:

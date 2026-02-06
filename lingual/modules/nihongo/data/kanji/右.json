@@ -1,0 +1,66 @@
+{
+    "id": 484,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/484",
+    "data_updated_at": "2025-10-01T06:09:50.162323Z",
+    "data": {
+        "created_at": "2012-02-29T00:50:30.000000Z",
+        "level": 2,
+        "slug": "右",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%8F%B3",
+        "characters": "右",
+        "meanings": [
+            {
+                "meaning": "Right",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ゆう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "う",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "みぎ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            26,
+            16
+        ],
+        "amalgamation_subject_ids": [
+            2559,
+            2560,
+            3574,
+            3953,
+            6779,
+            8693,
+            8717
+        ],
+        "visually_similar_subject_ids": [
+            486,
+            493,
+            504
+        ],
+        "meaning_mnemonic": "<radical>Narwhal</radical> <radical>mouth</radical>s are on the <kanji>right</kanji> side of their head. In fact, some people didn't think they had mouths at all because they weren't looking from the right. Rookie mistake.\n\nSee how the \"mouth\" radical is to the right of the \"narwhal\" radical? That should help you remember that this means <kanji>right</kanji>.",
+        "meaning_hint": "Imagine looking at a narwhal from the front. No mouth. Now look at it from the right. Mouth!",
+        "reading_mnemonic": "How did we know to look from the <kanji>right</kanji>, though? Because the <reading>you</reading>ths (ゆう) figured it out. Youths think in ways that older people usually don't. That's why they can see the swirls on cereal, hear the music behind noise, and of course, look at things from the right side.",
+        "reading_hint": "Imagine a bunch of youths walking in a group and looking at everything from the right. You remember when you were a youth and you used to look at everything from one side too.\n\nNote: All the ゆう readings will use the word \"youths\" for the reading mnemonic. You can think of these \"youths\" as a group of younger people who cause a lot of the problems in this world.",
+        "lesson_position": 57,
+        "spaced_repetition_system_id": 2
+    }
+}

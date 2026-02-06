@@ -1,0 +1,66 @@
+[
+    {
+        "id": 826,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/826",
+        "data_updated_at": "2026-02-04T06:24:21.947579Z",
+        "data": {
+            "created_at": "2012-05-01T19:48:10.000000Z",
+            "level": 12,
+            "slug": "都",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E9%83%BD",
+            "characters": "都",
+            "meanings": [
+                {
+                    "meaning": "Metropolis",
+                    "primary": true,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "と",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "つ",
+                    "primary": false,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "みやこ",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "kunyomi"
+                }
+            ],
+            "component_subject_ids": [
+                203,
+                176
+            ],
+            "amalgamation_subject_ids": [
+                3350,
+                3351,
+                3649,
+                4706,
+                7457,
+                7582,
+                8586
+            ],
+            "visually_similar_subject_ids": [
+                721
+            ],
+            "meaning_mnemonic": "<radical>Someone</radical>s and <radical>building</radical>s, someones and buildings, someones and buildings. So many someones and buildings. With so many someones and buildings, we have ourselves a <kanji>metropolis</kanji>.",
+            "meaning_hint": "Imagine just a ton of someones and buildings all packed together in a small area. More than a village or town or city. With enough someones and buildings, you end up with a metropolis.",
+            "reading_mnemonic": "In this <kanji>metropolis</kanji> everything is a <reading>toe</reading> (と). The someones are toes, walking around. The buildings are toes, too.",
+            "reading_hint": "Imagine this huge metropolis. Now imagine every building just being a toe. Tall skyscraper toes. Smaller house toes. Wide apartment building toes. And then the people walking around. They are toes, too. Toes walking around and going into toe buildings, with toe cars and toe dogs. If you imagine the toe metropolis deeply enough, it should be weird enough to burn into your memory.",
+            "lesson_position": 37,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

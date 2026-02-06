@@ -1,0 +1,65 @@
+{
+    "id": 809,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/809",
+    "data_updated_at": "2025-11-13T22:15:53.956855Z",
+    "data": {
+        "created_at": "2012-04-26T06:24:37.000000Z",
+        "level": 11,
+        "slug": "働",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%83%8D",
+        "characters": "働",
+        "meanings": [
+            {
+                "meaning": "Work",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Labour",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Labor",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "どう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "はたら",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            75,
+            188,
+            13
+        ],
+        "amalgamation_subject_ids": [
+            3270,
+            3272,
+            3316
+        ],
+        "visually_similar_subject_ids": [
+            827,
+            1723
+        ],
+        "meaning_mnemonic": "Your <radical>leader</radical> makes you lift <radical>heavy</radical> loads with all your <radical>power</radical>, since this is what you do for <kanji>work</kanji>. Why do you this kind of work? Well, you're good at it and the leader makes you do it, I guess.",
+        "meaning_hint": "Picture this leader asking you (yet again) to work for them. \"Can you move those heavy objects with all that power of yours?\" Typical leader — as soon as they know you're good at a certain kind of work, they ask you to do it all the time. \n\nNote: There are a few other kanji that have a similar meaning to this one. This kanji is used in words that refer to doing work, with a focus on movement or operating something.",
+        "reading_mnemonic": "Where do you get the power to do all this <kanji>work</kanji>? From <reading>dou</reading>ghnuts (どう). You eat nothing but doughnuts. If you had no doughnuts, you couldn't work. In fact, your leader pays you for your work… in doughnuts.",
+        "reading_hint": "Picture yourself receiving a doughnut as payment after you've been working. It's delicious. Doughnuts are fantastic. Taste the fresh doughnut in your mouth as it crumbles and melts on your tongue. It's the best doughnut you've ever had.",
+        "lesson_position": 50,
+        "spaced_repetition_system_id": 1
+    }
+}

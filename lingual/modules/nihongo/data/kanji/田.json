@@ -1,0 +1,70 @@
+{
+    "id": 490,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/490",
+    "data_updated_at": "2025-10-01T06:09:50.188014Z",
+    "data": {
+        "created_at": "2012-02-29T01:12:55.000000Z",
+        "level": 2,
+        "slug": "田",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%94%B0",
+        "characters": "田",
+        "meanings": [
+            {
+                "meaning": "Rice Paddy",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Rice Field",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Paddy Field",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Paddy",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "た",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "でん",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            51
+        ],
+        "amalgamation_subject_ids": [
+            2580,
+            5871,
+            5930,
+            6316,
+            6524,
+            6735,
+            7537,
+            9167
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The <radical>rice paddy</radical> radical and the <kanji>rice paddy</kanji> kanji are the same, making this one super easy to remember, at least meaning-wise.",
+        "meaning_hint": "Just know your radicals, and you will know your kanji as well.",
+        "reading_mnemonic": "To remember the reading た, we use the word \"taco.\"\n\nYou're in the rice field... but when you lean down to examine the rice more closely, you see that it's not rice that's growing, it's a bunch of little <reading>ta</reading>cos (た), blossoming out of the ground.",
+        "reading_hint": "Smell the tacos. Touch the tacos. Taste the tacos. This is definitely a very strange rice field.",
+        "lesson_position": 63,
+        "spaced_repetition_system_id": 2
+    }
+}

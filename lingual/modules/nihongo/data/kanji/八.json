@@ -1,0 +1,63 @@
+{
+    "id": 446,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/446",
+    "data_updated_at": "2025-10-01T06:09:49.916435Z",
+    "data": {
+        "created_at": "2012-02-27T22:47:16.000000Z",
+        "level": 1,
+        "slug": "八",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%85%AB",
+        "characters": "八",
+        "meanings": [
+            {
+                "meaning": "Eight",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "8",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "はち",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "や",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "よう",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            2
+        ],
+        "amalgamation_subject_ids": [
+            2482,
+            2483,
+            4172,
+            7615
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "This isn't exactly the same as the <radical>fins</radical> radical, but it's close. Sometimes this will happen (where we have to use a slightly \"modified radical\" version of the original), so it's good to understand that now, early on. In this case, we have fins. How many fins? <kanji>Eight</kanji> fins. How do you know that? Because you caught four fish with two fins each.",
+        "meaning_hint": "Count the fins out in front of you, all the way from one to eight. It'll help if you actually do this. Now smell each fin, and think \"Wow, I have to smell all eight of these?\" Yes, you do.",
+        "reading_mnemonic": "After you count and smell all <kanji>eight</kanji> of your fins, it's time to put them away. You open a large <reading>hatch</reading> (はち) and put them in. This is where you keep your fins, always putting in eight at a time because that's what the boss wants.",
+        "reading_hint": "You've asked him why you can only put eight fins at a time in the hatch, but he never wants to answer. What could be down in the hole that the hatch covers? Why is there a hatch at all? What's with numbers and hatches being mysterious?",
+        "lesson_position": 31,
+        "spaced_repetition_system_id": 2
+    }
+}

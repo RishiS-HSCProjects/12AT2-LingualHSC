@@ -1,0 +1,55 @@
+{
+    "id": 934,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/934",
+    "data_updated_at": "2025-10-01T06:09:53.255900Z",
+    "data": {
+        "created_at": "2012-09-19T22:44:13.102245Z",
+        "level": 15,
+        "slug": "秋",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%A7%8B",
+        "characters": "秋",
+        "meanings": [
+            {
+                "meaning": "Autumn",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Fall",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "あき",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "しゅう",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            135,
+            46
+        ],
+        "amalgamation_subject_ids": [
+            3780
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "<radical>Grain</radical>s look like they're on <radical>fire</radical> in <kanji>autumn</kanji>. They all turn red and orange and brown, the colors of fire. It's also fun to set grains on fire in Autumn, since it's getting colder.",
+        "meaning_hint": "Picture all the grains in autumn. Picture all of the colors. The colors of fire.",
+        "reading_mnemonic": "As the grains burn, and the season changes to autumn, imagine them yelling out in pain: \"<reading>ACK</reading> (あき)!\"",
+        "reading_hint": "Ah yes, the sound of the seasons changing to autumn.\n\nAck!\nAck!\nAck!",
+        "lesson_position": 20,
+        "spaced_repetition_system_id": 1
+    }
+}

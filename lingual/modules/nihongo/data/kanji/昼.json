@@ -1,0 +1,54 @@
+{
+    "id": 932,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/932",
+    "data_updated_at": "2026-01-29T00:39:53.268520Z",
+    "data": {
+        "created_at": "2012-09-19T22:43:13.063739Z",
+        "level": 15,
+        "slug": "昼",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%98%BC",
+        "characters": "昼",
+        "meanings": [
+            {
+                "meaning": "Noon",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ひる",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "ちゅう",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            215,
+            22,
+            1
+        ],
+        "amalgamation_subject_ids": [
+            3763,
+            3940,
+            4489,
+            8670
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "A giant <radical>shrimp</radical> appears on top of the <radical>sun</radical> after it rises high above the <radical>ground</radical>, and this is how you know it's <kanji>noon</kanji>. The shrimp appears on the sun exactly at noon every day, to announce that it's noon.",
+        "meaning_hint": "Really try to imagine this giant shrimp on the sun as a normal thing that happens, without fail, every day at noon. \"Hey guys, it's noon,\" the shrimp announces casually, then leaves again.",
+        "reading_mnemonic": "At <kanji>noon</kanji>, the shrimp also puts on its high <reading>heel</reading>s (ひる). It wants to look good for the other shrimp it's going to lunch with. High noon? More like high heels, am I right?",
+        "reading_hint": "Right after the shrimp's noon announcement, imagine it struggling to put on heels while sitting on the sun. This shrimp is almost bigger than the sun, actually, so all its heel struggles are easy to see.",
+        "lesson_position": 18,
+        "spaced_repetition_system_id": 1
+    }
+}

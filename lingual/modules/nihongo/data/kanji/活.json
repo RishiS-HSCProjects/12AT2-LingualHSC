@@ -1,0 +1,58 @@
+{
+    "id": 639,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/639",
+    "data_updated_at": "2025-10-08T17:35:06.531167Z",
+    "data": {
+        "created_at": "2012-03-08T23:54:43.000000Z",
+        "level": 6,
+        "slug": "活",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%B4%BB",
+        "characters": "活",
+        "meanings": [
+            {
+                "meaning": "Lively",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "かつ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "い",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            103,
+            174
+        ],
+        "amalgamation_subject_ids": [
+            2916,
+            3715,
+            6324,
+            7674,
+            7679,
+            7733,
+            8748
+        ],
+        "visually_similar_subject_ids": [
+            1811
+        ],
+        "meaning_mnemonic": "A <radical>tsunami</radical> of <radical>tongue</radical>s is coming at you. As it washes over you, you feel each individual tongue moving around on your body, licking you. They make you feel so... <kanji>lively</kanji>!",
+        "meaning_hint": "Your entire body wakes up, you feel so lively! The tongues are making you more aware of yourself and your surroundings than you've ever been. You want to dance, you want to sing, you want to live your life.",
+        "reading_mnemonic": "This <kanji>lively</kanji> feeling isn't just happening to you, the tongue tsunami is licking it into all of the <reading>cats</reading> (かつ) in your neighborhood too!",
+        "reading_hint": "You and the cats are running around playing together, because you can't seem to get the lively feelings to stop. You have to get the energy out, but the cats have sharp claws and they're scratching you.",
+        "lesson_position": 170,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,132 @@
+{
+    "id": 850,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/850",
+    "data_updated_at": "2025-11-09T20:00:23.698017Z",
+    "data": {
+        "created_at": "2012-06-05T23:58:47.796331Z",
+        "level": 3,
+        "slug": "生",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%94%9F",
+        "characters": "生",
+        "meanings": [
+            {
+                "meaning": "Life",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "せい",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "しょう",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "い",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "なま",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "う",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "は",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "き",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            210
+        ],
+        "amalgamation_subject_ids": [
+            2576,
+            2577,
+            2578,
+            2579,
+            2653,
+            2665,
+            2788,
+            2916,
+            3407,
+            3436,
+            3449,
+            3451,
+            3473,
+            3715,
+            3806,
+            3827,
+            4059,
+            4195,
+            4498,
+            4659,
+            4969,
+            5154,
+            5326,
+            5548,
+            5571,
+            6225,
+            6346,
+            6432,
+            6471,
+            6640,
+            6903,
+            6980,
+            7189,
+            7429,
+            7500,
+            7617,
+            7671,
+            7731,
+            7738,
+            8196,
+            8668,
+            8701,
+            8745,
+            9141,
+            9276,
+            9315
+        ],
+        "visually_similar_subject_ids": [
+            503,
+            511,
+            526,
+            543,
+            546,
+            654,
+            1887
+        ],
+        "meaning_mnemonic": "The <radical>life</radical> radical and the <kanji>life</kanji> kanji are the same, so hopefully you now just know them both.",
+        "meaning_hint": "Study your radicals and you'll read good.",
+        "reading_mnemonic": "You can save <kanji>life</kanji> or take it away with your new <reading>sa</reading>ber (せい). This is the saber you got from doing the correct thing (remember?), and now you need to figure out how to use it with this life. So what do you do?",
+        "reading_hint": "Imagine having someone's life in the palm of your hands. It's up to you whether you protect it with your saber or... well... do the other thing sabers are for.",
+        "lesson_position": 59,
+        "spaced_repetition_system_id": 1
+    }
+}

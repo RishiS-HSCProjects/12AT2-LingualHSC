@@ -1,0 +1,76 @@
+{
+    "id": 640,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/640",
+    "data_updated_at": "2025-11-06T18:20:25.779053Z",
+    "data": {
+        "created_at": "2012-03-08T23:55:14.000000Z",
+        "level": 6,
+        "slug": "海",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%B5%B7",
+        "characters": "海",
+        "meanings": [
+            {
+                "meaning": "Sea",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Ocean",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "かい",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "うみ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            103,
+            8762,
+            107
+        ],
+        "amalgamation_subject_ids": [
+            2917,
+            2918,
+            2984,
+            3276,
+            3794,
+            5799,
+            5885,
+            6121,
+            6927,
+            7474,
+            7569,
+            8355,
+            8409,
+            8647,
+            8662,
+            9333
+        ],
+        "visually_similar_subject_ids": [
+            2040,
+            1757,
+            572,
+            1007
+        ],
+        "meaning_mnemonic": "A <radical>tsunami</radical> is coming, so you point your <radical>gun</radical> out the <radical>window</radical> at it. \"You better turn back, <kanji>sea</kanji>, or I'll shoot!\"",
+        "meaning_hint": "You'll have to think of the \"sea\" as its own entity, controlling the tsunami, otherwise you might confuse and combine the two. So when you point your gun out the window, aim it at the \"sea,\" not the \"tsunami.\" It's like aiming for the head of a zombie and not the arms or legs.",
+        "reading_mnemonic": "The <kanji>sea</kanji> decides it doesn't want to die today, so it turns its tsunami around and goes the other way. You hop in your <reading>kay</reading>ak (かい) and chase after it with your gun, to make sure it actually returns to the sea and doesn't just drown someone else.",
+        "reading_hint": "Imagine paddling in your kayak, your gun still in one hand, as you chase the sea back to its home.",
+        "lesson_position": 120,
+        "spaced_repetition_system_id": 1
+    }
+}

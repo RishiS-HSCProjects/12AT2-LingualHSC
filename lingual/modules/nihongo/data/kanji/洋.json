@@ -1,0 +1,64 @@
+[
+    {
+        "id": 798,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/798",
+        "data_updated_at": "2025-11-13T21:53:14.975449Z",
+        "data": {
+            "created_at": "2012-04-26T06:14:39.000000Z",
+            "level": 11,
+            "slug": "洋",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E6%B4%8B",
+            "characters": "洋",
+            "meanings": [
+                {
+                    "meaning": "Western Style",
+                    "primary": true,
+                    "accepted_answer": true
+                },
+                {
+                    "meaning": "Ocean",
+                    "primary": false,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [
+                {
+                    "meaning": "Eastern Style",
+                    "type": "blacklist"
+                }
+            ],
+            "readings": [
+                {
+                    "reading": "よう",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                }
+            ],
+            "component_subject_ids": [
+                103,
+                136
+            ],
+            "amalgamation_subject_ids": [
+                3292,
+                3293,
+                3294,
+                3295,
+                3296,
+                7690,
+                9358
+            ],
+            "visually_similar_subject_ids": [
+                1412
+            ],
+            "meaning_mnemonic": "This <radical>tsunami</radical> is ridden by a <radical>sheep</radical> in classic <kanji>Western style</kanji>. And by Western style I mean the sheep is dressed in a cowboy outfit and has put a saddle atop the tsunami wave to ride it. It's a tsunami rodeo and this crazy sheep is riding that tsunami wave in classic Western style.\n\nThis kanji also means <kanji>ocean</kanji>, because presumably the people from the West, with their Western style, came from across the ocean. You'll want to be familiar with both meanings for vocab later on.",
+            "meaning_hint": "Imagine how ridiculous a sheep would look all decked out in Western-style cowboy gear. Now imagine it riding a tsunami wave as it screams, \"Baa~ baa~ baa~!\"",
+            "reading_mnemonic": "After a whole day of riding this tsunami, the sheep is hankerin' for some <kanji>Western-style</kanji> food, namely <reading>yo</reading>gurt (よう). Yogurt is Western-style food, right? If it helps you can imagine the yogurt is flavored like apple pie, to make it more American and Western.",
+            "reading_hint": "Imagine yourself eating this Western-style apple pie yogurt. It tastes just like apple pie, only creamier and fruitier. Taste the sweet yogurt in your mouth as you imagine yourself scarfing some down.",
+            "lesson_position": 38,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

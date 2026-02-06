@@ -1,0 +1,126 @@
+{
+    "id": 501,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/501",
+    "data_updated_at": "2026-02-02T21:36:10.469808Z",
+    "data": {
+        "created_at": "2012-03-01T02:31:21.000000Z",
+        "level": 3,
+        "slug": "分",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%88%86",
+        "characters": "分",
+        "meanings": [
+            {
+                "meaning": "Part",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Minute",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Divide",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Portion",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Separate",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Understand",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Sort",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Split",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Classify",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Share",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "ぶん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ふん",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ぶ",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "わ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            2,
+            24
+        ],
+        "amalgamation_subject_ids": [
+            2597,
+            2598,
+            2599,
+            2600,
+            2673,
+            2700,
+            2755,
+            2770,
+            3405,
+            3741,
+            4072,
+            4159,
+            4357,
+            4468,
+            5128,
+            5412,
+            6605,
+            6660,
+            6845,
+            7533,
+            7749,
+            8052,
+            8628,
+            9070,
+            9282,
+            9300
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The <radical>fins</radical> that fell onto my <radical>sword</radical> were sliced into many <kanji>part</kanji>s. Following this logic, this also means <kanji>minute</kanji>, which is part of an hour, and <kanji>divide</kanji>, which is the action of splitting something into many parts.",
+        "meaning_hint": "Picture the fins falling onto the sword, and being divided into many parts. And if those fins represented hours, they’d be divided into minutes. Makes sense, right?",
+        "reading_mnemonic": "Now that the fins have been cut into neat <kanji>part</kanji>s, it's time to cut something else: <reading>bun</reading>s (ぶん).",
+        "reading_hint": "This is how you feed your people: neatly divided, delicious buns. Picture these delicious buns divided into perfectly shaped parts. Yummy.",
+        "lesson_position": 34,
+        "spaced_repetition_system_id": 1
+    }
+}

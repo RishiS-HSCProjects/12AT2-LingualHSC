@@ -1,0 +1,72 @@
+{
+    "id": 472,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/472",
+    "data_updated_at": "2025-11-07T23:10:09.414813Z",
+    "data": {
+        "created_at": "2012-02-29T00:18:18.000000Z",
+        "level": 2,
+        "slug": "円",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%86%86",
+        "characters": "円",
+        "meanings": [
+            {
+                "meaning": "Yen",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Round",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Circle",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "¥",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "えん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "まる",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            29,
+            8
+        ],
+        "amalgamation_subject_ids": [
+            2532,
+            2533,
+            2534,
+            2933,
+            3528,
+            6205,
+            6588,
+            6619
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "Here we have a <radical>head</radical> with a <radical>lid</radical> in it, near the top. Imagine the top of someone's head being closed by a lid. Open that lid up and peer inside... it's full of <kanji>yen</kanji> coins, the currency of Japan. Jackpot! And all those yen coins have a nice <kanji>round</kanji> shape, naturally.",
+        "meaning_hint": "This kanji can mean both \"yen\" and \"round\"! It's OK if you can't remember both meanings. But it might help to think about how round the yen coins are inside this person's head, which can also be pretty round… ",
+        "reading_mnemonic": "What does the word <kanji>yen</kanji> sound like? It sounds like <reading>えん</reading>. Why? because back in the day, Japanese used to have a \"ye\" sound, but now it doesn't. Instead, it's an \"e\" sound, which is why yen = えん!",
+        "reading_hint": "Picture these round えん in your mind. Maybe look some up online too, just to be safe. See how round those yen (えん) are?",
+        "lesson_position": 45,
+        "spaced_repetition_system_id": 2
+    }
+}

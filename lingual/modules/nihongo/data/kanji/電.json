@@ -1,0 +1,76 @@
+{
+    "id": 706,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/706",
+    "data_updated_at": "2025-11-18T14:34:21.977856Z",
+    "data": {
+        "created_at": "2012-04-05T23:21:32.000000Z",
+        "level": 8,
+        "slug": "電",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E9%9B%BB",
+        "characters": "電",
+        "meanings": [
+            {
+                "meaning": "Electricity",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "でん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            119,
+            51,
+            211
+        ],
+        "amalgamation_subject_ids": [
+            3075,
+            3077,
+            3078,
+            3079,
+            3080,
+            3081,
+            3203,
+            3280,
+            3560,
+            4287,
+            4371,
+            4586,
+            5385,
+            5804,
+            5945,
+            6287,
+            6368,
+            6469,
+            6565,
+            6904,
+            7169,
+            7228,
+            8982
+        ],
+        "visually_similar_subject_ids": [
+            673,
+            702,
+            926,
+            1099,
+            1845,
+            1903,
+            1982,
+            2020
+        ],
+        "meaning_mnemonic": "You're in the <radical>rain</radical>, in a <radical>rice paddy</radical>, holding an <radical>umbrella</radical>. You're here because there's nothing else that's very tall around you. You want to get hit by <kanji>electricity</kanji> (aka lightning), to prove that it exists.",
+        "meaning_hint": "Imagine being hit by the electricity. Feel the powerful electric shock pulse through your body. You're like a crazier Ben Franklin out here.",
+        "reading_mnemonic": "After the <kanji>electricity</kanji> hits you, you feel your face. In it is a huge <reading>den</reading>t (でん).",
+        "reading_hint": "Feel the indent in your face. It doesn't hurt, strangely, but it is pretty huge. Panic about this dent a bit.",
+        "lesson_position": 58,
+        "spaced_repetition_system_id": 1
+    }
+}

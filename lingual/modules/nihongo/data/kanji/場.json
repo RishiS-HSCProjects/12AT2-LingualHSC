@@ -1,0 +1,84 @@
+{
+    "id": 694,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/694",
+    "data_updated_at": "2025-12-12T19:57:27.405848Z",
+    "data": {
+        "created_at": "2012-04-05T19:15:13.000000Z",
+        "level": 8,
+        "slug": "場",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%A0%B4",
+        "characters": "場",
+        "meanings": [
+            {
+                "meaning": "Location",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Place",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "じょう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ば",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            17,
+            172
+        ],
+        "amalgamation_subject_ids": [
+            3034,
+            3035,
+            3036,
+            3037,
+            3309,
+            3498,
+            4314,
+            4596,
+            4645,
+            4863,
+            4938,
+            5617,
+            5779,
+            5811,
+            5945,
+            6364,
+            6601,
+            6679,
+            7215,
+            7641,
+            7680,
+            7743,
+            8062,
+            9170,
+            9237
+        ],
+        "visually_similar_subject_ids": [
+            834,
+            844,
+            1815,
+            2333
+        ],
+        "meaning_mnemonic": "<radical>Dirt</radical> makes it <radical>easy</radical> to identify your <kanji>location</kanji>. Even if you add an extra line to mark the ground, it's still easy. Keep that in mind and you can go from <kanji>place</kanji> to place.",
+        "meaning_hint": "Imagine looking at the dirt. It's a distinct color and texture, and you're able to identify your location just from that alone. Now draw that line on the ground and you'll always remember this place.",
+        "reading_mnemonic": "Knowing your <kanji>location</kanji> from dirt is quite a feat! Who taught you that? It was <reading>Joe</reading> (じょう), the big local farmhand. Despite being a bit weird, he can identify any <kanji>place</kanji> just from its dirt!",
+        "reading_hint": "Remember Joe? He's our local farmhand who only has nine toes (from the 上 mnemonic). Imagine that guy explaining to you how to know your location from dirt. He may be a bit clumsy, but the man really knows his dirt.",
+        "lesson_position": 46,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "id": 745,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/745",
+    "data_updated_at": "2025-11-27T04:32:55.306907Z",
+    "data": {
+        "created_at": "2012-04-24T18:18:14.000000Z",
+        "level": 10,
+        "slug": "終",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%B5%82",
+        "characters": "終",
+        "meanings": [
+            {
+                "meaning": "End",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Finish",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "しゅう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "おわ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "お",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            86,
+            60,
+            123
+        ],
+        "amalgamation_subject_ids": [
+            3167,
+            3168,
+            3169,
+            3170,
+            3559,
+            3560,
+            6062,
+            8946
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The <radical>thread</radical> of <radical>winter</radical> and <radical>ice</radical> has brought this year to its <kanji>end</kanji>. Once you're in the long thread of winter and ice, you know the year will end soon.",
+        "meaning_hint": "Picture the season of winter as a long thread, embalmed in ice. At the end of it is the year’s end. The thread of winter and ice brings you closure, it marks the end.",
+        "reading_mnemonic": "Whenever winter <kanji>end</kanji>s, you take the thread covered in ice, and lace it into your <reading>shoe</reading> (しゅう). ",
+        "reading_hint": "This thread isn't just a metaphor, it's real! Feel the cold ice on it, as you lace it into your shoe. An age old tradition, the lacing of icy threads as winter ends. Your shoes will look so cool, or should I say… iced out. ",
+        "lesson_position": 35,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "id": 718,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/718",
+    "data_updated_at": "2025-12-10T21:22:48.789678Z",
+    "data": {
+        "created_at": "2012-04-23T23:35:06.000000Z",
+        "level": 9,
+        "slug": "物",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%89%A9",
+        "characters": "物",
+        "meanings": [
+            {
+                "meaning": "Thing",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ぶつ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "もつ",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "もの",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            126,
+            173
+        ],
+        "amalgamation_subject_ids": [
+            3107,
+            3108,
+            3109,
+            3114,
+            3213,
+            3353,
+            3381,
+            3395,
+            3512,
+            3518,
+            3860,
+            3995,
+            4010,
+            4031,
+            4061,
+            4294,
+            4387,
+            4520,
+            5137,
+            5154,
+            5391,
+            5415,
+            5479,
+            5616,
+            5699,
+            5920,
+            5948,
+            6045,
+            6353,
+            6423,
+            6536,
+            6649,
+            6786,
+            7294,
+            7313,
+            7489,
+            7586,
+            7627,
+            7655,
+            8305,
+            8556,
+            8701,
+            8745,
+            8807
+        ],
+        "visually_similar_subject_ids": [
+            807
+        ],
+        "meaning_mnemonic": "A <radical>cow</radical> with <radical>wing</radical>s is flying in the air. What a strange <kanji>thing</kanji>! You've heard of flying pigs before, but cows? This is a new and strange thing indeed! Cows with wings! What a silly thing.",
+        "meaning_hint": "Imagine if cows could fly. Wouldn't you be jealous of them? I mean, if a cow can fly, any old thing should be able to, right?",
+        "reading_mnemonic": "You want a <kanji>thing</kanji> to help you fly with the cow so you put on your flying <reading>boots</reading> (ぶつ). Your flying boots are a pretty strange thing in themselves, but they're the only way you can keep up.",
+        "reading_hint": "Imagine a thing like flying boots. Do you believe such a thing could be real?",
+        "lesson_position": 35,
+        "spaced_repetition_system_id": 1
+    }
+}

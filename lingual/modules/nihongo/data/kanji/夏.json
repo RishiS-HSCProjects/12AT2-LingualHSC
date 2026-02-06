@@ -1,0 +1,67 @@
+{
+    "id": 659,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/659",
+    "data_updated_at": "2025-11-11T01:04:44.622850Z",
+    "data": {
+        "created_at": "2012-03-26T23:49:41.000000Z",
+        "level": 7,
+        "slug": "夏",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%A4%8F",
+        "characters": "夏",
+        "meanings": [
+            {
+                "meaning": "Summer",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "なつ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "げ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            },
+            {
+                "reading": "か",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            },
+            {
+                "reading": "が",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            8763,
+            53,
+            60
+        ],
+        "amalgamation_subject_ids": [
+            2952,
+            2953,
+            6541
+        ],
+        "visually_similar_subject_ids": [
+            598
+        ],
+        "meaning_mnemonic": "The <radical>leaf</radical> shaped like an <radical>eye</radical> only grows in <radical>winter</radical>. Every other leaf, however, will do the opposite, which is to grow in the <kanji>summer</kanji>.",
+        "meaning_hint": "Just think of the eye leaf as weird (it is weird, after all). It grows in the winter. Now, think of any normal leaves. They do the exact opposite, which is to grow in the summer.",
+        "reading_mnemonic": "Now it's summertime! What do you do during the <kanji>summer</kanji>? You just sit around with your favorite string tying <reading>knots</reading> (なつ) in it over and over again.",
+        "reading_hint": "Think about summer. Now think about yourself tying knots. Now think about summer again. Now think about tying knots again. Now think about your mother getting upset at you because all you do is tie knots all summer long. Go play video games like a normal kid!",
+        "lesson_position": 40,
+        "spaced_repetition_system_id": 1
+    }
+}

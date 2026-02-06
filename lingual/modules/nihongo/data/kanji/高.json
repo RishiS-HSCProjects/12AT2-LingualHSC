@@ -1,0 +1,83 @@
+{
+    "id": 666,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/666",
+    "data_updated_at": "2025-10-01T14:32:25.739759Z",
+    "data": {
+        "created_at": "2012-03-27T01:00:41.000000Z",
+        "level": 7,
+        "slug": "高",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E9%AB%98",
+        "characters": "高",
+        "meanings": [
+            {
+                "meaning": "Tall",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Expensive",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "High",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Tail",
+                "type": "blacklist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "こう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "たか",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            8,
+            16,
+            121
+        ],
+        "amalgamation_subject_ids": [
+            2950,
+            2968,
+            3234,
+            3301,
+            3473,
+            3483,
+            4481,
+            4551,
+            6159,
+            6480,
+            6747,
+            7607,
+            7703,
+            8056,
+            8090,
+            8532,
+            8711,
+            9022
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "There's a <radical>lid</radical> on your <radical>mouth</radical> and <radical>mustache</radical>, covering up all your talking holes. This is because you kept saying how <kanji>tall</kanji> and <kanji>expensive</kanji> you are.",
+        "meaning_hint": "Imagine yourself saying how tall and expensive you are to everyone in the room. Then they use a lid to cover your mouth so you can't talk to anyone anymore. But, then your mustache starts talking, saying the same thing. That's why this lid covers both your mustache and your mouth. Now you can't say that you are tall or expensive.",
+        "reading_mnemonic": "\"I am <kanji>tall</kanji>er and more <kanji>expensive</kanji> than you.\" \n\nYou're saying this because there are some <reading>こう</reading>いちs in the room, and you want to make them feel inferior (you're a こういち hater). You keep comparing your height to the こういちs in the room, and you keep checking price tags. Then you tell them you're taller and more expensive than they are.",
+        "reading_hint": "The こういちs finally get tired of your shenanigans, and lid up your mouth and mustache so you can't say that you're tall or expensive. ",
+        "lesson_position": 46,
+        "spaced_repetition_system_id": 1
+    }
+}

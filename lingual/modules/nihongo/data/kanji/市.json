@@ -1,0 +1,58 @@
+{
+    "id": 522,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/522",
+    "data_updated_at": "2025-11-17T21:50:28.772141Z",
+    "data": {
+        "created_at": "2012-03-01T03:57:35.000000Z",
+        "level": 3,
+        "slug": "市",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%B8%82",
+        "characters": "市",
+        "meanings": [
+            {
+                "meaning": "City",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "し",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "いち",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            8,
+            102
+        ],
+        "amalgamation_subject_ids": [
+            2635,
+            2636,
+            2637,
+            4530,
+            4938,
+            7457,
+            9170
+        ],
+        "visually_similar_subject_ids": [
+            1062
+        ],
+        "meaning_mnemonic": "You see a manhole <radical>lid</radical> and a <radical>towel</radical>, both with the name of a <kanji>city</kanji> on them. Decorative manhole lids and souvenir towels — two things cities love to slap their names on, especially in Japan.",
+        "meaning_hint": "Picture this towel with the name of a city on it. Any city you like. Maybe it's your city!",
+        "reading_mnemonic": "This <kanji>city</kanji> must have a lot of <reading>shee</reading>p (し) because, besides the manhole lid and the towel, all you can see are sheep. There are sheep everywhere. It's a sheep city.",
+        "reading_hint": "Imagine a city that has a sheep everywhere you look, as far as the eye can see. This city was built on sheep, don't you say a bad word about sheep when you're there.",
+        "lesson_position": 54,
+        "spaced_repetition_system_id": 1
+    }
+}

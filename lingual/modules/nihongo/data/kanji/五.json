@@ -1,0 +1,63 @@
+{
+    "id": 470,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/470",
+    "data_updated_at": "2026-02-02T21:20:15.015515Z",
+    "data": {
+        "created_at": "2012-02-29T00:04:18.000000Z",
+        "level": 2,
+        "slug": "五",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%BA%94",
+        "characters": "五",
+        "meanings": [
+            {
+                "meaning": "Five",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "5",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "ご",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "いつ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            39
+        ],
+        "amalgamation_subject_ids": [
+            2522,
+            2523,
+            2524,
+            2525,
+            2526,
+            2629,
+            2682,
+            3546,
+            4110,
+            4253
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The <radical>five</radical> radical and the <kanji>five</kanji> kanji are the same.",
+        "meaning_hint": "Know your radicals, friend-o.",
+        "reading_mnemonic": "<kanji>Five</kanji> is the number of buildings <reading>Go</reading>dzilla (ご) will knock down. Oh, look! There he goes now.",
+        "reading_hint": "One, two, three, four, five—GODZILLA IS HERE GO GO, RUN!",
+        "lesson_position": 43,
+        "spaced_repetition_system_id": 2
+    }
+}

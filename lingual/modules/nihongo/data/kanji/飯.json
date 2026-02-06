@@ -1,0 +1,70 @@
+{
+    "id": 955,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/955",
+    "data_updated_at": "2025-11-17T22:20:00.156333Z",
+    "data": {
+        "created_at": "2012-09-19T22:54:59.798398Z",
+        "level": 15,
+        "slug": "飯",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E9%A3%AF",
+        "characters": "飯",
+        "meanings": [
+            {
+                "meaning": "Meal",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Food",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "はん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "めし",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            139,
+            218
+        ],
+        "amalgamation_subject_ids": [
+            3795,
+            3796,
+            3935,
+            3939,
+            3940,
+            6304,
+            7126,
+            9275
+        ],
+        "visually_similar_subject_ids": [
+            1421,
+            739,
+            994,
+            1399,
+            858,
+            938,
+            1246
+        ],
+        "meaning_mnemonic": "You might want to <radical>eat</radical>, but your <radical>anti</radical>-eating stance means your <kanji>meal</kanji> will just sit in front of you, uneaten. Food is meant to be eaten! Stop trying to fast and take a bite.",
+        "meaning_hint": "Look down at the huge meal in front of you. You'll have to eat your food eventually, but I guess there are plenty of reasons to be anti-eat right now.",
+        "reading_mnemonic": "As you stare at the <kanji>meal</kanji>, <reading>Han</reading> (はん) Solo appears before you and takes a bite! This is what happens if you don't eat your food, someone else will eat it.",
+        "reading_hint": "Picture Han Solo slowly eating your whole meal. He's making constant eye contact with you, reaching down and shoving the entire meal into his mouth.",
+        "lesson_position": 45,
+        "spaced_repetition_system_id": 1
+    }
+}

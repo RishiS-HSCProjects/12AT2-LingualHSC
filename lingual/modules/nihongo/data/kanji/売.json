@@ -1,0 +1,66 @@
+{
+    "id": 587,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/587",
+    "data_updated_at": "2025-12-15T21:59:01.806898Z",
+    "data": {
+        "created_at": "2012-03-06T05:50:46.000000Z",
+        "level": 9,
+        "slug": "売",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%A3%B2",
+        "characters": "売",
+        "meanings": [
+            {
+                "meaning": "Sell",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "ばい",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "う",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            97,
+            76,
+            28
+        ],
+        "amalgamation_subject_ids": [
+            2816,
+            2817,
+            2818,
+            2819,
+            3134,
+            3355,
+            3456,
+            4758,
+            4759,
+            4973,
+            5132,
+            7466,
+            7621,
+            8075
+        ],
+        "visually_similar_subject_ids": [
+            904
+        ],
+        "meaning_mnemonic": "A <radical>samurai</radical> has come bearing <radical>forehead</radical>s and <radical>legs</radical> that he's trying to <kanji>sell</kanji>. He thought it was a waste to leave all his slain enemies on the battlefield, so he gathered up their foreheads and legs to sell on the black market for some extra cash. Hey, no judging! A samurai's gotta sell what a samurai's gotta sell, okay?",
+        "meaning_hint": "Imagine running into this samurai salesman as you walk through a sketchy part of town. He cautiously glances over his shoulder before opening his trench coat to reveal to you… all the foreheads and legs he's trying to sell.",
+        "reading_mnemonic": "If you run into this samurai who <kanji>sell</kanji>s severed foreheads and legs, you should just say \"<reading>bye</reading> (ばい)!\" and get the heck out of there. Actually, if anyone tries to sell you severed body parts — samurai or not — you should probably say bye over and over until you can get away from them.",
+        "reading_hint": "Imagine loudly saying \"bye\" over and over at this shady samurai. He keeps trying to tell you about how fresh and high-quality all his foreheads and legs are, but you just loudly repeat \"bye\" as you back away from him.",
+        "lesson_position": 25,
+        "spaced_repetition_system_id": 1
+    }
+}

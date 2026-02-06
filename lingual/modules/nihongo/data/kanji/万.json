@@ -1,0 +1,97 @@
+{
+    "id": 495,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/495",
+    "data_updated_at": "2026-01-21T07:27:04.979321Z",
+    "data": {
+        "created_at": "2012-03-01T02:10:55.000000Z",
+        "level": 3,
+        "slug": "万",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%B8%87",
+        "characters": "万",
+        "meanings": [
+            {
+                "meaning": "Ten Thousand",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "10000",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "10,000",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "10 000",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "10 thousand",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Thousand",
+                "type": "blacklist"
+            },
+            {
+                "meaning": "1 Thousand",
+                "type": "blacklist"
+            },
+            {
+                "meaning": "1000",
+                "type": "blacklist"
+            },
+            {
+                "meaning": "1,000",
+                "type": "blacklist"
+            },
+            {
+                "meaning": "One Thousand",
+                "type": "blacklist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "まん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ばん",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            8763,
+            24
+        ],
+        "amalgamation_subject_ids": [
+            2588,
+            2589,
+            2590,
+            2680,
+            6993,
+            7462,
+            7519,
+            7768,
+            9166
+        ],
+        "visually_similar_subject_ids": [
+            510
+        ],
+        "meaning_mnemonic": "You cut the <radical>leaf</radical> with your <radical>sword</radical> into <kanji>ten thousand</kanji> pieces!",
+        "meaning_hint": "If you can get to ten thousand different pieces, then that means your sword is absolutely perfect. If your sword dulls before you get to ten thousand, you have to throw it away.",
+        "reading_mnemonic": "Now that you have <kanji>ten thousand</kanji> pieces of tiny leaf paper, you decide to turn them into a <reading>man</reading>ga (まん)! Each little leaf piece will become a panel.",
+        "reading_hint": "Carefully draw your manga onto these ten thousand leaf pieces. Maybe you even use your sword again to give them some textured details. You're so creative and talented!",
+        "lesson_position": 32,
+        "spaced_repetition_system_id": 1
+    }
+}

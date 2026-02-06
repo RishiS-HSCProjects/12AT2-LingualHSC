@@ -1,0 +1,85 @@
+{
+    "id": 515,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/515",
+    "data_updated_at": "2025-12-31T22:21:54.297415Z",
+    "data": {
+        "created_at": "2012-03-01T03:45:02.000000Z",
+        "level": 5,
+        "slug": "兄",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%85%84",
+        "characters": "兄",
+        "meanings": [
+            {
+                "meaning": "Older Brother",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Big Brother",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Elder Brother",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Big Bro",
+                "type": "whitelist"
+            },
+            {
+                "meaning": "Younger Brother",
+                "type": "blacklist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "きょう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "けい",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "あに",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "にい",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            16,
+            28
+        ],
+        "amalgamation_subject_ids": [
+            2620,
+            2621,
+            2821,
+            5748,
+            7717
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "Who's someone who's just a <radical>mouth</radical> with <radical>legs</radical>? That's your know-it-all <kanji>older brother</kanji>, who won't shut up about anything.",
+        "meaning_hint": "To help this mnemonic along, literally imagine your older brother as someone that's just a giant mouth with a pair of legs walking around. It talks and talks and talks, too, irritating you. Feel the irritation specifically at your older brother. He's older than you, so you can't beat him up... yet.",
+        "reading_mnemonic": "You wish you could box your loud-mouth <kanji>older brother</kanji> up and send him far away to <reading>きょう</reading>と. きょうと is super far away from where you currently live, so just ship your older bro off so he can never bother you again.",
+        "reading_hint": "Hmm... don't you want to go to きょうと someday? Maybe you should have sent your brother somewhere less cool.",
+        "lesson_position": 27,
+        "spaced_repetition_system_id": 1
+    }
+}

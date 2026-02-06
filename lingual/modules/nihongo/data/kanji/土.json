@@ -1,0 +1,85 @@
+{
+    "id": 459,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/459",
+    "data_updated_at": "2025-10-08T23:31:05.530857Z",
+    "data": {
+        "created_at": "2012-02-28T23:31:05.000000Z",
+        "level": 2,
+        "slug": "土",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%9C%9F",
+        "characters": "土",
+        "meanings": [
+            {
+                "meaning": "Dirt",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Earth",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Ground",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Soil",
+                "type": "whitelist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "ど",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "と",
+                "primary": false,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "つち",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            17
+        ],
+        "amalgamation_subject_ids": [
+            2508,
+            2849,
+            4054,
+            4541,
+            7048,
+            7061,
+            7089,
+            7155,
+            7673,
+            7972,
+            7999,
+            8753,
+            9015,
+            9127
+        ],
+        "visually_similar_subject_ids": [
+            877
+        ],
+        "meaning_mnemonic": "The <radical>dirt</radical> radical and the <kanji>dirt</kanji> kanji are the same!",
+        "meaning_hint": "As long as you know the radical dirt, you know the kanji dirt.",
+        "reading_mnemonic": "Who spends a lot of time in <kanji>dirt</kanji>? <reading>Do</reading>gs (ど) do! Dogs dig in dirt, they roll in dirt, sometimes they try to eat dirt (which isn't so great).",
+        "reading_hint": "Dogs and dirt just go together!",
+        "lesson_position": 34,
+        "spaced_repetition_system_id": 2
+    }
+}

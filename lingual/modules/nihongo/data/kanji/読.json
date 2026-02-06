@@ -1,0 +1,75 @@
+[
+    {
+        "id": 765,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/765",
+        "data_updated_at": "2025-11-27T04:32:55.578979Z",
+        "data": {
+            "created_at": "2012-04-24T18:31:39.000000Z",
+            "level": 10,
+            "slug": "読",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E8%AA%AD",
+            "characters": "読",
+            "meanings": [
+                {
+                    "meaning": "Read",
+                    "primary": true,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "よ",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "kunyomi"
+                },
+                {
+                    "reading": "とう",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "どく",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "とく",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "onyomi"
+                }
+            ],
+            "component_subject_ids": [
+                117,
+                439
+            ],
+            "amalgamation_subject_ids": [
+                3215,
+                3216,
+                3521,
+                4144,
+                4986,
+                5372,
+                5516,
+                7485
+            ],
+            "visually_similar_subject_ids": [
+                1083,
+                1739,
+                1170
+            ],
+            "meaning_mnemonic": "You have to <radical>say</radical> what you’re <radical>sell</radical>ing because people don’t like to <kanji>read</kanji>. If they walk right by and don’t read, you better say what you have for sale so they’ll know! Read it out loud to them.",
+            "meaning_hint": "Imagine reading what you have for sale out loud to people walking by because they’re too lazy to read it for themselves.",
+            "reading_mnemonic": "What are you forced to <kanji>read</kanji> aloud to sell? <reading>Yo-</reading>yo (よ) instructions! You’d think they’d be self explanatory, but there are actually a lot of rules and tricks that you have to read to get good at yo-yoing. Read all of these out loud so you can sell them.",
+            "reading_hint": "Imagine reading through your list of yo-yo tricks. Do you know how to pronounce those weird yo-yo names?",
+            "lesson_position": 57,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

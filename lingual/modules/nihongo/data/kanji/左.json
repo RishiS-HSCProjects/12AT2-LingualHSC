@@ -1,0 +1,61 @@
+{
+    "id": 486,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/486",
+    "data_updated_at": "2025-10-01T06:09:50.173600Z",
+    "data": {
+        "created_at": "2012-02-29T00:57:18.000000Z",
+        "level": 2,
+        "slug": "左",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%B7%A6",
+        "characters": "左",
+        "meanings": [
+            {
+                "meaning": "Left",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "さ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "ひだり",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            26,
+            25
+        ],
+        "amalgamation_subject_ids": [
+            2567,
+            2568,
+            3572,
+            3954,
+            6778,
+            7652,
+            8585,
+            8693
+        ],
+        "visually_similar_subject_ids": [
+            493,
+            484,
+            1985
+        ],
+        "meaning_mnemonic": "<radical>Narwhal</radical>s do <radical>construction</radical> with their <kanji>left</kanji> hands (or flippers, I guess). That's because all narwhals are left-handed!",
+        "meaning_hint": "Picture a bunch of narwhals constructing an underwater ice village. They're all working away with their left hands.",
+        "reading_mnemonic": "In their <kanji>left</kanji> hands, the narwhals all hold <reading>saw</reading>s (さ). That's because the ice for their homes is already there, so they just need to saw away at them to make the shapes they want. Narwhal construction is actually very simple.",
+        "reading_hint": "If you're right-handed, imagine trying to use these left-handed saws. It flips and flops all over until you drop it. But if you're left-handed it feels just right!",
+        "lesson_position": 59,
+        "spaced_repetition_system_id": 2
+    }
+}

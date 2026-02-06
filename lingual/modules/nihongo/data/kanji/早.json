@@ -1,0 +1,76 @@
+{
+    "id": 547,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/547",
+    "data_updated_at": "2026-01-27T00:53:32.427880Z",
+    "data": {
+        "created_at": "2012-03-02T08:03:18.000000Z",
+        "level": 4,
+        "slug": "早",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%97%A9",
+        "characters": "早",
+        "meanings": [
+            {
+                "meaning": "Early",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Fast",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Quick",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "そう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "はや",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "さ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            22,
+            15
+        ],
+        "amalgamation_subject_ids": [
+            2668,
+            2669,
+            3160,
+            3439,
+            5094,
+            6481,
+            7524,
+            8091,
+            8515
+        ],
+        "visually_similar_subject_ids": [
+            942
+        ],
+        "meaning_mnemonic": "When the <radical>sun</radical> is above the <radical>cross</radical>, it's time for some people to go church — which is always way too <kanji>early</kanji> on a Sunday, am I right? And if you want to get to church early, you need to be <kanji>fast</kanji>, otherwise you'll be too late.",
+        "meaning_hint": "Imagine the sun coming up slowly, over the horizon. It then lines up with the cross, and at that moment, your alarm goes off, waking you up. You check the alarm clock, and instead of displaying the time, it just says EARLY and FAST on it, flashing in big red letters and alternating.",
+        "reading_mnemonic": "To remember the そう reading we use the word \"soul.\"\n\nWhen you're forced to get up <kanji>fast</kanji> and <kanji>early</kanji> you can feel it in your <reading>sou</reading>l (そう). You're so tired and it's so early, your soul cries out, \"Please don't make me go this fast this early. I'm gonna leave your body if you keep this up!\"",
+        "reading_hint": "But you get your soul up early and head to the church fast anyway, because you're doing all of this for your soul in the first place!",
+        "lesson_position": 62,
+        "spaced_repetition_system_id": 1
+    }
+}

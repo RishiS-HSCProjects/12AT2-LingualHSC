@@ -1,0 +1,66 @@
+{
+    "id": 473,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/473",
+    "data_updated_at": "2026-01-22T21:57:35.099275Z",
+    "data": {
+        "created_at": "2012-02-29T00:22:40.000000Z",
+        "level": 2,
+        "slug": "天",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%A4%A9",
+        "characters": "天",
+        "meanings": [
+            {
+                "meaning": "Heaven",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "てん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "あま",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            40
+        ],
+        "amalgamation_subject_ids": [
+            2535,
+            2536,
+            2676,
+            2883,
+            3986,
+            4795,
+            5661,
+            6884,
+            7406,
+            7464,
+            7762,
+            8676,
+            9009,
+            9174,
+            9267,
+            9273
+        ],
+        "visually_similar_subject_ids": [
+            945
+        ],
+        "meaning_mnemonic": "The radical <radical>heaven</radical> is the same as the kanji <kanji>heaven</kanji>, making this an easy kanji to memorize.",
+        "meaning_hint": "If you know your radicals well (and you should!) you know the meaning of this kanji well, as well!",
+        "reading_mnemonic": "<kanji>Heaven</kanji>... nowadays, people aren't all that good. Things have gotten bad. That's why the acceptance rate to get into heaven is only <reading>ten</reading> (てん) percent!",
+        "reading_hint": "Imagine yourself in line to get into heaven. You're super worried, because you're not sure if you'll get in. You heard there was a one in <reading>ten</reading> chance... those aren't good odds. Feel nervous in your imagination. Feel worried. Feel the pressure as you get closer and closer to the gate... will you make it?? Ten percent!",
+        "lesson_position": 46,
+        "spaced_repetition_system_id": 2
+    }
+}

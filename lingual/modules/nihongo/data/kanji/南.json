@@ -1,0 +1,63 @@
+{
+    "id": 634,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/634",
+    "data_updated_at": "2026-02-02T16:35:17.608043Z",
+    "data": {
+        "created_at": "2012-03-08T23:50:57.000000Z",
+        "level": 7,
+        "slug": "南",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%8D%97",
+        "characters": "南",
+        "meanings": [
+            {
+                "meaning": "South",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "みなみ",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "なん",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            361
+        ],
+        "amalgamation_subject_ids": [
+            2900,
+            2910,
+            3430,
+            3432,
+            5041,
+            6300,
+            8013,
+            8222,
+            8649,
+            9351,
+            9352,
+            9354,
+            9360
+        ],
+        "visually_similar_subject_ids": [
+            609
+        ],
+        "meaning_mnemonic": "You've seen this as a radical before, and the kanji means the same thing — <kanji>south</kanji>!",
+        "meaning_hint": "If you keep up with your radicals, your kanji studies will never go south. Haha! <em>Go south!</em> Get it? I said g—",
+        "reading_mnemonic": "Think about the <kanji>south</kanji>. What's down there? <reading>Mean Amy</reading> (みなみ) lives down there. Think of the last mean thing she did to you and imagine it while yelling out \"MEAN AMYYYYY\" at the sky.",
+        "reading_hint": "Picture Mean Amy down in the south, saying mean things in her American southern accent: \"Y'all <em>don't</em> come back now, ya hear?\" Man, Mean Amy is so mean. And southern.",
+        "lesson_position": 15,
+        "spaced_repetition_system_id": 1
+    }
+}

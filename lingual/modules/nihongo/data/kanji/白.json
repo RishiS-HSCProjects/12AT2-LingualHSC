@@ -1,0 +1,65 @@
+{
+    "id": 491,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/491",
+    "data_updated_at": "2025-10-01T06:09:50.201463Z",
+    "data": {
+        "created_at": "2012-02-29T01:13:32.000000Z",
+        "level": 2,
+        "slug": "白",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E7%99%BD",
+        "characters": "白",
+        "meanings": [
+            {
+                "meaning": "White",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "はく",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "しろ",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            },
+            {
+                "reading": "しら",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            52
+        ],
+        "amalgamation_subject_ids": [
+            2581,
+            2582,
+            2986,
+            3514,
+            3878,
+            4081,
+            5322,
+            7034,
+            7521,
+            8688,
+            9110
+        ],
+        "visually_similar_subject_ids": [],
+        "meaning_mnemonic": "The radical <radical>white</radical> and the kanji <kanji>white</kanji> are the same.",
+        "meaning_hint": "Study your radicals hard! Most important thing!",
+        "reading_mnemonic": "The <kanji>white</kanji> team was the first to be able to <reading>hack</reading> (はく) the <kanji>white</kanji> iPhone.",
+        "reading_hint": "Imagine two teams (black and <kanji>white</kanji>), wearing their team colors, working really hard on hacking the iPhone. It is a huge contest, and people are watching with a lot of tension, to see who will hack the <kanji>white</kanji> iPhone first. Feel that tension, and see the colors separating them so vividly. The colors are important, and the excitement of the winner holding up the <reading>hack</reading>ed iPhone is too.",
+        "lesson_position": 64,
+        "spaced_repetition_system_id": 2
+    }
+}

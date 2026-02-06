@@ -1,0 +1,60 @@
+{
+    "id": 821,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/821",
+    "data_updated_at": "2025-11-13T22:18:26.260527Z",
+    "data": {
+        "created_at": "2012-05-01T19:45:45.000000Z",
+        "level": 12,
+        "slug": "員",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%93%A1",
+        "characters": "員",
+        "meanings": [
+            {
+                "meaning": "Member",
+                "primary": true,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "いん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            16,
+            94
+        ],
+        "amalgamation_subject_ids": [
+            3340,
+            3341,
+            3342,
+            3343,
+            3645,
+            3960,
+            4408,
+            4580,
+            4598,
+            4818,
+            5568,
+            7580,
+            7581,
+            7706
+        ],
+        "visually_similar_subject_ids": [
+            699,
+            884
+        ],
+        "meaning_mnemonic": "Even a <radical>mouth</radical>-bearing <radical>shellfish</radical> is a <kanji>member</kanji> of the invertebrate family. Yes, shellfish do have mouths, look it up!",
+        "meaning_hint": "Imagine a shellfish opening and closing its mouth, talking to you and telling you what a proud member of its family it is. It's a strange sight, but picture it in your mind anyway.",
+        "reading_mnemonic": "If you were a <kanji>member</kanji> of the same shellfish family, you'd be able to go to the special shellfish <reading>inn</reading> (いん). Every species has a members-only inn.",
+        "reading_hint": "Imagine trying to go to the shellfish inn. Imagine all the members-only signs telling you that you can't come in. Womp womp.",
+        "lesson_position": 32,
+        "spaced_repetition_system_id": 1
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "id": 679,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/679",
+    "data_updated_at": "2026-01-19T23:06:39.866127Z",
+    "data": {
+        "created_at": "2012-04-04T20:01:06.000000Z",
+        "level": 8,
+        "slug": "住",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E4%BD%8F",
+        "characters": "住",
+        "meanings": [
+            {
+                "meaning": "Dwell",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Reside",
+                "primary": false,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Dwelling",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "じゅう",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "す",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            75,
+            154
+        ],
+        "amalgamation_subject_ids": [
+            2994,
+            2995,
+            2996,
+            3043,
+            4638,
+            5180,
+            5181
+        ],
+        "visually_similar_subject_ids": [
+            482,
+            528,
+            1286,
+            794,
+            1745
+        ],
+        "meaning_mnemonic": "The <radical>leader</radical> of the <radical>master</radical>s gets to choose the place they <kanji>dwell</kanji>. So they <kanji>reside</kanji> in a huge mansion on the top of the mountain, surrounded by all the other masters in their smaller dwellings.",
+        "meaning_hint": "Picture the leader master who dwells in a big, beautiful dwelling. Everyone else is jealous.",
+        "reading_mnemonic": "She needs this big place to <kanji>dwell</kanji> so she has somewhere to store all of her <reading>jew</reading>els (じゅう). Masters always have lots of fancy, expensive things, and she has jewels.",
+        "reading_hint": "Imagine opening the door to the leader master's dwelling and thousands of jewels come pouring out, whisking you off, down the mountain.",
+        "lesson_position": 31,
+        "spaced_repetition_system_id": 1
+    }
+}

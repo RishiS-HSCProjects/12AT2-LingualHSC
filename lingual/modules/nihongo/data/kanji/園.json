@@ -1,0 +1,64 @@
+{
+    "id": 960,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/960",
+    "data_updated_at": "2026-02-04T19:33:34.288011Z",
+    "data": {
+        "created_at": "2012-09-20T18:33:24.749575Z",
+        "level": 16,
+        "slug": "園",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E5%9C%92",
+        "characters": "園",
+        "meanings": [
+            {
+                "meaning": "Garden",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Park",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [],
+        "readings": [
+            {
+                "reading": "えん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            },
+            {
+                "reading": "その",
+                "primary": false,
+                "accepted_answer": false,
+                "type": "kunyomi"
+            }
+        ],
+        "component_subject_ids": [
+            16,
+            8784
+        ],
+        "amalgamation_subject_ids": [
+            3824,
+            3825,
+            4980,
+            5347,
+            5377,
+            6919,
+            7040,
+            7586
+        ],
+        "visually_similar_subject_ids": [
+            1724
+        ],
+        "meaning_mnemonic": "You examine the <radical>mouth</radical> of a <radical>zombie</radical> and find a small <kanji>garden</kanji> in there. There are even benches... it looks like a <kanji>park</kanji>.",
+        "meaning_hint": "Zombies are dead, so I guess their mouths have all the things garden plants crave. Their mouths are like compost piles, if you think about it.",
+        "reading_mnemonic": "You look closer at the <kanji>garden</kanji> and suddenly everything <reading>en</reading>ds (えん).",
+        "reading_hint": "Oh. The zombie probably bit down on your head and now it's the end for you. At least you were looking at a nice garden at the end of it all...",
+        "lesson_position": 8,
+        "spaced_repetition_system_id": 1
+    }
+}

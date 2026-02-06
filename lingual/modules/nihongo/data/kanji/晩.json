@@ -1,0 +1,65 @@
+{
+    "id": 958,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/958",
+    "data_updated_at": "2025-10-01T06:09:53.404718Z",
+    "data": {
+        "created_at": "2012-09-19T22:56:26.467460Z",
+        "level": 15,
+        "slug": "晩",
+        "hidden_at": null,
+        "document_url": "https://www.wanikani.com/kanji/%E6%99%A9",
+        "characters": "晩",
+        "meanings": [
+            {
+                "meaning": "Night",
+                "primary": true,
+                "accepted_answer": true
+            },
+            {
+                "meaning": "Evening",
+                "primary": false,
+                "accepted_answer": true
+            }
+        ],
+        "auxiliary_meanings": [
+            {
+                "meaning": "Light",
+                "type": "blacklist"
+            },
+            {
+                "meaning": "Sunlight",
+                "type": "blacklist"
+            }
+        ],
+        "readings": [
+            {
+                "reading": "ばん",
+                "primary": true,
+                "accepted_answer": true,
+                "type": "onyomi"
+            }
+        ],
+        "component_subject_ids": [
+            22,
+            208
+        ],
+        "amalgamation_subject_ids": [
+            3764,
+            3765,
+            3766,
+            3939,
+            8503
+        ],
+        "visually_similar_subject_ids": [
+            1722,
+            813
+        ],
+        "meaning_mnemonic": "The <radical>sun</radical> has an <radical>excuse</radical> for disappearing at <kanji>night</kanji>. The sun gets really tired, same as anyone else – so when night rolls around the sun excuses itself and goes to sleep. It’s a valid excuse.",
+        "meaning_hint": "Imagine you’re the sun, working all day. Of course you get tired. This is a good excuse to go to bed at night and get some rest. Feel how sore and hot and sweaty and exhausted you are after a hard day’s work of being the sun.",
+        "reading_mnemonic": "Unfortunately, you also have a history of overworking yourself, so you've been outright <reading>ban</reading>ned (ばん) from showing up at <kanji>night</kanji>.",
+        "reading_hint": "Stop working so much! Humans need some rest too, so it can't always be bright. Maybe you should try some therapy. We all just want to see you get better, sun. Anyway, you're banned for now. Cya.",
+        "lesson_position": 48,
+        "spaced_repetition_system_id": 1
+    }
+}

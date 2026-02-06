@@ -1,0 +1,61 @@
+[
+    {
+        "id": 673,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/673",
+        "data_updated_at": "2025-10-01T14:32:25.814824Z",
+        "data": {
+            "created_at": "2012-03-27T17:30:25.000000Z",
+            "level": 7,
+            "slug": "雪",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E9%9B%AA",
+            "characters": "雪",
+            "meanings": [
+                {
+                    "meaning": "Snow",
+                    "primary": true,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [],
+            "readings": [
+                {
+                    "reading": "ゆき",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "kunyomi"
+                },
+                {
+                    "reading": "せつ",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "onyomi"
+                }
+            ],
+            "component_subject_ids": [
+                119,
+                105
+            ],
+            "amalgamation_subject_ids": [
+                2981
+            ],
+            "visually_similar_subject_ids": [
+                702,
+                706,
+                926,
+                1099,
+                1845,
+                1903,
+                1982,
+                2020
+            ],
+            "meaning_mnemonic": "When <radical>rain</radical> falls on <radical>Wolverine</radical>, it turns to <kanji>snow</kanji>. He's so emotionally distant and cold that the rain freezes into snow as soon as it gets near him.",
+            "meaning_hint": "Imagine Wolverine in the pouring rain, creating a little halo of snow around him wherever he goes. It's strangely beautiful. That is one cold, traumatized dude…",
+            "reading_mnemonic": "You're concerned for Wolverine's mental health. Him being so emotionally cold that he turns rain to <kanji>snow</kanji> means <reading>you kee</reading>p (ゆき) asking if he's okay. But that only makes him want to be more distant. ",
+            "reading_hint": "Sheesh, emotionally distant people are complicated. The more you keep trying to help them, the more they reject you. Wolverine could do with a nice holiday to melt all that snow away.",
+            "lesson_position": 53,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]

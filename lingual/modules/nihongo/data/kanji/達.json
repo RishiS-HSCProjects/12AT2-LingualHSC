@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1033,
+        "object": "kanji",
+        "url": "https://api.wanikani.com/v2/subjects/1033",
+        "data_updated_at": "2025-12-10T21:06:04.171690Z",
+        "data": {
+            "created_at": "2012-10-31T23:49:47.102609Z",
+            "level": 18,
+            "slug": "達",
+            "hidden_at": null,
+            "document_url": "https://www.wanikani.com/kanji/%E9%81%94",
+            "characters": "達",
+            "meanings": [
+                {
+                    "meaning": "Attain",
+                    "primary": true,
+                    "accepted_answer": true
+                },
+                {
+                    "meaning": "Plural",
+                    "primary": false,
+                    "accepted_answer": true
+                }
+            ],
+            "auxiliary_meanings": [
+                {
+                    "meaning": "Reach",
+                    "type": "whitelist"
+                }
+            ],
+            "readings": [
+                {
+                    "reading": "たつ",
+                    "primary": true,
+                    "accepted_answer": true,
+                    "type": "onyomi"
+                },
+                {
+                    "reading": "たち",
+                    "primary": false,
+                    "accepted_answer": false,
+                    "type": "kunyomi"
+                }
+            ],
+            "component_subject_ids": [
+                114,
+                17,
+                136
+            ],
+            "amalgamation_subject_ids": [
+                4151,
+                4152,
+                4153,
+                4154,
+                4365,
+                7075,
+                7549,
+                7646
+            ],
+            "visually_similar_subject_ids": [
+                752,
+                1084
+            ],
+            "meaning_mnemonic": "You ride your <radical>scooter</radical> through the <radical>dirt</radical> while carrying a <radical>sheep</radical> because you're determined to <kanji>attain</kanji> something. Greatness? Glory? Everlasting fame? Maybe you'll attain a <kanji>plural</kanji> combination of all those things. After all, you <em>are</em> the best sheep-carrying off-road scooterist the world has ever seen.",
+            "meaning_hint": "Feel the dirt spatter your face as you zip around off-road trails with your sheep under your arm. You will attain glory! You will attain greatness!",
+            "reading_mnemonic": "After you <kanji>attain</kanji> that <kanji>plural</kanji> combination of glory, greatness, and fame, you get a <reading>tattoo</reading> (たつ) to celebrate: \"world's greatest,\" in gothic lettering, above a picture of you and your sheep on your scooter. ",
+            "reading_hint": "Feel the pain of the tattoo needle as you get this commemorative tattoo. You're getting this tattoo on your forehead, of course, because you want to make sure everyone sees it.",
+            "lesson_position": 16,
+            "spaced_repetition_system_id": 1
+        }
+    }
+]
