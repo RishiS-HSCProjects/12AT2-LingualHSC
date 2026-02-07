@@ -1,115 +1,109 @@
 {
-    "id": 462,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/462",
-    "data_updated_at": "2026-01-29T00:00:27.472065Z",
-    "data": {
-        "created_at": "2012-02-28T23:38:28.000000Z",
-        "level": 2,
-        "slug": "子",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%AD%90",
-        "characters": "子",
-        "meanings": [
-            {
-                "meaning": "Child",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Kid",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Children",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Kids",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "し",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "す",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "こ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            34
-        ],
-        "amalgamation_subject_ids": [
-            2512,
-            2513,
-            2514,
-            2551,
-            2553,
-            2684,
-            3080,
-            3220,
-            3324,
-            3403,
-            3408,
-            3640,
-            3779,
-            3965,
-            4176,
-            4281,
-            4316,
-            4371,
-            4411,
-            4753,
-            4965,
-            4995,
-            5089,
-            5192,
-            5454,
-            5662,
-            5938,
-            6140,
-            6256,
-            6572,
-            6750,
-            6792,
-            6835,
-            6957,
-            6989,
-            7100,
-            7111,
-            7154,
-            7356,
-            7702,
-            8022,
-            8466,
-            9104,
-            9367
-        ],
-        "visually_similar_subject_ids": [
-            464,
-            465
-        ],
-        "meaning_mnemonic": "The <radical>child</radical> radical and the <kanji>child</kanji> kanji are exactly the same.",
-        "meaning_hint": "So, if you know your radicals, you know your kanji as well! This won't last forever (where radicals are exactly the same as the kanji) so enjoy it while the kanji are still small and simple!",
-        "reading_mnemonic": "The main reading here is し, so to remember it we'll use this mnemonic:\n\nThere is a <kanji>child</kanji> standing in front of you. You look closely at the child but something seems wrong. You rub your eyes and when you open them again, there is a <reading>shee</reading>p (し) in front of you. A sheep?! You yelp, blink again, and it's back to being a child. Are… are all children really just sheep? ",
-        "reading_hint": "The child (sheep) runs away and you chase after it. Every time it's about to turn a corner it looks like a sheep again, but whenever you yell and point, it changes back into a child. You're the only one who can see this sheep child!",
-        "lesson_position": 37,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T23:38:28.000000Z",
+    "level": 2,
+    "slug": "子",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%AD%90",
+    "characters": "子",
+    "meanings": [
+        {
+            "meaning": "Child",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Kid",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Children",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Kids",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "し",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "す",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "こ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        34
+    ],
+    "amalgamation_subject_ids": [
+        2512,
+        2513,
+        2514,
+        2551,
+        2553,
+        2684,
+        3080,
+        3220,
+        3324,
+        3403,
+        3408,
+        3640,
+        3779,
+        3965,
+        4176,
+        4281,
+        4316,
+        4371,
+        4411,
+        4753,
+        4965,
+        4995,
+        5089,
+        5192,
+        5454,
+        5662,
+        5938,
+        6140,
+        6256,
+        6572,
+        6750,
+        6792,
+        6835,
+        6957,
+        6989,
+        7100,
+        7111,
+        7154,
+        7356,
+        7702,
+        8022,
+        8466,
+        9104,
+        9367
+    ],
+    "visually_similar_subject_ids": [
+        464,
+        465
+    ],
+    "meaning_mnemonic": "The <radical>child</radical> radical and the <kanji>child</kanji> kanji are exactly the same.",
+    "meaning_hint": "So, if you know your radicals, you know your kanji as well! This won't last forever (where radicals are exactly the same as the kanji) so enjoy it while the kanji are still small and simple!",
+    "reading_mnemonic": "The main reading here is し, so to remember it we'll use this mnemonic:\n\nThere is a <kanji>child</kanji> standing in front of you. You look closely at the child but something seems wrong. You rub your eyes and when you open them again, there is a <reading>shee</reading>p (し) in front of you. A sheep?! You yelp, blink again, and it's back to being a child. Are… are all children really just sheep? ",
+    "reading_hint": "The child (sheep) runs away and you chase after it. Every time it's about to turn a corner it looks like a sheep again, but whenever you yell and point, it changes back into a child. You're the only one who can see this sheep child!",
+    "lesson_position": 37,
+    "spaced_repetition_system_id": 2
 }

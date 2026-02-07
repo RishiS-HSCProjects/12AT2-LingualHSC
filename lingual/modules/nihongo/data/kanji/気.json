@@ -1,107 +1,99 @@
-[
-    {
-        "id": 548,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/548",
-        "data_updated_at": "2026-02-02T21:51:21.986281Z",
-        "data": {
-            "created_at": "2012-03-02T08:27:33.000000Z",
-            "level": 4,
-            "slug": "気",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E6%B0%97",
-            "characters": "気",
-            "meanings": [
-                {
-                    "meaning": "Energy",
-                    "primary": true,
-                    "accepted_answer": true
-                },
-                {
-                    "meaning": "Spirit",
-                    "primary": false,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "き",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "け",
-                    "primary": false,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                }
-            ],
-            "component_subject_ids": [
-                82,
-                31
-            ],
-            "amalgamation_subject_ids": [
-                2670,
-                2671,
-                2672,
-                2673,
-                2674,
-                2675,
-                2676,
-                2677,
-                2678,
-                2679,
-                2795,
-                3078,
-                3132,
-                3230,
-                3331,
-                3390,
-                3452,
-                3471,
-                3508,
-                3651,
-                3667,
-                3739,
-                3882,
-                3949,
-                4724,
-                4794,
-                4847,
-                4884,
-                4984,
-                5332,
-                5393,
-                5682,
-                5777,
-                5939,
-                5984,
-                6399,
-                6915,
-                6922,
-                6932,
-                7015,
-                7300,
-                7450,
-                7636,
-                7674,
-                7721,
-                7727,
-                7762,
-                7921,
-                8440,
-                8694,
-                8982
-            ],
-            "visually_similar_subject_ids": [],
-            "meaning_mnemonic": "These days <radical>energy</radical> is the greatest <radical>treasure</radical>. Not gold, money, or anything like that. Imagine finding some in a literal treasure chest. As soon as you open it, out bursts the <kanji>energy</kanji> in a kind of <kanji>spirit</kanji> ball.",
-            "meaning_hint": "Touch the energy, catch the spirit ball. Is it solid or gaseous? Does it tingle or burn? Try to imagine it out. Then, yes, go ahead and sell that valuable energy treasure to a power company or something.",
-            "reading_mnemonic": "As you reach inside the <kanji>energy</kanji> <kanji>spirit</kanji> ball, you feel something hard inside. It's a large <reading>key</reading> (き) that gives you access to another treasure.",
-            "reading_hint": "You take the key and open another treasure that's nearby. Open it up and see what's inside. Imagine something spectacular. Thanks, energy key.",
-            "lesson_position": 63,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-02T08:27:33.000000Z",
+    "level": 4,
+    "slug": "気",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%B0%97",
+    "characters": "気",
+    "meanings": [
+        {
+            "meaning": "Energy",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Spirit",
+            "primary": false,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "き",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "け",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        82,
+        31
+    ],
+    "amalgamation_subject_ids": [
+        2670,
+        2671,
+        2672,
+        2673,
+        2674,
+        2675,
+        2676,
+        2677,
+        2678,
+        2679,
+        2795,
+        3078,
+        3132,
+        3230,
+        3331,
+        3390,
+        3452,
+        3471,
+        3508,
+        3651,
+        3667,
+        3739,
+        3882,
+        3949,
+        4724,
+        4794,
+        4847,
+        4884,
+        4984,
+        5332,
+        5393,
+        5682,
+        5777,
+        5939,
+        5984,
+        6399,
+        6915,
+        6922,
+        6932,
+        7015,
+        7300,
+        7450,
+        7636,
+        7674,
+        7721,
+        7727,
+        7762,
+        7921,
+        8440,
+        8694,
+        8982
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "These days <radical>energy</radical> is the greatest <radical>treasure</radical>. Not gold, money, or anything like that. Imagine finding some in a literal treasure chest. As soon as you open it, out bursts the <kanji>energy</kanji> in a kind of <kanji>spirit</kanji> ball.",
+    "meaning_hint": "Touch the energy, catch the spirit ball. Is it solid or gaseous? Does it tingle or burn? Try to imagine it out. Then, yes, go ahead and sell that valuable energy treasure to a power company or something.",
+    "reading_mnemonic": "As you reach inside the <kanji>energy</kanji> <kanji>spirit</kanji> ball, you feel something hard inside. It's a large <reading>key</reading> (き) that gives you access to another treasure.",
+    "reading_hint": "You take the key and open another treasure that's nearby. Open it up and see what's inside. Imagine something spectacular. Thanks, energy key.",
+    "lesson_position": 63,
+    "spaced_repetition_system_id": 1
+}

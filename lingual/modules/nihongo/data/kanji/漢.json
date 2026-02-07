@@ -1,65 +1,59 @@
 {
-    "id": 757,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/757",
-    "data_updated_at": "2025-11-27T04:32:55.483837Z",
-    "data": {
-        "created_at": "2012-04-24T18:25:29.000000Z",
-        "level": 10,
-        "slug": "漢",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%BC%A2",
-        "characters": "漢",
-        "meanings": [
-            {
-                "meaning": "Chinese",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Man",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "China",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "かん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "おとこ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            103,
-            8774
-        ],
-        "amalgamation_subject_ids": [
-            3194,
-            8127
-        ],
-        "visually_similar_subject_ids": [
-            1534,
-            2351,
-            1264
-        ],
-        "meaning_mnemonic": "A <radical>tsunami</radical> hit ancient <radical>China</radical> and formed the <kanji>Chinese</kanji> country we know now as... <kanji>China</kanji>!\n\nSometimes this kanji also means <kanji>man</kanji>. In fact, it used to refer specifically to people of the Han dynasty, but over time evolved into a term for men in specific contexts.",
-        "meaning_hint": "Picture the world way far away, from space. You see a giant tsunami carve out a massive chunk of land to the west of Japan on the main continent. Slowly the tsunami waters recede, leaving the outline of China.",
-        "reading_mnemonic": "You peer closer at <kanji>China</kanji> and see one man, Genghis <reading>Khan</reading> (かん), leading his troops into the vast country, ready to conquer all the Chinese people living in China!",
-        "reading_hint": "Khan is only one man, but watch as he takes China for himself. A tiny little flag with a horse on it is raised in the middle, for all of the Chinese people to see. Hmm, this could be a problem.",
-        "lesson_position": 47,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-24T18:25:29.000000Z",
+    "level": 10,
+    "slug": "漢",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%BC%A2",
+    "characters": "漢",
+    "meanings": [
+        {
+            "meaning": "Chinese",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Man",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "China",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "かん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "おとこ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        103,
+        8774
+    ],
+    "amalgamation_subject_ids": [
+        3194,
+        8127
+    ],
+    "visually_similar_subject_ids": [
+        1534,
+        2351,
+        1264
+    ],
+    "meaning_mnemonic": "A <radical>tsunami</radical> hit ancient <radical>China</radical> and formed the <kanji>Chinese</kanji> country we know now as... <kanji>China</kanji>!\n\nSometimes this kanji also means <kanji>man</kanji>. In fact, it used to refer specifically to people of the Han dynasty, but over time evolved into a term for men in specific contexts.",
+    "meaning_hint": "Picture the world way far away, from space. You see a giant tsunami carve out a massive chunk of land to the west of Japan on the main continent. Slowly the tsunami waters recede, leaving the outline of China.",
+    "reading_mnemonic": "You peer closer at <kanji>China</kanji> and see one man, Genghis <reading>Khan</reading> (かん), leading his troops into the vast country, ready to conquer all the Chinese people living in China!",
+    "reading_hint": "Khan is only one man, but watch as he takes China for himself. A tiny little flag with a horse on it is raised in the middle, for all of the Chinese people to see. Hmm, this could be a problem.",
+    "lesson_position": 47,
+    "spaced_repetition_system_id": 1
 }

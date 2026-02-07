@@ -1,83 +1,77 @@
 {
-    "id": 610,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/610",
-    "data_updated_at": "2025-11-07T23:47:10.164395Z",
-    "data": {
-        "created_at": "2012-03-08T04:40:44.000000Z",
-        "level": 6,
-        "slug": "全",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%85%A8",
-        "characters": "全",
-        "meanings": [
-            {
-                "meaning": "All",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Whole",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "ぜん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "すべ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "まった",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            8764,
-            48
-        ],
-        "amalgamation_subject_ids": [
-            2854,
-            2855,
-            2856,
-            2857,
-            2884,
-            3028,
-            3341,
-            3431,
-            3454,
-            3608,
-            3673,
-            3846,
-            3915,
-            4786,
-            5221,
-            5824,
-            6151,
-            6894,
-            7460,
-            7599
-        ],
-        "visually_similar_subject_ids": [
-            602,
-            1153
-        ],
-        "meaning_mnemonic": "The <radical>hat</radical> crowns the <radical>king</radical>, because <kanji>all</kanji> kings must have one. ",
-        "meaning_hint": "Think of as many kings as you can think of. Guess what? Literally <em>all</em> of them wear hats! Think of strange hats, funny hats, normal hats, and crowns. Just make sure you're amazed by the fact they're <em>all</em> wearing them.",
-        "reading_mnemonic": "But, as you're going through <kanji>all</kanji> the kings, it turns out not all of them have hats after all. The last one you come to is hatless. He's the king of <reading>Zen</reading> (ぜん). He has simple clothes and a shaved head, unlike all the other fancy kings standing around nearby.",
-        "reading_hint": "To add to this story and make it more memorable, you can imagine the other kings getting upset, saying things like \"All kings must wear hats! You are no king!\" The king of Zen Buddhism just ignores them and begins to meditate.",
-        "lesson_position": 47,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-08T04:40:44.000000Z",
+    "level": 6,
+    "slug": "全",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%85%A8",
+    "characters": "全",
+    "meanings": [
+        {
+            "meaning": "All",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Whole",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ぜん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "すべ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "まった",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8764,
+        48
+    ],
+    "amalgamation_subject_ids": [
+        2854,
+        2855,
+        2856,
+        2857,
+        2884,
+        3028,
+        3341,
+        3431,
+        3454,
+        3608,
+        3673,
+        3846,
+        3915,
+        4786,
+        5221,
+        5824,
+        6151,
+        6894,
+        7460,
+        7599
+    ],
+    "visually_similar_subject_ids": [
+        602,
+        1153
+    ],
+    "meaning_mnemonic": "The <radical>hat</radical> crowns the <radical>king</radical>, because <kanji>all</kanji> kings must have one. ",
+    "meaning_hint": "Think of as many kings as you can think of. Guess what? Literally <em>all</em> of them wear hats! Think of strange hats, funny hats, normal hats, and crowns. Just make sure you're amazed by the fact they're <em>all</em> wearing them.",
+    "reading_mnemonic": "But, as you're going through <kanji>all</kanji> the kings, it turns out not all of them have hats after all. The last one you come to is hatless. He's the king of <reading>Zen</reading> (ぜん). He has simple clothes and a shaved head, unlike all the other fancy kings standing around nearby.",
+    "reading_hint": "To add to this story and make it more memorable, you can imagine the other kings getting upset, saying things like \"All kings must wear hats! You are no king!\" The king of Zen Buddhism just ignores them and begins to meditate.",
+    "lesson_position": 47,
+    "spaced_repetition_system_id": 1
 }

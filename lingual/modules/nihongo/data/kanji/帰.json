@@ -1,66 +1,60 @@
 {
-    "id": 930,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/930",
-    "data_updated_at": "2026-02-04T06:41:01.207234Z",
-    "data": {
-        "created_at": "2012-09-19T22:42:20.373365Z",
-        "level": 15,
-        "slug": "帰",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%B8%B0",
-        "characters": "帰",
-        "meanings": [
-            {
-                "meaning": "Return",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Return Home",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Go Home",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "かえ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "き",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            128,
-            9391
-        ],
-        "amalgamation_subject_ids": [
-            3755,
-            6551,
-            8947,
-            9044
-        ],
-        "visually_similar_subject_ids": [
-            1362,
-            1455
-        ],
-        "meaning_mnemonic": "You pick up your <radical>knife</radical> and <radical>broom</radical> because you're getting ready to <kanji>return home</kanji>. There'll be a lot of work to do when you return home — cooking, cleaning, fixing stuff — so your knife and broom are sure to come in handy.",
-        "meaning_hint": "Your knife is one of those Swiss Army knives, so it's got a bunch of tools you'll need when you return home. Your broom is just a broom, but… maybe if you pretend to ride it like a witch, it'll make the trip home more fun?",
-        "reading_mnemonic": "For you to <kanji>return home</kanji>, your family has to ask the world to <reading>返</reading>す (かえ) you to them. You belong at home with your family — the outside world is just borrowing you, and eventually it needs to 返す you and let you return home.",
-        "reading_hint": "Imagine your family asking all your coworkers and friends to 返す you so you can return home. It's heartwarming, but also kind of embarrassing at the same time.",
-        "lesson_position": 16,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-09-19T22:42:20.373365Z",
+    "level": 15,
+    "slug": "帰",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B8%B0",
+    "characters": "帰",
+    "meanings": [
+        {
+            "meaning": "Return",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Return Home",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Go Home",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "かえ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "き",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        128,
+        9391
+    ],
+    "amalgamation_subject_ids": [
+        3755,
+        6551,
+        8947,
+        9044
+    ],
+    "visually_similar_subject_ids": [
+        1362,
+        1455
+    ],
+    "meaning_mnemonic": "You pick up your <radical>knife</radical> and <radical>broom</radical> because you're getting ready to <kanji>return home</kanji>. There'll be a lot of work to do when you return home — cooking, cleaning, fixing stuff — so your knife and broom are sure to come in handy.",
+    "meaning_hint": "Your knife is one of those Swiss Army knives, so it's got a bunch of tools you'll need when you return home. Your broom is just a broom, but… maybe if you pretend to ride it like a witch, it'll make the trip home more fun?",
+    "reading_mnemonic": "For you to <kanji>return home</kanji>, your family has to ask the world to <reading>返</reading>す (かえ) you to them. You belong at home with your family — the outside world is just borrowing you, and eventually it needs to 返す you and let you return home.",
+    "reading_hint": "Imagine your family asking all your coworkers and friends to 返す you so you can return home. It's heartwarming, but also kind of embarrassing at the same time.",
+    "lesson_position": 16,
+    "spaced_repetition_system_id": 1
 }

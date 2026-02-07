@@ -1,63 +1,57 @@
 {
-    "id": 677,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/677",
-    "data_updated_at": "2025-10-01T14:32:25.851861Z",
-    "data": {
-        "created_at": "2012-03-27T17:44:28.000000Z",
-        "level": 7,
-        "slug": "黒",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E9%BB%92",
-        "characters": "黒",
-        "meanings": [
-            {
-                "meaning": "Black",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Bad",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "こく",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "くろ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            153
-        ],
-        "amalgamation_subject_ids": [
-            2988,
-            2989,
-            3514,
-            3854,
-            4121,
-            5788,
-            6954,
-            7069,
-            7470,
-            8555
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "The radical <radical>black</radical> and the kanji <kanji>black</kanji> are exactly the same.",
-        "meaning_hint": "",
-        "reading_mnemonic": "You're in a completely <kanji>black</kanji> room. There's no way out, and you can't see. The room starts to fill with liquid. It gets in your mouth. You taste it. It's <reading>Coke</reading> (こく)! Mm, tasty Coke.",
-        "reading_hint": "You need to drink all this Coke, otherwise you're going to drown. Drink this Coke and keep tasting its cold sweetness as you drink it all to survive.",
-        "lesson_position": 57,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-27T17:44:28.000000Z",
+    "level": 7,
+    "slug": "黒",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%BB%92",
+    "characters": "黒",
+    "meanings": [
+        {
+            "meaning": "Black",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Bad",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "こく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "くろ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        153
+    ],
+    "amalgamation_subject_ids": [
+        2988,
+        2989,
+        3514,
+        3854,
+        4121,
+        5788,
+        6954,
+        7069,
+        7470,
+        8555
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The radical <radical>black</radical> and the kanji <kanji>black</kanji> are exactly the same.",
+    "meaning_hint": "",
+    "reading_mnemonic": "You're in a completely <kanji>black</kanji> room. There's no way out, and you can't see. The room starts to fill with liquid. It gets in your mouth. You taste it. It's <reading>Coke</reading> (こく)! Mm, tasty Coke.",
+    "reading_hint": "You need to drink all this Coke, otherwise you're going to drown. Drink this Coke and keep tasting its cold sweetness as you drink it all to survive.",
+    "lesson_position": 57,
+    "spaced_repetition_system_id": 1
 }

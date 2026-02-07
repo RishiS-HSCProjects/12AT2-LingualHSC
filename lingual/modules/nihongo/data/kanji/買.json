@@ -1,56 +1,48 @@
-[
-    {
-        "id": 699,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/699",
-        "data_updated_at": "2025-11-18T14:34:21.910347Z",
-        "data": {
-            "created_at": "2012-04-05T19:40:57.000000Z",
-            "level": 8,
-            "slug": "買",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E8%B2%B7",
-            "characters": "買",
-            "meanings": [
-                {
-                    "meaning": "Buy",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "か",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "ばい",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "onyomi"
-                }
-            ],
-            "component_subject_ids": [
-                163,
-                94
-            ],
-            "amalgamation_subject_ids": [
-                3054,
-                3512,
-                5371
-            ],
-            "visually_similar_subject_ids": [
-                821
-            ],
-            "meaning_mnemonic": "Here's a <radical>net</radical> full of of <radical>shellfish</radical> that you can <kanji>buy</kanji>. You can't just buy loose shellfish. You can only buy the ones that are in the net, bagged up and ready for your money.",
-            "meaning_hint": "Imagine looking over a bunch of different kinds of shellfish wrapped in nets. Think about which ones you want to buy.",
-            "reading_mnemonic": "You decide to <kanji>buy</kanji> as many shellfish as you can fit in your <reading>ca</reading>r (か). You keep buying until your car is completely full of shellfish before you stop. Cars are totally a realistic unit of measure.",
-            "reading_hint": "Imagine buying an entire car's worth of shellfish. Mmm, delicious.",
-            "lesson_position": 51,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-04-05T19:40:57.000000Z",
+    "level": 8,
+    "slug": "買",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%B2%B7",
+    "characters": "買",
+    "meanings": [
+        {
+            "meaning": "Buy",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "か",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ばい",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        163,
+        94
+    ],
+    "amalgamation_subject_ids": [
+        3054,
+        3512,
+        5371
+    ],
+    "visually_similar_subject_ids": [
+        821
+    ],
+    "meaning_mnemonic": "Here's a <radical>net</radical> full of of <radical>shellfish</radical> that you can <kanji>buy</kanji>. You can't just buy loose shellfish. You can only buy the ones that are in the net, bagged up and ready for your money.",
+    "meaning_hint": "Imagine looking over a bunch of different kinds of shellfish wrapped in nets. Think about which ones you want to buy.",
+    "reading_mnemonic": "You decide to <kanji>buy</kanji> as many shellfish as you can fit in your <reading>ca</reading>r (か). You keep buying until your car is completely full of shellfish before you stop. Cars are totally a realistic unit of measure.",
+    "reading_hint": "Imagine buying an entire car's worth of shellfish. Mmm, delicious.",
+    "lesson_position": 51,
+    "spaced_repetition_system_id": 1
+}

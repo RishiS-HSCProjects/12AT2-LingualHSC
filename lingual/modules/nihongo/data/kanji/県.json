@@ -1,65 +1,59 @@
 {
-    "id": 731,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/731",
-    "data_updated_at": "2025-11-11T01:25:07.695556Z",
-    "data": {
-        "created_at": "2012-04-23T23:43:29.000000Z",
-        "level": 9,
-        "slug": "県",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E7%9C%8C",
-        "characters": "県",
-        "meanings": [
-            {
-                "meaning": "Prefecture",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "けん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            53,
-            56,
-            35
-        ],
-        "amalgamation_subject_ids": [
-            3139,
-            4004,
-            4440,
-            4532,
-            4875,
-            5496,
-            5911,
-            5978,
-            6020,
-            6117,
-            6141,
-            6281,
-            6302,
-            6355,
-            6459,
-            7792,
-            8139,
-            8218
-        ],
-        "visually_similar_subject_ids": [
-            630,
-            2300
-        ],
-        "meaning_mnemonic": "The <radical>eye</radical> of a <radical>lion</radical>, still <radical>small</radical> and curious, gazes upon the <kanji>prefecture</kanji> that will one day become his. He's a small lion, but once he grows up, everything reflected in his eye will be his prefecture to rule over.",
-        "meaning_hint": "Imagine the small lion casting his eye across his future prefecture. His small eye is twinkling, because he's proud that he'll one day be prefect, and this prefecture will be his.",
-        "reading_mnemonic": "This small lion's <kanji>prefecture</kanji> is being protected by <reading>Ken</reading> (けん) the samurai, because the lion is too small to protect all of this land himself. Ken the samurai is used to wandering far and wide, so one prefecture is nothing to him.",
-        "reading_hint": "Picture Ken protecting the prefecture, punching hyenas in the face, and yelling, \"This may just be a prefecture, not a country, but I'll give it my all for my lion prefect-to-be!\"",
-        "lesson_position": 48,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-23T23:43:29.000000Z",
+    "level": 9,
+    "slug": "県",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%9C%8C",
+    "characters": "県",
+    "meanings": [
+        {
+            "meaning": "Prefecture",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "けん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        53,
+        56,
+        35
+    ],
+    "amalgamation_subject_ids": [
+        3139,
+        4004,
+        4440,
+        4532,
+        4875,
+        5496,
+        5911,
+        5978,
+        6020,
+        6117,
+        6141,
+        6281,
+        6302,
+        6355,
+        6459,
+        7792,
+        8139,
+        8218
+    ],
+    "visually_similar_subject_ids": [
+        630,
+        2300
+    ],
+    "meaning_mnemonic": "The <radical>eye</radical> of a <radical>lion</radical>, still <radical>small</radical> and curious, gazes upon the <kanji>prefecture</kanji> that will one day become his. He's a small lion, but once he grows up, everything reflected in his eye will be his prefecture to rule over.",
+    "meaning_hint": "Imagine the small lion casting his eye across his future prefecture. His small eye is twinkling, because he's proud that he'll one day be prefect, and this prefecture will be his.",
+    "reading_mnemonic": "This small lion's <kanji>prefecture</kanji> is being protected by <reading>Ken</reading> (けん) the samurai, because the lion is too small to protect all of this land himself. Ken the samurai is used to wandering far and wide, so one prefecture is nothing to him.",
+    "reading_hint": "Picture Ken protecting the prefecture, punching hyenas in the face, and yelling, \"This may just be a prefecture, not a country, but I'll give it my all for my lion prefect-to-be!\"",
+    "lesson_position": 48,
+    "spaced_repetition_system_id": 1
 }

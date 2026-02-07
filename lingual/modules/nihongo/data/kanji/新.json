@@ -1,90 +1,84 @@
 {
-    "id": 857,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/857",
-    "data_updated_at": "2025-11-12T08:41:48.854459Z",
-    "data": {
-        "created_at": "2012-07-25T18:34:28.888793Z",
-        "level": 9,
-        "slug": "新",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%96%B0",
-        "characters": "新",
-        "meanings": [
-            {
-                "meaning": "New",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "しん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "あたら",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "あら",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "にい",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            55,
-            23,
-            115
-        ],
-        "amalgamation_subject_ids": [
-            3209,
-            3472,
-            3538,
-            3781,
-            3821,
-            4630,
-            4802,
-            5303,
-            5327,
-            6004,
-            6147,
-            6412,
-            6566,
-            6962,
-            6986,
-            7475,
-            7689,
-            8167,
-            8651,
-            9368
-        ],
-        "visually_similar_subject_ids": [
-            1191,
-            770,
-            1234,
-            907,
-            1036,
-            1820,
-            1950
-        ],
-        "meaning_mnemonic": "There's a <radical>stand</radical>ing <radical>tree</radical> that you're taking an <radical>axe</radical> to. You're going to cut down this tree to let a <kanji>new</kanji> tree grow.",
-        "meaning_hint": "As you imagine yourself cutting down the standing tree, think about what new tree you'll plant in its place.",
-        "reading_mnemonic": "You cut down the tree to make room for a <kanji>new</kanji> one, but it falls on your <reading>shin</reading> (しん). ",
-        "reading_hint": "Only your shin got hit, so focus all your imaginary pain down there. Try to pull out the splinters. Ouch!",
-        "lesson_position": 60,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-07-25T18:34:28.888793Z",
+    "level": 9,
+    "slug": "新",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%96%B0",
+    "characters": "新",
+    "meanings": [
+        {
+            "meaning": "New",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "あたら",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "あら",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "にい",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        55,
+        23,
+        115
+    ],
+    "amalgamation_subject_ids": [
+        3209,
+        3472,
+        3538,
+        3781,
+        3821,
+        4630,
+        4802,
+        5303,
+        5327,
+        6004,
+        6147,
+        6412,
+        6566,
+        6962,
+        6986,
+        7475,
+        7689,
+        8167,
+        8651,
+        9368
+    ],
+    "visually_similar_subject_ids": [
+        1191,
+        770,
+        1234,
+        907,
+        1036,
+        1820,
+        1950
+    ],
+    "meaning_mnemonic": "There's a <radical>stand</radical>ing <radical>tree</radical> that you're taking an <radical>axe</radical> to. You're going to cut down this tree to let a <kanji>new</kanji> tree grow.",
+    "meaning_hint": "As you imagine yourself cutting down the standing tree, think about what new tree you'll plant in its place.",
+    "reading_mnemonic": "You cut down the tree to make room for a <kanji>new</kanji> one, but it falls on your <reading>shin</reading> (しん). ",
+    "reading_hint": "Only your shin got hit, so focus all your imaginary pain down there. Try to pull out the splinters. Ouch!",
+    "lesson_position": 60,
+    "spaced_repetition_system_id": 1
 }

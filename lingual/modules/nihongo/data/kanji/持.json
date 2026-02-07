@@ -1,67 +1,61 @@
 {
-    "id": 727,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/727",
-    "data_updated_at": "2026-02-02T21:51:21.986281Z",
-    "data": {
-        "created_at": "2012-04-23T23:41:49.000000Z",
-        "level": 9,
-        "slug": "持",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%8C%81",
-        "characters": "持",
-        "meanings": [
-            {
-                "meaning": "Hold",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "じ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "も",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            63,
-            192
-        ],
-        "amalgamation_subject_ids": [
-            3130,
-            3131,
-            3132,
-            3803,
-            3882,
-            3949,
-            6003,
-            6146,
-            7497,
-            7745,
-            9044
-        ],
-        "visually_similar_subject_ids": [
-            726,
-            1882,
-            662,
-            807,
-            870,
-            928
-        ],
-        "meaning_mnemonic": "You need to get your <radical>fingers</radical> around a <radical>temple</radical> if you want to <kanji>hold</kanji> it. Is the temple too big? Hold smaller temples you can buy in the temple's souvenir shop.",
-        "meaning_hint": "Imagine holding a tiny temple in your fingers. Hold it up to the light. Hold it on the train. Hold it while you sleep.",
-        "reading_mnemonic": "As you <kanji>hold</kanji> the temple you hear a voice. You look down through your fingers and see a tiny <reading>Je</reading>sus (じ). He's smiling and gives you a thumbs up. Aww, thanks Jesus!",
-        "reading_hint": "Jesus likes when you hold things like temples. He probably likes when you hold other things too, like ice cream, puppies, and homeless peoples' hands.",
-        "lesson_position": 43,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-23T23:41:49.000000Z",
+    "level": 9,
+    "slug": "持",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%8C%81",
+    "characters": "持",
+    "meanings": [
+        {
+            "meaning": "Hold",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "じ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "も",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        63,
+        192
+    ],
+    "amalgamation_subject_ids": [
+        3130,
+        3131,
+        3132,
+        3803,
+        3882,
+        3949,
+        6003,
+        6146,
+        7497,
+        7745,
+        9044
+    ],
+    "visually_similar_subject_ids": [
+        726,
+        1882,
+        662,
+        807,
+        870,
+        928
+    ],
+    "meaning_mnemonic": "You need to get your <radical>fingers</radical> around a <radical>temple</radical> if you want to <kanji>hold</kanji> it. Is the temple too big? Hold smaller temples you can buy in the temple's souvenir shop.",
+    "meaning_hint": "Imagine holding a tiny temple in your fingers. Hold it up to the light. Hold it on the train. Hold it while you sleep.",
+    "reading_mnemonic": "As you <kanji>hold</kanji> the temple you hear a voice. You look down through your fingers and see a tiny <reading>Je</reading>sus (じ). He's smiling and gives you a thumbs up. Aww, thanks Jesus!",
+    "reading_hint": "Jesus likes when you hold things like temples. He probably likes when you hold other things too, like ice cream, puppies, and homeless peoples' hands.",
+    "lesson_position": 43,
+    "spaced_repetition_system_id": 1
 }

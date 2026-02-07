@@ -1,85 +1,79 @@
 {
-    "id": 707,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/707",
-    "data_updated_at": "2026-01-19T23:05:13.362658Z",
-    "data": {
-        "created_at": "2012-04-05T23:27:08.000000Z",
-        "level": 8,
-        "slug": "所",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%89%80",
-        "characters": "所",
-        "meanings": [
-            {
-                "meaning": "Place",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Facility",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Institute",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Institution",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "しょ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "ところ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            73,
-            115
-        ],
-        "amalgamation_subject_ids": [
-            3035,
-            3038,
-            3039,
-            3040,
-            3041,
-            3042,
-            3043,
-            3315,
-            3486,
-            4418,
-            4698,
-            4809,
-            6049,
-            6057,
-            7011,
-            7447,
-            7742,
-            8050,
-            8326,
-            8742,
-            9123,
-            9306
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "You're tearing this <radical>door</radical> down with an <radical>axe</radical>. You're absolutely crazy. \"I HATE THIS <kanji>PLACE</kanji>!!\" you keep yelling as you smash in the door.",
-        "meaning_hint": "Why do you hate this place, in particular? Come up with a great reason why to help you to remember this very broad kanji meaning.",
-        "reading_mnemonic": "You smash through the door and finally get inside the <kanji>place</kanji>, only to find some kind of <reading>sho</reading>w (しょ) going on. It's a circus show — elephants, tightrope walkers, bears on unicycles! The greatest show on earth, but why is it at this place?",
-        "reading_hint": "Come up with a weird reason as to why the circus is at this place you hate so much. Why did you come here with your axe? Does it have something to do with the circus show?",
-        "lesson_position": 59,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-05T23:27:08.000000Z",
+    "level": 8,
+    "slug": "所",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%89%80",
+    "characters": "所",
+    "meanings": [
+        {
+            "meaning": "Place",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Facility",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Institute",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Institution",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "しょ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ところ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        73,
+        115
+    ],
+    "amalgamation_subject_ids": [
+        3035,
+        3038,
+        3039,
+        3040,
+        3041,
+        3042,
+        3043,
+        3315,
+        3486,
+        4418,
+        4698,
+        4809,
+        6049,
+        6057,
+        7011,
+        7447,
+        7742,
+        8050,
+        8326,
+        8742,
+        9123,
+        9306
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "You're tearing this <radical>door</radical> down with an <radical>axe</radical>. You're absolutely crazy. \"I HATE THIS <kanji>PLACE</kanji>!!\" you keep yelling as you smash in the door.",
+    "meaning_hint": "Why do you hate this place, in particular? Come up with a great reason why to help you to remember this very broad kanji meaning.",
+    "reading_mnemonic": "You smash through the door and finally get inside the <kanji>place</kanji>, only to find some kind of <reading>sho</reading>w (しょ) going on. It's a circus show — elephants, tightrope walkers, bears on unicycles! The greatest show on earth, but why is it at this place?",
+    "reading_hint": "Come up with a weird reason as to why the circus is at this place you hate so much. Why did you come here with your axe? Does it have something to do with the circus show?",
+    "lesson_position": 59,
+    "spaced_repetition_system_id": 1
 }

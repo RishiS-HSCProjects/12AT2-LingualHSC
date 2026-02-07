@@ -1,62 +1,56 @@
 {
-    "id": 722,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/722",
-    "data_updated_at": "2026-01-12T00:54:10.437670Z",
-    "data": {
-        "created_at": "2012-04-23T23:38:05.000000Z",
-        "level": 9,
-        "slug": "乗",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E4%B9%97",
-        "characters": "乗",
-        "meanings": [
-            {
-                "meaning": "Ride",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "の",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "じょう",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            135,
-            16
-        ],
-        "amalgamation_subject_ids": [
-            3112,
-            3113,
-            3114,
-            3498,
-            6143,
-            7991,
-            9048,
-            9049,
-            9050
-        ],
-        "visually_similar_subject_ids": [
-            627,
-            1446,
-            1519
-        ],
-        "meaning_mnemonic": "You put a <radical>grain</radical> in your <radical>mouth</radical> and let it take a <kanji>ride</kanji>. This kanji has the same radicals as 和, but this time the grain is <i>in</i> your mouth, which is why there's little pieces of grain sticking out of the 口 part ;)",
-        "meaning_hint": "Just imagine you're a car or a train and the grain is a person. It's going for a nice ride in your mouth!",
-        "reading_mnemonic": "You decide the grain is probably lonely on this <kanji>ride</kanji> alone, so you add some <reading>no</reading>ri (の) seaweed, so it has a friend.",
-        "reading_hint": "Now the nori is going for a ride too, woohoo!",
-        "lesson_position": 39,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-23T23:38:05.000000Z",
+    "level": 9,
+    "slug": "乗",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%B9%97",
+    "characters": "乗",
+    "meanings": [
+        {
+            "meaning": "Ride",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "の",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "じょう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        135,
+        16
+    ],
+    "amalgamation_subject_ids": [
+        3112,
+        3113,
+        3114,
+        3498,
+        6143,
+        7991,
+        9048,
+        9049,
+        9050
+    ],
+    "visually_similar_subject_ids": [
+        627,
+        1446,
+        1519
+    ],
+    "meaning_mnemonic": "You put a <radical>grain</radical> in your <radical>mouth</radical> and let it take a <kanji>ride</kanji>. This kanji has the same radicals as 和, but this time the grain is <i>in</i> your mouth, which is why there's little pieces of grain sticking out of the 口 part ;)",
+    "meaning_hint": "Just imagine you're a car or a train and the grain is a person. It's going for a nice ride in your mouth!",
+    "reading_mnemonic": "You decide the grain is probably lonely on this <kanji>ride</kanji> alone, so you add some <reading>no</reading>ri (の) seaweed, so it has a friend.",
+    "reading_hint": "Now the nori is going for a ride too, woohoo!",
+    "lesson_position": 39,
+    "spaced_repetition_system_id": 1
 }

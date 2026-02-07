@@ -1,87 +1,81 @@
 {
-    "id": 477,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/477",
-    "data_updated_at": "2026-02-02T21:29:30.856143Z",
-    "data": {
-        "created_at": "2012-02-29T00:34:02.000000Z",
-        "level": 2,
-        "slug": "月",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%9C%88",
-        "characters": "月",
-        "meanings": [
-            {
-                "meaning": "Moon",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Month",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "げつ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "がつ",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "つき",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            43
-        ],
-        "amalgamation_subject_ids": [
-            2522,
-            2528,
-            2542,
-            2543,
-            2544,
-            2545,
-            2562,
-            2595,
-            2650,
-            2651,
-            2702,
-            2745,
-            2758,
-            2783,
-            2825,
-            2949,
-            4056,
-            4674,
-            4817,
-            4888,
-            5358,
-            6172,
-            6990,
-            7325,
-            9169,
-            9241,
-            9286,
-            9287
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "The <kanji>moon</kanji> kanji is made up of the <radical>moon</radical> radical. This kanji is also used to mean <kanji>month</kanji>.",
-        "meaning_hint": "This should be EZPZ as long as you know the radicals already!",
-        "reading_mnemonic": "The <kanji>moon</kanji> really <reading>gets</reading> (げつ) to your <reading>guts</reading> (がつ). Staring at the moon for too long will give you terrible indigestion, so be careful!",
-        "reading_hint": "Use the げつ reading when this kanji means \"moon\", in words like \"moonlight\". Use げつ for counting months, and saying things like \"last month and \"next month\", too. Go for がつ in the names of months, like \"January\".\n\nDon't worry too much about memorizing this pattern, though. You'll be getting lots of practice soon!",
-        "lesson_position": 50,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-29T00:34:02.000000Z",
+    "level": 2,
+    "slug": "月",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9C%88",
+    "characters": "月",
+    "meanings": [
+        {
+            "meaning": "Moon",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Month",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "げつ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "がつ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "つき",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        43
+    ],
+    "amalgamation_subject_ids": [
+        2522,
+        2528,
+        2542,
+        2543,
+        2544,
+        2545,
+        2562,
+        2595,
+        2650,
+        2651,
+        2702,
+        2745,
+        2758,
+        2783,
+        2825,
+        2949,
+        4056,
+        4674,
+        4817,
+        4888,
+        5358,
+        6172,
+        6990,
+        7325,
+        9169,
+        9241,
+        9286,
+        9287
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <kanji>moon</kanji> kanji is made up of the <radical>moon</radical> radical. This kanji is also used to mean <kanji>month</kanji>.",
+    "meaning_hint": "This should be EZPZ as long as you know the radicals already!",
+    "reading_mnemonic": "The <kanji>moon</kanji> really <reading>gets</reading> (げつ) to your <reading>guts</reading> (がつ). Staring at the moon for too long will give you terrible indigestion, so be careful!",
+    "reading_hint": "Use the げつ reading when this kanji means \"moon\", in words like \"moonlight\". Use げつ for counting months, and saying things like \"last month and \"next month\", too. Go for がつ in the names of months, like \"January\".\n\nDon't worry too much about memorizing this pattern, though. You'll be getting lots of practice soon!",
+    "lesson_position": 50,
+    "spaced_repetition_system_id": 2
 }

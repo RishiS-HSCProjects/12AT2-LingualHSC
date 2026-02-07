@@ -1,81 +1,75 @@
 {
-    "id": 584,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/584",
-    "data_updated_at": "2025-10-09T23:39:59.547014Z",
-    "data": {
-        "created_at": "2012-03-06T00:59:39.000000Z",
-        "level": 5,
-        "slug": "作",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E4%BD%9C",
-        "characters": "作",
-        "meanings": [
-            {
-                "meaning": "Make",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "さく",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "さ",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "つく",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            75,
-            122
-        ],
-        "amalgamation_subject_ids": [
-            2805,
-            2809,
-            2810,
-            2811,
-            2812,
-            2955,
-            3031,
-            3307,
-            3422,
-            3450,
-            3819,
-            3966,
-            4678,
-            5345,
-            5645,
-            5680,
-            5855,
-            6317,
-            7574,
-            7820,
-            8184,
-            8435
-        ],
-        "visually_similar_subject_ids": [
-            2321,
-            1604,
-            947
-        ],
-        "meaning_mnemonic": "The <radical>leader</radical>'s <radical>key</radical> is the key that <kanji>make</kanji>s all the other keys. It's sort of like the one ring to rule them all, the one ring to bind them... except with keys.",
-        "meaning_hint": "Imagine the leader taking his key to open up a safe that has a button to make other keys for the underlings. No key is as great as this key, though.",
-        "reading_mnemonic": "The leader <kanji>make</kanji>s all the keys and puts them in a <reading>sack</reading> (さく) to distribute them to the underlings, who then cut them into shape with a <reading>saw</reading> (さ).",
-        "reading_hint": "Imagine the leader making the keys and dropping them one by one into a big sack. He's always walking around carrying a big sack over his shoulder, distributing the keys to his underlings and watching them saw them into shape.",
-        "lesson_position": 50,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-06T00:59:39.000000Z",
+    "level": 5,
+    "slug": "作",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%BD%9C",
+    "characters": "作",
+    "meanings": [
+        {
+            "meaning": "Make",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "さく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "さ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "つく",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        75,
+        122
+    ],
+    "amalgamation_subject_ids": [
+        2805,
+        2809,
+        2810,
+        2811,
+        2812,
+        2955,
+        3031,
+        3307,
+        3422,
+        3450,
+        3819,
+        3966,
+        4678,
+        5345,
+        5645,
+        5680,
+        5855,
+        6317,
+        7574,
+        7820,
+        8184,
+        8435
+    ],
+    "visually_similar_subject_ids": [
+        2321,
+        1604,
+        947
+    ],
+    "meaning_mnemonic": "The <radical>leader</radical>'s <radical>key</radical> is the key that <kanji>make</kanji>s all the other keys. It's sort of like the one ring to rule them all, the one ring to bind them... except with keys.",
+    "meaning_hint": "Imagine the leader taking his key to open up a safe that has a button to make other keys for the underlings. No key is as great as this key, though.",
+    "reading_mnemonic": "The leader <kanji>make</kanji>s all the keys and puts them in a <reading>sack</reading> (さく) to distribute them to the underlings, who then cut them into shape with a <reading>saw</reading> (さ).",
+    "reading_hint": "Imagine the leader making the keys and dropping them one by one into a big sack. He's always walking around carrying a big sack over his shoulder, distributing the keys to his underlings and watching them saw them into shape.",
+    "lesson_position": 50,
+    "spaced_repetition_system_id": 1
 }

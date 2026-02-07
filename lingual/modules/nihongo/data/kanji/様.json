@@ -1,81 +1,75 @@
 {
-    "id": 865,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/865",
-    "data_updated_at": "2025-12-23T02:48:19.369673Z",
-    "data": {
-        "created_at": "2012-08-28T07:54:33.748668Z",
-        "level": 13,
-        "slug": "様",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%A7%98",
-        "characters": "様",
-        "meanings": [
-            {
-                "meaning": "Formal Name Ender",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Manner",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Formal Name Suffix",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Formal Name Title",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Formal Name Ending",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "さま",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "よう",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            23,
-            136,
-            45
-        ],
-        "amalgamation_subject_ids": [
-            3600,
-            3601,
-            3602,
-            4800,
-            5749,
-            6343,
-            6418,
-            6830,
-            7449,
-            7751,
-            8705,
-            9365,
-            9367
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "By a <radical>tree</radical>, there's a <radical>sheep</radical> in the <radical>water</radical> with a <kanji>formal name ender</kanji>. That means everyone calls him Sheep-sama. No one calls him just \"Sheep,\" since he's kind of a big deal. He's actually like sheep royalty. When he's not in his castle, Sheep-sama enjoys playing in the water by the trees.\n\nThis can also mean <kanji>manner</kanji>, as in your manner of doing things. I guess someone with a formal name ender has a different manner of doing things.",
-        "meaning_hint": "Imagine what Sheep-sama must have done to become such important and distinguished sheep royalty. Some pretty amazing things, probably, especially for a sheep.",
-        "reading_mnemonic": "This sheep with the <kanji>formal name ender</kanji> only likes to play outside in the water during the <reading>summer</reading> (さま). Summer is the best season for this fancy sheep. The other seasons just can't compare.",
-        "reading_hint": "Imagine playing in the water with Sheep-sama in the summer. It's crazy hot outside in the summer, so going in the water feels nice. Imagine the coolness of the refreshing water envelop your body.",
-        "lesson_position": 28,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-08-28T07:54:33.748668Z",
+    "level": 13,
+    "slug": "様",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%A7%98",
+    "characters": "様",
+    "meanings": [
+        {
+            "meaning": "Formal Name Ender",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Manner",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Formal Name Suffix",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Formal Name Title",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Formal Name Ending",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "さま",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "よう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        23,
+        136,
+        45
+    ],
+    "amalgamation_subject_ids": [
+        3600,
+        3601,
+        3602,
+        4800,
+        5749,
+        6343,
+        6418,
+        6830,
+        7449,
+        7751,
+        8705,
+        9365,
+        9367
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "By a <radical>tree</radical>, there's a <radical>sheep</radical> in the <radical>water</radical> with a <kanji>formal name ender</kanji>. That means everyone calls him Sheep-sama. No one calls him just \"Sheep,\" since he's kind of a big deal. He's actually like sheep royalty. When he's not in his castle, Sheep-sama enjoys playing in the water by the trees.\n\nThis can also mean <kanji>manner</kanji>, as in your manner of doing things. I guess someone with a formal name ender has a different manner of doing things.",
+    "meaning_hint": "Imagine what Sheep-sama must have done to become such important and distinguished sheep royalty. Some pretty amazing things, probably, especially for a sheep.",
+    "reading_mnemonic": "This sheep with the <kanji>formal name ender</kanji> only likes to play outside in the water during the <reading>summer</reading> (さま). Summer is the best season for this fancy sheep. The other seasons just can't compare.",
+    "reading_hint": "Imagine playing in the water with Sheep-sama in the summer. It's crazy hot outside in the summer, so going in the water feels nice. Imagine the coolness of the refreshing water envelop your body.",
+    "lesson_position": 28,
+    "spaced_repetition_system_id": 1
 }

@@ -1,74 +1,68 @@
 {
-    "id": 545,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/545",
-    "data_updated_at": "2025-10-15T19:00:27.423180Z",
-    "data": {
-        "created_at": "2012-03-02T08:00:21.000000Z",
-        "level": 3,
-        "slug": "字",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%AD%97",
-        "characters": "字",
-        "meanings": [
-            {
-                "meaning": "Letter",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Character",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Symbol",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "じ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            78,
-            34
-        ],
-        "amalgamation_subject_ids": [
-            2656,
-            2657,
-            2658,
-            2659,
-            2660,
-            2661,
-            3067,
-            3194,
-            3411,
-            3426,
-            3811,
-            4501,
-            5744,
-            5787,
-            7632,
-            7750,
-            7829,
-            8740
-        ],
-        "visually_similar_subject_ids": [
-            1072,
-            599
-        ],
-        "meaning_mnemonic": "The <radical>roof</radical> <radical>child</radical> stands upon the roof, holding up a single <kanji>letter</kanji>, a single <kanji>character</kanji>, a single <kanji>symbol</kanji> for the world to see.",
-        "meaning_hint": "More people can see this character since the kid is on the roof.",
-        "reading_mnemonic": "The <kanji>character</kanji> that is being shown is \"J,\" which stands for <reading>Je</reading>sus (じ). The kid wants everyone to see this <kanji>letter</kanji> and <kanji>symbol</kanji>.",
-        "reading_hint": "Imagine the child holding up the letter yelling at everyone who passes that the \"J\" stands for \"Jesus.\" And yes, this kid just loves the Big Lebowski.",
-        "lesson_position": 60,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-02T08:00:21.000000Z",
+    "level": 3,
+    "slug": "字",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%AD%97",
+    "characters": "字",
+    "meanings": [
+        {
+            "meaning": "Letter",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Character",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Symbol",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "じ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        78,
+        34
+    ],
+    "amalgamation_subject_ids": [
+        2656,
+        2657,
+        2658,
+        2659,
+        2660,
+        2661,
+        3067,
+        3194,
+        3411,
+        3426,
+        3811,
+        4501,
+        5744,
+        5787,
+        7632,
+        7750,
+        7829,
+        8740
+    ],
+    "visually_similar_subject_ids": [
+        1072,
+        599
+    ],
+    "meaning_mnemonic": "The <radical>roof</radical> <radical>child</radical> stands upon the roof, holding up a single <kanji>letter</kanji>, a single <kanji>character</kanji>, a single <kanji>symbol</kanji> for the world to see.",
+    "meaning_hint": "More people can see this character since the kid is on the roof.",
+    "reading_mnemonic": "The <kanji>character</kanji> that is being shown is \"J,\" which stands for <reading>Je</reading>sus (じ). The kid wants everyone to see this <kanji>letter</kanji> and <kanji>symbol</kanji>.",
+    "reading_hint": "Imagine the child holding up the letter yelling at everyone who passes that the \"J\" stands for \"Jesus.\" And yes, this kid just loves the Big Lebowski.",
+    "lesson_position": 60,
+    "spaced_repetition_system_id": 1
 }

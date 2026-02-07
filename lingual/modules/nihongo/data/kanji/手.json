@@ -1,105 +1,99 @@
 {
-    "id": 474,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/474",
-    "data_updated_at": "2025-10-01T06:09:50.096272Z",
-    "data": {
-        "created_at": "2012-02-29T00:26:40.000000Z",
-        "level": 2,
-        "slug": "手",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%89%8B",
-        "characters": "手",
-        "meanings": [
-            {
-                "meaning": "Hand",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Doer",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "て",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "しゅ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            },
-            {
-                "reading": "ず",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            41
-        ],
-        "amalgamation_subject_ids": [
-            2537,
-            2538,
-            2539,
-            2560,
-            2568,
-            2819,
-            2851,
-            2964,
-            2999,
-            3138,
-            3205,
-            3404,
-            3422,
-            3513,
-            3549,
-            3567,
-            3571,
-            3629,
-            4061,
-            4264,
-            4353,
-            4402,
-            4438,
-            5030,
-            6276,
-            6458,
-            6472,
-            6596,
-            6771,
-            6948,
-            7167,
-            7193,
-            7467,
-            7726,
-            7770,
-            8286,
-            8506,
-            8737,
-            8814,
-            9082,
-            9238,
-            9270,
-            9339,
-            9340
-        ],
-        "visually_similar_subject_ids": [
-            513
-        ],
-        "meaning_mnemonic": "The <radical>hand</radical> radical and the <kanji>hand</kanji> kanji are identical in looks and meaning! That should make things easy!",
-        "meaning_hint": "Make sure you're studying your radicals. It won't be forever that radicals and kanji overlap so nicely like this!",
-        "reading_mnemonic": "To remember the reading て we will use the word \"television.\" You have great hands. Go ahead and look at them. OH MY GOD. You have little <reading>te</reading>levisions (て) on your hands. They are playing the dumbest show you can think of, too, both hands at the same time.",
-        "reading_hint": "You try to shake your hands off, but it's no good. The televisions are stuck, and the volume won't go down. You have no idea how you got these televisions on your hands. All you know is that you want them off right this instant.",
-        "lesson_position": 47,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-29T00:26:40.000000Z",
+    "level": 2,
+    "slug": "手",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%89%8B",
+    "characters": "手",
+    "meanings": [
+        {
+            "meaning": "Hand",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Doer",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "て",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "しゅ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ず",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        41
+    ],
+    "amalgamation_subject_ids": [
+        2537,
+        2538,
+        2539,
+        2560,
+        2568,
+        2819,
+        2851,
+        2964,
+        2999,
+        3138,
+        3205,
+        3404,
+        3422,
+        3513,
+        3549,
+        3567,
+        3571,
+        3629,
+        4061,
+        4264,
+        4353,
+        4402,
+        4438,
+        5030,
+        6276,
+        6458,
+        6472,
+        6596,
+        6771,
+        6948,
+        7167,
+        7193,
+        7467,
+        7726,
+        7770,
+        8286,
+        8506,
+        8737,
+        8814,
+        9082,
+        9238,
+        9270,
+        9339,
+        9340
+    ],
+    "visually_similar_subject_ids": [
+        513
+    ],
+    "meaning_mnemonic": "The <radical>hand</radical> radical and the <kanji>hand</kanji> kanji are identical in looks and meaning! That should make things easy!",
+    "meaning_hint": "Make sure you're studying your radicals. It won't be forever that radicals and kanji overlap so nicely like this!",
+    "reading_mnemonic": "To remember the reading て we will use the word \"television.\" You have great hands. Go ahead and look at them. OH MY GOD. You have little <reading>te</reading>levisions (て) on your hands. They are playing the dumbest show you can think of, too, both hands at the same time.",
+    "reading_hint": "You try to shake your hands off, but it's no good. The televisions are stuck, and the volume won't go down. You have no idea how you got these televisions on your hands. All you know is that you want them off right this instant.",
+    "lesson_position": 47,
+    "spaced_repetition_system_id": 2
 }

@@ -1,94 +1,88 @@
 {
-    "id": 546,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/546",
-    "data_updated_at": "2026-02-05T17:50:32.665697Z",
-    "data": {
-        "created_at": "2012-03-02T08:02:22.000000Z",
-        "level": 4,
-        "slug": "年",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%B9%B4",
-        "characters": "年",
-        "meanings": [
-            {
-                "meaning": "Year",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "ねん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "とし",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            8762,
-            126
-        ],
-        "amalgamation_subject_ids": [
-            2662,
-            2663,
-            2664,
-            2665,
-            2666,
-            2667,
-            2744,
-            2760,
-            2785,
-            2789,
-            2802,
-            2826,
-            2829,
-            2844,
-            2873,
-            2948,
-            3413,
-            3441,
-            3444,
-            3446,
-            3665,
-            4103,
-            4252,
-            4591,
-            4673,
-            4833,
-            4889,
-            5148,
-            5360,
-            6158,
-            6874,
-            7417,
-            7475,
-            7768,
-            8347,
-            8497,
-            8651,
-            8739,
-            8751,
-            9268,
-            9330
-        ],
-        "visually_similar_subject_ids": [
-            511,
-            503,
-            850
-        ],
-        "meaning_mnemonic": "You have a <radical>gun</radical> and a <radical>cow</radical>, which must mean it's that time of the <kanji>year</kanji>! Every year on New Year's Eve, you get asked to shoot a cow, as per tradition. You really don't want to though, so you deliberately miss every time.",
-        "meaning_hint": "Last year was a close call and you ended up shooting the cow's horn, which is why the cow radical looks a little strange here. Can you see how the cow radical fits underneath the gun?",
-        "reading_mnemonic": "It seems everyone has caught on to the fact that you deliberately miss every <kanji>year</kanji>, so this year you make a <reading>nen</reading>doroid (ねん) decoy in the shape of a cow.",
-        "reading_hint": "Nendoroids are Japanese plastic figurines. (Look them up if you need to! And yes, there are cow nendoroids.) It probably won’t be easy to make a cow-sized nendoroid this year, but better than having to shoot a real one.",
-        "lesson_position": 61,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-02T08:02:22.000000Z",
+    "level": 4,
+    "slug": "年",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B9%B4",
+    "characters": "年",
+    "meanings": [
+        {
+            "meaning": "Year",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ねん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "とし",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8762,
+        126
+    ],
+    "amalgamation_subject_ids": [
+        2662,
+        2663,
+        2664,
+        2665,
+        2666,
+        2667,
+        2744,
+        2760,
+        2785,
+        2789,
+        2802,
+        2826,
+        2829,
+        2844,
+        2873,
+        2948,
+        3413,
+        3441,
+        3444,
+        3446,
+        3665,
+        4103,
+        4252,
+        4591,
+        4673,
+        4833,
+        4889,
+        5148,
+        5360,
+        6158,
+        6874,
+        7417,
+        7475,
+        7768,
+        8347,
+        8497,
+        8651,
+        8739,
+        8751,
+        9268,
+        9330
+    ],
+    "visually_similar_subject_ids": [
+        511,
+        503,
+        850
+    ],
+    "meaning_mnemonic": "You have a <radical>gun</radical> and a <radical>cow</radical>, which must mean it's that time of the <kanji>year</kanji>! Every year on New Year's Eve, you get asked to shoot a cow, as per tradition. You really don't want to though, so you deliberately miss every time.",
+    "meaning_hint": "Last year was a close call and you ended up shooting the cow's horn, which is why the cow radical looks a little strange here. Can you see how the cow radical fits underneath the gun?",
+    "reading_mnemonic": "It seems everyone has caught on to the fact that you deliberately miss every <kanji>year</kanji>, so this year you make a <reading>nen</reading>doroid (ねん) decoy in the shape of a cow.",
+    "reading_hint": "Nendoroids are Japanese plastic figurines. (Look them up if you need to! And yes, there are cow nendoroids.) It probably won’t be easy to make a cow-sized nendoroid this year, but better than having to shoot a real one.",
+    "lesson_position": 61,
+    "spaced_repetition_system_id": 1
 }

@@ -1,81 +1,73 @@
-[
-    {
-        "id": 665,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/665",
-        "data_updated_at": "2026-01-28T14:46:05.379705Z",
-        "data": {
-            "created_at": "2012-03-27T00:32:08.000000Z",
-            "level": 7,
-            "slug": "通",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E9%80%9A",
-            "characters": "通",
-            "meanings": [
-                {
-                    "meaning": "Pass Through",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "つう",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "とお",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "かよ",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                }
-            ],
-            "component_subject_ids": [
-                114,
-                141,
-                71
-            ],
-            "amalgamation_subject_ids": [
-                2966,
-                2967,
-                3246,
-                3470,
-                4760,
-                5419,
-                5480,
-                5603,
-                5693,
-                5814,
-                6634,
-                6635,
-                7514,
-                7632,
-                7725,
-                7741,
-                7928,
-                8119,
-                8146,
-                9295
-            ],
-            "visually_similar_subject_ids": [
-                672,
-                700
-            ],
-            "meaning_mnemonic": "There's a <radical>scooter</radical> with your <radical>mama</radical> carrying a <radical>task</radical> she needs to get done. You see her <kanji>pass through</kanji>, hurrying by to get that task done.",
-            "meaning_hint": "Imagine your mama passing through your house on a scooter, not stopping because she needs to get her task done urgently. ",
-            "reading_mnemonic": "As you watch your mama <kanji>pass through</kanji> the house, she yells, \"YOU HAVE TO DO THIS TASK <reading>TOO</reading> (つう)!\" Too?! Oh no, now you have to do it too. Hurry up!",
-            "reading_hint": "Why do you have to do the task too? Because there are two tasks, so the two of you have to do them.",
-            "lesson_position": 45,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-27T00:32:08.000000Z",
+    "level": 7,
+    "slug": "通",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%80%9A",
+    "characters": "通",
+    "meanings": [
+        {
+            "meaning": "Pass Through",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "つう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "とお",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "かよ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        114,
+        141,
+        71
+    ],
+    "amalgamation_subject_ids": [
+        2966,
+        2967,
+        3246,
+        3470,
+        4760,
+        5419,
+        5480,
+        5603,
+        5693,
+        5814,
+        6634,
+        6635,
+        7514,
+        7632,
+        7725,
+        7741,
+        7928,
+        8119,
+        8146,
+        9295
+    ],
+    "visually_similar_subject_ids": [
+        672,
+        700
+    ],
+    "meaning_mnemonic": "There's a <radical>scooter</radical> with your <radical>mama</radical> carrying a <radical>task</radical> she needs to get done. You see her <kanji>pass through</kanji>, hurrying by to get that task done.",
+    "meaning_hint": "Imagine your mama passing through your house on a scooter, not stopping because she needs to get her task done urgently. ",
+    "reading_mnemonic": "As you watch your mama <kanji>pass through</kanji> the house, she yells, \"YOU HAVE TO DO THIS TASK <reading>TOO</reading> (つう)!\" Too?! Oh no, now you have to do it too. Hurry up!",
+    "reading_hint": "Why do you have to do the task too? Because there are two tasks, so the two of you have to do them.",
+    "lesson_position": 45,
+    "spaced_repetition_system_id": 1
+}

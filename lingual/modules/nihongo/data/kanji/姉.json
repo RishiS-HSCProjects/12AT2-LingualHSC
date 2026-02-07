@@ -1,85 +1,79 @@
 {
-    "id": 624,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/624",
-    "data_updated_at": "2025-11-18T19:40:45.158334Z",
-    "data": {
-        "created_at": "2012-03-08T23:42:55.000000Z",
-        "level": 6,
-        "slug": "姉",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%A7%89",
-        "characters": "姉",
-        "meanings": [
-            {
-                "meaning": "Older Sister",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Big Sister",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Elder Sister",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Younger Sister",
-                "type": "blacklist"
-            },
-            {
-                "meaning": "Little Sister",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "し",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "お",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "あね",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "ねえ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            19,
-            267
-        ],
-        "amalgamation_subject_ids": [
-            2891,
-            2893,
-            7526
-        ],
-        "visually_similar_subject_ids": [
-            623
-        ],
-        "meaning_mnemonic": "The only <radical>woman</radical> in this <radical>city</radical> is your <kanji>older sister</kanji>. She's the only woman surrounded by a bunch of men, but she's following her dreams in the big city.",
-        "meaning_hint": "You want to go to the city someday, but you're not old enough yet, like your older sister is.",
-        "reading_mnemonic": "Your <kanji>older sister</kanji> may have moved to the city, but she kept her pet <reading>shee</reading>p (し) with her. Now the only woman in the city is your older sister, and the only sheep is her pet.",
-        "reading_hint": "Picture your older sister and her sheep walking through the city. Everyone turns to stare at them, because they're the only ones of their kind.",
-        "lesson_position": 34,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-08T23:42:55.000000Z",
+    "level": 6,
+    "slug": "姉",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A7%89",
+    "characters": "姉",
+    "meanings": [
+        {
+            "meaning": "Older Sister",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Big Sister",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Elder Sister",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Younger Sister",
+            "type": "blacklist"
+        },
+        {
+            "meaning": "Little Sister",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "し",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "お",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "あね",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ねえ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        19,
+        267
+    ],
+    "amalgamation_subject_ids": [
+        2891,
+        2893,
+        7526
+    ],
+    "visually_similar_subject_ids": [
+        623
+    ],
+    "meaning_mnemonic": "The only <radical>woman</radical> in this <radical>city</radical> is your <kanji>older sister</kanji>. She's the only woman surrounded by a bunch of men, but she's following her dreams in the big city.",
+    "meaning_hint": "You want to go to the city someday, but you're not old enough yet, like your older sister is.",
+    "reading_mnemonic": "Your <kanji>older sister</kanji> may have moved to the city, but she kept her pet <reading>shee</reading>p (し) with her. Now the only woman in the city is your older sister, and the only sheep is her pet.",
+    "reading_hint": "Picture your older sister and her sheep walking through the city. Everyone turns to stare at them, because they're the only ones of their kind.",
+    "lesson_position": 34,
+    "spaced_repetition_system_id": 1
 }

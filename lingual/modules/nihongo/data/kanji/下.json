@@ -1,133 +1,127 @@
 {
-    "id": 451,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/451",
-    "data_updated_at": "2026-02-04T19:17:05.463894Z",
-    "data": {
-        "created_at": "2012-02-28T01:48:12.000000Z",
-        "level": 1,
-        "slug": "下",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E4%B8%8B",
-        "characters": "下",
-        "meanings": [
-            {
-                "meaning": "Below",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Down",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Under",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Beneath",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Underneath",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "か",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "げ",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "した",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "さ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "くだ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "お",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "しも",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "もと",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            1,
-            10
-        ],
-        "amalgamation_subject_ids": [
-            2493,
-            2494,
-            2495,
-            2496,
-            2538,
-            2848,
-            3201,
-            3396,
-            3410,
-            3446,
-            3818,
-            4104,
-            4824,
-            5099,
-            5428,
-            5441,
-            6087,
-            6185,
-            7004,
-            7086,
-            7329,
-            7371,
-            8640,
-            8663,
-            8960,
-            8977,
-            9249,
-            9261
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "There's the <radical>ground</radical>, and there's a <radical>toe</radical> just <kanji>below</kanji> it. Yep, you know this means \"below\" because the ground has a toe below it in this kanji.",
-        "meaning_hint": "Where's that toe again? Below the ground. Maybe it's your toe. Imagine digging it out and thinking, Ugh, why does it have to be under the ground like this? So irritating. Will I be able to sew it back on in time to save it?",
-        "reading_mnemonic": "You keep digging in the ground for the toe <kanji>below</kanji>, but instead you hit something hard and metallic. You try to dig around it, but it's huge. Turns out it's a <reading>car</reading> (か). Keep digging until you unearth the car below. (Inside, you find the toe you were looking for.)",
-        "reading_hint": "There's another useful on'yomi reading that just isn't useful enough for you to learn now. That reading is げ, but we're only going to worry about that much, much later when you have to learn one or two vocab words that read 下 as げ. That's the problem with really common kanji — too many readings.",
-        "lesson_position": 36,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T01:48:12.000000Z",
+    "level": 1,
+    "slug": "下",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%B8%8B",
+    "characters": "下",
+    "meanings": [
+        {
+            "meaning": "Below",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Down",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Under",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Beneath",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Underneath",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "か",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "げ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "した",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "さ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "くだ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "お",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "しも",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "もと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        1,
+        10
+    ],
+    "amalgamation_subject_ids": [
+        2493,
+        2494,
+        2495,
+        2496,
+        2538,
+        2848,
+        3201,
+        3396,
+        3410,
+        3446,
+        3818,
+        4104,
+        4824,
+        5099,
+        5428,
+        5441,
+        6087,
+        6185,
+        7004,
+        7086,
+        7329,
+        7371,
+        8640,
+        8663,
+        8960,
+        8977,
+        9249,
+        9261
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "There's the <radical>ground</radical>, and there's a <radical>toe</radical> just <kanji>below</kanji> it. Yep, you know this means \"below\" because the ground has a toe below it in this kanji.",
+    "meaning_hint": "Where's that toe again? Below the ground. Maybe it's your toe. Imagine digging it out and thinking, Ugh, why does it have to be under the ground like this? So irritating. Will I be able to sew it back on in time to save it?",
+    "reading_mnemonic": "You keep digging in the ground for the toe <kanji>below</kanji>, but instead you hit something hard and metallic. You try to dig around it, but it's huge. Turns out it's a <reading>car</reading> (か). Keep digging until you unearth the car below. (Inside, you find the toe you were looking for.)",
+    "reading_hint": "There's another useful on'yomi reading that just isn't useful enough for you to learn now. That reading is げ, but we're only going to worry about that much, much later when you have to learn one or two vocab words that read 下 as げ. That's the problem with really common kanji — too many readings.",
+    "lesson_position": 36,
+    "spaced_repetition_system_id": 2
 }

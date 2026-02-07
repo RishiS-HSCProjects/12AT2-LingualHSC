@@ -1,71 +1,65 @@
 {
-    "id": 506,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/506",
-    "data_updated_at": "2025-11-25T02:10:15.940670Z",
-    "data": {
-        "created_at": "2012-03-01T02:42:36.000000Z",
-        "level": 3,
-        "slug": "少",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%B0%91",
-        "characters": "少",
-        "meanings": [
-            {
-                "meaning": "Few",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "A Little",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "A Few",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "しょう",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "すこ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "すく",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            35,
-            5
-        ],
-        "amalgamation_subject_ids": [
-            2607,
-            2608,
-            2666,
-            7078,
-            7518,
-            8271
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "You have a <radical>small</radical> <radical>slide</radical>. The thing about small slides is that <kanji>few</kanji> people can use them. Not everyone can fit their bum in a small slide — only a few small ones can make it down.",
-        "meaning_hint": "Imagine a small slide (how could you not, after you see the radicals?). So few people can use this thing, really, but there are a <em>few</em> little ones who can fit on it at least.",
-        "reading_mnemonic": "Another reason so <kanji>few</kanji> people can use it is that the <reading>Sho</reading>gun (しょう) is trying to go down the slide. We're talking a grown man who's way too big for this little slide, so a few people have to wait behind him — it's a slide traffic jam.",
-        "reading_hint": "Imagine this in your head. Even the few people who fit on the slide are struggling to get past the Shogun. Meanwhile the Japanese secret service is trying to make sure no one gets close to the shogun while he slides. A few people are crying. They want to slide, they want to leave… It's chaos.",
-        "lesson_position": 40,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-01T02:42:36.000000Z",
+    "level": 3,
+    "slug": "少",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B0%91",
+    "characters": "少",
+    "meanings": [
+        {
+            "meaning": "Few",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "A Little",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "A Few",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "しょう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "すこ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "すく",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        35,
+        5
+    ],
+    "amalgamation_subject_ids": [
+        2607,
+        2608,
+        2666,
+        7078,
+        7518,
+        8271
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "You have a <radical>small</radical> <radical>slide</radical>. The thing about small slides is that <kanji>few</kanji> people can use them. Not everyone can fit their bum in a small slide — only a few small ones can make it down.",
+    "meaning_hint": "Imagine a small slide (how could you not, after you see the radicals?). So few people can use this thing, really, but there are a <em>few</em> little ones who can fit on it at least.",
+    "reading_mnemonic": "Another reason so <kanji>few</kanji> people can use it is that the <reading>Sho</reading>gun (しょう) is trying to go down the slide. We're talking a grown man who's way too big for this little slide, so a few people have to wait behind him — it's a slide traffic jam.",
+    "reading_hint": "Imagine this in your head. Even the few people who fit on the slide are struggling to get past the Shogun. Meanwhile the Japanese secret service is trying to make sure no one gets close to the shogun while he slides. A few people are crying. They want to slide, they want to leave… It's chaos.",
+    "lesson_position": 40,
+    "spaced_repetition_system_id": 1
 }

@@ -1,67 +1,61 @@
 {
-    "id": 460,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/460",
-    "data_updated_at": "2025-12-10T19:08:14.293423Z",
-    "data": {
-        "created_at": "2012-02-28T23:34:28.000000Z",
-        "level": 2,
-        "slug": "千",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%8D%83",
-        "characters": "千",
-        "meanings": [
-            {
-                "meaning": "Thousand",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "1000",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "1,000",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "せん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "ち",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            32
-        ],
-        "amalgamation_subject_ids": [
-            2509,
-            2510,
-            2533,
-            2565,
-            2780,
-            2933,
-            7534,
-            9166
-        ],
-        "visually_similar_subject_ids": [
-            1014
-        ],
-        "meaning_mnemonic": "This kanji is the same as the radical you learned, so it means <kanji>thousand</kanji>.",
-        "meaning_hint": "As long as you know the \"thousand\" radical, you'll know this kanji as well!",
-        "reading_mnemonic": "Remember the thousand people going down the slide on a cross in the radical 千? Turns out each one of them was carrying a <kanji>thousand</kanji> <reading>cen</reading>ts (せん). Go ahead and try to calculate what a thousand times a thousand cents would come out to. It's quite a lot, actually.",
-        "reading_hint": "Problem is, as they all tumble down the slide the change falls out of their pockets, so there's a thousand times a thousand cents scattered all over on the floor under the slide.",
-        "lesson_position": 35,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T23:34:28.000000Z",
+    "level": 2,
+    "slug": "千",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8D%83",
+    "characters": "千",
+    "meanings": [
+        {
+            "meaning": "Thousand",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "1000",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "1,000",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "せん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ち",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        32
+    ],
+    "amalgamation_subject_ids": [
+        2509,
+        2510,
+        2533,
+        2565,
+        2780,
+        2933,
+        7534,
+        9166
+    ],
+    "visually_similar_subject_ids": [
+        1014
+    ],
+    "meaning_mnemonic": "This kanji is the same as the radical you learned, so it means <kanji>thousand</kanji>.",
+    "meaning_hint": "As long as you know the \"thousand\" radical, you'll know this kanji as well!",
+    "reading_mnemonic": "Remember the thousand people going down the slide on a cross in the radical 千? Turns out each one of them was carrying a <kanji>thousand</kanji> <reading>cen</reading>ts (せん). Go ahead and try to calculate what a thousand times a thousand cents would come out to. It's quite a lot, actually.",
+    "reading_hint": "Problem is, as they all tumble down the slide the change falls out of their pockets, so there's a thousand times a thousand cents scattered all over on the floor under the slide.",
+    "lesson_position": 35,
+    "spaced_repetition_system_id": 2
 }

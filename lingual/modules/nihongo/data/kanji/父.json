@@ -1,75 +1,69 @@
 {
-    "id": 512,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/512",
-    "data_updated_at": "2025-12-15T21:33:15.187783Z",
-    "data": {
-        "created_at": "2012-03-01T03:00:33.000000Z",
-        "level": 3,
-        "slug": "父",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E7%88%B6",
-        "characters": "父",
-        "meanings": [
-            {
-                "meaning": "Father",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Dad",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Mother",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "ちち",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "とう",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "ふ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            68
-        ],
-        "amalgamation_subject_ids": [
-            2617,
-            2618,
-            3551,
-            5542,
-            5723,
-            6000,
-            7613,
-            8524,
-            9292
-        ],
-        "visually_similar_subject_ids": [
-            565
-        ],
-        "meaning_mnemonic": "The radical and the kanji for <kanji>father</kanji> are the same.",
-        "meaning_hint": "No, I am not your father... but this kanji / radical set is!",
-        "reading_mnemonic": "Imagine your father is <reading>Cheech</reading> (ちち) from Cheech and Chong.",
-        "reading_hint": "Hopefully you know who they are. If not, think about your father laughing like this: ちちちちちちちち〜！",
-        "lesson_position": 46,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-01T03:00:33.000000Z",
+    "level": 3,
+    "slug": "父",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%88%B6",
+    "characters": "父",
+    "meanings": [
+        {
+            "meaning": "Father",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Dad",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Mother",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ちち",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "とう",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ふ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        68
+    ],
+    "amalgamation_subject_ids": [
+        2617,
+        2618,
+        3551,
+        5542,
+        5723,
+        6000,
+        7613,
+        8524,
+        9292
+    ],
+    "visually_similar_subject_ids": [
+        565
+    ],
+    "meaning_mnemonic": "The radical and the kanji for <kanji>father</kanji> are the same.",
+    "meaning_hint": "No, I am not your father... but this kanji / radical set is!",
+    "reading_mnemonic": "Imagine your father is <reading>Cheech</reading> (ちち) from Cheech and Chong.",
+    "reading_hint": "Hopefully you know who they are. If not, think about your father laughing like this: ちちちちちちちち〜！",
+    "lesson_position": 46,
+    "spaced_repetition_system_id": 1
 }

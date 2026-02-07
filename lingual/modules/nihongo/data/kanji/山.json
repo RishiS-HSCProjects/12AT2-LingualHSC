@@ -1,70 +1,64 @@
 {
-    "id": 455,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/455",
-    "data_updated_at": "2025-10-01T06:09:49.971799Z",
-    "data": {
-        "created_at": "2012-02-28T01:57:19.000000Z",
-        "level": 1,
-        "slug": "山",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%B1%B1",
-        "characters": "山",
-        "meanings": [
-            {
-                "meaning": "Mountain",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "さん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "やま",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            20
-        ],
-        "amalgamation_subject_ids": [
-            2504,
-            2505,
-            2549,
-            3392,
-            3652,
-            4440,
-            5475,
-            5490,
-            5923,
-            5925,
-            6534,
-            6708,
-            7858,
-            8140,
-            8233,
-            8410,
-            8678,
-            8957,
-            8962,
-            9041
-        ],
-        "visually_similar_subject_ids": [
-            1720
-        ],
-        "meaning_mnemonic": "The <radical>mountain</radical> radical and the <kanji>mountain</kanji> kanji are the same.",
-        "meaning_hint": "Make sure you're studying your radicals. If you are, then you're studying your kanji as well!",
-        "reading_mnemonic": "Think about <kanji>mountains</kanji> talking to each other, calling each other by their names and adding the Japanese name-ender <reading>san</reading> (さん) to each of their names. \"Hello, Everest-<reading>san</reading>.\" \"Oh hi, Fuji-<reading>san</reading>.\"",
-        "reading_hint": "Be sure to imagine this vividly. The more absurdly you can imagine it, the more likely you are to remember the reading, <reading>san</reading>.",
-        "lesson_position": 41,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T01:57:19.000000Z",
+    "level": 1,
+    "slug": "山",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B1%B1",
+    "characters": "山",
+    "meanings": [
+        {
+            "meaning": "Mountain",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "さん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "やま",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        20
+    ],
+    "amalgamation_subject_ids": [
+        2504,
+        2505,
+        2549,
+        3392,
+        3652,
+        4440,
+        5475,
+        5490,
+        5923,
+        5925,
+        6534,
+        6708,
+        7858,
+        8140,
+        8233,
+        8410,
+        8678,
+        8957,
+        8962,
+        9041
+    ],
+    "visually_similar_subject_ids": [
+        1720
+    ],
+    "meaning_mnemonic": "The <radical>mountain</radical> radical and the <kanji>mountain</kanji> kanji are the same.",
+    "meaning_hint": "Make sure you're studying your radicals. If you are, then you're studying your kanji as well!",
+    "reading_mnemonic": "Think about <kanji>mountains</kanji> talking to each other, calling each other by their names and adding the Japanese name-ender <reading>san</reading> (さん) to each of their names. \"Hello, Everest-<reading>san</reading>.\" \"Oh hi, Fuji-<reading>san</reading>.\"",
+    "reading_hint": "Be sure to imagine this vividly. The more absurdly you can imagine it, the more likely you are to remember the reading, <reading>san</reading>.",
+    "lesson_position": 41,
+    "spaced_repetition_system_id": 2
 }

@@ -1,64 +1,58 @@
 {
-    "id": 564,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/564",
-    "data_updated_at": "2026-02-04T19:46:58.845735Z",
-    "data": {
-        "created_at": "2012-03-03T00:39:13.000000Z",
-        "level": 4,
-        "slug": "仕",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E4%BB%95",
-        "characters": "仕",
-        "meanings": [
-            {
-                "meaning": "Doing",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Do",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "し",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "つか",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            75,
-            97
-        ],
-        "amalgamation_subject_ids": [
-            2716,
-            2717,
-            3482,
-            3500,
-            7670,
-            8191,
-            9034,
-            9278
-        ],
-        "visually_similar_subject_ids": [
-            1142
-        ],
-        "meaning_mnemonic": "The <radical>leader</radical> <radical>samurai</radical> didn't become leader by sitting around not taking action. He got to where he is by <kanji>doing</kanji>.",
-        "meaning_hint": "Imagine the leader samurai doing things. He's doing more than anyone else, no one can keep up with what he's doing.",
-        "reading_mnemonic": "He was <kanji>doing</kanji> things with <reading>shee</reading>p (し). He is the leader of the sheep clan, and he was able to do more with sheep than anyone else. That's why he's the leader.",
-        "reading_hint": "Picture the leader samurai doing lots of sheep things. He's shearing sheep. He's feeding sheep. He's doing everything you could possibly do, because he's the sheep samurai.",
-        "lesson_position": 80,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-03T00:39:13.000000Z",
+    "level": 4,
+    "slug": "仕",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%BB%95",
+    "characters": "仕",
+    "meanings": [
+        {
+            "meaning": "Doing",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Do",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "し",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "つか",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        75,
+        97
+    ],
+    "amalgamation_subject_ids": [
+        2716,
+        2717,
+        3482,
+        3500,
+        7670,
+        8191,
+        9034,
+        9278
+    ],
+    "visually_similar_subject_ids": [
+        1142
+    ],
+    "meaning_mnemonic": "The <radical>leader</radical> <radical>samurai</radical> didn't become leader by sitting around not taking action. He got to where he is by <kanji>doing</kanji>.",
+    "meaning_hint": "Imagine the leader samurai doing things. He's doing more than anyone else, no one can keep up with what he's doing.",
+    "reading_mnemonic": "He was <kanji>doing</kanji> things with <reading>shee</reading>p (し). He is the leader of the sheep clan, and he was able to do more with sheep than anyone else. That's why he's the leader.",
+    "reading_hint": "Picture the leader samurai doing lots of sheep things. He's shearing sheep. He's feeding sheep. He's doing everything you could possibly do, because he's the sheep samurai.",
+    "lesson_position": 80,
+    "spaced_repetition_system_id": 1
 }

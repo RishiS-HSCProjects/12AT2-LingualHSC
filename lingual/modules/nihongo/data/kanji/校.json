@@ -1,58 +1,52 @@
 {
-    "id": 658,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/658",
-    "data_updated_at": "2025-10-01T14:32:25.659022Z",
-    "data": {
-        "created_at": "2012-03-26T23:44:29.000000Z",
-        "level": 7,
-        "slug": "校",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%A0%A1",
-        "characters": "校",
-        "meanings": [
-            {
-                "meaning": "School",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "こう",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            23,
-            8,
-            68
-        ],
-        "amalgamation_subject_ids": [
-            2950,
-            2951,
-            3469,
-            3473,
-            3474,
-            8428,
-            8711
-        ],
-        "visually_similar_subject_ids": [
-            565,
-            1051,
-            1267,
-            1275,
-            1287,
-            2135
-        ],
-        "meaning_mnemonic": "Next to the <radical>tree</radical>, a <radical>lid</radical> is put on your <radical>father</radical>. \"Hello child,\" he says. \"This is your new <kanji>school</kanji>.\" ",
-        "meaning_hint": "He goes on to explain that he changed your school to here because there is a tree to block the satellite's view. Also, he wears a tin foil lid on his head so they can't track him. The regular school was no good because \"they were watching.\" So now you have this new school, taught under a tree by your father who's wearing a lid on his head.",
-        "reading_mnemonic": "Your new <kanji>school</kanji> has other students too. They are all <reading>こう</reading>いちs, though.",
-        "reading_hint": "On your first day of school, imagine walking under the tree and seeing all your classmates. They're all こういち–similar to each other, but with some variation. Your father explains these こういちs escaped from a government research facility, and they come to this school to receive a better education.  \"These poor こういちs need a school that will teach them more than just kanji and Japanese vocabulary.\"",
-        "lesson_position": 38,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-26T23:44:29.000000Z",
+    "level": 7,
+    "slug": "校",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%A0%A1",
+    "characters": "校",
+    "meanings": [
+        {
+            "meaning": "School",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "こう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        23,
+        8,
+        68
+    ],
+    "amalgamation_subject_ids": [
+        2950,
+        2951,
+        3469,
+        3473,
+        3474,
+        8428,
+        8711
+    ],
+    "visually_similar_subject_ids": [
+        565,
+        1051,
+        1267,
+        1275,
+        1287,
+        2135
+    ],
+    "meaning_mnemonic": "Next to the <radical>tree</radical>, a <radical>lid</radical> is put on your <radical>father</radical>. \"Hello child,\" he says. \"This is your new <kanji>school</kanji>.\" ",
+    "meaning_hint": "He goes on to explain that he changed your school to here because there is a tree to block the satellite's view. Also, he wears a tin foil lid on his head so they can't track him. The regular school was no good because \"they were watching.\" So now you have this new school, taught under a tree by your father who's wearing a lid on his head.",
+    "reading_mnemonic": "Your new <kanji>school</kanji> has other students too. They are all <reading>こう</reading>いちs, though.",
+    "reading_hint": "On your first day of school, imagine walking under the tree and seeing all your classmates. They're all こういち–similar to each other, but with some variation. Your father explains these こういちs escaped from a government research facility, and they come to this school to receive a better education.  \"These poor こういちs need a school that will teach them more than just kanji and Japanese vocabulary.\"",
+    "lesson_position": 38,
+    "spaced_repetition_system_id": 1
 }

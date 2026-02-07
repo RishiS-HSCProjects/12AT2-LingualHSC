@@ -1,72 +1,66 @@
 {
-    "id": 763,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/763",
-    "data_updated_at": "2025-11-27T04:32:55.561224Z",
-    "data": {
-        "created_at": "2012-04-24T18:30:10.000000Z",
-        "level": 10,
-        "slug": "聞",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E8%81%9E",
-        "characters": "聞",
-        "meanings": [
-            {
-                "meaning": "Hear",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Ear",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "ぶん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "もん",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "き",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            214,
-            88
-        ],
-        "amalgamation_subject_ids": [
-            3208,
-            3209,
-            3519,
-            8657
-        ],
-        "visually_similar_subject_ids": [
-            2418,
-            1514,
-            1391,
-            701,
-            859,
-            982,
-            753
-        ],
-        "meaning_mnemonic": "If you go up to a <radical>gate</radical> and press your <radical>ear</radical> to it, you'll <kanji>hear</kanji> what's going on on the other side. The people on the other side will have no idea you can hear their conversation.",
-        "meaning_hint": "I'm sure you've pressed your ear up against a wall, door, or gate before to hear what's going on on the other side. Remember back to a time you did this and how sneaky you felt listening in on people without them knowing. You sneaky frood, you.",
-        "reading_mnemonic": "From the other side of the gate, you <kanji>hear</kanji> one of the people start to play a song on a recorder. You recognize the song as \"Hot Cross <reading>Bun</reading>s (ぶん).\" You haven't heard this song since grade school. \"Hot cross buns, hot cross buns~\"",
-        "reading_hint": "I'm sure many of you were forced to play \"Hot Cross Buns\" on the recorder in school at some point. Picture yourself playing this song and remember the melody when you see this kanji.",
-        "lesson_position": 55,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-24T18:30:10.000000Z",
+    "level": 10,
+    "slug": "聞",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%81%9E",
+    "characters": "聞",
+    "meanings": [
+        {
+            "meaning": "Hear",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Ear",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ぶん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "もん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "き",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        214,
+        88
+    ],
+    "amalgamation_subject_ids": [
+        3208,
+        3209,
+        3519,
+        8657
+    ],
+    "visually_similar_subject_ids": [
+        2418,
+        1514,
+        1391,
+        701,
+        859,
+        982,
+        753
+    ],
+    "meaning_mnemonic": "If you go up to a <radical>gate</radical> and press your <radical>ear</radical> to it, you'll <kanji>hear</kanji> what's going on on the other side. The people on the other side will have no idea you can hear their conversation.",
+    "meaning_hint": "I'm sure you've pressed your ear up against a wall, door, or gate before to hear what's going on on the other side. Remember back to a time you did this and how sneaky you felt listening in on people without them knowing. You sneaky frood, you.",
+    "reading_mnemonic": "From the other side of the gate, you <kanji>hear</kanji> one of the people start to play a song on a recorder. You recognize the song as \"Hot Cross <reading>Bun</reading>s (ぶん).\" You haven't heard this song since grade school. \"Hot cross buns, hot cross buns~\"",
+    "reading_hint": "I'm sure many of you were forced to play \"Hot Cross Buns\" on the recorder in school at some point. Picture yourself playing this song and remember the melody when you see this kanji.",
+    "lesson_position": 55,
+    "spaced_repetition_system_id": 1
 }

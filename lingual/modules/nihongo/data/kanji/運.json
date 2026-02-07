@@ -1,72 +1,64 @@
-[
-    {
-        "id": 752,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/752",
-        "data_updated_at": "2025-11-27T04:32:55.438974Z",
-        "data": {
-            "created_at": "2012-04-24T18:22:19.000000Z",
-            "level": 10,
-            "slug": "運",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E9%81%8B",
-            "characters": "運",
-            "meanings": [
-                {
-                    "meaning": "Carry",
-                    "primary": true,
-                    "accepted_answer": true
-                },
-                {
-                    "meaning": "Luck",
-                    "primary": false,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "うん",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "はこ",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                }
-            ],
-            "component_subject_ids": [
-                114,
-                76,
-                93
-            ],
-            "amalgamation_subject_ids": [
-                3174,
-                3183,
-                3184,
-                3274,
-                3354,
-                3549,
-                3950,
-                4945,
-                7421,
-                7698,
-                8750,
-                9018
-            ],
-            "visually_similar_subject_ids": [
-                1033,
-                1084
-            ],
-            "meaning_mnemonic": "While riding your <radical>scooter</radical>, you bang your <radical>forehead</radical> on the <radical>car</radical> in front. Your scooter's wrecked, so you have to <kanji>carry</kanji> it home. You'll need a lot of <kanji>luck</kanji> to get that scooter home safely.",
-            "meaning_hint": "Imagine trying to carry your scooter down a busy road, with all the cars whizzing past. Your forehead is still hurting from that nasty bang. Good luck!",
-            "reading_mnemonic": "As you <kanji>carry</kanji> the scooter, your <kanji>luck</kanji> turns, and it starts to rain, so you pull out your <reading>um</reading>brella (うん). Now you're holding your scooter, your forehead, and an umbrella.",
-            "reading_hint": "It's hard enough to carry a scooter in heavy traffic, but now you have to try to keep yourself and it dry with an umbrella too. ",
-            "lesson_position": 42,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-04-24T18:22:19.000000Z",
+    "level": 10,
+    "slug": "運",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%81%8B",
+    "characters": "運",
+    "meanings": [
+        {
+            "meaning": "Carry",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Luck",
+            "primary": false,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "うん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "はこ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        114,
+        76,
+        93
+    ],
+    "amalgamation_subject_ids": [
+        3174,
+        3183,
+        3184,
+        3274,
+        3354,
+        3549,
+        3950,
+        4945,
+        7421,
+        7698,
+        8750,
+        9018
+    ],
+    "visually_similar_subject_ids": [
+        1033,
+        1084
+    ],
+    "meaning_mnemonic": "While riding your <radical>scooter</radical>, you bang your <radical>forehead</radical> on the <radical>car</radical> in front. Your scooter's wrecked, so you have to <kanji>carry</kanji> it home. You'll need a lot of <kanji>luck</kanji> to get that scooter home safely.",
+    "meaning_hint": "Imagine trying to carry your scooter down a busy road, with all the cars whizzing past. Your forehead is still hurting from that nasty bang. Good luck!",
+    "reading_mnemonic": "As you <kanji>carry</kanji> the scooter, your <kanji>luck</kanji> turns, and it starts to rain, so you pull out your <reading>um</reading>brella (うん). Now you're holding your scooter, your forehead, and an umbrella.",
+    "reading_hint": "It's hard enough to carry a scooter in heavy traffic, but now you have to try to keep yourself and it dry with an umbrella too. ",
+    "lesson_position": 42,
+    "spaced_repetition_system_id": 1
+}

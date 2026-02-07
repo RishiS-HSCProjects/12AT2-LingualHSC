@@ -1,79 +1,71 @@
-[
-    {
-        "id": 953,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/953",
-        "data_updated_at": "2025-10-01T06:09:53.376023Z",
-        "data": {
-            "created_at": "2012-09-19T22:54:07.424189Z",
-            "level": 15,
-            "slug": "英",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E8%8B%B1",
-            "characters": "英",
-            "meanings": [
-                {
-                    "meaning": "England",
-                    "primary": true,
-                    "accepted_answer": true
-                },
-                {
-                    "meaning": "English",
-                    "primary": false,
-                    "accepted_answer": true
-                },
-                {
-                    "meaning": "Excel",
-                    "primary": false,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [
-                {
-                    "meaning": "Excellent",
-                    "type": "whitelist"
-                },
-                {
-                    "meaning": "Superior",
-                    "type": "whitelist"
-                },
-                {
-                    "meaning": "Outstanding",
-                    "type": "whitelist"
-                }
-            ],
-            "readings": [
-                {
-                    "reading": "えい",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                }
-            ],
-            "component_subject_ids": [
-                90,
-                231
-            ],
-            "amalgamation_subject_ids": [
-                3784,
-                3785,
-                3786,
-                3787,
-                3788,
-                5293,
-                5604,
-                6299
-            ],
-            "visually_similar_subject_ids": [
-                534,
-                893
-            ],
-            "meaning_mnemonic": "There are many <radical>flowers</radical> in the <radical>center</radical> of <kanji>England</kanji>. It may seem rainy and gray at first, but if you walk right to the center you'll see all the flowers that grow there in the center of the country.\n\nThis kanji also means <kanji>English</kanji>, which is pretty similar to England. Just imagine all the people of England walking to the center, where the flowers are, and speaking English to them to help them grow.",
-            "meaning_hint": "Picture yourself in the center of England, speaking English to all of the beautiful flowers.",
-            "reading_mnemonic": "You keep walking to the very central center of <kanji>England</kanji> and see a giant <reading>a</reading>corn (えい) planted in the middle of the ground. This acorn is the source of all the flowers and life in England.",
-            "reading_hint": "Imagine walking around the giant English acorn. Touch its smooth surface with your hand.",
-            "lesson_position": 43,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-09-19T22:54:07.424189Z",
+    "level": 15,
+    "slug": "英",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%8B%B1",
+    "characters": "英",
+    "meanings": [
+        {
+            "meaning": "England",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "English",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Excel",
+            "primary": false,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Excellent",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Superior",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Outstanding",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "えい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        90,
+        231
+    ],
+    "amalgamation_subject_ids": [
+        3784,
+        3785,
+        3786,
+        3787,
+        3788,
+        5293,
+        5604,
+        6299
+    ],
+    "visually_similar_subject_ids": [
+        534,
+        893
+    ],
+    "meaning_mnemonic": "There are many <radical>flowers</radical> in the <radical>center</radical> of <kanji>England</kanji>. It may seem rainy and gray at first, but if you walk right to the center you'll see all the flowers that grow there in the center of the country.\n\nThis kanji also means <kanji>English</kanji>, which is pretty similar to England. Just imagine all the people of England walking to the center, where the flowers are, and speaking English to them to help them grow.",
+    "meaning_hint": "Picture yourself in the center of England, speaking English to all of the beautiful flowers.",
+    "reading_mnemonic": "You keep walking to the very central center of <kanji>England</kanji> and see a giant <reading>a</reading>corn (えい) planted in the middle of the ground. This acorn is the source of all the flowers and life in England.",
+    "reading_hint": "Imagine walking around the giant English acorn. Touch its smooth surface with your hand.",
+    "lesson_position": 43,
+    "spaced_repetition_system_id": 1
+}

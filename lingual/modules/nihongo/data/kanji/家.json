@@ -1,98 +1,92 @@
 {
-    "id": 660,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/660",
-    "data_updated_at": "2026-02-04T06:47:17.821243Z",
-    "data": {
-        "created_at": "2012-03-26T23:52:23.000000Z",
-        "level": 6,
-        "slug": "家",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%AE%B6",
-        "characters": "家",
-        "meanings": [
-            {
-                "meaning": "House",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Home",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Professional",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Expert",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "いえ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "や",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "うち",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "か",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            },
-            {
-                "reading": "け",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            398
-        ],
-        "amalgamation_subject_ids": [
-            2954,
-            2955,
-            3090,
-            3321,
-            3361,
-            3908,
-            3933,
-            4067,
-            4683,
-            4873,
-            5697,
-            6447,
-            7188,
-            7657,
-            7712,
-            8702
-        ],
-        "visually_similar_subject_ids": [
-            1449
-        ],
-        "meaning_mnemonic": "The <radical>house</radical> radical makes up the <kanji>house</kanji> kanji! Pretty easy. This kanji is also used to mean <kanji>home</kanji>, so try to remember that too.",
-        "meaning_hint": "I guess not all houses are homes, and not all homes are houses. But there's a pretty big overlap, right? And in most situations, this kanji's got you covered. ",
-        "reading_mnemonic": "What do you do in your <kanji>house</kanji>? You <reading>ea</reading>t <reading>e</reading>ggs (いえ), that's what. You eat eggs three times a day, every day. You really love eating eggs in your <kanji>home</kanji>!",
-        "reading_hint": "Imagine all the eggs you've got in your house. Whole fridgefuls! It's not a normal house, but that's okay. If you couldn't eat eggs, it wouldn't feel like home.",
-        "lesson_position": 179,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-26T23:52:23.000000Z",
+    "level": 6,
+    "slug": "家",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%AE%B6",
+    "characters": "家",
+    "meanings": [
+        {
+            "meaning": "House",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Home",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Professional",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Expert",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "いえ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "や",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "うち",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "か",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "け",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        398
+    ],
+    "amalgamation_subject_ids": [
+        2954,
+        2955,
+        3090,
+        3321,
+        3361,
+        3908,
+        3933,
+        4067,
+        4683,
+        4873,
+        5697,
+        6447,
+        7188,
+        7657,
+        7712,
+        8702
+    ],
+    "visually_similar_subject_ids": [
+        1449
+    ],
+    "meaning_mnemonic": "The <radical>house</radical> radical makes up the <kanji>house</kanji> kanji! Pretty easy. This kanji is also used to mean <kanji>home</kanji>, so try to remember that too.",
+    "meaning_hint": "I guess not all houses are homes, and not all homes are houses. But there's a pretty big overlap, right? And in most situations, this kanji's got you covered. ",
+    "reading_mnemonic": "What do you do in your <kanji>house</kanji>? You <reading>ea</reading>t <reading>e</reading>ggs (いえ), that's what. You eat eggs three times a day, every day. You really love eating eggs in your <kanji>home</kanji>!",
+    "reading_hint": "Imagine all the eggs you've got in your house. Whole fridgefuls! It's not a normal house, but that's okay. If you couldn't eat eggs, it wouldn't feel like home.",
+    "lesson_position": 179,
+    "spaced_repetition_system_id": 1
 }

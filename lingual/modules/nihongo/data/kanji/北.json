@@ -1,63 +1,57 @@
 {
-    "id": 517,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/517",
-    "data_updated_at": "2026-02-04T19:16:06.381804Z",
-    "data": {
-        "created_at": "2012-03-01T03:49:49.000000Z",
-        "level": 3,
-        "slug": "北",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%8C%97",
-        "characters": "北",
-        "meanings": [
-            {
-                "meaning": "North",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "きた",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "ほく",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            327
-        ],
-        "amalgamation_subject_ids": [
-            2623,
-            2779,
-            2898,
-            7474,
-            8014,
-            9055,
-            9147,
-            9148,
-            9350,
-            9355,
-            9359,
-            9360
-        ],
-        "visually_similar_subject_ids": [
-            607,
-            1088
-        ],
-        "meaning_mnemonic": "The kanji is the same as the radical — it means <kanji>north</kanji>.",
-        "meaning_hint": "Hold on to that radical knowledge! It'll be the north star that guides you through your studies.",
-        "reading_mnemonic": "You go <kanji>north</kanji>, and notice that <em>everyone</em> has a <reading>keytar</reading> (きた). You know, those keyboards that people hold and play like a guitar?",
-        "reading_hint": "Yep, those things are called keytars. And for some reason, in the north, everyone has a keytar. They're basically obsessed with them. North = keytar. Quite simple.",
-        "lesson_position": 30,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-01T03:49:49.000000Z",
+    "level": 3,
+    "slug": "北",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8C%97",
+    "characters": "北",
+    "meanings": [
+        {
+            "meaning": "North",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "きた",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ほく",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        327
+    ],
+    "amalgamation_subject_ids": [
+        2623,
+        2779,
+        2898,
+        7474,
+        8014,
+        9055,
+        9147,
+        9148,
+        9350,
+        9355,
+        9359,
+        9360
+    ],
+    "visually_similar_subject_ids": [
+        607,
+        1088
+    ],
+    "meaning_mnemonic": "The kanji is the same as the radical — it means <kanji>north</kanji>.",
+    "meaning_hint": "Hold on to that radical knowledge! It'll be the north star that guides you through your studies.",
+    "reading_mnemonic": "You go <kanji>north</kanji>, and notice that <em>everyone</em> has a <reading>keytar</reading> (きた). You know, those keyboards that people hold and play like a guitar?",
+    "reading_hint": "Yep, those things are called keytars. And for some reason, in the north, everyone has a keytar. They're basically obsessed with them. North = keytar. Quite simple.",
+    "lesson_position": 30,
+    "spaced_repetition_system_id": 1
 }

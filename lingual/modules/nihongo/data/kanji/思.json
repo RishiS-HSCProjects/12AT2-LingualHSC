@@ -1,65 +1,59 @@
 {
-    "id": 637,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/637",
-    "data_updated_at": "2025-12-23T01:37:53.664222Z",
-    "data": {
-        "created_at": "2012-03-08T23:52:38.000000Z",
-        "level": 6,
-        "slug": "思",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%80%9D",
-        "characters": "思",
-        "meanings": [
-            {
-                "meaning": "Think",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Thought",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "おも",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "し",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            51,
-            65
-        ],
-        "amalgamation_subject_ids": [
-            2914,
-            3433,
-            3435,
-            3545,
-            4332,
-            5403,
-            6466,
-            7535,
-            8617
-        ],
-        "visually_similar_subject_ids": [
-            815
-        ],
-        "meaning_mnemonic": "In a <radical>rice paddy</radical> you find a <radical>heart</radical> and it makes you <kanji>think</kanji>. You think a lot of <kanji>thought</kanji>s like, \"Whose heart is this? Why is it in a rice paddy? Why am I thinking out loud?\"",
-        "meaning_hint": "Think, think, think. Think about this rice paddy heart.",
-        "reading_mnemonic": "As you are <kanji>think</kanji>ing these <kanji>thought</kanji>s, you spot someone on the edge of the rice field. He really reminds you of someone. But who? That's it! He reminds you of that bartender on The Simpsons. What's his name? You think some more. What is it? <reading>Oh! Moe</reading> (おも) is his name!",
-        "reading_hint": "If you don't know Moe from the Simpsons use a different Moe, perhaps the one from the Three Stooges? You should be able to come up with one. Think really hard about the Moe you know best and imagine them standing watching you from the edge of the rice field.",
-        "lesson_position": 56,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-08T23:52:38.000000Z",
+    "level": 6,
+    "slug": "思",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%80%9D",
+    "characters": "思",
+    "meanings": [
+        {
+            "meaning": "Think",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Thought",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "おも",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "し",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        51,
+        65
+    ],
+    "amalgamation_subject_ids": [
+        2914,
+        3433,
+        3435,
+        3545,
+        4332,
+        5403,
+        6466,
+        7535,
+        8617
+    ],
+    "visually_similar_subject_ids": [
+        815
+    ],
+    "meaning_mnemonic": "In a <radical>rice paddy</radical> you find a <radical>heart</radical> and it makes you <kanji>think</kanji>. You think a lot of <kanji>thought</kanji>s like, \"Whose heart is this? Why is it in a rice paddy? Why am I thinking out loud?\"",
+    "meaning_hint": "Think, think, think. Think about this rice paddy heart.",
+    "reading_mnemonic": "As you are <kanji>think</kanji>ing these <kanji>thought</kanji>s, you spot someone on the edge of the rice field. He really reminds you of someone. But who? That's it! He reminds you of that bartender on The Simpsons. What's his name? You think some more. What is it? <reading>Oh! Moe</reading> (おも) is his name!",
+    "reading_hint": "If you don't know Moe from the Simpsons use a different Moe, perhaps the one from the Three Stooges? You should be able to come up with one. Think really hard about the Moe you know best and imagine them standing watching you from the edge of the rice field.",
+    "lesson_position": 56,
+    "spaced_repetition_system_id": 1
 }

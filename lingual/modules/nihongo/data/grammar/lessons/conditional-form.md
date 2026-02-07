@@ -30,6 +30,24 @@ Remember, ら is used when the result is not automatic or inevitable.
 - 静[しず]か**ら**、としょかんで勉[べん]強[きょう]します → When it is quiet, I study in the library.
 - 便利[べんり]じゃなかっ**たら**、使[つか]いません。 → If it is not convenient, I will not use it.
 
+## たら vs なら
+Both たら and なら can be used to express conditional statements, but they have different nuances and usage contexts:
+
+- **たら - Hypothetical or Future Conditions**: たら is used to express hypothetical situations or conditions that may occur in the future. It is often used when the outcome is uncertain or when the condition is not yet met.
+    - For example, if you want to say "If it rains tomorrow, I will stay home," you would say: 明日[あした]雨が降[ふ]ったら、家[いえ]にいます。
+    - In this case, たら is used because the condition (rain) is hypothetical and may or may not happen.
+    - たら is more like "in this condition, this will happen".
+
+    For example, if you want to say "If I were rich, I would travel the world," you would say: お金持[かねもち]だったら、世界[せかい]を旅[たび]したいです。
+    - Here, たら is used to express a hypothetical situation that is not currently true (being rich), and the outcome (traveling the world) is a desire or wish based on that hypothetical condition.
+- **なら - General Conditions or Assumptions**: なら is used to express general conditions, assumptions, or when the speaker is making a decision based on a certain condition. It can also be used to give advice or make suggestions.
+    - For example, if you want to say "If you are tired, you should rest," you would say: 疲[つか]れたなら、休んだほうがいいですよ。
+    - In this case, なら is used because the speaker is making a suggestion based on the condition of being tired, which is a general assumption that can apply to anyone.
+
+なら can be attached to nouns and な-adjectives, while たら cannot. For example:
+- 静[しず]か**なら**、としょかんで勉[べん]強[きょう]します → If it is quiet, I study in the library.
+- 静[しず]か**たら**、としょかんで勉[べん]強[きょう]します → This sentence is incorrect because たら cannot be attached to な-adjectives.
+
 # Using 〜と
 
 と is used to express natural consequences or habitual actions that occur when a certain condition is met. It is often translated as "when" or "if" in English.
@@ -43,3 +61,29 @@ Remember, と is used when the result is automatic or inevitable.
 - 雨[あめ]が降[ふ]らない**と**、草[くさ]が育[そだ]ちません → If it doesn't rain, the grass won't grow.
 
 ~quizzes:conditional-form:quiz?shuffle&limit=5~
+
+# Using ～ば
+
+**ば** is a conditional form in Japanese that is used to express "if" or "when" in a more formal or hypothetical context. It is often used to indicate that one action will lead to another action or result.
+
+:::blockquote Godan Verb (drop ます・う) + ば :::
+
+:::blockquote Ichidan Verb (drop ます・る) + れば :::
+
+:::blockquote する → すれば :::
+:::blockquote 来[く]る → 来[く]れば :::
+
+:::blockquote い-adjective (drop い) + ければ :::
+
+- 高[たか]い → 高[たか]ければ
+- 早[はや]い → 早[はや]ければ
+
+/i This is also where なければなりません also comes from! \
+
+:::blockquote Noun / な-adjective + なら + ば (ば is optional) :::
+
+- 静[しず]か → 静[しず]かならば
+- 便利[べんり] → 便利[べんり]ならば
+- 学生[がくせい] → 学生なら
+
+/t ば is not always necessary after なら for nouns and な-adjectives. \

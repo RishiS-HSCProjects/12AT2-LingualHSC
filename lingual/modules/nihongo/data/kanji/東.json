@@ -1,73 +1,67 @@
 {
-    "id": 627,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/627",
-    "data_updated_at": "2026-01-12T00:54:10.379660Z",
-    "data": {
-        "created_at": "2012-03-08T23:46:25.000000Z",
-        "level": 6,
-        "slug": "東",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%9D%B1",
-        "characters": "東",
-        "meanings": [
-            {
-                "meaning": "East",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Fast",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "ひがし",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "とう",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            224
-        ],
-        "amalgamation_subject_ids": [
-            2897,
-            2898,
-            2899,
-            2900,
-            3350,
-            3423,
-            3458,
-            3522,
-            3836,
-            3958,
-            6641,
-            8516,
-            9357,
-            9360
-        ],
-        "visually_similar_subject_ids": [
-            562,
-            620,
-            722,
-            910,
-            1670
-        ],
-        "meaning_mnemonic": "This is the same as the radical for <radical>east</radical>, so it means <kanji>east</kanji> too.",
-        "meaning_hint": "Remember the radical mnemonic? The sun rises behind that tree in the east!",
-        "reading_mnemonic": "You see a man walk straight toward the sun rising in the <kanji>east</kanji>. It's so bright he can't see anything, so he trips and <reading>he gash</reading>es (ひがし) his knee on a rock. Yikes… But he gets back up, determined to head east, and, oh no, he gashes his other knee! OK, he should probably give up on going east.",
-        "reading_hint": "Imagine the secondhand pain you'd feel watching him as he gashes his knee. Ow… Surely nothing in the east can be worth that much suffering?",
-        "lesson_position": 1,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-08T23:46:25.000000Z",
+    "level": 6,
+    "slug": "東",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9D%B1",
+    "characters": "東",
+    "meanings": [
+        {
+            "meaning": "East",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Fast",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ひがし",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "とう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        224
+    ],
+    "amalgamation_subject_ids": [
+        2897,
+        2898,
+        2899,
+        2900,
+        3350,
+        3423,
+        3458,
+        3522,
+        3836,
+        3958,
+        6641,
+        8516,
+        9357,
+        9360
+    ],
+    "visually_similar_subject_ids": [
+        562,
+        620,
+        722,
+        910,
+        1670
+    ],
+    "meaning_mnemonic": "This is the same as the radical for <radical>east</radical>, so it means <kanji>east</kanji> too.",
+    "meaning_hint": "Remember the radical mnemonic? The sun rises behind that tree in the east!",
+    "reading_mnemonic": "You see a man walk straight toward the sun rising in the <kanji>east</kanji>. It's so bright he can't see anything, so he trips and <reading>he gash</reading>es (ひがし) his knee on a rock. Yikes… But he gets back up, determined to head east, and, oh no, he gashes his other knee! OK, he should probably give up on going east.",
+    "reading_hint": "Imagine the secondhand pain you'd feel watching him as he gashes his knee. Ow… Surely nothing in the east can be worth that much suffering?",
+    "lesson_position": 1,
+    "spaced_repetition_system_id": 1
 }

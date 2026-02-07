@@ -1,82 +1,74 @@
-[
-    {
-        "id": 579,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/579",
-        "data_updated_at": "2025-11-24T20:12:30.437571Z",
-        "data": {
-            "created_at": "2012-03-05T20:09:45.000000Z",
-            "level": 5,
-            "slug": "色",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E8%89%B2",
-            "characters": "色",
-            "meanings": [
-                {
-                    "meaning": "Color",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [
-                {
-                    "meaning": "Colour",
-                    "type": "whitelist"
-                }
-            ],
-            "readings": [
-                {
-                    "reading": "いろ",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "しき",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "しょく",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "onyomi"
-                }
-            ],
-            "component_subject_ids": [
-                110
-            ],
-            "amalgamation_subject_ids": [
-                2772,
-                2773,
-                2774,
-                2922,
-                2987,
-                3618,
-                3632,
-                4880,
-                5533,
-                5651,
-                6789,
-                6861,
-                7137,
-                7199,
-                7271,
-                8387,
-                9106,
-                9109
-            ],
-            "visually_similar_subject_ids": [
-                592,
-                1722
-            ],
-            "meaning_mnemonic": "The <radical>color</radical> radical and <kanji>color</kanji> are the same in looks as well as in meaning.",
-            "meaning_hint": "Color me pink! This kanji's super easy if you know your radicals.",
-            "reading_mnemonic": "You already have <kanji>color</kanji> on the mind because you know the meaning of this kanji, so think of something colorful about yourself. Imagine your <reading>ear</reading> (いろ) being a weird color... green, purple, red, whatever. Just make it really bright and standing out.",
-            "reading_hint": "You can even have someone ask you about your ear... \"Is your ear okay? I think it's the color blue...\"",
-            "lesson_position": 44,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-05T20:09:45.000000Z",
+    "level": 5,
+    "slug": "色",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%89%B2",
+    "characters": "色",
+    "meanings": [
+        {
+            "meaning": "Color",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Colour",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "いろ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "しき",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "しょく",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        110
+    ],
+    "amalgamation_subject_ids": [
+        2772,
+        2773,
+        2774,
+        2922,
+        2987,
+        3618,
+        3632,
+        4880,
+        5533,
+        5651,
+        6789,
+        6861,
+        7137,
+        7199,
+        7271,
+        8387,
+        9106,
+        9109
+    ],
+    "visually_similar_subject_ids": [
+        592,
+        1722
+    ],
+    "meaning_mnemonic": "The <radical>color</radical> radical and <kanji>color</kanji> are the same in looks as well as in meaning.",
+    "meaning_hint": "Color me pink! This kanji's super easy if you know your radicals.",
+    "reading_mnemonic": "You already have <kanji>color</kanji> on the mind because you know the meaning of this kanji, so think of something colorful about yourself. Imagine your <reading>ear</reading> (いろ) being a weird color... green, purple, red, whatever. Just make it really bright and standing out.",
+    "reading_hint": "You can even have someone ask you about your ear... \"Is your ear okay? I think it's the color blue...\"",
+    "lesson_position": 44,
+    "spaced_repetition_system_id": 1
+}

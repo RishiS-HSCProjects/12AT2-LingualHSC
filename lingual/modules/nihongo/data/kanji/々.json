@@ -1,103 +1,97 @@
 {
-    "id": 856,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/856",
-    "data_updated_at": "2026-02-02T21:27:18.333927Z",
-    "data": {
-        "created_at": "2012-07-24T23:58:04.630590Z",
-        "level": 2,
-        "slug": "々",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E3%80%85",
-        "characters": "々",
-        "meanings": [
-            {
-                "meaning": "Repeater",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Repetition",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Reduplication",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Iteration Mark",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Kanji Repeater",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Repeater Kanji",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "のま",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            14,
-            3
-        ],
-        "amalgamation_subject_ids": [
-            2521,
-            2650,
-            2669,
-            2773,
-            3265,
-            3427,
-            3447,
-            3478,
-            3510,
-            3601,
-            4227,
-            4232,
-            4366,
-            4508,
-            5048,
-            5390,
-            5614,
-            5843,
-            6796,
-            6950,
-            7388,
-            7405,
-            7448,
-            7517,
-            7855,
-            7981,
-            8095,
-            8253,
-            8481,
-            8493,
-            8731,
-            8817,
-            8843,
-            8998,
-            9142,
-            9165
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "This is a strange kanji because it doesn't really mean anything at all. In fact, what it does is it repeats the kanji that comes before it. For example: 人々 is actually 人人. This kanji shows up whenever there's a repeating kanji, because it's often easier to write than writing a more complicated kanji twice. That's why this kanji is the <kanji>repeater</kanji>. It repeats what comes before it.\n\nTo remember that this kanji is the repeater, though, think of a <radical>prison</radical> with <radical>drop</radical>s of water dripping over and over in it. Drip drop drip drop. It does that over and over again, driving the prisoners nuts. But it never stops. It just repeats over and over.",
-        "meaning_hint": "Since this kanji doesn't really have a meaning as much as it does a function, try to change the way you think about it when you're memorizing it.",
-        "reading_mnemonic": "This symbol doesn't really have a name, but it's sometimes called the のま because it looks like the katakana characters ノ and マ put together. If you know katakana then this will be easy to read. If you don't, think of it this way:\n\nYour mom is the <kanji>repeater</kanji>. She is trying to force feed you over and over again until you explode (literally). You keep yelling \"<reading>No ma</reading> (のま)!\" but she doesn't stop. She's on a repeating track, never stopping, repeating forever.",
-        "reading_hint": "If you feel like you're so full you're about to burst, and if you imagine your mom doing this to you (how could you, ma?), you should be able to remember the reading of this kanji. That being said, the reading is mostly only useful in the event that you have to identify a 々 — otherwise, you won't see it much.",
-        "lesson_position": 67,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-07-24T23:58:04.630590Z",
+    "level": 2,
+    "slug": "々",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E3%80%85",
+    "characters": "々",
+    "meanings": [
+        {
+            "meaning": "Repeater",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Repetition",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Reduplication",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Iteration Mark",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Kanji Repeater",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Repeater Kanji",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "のま",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        14,
+        3
+    ],
+    "amalgamation_subject_ids": [
+        2521,
+        2650,
+        2669,
+        2773,
+        3265,
+        3427,
+        3447,
+        3478,
+        3510,
+        3601,
+        4227,
+        4232,
+        4366,
+        4508,
+        5048,
+        5390,
+        5614,
+        5843,
+        6796,
+        6950,
+        7388,
+        7405,
+        7448,
+        7517,
+        7855,
+        7981,
+        8095,
+        8253,
+        8481,
+        8493,
+        8731,
+        8817,
+        8843,
+        8998,
+        9142,
+        9165
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "This is a strange kanji because it doesn't really mean anything at all. In fact, what it does is it repeats the kanji that comes before it. For example: 人々 is actually 人人. This kanji shows up whenever there's a repeating kanji, because it's often easier to write than writing a more complicated kanji twice. That's why this kanji is the <kanji>repeater</kanji>. It repeats what comes before it.\n\nTo remember that this kanji is the repeater, though, think of a <radical>prison</radical> with <radical>drop</radical>s of water dripping over and over in it. Drip drop drip drop. It does that over and over again, driving the prisoners nuts. But it never stops. It just repeats over and over.",
+    "meaning_hint": "Since this kanji doesn't really have a meaning as much as it does a function, try to change the way you think about it when you're memorizing it.",
+    "reading_mnemonic": "This symbol doesn't really have a name, but it's sometimes called the のま because it looks like the katakana characters ノ and マ put together. If you know katakana then this will be easy to read. If you don't, think of it this way:\n\nYour mom is the <kanji>repeater</kanji>. She is trying to force feed you over and over again until you explode (literally). You keep yelling \"<reading>No ma</reading> (のま)!\" but she doesn't stop. She's on a repeating track, never stopping, repeating forever.",
+    "reading_hint": "If you feel like you're so full you're about to burst, and if you imagine your mom doing this to you (how could you, ma?), you should be able to remember the reading of this kanji. That being said, the reading is mostly only useful in the event that you have to identify a 々 — otherwise, you won't see it much.",
+    "lesson_position": 67,
+    "spaced_repetition_system_id": 2
 }

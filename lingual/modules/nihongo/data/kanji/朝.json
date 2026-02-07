@@ -1,62 +1,56 @@
 {
-    "id": 695,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/695",
-    "data_updated_at": "2025-11-18T14:34:21.871392Z",
-    "data": {
-        "created_at": "2012-04-05T19:24:32.000000Z",
-        "level": 8,
-        "slug": "朝",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%9C%9D",
-        "characters": "朝",
-        "meanings": [
-            {
-                "meaning": "Morning",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "あさ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "ちょう",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            15,
-            22,
-            43
-        ],
-        "amalgamation_subject_ids": [
-            3044,
-            3045,
-            3046,
-            3935,
-            4861,
-            5359,
-            6171,
-            7070,
-            7570,
-            8703
-        ],
-        "visually_similar_subject_ids": [
-            2217
-        ],
-        "meaning_mnemonic": "There's a <radical>cross</radical> sticking out the top of the <radical>sun</radical> and another <radical>cross</radical> sticking out the bottom. The <radical>moon</radical> is off to the right. That's because it's the <kanji>morning</kanji>, which is when the sun and moon switch over. Those crosses are making sure the sun stays high in the sky for the rest of the day.",
-        "meaning_hint": "Imagine a sun attached up in the sky with two crosses, which act as scaffolding, and the moon gradually fading off to the right as the morning wears on.",
-        "reading_mnemonic": "Every <kanji>morning</kanji> you have <reading>Asa</reading>hi (あさ) beer for breakfast.",
-        "reading_hint": "You watch the sun scaffolded by crosses, and the moon next to it, as you sip on your early-morning Asahi.",
-        "lesson_position": 47,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-05T19:24:32.000000Z",
+    "level": 8,
+    "slug": "朝",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9C%9D",
+    "characters": "朝",
+    "meanings": [
+        {
+            "meaning": "Morning",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "あさ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ちょう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        15,
+        22,
+        43
+    ],
+    "amalgamation_subject_ids": [
+        3044,
+        3045,
+        3046,
+        3935,
+        4861,
+        5359,
+        6171,
+        7070,
+        7570,
+        8703
+    ],
+    "visually_similar_subject_ids": [
+        2217
+    ],
+    "meaning_mnemonic": "There's a <radical>cross</radical> sticking out the top of the <radical>sun</radical> and another <radical>cross</radical> sticking out the bottom. The <radical>moon</radical> is off to the right. That's because it's the <kanji>morning</kanji>, which is when the sun and moon switch over. Those crosses are making sure the sun stays high in the sky for the rest of the day.",
+    "meaning_hint": "Imagine a sun attached up in the sky with two crosses, which act as scaffolding, and the moon gradually fading off to the right as the morning wears on.",
+    "reading_mnemonic": "Every <kanji>morning</kanji> you have <reading>Asa</reading>hi (あさ) beer for breakfast.",
+    "reading_hint": "You watch the sun scaffolded by crosses, and the moon next to it, as you sip on your early-morning Asahi.",
+    "lesson_position": 47,
+    "spaced_repetition_system_id": 1
 }

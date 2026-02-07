@@ -1,78 +1,72 @@
 {
-    "id": 441,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/441",
-    "data_updated_at": "2026-02-02T21:19:50.293169Z",
-    "data": {
-        "created_at": "2012-02-27T20:15:43.000000Z",
-        "level": 1,
-        "slug": "二",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E4%BA%8C",
-        "characters": "二",
-        "meanings": [
-            {
-                "meaning": "Two",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "2",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "に",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "ふた",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            7
-        ],
-        "amalgamation_subject_ids": [
-            2473,
-            2474,
-            2476,
-            2545,
-            2589,
-            2628,
-            2683,
-            2712,
-            2960,
-            3049,
-            3153,
-            3237,
-            3339,
-            3347,
-            3373,
-            3374,
-            4141,
-            4826,
-            5238,
-            6048,
-            6615,
-            6992,
-            7515,
-            7565,
-            8897
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "The kanji <kanji>two</kanji> and the radical <radical>two</radical> are the exact same things. Therefore, you know the kanji for two already!",
-        "meaning_hint": "More simply put, you can just know that this kanji is the double of one. It's two lines, that's not all that hard to remember!",
-        "reading_mnemonic": "How do you count to <vocabulary>two</vocabulary>? Just use someone's <reading>knee</reading> (に), and then their other knee. There — two knees!",
-        "reading_hint": "Imagine asking to borrow the two knees of a stranger in the street, just so you can count to two. They're confused at first, but then they present each knee to you in a loving sort of way. Yep, that's two knees alright. ",
-        "lesson_position": 26,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-27T20:15:43.000000Z",
+    "level": 1,
+    "slug": "二",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%BA%8C",
+    "characters": "二",
+    "meanings": [
+        {
+            "meaning": "Two",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "2",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "に",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ふた",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        7
+    ],
+    "amalgamation_subject_ids": [
+        2473,
+        2474,
+        2476,
+        2545,
+        2589,
+        2628,
+        2683,
+        2712,
+        2960,
+        3049,
+        3153,
+        3237,
+        3339,
+        3347,
+        3373,
+        3374,
+        4141,
+        4826,
+        5238,
+        6048,
+        6615,
+        6992,
+        7515,
+        7565,
+        8897
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The kanji <kanji>two</kanji> and the radical <radical>two</radical> are the exact same things. Therefore, you know the kanji for two already!",
+    "meaning_hint": "More simply put, you can just know that this kanji is the double of one. It's two lines, that's not all that hard to remember!",
+    "reading_mnemonic": "How do you count to <vocabulary>two</vocabulary>? Just use someone's <reading>knee</reading> (に), and then their other knee. There — two knees!",
+    "reading_hint": "Imagine asking to borrow the two knees of a stranger in the street, just so you can count to two. They're confused at first, but then they present each knee to you in a loving sort of way. Yep, that's two knees alright. ",
+    "lesson_position": 26,
+    "spaced_repetition_system_id": 2
 }

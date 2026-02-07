@@ -1,69 +1,61 @@
-[
-    {
-        "id": 557,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/557",
-        "data_updated_at": "2025-10-01T06:09:50.708961Z",
-        "data": {
-            "created_at": "2012-03-02T18:08:06.000000Z",
-            "level": 4,
-            "slug": "花",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E8%8A%B1",
-            "characters": "花",
-            "meanings": [
-                {
-                    "meaning": "Flower",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "はな",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "か",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "け",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "onyomi"
-                }
-            ],
-            "component_subject_ids": [
-                90,
-                75,
-                57
-            ],
-            "amalgamation_subject_ids": [
-                2694,
-                2695,
-                2696,
-                5472,
-                7072,
-                7296,
-                7446,
-                7814,
-                7831,
-                8593,
-                8609
-            ],
-            "visually_similar_subject_ids": [],
-            "meaning_mnemonic": "All these <radical>flowers</radical> were planted by your <radical>leader</radical> with nothing but a <radical>spoon</radical>. Now the whole place is absolutely full with beautiful <kanji>flower</kanji>s. Flowers everywhere.",
-            "meaning_hint": "Your leader is a nice guy who wants there to be flowers for even future generations to enjoy. That’s why he’s painstakingly planting all these flowers with his spoon. Imagine watching him dig hole after hole with his little spoon just to plant some flowers for everyone.",
-            "reading_mnemonic": "But for some reason, the leader just can't stop planting <kanji>flower</kanji>s... He's going crazy. Maybe it's the pollen? Now there’s only one person that can save him: <reading>Hannah</reading> (はな). ",
-            "reading_hint": "Hannah is the most reliable person you know. Whenever someone’s in any trouble, Hannah shows up and sets things right. Everyone needs a person like Hannah in their life. Especially the leader…",
-            "lesson_position": 72,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-02T18:08:06.000000Z",
+    "level": 4,
+    "slug": "花",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%8A%B1",
+    "characters": "花",
+    "meanings": [
+        {
+            "meaning": "Flower",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "はな",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "か",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "け",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        90,
+        75,
+        57
+    ],
+    "amalgamation_subject_ids": [
+        2694,
+        2695,
+        2696,
+        5472,
+        7072,
+        7296,
+        7446,
+        7814,
+        7831,
+        8593,
+        8609
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "All these <radical>flowers</radical> were planted by your <radical>leader</radical> with nothing but a <radical>spoon</radical>. Now the whole place is absolutely full with beautiful <kanji>flower</kanji>s. Flowers everywhere.",
+    "meaning_hint": "Your leader is a nice guy who wants there to be flowers for even future generations to enjoy. That’s why he’s painstakingly planting all these flowers with his spoon. Imagine watching him dig hole after hole with his little spoon just to plant some flowers for everyone.",
+    "reading_mnemonic": "But for some reason, the leader just can't stop planting <kanji>flower</kanji>s... He's going crazy. Maybe it's the pollen? Now there’s only one person that can save him: <reading>Hannah</reading> (はな). ",
+    "reading_hint": "Hannah is the most reliable person you know. Whenever someone’s in any trouble, Hannah shows up and sets things right. Everyone needs a person like Hannah in their life. Especially the leader…",
+    "lesson_position": 72,
+    "spaced_repetition_system_id": 1
+}

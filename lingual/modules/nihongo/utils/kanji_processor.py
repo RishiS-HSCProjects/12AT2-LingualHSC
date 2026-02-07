@@ -1,5 +1,6 @@
 import os
 import json
+from flask import current_app
 import requests
 from pathlib import Path
 from enum import Enum
@@ -47,11 +48,6 @@ class Kanji:
         return self.data.get("readings", [])
 
     @property
-    def level(self) -> int:
-        """Returns the WaniKani level of the kanji."""
-        return self.data.get("level", -1)
-
-    @property
     def stroke_count(self) -> int:
         """Returns the stroke count for the kanji."""
         return self.data.get("stroke_count", 0)
@@ -89,33 +85,28 @@ class Kanji:
 
     @staticmethod
     def _fetch_kanji_data(kanji: str) -> dict:
-        """
-        Fetches information about a kanji from the WaniKani API and stores it locally.
-
-        Args:
-            kanji (str): The kanji character to fetch.
-
-        Returns:
-            dict: The kanji data fetched from the API.
-        """
-        response = requests.get(API_URL.format(kanji=kanji), headers={"Authorization": f"Bearer {WANIKANI_API_KEY}"})
-        if response.status_code != 200:
-            raise Exception(f"Failed to fetch data for kanji '{kanji}': {response.status_code} - {response.text}")
+        response = requests.get(
+            API_URL.format(kanji=kanji),
+            headers={"Authorization": f"Bearer {WANIKANI_API_KEY}"}
+        )
 
         data = response.json()
+
         if "data" not in data or not data["data"]:
             raise Exception(f"No data found for kanji '{kanji}'.")
 
-        kanji_data = data["data"]
-        
-        # Save fetched data to a local file
-        file_path = DATA_DIRECTORY / f"{kanji}.json"
-        file_path.parent.mkdir(parents=True, exist_ok=True)
+        # Extract the first subject object
+        subject = data["data"][0]
 
+        # Extract the actual kanji data dictionary
+        kanji_data = subject["data"]
+
+        file_path = DATA_DIRECTORY / f"{kanji}.json"
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(kanji_data, file, ensure_ascii=False, indent=4)
 
         return kanji_data
+
 
     @staticmethod
     def get_kanji(kanji: str) -> "Kanji":
@@ -160,7 +151,7 @@ class Kanji:
         """Returns a string representation of the Kanji object."""
         primary_meaning = self.get_primary_meaning()
         primary_reading = self.on_readings[0]["reading"] if self.on_readings else "N/A"
-        return f"Kanji: {self.kanji_char}, Meaning: {primary_meaning}, Primary Reading: {primary_reading}, Level: {self.level}, Stroke Count: {self.stroke_count}"
+        return f"Kanji: {self.kanji_char}, Meaning: {primary_meaning}, Primary Reading: {primary_reading}, Stroke Count: {self.stroke_count}"
 
 class KanjiType(Enum):
     """Enum representing the types of kanji usage (e.g., ACTIVE or RECOGNITION)."""

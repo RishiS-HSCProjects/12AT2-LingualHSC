@@ -185,8 +185,4 @@ def get_quizzes(lesson_slug):
 @login_required
 def kanji():
     from lingual.modules.nihongo.utils.kanji_processor import Kanji
-    for k, t in Kanji.get_prescribed_kanji():
-        if not Kanji.is_cache_available(k):
-            Kanji.get_kanji(k) # This will fetch and cache the kanji data
-            current_app.logger.info(f"Updated cache for kanji: {k}")
-    return render_template('kanji.html')
+    return render_template('kanji.html', prescribed = Kanji.get_prescribed_kanji(), kanji_cls = Kanji)

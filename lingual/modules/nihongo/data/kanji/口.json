@@ -1,76 +1,70 @@
 {
-    "id": 452,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/452",
-    "data_updated_at": "2025-11-04T03:00:07.957700Z",
-    "data": {
-        "created_at": "2012-02-28T01:52:02.000000Z",
-        "level": 1,
-        "slug": "口",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%8F%A3",
-        "characters": "口",
-        "meanings": [
-            {
-                "meaning": "Mouth",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "こう",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "く",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "くち",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            16
-        ],
-        "amalgamation_subject_ids": [
-            2497,
-            2498,
-            2558,
-            2611,
-            3402,
-            3432,
-            3439,
-            3458,
-            3891,
-            4246,
-            4360,
-            5622,
-            5690,
-            5942,
-            6938,
-            7021,
-            7685,
-            8812,
-            8961,
-            9148,
-            9158,
-            9299
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "The <radical>mouth</radical> radical and the <kanji>mouth</kanji> kanji are exactly the same!",
-        "meaning_hint": "If you learned your radicals — which the WaniKani system forces you to do (unless you're cheating) — you'll already know the meaning of the kanji.",
-        "reading_mnemonic": "Do you remember seeing the construction worker こういち earlier in the 工 mnemonic? If you haven't yet, not to worry!\n\nFor kanji with こう readings (there are a lot of them!) we will use the character こういち every time. He's one of the people who started this website, so we'll do our best in the mnemonics to embarrass him as much as possible. Anyways, remember that whenever you see こう, think こういち.\n\nEveryone agrees, the <kanji>mouth</kanji> is <reading>こう</reading>いち's best feature. You stare at it lovingly as he whispers sweet kanji readings to you.",
-        "reading_hint": "You just can't forget all the cool things about kanji learning he said from that mouth. What a great mouth こういち has. How are the lips of his mouth both so skinny and fat at the same time?",
-        "lesson_position": 38,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T01:52:02.000000Z",
+    "level": 1,
+    "slug": "口",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8F%A3",
+    "characters": "口",
+    "meanings": [
+        {
+            "meaning": "Mouth",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "こう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "く",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "くち",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        16
+    ],
+    "amalgamation_subject_ids": [
+        2497,
+        2498,
+        2558,
+        2611,
+        3402,
+        3432,
+        3439,
+        3458,
+        3891,
+        4246,
+        4360,
+        5622,
+        5690,
+        5942,
+        6938,
+        7021,
+        7685,
+        8812,
+        8961,
+        9148,
+        9158,
+        9299
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>mouth</radical> radical and the <kanji>mouth</kanji> kanji are exactly the same!",
+    "meaning_hint": "If you learned your radicals — which the WaniKani system forces you to do (unless you're cheating) — you'll already know the meaning of the kanji.",
+    "reading_mnemonic": "Do you remember seeing the construction worker こういち earlier in the 工 mnemonic? If you haven't yet, not to worry!\n\nFor kanji with こう readings (there are a lot of them!) we will use the character こういち every time. He's one of the people who started this website, so we'll do our best in the mnemonics to embarrass him as much as possible. Anyways, remember that whenever you see こう, think こういち.\n\nEveryone agrees, the <kanji>mouth</kanji> is <reading>こう</reading>いち's best feature. You stare at it lovingly as he whispers sweet kanji readings to you.",
+    "reading_hint": "You just can't forget all the cool things about kanji learning he said from that mouth. What a great mouth こういち has. How are the lips of his mouth both so skinny and fat at the same time?",
+    "lesson_position": 38,
+    "spaced_repetition_system_id": 2
 }

@@ -1,83 +1,77 @@
 {
-    "id": 696,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/696",
-    "data_updated_at": "2025-11-18T14:34:21.881790Z",
-    "data": {
-        "created_at": "2012-04-05T19:30:15.000000Z",
-        "level": 8,
-        "slug": "番",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E7%95%AA",
-        "characters": "番",
-        "meanings": [
-            {
-                "meaning": "Number In A Series",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Turn",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Ordinal Number",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Number In A Sequence",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "ばん",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "つが",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "つがい",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            164,
-            51
-        ],
-        "amalgamation_subject_ids": [
-            3047,
-            3048,
-            3049,
-            3050,
-            3481,
-            3553,
-            4094,
-            4248,
-            4287,
-            5204,
-            8664,
-            8803
-        ],
-        "visually_similar_subject_ids": [
-            1144
-        ],
-        "meaning_mnemonic": "You have to <radical>sickle</radical> the <radical>rice paddy</radical> today because it's your <kanji>turn</kanji>. This kanji also means <kanji>number in a series</kanji>, which is a lot like a turn. For example, you're number 3, so your turn will be number 3.",
-        "meaning_hint": "Go through in your mind the system your farm / village uses for deciding who has to sickle on any given day. It rotates, and it's a turn-based system. So, do you all stand in a line? Is there a calendar? Come up with something interesting, focusing on your turn in the process you come up with. \n\n It will be helpful to remember both the \"number in a series\" and \"turn\" meanings for the vocab coming up in the future.",
-        "reading_mnemonic": "This <kanji>turn</kanji>-based rice sickle system is a contest as well! But, you are disappointed to find out that you have been <reading>ban</reading>ned (ばん) from the game because of the performance enhancing steroids you've been taking.",
-        "reading_hint": "Try to feel disappointed by this. Strange thing to feel disappointed by, but you were a great sickler. You were going to win the great prize, too (come up with something huge!), but now you're banned for the season.",
-        "lesson_position": 48,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-04-05T19:30:15.000000Z",
+    "level": 8,
+    "slug": "番",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%95%AA",
+    "characters": "番",
+    "meanings": [
+        {
+            "meaning": "Number In A Series",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Turn",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Ordinal Number",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Number In A Sequence",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ばん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "つが",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "つがい",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        164,
+        51
+    ],
+    "amalgamation_subject_ids": [
+        3047,
+        3048,
+        3049,
+        3050,
+        3481,
+        3553,
+        4094,
+        4248,
+        4287,
+        5204,
+        8664,
+        8803
+    ],
+    "visually_similar_subject_ids": [
+        1144
+    ],
+    "meaning_mnemonic": "You have to <radical>sickle</radical> the <radical>rice paddy</radical> today because it's your <kanji>turn</kanji>. This kanji also means <kanji>number in a series</kanji>, which is a lot like a turn. For example, you're number 3, so your turn will be number 3.",
+    "meaning_hint": "Go through in your mind the system your farm / village uses for deciding who has to sickle on any given day. It rotates, and it's a turn-based system. So, do you all stand in a line? Is there a calendar? Come up with something interesting, focusing on your turn in the process you come up with. \n\n It will be helpful to remember both the \"number in a series\" and \"turn\" meanings for the vocab coming up in the future.",
+    "reading_mnemonic": "This <kanji>turn</kanji>-based rice sickle system is a contest as well! But, you are disappointed to find out that you have been <reading>ban</reading>ned (ばん) from the game because of the performance enhancing steroids you've been taking.",
+    "reading_hint": "Try to feel disappointed by this. Strange thing to feel disappointed by, but you were a great sickler. You were going to win the great prize, too (come up with something huge!), but now you're banned for the season.",
+    "lesson_position": 48,
+    "spaced_repetition_system_id": 1
 }

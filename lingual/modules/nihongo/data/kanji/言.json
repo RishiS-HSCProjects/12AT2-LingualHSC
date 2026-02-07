@@ -1,77 +1,69 @@
-[
-    {
-        "id": 593,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/593",
-        "data_updated_at": "2025-12-15T21:53:11.959921Z",
-        "data": {
-            "created_at": "2012-03-06T06:27:10.000000Z",
-            "level": 5,
-            "slug": "言",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E8%A8%80",
-            "characters": "言",
-            "meanings": [
-                {
-                    "meaning": "Say",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "げん",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "ごん",
-                    "primary": false,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "い",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "こと",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                }
-            ],
-            "component_subject_ids": [
-                117
-            ],
-            "amalgamation_subject_ids": [
-                2838,
-                3000,
-                3419,
-                3437,
-                3863,
-                5173,
-                5635,
-                5737,
-                5840,
-                6248,
-                6277,
-                7458,
-                7492,
-                7644,
-                7696
-            ],
-            "visually_similar_subject_ids": [],
-            "meaning_mnemonic": "The <radical>say</radical> radical and the <kanji>say</kanji> kanji are the same!",
-            "meaning_hint": "Know your radicals, yo!",
-            "reading_mnemonic": "If you aren't sure what to <kanji>say</kanji>, just think about <reading>Gen</reading>ji (げん) and ask yourself, \"What would Genji say?\"",
-            "reading_hint": "Genji is a real smooth talker. In fact, he can talk his way out of anything. If you can just stay calm and think \"What would Genji say?\" before saying anything, you'll probably end up saying something cool instead of something lame.",
-            "lesson_position": 58,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-06T06:27:10.000000Z",
+    "level": 5,
+    "slug": "言",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%A8%80",
+    "characters": "言",
+    "meanings": [
+        {
+            "meaning": "Say",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "げん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ごん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "い",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "こと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        117
+    ],
+    "amalgamation_subject_ids": [
+        2838,
+        3000,
+        3419,
+        3437,
+        3863,
+        5173,
+        5635,
+        5737,
+        5840,
+        6248,
+        6277,
+        7458,
+        7492,
+        7644,
+        7696
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>say</radical> radical and the <kanji>say</kanji> kanji are the same!",
+    "meaning_hint": "Know your radicals, yo!",
+    "reading_mnemonic": "If you aren't sure what to <kanji>say</kanji>, just think about <reading>Gen</reading>ji (げん) and ask yourself, \"What would Genji say?\"",
+    "reading_hint": "Genji is a real smooth talker. In fact, he can talk his way out of anything. If you can just stay calm and think \"What would Genji say?\" before saying anything, you'll probably end up saying something cool instead of something lame.",
+    "lesson_position": 58,
+    "spaced_repetition_system_id": 1
+}

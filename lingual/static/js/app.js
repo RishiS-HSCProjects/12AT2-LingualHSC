@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     messages.forEach((msg, index) => initFlashMessage(msg, index)); // Initialize each message
+    initHelpTooltips();
 });
 
 function initFlashMessage(msg, index = 0) {
@@ -152,4 +153,45 @@ function scrollToId(id) {
 
 function redirectTo(url) {
     window.location.href = url;
+}
+
+function initHelpTooltips() {
+    const helpTargets = Array.from(document.querySelectorAll('[data-help]')); // Find all elements with a data-help attribute
+
+    helpTargets.forEach((target) => {
+        if (target.dataset.helpReady === 'true') {
+            // This check prevents initializing the tooltip multiple times on the same element,
+            // which could lead to duplicate tooltips and event listeners. By marking elements
+            // that have already been processed with a custom data attribute (data-help-ready),
+            // we can ensure that each element is only initialized once, improving performance
+            // and preventing potential bugs.
+            return;
+        }
+
+        target.dataset.helpReady = 'true'; // Mark this element as initialized
+
+        const helpText = (target.dataset.help || '').trim();
+        if (!helpText) {
+            console.warn('Help tooltip initialized on element without help text:', target);
+            return; // Skip elements that don't have any help text to show
+        }
+
+        target.classList.add('help-host'); // Add a class to the target element for styling purposes
+
+        // Create the tooltip element
+        const icon = document.createElement('span'); // "?" icon element
+        icon.className = 'help-icon'; // Woah
+        icon.setAttribute('role', 'button'); // Accessibility: make it focusable and announce as a button for screen readers (Yes, this was Copilot's suggestion.)
+        icon.setAttribute('tabindex', '0'); // Accessibility: allow keyboard navigation to the icon (Also Copilot's idea)
+        icon.setAttribute('aria-label', 'Info'); // Accessibility: provide a label for screen readers (You guessed it, Copilot again. Love code suggestions)
+        icon.textContent = '?'; // ?
+
+        // Create the tooltip element (help text)
+        const tooltip = document.createElement('span');  // Span!
+        tooltip.className = 'help-tooltip'; // For styling
+        tooltip.textContent = helpText; // Set the help text from the data attribute
+
+        icon.appendChild(tooltip); // Nest the tooltip inside the icon for better positioning and to ensure it appears when the icon is hovered or focused
+        target.appendChild(icon); // Add the icon (with the tooltip inside) to the target element
+    });
 }

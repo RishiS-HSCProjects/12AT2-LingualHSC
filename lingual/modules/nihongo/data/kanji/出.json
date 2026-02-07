@@ -1,94 +1,88 @@
 {
-    "id": 483,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/483",
-    "data_updated_at": "2025-10-29T11:23:03.883440Z",
-    "data": {
-        "created_at": "2012-02-29T00:45:28.000000Z",
-        "level": 2,
-        "slug": "出",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%87%BA",
-        "characters": "出",
-        "meanings": [
-            {
-                "meaning": "Exit",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "しゅつ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "で",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "だ",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            20
-        ],
-        "amalgamation_subject_ids": [
-            2556,
-            2557,
-            2558,
-            2880,
-            3040,
-            3418,
-            3433,
-            3435,
-            3461,
-            3506,
-            3980,
-            4071,
-            4380,
-            4566,
-            4684,
-            4977,
-            5027,
-            5335,
-            5340,
-            5508,
-            5509,
-            5915,
-            5940,
-            6402,
-            6561,
-            6675,
-            6936,
-            6959,
-            7274,
-            7423,
-            7872,
-            7903,
-            8086,
-            8660,
-            9020,
-            9083,
-            9084,
-            9131,
-            9154,
-            9364
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "There are two <radical>mountains</radical> in front of you... and probably a bunch more around you too. You are in a pass, and don't know how to get out. You are frantically looking for the <kanji>exit</kanji> before you freeze to death. The most important thing is to find the exit from this mountain range - your life depends on it.",
-        "meaning_hint": "In your imagination, really feel like your life depends on getting out. The important part is the feeling of \"needing to get out of the mountain pass.\" If you have this feeling, you'll be more likely to remember that this kanji means exit, because that's what you want to do when you see this kanji.",
-        "reading_mnemonic": "As you're trying to <kanji>exit</kanji> this mountain range, you suddenly realize that someone is actually hunting you. What? Make sure to feel that sudden realization. It's crazy. Then, you find the exit and run towards it. Sadly, the hunter is waiting there, and he <reading>shoots you</reading> (しゅつ) through the leg, knocking you down.",
-        "reading_hint": "Focus on the surprise of realizing you're being hunted while trying to find the exit to the mountain range, then focus on the next part, where you get shot. View it in your head as the hunter shooting you. Powww!",
-        "lesson_position": 56,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-29T00:45:28.000000Z",
+    "level": 2,
+    "slug": "出",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%87%BA",
+    "characters": "出",
+    "meanings": [
+        {
+            "meaning": "Exit",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しゅつ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "で",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "だ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        20
+    ],
+    "amalgamation_subject_ids": [
+        2556,
+        2557,
+        2558,
+        2880,
+        3040,
+        3418,
+        3433,
+        3435,
+        3461,
+        3506,
+        3980,
+        4071,
+        4380,
+        4566,
+        4684,
+        4977,
+        5027,
+        5335,
+        5340,
+        5508,
+        5509,
+        5915,
+        5940,
+        6402,
+        6561,
+        6675,
+        6936,
+        6959,
+        7274,
+        7423,
+        7872,
+        7903,
+        8086,
+        8660,
+        9020,
+        9083,
+        9084,
+        9131,
+        9154,
+        9364
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "There are two <radical>mountains</radical> in front of you... and probably a bunch more around you too. You are in a pass, and don't know how to get out. You are frantically looking for the <kanji>exit</kanji> before you freeze to death. The most important thing is to find the exit from this mountain range - your life depends on it.",
+    "meaning_hint": "In your imagination, really feel like your life depends on getting out. The important part is the feeling of \"needing to get out of the mountain pass.\" If you have this feeling, you'll be more likely to remember that this kanji means exit, because that's what you want to do when you see this kanji.",
+    "reading_mnemonic": "As you're trying to <kanji>exit</kanji> this mountain range, you suddenly realize that someone is actually hunting you. What? Make sure to feel that sudden realization. It's crazy. Then, you find the exit and run towards it. Sadly, the hunter is waiting there, and he <reading>shoots you</reading> (しゅつ) through the leg, knocking you down.",
+    "reading_hint": "Focus on the surprise of realizing you're being hunted while trying to find the exit to the mountain range, then focus on the next part, where you get shot. View it in your head as the hunter shooting you. Powww!",
+    "lesson_position": 56,
+    "spaced_repetition_system_id": 2
 }

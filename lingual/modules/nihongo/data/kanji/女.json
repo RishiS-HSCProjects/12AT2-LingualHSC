@@ -1,90 +1,84 @@
 {
-    "id": 454,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/454",
-    "data_updated_at": "2026-01-12T00:40:38.838767Z",
-    "data": {
-        "created_at": "2012-02-28T01:56:16.000000Z",
-        "level": 1,
-        "slug": "女",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%A5%B3",
-        "characters": "女",
-        "meanings": [
-            {
-                "meaning": "Woman",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Female",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Girl",
-                "type": "whitelist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "じょ",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "にょ",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "にょう",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "おんな",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "め",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            19
-        ],
-        "amalgamation_subject_ids": [
-            2503,
-            2512,
-            2514,
-            2554,
-            2555,
-            3678,
-            4435,
-            4872,
-            6030,
-            6978,
-            7518,
-            7583,
-            8475,
-            8515,
-            8735
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "The radical for <radical>woman</radical> and the kanji for <kanji>woman</kanji> are exactly the same.",
-        "meaning_hint": "That means if you know your radicals well, you know the meaning of this kanji as well! How swell.",
-        "reading_mnemonic": "When you think of a <kanji>woman</kanji>, think of <reading>Jo</reading>-Anne (じょ), though she usually goes by just \"Jo.\"",
-        "reading_hint": "Whenever the reading じょ comes up, we will use the character Jo-Anne. She's quite a short woman, which is to help us differentiate じょ from じょう (who is the giant, oafish farmhand Joe). じょ is a smaller lady, じょう is a giant man.",
-        "lesson_position": 40,
-        "spaced_repetition_system_id": 2
-    }
+    "created_at": "2012-02-28T01:56:16.000000Z",
+    "level": 1,
+    "slug": "女",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A5%B3",
+    "characters": "女",
+    "meanings": [
+        {
+            "meaning": "Woman",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Female",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Girl",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "じょ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "にょ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "にょう",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "おんな",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "め",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        19
+    ],
+    "amalgamation_subject_ids": [
+        2503,
+        2512,
+        2514,
+        2554,
+        2555,
+        3678,
+        4435,
+        4872,
+        6030,
+        6978,
+        7518,
+        7583,
+        8475,
+        8515,
+        8735
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The radical for <radical>woman</radical> and the kanji for <kanji>woman</kanji> are exactly the same.",
+    "meaning_hint": "That means if you know your radicals well, you know the meaning of this kanji as well! How swell.",
+    "reading_mnemonic": "When you think of a <kanji>woman</kanji>, think of <reading>Jo</reading>-Anne (じょ), though she usually goes by just \"Jo.\"",
+    "reading_hint": "Whenever the reading じょ comes up, we will use the character Jo-Anne. She's quite a short woman, which is to help us differentiate じょ from じょう (who is the giant, oafish farmhand Joe). じょ is a smaller lady, じょう is a giant man.",
+    "lesson_position": 40,
+    "spaced_repetition_system_id": 2
 }

@@ -1,66 +1,58 @@
-[
-    {
-        "id": 628,
-        "object": "kanji",
-        "url": "https://api.wanikani.com/v2/subjects/628",
-        "data_updated_at": "2025-10-08T17:35:05.291513Z",
-        "data": {
-            "created_at": "2012-03-08T23:46:56.000000Z",
-            "level": 6,
-            "slug": "歩",
-            "hidden_at": null,
-            "document_url": "https://www.wanikani.com/kanji/%E6%AD%A9",
-            "characters": "歩",
-            "meanings": [
-                {
-                    "meaning": "Walk",
-                    "primary": true,
-                    "accepted_answer": true
-                }
-            ],
-            "auxiliary_meanings": [],
-            "readings": [
-                {
-                    "reading": "ほ",
-                    "primary": true,
-                    "accepted_answer": true,
-                    "type": "onyomi"
-                },
-                {
-                    "reading": "ある",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                },
-                {
-                    "reading": "あゆ",
-                    "primary": false,
-                    "accepted_answer": false,
-                    "type": "kunyomi"
-                }
-            ],
-            "component_subject_ids": [
-                44,
-                35,
-                5
-            ],
-            "amalgamation_subject_ids": [
-                2901,
-                3056,
-                5468,
-                5613,
-                7451,
-                7687
-            ],
-            "visually_similar_subject_ids": [
-                595
-            ],
-            "meaning_mnemonic": "You <radical>stop</radical> at a <radical>small</radical> <radical>slide</radical>. What were you doing before you stopped here? You were <kanji>walk</kanji>ing.",
-            "meaning_hint": "Question is, what made you stop? Imagine yourself walking at a nice casual pace... then imagine something that would make you stop that's incredibly interesting and strange. Maybe an alien is going down the slide? He would say \"keep walking, friend.\"",
-            "reading_mnemonic": "So, you're <kanji>walk</kanji>ing around, minding your own business, when suddenly something flips up and whacks you in the face. You stepped on the head of a <reading>hoe</reading> (ほ) and it caused it to swing up from the ground and hit you.",
-            "reading_hint": "Of course, imagine the pain of your face. Did your nose break? After bringing yourself together, look down at what hit you. It's a hoe! How did you manage to step on just the right spot to flip it up on you like that? Examine the hoe. Pay close attention to it. Whose hoe is this? etc.",
-            "lesson_position": 60,
-            "spaced_repetition_system_id": 1
+{
+    "created_at": "2012-03-08T23:46:56.000000Z",
+    "level": 6,
+    "slug": "歩",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%AD%A9",
+    "characters": "歩",
+    "meanings": [
+        {
+            "meaning": "Walk",
+            "primary": true,
+            "accepted_answer": true
         }
-    }
-]
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ほ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ある",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "あゆ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        44,
+        35,
+        5
+    ],
+    "amalgamation_subject_ids": [
+        2901,
+        3056,
+        5468,
+        5613,
+        7451,
+        7687
+    ],
+    "visually_similar_subject_ids": [
+        595
+    ],
+    "meaning_mnemonic": "You <radical>stop</radical> at a <radical>small</radical> <radical>slide</radical>. What were you doing before you stopped here? You were <kanji>walk</kanji>ing.",
+    "meaning_hint": "Question is, what made you stop? Imagine yourself walking at a nice casual pace... then imagine something that would make you stop that's incredibly interesting and strange. Maybe an alien is going down the slide? He would say \"keep walking, friend.\"",
+    "reading_mnemonic": "So, you're <kanji>walk</kanji>ing around, minding your own business, when suddenly something flips up and whacks you in the face. You stepped on the head of a <reading>hoe</reading> (ほ) and it caused it to swing up from the ground and hit you.",
+    "reading_hint": "Of course, imagine the pain of your face. Did your nose break? After bringing yourself together, look down at what hit you. It's a hoe! How did you manage to step on just the right spot to flip it up on you like that? Examine the hoe. Pay close attention to it. Whose hoe is this? etc.",
+    "lesson_position": 60,
+    "spaced_repetition_system_id": 1
+}

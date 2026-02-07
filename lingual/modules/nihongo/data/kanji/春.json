@@ -1,53 +1,47 @@
 {
-    "id": 931,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/931",
-    "data_updated_at": "2025-11-24T20:22:51.842327Z",
-    "data": {
-        "created_at": "2012-09-19T22:42:46.477745Z",
-        "level": 15,
-        "slug": "春",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E6%98%A5",
-        "characters": "春",
-        "meanings": [
-            {
-                "meaning": "Spring",
-                "primary": true,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [],
-        "readings": [
-            {
-                "reading": "はる",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "しゅん",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "onyomi"
-            }
-        ],
-        "component_subject_ids": [
-            8779,
-            22
-        ],
-        "amalgamation_subject_ids": [
-            3759,
-            3760,
-            5016,
-            9087
-        ],
-        "visually_similar_subject_ids": [],
-        "meaning_mnemonic": "When you see the <radical>spring</radical> <radical>sun</radical> you know it's finally the  <kanji>spring</kanji> season.",
-        "meaning_hint": "The spring sun only comes out in spring, which is why you know for sure it's spring. Imagine a different looking sun that only comes out in spring but not the other seasons.",
-        "reading_mnemonic": "When the <kanji>spring</kanji> season comes around, it makes you want to laugh: \"<reading>HAR</reading> (はる) HAR HAR!\" you yell.",
-        "reading_hint": "Go ahead and belt out a few \"HAR HAR HARs\" for spring. It's warming up, everything is coming to life, and you're happy. \"HAR HAR HAR!\"",
-        "lesson_position": 17,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-09-19T22:42:46.477745Z",
+    "level": 15,
+    "slug": "春",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%98%A5",
+    "characters": "春",
+    "meanings": [
+        {
+            "meaning": "Spring",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "はる",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "しゅん",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8779,
+        22
+    ],
+    "amalgamation_subject_ids": [
+        3759,
+        3760,
+        5016,
+        9087
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "When you see the <radical>spring</radical> <radical>sun</radical> you know it's finally the  <kanji>spring</kanji> season.",
+    "meaning_hint": "The spring sun only comes out in spring, which is why you know for sure it's spring. Imagine a different looking sun that only comes out in spring but not the other seasons.",
+    "reading_mnemonic": "When the <kanji>spring</kanji> season comes around, it makes you want to laugh: \"<reading>HAR</reading> (はる) HAR HAR!\" you yell.",
+    "reading_hint": "Go ahead and belt out a few \"HAR HAR HARs\" for spring. It's warming up, everything is coming to life, and you're happy. \"HAR HAR HAR!\"",
+    "lesson_position": 17,
+    "spaced_repetition_system_id": 1
 }

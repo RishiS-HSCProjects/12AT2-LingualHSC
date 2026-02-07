@@ -1,109 +1,103 @@
 {
-    "id": 636,
-    "object": "kanji",
-    "url": "https://api.wanikani.com/v2/subjects/636",
-    "data_updated_at": "2025-11-19T07:58:25.165945Z",
-    "data": {
-        "created_at": "2012-03-08T23:52:05.000000Z",
-        "level": 6,
-        "slug": "後",
-        "hidden_at": null,
-        "document_url": "https://www.wanikani.com/kanji/%E5%BE%8C",
-        "characters": "後",
-        "meanings": [
-            {
-                "meaning": "Behind",
-                "primary": true,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "After",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Back",
-                "primary": false,
-                "accepted_answer": true
-            },
-            {
-                "meaning": "Later",
-                "primary": false,
-                "accepted_answer": true
-            }
-        ],
-        "auxiliary_meanings": [
-            {
-                "meaning": "Rear",
-                "type": "whitelist"
-            },
-            {
-                "meaning": "Leader",
-                "type": "blacklist"
-            }
-        ],
-        "readings": [
-            {
-                "reading": "ご",
-                "primary": true,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "こう",
-                "primary": false,
-                "accepted_answer": true,
-                "type": "onyomi"
-            },
-            {
-                "reading": "うし",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "あと",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            },
-            {
-                "reading": "のち",
-                "primary": false,
-                "accepted_answer": false,
-                "type": "kunyomi"
-            }
-        ],
-        "component_subject_ids": [
-            99,
-            87,
-            60
-        ],
-        "amalgamation_subject_ids": [
-            2911,
-            2912,
-            2913,
-            3235,
-            3783,
-            4832,
-            7235,
-            7255,
-            7554,
-            7708,
-            7896,
-            8801,
-            9288
-        ],
-        "visually_similar_subject_ids": [
-            1461,
-            965,
-            1415
-        ],
-        "meaning_mnemonic": "If you <radical>loiter</radical> around to <radical>poop</radical> in <radical>winter</radical> you never know what could be happening <kanji>behind</kanji> you. <kanji>After</kanji> you're done you could turn <kanji>back</kanji> to see something really crazy that you missed because you took so long to poop in the cold.",
-        "meaning_hint": "Imagine trying to loiter while you poop in the winter. You're just trying to take your time as you squat over the snow, but soon you hear things behind you.",
-        "reading_mnemonic": "You finally look <kanji>behind</kanji> you and see <reading>Go</reading>dzilla (ご) and a giant <reading>こう</reading>いち having a violent battle <kanji>back</kanji> there!",
-        "reading_hint": "Godzilla and こういち were going at it behind you the entire time you were just lazily taking a poop in the snow?! Ahh, that's so embarrassing! And also dangerous, they could have crushed you! You should look behind you more.",
-        "lesson_position": 37,
-        "spaced_repetition_system_id": 1
-    }
+    "created_at": "2012-03-08T23:52:05.000000Z",
+    "level": 6,
+    "slug": "後",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%BE%8C",
+    "characters": "後",
+    "meanings": [
+        {
+            "meaning": "Behind",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "After",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Back",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Later",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Rear",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Leader",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ご",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "こう",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "うし",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "あと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "のち",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        99,
+        87,
+        60
+    ],
+    "amalgamation_subject_ids": [
+        2911,
+        2912,
+        2913,
+        3235,
+        3783,
+        4832,
+        7235,
+        7255,
+        7554,
+        7708,
+        7896,
+        8801,
+        9288
+    ],
+    "visually_similar_subject_ids": [
+        1461,
+        965,
+        1415
+    ],
+    "meaning_mnemonic": "If you <radical>loiter</radical> around to <radical>poop</radical> in <radical>winter</radical> you never know what could be happening <kanji>behind</kanji> you. <kanji>After</kanji> you're done you could turn <kanji>back</kanji> to see something really crazy that you missed because you took so long to poop in the cold.",
+    "meaning_hint": "Imagine trying to loiter while you poop in the winter. You're just trying to take your time as you squat over the snow, but soon you hear things behind you.",
+    "reading_mnemonic": "You finally look <kanji>behind</kanji> you and see <reading>Go</reading>dzilla (ご) and a giant <reading>こう</reading>いち having a violent battle <kanji>back</kanji> there!",
+    "reading_hint": "Godzilla and こういち were going at it behind you the entire time you were just lazily taking a poop in the snow?! Ahh, that's so embarrassing! And also dangerous, they could have crushed you! You should look behind you more.",
+    "lesson_position": 37,
+    "spaced_repetition_system_id": 1
 }
