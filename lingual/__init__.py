@@ -18,8 +18,8 @@ migrate = Migrate() # Placeholder for database migration
 class Config:
     """ Configuration settings for Lingual HSC Flask application. """
 
-    DEBUG                           =      True
-    FLASK_ENV                       =      'development'
+    DEBUG                           =      os.getenv('DEBUG', 'false').lower() in ['true', '1', 'yes']
+    FLASK_ENV                       =      os.getenv('FLASK_ENV', 'production')
 
     SECRET_KEY                      =      os.getenv('SECRET_KEY')
     if not SECRET_KEY: raise ValueError("No SECRET_KEY set for Flask application. Required for session security.")
@@ -31,7 +31,7 @@ class Config:
     MAIL_USERNAME                   =      os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
-    ALLOW_SEND_EMAILS               =      os.getenv('ALLOW_SEND_EMAILS', 'True').lower() in ['true', '1', 'yes']   # Set to True to send OTP emails on registration. False sets OTP to 123456.
+    ALLOW_SEND_EMAILS               =      os.getenv('ALLOW_SEND_EMAILS', 'true').lower() in ['true', '1', 'yes'] # Set to True to send OTP emails on registration. False sets OTP to 123456.
 
     WANIKANI_API_KEY                =      os.getenv('WANIKANI_API_KEY', None)  # API key for WaniKani integration
 

@@ -6,7 +6,7 @@ cd /d %~dp0
 call .venv\Scripts\activate.bat
 
 set FLASK_APP=run.py
-set FLASK_ENV=development
+set FLASK_ENV=production
 
 python run.py
 
