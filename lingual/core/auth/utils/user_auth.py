@@ -61,13 +61,9 @@ class RegUser:
             email=self.email.strip().lower()  # type: ignore
         )
 
-        try:
-            # Attempt to add language to the user
-            user.add_language(self.language)
-        except Exception as e:
-            # Log the error and raise an exception to stop further processing
-            flash(f"Error adding language to user.", "error")
-            current_app.logger.error(f"Error adding language {self.language} to user: {str(e)}")
+        if self.language:
+            # Set language list without creating stats yet (user has no id until flush/commit).
+            user.languages = [self.language]
 
         return user
 

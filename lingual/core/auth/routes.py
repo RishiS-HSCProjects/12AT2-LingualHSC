@@ -182,6 +182,11 @@ def create_user(reg = None):
         user.set_password(password)  # Set password
         # Add new user to the database and commit
         db.session.add(user)
+        db.session.flush() # Ensure user.id is available before creating stats
+
+        if reg_user.language:
+            user.create_language_stats(reg_user.language)
+
         db.session.commit()
 
         current_app.logger.info(f"User created: {user.email}") # Log user creation event
