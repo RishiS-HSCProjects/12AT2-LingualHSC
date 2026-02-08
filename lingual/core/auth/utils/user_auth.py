@@ -1,4 +1,3 @@
-from flask import current_app, flash
 from lingual.models import User
 
 class RegUser:
