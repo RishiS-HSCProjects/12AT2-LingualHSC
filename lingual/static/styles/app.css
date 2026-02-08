@@ -101,7 +101,6 @@
     color: var(--color-accent-strong);
     font-size: 0.85rem;
     font-weight: 700;
-    cursor: help;
     position: relative;
     transition: transform var(--transition-base), border-color var(--transition-base);
 }

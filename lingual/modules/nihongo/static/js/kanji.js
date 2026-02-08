@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoChar.textContent = kanji;
 		infoPrimary.textContent = "Data not available yet. Please try again in a moment.";
 		infoType.hidden = true;
-		infoType.textContent = "";
+		const label = infoType.querySelector(".kanji-type-label");
+		if (label) label.textContent = "";
 		infoMeanings.textContent = "";
 		infoOnyomi.textContent = "";
 		infoKunyomi.textContent = "";
@@ -94,10 +95,33 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Set info content
 		infoChar.textContent = kanji;
 		infoPrimary.textContent = primaryMeaning ? `Primary: ${primaryMeaning}` : "Primary: N/A";
-		infoType.textContent = type ? `Type: ${type.toLowerCase().charAt(0).toUpperCase() + type.toLowerCase().slice(1)}` : "Type: Passive";
+
+		let typeLabel = infoType.querySelector(".kanji-type-label");
+		if (!typeLabel) {
+			typeLabel = document.createElement("span");
+			typeLabel.className = "kanji-type-label";
+			infoType.prepend(typeLabel);
+		}
+		typeLabel.textContent = type
+			? `${type.toLowerCase().charAt(0).toUpperCase() + type.toLowerCase().slice(1)}`
+			: "Passive";
 		infoType.hidden = !primaryMeaning; // Hide type if no primary meaning
 		infoType.classList.remove("type-active", "type-recognition"); // Remove all possible type classes
 		infoType.classList.add(type ? `type-${type.toLowerCase()}` : ""); // Add class based on type for styling
+		const helpTextMap = {
+			"active": "You are expected to read and write this kanji.",
+			"recognition": "You are expected to recognise this kanji, but not necessarily write it."
+		};
+		const helpText = helpTextMap[type?.toLowerCase()] || "You are not expected to actively know this kanji. It may be included for reference or future learning.";
+		infoType.setAttribute("data-help", helpText);
+
+		const tooltip = infoType.querySelector(".help-tooltip");
+		if (tooltip) {
+			tooltip.textContent = helpText;
+		} else if (typeof window.initHelpTooltips === "function") {
+			window.initHelpTooltips();
+		}
+
 		infoMeanings.textContent = meanings.length ? meanings.join(", ") : "No meanings listed.";
 		infoOnyomi.textContent = onyomi.length ? onyomi.join(" ・ ") : "No on'yomi recorded.";
 		infoKunyomi.textContent = kunyomi.length ? kunyomi.join(" ・ ") : "No kun'yomi recorded.";

@@ -178,20 +178,26 @@ function initHelpTooltips() {
 
         target.classList.add('help-host'); // Add a class to the target element for styling purposes
 
-        // Create the tooltip element
         const icon = document.createElement('span'); // "?" icon element
-        icon.className = 'help-icon'; // Woah
-        icon.setAttribute('role', 'button'); // Accessibility: make it focusable and announce as a button for screen readers (Yes, this was Copilot's suggestion.)
-        icon.setAttribute('tabindex', '0'); // Accessibility: allow keyboard navigation to the icon (Also Copilot's idea)
-        icon.setAttribute('aria-label', 'Info'); // Accessibility: provide a label for screen readers (You guessed it, Copilot again. Love code suggestions)
-        icon.textContent = '?'; // ?
-
-        // Create the tooltip element (help text)
         const tooltip = document.createElement('span');  // Span!
         tooltip.className = 'help-tooltip'; // For styling
         tooltip.textContent = helpText; // Set the help text from the data attribute
 
-        icon.appendChild(tooltip); // Nest the tooltip inside the icon for better positioning and to ensure it appears when the icon is hovered or focused
-        target.appendChild(icon); // Add the icon (with the tooltip inside) to the target element
+        if (target.dataset.helpIcon !== 'false') { // Should show icon (default true)
+            // Check if the help icon should be displayed (default is true)
+            icon.className = 'help-icon'; // Woah
+            icon.setAttribute('role', 'button'); // Accessibility: make it focusable and announce as a button for screen readers (Yes, this was Copilot's suggestion.)
+            icon.setAttribute('tabindex', '0'); // Accessibility: allow keyboard navigation to the icon (Also Copilot's idea)
+            icon.setAttribute('aria-label', 'Info'); // Accessibility: provide a label for screen readers (You guessed it, Copilot again. Love code suggestions)
+            icon.textContent = '?'; // ? text
+
+            icon.appendChild(tooltip); // Nest the tooltip inside the icon for better positioning and to ensure it appears when the icon is hovered or focused
+            target.appendChild(icon); // Add the icon (with the tooltip inside) to the target element
+
+        } else {
+            // Icon is hidden, attach tooltip directly
+            target.style.cursor = 'help'; // Change cursor to indicate help is available even without an icon
+            target.appendChild(tooltip);
+        }
     });
 }
