@@ -57,13 +57,13 @@ class ItemBox(HomeItem):
         self,
         title: str,
         body: str,
-        buttons: list["ItemBox.BoxButton"] = list(),
+        buttons: None | list["ItemBox.BoxButton"] = None,
         on_click: str = None # type: ignore -> URL to open when box is clicked.
     ) -> None:
         super().__init__()
         self.title = title
         self.body = body
-        self.buttons: list["ItemBox.BoxButton"] = list(buttons)
+        self.buttons: list["ItemBox.BoxButton"] = list(buttons) if buttons else []
         self.on_click = on_click
 
         if on_click: self.add_classes("clickable")

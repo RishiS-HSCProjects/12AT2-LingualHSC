@@ -1,8 +1,7 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
+from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
-from markupsafe import Markup
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
@@ -200,9 +199,37 @@ def kanji_prefetch():
 @nihongo_bp.route('/kanji/api/<kanji_char>', methods=['GET'])
 @login_required
 def kanji_lookup(kanji_char):
-    """ Retrieves kanji data for a specific kanji character. If not cached, starts a background fetch. """
+    """Retrieves kanji data for a specific kanji character.
+    If not cached, performs a synchronous fetch from the WaniKani API.
+    """
+
     if not kanji_char or kanji_char.isspace():
         abort(400, description="Invalid kanji.")
 
-    kanji = Kanji.get_kanji(kanji_char)
+    try:
+        kanji = Kanji.get_kanji(kanji_char)
+    except KeyError:
+        abort(503, description="WaniKani API key not configured.")
+    except Exception as e:
+        abort(502, description=f"Failed to fetch kanji data: {e}")
+
     return jsonify({"status": "ready", "data": kanji.data})
+
+@nihongo_bp.route('/kanji/api/batch', methods=['POST'])
+@login_required
+def kanji_batch():
+    payload = request.get_json(silent=True) or {}
+    items = payload.get("kanji", [])
+
+    if not isinstance(items, list):
+        abort(400, description="Invalid payload.")
+
+    data_map = {}
+    for kanji_char in items:
+        try:
+            kanji = Kanji.get_kanji(kanji_char)
+        except Exception:
+            continue
+        data_map[kanji_char] = kanji.data
+
+    return jsonify({"status": "ready", "data": data_map})

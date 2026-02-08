@@ -64,4 +64,8 @@ def create_app():
     app.register_blueprint(main_bp)
     app.register_blueprint(nihongo_bp)
 
+    # Register custom template filters
+    from lingual.utils.filters import init_app as init_filters
+    init_filters(app)
+
     return app

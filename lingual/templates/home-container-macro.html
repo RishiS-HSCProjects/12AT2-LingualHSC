@@ -19,9 +19,6 @@
 
 </div>
 {% endmacro %}
-
-{% load sanitise %}
-
 {# Section Renderer #}
 {% macro home_section(section) %}
 {% if section.__class__.__name__ == "HomeBanner" %}
@@ -69,7 +66,7 @@
 
 {# Box Renderer #}
 {% macro home_item_box(item) %}
-    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click|tojson }}')" {% endif %}>
+    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click }}')" {% endif %}>
 
     {% if item.title %}
         <h3 class="box-title">{{ item.title | sanitise | safe }}</h3>
