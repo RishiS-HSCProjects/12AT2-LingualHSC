@@ -111,6 +111,34 @@
     }
 }
 
+@media (max-width: 600px) {
+    #lesson-directory-wrapper {
+        padding: 0.75rem;
+    }
+
+    #lesson-directory-wrapper > h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #lesson-search-input {
+        font-size: 0.95rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .lesson-item {
+        padding: 1.1rem;
+    }
+
+    .lesson-title {
+        font-size: 1.1rem;
+    }
+
+    .lesson-summary {
+        font-size: 0.9rem;
+    }
+}
+
 /* || Lesson Items */
 
 .lesson-item {

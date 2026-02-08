@@ -176,3 +176,35 @@ nav.nav-collapsed.nav-open #nav-opt .nav-account {
 nav.nav-collapsed.nav-open .nav-account-label {
     display: inline;
 }
+
+/* || Responsive Breakpoints */
+
+@media (max-width: 900px) {
+    nav > div#nav-wrapper {
+        padding: 0 1.5rem;
+    }
+
+    nav #nav-logo {
+        font-size: 1.35rem;
+    }
+
+    nav a {
+        font-size: 1.05rem;
+        padding: 0.4rem 0.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #body {
+        width: 92%;
+    }
+
+    nav > div#nav-wrapper {
+        padding: 0 1rem;
+    }
+
+    nav.nav-collapsed.nav-open #nav-opt {
+        right: 1rem;
+        left: 1rem;
+    }
+}

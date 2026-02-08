@@ -25,8 +25,6 @@ html, body {
     padding: 0;
     background-color: var(--color-bg-accent-1);
     font-family: var(--font-body);
-    overflow-x: hidden;
-    overflow-y: hidden;
     height: 100%;
 }
 
@@ -287,6 +285,87 @@ nav a#login-link {
     text-align: center;
     line-height: 1.5;
     margin-top: 0.5rem;
+}
+
+/* || Responsive Breakpoints */
+
+@media (max-width: 900px) {
+    nav {
+        padding: 1rem 1.25rem;
+        gap: 1rem;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-y: auto;
+    }
+
+    #form {
+        scroll-snap-type: none;
+        min-height: auto;
+    }
+
+    #form section {
+        min-height: auto;
+        padding: var(--space-md) var(--space-sm);
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+    }
+
+    #form h1 {
+        font-size: 2rem;
+    }
+
+    #form h2 {
+        font-size: 1.6rem;
+    }
+
+    #form .form-elements {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #form input[type="text"],
+    #form input[type="email"],
+    #form input[type="password"],
+    #form select {
+        font-size: 1rem;
+        padding: 0.75rem 1.1rem;
+    }
+
+    #form button.next,
+    #form button.option {
+        width: 100%;
+    }
+
+    #form .presubmit-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #form .presubmit-options button {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 1rem;
+    }
+
+    #form h1 {
+        font-size: 1.8rem;
+    }
+
+    #form .subtitle,
+    #form small {
+        font-size: 0.95rem;
+    }
 }
 
 /* || Animations */
