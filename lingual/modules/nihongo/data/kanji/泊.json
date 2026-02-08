@@ -1,0 +1,59 @@
+{
+    "created_at": "2013-07-02T19:29:55.995736Z",
+    "level": 42,
+    "slug": "泊",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%B3%8A",
+    "characters": "泊",
+    "meanings": [
+        {
+            "meaning": "Overnight",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Stay Over",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "はく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "と",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        103,
+        52
+    ],
+    "amalgamation_subject_ids": [
+        6614,
+        6615,
+        6616,
+        6617,
+        6762,
+        6763
+    ],
+    "visually_similar_subject_ids": [
+        2108,
+        1336,
+        2307,
+        2295
+    ],
+    "meaning_mnemonic": "The <radical>tsunami</radical> that is <radical>white</radical> is the most scary tsunami of all. It doesn't come in and destroy everything. No, it comes in, goes inside your door, then stays at your place <kanji>overnight</kanji>, without even asking!",
+    "meaning_hint": "Imagine the white tsunami knocking on your door, walking into your house, and then just laying down on your bed. You try to tell it to leave, but it's a tsunami, and it says it will be staying overnight thank you very much.",
+    "reading_mnemonic": "Your cat walks up to the white tsunami that's staying <kanji>overnight</kanji> and decides it doesn't like it, so it <reading>hack</reading>s (はく) up a hairball on it. Even that doesn't get the tsunami to leave.",
+    "reading_hint": "See the hairball slowly sinking into the tsunami. The cat hacks up another one.",
+    "lesson_position": 30,
+    "spaced_repetition_system_id": 1
+}

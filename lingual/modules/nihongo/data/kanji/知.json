@@ -1,0 +1,56 @@
+{
+    "created_at": "2012-03-08T23:48:40.000000Z",
+    "level": 6,
+    "slug": "知",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%9F%A5",
+    "characters": "知",
+    "meanings": [
+        {
+            "meaning": "Know",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "し",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ち",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        72,
+        16
+    ],
+    "amalgamation_subject_ids": [
+        3459,
+        3497,
+        3977,
+        4004,
+        4022,
+        4042,
+        5817,
+        6031,
+        6129,
+        8697
+    ],
+    "visually_similar_subject_ids": [
+        1991,
+        712
+    ],
+    "meaning_mnemonic": "You take an <radical>arrow</radical> to the <radical>mouth</radical> because you <kanji>know</kanji> too much. You know some very sensitive information, and someone's sent a bow-slinging enforcer to pin your big blabbermouth shut with arrows.",
+    "meaning_hint": "Think of all the important things you know that you were hoping to blab about: JFK's real killer, the truth about Area 51, Koichi's shocking connections to the Illuminati. You better hurry and get this arrow out of your mouth so you can tell the world what you know!",
+    "reading_mnemonic": "One of the things you <kanji>know</kanji> too much about is the <reading>shee</reading>p (し) plan for world domination! Yes, you know that sheep are in fact plotting to overthrow humanity and take over the world. ",
+    "reading_hint": "Take a closer look at that bow-slinging thug who fired the arrow into your mouth. Their shadowy silhouette looks awfully… woolly, doesn't it? It's undeniable: the sheep are trying to shut you up!",
+    "lesson_position": 18,
+    "spaced_repetition_system_id": 1
+}

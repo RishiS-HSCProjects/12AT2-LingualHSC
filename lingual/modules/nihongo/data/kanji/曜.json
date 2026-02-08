@@ -1,0 +1,53 @@
+{
+    "created_at": "2012-09-20T18:33:57.758175Z",
+    "level": 16,
+    "slug": "曜",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9B%9C",
+    "characters": "曜",
+    "meanings": [
+        {
+            "meaning": "Weekday",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Day Of The Week",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "よう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        22,
+        105,
+        240
+    ],
+    "amalgamation_subject_ids": [
+        3948,
+        4054,
+        4055,
+        4056,
+        4057,
+        4058,
+        4361,
+        4362
+    ],
+    "visually_similar_subject_ids": [
+        1738
+    ],
+    "meaning_mnemonic": "When the <radical>sun</radical> is out, you can see two <radical>Wolverine</radical>s and a <radical>turkey</radical> playing together, but only on a certain <kanji>weekday</kanji>. Which <kanji>day of the week</kanji> is it? I'll never tell you. It could be Sunday. It could be Monday. It could be any day of the week. ",
+    "meaning_hint": "Picture the majestic scene — two Wolverines (yes, there are two) and a turkey, frolicking in the sunlight together. It's one of those rare but regular natural occurrences that only happens once a week, on a particular day. ",
+    "reading_mnemonic": "Now that you know how to figure out what <kanji>day of the week</kanji> it is, you can start making <reading>yo</reading>gurt (よう). It can take up to 24 hours to make yogurt. Knowing which weekday it is at any given moment means you can perfect your yogurt-making schedule.",
+    "reading_hint": "Picture yourself looking at the shadow cast by the two Wolverines and the turkey. Imagine waiting a whole 24 hours and knowing exactly when your yogurt is ready. All thanks to this makeshift sundial which can accurately tell you which day of the week it is.",
+    "lesson_position": 9,
+    "spaced_repetition_system_id": 1
+}

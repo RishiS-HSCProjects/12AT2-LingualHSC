@@ -1,0 +1,51 @@
+{
+    "created_at": "2012-04-24T18:24:38.000000Z",
+    "level": 10,
+    "slug": "飲",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%A3%B2",
+    "characters": "飲",
+    "meanings": [
+        {
+            "meaning": "Drink",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "の",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "いん",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        139,
+        142
+    ],
+    "amalgamation_subject_ids": [
+        3192,
+        3516,
+        3518,
+        3548,
+        3895,
+        7536,
+        9018,
+        9019
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "You can <radical>eat</radical> all you want, but you'll still <radical>lack</radical> something to <kanji>drink</kanji>. You can't live just from eating, you have to drink things too!",
+    "meaning_hint": "Imagine eating and eating and lacking a delicious, cold, thirst-quenching drink. Your mouth is dry. You have to drink something, anything!",
+    "reading_mnemonic": "You get desperate for a <kanji>drink</kanji> and put some <reading>no</reading>ri (の) seaweed in a blender, trying to create a drink of your own.",
+    "reading_hint": "Luckily, this nori isn't dried and pressed like they usually are, and you manage to make a bright green nori drink. You gulp it down, and even though it tastes like the ocean, it hits the spot!",
+    "lesson_position": 45,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,59 @@
+{
+    "created_at": "2012-03-05T19:55:45.000000Z",
+    "level": 5,
+    "slug": "多",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A4%9A",
+    "characters": "多",
+    "meanings": [
+        {
+            "meaning": "Many",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Much",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Lots Of",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "た",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "おお",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        33
+    ],
+    "amalgamation_subject_ids": [
+        2754,
+        2755,
+        4282,
+        4672,
+        7552
+    ],
+    "visually_similar_subject_ids": [
+        1368
+    ],
+    "meaning_mnemonic": "How many <radical>evenings</radical> are there? There are <kanji>many</kanji>.",
+    "meaning_hint": "If you accidentally think \"a lot\" or something similar, that's okay too. It's the basic meaning that counts, and all these things are pretty close, though eventually you want to get to the point where you know that this kanji does in fact mean <kanji>many</kanji>.",
+    "reading_mnemonic": "To remember the reading た we use the word \"taco.\"\n\nLet's start with the kanji meaning: <kanji>many</kanji>. You go outside in the evening (because that's what this kanji is made up of) and are surprised when you're hit by <kanji>many</kanji> <reading>ta</reading>cos (た) flying from the sky. For some reason it's raining tacos, and of course you have no idea why.",
+    "reading_hint": "The tacos pelt you and knock you off your feet. Hard shell, soft shell, meat, lettuce, tomatoes, cheese... it's terrible. And there are so many of them, flying from the sky to drown you in tacos. This is absolutely absurd (and you should think that too, so you remember the reading).",
+    "lesson_position": 35,
+    "spaced_repetition_system_id": 1
+}

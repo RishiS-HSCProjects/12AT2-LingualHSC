@@ -1,0 +1,83 @@
+{
+    "created_at": "2012-02-27T22:43:03.000000Z",
+    "level": 1,
+    "slug": "入",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%85%A5",
+    "characters": "入",
+    "meanings": [
+        {
+            "meaning": "Enter",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "にゅう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "はい",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "い",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        12
+    ],
+    "amalgamation_subject_ids": [
+        2480,
+        2481,
+        2498,
+        2671,
+        2790,
+        2831,
+        3036,
+        3039,
+        3592,
+        3869,
+        4105,
+        4180,
+        4312,
+        4354,
+        4590,
+        4976,
+        5212,
+        5248,
+        5370,
+        5388,
+        5507,
+        5674,
+        5880,
+        5914,
+        6553,
+        6850,
+        6966,
+        6995,
+        7116,
+        7267,
+        7628,
+        8733,
+        9269
+    ],
+    "visually_similar_subject_ids": [
+        444
+    ],
+    "meaning_mnemonic": "The kanji and the radical are the same, so remembering the meaning of this kanji is as simple as making sure you know the radical for <radical>enter</radical> first! If you know the radical, you know this kanji means <kanji>enter</kanji> as well.",
+    "meaning_hint": "Make sure you know those radicals, yo!",
+    "reading_mnemonic": "Turns out, after you <kanji>enter</kanji> the tent (remember how the person in the radical is entering one?), you're given a <reading>new</reading> (にゅう) one! Why? No idea, but hey — it's new!",
+    "reading_hint": "Imagine lights turning on and flashing, and an entire audience inside. You're at a game show, and the announcer announces the neeeeew tent in his announcey voice. Feel the surprise. Feel the happiness. Feel the excitement. A beautiful new tent all for you! ",
+    "lesson_position": 30,
+    "spaced_repetition_system_id": 2
+}

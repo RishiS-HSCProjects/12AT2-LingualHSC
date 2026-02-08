@@ -1,0 +1,94 @@
+{
+    "created_at": "2012-03-02T07:55:54.000000Z",
+    "level": 4,
+    "slug": "先",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%85%88",
+    "characters": "先",
+    "meanings": [
+        {
+            "meaning": "Previous",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Ahead",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Before",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Past",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Former",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "せん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "さき",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ま",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        5,
+        17,
+        28
+    ],
+    "amalgamation_subject_ids": [
+        2648,
+        2649,
+        2650,
+        2651,
+        2652,
+        2653,
+        2978,
+        3438,
+        4048,
+        4634,
+        4831,
+        5061,
+        5400,
+        5541,
+        6787,
+        6872,
+        7147,
+        8746
+    ],
+    "visually_similar_subject_ids": [
+        654,
+        526,
+        850,
+        1887,
+        945,
+        532
+    ],
+    "meaning_mnemonic": "If you go down a <radical>slide</radical> and get <radical>dirt</radical> on your <radical>legs</radical>, it must have been the fault of the <kanji>previous</kanji> person, aka the person who went down the slide <kanji>ahead</kanji> of you. They should've cleaned off their dirty legs <kanji>before</kanji> they went down the slide, but they didn't, and now you've got dirt all over your legs too.",
+    "meaning_hint": "Try to imagine the previous person — they must have been absolutely filthy to leave all this dirt behind. Why'd they have to go down the slide ahead of you?! If only you could've gotten here before them…",
+    "reading_mnemonic": "Then you realize: the <kanji>previous</kanji> person on the slide must've been a <reading>cen</reading>taur (せん). Centaurs track dirt everywhere 'cause they're always galloping around in the wilderness.",
+    "reading_hint": "If you look really far off into the distance ahead of you, you might still be able to spot this dirty, slide-ruining centaur. Hurry up and go after him before he gets on another slide!",
+    "lesson_position": 59,
+    "spaced_repetition_system_id": 1
+}

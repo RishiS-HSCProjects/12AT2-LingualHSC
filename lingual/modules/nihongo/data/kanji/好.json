@@ -1,0 +1,57 @@
+{
+    "created_at": "2012-04-26T06:04:39.000000Z",
+    "level": 11,
+    "slug": "好",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A5%BD",
+    "characters": "好",
+    "meanings": [
+        {
+            "meaning": "Like",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "こう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "す",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "この",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        19,
+        34
+    ],
+    "amalgamation_subject_ids": [
+        3250,
+        3251,
+        3515,
+        3575,
+        3581,
+        3702,
+        3897,
+        5305
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "There is a <radical>woman</radical> and a <radical>child</radical> in front of you. You <kanji>like</kanji> them very much.",
+    "meaning_hint": "Imagine a woman and a child you like very much. Just appreciate them, and think about how much you like those two. The reading mnemonic definitely won't ruin your image of them or anything.",
+    "reading_mnemonic": "\"I <kanji>like</kanji> you two,\" you say to the woman and child. They both turn their heads 180 degrees back towards you. They both have faces that look just like <reading>こう</reading>いち's. \"We like you too,\" they say in unison.",
+    "reading_hint": "And you DO like them. You have always been a fan of こういち's kanji learning methods, and you feel so lucky to have married a woman who looks just like こういち and then (this is the real miracle!) gave birth to a child that looks like こういち too. Hashtag blessed.",
+    "lesson_position": 19,
+    "spaced_repetition_system_id": 1
+}

@@ -25,9 +25,9 @@ The 〜よう form in Japanese is a versatile grammatical structure that can be 
 
 You can use the 〜ように form to express the purpose of an action, similar to "so that..." or "in order to..." in English.
 
-You will need to knwo two variations of this structure.
+You will need to know two variations of this structure.
 
-:::blockquote Verb (ない form) + ように :::
+:::blockquote (Undesired) Verb (ない form) + ように + (Action):::
 
 This structure is used when you want to express doing something in order to avoid or prevent an undesired outcome.
 

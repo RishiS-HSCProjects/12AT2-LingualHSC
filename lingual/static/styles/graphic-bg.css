@@ -1,0 +1,60 @@
+/**
+ * Background Image Styling
+ * 
+ * Positions and styles background images for module templates
+ */
+
+/* Graphic container */
+
+:root {
+    --graphic-bg-top: 0;
+    --graphic-bg-left: 0;
+    --graphic-bg-width: 450px;
+    --graphic-bg-height: 600px;
+    --graphic-bg-z: 1;
+    --graphic-bg-opacity: 0.15;
+    --graphic-bg-url: none;
+    --graphic-bg-size: contain;
+    --graphic-bg-repeat: no-repeat;
+    --graphic-bg-position: top left;
+    --graphic-bg-blur: 0.5px;
+    --graphic-bg-blend: multiply;
+    --graphic-bg-transition: opacity 0.5s ease;
+}
+
+.graphic-bg {
+    position: fixed;
+    pointer-events: none;
+    top: var(--graphic-bg-top);
+    left: var(--graphic-bg-left);
+    width: var(--graphic-bg-width);
+    height: var(--graphic-bg-height);
+    z-index: var(--graphic-bg-z);
+    opacity: var(--graphic-bg-opacity);
+    background-image: var(--graphic-bg-url);
+    background-size: var(--graphic-bg-size);
+    background-repeat: var(--graphic-bg-repeat);
+    background-position: var(--graphic-bg-position);
+    filter: blur(var(--graphic-bg-blur));
+    mix-blend-mode: var(--graphic-bg-blend);
+    transition: var(--graphic-bg-transition);
+}
+
+/* Responsive adjustments */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+
+@media (max-width: 1024px) {
+    .graphic-bg {
+        width: 350px;
+        height: 466px;
+        opacity: 0.12;
+    }
+}
+
+@media (max-width: 768px) {
+    .graphic-bg {
+        width: 250px;
+        height: 333px;
+        opacity: 0.1;
+    }
+}

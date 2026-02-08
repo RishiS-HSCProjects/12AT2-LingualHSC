@@ -1,0 +1,64 @@
+{
+    "created_at": "2012-03-06T06:08:21.000000Z",
+    "level": 5,
+    "slug": "社",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%A4%BE",
+    "characters": "社",
+    "meanings": [
+        {
+            "meaning": "Company",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しゃ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "やしろ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        80,
+        17
+    ],
+    "amalgamation_subject_ids": [
+        2830,
+        2831,
+        2832,
+        2833,
+        2834,
+        2907,
+        3299,
+        3342,
+        3343,
+        4518,
+        4937,
+        5509,
+        5569,
+        5717,
+        6139,
+        6463,
+        8337,
+        9054,
+        9084
+    ],
+    "visually_similar_subject_ids": [
+        1734
+    ],
+    "meaning_mnemonic": "Plant a <radical>spirit</radical> in the <radical>dirt</radical> before you start your <kanji>company</kanji> and it will be successful. That's what all the great, old Japanese companies did back in the olden days. That's why companies like Mitsubishi have been around for hundreds of years. They planted a spirit in the dirt to help their company grow, and grow it did!",
+    "meaning_hint": "Picture a young person way back in old-timey history times burying the spirit of one of their ancestors in the dirt. Now watch as an old-timey time lapse plays out in front of your eyes and a company is born!",
+    "reading_mnemonic": "Where did you learn about this method of <kanji>company</kanji> growing? From a <reading>sha</reading>man (しゃ), of course. Shamans aren't just spouting nonsense, they know what they're talking about. And spirits are right up their shaman alley.",
+    "reading_hint": "Imagine going to a shaman and having them tell you that for your company to be successful you need to bury a spirit in the dirt so it can help the company grow. You should probably listen.",
+    "lesson_position": 56,
+    "spaced_repetition_system_id": 1
+}

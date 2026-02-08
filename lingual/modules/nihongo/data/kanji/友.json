@@ -1,0 +1,50 @@
+{
+    "created_at": "2012-03-01T02:35:48.000000Z",
+    "level": 3,
+    "slug": "友",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8F%8B",
+    "characters": "友",
+    "meanings": [
+        {
+            "meaning": "Friend",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ゆう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "とも",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        26,
+        30
+    ],
+    "amalgamation_subject_ids": [
+        2604,
+        3226,
+        3251,
+        4151
+    ],
+    "visually_similar_subject_ids": [
+        484,
+        855
+    ],
+    "meaning_mnemonic": "A <radical>narwhal</radical> sitting on a <radical>stool</radical> is your <kanji>friend</kanji>.",
+    "meaning_hint": "Imagine that narwhal sitting there. It waves its flipper and says \"hi friend\" to you.",
+    "reading_mnemonic": "\"Hi <kanji>friend</kanji>,\" says the narwhal. \"I must warn you about all the <reading>you</reading>ths.\" (ゆう)",
+    "reading_hint": "Your narwhal friend goes on to warn you about all those youths, and how they will try to take away your friendship with their good looks and young ages.",
+    "lesson_position": 38,
+    "spaced_repetition_system_id": 1
+}

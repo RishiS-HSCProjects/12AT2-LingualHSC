@@ -1,0 +1,61 @@
+{
+    "created_at": "2012-03-08T23:51:25.000000Z",
+    "level": 6,
+    "slug": "室",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%AE%A4",
+    "characters": "室",
+    "meanings": [
+        {
+            "meaning": "Room",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Roof",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "しつ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        78,
+        1,
+        140,
+        17
+    ],
+    "amalgamation_subject_ids": [
+        2972,
+        3024,
+        3095,
+        3116,
+        3296,
+        3584,
+        4259,
+        5664,
+        6530,
+        7527,
+        7675,
+        7705,
+        8168,
+        8665
+    ],
+    "visually_similar_subject_ids": [
+        2313,
+        724
+    ],
+    "meaning_mnemonic": "You put a <radical>roof</radical> over the <radical>ground</radical> to make your own <radical>private</radical> patch of <radical>dirt</radical>. This is your <kanji>room</kanji>! That's really all a room is, you know? A covered, private place where you can have some time to yourself.",
+    "meaning_hint": "Imagine the room you live in now. Take away all the stuff and you're left with a roof above the ground. Your own little private place atop the dirt.",
+    "reading_mnemonic": "The only problem with your <kanji>room</kanji> is that you can't always be alone. Because of your dad's <reading>shih tzu</reading> (しつ). The shih tzu likes to come into your room and pee everywhere. Ruining your privacy completely.",
+    "reading_hint": "Imagine watching the little shih tzu come into your room and lift its leg to all your things. This isn't fair. The shih tzu has its own room to pee in. Why does it have to ruin yours?",
+    "lesson_position": 21,
+    "spaced_repetition_system_id": 1
+}

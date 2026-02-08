@@ -1,0 +1,75 @@
+{
+    "created_at": "2012-03-09T00:00:25.000000Z",
+    "level": 6,
+    "slug": "食",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%A3%9F",
+    "characters": "食",
+    "meanings": [
+        {
+            "meaning": "Eat",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Meal",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しょく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "た",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "く",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        139
+    ],
+    "amalgamation_subject_ids": [
+        2923,
+        3087,
+        3094,
+        3295,
+        3535,
+        3771,
+        3896,
+        3970,
+        4150,
+        5478,
+        5592,
+        5830,
+        6905,
+        7308,
+        7489,
+        7866,
+        7914,
+        8340,
+        8671,
+        9297
+    ],
+    "visually_similar_subject_ids": [
+        805
+    ],
+    "meaning_mnemonic": "The radical for <radical>eat</radical> and the kanji for <kanji>eat</kanji> are the same! Lucky you.",
+    "meaning_hint": "If you know the radical, you basically know the meaning(s) of this kanji. There is a second meaning added to it, though, and that is <kanji>meal</kanji>. Just think about the things you eat? What are they? In the simplest form, they are just meals. So, if you know \"eat\" you should be able to remember \"meal\" as well.",
+    "reading_mnemonic": "Thank goodness, you finally get to <kanji>eat</kanji> your <kanji>meal</kanji>. You're so hungry. Someone has been starving you and now they've finally given you food. Unfortunately, though, every time you take a bite, you get a <reading>shock</reading> (しょく) from somewhere.",
+    "reading_hint": "So, do you keep eating and keep getting shocked? Or do you not eat and continue to starve? What is worse? Obviously you're in one of the Saw movies, or something, too, so feel the fear. What will you choose? Life with shocks or death from hunger?",
+    "lesson_position": 20,
+    "spaced_repetition_system_id": 1
+}

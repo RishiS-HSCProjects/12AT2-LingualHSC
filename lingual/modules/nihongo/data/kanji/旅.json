@@ -1,0 +1,67 @@
+{
+    "created_at": "2012-05-01T19:43:27.000000Z",
+    "level": 12,
+    "slug": "旅",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%97%85",
+    "characters": "旅",
+    "meanings": [
+        {
+            "meaning": "Trip",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Travel",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "りょ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "たび",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        66,
+        8762,
+        8778
+    ],
+    "amalgamation_subject_ids": [
+        3326,
+        3327,
+        3641,
+        3887,
+        3890,
+        5131,
+        5303
+    ],
+    "visually_similar_subject_ids": [
+        830,
+        1210,
+        1096,
+        1329,
+        1159,
+        2332,
+        2412,
+        791,
+        1117,
+        2141
+    ],
+    "meaning_mnemonic": "The <radical>direction</radical> your <radical>gun</radical> is facing leads straight to a block of <radical>tofu</radical>. This might be a sign you need to take a <kanji>trip</kanji>. If you're out there pointing guns at tofu, you're probably a little… tired… and in need of a change of scenery. Take a trip!",
+    "meaning_hint": "Imagine coming to your senses after shooting up a block of tofu for stress relief or whatever you were doing. Yeah, you gotta get away from tofu for a while… It's definitely time for a relaxing trip.",
+    "reading_mnemonic": "So, where do you go on your <kanji>trip</kanji>? To <reading>Rio</reading> (りょ). You had to go way down south to get as far away as possible from tofu. Ahh, nothing like a nice trip to Rio!",
+    "reading_hint": "Imagine soaking up the sun on the beaches of Rio de Janeiro. Rio has its fair share of guns, but at least there's a lot less tofu around these parts.",
+    "lesson_position": 25,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,78 @@
+{
+    "created_at": "2012-03-08T09:09:31.000000Z",
+    "level": 6,
+    "slug": "国",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%9B%BD",
+    "characters": "国",
+    "meanings": [
+        {
+            "meaning": "Country",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "こく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "くに",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        16,
+        48,
+        3
+    ],
+    "amalgamation_subject_ids": [
+        2881,
+        2882,
+        2883,
+        2884,
+        2885,
+        2886,
+        2887,
+        2888,
+        2934,
+        3004,
+        3787,
+        4000,
+        4470,
+        4681,
+        4730,
+        5177,
+        5294,
+        5323,
+        5633,
+        5973,
+        6449,
+        6612,
+        6671,
+        7029,
+        7153,
+        7618,
+        7942,
+        8204,
+        8238,
+        8337,
+        9046,
+        9122,
+        9350,
+        9351
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>mouth</radical> of the <radical>king</radical> extends all the way around him (like in this kanji). Where his mouth reaches, that is his <kanji>country</kanji>, give or take a few <radical>drop</radical>s.",
+    "meaning_hint": "Imagine his talking taking physical form. As he talks, waves extend out from him, and stop right at the border of his country before getting to the next one.",
+    "reading_mnemonic": "Turns out the king of this <kanji>country</kanji> loves drinking <reading>Coke</reading> (こく). Every morning that big mouth of his swallows a whole 2-liter bottle of Coke for breakfast.",
+    "reading_hint": "Would you drink that much soda for breakfast? Now this king says he wants to pass a law requiring everyone in the country to drink nothing but Coke! That's crazy!",
+    "lesson_position": 12,
+    "spaced_repetition_system_id": 1
+}

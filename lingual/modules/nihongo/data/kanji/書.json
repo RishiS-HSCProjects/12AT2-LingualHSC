@@ -1,0 +1,74 @@
+{
+    "created_at": "2012-09-20T18:34:23.191780Z",
+    "level": 16,
+    "slug": "書",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9B%B8",
+    "characters": "書",
+    "meanings": [
+        {
+            "meaning": "Write",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Writing",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しょ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "か",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        220,
+        22
+    ],
+    "amalgamation_subject_ids": [
+        3843,
+        3865,
+        3879,
+        4062,
+        4104,
+        4105,
+        4106,
+        4107,
+        4142,
+        4143,
+        4188,
+        4350,
+        4355,
+        4447,
+        4539,
+        4589,
+        5732,
+        5769,
+        5774,
+        6600,
+        6704,
+        7052,
+        7476,
+        7704
+    ],
+    "visually_similar_subject_ids": [
+        708
+    ],
+    "meaning_mnemonic": "Why would you try to take a <radical>brush</radical> to the <radical>sun</radical>? It's almost too obvious, because you want to <kanji>write</kanji> something down.",
+    "meaning_hint": "Just imagine yourself sitting on the sun, writing back to your friends and family with a brush. For someone who can visit the sun, it's really weird that you are writing with a brush like this, but you're doing it just the same.",
+    "reading_mnemonic": "What did you <kanji>write</kanji> about? You were writing about this amazing circus <reading>show</reading> (しょ) you just watched on the sun. You didn't expect there to be any shows here, but turns out you were wrong!",
+    "reading_hint": "Think of your favorite live shows and imagine them on the sun. Also imagine yourself writing back to your friends and family about said shows.",
+    "lesson_position": 10,
+    "spaced_repetition_system_id": 1
+}

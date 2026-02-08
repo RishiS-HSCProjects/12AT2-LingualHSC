@@ -1,0 +1,90 @@
+{
+    "created_at": "2012-03-05T20:08:04.000000Z",
+    "level": 5,
+    "slug": "自",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%87%AA",
+    "characters": "自",
+    "meanings": [
+        {
+            "meaning": "Self",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Oneself",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "じ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "し",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "みずか",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        109
+    ],
+    "amalgamation_subject_ids": [
+        2770,
+        2771,
+        2930,
+        3021,
+        3173,
+        3607,
+        3610,
+        3733,
+        3864,
+        3909,
+        3910,
+        4002,
+        4035,
+        4238,
+        4416,
+        4511,
+        4637,
+        4683,
+        4759,
+        4972,
+        5547,
+        5565,
+        5794,
+        5882,
+        6012,
+        6042,
+        6095,
+        7124,
+        7469,
+        7571,
+        7594,
+        7885,
+        7997,
+        8079,
+        8129,
+        9160,
+        9383
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>self</radical> radical and <kanji>self</kanji> are the same in looks as well as in meaning. ",
+    "meaning_hint": "Radicals have self. Kanji have self. Kanji and radicals can sometimes be the same thing... so do they really have \"self\"? Only way to find out is to study both of them hard!",
+    "reading_mnemonic": "When we need to remember じ we use the word \"Jesus.\"\n\nWho said you should always look at your <kanji>self</kanji> before tossing stones (or whatever) at others? <reading>Je</reading>sus (じ) did. So, make sure you look at your own self before being a jerk.",
+    "reading_hint": "You can feel free to do some introspection here.",
+    "lesson_position": 43,
+    "spaced_repetition_system_id": 1
+}

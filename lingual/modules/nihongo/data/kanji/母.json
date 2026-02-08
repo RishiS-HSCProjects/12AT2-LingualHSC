@@ -1,0 +1,73 @@
+{
+    "created_at": "2012-03-01T04:00:00.000000Z",
+    "level": 3,
+    "slug": "母",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%AF%8D",
+    "characters": "母",
+    "meanings": [
+        {
+            "meaning": "Mother",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Mom",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Mum",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Father",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "はは",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "かあ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ぼ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        107
+    ],
+    "amalgamation_subject_ids": [
+        2639,
+        2640,
+        3552,
+        5543,
+        5723,
+        6513,
+        7409,
+        8420,
+        8525
+    ],
+    "visually_similar_subject_ids": [
+        8963
+    ],
+    "meaning_mnemonic": "Someone breaks part of your <radical>window</radical>. Who did this? It was your <kanji>mother</kanji>!",
+    "meaning_hint": "See how the vertical bar is broken and your window frame is all messed up now? Why would your mother do such a thing?! Her hand is bleeding too…",
+    "reading_mnemonic": "Suddenly your <kanji>mother</kanji> points her bloodied finger at you and laughs, \"<reading>Haha</reading> (はは)!\" She keeps laughing, haha haha haha, over and over. You feel even more alarmed.",
+    "reading_hint": "You thought your mother was going to explain or apologize, but instead she's pointing and saying, \"Haha,\" over and over.\n\nYeah. That sounds like my mom.",
+    "lesson_position": 56,
+    "spaced_repetition_system_id": 1
+}

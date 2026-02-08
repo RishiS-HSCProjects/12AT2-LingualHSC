@@ -30,8 +30,8 @@
                          data-title="{{ lesson.title | e }}" 
                          data-summary="{{ lesson.summary | e }}"
                          data-content="{{ lesson.content | e }}">
-                        <h3 class="lesson-title">{{ lesson.title | safe }}</h3>
-                        <p class="lesson-summary">{{ lesson.summary | safe }}</p>
+                        <h3 class="lesson-title">{{ lesson.title | sanitise | safe }}</h3>
+                        <p class="lesson-summary">{{ lesson.summary | sanitise | safe }}</p>
                     </div>
                 {% endfor %}
             </div>

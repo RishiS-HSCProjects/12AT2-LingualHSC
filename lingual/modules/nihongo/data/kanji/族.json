@@ -1,0 +1,60 @@
+{
+    "created_at": "2012-05-01T19:49:42.000000Z",
+    "level": 12,
+    "slug": "族",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%97%8F",
+    "characters": "族",
+    "meanings": [
+        {
+            "meaning": "Tribe",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Family",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ぞく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        66,
+        8762,
+        72
+    ],
+    "amalgamation_subject_ids": [
+        3361,
+        3362,
+        3363,
+        4399,
+        5663,
+        5750
+    ],
+    "visually_similar_subject_ids": [
+        1210,
+        816,
+        1096,
+        1329,
+        1159,
+        2332,
+        2412,
+        791,
+        1117,
+        2141
+    ],
+    "meaning_mnemonic": "If someone is headed in your <radical>direction</radical> with a <radical>gun</radical>, nock an <radical>arrow</radical> in your bow and gather your <kanji>tribe</kanji> behind you because it’s about to get real! This man with a gun is headed your direction and he doesn’t even know what you and your tribe are gonna do to him. If he gets any closer, you’re likely to shoot that arrow right at him.",
+    "meaning_hint": "This guy headed your direction with his gun doesn’t look friendly at all. Hear the sound of the bowstring as you nock your arrow and prepare your shot to defend yourself. Then imagine the sound of everyone in your tribe doing the same.",
+    "reading_mnemonic": "When he starts to get closer, you notice that this guy is a boso<reading>zoku</reading> (ぞく) bike gang member. Bosozoku means “running <kanji>tribe</kanji>” and this guy is running right at you. With a gun. So gather your own tribe behind you and prepare to defend yourself against this bosozoku member.",
+    "reading_hint": "You remember what a bosozoku is, right? We wrote about them on Tofugu a while ago. They’re bike gang members and the “zoku” in bosozoku means tribe. Remember that article when you see this kanji.",
+    "lesson_position": 41,
+    "spaced_repetition_system_id": 1
+}

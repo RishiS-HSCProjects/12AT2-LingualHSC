@@ -1,0 +1,72 @@
+{
+    "created_at": "2012-03-06T07:10:41.000000Z",
+    "level": 5,
+    "slug": "近",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%BF%91",
+    "characters": "近",
+    "meanings": [
+        {
+            "meaning": "Near",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Close",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "きん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "こん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ちか",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        114,
+        115
+    ],
+    "amalgamation_subject_ids": [
+        2842,
+        2843,
+        2844,
+        3236,
+        3434,
+        3447,
+        3487,
+        4712,
+        6448,
+        6848,
+        6873,
+        7529,
+        7625,
+        7753,
+        7846,
+        8742
+    ],
+    "visually_similar_subject_ids": [
+        651
+    ],
+    "meaning_mnemonic": "Someone on a <radical>scooter</radical> has an <radical>axe</radical>, and they're getting <kanji>near</kanji> to you really fast! Oh no, they're so <kanji>close</kanji> now, you need to get out of here!",
+    "meaning_hint": "Picture a scooter coming toward you in the dark. You see the gleam of the axe as it looms nearer and nearer.",
+    "reading_mnemonic": "As they draw <kanji>near</kanji>, you recognize who is riding the scooter: the <reading>Kin</reading>g (きん) of England! Behind him, a bunch of his guards also on scooters and wielding axes appear and move <kanji>close</kanji> to you. ",
+    "reading_hint": "The King is now so near to you his nose and mustache are tickling your face. He's holding the axe high above his head and saying, \"I can get as close to you as I want and you can't stop me because I'm the King. I can get sooooo close. Look, I'm not touching you though!\"",
+    "lesson_position": 61,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,69 @@
+{
+    "created_at": "2012-02-29T00:34:36.000000Z",
+    "level": 2,
+    "slug": "木",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9C%A8",
+    "characters": "木",
+    "meanings": [
+        {
+            "meaning": "Tree",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Wood",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "もく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ぼく",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "き",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "こ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        23
+    ],
+    "amalgamation_subject_ids": [
+        2546,
+        3692,
+        3694,
+        4057,
+        4679,
+        7993,
+        8034,
+        8218,
+        8692,
+        9011
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "This is another kanji that is the same as the radical. Both <radical>tree</radical> and <kanji>tree</kanji> are the same in looks and meaning.",
+    "meaning_hint": "So, how are those radicals doing? Do you know them well?",
+    "reading_mnemonic": "You’re walking through the trees, looking at them. They look ominous. Suddenly, you trip and fall. The trees start to <reading>mock</reading> (もく) you. Even the mocking birds mock you. It’s terrible. It’s painful. You’re being mocked as you pull yourself up off the ground.",
+    "reading_hint": "Feel the shame, feel the irritation. Make yourself want to run away from those dumb trees that are mocking you.",
+    "lesson_position": 51,
+    "spaced_repetition_system_id": 2
+}

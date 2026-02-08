@@ -1,0 +1,82 @@
+{
+    "created_at": "2012-02-29T00:29:24.000000Z",
+    "level": 2,
+    "slug": "文",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%96%87",
+    "characters": "文",
+    "meanings": [
+        {
+            "meaning": "Writing",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Sentence",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Text",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ぶん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "もん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ふみ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        42
+    ],
+    "amalgamation_subject_ids": [
+        2540,
+        2659,
+        2660,
+        2661,
+        2809,
+        2846,
+        3283,
+        3346,
+        3411,
+        3580,
+        3658,
+        3774,
+        3786,
+        4075,
+        4327,
+        4612,
+        5519,
+        5994,
+        7632,
+        7750,
+        8303,
+        8696,
+        8706,
+        8740
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The kanji and the radical are the same, so remembering the meaning of this kanji is as simple as making sure you know the radical for <radical>writing</radical> first! If you know the radical, you know this kanji means <kanji>writing</kanji> as well.",
+    "meaning_hint": "If you can't remember the radical for writing, maybe you could try… writing it down?",
+    "reading_mnemonic": "This kanji has more than one important reading you need to learn! But don't worry, here's a mnemonic to help you:\n\nYou always put <kanji>writing</kanji> on your <reading>bun</reading>s (ぶん) to keep them from getting eaten by the bun <reading>mon</reading>ster (もん). What kind of writing? Usually it's just an X to show the monster these buns are off-limits. (In fact, it kind of looks like the X part in 文. Hmm…)",
+    "reading_hint": "Imagine writing a big X (or even a big 文) on all your buns, then showing them to the bun monster. Watch as he turns and goes at the sight of the writing, all disappointed. Not today, bun monster.",
+    "lesson_position": 48,
+    "spaced_repetition_system_id": 2
+}

@@ -23,7 +23,7 @@ LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)(?:#([\w\-]+))?\)') # [label
 QUIZ_RE = re.compile(r'~quizzes:([\w\-]+):([\w\-]+)(?:\?([^\~]+))?~') # ~quizzes:lesson:quiz?param1=value1&param2=value2~
 NOTE_RE = re.compile(r'/([iwt])\s+(.*?)\\', re.DOTALL) # /type text\, either i (info), w (warning), t (tip)
 FORMAT_RE = re.compile(r'::([a-zA-Z]+|#[0-9a-fA-F]{3,6})\{([^}]+)\}') # ::color{text} / ::bold/italic{text}
-BLOCK_RE = re.compile(r':::(\w+)\s+(.*?):::', re.DOTALL) # :::type ... :::, either blockquote or warning.
+BLOCK_RE = re.compile(r':::(\w+)\s+(.*?):::', re.DOTALL) # :::type ... :::, either blockquote, warning or subject.
 SPOILER_RE = re.compile(r'\|\|(.*?)\|\|', re.DOTALL) # ||spoiler content||
 
 class BaseLessonProcessor:
@@ -140,7 +140,7 @@ class BaseLessonProcessor:
     # Cache up to 16 lessons in memory for performance
     # Has the issue of not updating if lesson files change on disk,
     # however, a "cache clear" mechanism can be implemented later.
-    @lru_cache(maxsize=16)
+    # @lru_cache(maxsize=16) todo: enable
     def load(self, slug: str) -> dict:
         if not re.fullmatch(r"[A-Za-z0-9\-]+", slug):
             raise ValueError("Invalid lesson slug.")

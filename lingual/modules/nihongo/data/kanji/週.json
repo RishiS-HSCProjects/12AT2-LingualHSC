@@ -1,0 +1,46 @@
+{
+    "created_at": "2012-03-27T17:26:51.000000Z",
+    "level": 7,
+    "slug": "週",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E9%80%B1",
+    "characters": "週",
+    "meanings": [
+        {
+            "meaning": "Week",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しゅう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        114,
+        169
+    ],
+    "amalgamation_subject_ids": [
+        2978,
+        2979,
+        2980,
+        4890,
+        7323,
+        8698
+    ],
+    "visually_similar_subject_ids": [
+        665,
+        769
+    ],
+    "meaning_mnemonic": "Use a <radical>scooter</radical> to travel the <radical>circumference</radical> of the world and it will take you a full <kanji>week</kanji>. Seven whole days!",
+    "meaning_hint": "A week in earth time is also known as a \"full scoot\" in scooter lingo. ;)",
+    "reading_mnemonic": "If you want to scoot for a <kanji>week</kanji>, you'll need <reading>shoe</reading>s (しゅう). Good shoes too, not sandals or high heels or boots. Solid, high quality shoes, so you don't fall off the scooter and hurt yourself.",
+    "reading_hint": "You can't ride a scooter for a week barefoot, are you nuts?! Get some shoes!",
+    "lesson_position": 52,
+    "spaced_repetition_system_id": 1
+}

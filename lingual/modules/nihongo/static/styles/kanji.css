@@ -1,0 +1,266 @@
+:root {
+	--kanji-panel-width: 30%; /* Width of the kanji info panel */
+	--kanji-gap: clamp(12px, 2vw, 20px); /* Gap between kanji blocks. Written using ChatGPT. */
+	--kanji-block-size: clamp(72px, 7.5vw, 112px); /* Size of each kanji block. Written using ChatGPT. */
+	--kanji-transition: 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); /* Transition timing for kanji block animations. Written using ChatGPT. */
+}
+
+#body {
+	max-width: 99%;
+	width: 100%;
+	margin-top: calc(var(--nav-height) + 24px);
+}
+
+#kanji-page {
+	display: flex;
+	gap: var(--gap-small);
+	padding: clamp(16px, 3vw, 32px);
+	min-height: calc(100vh - var(--nav-height) - 48px);
+	height: calc(100vh - var(--nav-height) - 48px);
+	box-sizing: border-box;
+}
+
+#kanji-list {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-xsmall);
+	overflow-y: auto;
+	height: 100%;
+    margin: 0 auto;
+	scroll-behavior: smooth;
+	padding: 20px;
+}
+
+.kanji-header h1 {
+	font-size: clamp(2rem, 4vw, var(--font-size-title-lg));
+	margin: 0 0 6px;
+	color: var(--color-primary);
+	letter-spacing: 0.02em;
+}
+
+.kanji-subtitle {
+	margin: 0;
+	color: var(--color-secondary);
+	font-size: var(--font-size-body);
+}
+
+.kanji-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--kanji-gap);
+	align-content: flex-start;
+	justify-content: flex-start;
+}
+
+.kanji-block {
+	background: var(--bg-surface);
+	border: 1px solid var(--border-subtle);
+	border-radius: var(--radius-round);
+	width: var(--kanji-block-size);
+	height: var(--kanji-block-size);
+	display: grid;
+	place-items: center;
+	box-shadow: var(--shadow-card);
+	cursor: pointer;
+	user-select: none;
+	opacity: 0;
+	transform: translateY(10px) scale(0.98);
+	transition: transform var(--kanji-transition), box-shadow var(--kanji-transition),
+				border-color var(--kanji-transition), background-color var(--kanji-transition),
+				opacity 0.4s ease;
+	will-change: transform; /* Hint to the browser that the transform property will change, improving animation performance */
+}
+
+.kanji-block.is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+.kanji-char {
+	font-size: clamp(2rem, 3.4vw, 3.6rem);
+	color: var(--color-primary);
+	font-weight: 600;
+	transition: color var(--kanji-transition), transform var(--kanji-transition);
+}
+
+.kanji-block:hover {
+	transform: translateY(-6px) scale(1.03);
+	box-shadow: var(--shadow-soft);
+	border-color: var(--color-accent);
+}
+
+.kanji-block:active {
+	transform: translateY(-2px) scale(0.99);
+}
+
+.kanji-block.is-active {
+	background: var(--color-accent-soft);
+	border-color: var(--color-accent-strong);
+	box-shadow: var(--shadow-strong);
+	transform: translateY(-4px) scale(1.05);
+}
+
+.kanji-block.is-active .kanji-char {
+	color: var(--color-accent-strong);
+	transform: scale(1.04);
+}
+
+.kanji-info {
+	flex: 0 0 0;
+	width: 0;
+	opacity: 0;
+	pointer-events: none;
+	overflow: hidden;
+	border-radius: var(--radius-round);
+	background: var(--bg-card);
+	border: 1px solid var(--border-subtle);
+	box-shadow: var(--shadow-soft);
+	transform: translateX(30px);
+	transition: flex-basis 0.45s ease,
+				width 0.45s ease,
+				opacity 0.3s ease,
+				transform 0.45s ease;
+	height: 100%;
+	overflow-y: auto;
+}
+
+#kanji-page.panel-open #kanji-list {
+	flex-basis: calc(100% - var(--kanji-panel-width));
+}
+
+#kanji-page.panel-open .kanji-info {
+	flex: 0 0 var(--kanji-panel-width);
+	width: var(--kanji-panel-width);
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateX(0);
+}
+
+.kanji-info-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: clamp(18px, 2vw, 26px) clamp(18px, 2.5vw, 32px);
+	border-bottom: 1px solid var(--border-subtle);
+	background: var(--bg-surface-muted);
+	position: sticky;
+	top: 0;
+	z-index: 2;
+}
+
+#kanji-info-char {
+	margin: 0;
+	font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+	color: var(--color-primary);
+}
+
+.kanji-close {
+	border: 1px solid var(--border-subtle);
+	background: transparent;
+	color: var(--color-secondary);
+	padding: 8px 16px;
+	border-radius: var(--radius-pill);
+	cursor: pointer;
+	font-weight: 600;
+	transition: border-color var(--transition-base), color var(--transition-base),
+		transform var(--transition-base);
+}
+
+.kanji-close:hover {
+	border-color: var(--color-accent);
+	color: var(--color-accent-strong);
+	transform: translateY(-1px);
+}
+
+.kanji-info-body {
+	padding: clamp(18px, 2vw, 28px) clamp(20px, 3vw, 36px);
+	display: grid;
+	gap: clamp(14px, 2vw, 22px);
+}
+
+.kanji-tag-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.kanji-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 14px;
+	border-radius: var(--radius-pill);
+	background: var(--color-accent-soft);
+	color: var(--color-accent-strong);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.kanji-tag#kanji-info-type {
+	color: white;
+	background-color: rgb(167, 167, 167);
+}
+
+.kanji-tag#kanji-info-type.type-active {
+	background: rgb(0, 175, 0);
+}
+
+.kanji-tag#kanji-info-type.type-recognition {
+	background: rgb(234, 32, 32);
+}
+
+.kanji-info-block h3 {
+	margin: 0 0 6px;
+	font-size: var(--font-size-header-4);
+	color: var(--color-primary);
+}
+
+.kanji-info-block p {
+	margin: 0;
+	color: var(--color-secondary);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-body);
+}
+
+@media (max-width: 900px) {
+	#kanji-page {
+		flex-direction: column;
+		min-height: auto;
+		height: auto;
+	}
+
+	#kanji-list {
+		max-height: none;
+		overflow: visible;
+		height: auto;
+	}
+
+	#kanji-page.panel-open #kanji-list,
+	#kanji-page.panel-open .kanji-info {
+		width: 100%;
+		flex-basis: auto;
+	}
+
+	.kanji-info {
+		width: 100%;
+		transform: translateY(20px);
+		height: auto;
+	}
+
+	#kanji-page.panel-open .kanji-info {
+		transform: translateY(0);
+	}
+}
+
+/*  Inline GitHub Copilot suggestion
+	Possibly look into more accessibility features in the future.
+*/
+@media (prefers-reduced-motion: reduce) {
+	.kanji-block,
+	.kanji-char,
+	.kanji-info,
+	#kanji-list {
+		transition: none;
+	}
+}

@@ -79,3 +79,64 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
+
+/* || Data Help Tooltips */
+
+.help-host {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--color-accent-soft);
+    color: var(--color-accent-strong);
+    font-size: 0.85rem;
+    font-weight: 700;
+    position: relative;
+    transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.help-icon:hover,
+.help-icon:focus {
+    border-color: var(--color-accent);
+    transform: translateY(-1px) scale(1.05);
+}
+
+.help-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.5rem);
+    transform: translateX(-50%) translateY(6px);
+    opacity: 0;
+    pointer-events: none;
+    background: var(--bg-surface);
+    color: var(--color-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    box-shadow: var(--shadow-soft);
+    min-width: 200px;
+    max-width: 280px;
+    z-index: var(--z-index-overlay);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    text-align: left;
+}
+
+.help-icon:hover .help-tooltip,
+.help-icon:focus .help-tooltip,
+.help-host:hover .help-tooltip,
+.help-host:focus .help-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

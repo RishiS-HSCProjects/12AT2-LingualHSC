@@ -1,0 +1,68 @@
+{
+    "created_at": "2012-03-01T02:48:23.000000Z",
+    "level": 3,
+    "slug": "心",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%BF%83",
+    "characters": "心",
+    "meanings": [
+        {
+            "meaning": "Heart",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "こころ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        65
+    ],
+    "amalgamation_subject_ids": [
+        2610,
+        2860,
+        2973,
+        3019,
+        3026,
+        3520,
+        3563,
+        3564,
+        3588,
+        3614,
+        3638,
+        3709,
+        3735,
+        3992,
+        4000,
+        4033,
+        4374,
+        5305,
+        5563,
+        5718,
+        6749,
+        7709,
+        7745,
+        7765,
+        7774,
+        9145
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The radical <radical>heart</radical> and the kanji <kanji>heart</kanji> are the same. Rejoice and let your heart be free!",
+    "meaning_hint": "Also, make sure you know the radicals by heart, it'll help you to learn more effectively, just like with this kanji.",
+    "reading_mnemonic": "The <kanji>heart</kanji>, where is it stored in your body? Most people thought it was in the chest, but in reality, your <kanji>heart</kanji> is stored in your <reading>shin</reading> (しん).",
+    "reading_hint": "This is when I start kicking you in the shin and you imagine feeling the pain of getting kicked there. As I kick you in the shin, the stress is getting too much for your poor heart inside your shin. Poor shin, and poor heart.",
+    "lesson_position": 42,
+    "spaced_repetition_system_id": 1
+}

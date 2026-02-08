@@ -1,0 +1,66 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = "Kanji" %}
+
+{% block meta %}
+{{ super() }}
+<meta name="google" content="notranslate"> {# Prevent Google from offering translation for this page. #}
+
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/kanji.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="kanji-page">
+        <section id="kanji-list" aria-label="Prescribed Kanji">
+            <div class="kanji-header">
+                <h1>Prescribed Kanji</h1>
+                <p class="kanji-subtitle">Tap a character to reveal readings and meanings.</p>
+            </div>
+            <div id="kanji-grid" class="kanji-grid">
+                {% for kanji, category in prescribed %}
+                    {{ kanji_block(kanji, category, loop.index) }}
+                {% endfor %}
+            </div>
+        </section>
+
+        <aside id="kanji-info" class="kanji-info" aria-hidden="true">
+            <div class="kanji-info-header">
+                <h2 id="kanji-info-char"></h2>
+                <button id="kanji-info-close" class="kanji-close" type="button" aria-label="Close panel">Close</button>
+            </div>
+            <div class="kanji-info-body">
+                <div class="kanji-tag-row">
+                    <span id="kanji-info-primary" class="kanji-tag"></span>
+                    <span id="kanji-info-type" class="kanji-tag" data-help-icon="false"></span>
+                </div>
+                <div class="kanji-info-block">
+                    <h3>Meanings</h3>
+                    <p id="kanji-info-meanings"></p>
+                </div>
+                <div class="kanji-info-block">
+                    <h3 data-help="Chinese readings of the kanji. Used when multiple kanji are combined in a word.">On'yomi</h3>
+                    <p id="kanji-info-onyomi"></p>
+                </div>
+                <div class="kanji-info-block">
+                    <h3 data-help="Japanese native readings of the kanji. Often used when the kanji appears alone or in native Japanese words.">Kun'yomi</h3>
+                    <p id="kanji-info-kunyomi"></p>
+                </div>
+            </div>
+        </aside>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('nihongo.static', filename='js/kanji.js') }}"></script>
+{% endblock %}
+
+{% macro kanji_block(k, category, index) %}
+    <div class="kanji-block"
+        data-kanji="{{ k }}"
+        data-loaded="false"
+        data-category="{{ category.name }}"
+        style="--kanji-delay: {{ index * 18 }}ms;">
+        <div class="kanji-char">{{ k }}</div>
+    </div>
+{% endmacro %}

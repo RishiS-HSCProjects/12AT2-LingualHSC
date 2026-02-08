@@ -1,0 +1,49 @@
+{
+    "created_at": "2012-09-19T22:45:46.844454Z",
+    "level": 15,
+    "slug": "区",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8C%BA",
+    "characters": "区",
+    "meanings": [
+        {
+            "meaning": "District",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Ward",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "く",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        217,
+        31
+    ],
+    "amalgamation_subject_ids": [
+        3740,
+        3741,
+        3742,
+        4559
+    ],
+    "visually_similar_subject_ids": [
+        1911,
+        585
+    ],
+    "meaning_mnemonic": "This <radical>cage</radical> with <radical>treasure</radical> in it is actually a map of the <kanji>district</kanji> the treasure is in.",
+    "meaning_hint": "Picture a big pirate map, and on it are a bunch of these markers for the districts where you can find the treasures you've been searching for.",
+    "reading_mnemonic": "There is one <kanji>district</kanji> you're interested in, and that's the <reading>coo</reading>kie (く) district.",
+    "reading_hint": "The treasure of the cookie district is cookies, which you want. And to be fair, even if you weren't a pirate, you'd probably want those cookies.",
+    "lesson_position": 24,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,64 @@
+{
+    "created_at": "2012-02-28T01:43:58.000000Z",
+    "level": 1,
+    "slug": "三",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%B8%89",
+    "characters": "三",
+    "meanings": [
+        {
+            "meaning": "Three",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "3",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "さん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "み",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        1,
+        7
+    ],
+    "amalgamation_subject_ids": [
+        2486,
+        2487,
+        2488,
+        2713,
+        2836,
+        3553,
+        4171,
+        4260,
+        5239,
+        5844,
+        7456,
+        7563,
+        7678,
+        9159,
+        9169,
+        9255
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "This kanji is made up of the ground radical (which also happens to be the kanji for \"one\") and the radical for two. Combine <radical>one</radical> and <radical>two</radical> together and what do you get? <kanji>Three</kanji>!",
+    "meaning_hint": "This one should be pretty self explanatory! Even easier, you can look at this kanji and see it has three straight lines. You know what one looks like. You know what two looks like. So... this is three!",
+    "reading_mnemonic": "<kanji>Three</kanji> is the number of chances you get with <reading>San</reading>ta-san (さん). He has a list, and when you get to three \"naughty things\" lines, that's it. You're on Santa-san's three strikes and you're out list.",
+    "reading_hint": "Picture Santa-san sitting at his desk at the North Pole, eating cookies, and marking one, two, then finally three lines next to names. Once the third line appears, the kid doesn't get presents anymore.",
+    "lesson_position": 34,
+    "spaced_repetition_system_id": 2
+}

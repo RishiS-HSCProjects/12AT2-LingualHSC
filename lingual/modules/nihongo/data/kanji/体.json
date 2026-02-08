@@ -1,0 +1,74 @@
+{
+    "created_at": "2012-03-06T00:51:47.000000Z",
+    "level": 5,
+    "slug": "体",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%BD%93",
+    "characters": "体",
+    "meanings": [
+        {
+            "meaning": "Body",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "たい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "てい",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "からだ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        75,
+        50
+    ],
+    "amalgamation_subject_ids": [
+        2806,
+        2807,
+        2808,
+        2875,
+        3027,
+        3152,
+        3573,
+        4162,
+        4424,
+        5268,
+        5355,
+        5536,
+        5646,
+        5969,
+        6083,
+        7134,
+        7250,
+        7622,
+        7649,
+        7734,
+        8446,
+        8661,
+        9097
+    ],
+    "visually_similar_subject_ids": [
+        542
+    ],
+    "meaning_mnemonic": "The <radical>leader</radical> has a <radical>book</radical> all about the human <kanji>body</kanji>. Knowing about bodies is a privilege. One that only leaders get—it helps them control all their subjects, like you.",
+    "meaning_hint": "Imagine looking down at your body and thinking, huh, I wonder what all that junk is? Oh well, I'm sure the leader has it all figured out in that book of hers.",
+    "reading_mnemonic": "The leader's <kanji>body</kanji> book also taught her about something very body specific: how to tie a <reading>tie</reading> (たい). You can't have a tie on your body, no no. Those are for the leader and her smart body.",
+    "reading_hint": "Picture the leader, reading a book, putting a tie on her body. Look around at you and your family and your neighbors. You don't know what your body meat-bags do and you don't know how to tie a tie. Womp womp.",
+    "lesson_position": 49,
+    "spaced_repetition_system_id": 1
+}

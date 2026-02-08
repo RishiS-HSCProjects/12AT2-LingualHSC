@@ -1,0 +1,61 @@
+{
+    "created_at": "2012-03-05T19:57:56.000000Z",
+    "level": 5,
+    "slug": "毎",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%AF%8E",
+    "characters": "毎",
+    "meanings": [
+        {
+            "meaning": "Every",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Each",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "まい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ごと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8762,
+        107
+    ],
+    "amalgamation_subject_ids": [
+        2753,
+        2758,
+        2759,
+        2760,
+        3125,
+        3766,
+        7570,
+        9091
+    ],
+    "visually_similar_subject_ids": [
+        2040,
+        1757,
+        1007,
+        640
+    ],
+    "meaning_mnemonic": "You have a <radical>gun</radical> and you see some <radical>windows</radical>. What do you think you're going to do with this gun? Of course, you're going to shoot the windows... <kanji>every</kanji> single one of them. <kanji>Each</kanji> and every one.",
+    "meaning_hint": "Make sure you get every one, and don't miss any of them. Actually search around in your imagination for any more windows, because you want to stress it's important you hit each and every window with your gun.",
+    "reading_mnemonic": "Now that <kanji>every</kanji> window is broken, you feel pretty stupid because <reading>mi</reading>ce (まい) are pouring in through <kanji>each</kanji> one. You've made a way for mice to get into your house. That wasn't smart.",
+    "reading_hint": "Now you need to shoot every one of the mice that came through those broken windows. You can't let any survive. You have to get every last one out of here!!",
+    "lesson_position": 37,
+    "spaced_repetition_system_id": 1
+}

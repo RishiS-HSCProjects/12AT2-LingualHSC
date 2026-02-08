@@ -1,0 +1,130 @@
+{
+    "created_at": "2012-02-29T00:32:19.000000Z",
+    "level": 2,
+    "slug": "日",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%97%A5",
+    "characters": "日",
+    "meanings": [
+        {
+            "meaning": "Sun",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Day",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "にち",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "じつ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ひ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "か",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "び",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        22
+    ],
+    "amalgamation_subject_ids": [
+        2523,
+        2529,
+        2541,
+        2563,
+        2570,
+        2594,
+        2647,
+        2652,
+        2728,
+        2746,
+        2748,
+        2759,
+        2784,
+        2843,
+        2852,
+        2856,
+        2965,
+        3046,
+        3164,
+        3210,
+        3712,
+        3762,
+        3850,
+        3948,
+        3983,
+        4054,
+        4055,
+        4056,
+        4057,
+        4058,
+        4116,
+        4361,
+        4362,
+        4659,
+        4680,
+        4688,
+        4969,
+        5185,
+        5246,
+        5295,
+        5353,
+        5357,
+        5934,
+        6048,
+        6175,
+        6362,
+        6693,
+        7515,
+        7561,
+        7562,
+        7563,
+        7565,
+        7587,
+        7593,
+        7614,
+        7615,
+        7616,
+        7899,
+        8265,
+        8709,
+        8816,
+        9131,
+        9169,
+        9288,
+        9356
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>sun</radical> radical and <kanji>sun</kanji> kanji are the same, huzzah! Also, if you want to remember <kanji>day</kanji> as well, you can just think about how a day is the time it takes for the sun to cross the sky.",
+    "meaning_hint": "The radical for this one is easy too, making the meaning for this kanji super easy as well!",
+    "reading_mnemonic": "There are so many on'yomi for this kanji, but since this kanji is so important and common, you'll end up learning them all eventually whether you want to or not. For now, you're only going to have to learn one of the readings, and that one is にち. \n\nThe <kanji>sun</kanji> is so hot. It focused its rays to take out one man... and that man is Friedrich <reading>Nietzsche</reading> (にち), famous philosopher. He philosophized one too many things about the sun, so the sun decided it was time he paid.",
+    "reading_hint": "This reading will be easier to remember if you know of Friedrich Nietzsche... so do your research and learn about him if you don't. He's a pretty historical dude. Imagine the sun totally pissed off, too. It makes a grunting noise as it builds up a sun beam to blast him off the face of the earth.\n\nAlso note that there's another reading worth learning as well: じつ. The reading can be remembered by thinking \"<reading>Gee! Two</reading> readings?\" Because, seriously, two readings? Too many...",
+    "lesson_position": 49,
+    "spaced_repetition_system_id": 2
+}

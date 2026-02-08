@@ -1,0 +1,90 @@
+<!-- Dependencies -->
+<!-- 
+    - module-home.css
+-->
+
+{% macro home(config) %}
+<div id="home-container">
+
+    {% for section in config.get_build() %}
+
+        {# Separator (None) #}
+        {% if section is none %}
+            <hr class="home-separator">
+        {% else %} {# Regular section #}
+            {{ home_section(section) }}
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+{% endmacro %}
+{# Section Renderer #}
+{% macro home_section(section) %}
+{% if section.__class__.__name__ == "HomeBanner" %}
+    {# Render banner outside regular section container for full width #}
+    <div class="home-banner">
+        {{ section.content | sanitise | safe }}
+    </div>
+{% else %}
+    <div class="home-section">
+        {# Section title #}
+        {% if section.title %}
+            <h2 class="home-section-title">{{ section.title }}</h2>
+        {% endif %}
+
+        <div class="home-section-items">
+            {% for item in section.items %}
+                {{ home_item(item) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+{% endmacro %}
+
+{# Item Renderer #}
+{% macro home_item(item) %}
+    {% if item.__class__.__name__ == "ItemParagraph" %}
+        {{ home_item_paragraph(item) }}
+
+    {% elif item.__class__.__name__ == "ItemBox" %}
+        {{ home_item_box(item) }}
+
+    {% else %}
+        <div class="home-item home-item-unknown">
+            Unknown item type: {{ item.__class__.__name__ }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{# Paragraph Renderer #}
+{% macro home_item_paragraph(item) %}
+<div class="home-item home-item-paragraph">
+    {{ item.content | sanitise | safe }}
+</div>
+{% endmacro %}
+
+{# Box Renderer #}
+{% macro home_item_box(item) %}
+    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click }}')" {% endif %}>
+
+    {% if item.title %}
+        <h3 class="box-title">{{ item.title | sanitise | safe }}</h3>
+    {% endif %}
+
+    {% if item.body %}
+        <p class="box-body">{{ item.body | sanitise | safe }}</p>
+    {% endif %}
+
+    {% if item.buttons %}
+        <div class="box-buttons">
+            {% for btn in item.buttons %}
+                <a class="box-button" href="{{ btn.link }}">
+                    {{ btn.text | sanitise | safe }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
+{% endmacro %}

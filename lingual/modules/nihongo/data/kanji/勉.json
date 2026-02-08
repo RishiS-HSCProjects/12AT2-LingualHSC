@@ -1,0 +1,50 @@
+{
+    "created_at": "2012-05-01T19:42:16.000000Z",
+    "level": 12,
+    "slug": "勉",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8B%89",
+    "characters": "勉",
+    "meanings": [
+        {
+            "meaning": "Exertion",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Exert",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Effort",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "べん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        208,
+        13
+    ],
+    "amalgamation_subject_ids": [
+        3320,
+        3886
+    ],
+    "visually_similar_subject_ids": [
+        958
+    ],
+    "meaning_mnemonic": "You'll have to <radical>excuse</radical> me, having all this <radical>power</radical> puts a lot of strain and <kanji>exertion</kanji> on my body. My power comes from exertion of muscle, so please excuse me if I start to perspire.",
+    "meaning_hint": "Imagine yourself under great exertion. You're attempting to use your power to move something and it's really requiring a lot of exertion to move. Picture yourself doing this action and imagine how difficult it is.",
+    "reading_mnemonic": "Excuse me, I don’t think I’ve introduced myself yet. My name is <reading>Ben</reading> (べん) and I use powerful muscle <kanji>exertion</kanji> to accomplish every task. Ben knows what Ben wants and how to get it. Remember that, kids.",
+    "reading_hint": "Picture this Ben in your head. Ben always uses lots of exertion to do tasks. Imagine him using an unnecessary amount of power and exertion in carrying out normal everyday tasks.",
+    "lesson_position": 22,
+    "spaced_repetition_system_id": 1
+}

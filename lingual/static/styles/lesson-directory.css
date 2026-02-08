@@ -85,6 +85,8 @@
 }
 
 /* Responsive breakpoints */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+
 @media (max-width: 1200px) {
     .lesson-category-grid {
         grid-template-columns: repeat(2, 1fr);

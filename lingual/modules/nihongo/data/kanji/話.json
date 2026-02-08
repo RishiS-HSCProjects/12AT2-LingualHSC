@@ -1,0 +1,73 @@
+{
+    "created_at": "2012-04-05T23:15:55.000000Z",
+    "level": 8,
+    "slug": "話",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E8%A9%B1",
+    "characters": "話",
+    "meanings": [
+        {
+            "meaning": "Talk",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Speak",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "わ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "はな",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "はなし",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        117,
+        174
+    ],
+    "amalgamation_subject_ids": [
+        3074,
+        3075,
+        3076,
+        3370,
+        3495,
+        3555,
+        3636,
+        3785,
+        4287,
+        6351,
+        6565,
+        6715,
+        7115,
+        7169,
+        7746,
+        8149,
+        9301
+    ],
+    "visually_similar_subject_ids": [
+        764
+    ],
+    "meaning_mnemonic": "<radical>Say</radical> it with your <radical>tongue</radical>. If you do, you'll be able to <kanji>talk</kanji>. You'll be able to <kanji>speak</kanji>.",
+    "meaning_hint": "Your problem is you weren't saying it with your tongue before. Once you start using your tongue, you're able to speak suddenly!",
+    "reading_mnemonic": "If something uses their tongue, it will be able to <kanji>talk</kanji> and <kanji>speak</kanji>. To prove this, you teach a <reading>wa</reading>lrus (わ) to use its tongue, and lo and behold, it speaks to you!",
+    "reading_hint": "You decided to teach a walrus how to speak because it seemed like the hardest thing to teach, with its tusks and all that. It turned out to be really easy. Although, you may have picked the Justin Long walrus, by accident. Either way, this walrus can speak! And you definitely (probably) helped.",
+    "lesson_position": 57,
+    "spaced_repetition_system_id": 1
+}

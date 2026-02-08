@@ -1,0 +1,47 @@
+{
+    "created_at": "2012-03-02T09:15:08.000000Z",
+    "level": 4,
+    "slug": "町",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%94%BA",
+    "characters": "町",
+    "meanings": [
+        {
+            "meaning": "Town",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ちょう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "まち",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        51,
+        27
+    ],
+    "amalgamation_subject_ids": [
+        2693,
+        3410,
+        8695,
+        9152
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "When you see both a <radical>rice paddy</radical> and a <radical>street</radical> in the same place, you have the makings of a whole <kanji>town</kanji>!",
+    "meaning_hint": "Think about it, a single farm wouldn't need a whole street. Just paths would do. There is a street next to this rice paddy, so there must be other people, which makes this a <kanji>town</kanji>.",
+    "reading_mnemonic": "You go to visit this nice little <kanji>town</kanji>. But then, there she is... Every time you walk down the street, the street-woman Mrs. <reading>Chou</reading> (ちょう) arrives to ruin your day.",
+    "reading_hint": "Remember imagining Mrs. Chou in great detail in level 2? Time for some of that work to come to fruition. Imagine Mrs. Chou walking down the street of the town towards you, ready to make your day bad. She breaks things as she walks towards you, then knocks you down for walking around in her town. She says, \"Wherever there's a street, you'll find Mrs. Chou.\" Then spits on your back as she walks away.",
+    "lesson_position": 71,
+    "spaced_repetition_system_id": 1
+}

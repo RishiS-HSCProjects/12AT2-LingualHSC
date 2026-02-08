@@ -1,0 +1,72 @@
+{
+    "created_at": "2012-02-29T00:38:57.000000Z",
+    "level": 2,
+    "slug": "火",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%81%AB",
+    "characters": "火",
+    "meanings": [
+        {
+            "meaning": "Fire",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Flame",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Blaze",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "か",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ひ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "ほ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        46
+    ],
+    "amalgamation_subject_ids": [
+        2548,
+        2549,
+        2695,
+        4300,
+        4336,
+        4361,
+        6138,
+        7176,
+        7211,
+        7484,
+        7740,
+        7816,
+        7868,
+        8723,
+        9010
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>fire</radical> radical and the <kanji>fire</kanji> kanji are the same as each other.",
+    "meaning_hint": "If you know the radicals then this one is EZPZ.",
+    "reading_mnemonic": "Whenever we need to remember か, we use the word <reading>car</reading>.\n\nFor this kanji, when we think <kanji>fire</kanji>, we ought to think of something on fire. What's on fire? It's obviously your very own <reading>car</reading> (か)! Oh Goddd NOOO!",
+    "reading_hint": "Oh no... Oh no!! If you don't have a <reading>car</reading>, imagine what it'd feel like if your car just exploded and burned down. If you do have a car, imagine your own car in this situation. It should be a terrible feeling, if you imagine it well enough. So, when you think <kanji>fire</kanji>, remember the fear you had when your car was given to the flames. Now you have to walk everywhere, sad :(",
+    "lesson_position": 53,
+    "spaced_repetition_system_id": 2
+}

@@ -1,0 +1,57 @@
+{
+    "created_at": "2012-02-27T22:38:57.000000Z",
+    "level": 1,
+    "slug": "七",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%B8%83",
+    "characters": "七",
+    "meanings": [
+        {
+            "meaning": "Seven",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "7",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "しち",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "なな",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "なの",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        4
+    ],
+    "amalgamation_subject_ids": [
+        2469,
+        2470,
+        7562,
+        9055
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "Lucky for you (as is the case with many of the lower-stroke kanji), this kanji is the same as the radical you've already learned. The radical that makes up this kanji is <radical>seven</radical> and the kanji (which is exactly the same) is also <kanji>seven</kanji>. So, if you know the radical, you know the meaning of the kanji as well.",
+    "meaning_hint": "Make sure you know your radicals well and you'll be A-Okay on this one!",
+    "reading_mnemonic": "You know this kanji means <kanji>seven</kanji>, so let's use that to remember the reading too. <kanji>Seven</kanji> is a lucky number, usually, but this time it isn't so good: \n\n<kanji>Seven</kanji> percent is all she got on her test after <reading>she chea</reading>ted (しち) on it.",
+    "reading_hint": "How unbelievable is it that someone got <kanji>seven</kanji> percent on a test, especially if you try to cheat? Imagine the girl you loathe the most from school, and imagine her cheating on the test (it's important it's a girl, because of the \"she\" part in <reading>she chea</reading>ted (しち). Then, imagine your happiness when she's super upset about getting seven percent on it. Serves her right, obviously.",
+    "lesson_position": 28,
+    "spaced_repetition_system_id": 2
+}

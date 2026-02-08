@@ -1,0 +1,47 @@
+{
+    "created_at": "2012-03-01T02:34:26.000000Z",
+    "level": 3,
+    "slug": "午",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8D%88",
+    "characters": "午",
+    "meanings": [
+        {
+            "meaning": "Noon",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ご",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        5,
+        61
+    ],
+    "amalgamation_subject_ids": [
+        2909,
+        2913
+    ],
+    "visually_similar_subject_ids": [
+        546,
+        526,
+        654,
+        1887,
+        1135,
+        511,
+        850
+    ],
+    "meaning_mnemonic": "The <radical>slide</radical> is <radical>dry</radical> at <kanji>noon</kanji>. The sun is brightest at noon, so it dries the morning dew off the slide, making noon the perfect time to slide.",
+    "meaning_hint": "Picture all the kids out sliding on the slide at noon during their lunch break. It's hot and dry and they're very happy.",
+    "reading_mnemonic": "<kanji>Noon</kanji> also happens to be the time <reading>Go</reading>dzilla (ご) decided to attack for the same reasons: it's dry and kids are using the slide.",
+    "reading_hint": "Watch in horror as Godzilla's giant foot crushes all the kids and their slide at exactly noon. You'd better go...",
+    "lesson_position": 37,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,55 @@
+{
+    "created_at": "2012-03-08T06:51:08.000000Z",
+    "level": 6,
+    "slug": "州",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B7%9E",
+    "characters": "州",
+    "meanings": [
+        {
+            "meaning": "State",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Province",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "County",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Country",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "しゅう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        3,
+        21
+    ],
+    "amalgamation_subject_ids": [
+        2863,
+        2864,
+        2865
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "Think about Japan. Japan is a country made up of islands. They're basically three <radical>drop</radical> <radical>drop</radical> <radical>drop</radical>s in the large <radical>river</radical> that is the Pacific Ocean. These are Japan's <kanji>states</kanji> or <kanji>province</kanji>s.",
+    "meaning_hint": "Also, another way to think of this is that the river radical is actually just three rivers, separating drops, which are capitals of various states. Rivers are usually great ways to divide up a country, and states are one way to do it!",
+    "reading_mnemonic": "Each <kanji>state</kanji> has its own <reading>shoe</reading> (しゅう) to represent it. The bottom of each shoe is the shape of the state, so when you step it leaves a state-shaped imprint in the ground.",
+    "reading_hint": "The state shoes also have things like the state birds, state flowers, and state fish printed on each of them. They're quite collectable, you should buy a pair for your favorite state!",
+    "lesson_position": 32,
+    "spaced_repetition_system_id": 1
+}

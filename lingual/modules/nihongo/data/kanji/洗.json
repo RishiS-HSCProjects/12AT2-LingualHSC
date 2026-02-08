@@ -1,0 +1,58 @@
+{
+    "created_at": "2012-10-31T23:55:28.185819Z",
+    "level": 18,
+    "slug": "洗",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%B4%97",
+    "characters": "洗",
+    "meanings": [
+        {
+            "meaning": "Wash",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "せん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "あら",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        103,
+        258
+    ],
+    "amalgamation_subject_ids": [
+        4111,
+        4112,
+        4113,
+        4114,
+        4140,
+        4353,
+        6381,
+        6458,
+        7467,
+        7806,
+        7807,
+        7808,
+        8003,
+        8221,
+        8813
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "A <radical>tsunami</radical> <radical>previous</radical>ly gave everything in this town a good <kanji>wash</kanji>. There are many laundromats in this town, so when the previous tsunami hit, all of the detergent mixed with the water and gave everything a good wash.",
+    "meaning_hint": "Imagine this soapy tsunami, washing all the things in town. Hear the soapy waves bubbling with cleanliness as they crash down around you.",
+    "reading_mnemonic": "It wasn't just the town that got a <kanji>wash</kanji>, it was the <reading>cen</reading>taurs (せん) too. (Centaurs happen to live in this town.) And being half horse, centaurs have a lot of hair that needs washing. Luckily, the soap tsunami gave them a good wash too.",
+    "reading_hint": "Imagine these centaurs frolicking around in the aftermath of the tsunami previous. It's just like a big bathtub for them. Hear them splashing and neighing in the water.",
+    "lesson_position": 25,
+    "spaced_repetition_system_id": 1
+}

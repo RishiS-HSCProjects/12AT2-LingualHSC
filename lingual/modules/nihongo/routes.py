@@ -1,10 +1,11 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
-from flask_login import login_required
+from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, request, url_for
+from flask_login import current_user, login_required
+from lingual import db
+from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
-from lingual.utils.lessons.lesson_processor import Lesson
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -20,7 +21,105 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 @nihongo_bp.route('/')
 @login_required
 def home():
-    return render_template('home.html')
+    from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
+    from lingual.utils.languages import get_translatable
+
+    config = HomeConfig()
+
+    welcome_banner = HomeBanner(get_translatable('jp', 'home_welcome_text').replace("{first_name}", current_user.first_name))
+    config.register_section(welcome_banner)
+
+    quick_access = HomeSection("Quick Access")
+    quick_access.add_items(
+        ItemBox(
+            title="Grammar",
+            body="Practise Practise Practise",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link=url_for('nihongo.grammar')
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link=url_for('nihongo.grammar')
+                )
+            ],
+            on_click=url_for('nihongo.grammar')
+        ),
+        ItemBox(
+            title="Vocab",
+            body="yes Yes yes",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
+            on_click="#"
+        ),
+        ItemBox(
+            title="Kanji",
+            body="0/XX Kanjis Mastered",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
+            on_click=url_for('nihongo.kanji')
+        ),
+    )
+
+    config.register_section(quick_access)
+
+    config.add_separator()
+
+    # Assuming this is inside a method of a User class
+    recent = HomeSection("Recently Viewed")
+
+    lang_code = Languages.JAPANESE.obj().code
+
+    # Ensure the user's Japanese stats are created if they don't exist
+    if not current_user.get_language_stats(lang_code):
+        current_user.create_language_stats(lang_code)
+        db.session.commit()
+
+    recent.add_items(
+        ItemBox(
+            title="Grammar: Te-Form",
+            body="The Basics of Japanese Grammar",
+            buttons=[
+                ItemBox.BoxButton(
+                    text="View",
+                    link=url_for('nihongo.grammar', slug='te-form')
+                )
+            ],
+            on_click=url_for('nihongo.grammar', slug='te-form')
+        ),
+        ItemBox(
+            title="Kanji: Lesson 3",
+            body="Mastering the First 20 Kanji",
+            buttons=[
+                ItemBox.BoxButton(
+                    text="View",
+                    link="#"
+                )
+            ],
+            on_click="#"
+        )
+    )
+
+    config.register_section(recent)
+
+    return render_template('home.html', config=config)
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
@@ -86,3 +185,52 @@ def get_quizzes(lesson_slug):
 
     return jsonify(data)
     
+@nihongo_bp.route('/kanji/')
+@login_required
+def kanji():
+    return render_template('kanji.html', prescribed=Kanji.get_prescribed_kanji())
+
+@nihongo_bp.route('/kanji/api/prefetch', methods=['POST'])
+@login_required
+def kanji_prefetch():
+    """ Reserved for client-side prefetch. """
+    return jsonify({"status": "ok"})
+
+@nihongo_bp.route('/kanji/api/<kanji_char>', methods=['GET'])
+@login_required
+def kanji_lookup(kanji_char):
+    """Retrieves kanji data for a specific kanji character.
+    If not cached, performs a synchronous fetch from the WaniKani API.
+    """
+
+    if not kanji_char or kanji_char.isspace():
+        abort(400, description="Invalid kanji.")
+
+    try:
+        kanji = Kanji.get_kanji(kanji_char)
+    except KeyError:
+        current_app.logger.error("WaniKani API key not configured.")
+        abort(503, description="WaniKani API key not configured.")
+    except Exception as e:
+        abort(400, description=f"Failed to fetch kanji data: {e}")
+
+    return jsonify({"status": "ready", "data": kanji.data})
+
+@nihongo_bp.route('/kanji/api/batch', methods=['POST'])
+@login_required
+def kanji_batch():
+    payload = request.get_json(silent=True) or {}
+    items = payload.get("kanji", [])
+
+    if not isinstance(items, list):
+        abort(400, description="Invalid payload.")
+
+    data_map = {}
+    for kanji_char in items:
+        try:
+            kanji = Kanji.get_kanji(kanji_char)
+        except Exception:
+            continue
+        data_map[kanji_char] = kanji.data
+
+    return jsonify({"status": "ready", "data": data_map})

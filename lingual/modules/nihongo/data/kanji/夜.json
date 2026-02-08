@@ -1,0 +1,63 @@
+{
+    "created_at": "2012-03-08T23:41:13.000000Z",
+    "level": 5,
+    "slug": "夜",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A4%9C",
+    "characters": "夜",
+    "meanings": [
+        {
+            "meaning": "Night",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Evening",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "よる",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "よ",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "や",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        342
+    ],
+    "amalgamation_subject_ids": [
+        2889,
+        2890,
+        3365,
+        6477,
+        9372,
+        9374,
+        9376,
+        9377
+    ],
+    "visually_similar_subject_ids": [
+        1487
+    ],
+    "meaning_mnemonic": "The <radical>night</radical> radical and the <kanji>night</kanji> kanji are exactly the same.",
+    "meaning_hint": "All those late nights studying radicals really pay off, you know.",
+    "reading_mnemonic": "You call your friend at <kanji>night</kanji> and say \"<reading>Yo, Lou</reading> (よる)!\"",
+    "reading_hint": "Lou is a total night owl, so you only hit him up at night.",
+    "lesson_position": 27,
+    "spaced_repetition_system_id": 1
+}

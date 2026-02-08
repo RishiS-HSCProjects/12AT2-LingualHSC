@@ -1,0 +1,65 @@
+{
+    "created_at": "2012-03-08T23:42:17.000000Z",
+    "level": 6,
+    "slug": "妹",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A6%B9",
+    "characters": "妹",
+    "meanings": [
+        {
+            "meaning": "Younger Sister",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Little Sister",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Older Sister",
+            "type": "blacklist"
+        },
+        {
+            "meaning": "Younger Brother",
+            "type": "blacklist"
+        },
+        {
+            "meaning": "Little Brother",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "まい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "いもうと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        19,
+        134
+    ],
+    "amalgamation_subject_ids": [
+        2891,
+        2892
+    ],
+    "visually_similar_subject_ids": [
+        624
+    ],
+    "meaning_mnemonic": "Who's that <radical>woman</radical> pretending to be a <radical>jet</radical>? That's my <kanji>younger sister</kanji>. *Sigh*",
+    "meaning_hint": "Imagine a little girl (your younger sister) running around with her arms out, pretending to be a jet, too. Prwoooooo!",
+    "reading_mnemonic": "Your <kanji>younger sister</kanji> is giving some <reading>mi</reading>ce (まい) a ride on her back like a jet. ",
+    "reading_hint": "Ew, gross. Your younger sister is such a weirdo! Why does she have mice on her back while pretending to be a jet?",
+    "lesson_position": 14,
+    "spaced_repetition_system_id": 1
+}

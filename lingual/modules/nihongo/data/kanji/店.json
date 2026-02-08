@@ -1,0 +1,56 @@
+{
+    "created_at": "2012-03-08T23:44:06.000000Z",
+    "level": 6,
+    "slug": "店",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%BA%97",
+    "characters": "店",
+    "meanings": [
+        {
+            "meaning": "Shop",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Store",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "てん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "みせ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        62,
+        143
+    ],
+    "amalgamation_subject_ids": [
+        2894,
+        2993,
+        3340,
+        4088,
+        5278,
+        5619,
+        6674,
+        8029
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "A long time ago, someone put up a <radical>canopy</radical> over their <radical>fortune</radical> telling booth and created the first <kanji>shop</kanji>. This <kanji>store</kanji> was fortune-based, but since then lots of different stores have popped up!",
+    "meaning_hint": "Picture the very first store in history. A fortune teller decided enough was enough, they should be in some kind of structure where it's safe, official looking, and more permanent.",
+    "reading_mnemonic": "This <kanji>shop</kanji> quickly turned into <reading>ten</reading> (てん) shops! It was a good idea, after all, so all of the other people selling goods and services decided to copy it and create their own shops. The next day there were ten more.",
+    "reading_hint": "Picture ten shops, all made up of someone selling something under a canopy. The first one is the fortune teller, but the nine others are whatever you want them to be!",
+    "lesson_position": 172,
+    "spaced_repetition_system_id": 1
+}

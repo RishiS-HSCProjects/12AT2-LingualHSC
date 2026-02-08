@@ -10,5 +10,11 @@
     "signup_password_title": {
         "en": "Shhh... It's a Secret!",
         "jp": "話さないでください！"
+    },
+
+
+    "home_welcome_text": {
+        "en": "Ready to study, {first_name}?",
+        "jp": "{first_name}さん、勉強しましょう!"
     }
 }

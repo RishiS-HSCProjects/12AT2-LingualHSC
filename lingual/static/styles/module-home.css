@@ -1,0 +1,231 @@
+#home-container {
+    max-width: 95%;
+    margin: 0;
+    padding: 0;
+}
+
+/* || Banner */
+.home-banner {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+    color: white;
+    padding: var(--gap-medium) var(--gap-small);
+    margin: 0 0 var(--gap-small) 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--font-size-header-3);
+    font-weight: 500;
+    box-shadow: var(--shadow-nav);
+    border-radius: var(--radius-medium);
+}
+
+.home-banner strong {
+    font-weight: 700;
+}
+
+/* || Separator */
+.home-separator {
+    border: none;
+    border-top: 2px solid var(--border-subtle);
+    margin: 2.5rem 0;
+    opacity: 0.5;
+}
+
+/* || Section */
+.home-section {
+    margin: 0 auto var(--gap-medium);
+    padding: 0 var(--gap-small);
+    max-width: 1200px;
+}
+
+.home-section-title {
+    font-size: var(--font-size-header-2);
+    font-weight: 600;
+    margin-bottom: var(--padding-section);
+    color: var(--color-primary);
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-accent);
+    display: inline-block;
+}
+
+/* || Section Items Grid */
+.home-section-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--padding-section);
+    margin-top: var(--padding-section);
+}
+
+/* || Item Base */
+.home-item {
+    background: var(--bg-card);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* || Paragraph Item */
+.home-item-paragraph {
+    padding: var(--padding-section);
+    background: var(--bg-surface-muted);
+    border-radius: var(--radius-medium);
+    line-height: var(--line-height-body);
+    color: var(--color-secondary);
+    font-size: var(--font-size-body);
+}
+
+/* || Box Item */
+.home-item-box {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-large);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    box-sizing: border-box;
+    background: var(--bg-card);
+}
+
+.home-item-box.clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-strong);
+    cursor: pointer;
+    user-select: none;
+}
+
+.home-item-box.clickable:active {
+    transform: translateY(1px);
+    user-select: none;
+}
+
+/* || Box Title */
+.box-title {
+    font-size: var(--font-size-header-3);
+    font-weight: 600;
+    margin: 0 0 var(--gap-xsmall) 0;
+    color: var(--color-primary);
+    line-height: 1.3;
+}
+
+/* || Box Body */
+.box-body {
+    flex: 1;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-secondary);
+    margin: 0 0 var(--padding-section) 0;
+}
+
+/* || Box Buttons Container */
+.box-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+/* || Individual Box Button */
+.box-button {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-medium);
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background var(--transition-base), transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(91, 124, 255, 0.2);
+}
+
+.box-button:hover {
+    background: var(--color-accent-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(91, 124, 255, 0.3);
+}
+
+.box-button:active {
+    transform: translateY(0);
+}
+
+/* Secondary button style (if needed) */
+.box-button.secondary {
+    background: var(--color-secondary);
+}
+
+.box-button.secondary:hover {
+    background: var(--color-contrast);
+}
+
+/* || Unknown Item Type */
+.home-item-unknown {
+    padding: var(--padding-section);
+    background: var(--bg-block-warning);
+    border: 2px dashed var(--border-block-warning);
+    border-radius: var(--radius-medium);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* || Responsive Breakpoints */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+/* Medium devices */
+@media (max-width: 768px) {
+    .home-banner {
+        font-size: var(--font-size-header-4);
+        padding: var(--gap-small) var(--padding-section);
+    }
+
+    .home-section {
+        padding: 0 var(--padding-section);
+    }
+
+    .home-section-items {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--gap-xsmall);
+    }
+
+    .home-section-title {
+        font-size: var(--font-size-header-3);
+    }
+
+    .box-buttons {
+        flex-direction: row;
+    }
+}
+
+/* Small devices */
+@media (max-width: 600px) {
+    .home-banner {
+        font-size: var(--font-size-header-4);
+        padding: var(--padding-section) var(--gap-xsmall);
+    }
+
+    .home-section {
+        padding: 0 var(--gap-xsmall);
+        margin-bottom: var(--gap-small);
+    }
+
+    .home-section-items {
+        grid-template-columns: 1fr;
+    }
+
+    .home-section-title {
+        font-size: var(--font-size-header-4);
+    }
+
+    .home-item-box {
+        padding: var(--padding-section);
+    }
+
+    .box-title {
+        font-size: var(--font-size-header-4);
+    }
+
+    .box-buttons {
+        flex-direction: column;
+    }
+
+    .box-button {
+        width: 100%;
+    }
+}

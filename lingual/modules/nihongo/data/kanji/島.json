@@ -1,0 +1,53 @@
+{
+    "created_at": "2012-05-01T19:46:09.000000Z",
+    "level": 12,
+    "slug": "島",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B3%B6",
+    "characters": "島",
+    "meanings": [
+        {
+            "meaning": "Island",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "しま",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "とう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        151,
+        20
+    ],
+    "amalgamation_subject_ids": [
+        3344,
+        3616,
+        5496,
+        6020,
+        6648,
+        7537,
+        7634,
+        7874
+    ],
+    "visually_similar_subject_ids": [
+        675
+    ],
+    "meaning_mnemonic": "A <radical>bird</radical> sits upon a <radical>mountain</radical>. If you look at the radicals, the bird is quite large and the mountain quite small. Think of this in the mnemonic as well. The reason the mountain is small is because you can only see the top of it, sticking out of the water. On it is the bird. This small mountain with the bird on it is an <kanji>island</kanji>.",
+    "meaning_hint": "Imagine the mountain as small as you'd like. Maybe it's only barely sticking out of the sea, and the bird is having trouble standing on it. Whatever you do, make sure you think of it as an island, possibly owned by the bird.",
+    "reading_mnemonic": "But this <kanji>island</kanji> doesn't only belong to the bird. In fact, the bird shouldn't be on this island, because it belongs to the <reading>She</reading>ep <reading>Ma</reading>ma (しま), who is like Mother Nature but for sheep. The all-powerful Sheep Mama comes to kick the bird off the island, because this place is only for sheep! All hail the Sheep Mama.",
+    "reading_hint": "The Sheep Mama is a huge, majestic sheep with magical powers. She kicks the bird off the island with her hooves, and the bird squawks and flies away as fast as it can.",
+    "lesson_position": 33,
+    "spaced_repetition_system_id": 1
+}

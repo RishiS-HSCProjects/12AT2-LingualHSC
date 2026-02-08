@@ -1,0 +1,78 @@
+{
+    "created_at": "2012-03-05T20:13:46.000000Z",
+    "level": 5,
+    "slug": "何",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%BD%95",
+    "characters": "何",
+    "meanings": [
+        {
+            "meaning": "What",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "なに",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "なん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "か",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        75,
+        113
+    ],
+    "amalgamation_subject_ids": [
+        2780,
+        2781,
+        2782,
+        2783,
+        2784,
+        2785,
+        2786,
+        2961,
+        4108,
+        5440,
+        7602,
+        7682,
+        8415,
+        8719
+    ],
+    "visually_similar_subject_ids": [
+        2255,
+        973,
+        1306,
+        568,
+        1656,
+        1775,
+        1049,
+        943,
+        2116,
+        1053,
+        1066,
+        1498,
+        611,
+        8990
+    ],
+    "meaning_mnemonic": "Our <radical>leader</radical> has a <radical>lip ring</radical>. Wait, our leader has a lip ring? <kanji>WHAT</kanji>??",
+    "meaning_hint": "Think of our president (or your prime minister, or dictator, or whatever) and imagine this person appearing on television one morning with a big ol' lip ring. Feel surprised by it. Just say \"What??\" over and over again. You want to have the feeling of \"what\" in you when you imagine this - that'll help you to remember this kanji's meaning.",
+    "reading_mnemonic": "The leader with his lip ring is now eating some <reading>naan</reading> (なん) and curry. It's delicious, of course... but then he gets it caught on his lip ring, and tears half his lip off. He screams: \"<reading>Nannnnn eeeeeeeeeehhh</reading>!!\" (なに) in anger at the naan and curry.",
+    "reading_hint": "Make this one vivid and scary. He's eating the naan (that's your なん), and then he screams at the naan but gets overwhelmed with pain (that's the なに). Smell the naan (you're there) and see the blood gushing out of his/her lip. It's terrifying. How did the naan even catch on his lip ring anyways?",
+    "lesson_position": 48,
+    "spaced_repetition_system_id": 1
+}

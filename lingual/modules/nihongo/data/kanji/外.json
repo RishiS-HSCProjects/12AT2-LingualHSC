@@ -1,0 +1,79 @@
+{
+    "created_at": "2012-03-01T03:56:49.000000Z",
+    "level": 3,
+    "slug": "外",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A4%96",
+    "characters": "外",
+    "meanings": [
+        {
+            "meaning": "Outside",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "がい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "そと",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "はず",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        33,
+        10
+    ],
+    "amalgamation_subject_ids": [
+        2631,
+        2632,
+        2633,
+        2634,
+        2828,
+        2886,
+        2887,
+        2918,
+        2938,
+        3008,
+        3421,
+        3655,
+        3875,
+        3956,
+        3975,
+        4272,
+        4373,
+        4513,
+        4555,
+        5424,
+        5435,
+        6298,
+        6389,
+        7270,
+        7730,
+        7845,
+        8110,
+        8118,
+        8952,
+        9152
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "You're known to get the ailment <radical>evening</radical> <radical>toe</radical>, which is when your toe catches on fire after getting really, really hot (imagine this happening, ouch!). The only way to fix it is to cool your toe down, and the best way to do that is to go <kanji>outside</kanji>.",
+    "meaning_hint": "After imagining your <radical>evening</radical> <radical>toe</radical> overheating, rush <kanji>outside</kanji> to fix it. It's the best way to prevent fire toe, which is way worse. In the evening it's nice and cold outside too, so feel this on your skin, and feel the cold air on your toe, which is starting to get some relief.",
+    "reading_mnemonic": "You go <kanji>outside</kanji> (you’re not supposed to be out there at night!) and you’re accosted by a couple of guys. Then, all of a sudden, <reading>Guy</reading> (がい) Fawkes jumps from the roof above you and takes them out, then starts running. “Guy Fawkes!” you yell after him!",
+    "reading_hint": "If you don’t know Guy Fawkes, you should do a little reading up on him to make this mnemonic make sense. Also, Anonymous People wear a Guy Fawkes mask, if that helps any.",
+    "lesson_position": 53,
+    "spaced_repetition_system_id": 1
+}

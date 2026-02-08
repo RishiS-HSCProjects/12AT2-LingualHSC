@@ -1,0 +1,56 @@
+{
+    "created_at": "2012-03-02T08:45:49.000000Z",
+    "level": 4,
+    "slug": "男",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E7%94%B7",
+    "characters": "男",
+    "meanings": [
+        {
+            "meaning": "Man",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "だん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "なん",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "おとこ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        243
+    ],
+    "amalgamation_subject_ids": [
+        2692,
+        3408,
+        3412,
+        3680,
+        4633,
+        8985
+    ],
+    "visually_similar_subject_ids": [
+        941
+    ],
+    "meaning_mnemonic": "The radical for <radical>man</radical> and the kanji for <kanji>man</kanji> are exactly the same.",
+    "meaning_hint": "That means if you know your radicals well, you know the meaning of this kanji too! Man, kanji are easy sometimes.",
+    "reading_mnemonic": "When you think of a <kanji>man</kanji>, think of <reading>dawn</reading> (だん), because that man has to get up at dawn to power his rice paddy every day. ",
+    "reading_hint": "Picture the man watching as the first light of dawn tints the sky pink and orange. Time to get to work, man!",
+    "lesson_position": 70,
+    "spaced_repetition_system_id": 1
+}

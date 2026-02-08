@@ -1,0 +1,62 @@
+{
+    "created_at": "2012-04-23T23:40:53.000000Z",
+    "level": 12,
+    "slug": "待",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%BE%85",
+    "characters": "待",
+    "meanings": [
+        {
+            "meaning": "Wait",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "たい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ま",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        99,
+        192
+    ],
+    "amalgamation_subject_ids": [
+        3128,
+        3129,
+        3378,
+        3503,
+        3584,
+        3944,
+        5029,
+        7688,
+        7935,
+        8040,
+        8677
+    ],
+    "visually_similar_subject_ids": [
+        662,
+        727,
+        807,
+        870,
+        928,
+        1081,
+        1882
+    ],
+    "meaning_mnemonic": "People who <radical>loiter</radical> around the <radical>temple</radical> are probably just trying to <kanji>wait</kanji>. They don't mean to look like they're up to no good, but it's hard to wait without looking suspicious when you're waiting outside a temple.",
+    "meaning_hint": "Imagine waiting outside a temple. People are giving you looks. People think you're loitering, not just waiting innocently.",
+    "reading_mnemonic": "As you <kanji>wait</kanji> outside the temple, you can't help but adjust your <reading>tie</reading> (たい). When you wait you get nervous, and when you get nervous you fidget. So now you're messing with your tie a whole bunch.",
+    "reading_hint": "Imagine adjusting your tie as you wait. Oh no, now even more people are staring at you. The tie thing is making you look even more suspicious!",
+    "lesson_position": 21,
+    "spaced_repetition_system_id": 1
+}

@@ -1,0 +1,77 @@
+{
+    "created_at": "2012-03-06T06:03:48.000000Z",
+    "level": 5,
+    "slug": "来",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%9D%A5",
+    "characters": "来",
+    "meanings": [
+        {
+            "meaning": "Come",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Next",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "らい",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "く",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "き",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        1,
+        98
+    ],
+    "amalgamation_subject_ids": [
+        2824,
+        2825,
+        2826,
+        2827,
+        2828,
+        2829,
+        2946,
+        3418,
+        3421,
+        3461,
+        4888,
+        4889,
+        4890,
+        4914,
+        5959,
+        8239,
+        8322,
+        8698,
+        8736,
+        9066
+    ],
+    "visually_similar_subject_ids": [
+        537,
+        574
+    ],
+    "meaning_mnemonic": "The <radical>ground</radical> is scattered with <radical>rice</radical>, which will cause the Predator to <kanji>come</kanji> because he loves rice. Then once he's gone, the <kanji>next</kanji> Predator will come to eat.",
+    "meaning_hint": "This kanji kind of looks like a Predator face, so just imagine Predators come whenever the ground is scattered with rice. They come from all around to grab handfuls of it. Who's next, then? Come forward!",
+    "reading_mnemonic": "When they come, though, they're all disappointed. It turns out it's <reading>rye</reading> (らい) grains, and rye grains taste terrible. Yuck.",
+    "reading_hint": "If you love rye grains, on the other hand, imagine them being really happy that they came to get the rice. They're so lucky it's rye!",
+    "lesson_position": 55,
+    "spaced_repetition_system_id": 1
+}

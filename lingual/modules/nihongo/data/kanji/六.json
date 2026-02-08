@@ -1,0 +1,55 @@
+{
+    "created_at": "2012-02-29T00:17:02.000000Z",
+    "level": 2,
+    "slug": "六",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%85%AD",
+    "characters": "六",
+    "meanings": [
+        {
+            "meaning": "Six",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "6",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "ろく",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "む",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8,
+        2
+    ],
+    "amalgamation_subject_ids": [
+        2527,
+        2528,
+        2529,
+        2530,
+        2531
+    ],
+    "visually_similar_subject_ids": [
+        1118
+    ],
+    "meaning_mnemonic": "Just imagine a beast with a <radical>lid</radical> for a head and <radical>fins</radical> for feet, running around looking as insane as possible (really imagine it!). When it runs up to you, it shows you the top of its lid-head. On it is written the numbers 666. Why? Because it's a spawn of the devil, and the number <kanji>six</kanji> is the devil's number.",
+    "meaning_hint": "Imagine this beast doing various crazy things, the crazier the better (to help you remember). Make sure all these things are associated with the devil and the devil's number (<kanji>six</kanji>), so you can remember the meaning of this kanji.",
+    "reading_mnemonic": "Whenever we need to remember the reading ろく we just use the word <reading>rock</reading>. \n\nSo, think about the devil and the devil's number. What is often associated with those things? Why, <reading>rock</reading> (ろく) and roll is. Imagine the lid-head fin-legged beast suddenly blasting out rock music in the middle of his destructive mayhem.",
+    "reading_hint": "Sing along with the monster, if it helps you to remember the reading of this kanji.",
+    "lesson_position": 44,
+    "spaced_repetition_system_id": 2
+}

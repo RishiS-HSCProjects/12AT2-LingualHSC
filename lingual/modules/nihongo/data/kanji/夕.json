@@ -1,0 +1,39 @@
+{
+    "created_at": "2012-02-28T23:36:17.000000Z",
+    "level": 2,
+    "slug": "夕",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%A4%95",
+    "characters": "夕",
+    "meanings": [
+        {
+            "meaning": "Evening",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "ゆう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        33
+    ],
+    "amalgamation_subject_ids": [
+        2511,
+        4119,
+        6173
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>evening</radical> radical and the <kanji>evening</kanji> kanji are the same. If you know the radical you know the meaning of the kanji.",
+    "meaning_hint": "Do what you're meant to do. Study those radicals!",
+    "reading_mnemonic": "The <kanji>evening</kanji> is when all the <reading>you</reading>ths (ゆう) come outside to play.",
+    "reading_hint": "Young people love staying up the entire evening doing youth-people things, and it's really obnoxious for us curmudgeonly folk.\n\nNote: All the ゆう readings will use the word \"youths\" as a keyword for the mnemonic, so bear that in mind for any future ゆう reading you'll encounter.",
+    "lesson_position": 36,
+    "spaced_repetition_system_id": 2
+}

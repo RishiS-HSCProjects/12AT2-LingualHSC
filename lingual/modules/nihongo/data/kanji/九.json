@@ -1,0 +1,60 @@
+{
+    "created_at": "2012-02-27T22:33:25.000000Z",
+    "level": 1,
+    "slug": "九",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E4%B9%9D",
+    "characters": "九",
+    "meanings": [
+        {
+            "meaning": "Nine",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "9",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "く",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "きゅう",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "ここの",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        11
+    ],
+    "amalgamation_subject_ids": [
+        2471,
+        2472,
+        2864,
+        7614
+    ],
+    "visually_similar_subject_ids": [
+        467,
+        447
+    ],
+    "meaning_mnemonic": "Nice! This kanji is the same as the radical that looks just like it (down to the meaning, even!). The radical is <radical>nine</radical> and the kanji is <kanji>nine</kanji>, making the meaning of this kanji really easy to remember as long as you know the radical first.",
+    "meaning_hint": "If you know your radicals well, this kanji will be a breeze!",
+    "reading_mnemonic": "Although this kanji has two on'yomi to learn, the pronunciations of those two on'yomi are very similar, so that should make them easier to remember.\n\nWhen you were <kanji>nine</kanji> your favorite foods were <reading>coo</reading>kies (く) and <reading>cu</reading>cumbers (きゅう). Yum yum!",
+    "reading_hint": "Picture nine-year-old you, lining up nine cookies and nine cucumbers. You dip a cookie in milk and bite into it, then dip a cucumber in and take a bite. Nine bites each until they're all gone. Ah, you miss being nine.",
+    "lesson_position": 27,
+    "spaced_repetition_system_id": 2
+}

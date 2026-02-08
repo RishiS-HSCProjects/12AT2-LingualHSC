@@ -1,0 +1,67 @@
+{
+    "created_at": "2012-03-27T06:45:19.000000Z",
+    "level": 7,
+    "slug": "教",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%95%99",
+    "characters": "教",
+    "meanings": [
+        {
+            "meaning": "Teach",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "きょう",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "おし",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "おそ",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        418,
+        60
+    ],
+    "amalgamation_subject_ids": [
+        2971,
+        2972,
+        3286,
+        3730,
+        4145,
+        4196,
+        4608,
+        4929,
+        5225,
+        7476,
+        7572,
+        7712,
+        8045,
+        9240,
+        9285
+    ],
+    "visually_similar_subject_ids": [
+        1034,
+        703
+    ],
+    "meaning_mnemonic": "A <radical>teacher</radical> in <radical>winter</radical> is happiest because they get to <kanji>teach</kanji>! The kids can't go out and play because it's too cold. They all have to come in and stay warm as the teacher teaches!",
+    "meaning_hint": "Picture a teacher excitedly teaching, bundled up in the cold. Snow falling outside. Grumpy children being taught inside.",
+    "reading_mnemonic": "Teachers can teach the most about Japan in winter by going to <reading>きょう</reading>と. きょうと is where all the old temples and history of Japan is centered. And it's really gorgeous when it snows.",
+    "reading_hint": "Imagine the teaching teacher teaching you about Japan in きょうと in winter. You've always wanted to go to きょうと!",
+    "lesson_position": 48,
+    "spaced_repetition_system_id": 1
+}

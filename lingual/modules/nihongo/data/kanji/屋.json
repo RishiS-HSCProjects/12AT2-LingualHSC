@@ -1,0 +1,78 @@
+{
+    "created_at": "2012-04-23T23:39:59.000000Z",
+    "level": 9,
+    "slug": "屋",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B1%8B",
+    "characters": "屋",
+    "meanings": [
+        {
+            "meaning": "Roof",
+            "primary": true,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Shop",
+            "primary": false,
+            "accepted_answer": true
+        },
+        {
+            "meaning": "Store",
+            "primary": false,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Room",
+            "type": "blacklist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "や",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "おく",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        37,
+        1,
+        140,
+        17
+    ],
+    "amalgamation_subject_ids": [
+        3117,
+        3118,
+        3119,
+        3120,
+        3121,
+        3122,
+        3330,
+        5100,
+        5104,
+        5192,
+        6415,
+        7149,
+        7577,
+        7808,
+        8063
+    ],
+    "visually_similar_subject_ids": [
+        635,
+        2313
+    ],
+    "meaning_mnemonic": "You plant a <radical>flag</radical> in the <radical>ground</radical>, marking your <radical>private</radical> patch of <radical>dirt</radical>. In this spot you raise a <kanji>roof</kanji>, then fill the space beneath it with some <kanji>shop</kanji>s and <kanji>store</kanji>s.",
+    "meaning_hint": "That's the natural next progression of claiming some land. Building a roof upon it and building some shops and stores inside. You'll see why in a moment.",
+    "reading_mnemonic": "The <kanji>roof</kanji> covering the dirt is there so that the <reading>Ya</reading>nkees (や) can play baseball year round. The <kanji>store</kanji>s and <kanji>shop</kanji>s are there to sell hot dogs and Yankees memorabilia.",
+    "reading_hint": "You have yourself a whole Yankees stadium, and all it took was a roof and some shops and stores! If you build it, they will come.",
+    "lesson_position": 41,
+    "spaced_repetition_system_id": 1
+}

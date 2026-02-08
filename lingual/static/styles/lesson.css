@@ -138,23 +138,34 @@ body {
     margin-bottom: 1rem;
     padding: 1.25rem 1rem;
     border-radius: var(--radius-round);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-soft);
     text-align: center;
     font-size: 1.125rem;
     border: 1px solid var(--border-subtle);
+    transition: transform var(--transition-base);
+}
+
+#lesson-container .block:hover {
+    transform: translateY(-2px);
 }
 
 #lesson-container .block.blockquote {
-    background: linear-gradient(135deg, var(--bg-surface-muted) 0%, var(--bg-surface) 100%);
+    background: linear-gradient(135deg, #fbfffc 0%, var(--bg-surface) 100%);
     border-color: var(--border-subtle);
     color: var(--color-primary);
 }
 
 #lesson-container .block.warning {
-    background-color: #FFF8E1;
-    border-color: #FFB84D;
-    box-shadow: var(--shadow-soft);
+    background: linear-gradient(135deg, #fffef9 0%, var(--bg-surface) 100%);
+    border-color: var(--border-subtle);
     color: var(--color-primary);
+}
+
+#lesson-container .block.subject {
+    background: linear-gradient(135deg, #f3fbff 0%, var(--bg-surface) 100%);
+    border-color: var(--border-subtle);
+    color: var(--color-primary);
+    font-size: 1.05rem;
 }
 
 /* || Tables */
@@ -317,6 +328,8 @@ body {
     transform: rotate(180deg);
 }
 
+/* || Responsive Breakpoints */
+/* See https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 @media (max-width: 1024px) {
     #directory-panel {
         width: 75vw;

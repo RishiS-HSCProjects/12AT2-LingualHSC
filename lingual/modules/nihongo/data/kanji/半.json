@@ -1,0 +1,55 @@
+{
+    "created_at": "2012-03-01T03:50:42.000000Z",
+    "level": 3,
+    "slug": "半",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%8D%8A",
+    "characters": "半",
+    "meanings": [
+        {
+            "meaning": "Half",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "はん",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "onyomi"
+        },
+        {
+            "reading": "なか",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        8765,
+        61
+    ],
+    "amalgamation_subject_ids": [
+        2597,
+        2624,
+        2960,
+        4671,
+        5062,
+        5463,
+        6895,
+        8899
+    ],
+    "visually_similar_subject_ids": [
+        1685,
+        1127,
+        535
+    ],
+    "meaning_mnemonic": "A <radical>triceratops</radical> is lying out to <radical>dry</radical>. But it's so big, and it's lying on its side, so only <kanji>half</kanji> of it gets dry.",
+    "meaning_hint": "Imagine the triceratops on its side, then imagine it getting up. When it stands up normally, half of its body is soaking wet still. It's a half-n-half triceratops right now.",
+    "reading_mnemonic": "\"You're half wet and half dry! I will cut you in <kanji>half</kanji> with my laser blaster so you're proper again,\" a voice says. It is  <reading>Han</reading> Solo (はん), the anti-establishment guy who hates when things aren't even.",
+    "reading_hint": "Imagine him using his blaster to shoot the poor triceratops in half, perfectly down the wet-dry line of its body.",
+    "lesson_position": 50,
+    "spaced_repetition_system_id": 1
+}

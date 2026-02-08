@@ -1,0 +1,85 @@
+{
+    "created_at": "2012-03-08T23:44:41.000000Z",
+    "level": 3,
+    "slug": "明",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E6%98%8E",
+    "characters": "明",
+    "meanings": [
+        {
+            "meaning": "Bright",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [],
+    "readings": [
+        {
+            "reading": "あ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "めい",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "みょう",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        },
+        {
+            "reading": "あか",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "あき",
+            "primary": false,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        }
+    ],
+    "component_subject_ids": [
+        357
+    ],
+    "amalgamation_subject_ids": [
+        2895,
+        2896,
+        3022,
+        3848,
+        3947,
+        4037,
+        4062,
+        4350,
+        5339,
+        5934,
+        6147,
+        6445,
+        6568,
+        6570,
+        6682,
+        7130,
+        7219,
+        7258,
+        7823,
+        7848,
+        9258,
+        9274,
+        9288,
+        9372,
+        9375
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>bright</radical> radical and the <kanji>bright</kanji> kanji are the same!",
+    "meaning_hint": "If you already know the radical, this one's a freebie. That should make your day a little brighter, hm?",
+    "reading_mnemonic": "What do you say when you see something <kanji>bright</kanji>? \"<reading>Ah</reading> (あ)!\" Like when you open the curtain and the sunshine hits your eyes, or someone shines a flashlight right into your face. Ahhhh, so bright!",
+    "reading_hint": "You might also say \"Ah!\" when you come up with a bright idea, like in those light bulb moments.",
+    "lesson_position": 54,
+    "spaced_repetition_system_id": 1
+}

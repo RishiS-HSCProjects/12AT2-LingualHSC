@@ -1,0 +1,62 @@
+{
+    "created_at": "2012-02-28T01:59:43.000000Z",
+    "level": 1,
+    "slug": "川",
+    "hidden_at": null,
+    "document_url": "https://www.wanikani.com/kanji/%E5%B7%9D",
+    "characters": "川",
+    "meanings": [
+        {
+            "meaning": "River",
+            "primary": true,
+            "accepted_answer": true
+        }
+    ],
+    "auxiliary_meanings": [
+        {
+            "meaning": "Stream",
+            "type": "whitelist"
+        },
+        {
+            "meaning": "Brook",
+            "type": "whitelist"
+        }
+    ],
+    "readings": [
+        {
+            "reading": "かわ",
+            "primary": true,
+            "accepted_answer": true,
+            "type": "kunyomi"
+        },
+        {
+            "reading": "せん",
+            "primary": false,
+            "accepted_answer": false,
+            "type": "onyomi"
+        }
+    ],
+    "component_subject_ids": [
+        21
+    ],
+    "amalgamation_subject_ids": [
+        2506,
+        3993,
+        4620,
+        5495,
+        5978,
+        6117,
+        6930,
+        7073,
+        7413,
+        9120,
+        9174
+    ],
+    "visually_similar_subject_ids": [],
+    "meaning_mnemonic": "The <radical>river</radical> radical and the <kanji>river</kanji> kanji are the same as each other!",
+    "meaning_hint": "So, if you know the radical you know the kanji as well.",
+    "reading_mnemonic": "You're standing next to a <kanji>river</kanji> that's actually used as a <reading>ca</reading>r <reading>wa</reading>sh (かわ). ",
+    "reading_hint": "Imagine standing by the river, watching all those cars floating by. They start off really dirty, but the river washes them all clean.",
+    "lesson_position": 42,
+    "spaced_repetition_system_id": 2
+}
