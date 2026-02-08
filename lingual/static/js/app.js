@@ -197,6 +197,7 @@ function initHelpTooltips() {
         } else {
             // Icon is hidden, attach tooltip directly
             target.style.cursor = 'help'; // Change cursor to indicate help is available even without an icon
+            target.tabIndex = 0; // Make the target element focusable for accessibility
             target.appendChild(tooltip);
         }
     });

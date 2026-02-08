@@ -105,7 +105,7 @@ class Kanji:
     @property
     def type(self) -> KanjiType:
         """ Returns the type of the kanji (ACTIVE, RECOGNITION, or PASSIVE). """
-        type = self.data.get("type", KanjiType.PASSIVE.value).lower()
+        type = self.data.get("type", KanjiType.PASSIVE.name).lower()
         return KanjiType(type) if type in KanjiType._value2member_map_ else KanjiType.PASSIVE
 
     def get_primary_meaning(self) -> str:

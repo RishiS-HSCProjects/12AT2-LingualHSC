@@ -209,9 +209,10 @@ def kanji_lookup(kanji_char):
     try:
         kanji = Kanji.get_kanji(kanji_char)
     except KeyError:
+        current_app.logger.error("WaniKani API key not configured.")
         abort(503, description="WaniKani API key not configured.")
     except Exception as e:
-        abort(502, description=f"Failed to fetch kanji data: {e}")
+        abort(400, description=f"Failed to fetch kanji data: {e}")
 
     return jsonify({"status": "ready", "data": kanji.data})
 
