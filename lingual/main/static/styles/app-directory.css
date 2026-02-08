@@ -109,3 +109,48 @@ p.no-languages-text {
     margin-top: 28px;
     text-align: center;
 }
+
+/* || Responsive Breakpoints */
+
+@media (max-width: 900px) {
+    #page-container {
+        width: 92%;
+        padding: 36px 0;
+    }
+
+    #page-container h1 {
+        font-size: 2rem;
+        margin-bottom: 32px;
+    }
+
+    .app-directory {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    #page-container {
+        width: 95%;
+        padding: 28px 0;
+    }
+
+    #page-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .app-directory {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .app-directory .app-card {
+        max-width: none;
+        width: 100%;
+        padding: 16px 18px;
+    }
+
+    .app-directory .app-card .app-logo-container {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+}

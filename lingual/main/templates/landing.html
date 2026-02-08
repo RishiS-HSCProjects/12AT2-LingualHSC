@@ -16,16 +16,17 @@
 <header>
     <nav>
         <a href="{{ url_for('main.landing') }}" id="logo">Lingual HSC</a>
+        <div id="nav-menu">
+            <ul id="nav-links">
+                {% if not current_user.is_authenticated %}
+                <li class="taster"><a href="">Get a FREE Taster!</a></li>
+                {% endif %}
+                <li><a onclick="whyUsScroll()">For HSC Students</a></li>
+                <li><a onclick="purposeScroll()">About Lingual</a></li>
+            </ul>
 
-        <ul id="nav-links">
-            {% if not current_user.is_authenticated %}
-            <li class="taster"><a href="">Get a FREE Taster!</a></li>
-            {% endif %}
-            <li><a onclick="whyUsScroll()">For HSC Students</a></li>
-            <li><a onclick="purposeScroll()">About Lingual</a></li>
-        </ul>
-
-        <a href="{{ url_for('main.app') }}" id="get-started-btn">{% if current_user.is_authenticated %}Go to App{% else %}Get Started{% endif %}</a>
+            <a href="{{ url_for('main.app') }}" id="get-started-btn">{% if current_user.is_authenticated %}Go to App{% else %}Get Started{% endif %}</a>
+        </div>
     </nav>
 </header>
 {% endblock header %}

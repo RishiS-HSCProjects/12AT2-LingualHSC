@@ -80,6 +80,17 @@
     transition: opacity 0.5s ease-in-out;
 }
 
+@media (max-width: 600px) {
+    #flash-container {
+        right: 0.75rem;
+        left: 0.75rem;
+    }
+
+    #flash-container .flash-message {
+        width: min(20rem, 90vw);
+    }
+}
+
 /* || Data Help Tooltips */
 
 .help-host {
