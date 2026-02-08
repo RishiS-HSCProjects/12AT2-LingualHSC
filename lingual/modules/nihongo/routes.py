@@ -1,7 +1,10 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, session, url_for
+from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, url_for
 from flask_login import current_user, login_required
+from markupsafe import Markup
+from lingual import db
+from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils.lesson_processor import get_processor
 
@@ -72,6 +75,7 @@ def home():
                     link="#"
                 )
             ],
+            on_click=url_for('nihongo.kanji')
         ),
     )
 
@@ -87,6 +91,7 @@ def home():
     # Ensure the user's Japanese stats are created if they don't exist
     if not current_user.get_language_stats(lang_code):
         current_user.create_language_stats(lang_code)
+        db.session.commit()
 
     recent.add_items(
         ItemBox(
@@ -184,5 +189,20 @@ def get_quizzes(lesson_slug):
 @nihongo_bp.route('/kanji/')
 @login_required
 def kanji():
-    from lingual.modules.nihongo.utils.kanji_processor import Kanji
-    return render_template('kanji.html', prescribed = Kanji.get_prescribed_kanji(), kanji_cls = Kanji)
+    return render_template('kanji.html', prescribed=Kanji.get_prescribed_kanji())
+
+@nihongo_bp.route('/kanji/api/prefetch', methods=['POST'])
+@login_required
+def kanji_prefetch():
+    """ Reserved for client-side prefetch. """
+    return jsonify({"status": "ok"})
+
+@nihongo_bp.route('/kanji/api/<kanji_char>', methods=['GET'])
+@login_required
+def kanji_lookup(kanji_char):
+    """ Retrieves kanji data for a specific kanji character. If not cached, starts a background fetch. """
+    if not kanji_char or kanji_char.isspace():
+        abort(400, description="Invalid kanji.")
+
+    kanji = Kanji.get_kanji(kanji_char)
+    return jsonify({"status": "ready", "data": kanji.data})

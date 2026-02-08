@@ -20,12 +20,14 @@
 </div>
 {% endmacro %}
 
+{% load sanitise %}
+
 {# Section Renderer #}
 {% macro home_section(section) %}
 {% if section.__class__.__name__ == "HomeBanner" %}
     {# Render banner outside regular section container for full width #}
     <div class="home-banner">
-        {{ section.content | safe }}
+        {{ section.content | sanitise | safe }}
     </div>
 {% else %}
     <div class="home-section">
@@ -43,8 +45,6 @@
 {% endif %}
 {% endmacro %}
 
-
-
 {# Item Renderer #}
 {% macro home_item(item) %}
     {% if item.__class__.__name__ == "ItemParagraph" %}
@@ -60,34 +60,30 @@
     {% endif %}
 {% endmacro %}
 
-
-
 {# Paragraph Renderer #}
 {% macro home_item_paragraph(item) %}
 <div class="home-item home-item-paragraph">
-    {{ item.content | safe }}
+    {{ item.content | sanitise | safe }}
 </div>
 {% endmacro %}
 
-
-
 {# Box Renderer #}
 {% macro home_item_box(item) %}
-<div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %}onclick="redirectTo('{{ item.on_click }}')" {% endif %}>
+    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click|tojson }}')" {% endif %}>
 
     {% if item.title %}
-        <h3 class="box-title">{{ item.title }}</h3>
+        <h3 class="box-title">{{ item.title | sanitise | safe }}</h3>
     {% endif %}
 
     {% if item.body %}
-        <p class="box-body">{{ item.body }}</p>
+        <p class="box-body">{{ item.body | sanitise | safe }}</p>
     {% endif %}
 
     {% if item.buttons %}
         <div class="box-buttons">
             {% for btn in item.buttons %}
                 <a class="box-button" href="{{ btn.link }}">
-                    {{ btn.text }}
+                    {{ btn.text | sanitise | safe }}
                 </a>
             {% endfor %}
         </div>

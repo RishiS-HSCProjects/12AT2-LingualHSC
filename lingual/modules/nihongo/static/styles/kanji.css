@@ -63,12 +63,13 @@
 	place-items: center;
 	box-shadow: var(--shadow-card);
 	cursor: pointer;
+	user-select: none;
 	opacity: 0;
 	transform: translateY(10px) scale(0.98);
 	transition: transform var(--kanji-transition), box-shadow var(--kanji-transition),
-		border-color var(--kanji-transition), background-color var(--kanji-transition),
-		opacity 0.4s ease;
-	will-change: transform;
+				border-color var(--kanji-transition), background-color var(--kanji-transition),
+				opacity 0.4s ease;
+	will-change: transform; /* Hint to the browser that the transform property will change, improving animation performance */
 }
 
 .kanji-block.is-visible {
@@ -116,7 +117,10 @@
 	border: 1px solid var(--border-subtle);
 	box-shadow: var(--shadow-soft);
 	transform: translateX(30px);
-	transition: flex-basis 0.45s ease, width 0.45s ease, opacity 0.3s ease, transform 0.45s ease;
+	transition: flex-basis 0.45s ease,
+				width 0.45s ease,
+				opacity 0.3s ease,
+				transform 0.45s ease;
 	height: 100%;
 	overflow-y: auto;
 }
@@ -236,6 +240,9 @@
 	}
 }
 
+/*  Inline Github Copilot suggestion
+	Possibly look into more accessibility features in the future.
+*/
 @media (prefers-reduced-motion: reduce) {
 	.kanji-block,
 	.kanji-char,

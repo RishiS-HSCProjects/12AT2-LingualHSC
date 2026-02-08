@@ -55,20 +55,9 @@
 {% endblock %}
 
 {% macro kanji_block(k, category, index) %}
-    {% set kanji_data = kanji_cls.get_kanji(k) %} {# Kanji data object #}
-
-    {# Extract relevant data for the data attributes #}
-    {# Attempt to use dot notation, but fallback to dict access if it fails #}
-    {# map(attribute=XYZ) extracts the 'XYZ' attribute from each item in the list #}
-    {% set meanings = kanji_data.meanings | map(attribute='meaning') | list %}
-    {% set onyomi = kanji_data.on_readings | map(attribute='reading') | list %}
-    {% set kunyomi = kanji_data.kun_readings | map(attribute='reading') | list %}
     <div class="kanji-block"
         data-kanji="{{ k }}"
-        data-primary="{{ kanji_data.get_primary_meaning() }}"
-        data-meanings='{{ meanings | tojson }}'
-        data-onyomi='{{ onyomi | tojson }}'
-        data-kunyomi='{{ kunyomi | tojson }}'
+        data-loaded="false"
         data-category="{{ category.name }}"
         style="--kanji-delay: {{ index * 18 }}ms;">
         <div class="kanji-char">{{ k }}</div>

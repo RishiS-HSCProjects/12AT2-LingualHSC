@@ -1,6 +1,5 @@
 import os
 import json
-from flask import current_app
 import requests
 from pathlib import Path
 from enum import Enum
@@ -11,9 +10,8 @@ from enum import Enum
 # and to avoid hitting rate limits on a shared API key.
 WANIKANI_API_KEY = os.getenv("WANIKANI_API_KEY", None)
 
-# Raise an error if the WANIKANI_API_KEY is not set in environment variables
-if WANIKANI_API_KEY is None:
-    raise KeyError("WANIKANI_API_KEY environment variable not set.")
+# Checker for API key validity.
+CHECK_KEY = lambda: (_ for _ in ()).throw(KeyError("WANIKANI_API_KEY environment variable not set.")) if WANIKANI_API_KEY is None else None
 
 # Base URL for the WaniKani Kanji API
 API_URL = "https://api.wanikani.com/v2/subjects?types=kanji&slugs={kanji}"
@@ -21,6 +19,7 @@ API_URL = "https://api.wanikani.com/v2/subjects?types=kanji&slugs={kanji}"
 # Data directory where kanji information is stored locally
 DATA_DIRECTORY = Path(__file__).parent.parent / "data" / "kanji"
 DATA_DIRECTORY.mkdir(parents=True, exist_ok=True)
+
 
 class Kanji:
     """Represents a Kanji character with associated information fetched from the WaniKani API."""
@@ -85,10 +84,20 @@ class Kanji:
 
     @staticmethod
     def _fetch_kanji_data(kanji: str) -> dict:
+        """
+        Fetches kanji data from the WaniKani API and stores it locally.
+        """
+
+        CHECK_KEY() # Ensure API key is set
+
         response = requests.get(
-            API_URL.format(kanji=kanji),
-            headers={"Authorization": f"Bearer {WANIKANI_API_KEY}"}
+            API_URL.format(kanji=kanji), # Use formatted URL to query specific kanji
+            headers={"Authorization": f"Bearer {WANIKANI_API_KEY}"}, # Add API key
+            timeout=10 # Timeout to prevent hanging if the API is unresponsive.
         )
+
+        if not response.ok:
+            raise Exception(f"Kanji request failed ({response.status_code}) for '{kanji}'.")
 
         data = response.json()
 
@@ -107,17 +116,26 @@ class Kanji:
 
         return kanji_data
 
+    @staticmethod
+    def get_cached_kanji(kanji: str) -> "Kanji":
+        """
+        Retrieves a cached Kanji object without hitting the API.
+        """
+
+        file_path = DATA_DIRECTORY / f"{kanji}.json"
+
+        if not Kanji.is_cache_available(kanji):
+            raise FileNotFoundError(f"Kanji '{kanji}' not cached")
+
+        with open(file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        return Kanji(kanji, data)
 
     @staticmethod
     def get_kanji(kanji: str) -> "Kanji":
         """
-        Retrieves kanji data, either from local storage or by fetching it from the WaniKani API.
-
-        Args:
-            kanji (str): The kanji character to retrieve.
-
-        Returns:
-            Kanji: The Kanji object with all associated data.
+        Retrieves a Kanji object, fetching data if not cached.
         """
 
         file_path = DATA_DIRECTORY / f"{kanji}.json"

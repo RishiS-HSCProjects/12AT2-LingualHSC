@@ -27,8 +27,16 @@ Remember, ら is used when the result is not automatic or inevitable.
 :::blockquote Adjective (past-tense) + ら + outcome/choice :::
 
 - 暑[あつ]かっ**たら**、プールに行きます → If it is hot, I will go to the pool.
-- 静[しず]か**ら**、としょかんで勉[べん]強[きょう]します → When it is quiet, I study in the library.
+- 静[しず]か**だったら**、としょかんで勉[べん]強[きょう]します → When it is quiet, I study in the library.
 - 便利[べんり]じゃなかっ**たら**、使[つか]いません。 → If it is not convenient, I will not use it.
+
+/t The use of なら in these sentences can change the nuance of it. \
+
+For example, the last sentence could be rephrased using なら as:
+
+:::subject 便[べん]利[り]じゃな<strong>いなら</strong>、使[つか]いません → If it is not convenient, I will not use it. :::
+
+This implies that the choice of not using it is an automatic consequence of the condition of it not being convenient, compared to a person's choice in the original sentence using ら.
 
 ## たら vs なら
 Both たら and なら can be used to express conditional statements, but they have different nuances and usage contexts:
@@ -44,9 +52,9 @@ Both たら and なら can be used to express conditional statements, but they h
     - For example, if you want to say "If you are tired, you should rest," you would say: 疲[つか]れたなら、休んだほうがいいですよ。
     - In this case, なら is used because the speaker is making a suggestion based on the condition of being tired, which is a general assumption that can apply to anyone.
 
-なら can be attached to nouns and な-adjectives, while たら cannot. For example:
+With な-adjectives and nouns, use the copula (だったら/じゃなかったら for たら, or なら). For example:
 - 静[しず]か**なら**、としょかんで勉[べん]強[きょう]します → If it is quiet, I study in the library.
-- 静[しず]か**たら**、としょかんで勉[べん]強[きょう]します → This sentence is incorrect because たら cannot be attached to な-adjectives.
+- 静[しず]か**だったら**、としょかんで勉[べん]強[きょう]します → If it is quiet, I will study in the library.
 
 # Using 〜と
 
@@ -87,3 +95,4 @@ Remember, と is used when the result is automatic or inevitable.
 - 学生[がくせい] → 学生なら
 
 /t ば is not always necessary after なら for nouns and な-adjectives. \
+

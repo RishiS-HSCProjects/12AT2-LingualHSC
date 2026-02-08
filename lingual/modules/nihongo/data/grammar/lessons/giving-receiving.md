@@ -20,7 +20,7 @@ summary: Learn how to use the ～てくれる construction in Japanese to acknow
 # You/Others Receiving
 
 - もらいます → To receive
-- いただきます → To recieve (formal)
+- いただきます → To receive (formal)
 
 /t いただきます is also used before eating to thank the person who made the meal. \
 
@@ -37,7 +37,8 @@ summary: Learn how to use the ～てくれる construction in Japanese to acknow
 /i ～てさしあげます is used when the receiver is senior to the person giving \
 /i ～てやります is used when the receiver is an animal, plant, or someone younger. \
 
-/w Using てあげます can sound moastful and therefore should be avoided. \
+/w Using てあげます can sound boastful and therefore should be avoided. \
+
 In Japanese, it is not appropriate to emphasise the fact that you are doing a favour for someone. If you want to talk about something you did for someone else, simply use the verb is standard form.
 
 For example, using 料[りょう]理[り]しました rather than 料[りょう]理[り]してあげました.

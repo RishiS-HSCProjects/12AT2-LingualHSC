@@ -87,12 +87,13 @@ class User(UserMixin, db.Model):
                 # If not found, create new stats for the user
                 japanese_stats = JapaneseStats(user_id=self.id) # type: ignore
                 db.session.add(japanese_stats) # Add to session so it gets an ID
-                db.session.commit() # Commit the changes to the database
 
     def remove_language_stats(self, language_code: str):
         # Dynamically remove stats for any language
-        if language_code == "jp" and hasattr(self, "jp_stats"):
-            db.session.delete(self.jp_stats)  # type: ignore
+        if language_code == "jp":
+            jp_stats = getattr(self, "jp_stats", None)
+            if jp_stats is not None:
+                db.session.delete(jp_stats)  # type: ignore[arg-type]
 
     def get_language_stats(self, language_code: str):
         if not Languages.get_language_by_code(language_code):  # Validate language code
@@ -155,16 +156,6 @@ class LanguageStatsBase(db.Model):
 class JapaneseStats(LanguageStatsBase):
     __tablename__ = "jp_stats"
 
-    # recent_new_kanji will store the list of kanji characters the user has recently added
-    # to their learned list which they haven't learned before. The order is static, showing
-    # the most recently added kanji at the end of the list.
-    kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list)
-
-    # kanji_practised will store the list of kanji characters the user has practiced,
-    # in the order they were last practiced. This allows features like "review old kanji"
-    # or "see recently practiced kanji".
-    kanji_practised: Mapped[list[str]] = mapped_column(JSON, default=list)
-
     # Relationship back to User
     user = db.relationship(
         "User",
@@ -175,6 +166,16 @@ class JapaneseStats(LanguageStatsBase):
         )
     )
 
+    # recent_new_kanji will store the list of kanji characters the user has recently added
+    # to their learned list which they haven't learned before. The order is static, showing
+    # the most recently added kanji at the end of the list.
+    kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list)
+
+    # kanji_practised will store the list of kanji characters the user has practiced,
+    # in the order they were last practiced. This allows features like "review old kanji"
+    # or "see recently practiced kanji".
+    kanji_practised: Mapped[list[str]] = mapped_column(JSON, default=list)
+
     def add_kanji_learned(self, kanji: str):
         """
         Add a kanji to the learned list if it's not already there.
@@ -182,7 +183,7 @@ class JapaneseStats(LanguageStatsBase):
         Results in the kanji being added to the end of the list, indicating it was recently learned.
         """
         if kanji not in self.kanji_learned:
-            self.kanji_learned.append(kanji)
+            self.kanji_learned = self.kanji_learned + [kanji]
 
     def remove_kanji_learned(self, kanji: str):
         """
@@ -192,7 +193,7 @@ class JapaneseStats(LanguageStatsBase):
             kanji (str): The kanji character to be removed from the learned list.
         """
         if kanji in self.kanji_learned:
-            self.kanji_learned.remove(kanji)
+            self.kanji_learned = [k for k in self.kanji_learned if k != kanji]
 
     def get_kanji_learned(self) -> list[str]:
         """
@@ -211,9 +212,8 @@ class JapaneseStats(LanguageStatsBase):
         Args:
             kanji (str): The kanji character to be added to the practiced list.
         """
-        if kanji in self.kanji_practised:
-            self.kanji_practised.remove(kanji)
-        self.kanji_practised.append(kanji)
+        practised_list = [k for k in self.kanji_practised if k != kanji]
+        self.kanji_practised = practised_list + [kanji]
 
     def remove_kanji_practised(self, kanji: str):
         """
@@ -223,7 +223,7 @@ class JapaneseStats(LanguageStatsBase):
             kanji (str): The kanji character to be removed from the practiced list.
         """
         if kanji in self.kanji_practised:
-            self.kanji_practised.remove(kanji)
+            self.kanji_practised = [k for k in self.kanji_practised if k != kanji]
 
     def get_kanji_practised(self) -> list[str]:
         """
@@ -260,7 +260,7 @@ class JapaneseStats(LanguageStatsBase):
 
         Warning: This will remove all kanji from the practiced list!
         """
-        self.kanji_practised = []
+        self.kanji_practised = list()
 
     def clear_kanji(self):
         """
@@ -268,8 +268,8 @@ class JapaneseStats(LanguageStatsBase):
 
         Warning: This will remove all kanji from the learned list!
         """
-        self.kanji_learned = []
-        self.kanji_practised = []
+        self.kanji_learned = list()
+        self.kanji_practised = list()
 
     def to_dict(self) -> dict:
         return {

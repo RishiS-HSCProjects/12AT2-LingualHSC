@@ -1,12 +1,12 @@
 class HomeConfig:
     def __init__(self) -> None:
-        self.build: list["HomeSection"] = []
+        self.build: list["HomeSection | None"] = []
 
     def register_section(self, section: "HomeSection"):
-        """ Registers section to config in order of regisstion. """
+        """ Registers section to config in order of registration. """
         self.build.append(section)
 
-    def get_build(self) -> list["HomeSection"]:
+    def get_build(self) -> list["HomeSection | None"]:
         return self.build
 
     def add_separator(self):
@@ -57,7 +57,7 @@ class ItemBox(HomeItem):
         self,
         title: str,
         body: str,
-        buttons: list["ItemBox.BoxButton"] = [],
+        buttons: list["ItemBox.BoxButton"] = list(),
         on_click: str = None # type: ignore -> URL to open when box is clicked.
     ) -> None:
         super().__init__()
