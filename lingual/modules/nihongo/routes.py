@@ -5,7 +5,7 @@ from flask_login import current_user, login_required
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
-from lingual.modules.nihongo.utils.lesson_processor import get_processor
+from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,

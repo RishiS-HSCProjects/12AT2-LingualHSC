@@ -13,8 +13,13 @@ class NihongoLessonProcessor(BaseLessonProcessor):
     def __init__(self):
         from pathlib import Path
 
-        BASE_DIR = Path(__file__).resolve().parents[3]
-        DIR = BASE_DIR / "modules" / "nihongo" / "data" / "grammar"
+        # Go up 3 levels: grammar → utils → nihongo
+        BASE_DIR = Path(__file__).resolve().parents[1]
+
+        DIR = BASE_DIR / "data" / "grammar"
+
+        from flask import current_app
+        current_app.logger.debug(DIR)
 
         super().__init__(
             language = Languages.JAPANESE.obj(),
