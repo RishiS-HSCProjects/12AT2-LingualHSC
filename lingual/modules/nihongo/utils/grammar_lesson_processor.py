@@ -18,9 +18,6 @@ class NihongoLessonProcessor(BaseLessonProcessor):
 
         DIR = BASE_DIR / "data" / "grammar"
 
-        from flask import current_app
-        current_app.logger.debug(DIR)
-
         super().__init__(
             language = Languages.JAPANESE.obj(),
             data_root = DIR

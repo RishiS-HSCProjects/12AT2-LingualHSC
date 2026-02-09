@@ -68,4 +68,14 @@ def create_app():
     from lingual.utils.filters import init_app as init_filters
     init_filters(app)
 
+    import smtplib
+
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(Config.MAIL_USERNAME, Config.MAIL_PASSWORD)
+        print("SMTP connected successfully")
+    except Exception as e:
+        print("SMTP ERROR:", e)
+
     return app
