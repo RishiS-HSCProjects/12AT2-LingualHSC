@@ -76,7 +76,11 @@ Remember, と is used when the result is automatic or inevitable.
 
 :::blockquote Godan Verb (drop ます・う) + ば :::
 
+- 行きます → 行けば
+
 :::blockquote Ichidan Verb (drop ます・る) + れば :::
+
+- 食べる → 食べれば
 
 :::blockquote する → すれば :::
 :::blockquote 来[く]る → 来[く]れば :::
@@ -96,3 +100,8 @@ Remember, と is used when the result is automatic or inevitable.
 
 /t ば is not always necessary after なら for nouns and な-adjectives. \
 
+All negatives end in い. Thus, follow the same rule as the い-adjectives.
+
+:::blockquote ~ない (Remove い) + ければ :::
+
+高[たか]くない → 高[たか]くなければ → If it's not expensive / tall.

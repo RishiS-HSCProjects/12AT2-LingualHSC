@@ -74,7 +74,15 @@ def verify_email(reg = None):
 
     # Exit early if email verification is not required
     if not VERIFY_REQ:
-        return jsonify({"error": None}), 200
+        # This is a terrible idea for production code really.
+        # The only reason this is here is to allow for user
+        # testing via Render, which does not support SMTP
+        # email sending. I plan to migrate the mail service
+        # to another that supports Render in the future, 
+        # at which point this code will be removed.
+
+        # Documented on 8 Feb, 2026
+        return jsonify({"error": "Mail Service Disabled. OTP defaulted to 123456."}), 200
 
     # If email verification is required, send the OTP email
     def send_verification_email(app, email, otp):
@@ -182,6 +190,11 @@ def create_user(reg = None):
         user.set_password(password)  # Set password
         # Add new user to the database and commit
         db.session.add(user)
+
+        if reg_user.language:
+            db.session.flush() # Ensure user.id is available before creating stats
+            user.create_language_stats(reg_user.language)
+
         db.session.commit()
 
         current_app.logger.info(f"User created: {user.email}") # Log user creation event

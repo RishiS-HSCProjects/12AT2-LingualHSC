@@ -12,13 +12,18 @@ class NihongoLessonProcessor(BaseLessonProcessor):
 
     def __init__(self):
         from pathlib import Path
+
+        # Go up 3 levels: grammar → utils → nihongo
+        BASE_DIR = Path(__file__).resolve().parents[1]
+
+        DIR = BASE_DIR / "data" / "grammar"
+
         super().__init__(
             language = Languages.JAPANESE.obj(),
-            data_root=Path(__file__).resolve().parent.parent / "data" / "grammar"
+            data_root = DIR
         )
 
         self.add_transform(self.transform_furigana)
-
 
     # Transformers
     def transform_furigana(self, text: str) -> str:

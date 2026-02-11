@@ -17,10 +17,9 @@
 /* || Navigation */
 
 nav {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "logo nav-links get-started-btn";
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     background: #e4f5e6;
     height: var(--nav-height);
     padding: 0 2rem;
@@ -34,7 +33,6 @@ nav {
 }
 
 nav a#logo {
-    grid-area: logo;
     font-size: var(--font-nav-logo);
     font-weight: 700;
     margin: 0;
@@ -43,8 +41,15 @@ nav a#logo {
     letter-spacing: -0.02em;
 }
 
+nav #nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    margin-left: auto;
+}
+
 nav ul#nav-links {
-    grid-area: nav-links;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -63,7 +68,7 @@ nav ul#nav-links li a {
 }
 
 nav ul#nav-links li a:hover {
-    color: #5B7CFF;
+    color: #111524;
     cursor: pointer;
 }
 
@@ -81,7 +86,6 @@ nav ul#nav-links li.taster a:hover {
 }
 
 nav a#get-started-btn {
-    grid-area: get-started-btn;
     background: linear-gradient(90deg, rgba(162,226,159,0.5), rgba(21,182,13,0.5));
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
@@ -96,6 +100,73 @@ nav a#get-started-btn {
 nav a#get-started-btn:hover {
     background: linear-gradient(90deg, rgba(162,226,159,0.7), rgba(21,182,13,0.7));
     transform: scale(1.05);
+}
+
+nav #nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    border: none;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav #nav-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+}
+
+nav #nav-toggle svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+nav.nav-collapsed #nav-menu {
+    display: none;
+}
+
+nav.nav-collapsed #nav-toggle {
+    display: inline-flex;
+}
+
+nav.nav-collapsed.nav-open #nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    position: absolute;
+    top: calc(var(--nav-height) + 0.5rem);
+    right: 1rem;
+    left: 1rem;
+    padding: 0.75rem;
+    background: #e4f5e6;
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    z-index: calc(var(--z-index-nav) + 1);
+}
+
+nav.nav-collapsed.nav-open ul#nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+nav.nav-collapsed.nav-open ul#nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+}
+
+nav.nav-collapsed.nav-open a#get-started-btn {
+    width: 100%;
+    max-width: none;
 }
 
 /* || Landing Section */
@@ -207,4 +278,78 @@ section#welcome .cards .card:hover {
 
 #why-lingual {
     background: #fff0e4;
+}
+
+/* || Responsive Breakpoints */
+
+@media (max-width: 1024px) {
+    section#welcome {
+        padding: 4rem 8%;
+        align-items: center;
+        text-align: center;
+    }
+
+    section#welcome p.subtitle {
+        max-width: 100%;
+    }
+
+    section#welcome .cards {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 900px) {
+    nav {
+        padding: 1rem 1.25rem;
+    }
+
+    nav #nav-menu {
+        gap: 1.5rem;
+    }
+
+    section#welcome {
+        min-height: auto;
+        padding: 3.5rem 6% 4rem;
+    }
+
+    section#welcome h1 {
+        font-size: 2.4rem;
+    }
+
+    section#welcome .cards {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    section#welcome .cards .card {
+        width: 100%;
+        max-width: 20rem;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .info-section {
+        padding: 3.5rem 6%;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    section#welcome h1 {
+        font-size: 2rem;
+    }
+
+    section#welcome p.subtitle {
+        font-size: 1.1rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .info-section p {
+        font-size: 1.1rem;
+    }
 }

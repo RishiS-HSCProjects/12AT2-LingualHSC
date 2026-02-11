@@ -35,8 +35,8 @@ class Config:
 
     WANIKANI_API_KEY                =      os.getenv('WANIKANI_API_KEY', None)  # API key for WaniKani integration
 
-    SQLALCHEMY_DATABASE_URI         = f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}"
-    SQLALCHEMY_TRACK_MODIFICATIONS  = False
+    SQLALCHEMY_DATABASE_URI         =      os.getenv('SQLALCHEMY_DATABASE_URI', f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}")
+    SQLALCHEMY_TRACK_MODIFICATIONS  =      False
 
     SERVER_NAME = 'localhost:5000'  # Default to localhost for local development
     PREFERRED_URL_SCHEME = 'http'
