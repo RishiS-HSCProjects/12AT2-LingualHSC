@@ -80,7 +80,7 @@ Remember, と is used when the result is automatic or inevitable.
 
 :::blockquote Ichidan Verb (drop ます・る) + れば :::
 
-- 食べる → 食べられば
+- 食べる → 食べれば
 
 :::blockquote する → すれば :::
 :::blockquote 来[く]る → 来[く]れば :::
@@ -99,11 +99,6 @@ Remember, と is used when the result is automatic or inevitable.
 - 学生[がくせい] → 学生なら
 
 /t ば is not always necessary after なら for nouns and な-adjectives. \
-
-Godan: 行く → 行けば
-Ichidan: 食べる → 食べれば
-する → すれば
-来[く]る → 来[く]れば
 
 All negatives end in い. Thus, follow the same rule as the い-adjectives.
 
