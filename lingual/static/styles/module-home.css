@@ -62,6 +62,11 @@
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
+.home-item.disabled {
+    background-color: var(--bg-surface-muted);
+    cursor: default;
+}
+
 /* || Paragraph Item */
 .home-item-paragraph {
     padding: var(--padding-section);
@@ -98,7 +103,7 @@
 }
 
 /* || Box Title */
-.box-title {
+.home-item-box .box-title {
     font-size: var(--font-size-header-3);
     font-weight: 600;
     margin: 0 0 var(--gap-xsmall) 0;
@@ -107,7 +112,7 @@
 }
 
 /* || Box Body */
-.box-body {
+.home-item-box .box-body {
     flex: 1;
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
@@ -116,14 +121,14 @@
 }
 
 /* || Box Buttons Container */
-.box-buttons {
+.home-item-box .box-buttons {
     display: flex;
     gap: 0.75rem;
     margin-top: auto;
 }
 
 /* || Individual Box Button */
-.box-button {
+.home-item-box .box-button {
     flex: 1;
     padding: 0.75rem 1.25rem;
     background: var(--color-accent);
@@ -137,22 +142,27 @@
     box-shadow: 0 2px 4px rgba(91, 124, 255, 0.2);
 }
 
-.box-button:hover {
+.home-item-box.disabled .box-button {
+    background: gray;
+    cursor: default;
+}
+
+.home-item-box .home-item.disabled:not .box-button:hover {
     background: var(--color-accent-strong);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(91, 124, 255, 0.3);
 }
 
-.box-button:active {
+.home-item-box .box-button:active {
     transform: translateY(0);
 }
 
 /* Secondary button style (if needed) */
-.box-button.secondary {
+.home-item-box .box-button.secondary {
     background: var(--color-secondary);
 }
 
-.box-button.secondary:hover {
+.home-item-box .box-button.secondary:hover {
     background: var(--color-contrast);
 }
 
@@ -188,7 +198,7 @@
         font-size: var(--font-size-header-3);
     }
 
-    .box-buttons {
+    .home-item-box .box-buttons {
         flex-direction: row;
     }
 }
@@ -217,15 +227,15 @@
         padding: var(--padding-section);
     }
 
-    .box-title {
+    .home-item-box .box-title {
         font-size: var(--font-size-header-4);
     }
 
-    .box-buttons {
+    .home-item-box .box-buttons {
         flex-direction: column;
     }
 
-    .box-button {
+    .home-item-box .box-button {
         width: 100%;
     }
 }

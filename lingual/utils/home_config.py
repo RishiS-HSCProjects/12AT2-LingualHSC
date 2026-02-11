@@ -11,7 +11,6 @@ class HomeConfig:
 
     def add_separator(self):
         self.build.append(None) # type: ignore -> None elements become separators.
-    
 
 class HomeSection:
     def __init__(
@@ -37,12 +36,19 @@ class HomeBanner (HomeSection):
 class HomeItem :
     def __init__(self) -> None:
         self.classes: str = "" # Custom CSS classes to add to the item container.
+        self.disabled = False # Not disabled (no reason given)
 
     def add_classes(self, *classes: str) -> "HomeItem":
         self.classes += " " + " ".join(classes)
         return self
 
+    def set_disabled(self, reason: None|str = None, flash_category: str = "info"):
+        """ Disables item interactions """
+        self.add_classes('disabled')
+        if reason: self.disabled = (reason, flash_category) # Set disabled reason
+
 class ItemParagraph (HomeItem):
+    """ Paragraph element. (Can not be disabled) """
     content = ""
 
     def __init__(
@@ -58,15 +64,24 @@ class ItemBox(HomeItem):
         title: str,
         body: str,
         buttons: None | list["ItemBox.BoxButton"] = None,
-        on_click: str = None # type: ignore -> URL to open when box is clicked.
+        on_click: str = None, # type: ignore -> URL to open when box is clicked.
+        disabled_reason: str|None = None,
+        disabled_flash_category: str|None = None
     ) -> None:
         super().__init__()
         self.title = title
         self.body = body
         self.buttons: list["ItemBox.BoxButton"] = list(buttons) if buttons else []
-        self.on_click = on_click
+        if disabled_reason:
+            if disabled_flash_category:
+                self.set_disabled(disabled_reason, disabled_flash_category)
+            else:
+                self.set_disabled(disabled_reason)
+            self.on_click = None
+        else:
+            self.on_click = on_click
 
-        if on_click: self.add_classes("clickable")
+        if not disabled_reason and on_click: self.add_classes("clickable")
 
     class BoxButton:
         def __init__(self, text: str, link: str) -> None:

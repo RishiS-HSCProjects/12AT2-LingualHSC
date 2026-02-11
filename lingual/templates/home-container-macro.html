@@ -1,6 +1,7 @@
 <!-- Dependencies -->
 <!-- 
     - module-home.css
+    - module-home.js
 -->
 
 {% macro home(config) %}
@@ -66,7 +67,14 @@
 
 {# Box Renderer #}
 {% macro home_item_box(item) %}
-    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click }}')" {% endif %}>
+    <div
+        class="home-item home-item-box {{ item.classes }}"
+        {% if item.disabled %}
+            onclick="sendFlashMessage('{{ item.disabled[0] }}', '{{ item.disabled[1] }}'); "
+        {% elif item.on_click %}
+            onclick="redirectTo('{{ item.on_click }}')"
+        {% endif %}
+    >
 
     {% if item.title %}
         <h3 class="box-title">{{ item.title | sanitise | safe }}</h3>
