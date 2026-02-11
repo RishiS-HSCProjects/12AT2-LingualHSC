@@ -42,10 +42,12 @@ class HomeItem :
         self.classes += " " + " ".join(classes)
         return self
 
-    def set_disabled(self, reason: None|str = None, flash_category: str = "info"):
+    def set_disabled(self, reason: None|str = None, flash_category: str = "info") -> "HomeItem":
         """ Disables item interactions """
         self.add_classes('disabled')
         if reason: self.disabled = (reason, flash_category) # Set disabled reason
+
+        return self
 
 class ItemParagraph (HomeItem):
     """ Paragraph element. (Can not be disabled) """
@@ -73,10 +75,7 @@ class ItemBox(HomeItem):
         self.body = body
         self.buttons: list["ItemBox.BoxButton"] = list(buttons) if buttons else []
         if disabled_reason:
-            if disabled_flash_category:
-                self.set_disabled(disabled_reason, disabled_flash_category)
-            else:
-                self.set_disabled(disabled_reason)
+            self.set_disabled(disabled_reason, disabled_flash_category or "info")
             self.on_click = None
         else:
             self.on_click = on_click

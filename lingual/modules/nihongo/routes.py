@@ -64,6 +64,16 @@ def home():
         ItemBox(
             title="Vocab",
             body="Practice HSC Prescribed Vocabulary!",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
             disabled_reason="Vocab section coming soon!",
             disabled_flash_category="info"
         )

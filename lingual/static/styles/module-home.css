@@ -145,12 +145,7 @@
 .home-item-box.disabled .box-button {
     background: gray;
     cursor: default;
-}
-
-.home-item-box .home-item.disabled:not .box-button:hover {
-    background: var(--color-accent-strong);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(91, 124, 255, 0.3);
+    pointer-events: none;
 }
 
 .home-item-box .box-button:active {

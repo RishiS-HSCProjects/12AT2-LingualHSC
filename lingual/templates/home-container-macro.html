@@ -1,7 +1,6 @@
 <!-- Dependencies -->
 <!-- 
     - module-home.css
-    - module-home.js
 -->
 
 {% macro home(config) %}
@@ -70,9 +69,9 @@
     <div
         class="home-item home-item-box {{ item.classes }}"
         {% if item.disabled %}
-            onclick="sendFlashMessage('{{ item.disabled[0] }}', '{{ item.disabled[1] }}'); "
+            onclick="sendFlashMessage('{{ item.disabled[0] |e }}', '{{ item.disabled[1] |e }}'); "
         {% elif item.on_click %}
-            onclick="redirectTo('{{ item.on_click }}')"
+            onclick="redirectTo('{{ item.on_click |e }}')"
         {% endif %}
     >
 
