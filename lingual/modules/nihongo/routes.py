@@ -47,21 +47,6 @@ def home():
             on_click=url_for('nihongo.grammar')
         ),
         ItemBox(
-            title="Vocab",
-            body="yes Yes yes",
-            buttons=[
-                ItemBox.BoxButton(
-                text="Learn",
-                link="#"
-                ),
-                ItemBox.BoxButton(
-                    text="Quiz",
-                    link="#"
-                )
-            ],
-            on_click="#"
-        ),
-        ItemBox(
             title="Kanji",
             body="0/XX Kanjis Mastered",
             buttons=[
@@ -76,6 +61,22 @@ def home():
             ],
             on_click=url_for('nihongo.kanji')
         ),
+        ItemBox(
+            title="Vocab",
+            body="Practice HSC Prescribed Vocabulary!",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn",
+                link="#"
+                ),
+                ItemBox.BoxButton(
+                    text="Quiz",
+                    link="#"
+                )
+            ],
+            disabled_reason="Vocab section coming soon!",
+            disabled_flash_category="info"
+        )
     )
 
     config.register_section(quick_access)

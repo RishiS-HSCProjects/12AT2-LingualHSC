@@ -66,7 +66,14 @@
 
 {# Box Renderer #}
 {% macro home_item_box(item) %}
-    <div class="home-item home-item-box {{ item.classes }}" {% if item.on_click %} onclick="redirectTo('{{ item.on_click }}')" {% endif %}>
+    <div
+        class="home-item home-item-box {{ item.classes }}"
+        {% if item.disabled %}
+            onclick="sendFlashMessage('{{ item.disabled[0] |e }}', '{{ item.disabled[1] |e }}'); "
+        {% elif item.on_click %}
+            onclick="redirectTo('{{ item.on_click |e }}')"
+        {% endif %}
+    >
 
     {% if item.title %}
         <h3 class="box-title">{{ item.title | sanitise | safe }}</h3>
