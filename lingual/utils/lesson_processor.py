@@ -167,6 +167,10 @@ class BaseLessonProcessor:
         }
 
     def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
+        """ Loads all lessons and organizes them by category based on the map.json file.
+            Returns a list of dictionaries with category names and their corresponding lessons.
+            Each lesson includes its slug, title, summary, and plain text content for search indexing.
+        """
         lesson_slugs_path = self.data_root / "map.json"
 
         if lesson_slugs_path.exists():

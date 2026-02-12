@@ -1,4 +1,5 @@
-from enum import Enum, auto # Auto import required for childen to use auto() without importing it themselves.
+from enum import Enum, auto # Auto import required for childen to use auto() without importing it themselves.=
+from flask_wtf import FlaskForm
 
 class TypeEnum(Enum):
     """
@@ -35,3 +36,11 @@ class TypeEnum(Enum):
             This will be used in the quiz interface to give users more context about the quiz type.
             Override in subclasses if needed. """
         return ""
+
+    def get_modal(self) -> None | FlaskForm:
+        """ Method to return a modal form for quiz configuration.
+        Override in subclasses if specific configuration is needed for the quiz type.
+        If not overridden, preset Quizzes options will be selected with no way for
+        users to edit them.  
+        """
+        return None
