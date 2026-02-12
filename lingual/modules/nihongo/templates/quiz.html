@@ -1,0 +1,17 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = "Quiz" %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/quiz-page.css') }}">
+{% endblock %}
+
+{% block body %}
+{% from 'quiz-macros.html' import page %}
+{{ page(quiz_topics) }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

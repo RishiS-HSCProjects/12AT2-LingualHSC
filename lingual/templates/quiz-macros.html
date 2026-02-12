@@ -1,0 +1,28 @@
+<!-- Dependencies -->
+<!-- 
+    - quiz-page.css
+-->
+
+{% macro page(quiz_topics) %}
+    <div id="page-container">
+        <h1>Lingual Quizzes</h1>
+        <p>Test yourself by generating quizzes based on your preferences!</p>
+        <div id="topics">
+            <h2>Available Topics</h2>
+            <div class="topics">
+                {% for topic in quiz_topics %}
+                    <div class="topic">
+                        <div class="topic-info">
+                            <h3>{{ topic.label }}</h3>
+                            <p>{{ topic.description }}</p>
+                        </div>
+                        <div class="topic-actions">
+                            <p class="action-start">Start Quiz</p>
+                            <p class="action-view"><img src="{{ url_for('static', filename='assets/hamburger-menu.svg') }}" alt="View Options"></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

@@ -4,8 +4,6 @@
 
 {% block meta %}
 {{ super() }}
-<meta name="google" content="notranslate"> {# Prevent Google from offering translation for this page. #}
-
 <link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/kanji.css') }}">
 {% endblock %}
 

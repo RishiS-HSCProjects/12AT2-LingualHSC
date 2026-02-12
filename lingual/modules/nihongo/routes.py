@@ -1,3 +1,4 @@
+from functools import lru_cache
 import os
 import re
 from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, request, url_for
@@ -5,6 +6,7 @@ from flask_login import current_user, login_required
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
+from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
 
 nihongo_bp = Blueprint(
@@ -20,7 +22,19 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 
 @nihongo_bp.route('/')
 @login_required
+@lru_cache()
 def home():
+    # Since all of my home config setup data exists here,
+    # the config gets rebuilt every time the home route
+    # is accessed. This unnecessarily adds overhead to
+    # the application. I wanted to move this logic to run
+    # on compile, but this solution did not work since
+    # certain functions like url_for and attributes like
+    # and current_user can not be resolved outside of a
+    # Flask context, which it is during initialisation.
+    # As a result, I will use the lru_cache decorator,
+    # similar to the lesson caching.
+    # Documented on 12 Feb 2026
     from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
     from lingual.utils.languages import get_translatable
 
@@ -41,7 +55,7 @@ def home():
                 ),
                 ItemBox.BoxButton(
                     text="Quiz",
-                    link=url_for('nihongo.grammar')
+                    link = url_for('nihongo.quiz', type=quiz_utils.NihongoQuizTypes.GRAMMAR.name)
                 )
             ],
             on_click=url_for('nihongo.grammar')
@@ -56,7 +70,7 @@ def home():
                 ),
                 ItemBox.BoxButton(
                     text="Quiz",
-                    link="#"
+                    link = url_for('nihongo.quiz', type=quiz_utils.NihongoQuizTypes.KANJI.name)
                 )
             ],
             on_click=url_for('nihongo.kanji')
@@ -120,7 +134,11 @@ def home():
 
     config.register_section(recent)
 
-    return render_template('home.html', config=config)
+    def get_home_config() -> HomeConfig:
+        return config
+
+
+    return render_template('home.html', config=get_home_config())
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
@@ -235,3 +253,14 @@ def kanji_batch():
         data_map[kanji_char] = kanji.data
 
     return jsonify({"status": "ready", "data": data_map})
+
+@nihongo_bp.route('/quiz', methods=['GET'])
+@login_required
+def quiz():
+    quiz_type = request.args.get('type') or None
+    if quiz_type:
+        try:
+            quiz_type = quiz_utils.NihongoQuizTypes[quiz_type].value # Validate quiz type
+        except KeyError:
+            quiz_type = None
+    return render_template('quiz.html', quiz_topics = quiz_utils.NihongoQuizTypes, quiz_type=quiz_type)

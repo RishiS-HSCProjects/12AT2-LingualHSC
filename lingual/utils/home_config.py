@@ -28,7 +28,6 @@ class HomeSection:
         self.items.extend([*items])
 
 class HomeBanner (HomeSection):
-    
     def __init__(self, content: str = "") -> None:
         super().__init__()
         self.content: str = content
@@ -91,7 +90,7 @@ class ItemBox(HomeItem):
         for button in buttons:
             if not isinstance(button, self.BoxButton):
                 raise HomeConfigException(
-                    f"Attempted to add button of type {type(button)}. home_config::ItemBox::BoxButton expected."
+                    f"Attempted to add button of type {type(button)}. home_config.ItemBox.BoxButton expected."
                 )
         self.buttons.extend(buttons)
         return self
