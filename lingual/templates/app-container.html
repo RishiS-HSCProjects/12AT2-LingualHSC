@@ -1,3 +1,4 @@
+{% import 'macros/modal-macros.html' as modal_macros %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +41,8 @@
         {% endblock %}
     </div>
 
+    <div id="modal-root"></div>
+
     <div id="flash-container">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -52,8 +55,15 @@
         {% endwith %}
     </div>
 
+    {% if modals %}
+    {% for modal in modals %}
+    {{ modal_macros.render_modal(modal, modal.close_function or 'closeModal') }}
+    {% endfor %}
+    {% endif %}
+
     {% block scripts %}
         <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/modal-forms.js') }}"></script>
         <script src="{{ url_for('static', filename='js/module-base.js') }}"></script>
     {% endblock %}
 

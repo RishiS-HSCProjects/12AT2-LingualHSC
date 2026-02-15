@@ -37,10 +37,10 @@ class TypeEnum(Enum):
             Override in subclasses if needed. """
         return ""
 
-    def get_modal(self) -> None | FlaskForm:
+    def get_modal(self) -> FlaskForm:
         """ Method to return a modal form for quiz configuration.
         Override in subclasses if specific configuration is needed for the quiz type.
         If not overridden, preset Quizzes options will be selected with no way for
         users to edit them.  
         """
-        return None
+        raise NotImplementedError(f"No modal implemented for quiz type: {self.name}")
