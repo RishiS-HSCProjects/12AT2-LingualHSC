@@ -57,7 +57,7 @@
 
     {% if modals %}
     {% for modal in modals %}
-    {{ modal_macros.render_modal(modal, modal.close_function or 'closeModal') }}
+    {{ modal_macros.render_modal(modal, modal.close_function or 'closeActiveModal') }}
     {% endfor %}
     {% endif %}
 

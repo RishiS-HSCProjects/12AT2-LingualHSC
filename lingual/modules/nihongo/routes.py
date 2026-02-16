@@ -1,13 +1,14 @@
 from functools import lru_cache
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
+from lingual.utils.quiz_manager import QuizForm
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -22,7 +23,7 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 
 @nihongo_bp.route('/')
 @login_required
-@lru_cache()
+@lru_cache() # Cache the home config to avoid rebuilding it on every request. Since the config is based on static data and user info that doesn't change often, this is a safe optimization.
 def home():
     # Since all of my home config setup data exists here,
     # the config gets rebuilt every time the home route
@@ -179,28 +180,13 @@ def get_quizzes(lesson_slug):
     if not os.path.realpath(path).startswith(os.path.realpath(base_dir)):
         abort(400, description="Invalid path.")
 
-    if not os.path.exists(path):
-        return jsonify({"error": "Quiz not found."}), 404
-
     try:
-        with open(path, 'r', encoding='utf-8') as f:
-            data = json.load(f) # Validates JSON by attempting to load it
-
-            processor = get_processor()
-
-            def transform_quiz_text(data, processor):
-                if isinstance(data, dict):
-                    return {k: transform_quiz_text(v, processor) for k, v in data.items()} # Recursive transformation of all strings
-                elif isinstance(data, list):
-                    return [transform_quiz_text(item, processor) for item in data] 
-                elif isinstance(data, str):
-                    return processor.apply_transforms(data)
-                else:
-                    return data
-
-            data = transform_quiz_text(data, processor)
+        data = quiz_utils.load_quiz_data(lesson_slug)
     except Exception:
         return jsonify({"error": "Malformed quiz JSON."}), 500
+
+    if not data:
+        return jsonify({"error": "Quiz not found."}), 404
 
     return jsonify(data)
     
@@ -254,13 +240,60 @@ def kanji_batch():
 
     return jsonify({"status": "ready", "data": data_map})
 
-@nihongo_bp.route('/quiz', methods=['GET'])
+@nihongo_bp.route('/quiz', methods=['GET', 'POST'])
 @login_required
 def quiz():
+
     quiz_type = request.args.get('type') or None
     if quiz_type:
         try:
-            quiz_type = quiz_utils.NihongoQuizTypes[quiz_type].value # Validate quiz type
+            quiz_type = quiz_utils.NihongoQuizTypes[quiz_type.upper()]
+            try:
+                quiz_type.get_modal() # Check if modal is implemented. If not, we will not auto open the modal since there is no configuration for the quiz.
+            except NotImplementedError:
+                flash(f"{quiz_type.name.title()} Quiz not implemented.", "warning")
+                quiz_type = None
         except KeyError:
             quiz_type = None
-    return render_template('quiz.html', quiz_topics = quiz_utils.NihongoQuizTypes, quiz_type=quiz_type)
+
+    if request.method == 'POST' and quiz_type:
+        form = quiz_type.get_modal() # Get the form associated with the quiz type
+        if form.validate_on_submit():
+            try:
+                if quiz_type == quiz_utils.NihongoQuizTypes.GRAMMAR:
+                    selected_lessons = form.lessons.data # type: ignore
+                    max_questions = form.max_questions.data # type: ignore
+                    quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
+                    session['active_quiz'] = {
+                        "type": quiz_type.name,
+                        "data": quiz_data
+                    }
+                    return redirect(url_for('nihongo.quiz_session'))
+                else:
+                    flash("Quiz type not supported yet.", "error")
+            except Exception as e:
+                current_app.logger.error(f"Error generating quiz: {str(e)}")
+                flash("An error occurred while generating the quiz. Please try again.", "error")
+        else:
+            flash("Invalid input. Please check your selections and try again.", "error")
+
+    return render_template(
+        'quiz.html',
+        quiz_topics=quiz_utils.NihongoQuizTypes,
+        quiz_type=quiz_type,
+        auto_open_modal=bool(quiz_type)
+    )
+
+@nihongo_bp.route('/quiz/session', methods=['GET'])
+@login_required
+def quiz_session():
+    payload = session.get('active_quiz')
+    if not payload or 'data' not in payload:
+        flash("No active quiz found. Generate one first.", "warning")
+        return redirect(url_for('nihongo.quiz'))
+
+    return render_template(
+        'quiz-session.html',
+        quiz_payload=payload['data'],
+        quiz_title=payload.get('title', 'Quiz')
+    )

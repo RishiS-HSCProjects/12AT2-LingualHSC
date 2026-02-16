@@ -14,7 +14,7 @@
 
 {% if quiz_type and quiz_type.get_modal() %}
     {% from 'macros/modal-macros.html' import modal_form %}
-    {{ modal_form(quiz_type.get_modal()) }}
+    {{ modal_form(quiz_type.get_modal(), auto_open=auto_open_modal) }}
 {% endif %}
 
 {% endblock %}

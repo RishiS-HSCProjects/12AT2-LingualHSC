@@ -43,6 +43,7 @@ class TypeEnum(Enum):
         If not overridden, preset Quizzes options will be selected with no way for
         users to edit them.  
         """
+
         raise NotImplementedError(f"No modal implemented for quiz type: {self.name}")
 
 class QuizForm(FlaskForm):

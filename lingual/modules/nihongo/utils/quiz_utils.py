@@ -1,5 +1,6 @@
 import json
 import random
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -68,7 +69,7 @@ def build_grammar_quiz(lesson_slugs: list[str], max_questions: int) -> dict:
     questions = questions[:max_questions]
 
     return {
-        "title": "Generated Grammar Quiz",
+        "title": "Grammar Quiz",
         "bank": questions
     }
 
@@ -80,13 +81,14 @@ class NihongoQuizTypes(quiz_manager.TypeEnum):
     def description(self) -> str:
         descriptions = {
             self.GRAMMAR: "Collate quizzes on HSC Japanese grammar points, customisable by your preference!",
-            self.KANJI: "Quizzes on kanji characters, including readings and meanings! Mastering kanji will start to remove the furigana from the grammar lessons and quizzes!"        }
+            self.KANJI: "Quizzes on kanji characters, including readings and meanings! Mastering kanji will start to remove the furigana from the grammar lessons and quizzes!"
+        }
         return descriptions.get(self, "")
 
-    def get_modal(self) -> FlaskForm:
+    def get_modal(self) -> quiz_manager.QuizForm:
         if self == self.GRAMMAR:
             form = GrammarQuizConfigForm()
-            form.set_action(url_for("nihongo.quiz"))
+            form.set_action(url_for("nihongo.quiz", type=self.name))
             form.set_lesson_choices(get_grammar_lesson_choices())
             return form
         

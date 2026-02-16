@@ -162,6 +162,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (modalId) openModal(modalId); // Open modal
 	});
 
+	// Remove type query parameter from URL
+	// to avoid reopening modals on page reload
+	const url = new URL(window.location.href);
+	if (url.searchParams.has('type')) {
+		url.searchParams.delete('type');
+		const nextUrl = url.pathname + (url.search ? url.search : '') + url.hash;
+		window.history.replaceState({}, '', nextUrl);
+	}
+
 	document.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape' && activeModalId) {
 			closeActiveModal(); // Close active modal on escape pressed.

@@ -37,8 +37,7 @@ p {
     height: 100%;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-small);
-    padding: 1em;
-    padding-bottom: 0;
+    padding: 1rem;
     background-color: var(--bg-card);
 }
 

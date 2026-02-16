@@ -182,11 +182,11 @@ class QuizRenderer {
 
     // async definition allows for processes to run in the background without blocking the main thread.
     async loadQuiz(container) {
-        const payload = container.dataset.quizPayload;
+        const payload = container.dataset.quizPayload; // Check for embedded quiz data in data attribute
         if (payload) {
             try {
-                const quiz = JSON.parse(payload);
-                if (quiz?.bank?.length) {
+                const quiz = JSON.parse(payload); // Parse quiz data from JSON string in data attribute
+                if (quiz?.bank?.length) { // If quiz data is valid and contains questions, start the quiz immediately without needing to fetch from API
                     this.startQuiz(container, quiz);
                     return;
                 }
@@ -198,7 +198,7 @@ class QuizRenderer {
         const { lesson, id } = container.dataset;
         if (!lesson || !id) return; // Required data attributes not found. Should never happen.
 
-        this.renderLoading(container);
+        this.renderLoading(container); // Show loading state while fetching quiz data
 
         try {
             if (!this.quizCache[lesson]) {

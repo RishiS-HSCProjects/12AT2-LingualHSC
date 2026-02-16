@@ -1,0 +1,17 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = quiz_title %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="quiz" data-quiz-payload='{{ quiz_payload | tojson }}'></div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/lesson-utils.js') }}"></script>
+{% endblock %}
