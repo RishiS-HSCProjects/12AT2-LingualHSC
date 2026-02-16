@@ -17,8 +17,7 @@
                             <p>{{ topic.description }}</p>
                         </div>
                         <div class="topic-actions">
-                            <p class="action-start">Start Quiz</p>
-                            <p class="action-view"><img src="{{ url_for('static', filename='assets/hamburger-menu.svg') }}" alt="View Options"></p>
+                            <a class="action-start" href="{{ url_for('nihongo.quiz', type=topic.name) }}">Start Quiz</a>
                         </div>
                     </div>
                 {% endfor %}

@@ -182,6 +182,19 @@ class QuizRenderer {
 
     // async definition allows for processes to run in the background without blocking the main thread.
     async loadQuiz(container) {
+        const payload = container.dataset.quizPayload;
+        if (payload) {
+            try {
+                const quiz = JSON.parse(payload);
+                if (quiz?.bank?.length) {
+                    this.startQuiz(container, quiz);
+                    return;
+                }
+            } catch (error) {
+                console.warn("Invalid quiz payload.", error);
+            }
+        }
+
         const { lesson, id } = container.dataset;
         if (!lesson || !id) return; // Required data attributes not found. Should never happen.
 
