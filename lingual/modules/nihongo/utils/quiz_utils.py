@@ -1,12 +1,11 @@
 import json
 import random
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
 from flask import url_for
-from flask_wtf import FlaskForm
-from lingual.modules.nihongo.forms import GrammarQuizConfigForm
+from lingual.modules.nihongo.forms import GrammarQuizConfigForm, KanjiQuizConfigForm
+from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils import quiz_manager
 from .grammar_lesson_processor import get_processor
 
@@ -91,5 +90,9 @@ class NihongoQuizTypes(quiz_manager.TypeEnum):
             form.set_action(url_for("nihongo.quiz", type=self.name))
             form.set_lesson_choices(get_grammar_lesson_choices())
             return form
-        
+        elif self == self.KANJI:
+            form = KanjiQuizConfigForm()
+            form.set_action(url_for("nihongo.quiz", type=self.name))
+            return form
+
         return super().get_modal() # Raise NotImplementedError

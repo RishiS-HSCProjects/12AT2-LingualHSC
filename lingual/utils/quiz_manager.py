@@ -1,5 +1,8 @@
-from enum import Enum, auto # Auto import required for childen to use auto() without importing it themselves.=
+from enum import Enum, auto
+from typing_extensions import Self # Auto import required for childen to use auto() without importing it themselves.=
 from flask_wtf import FlaskForm
+from wtforms import IntegerField, SelectMultipleField, SubmitField
+from wtforms.validators import DataRequired, NumberRange
 
 class TypeEnum(Enum):
     """
@@ -52,6 +55,32 @@ class QuizForm(FlaskForm):
     description = "QUIZ_DESCRIPTION"
     action = ""
 
+    submit = SubmitField("Generate Quiz")
+
     def set_action(self, action_url: str) -> None:
         """ Method to set the form action URL. This allows dynamic setting of the form's target endpoint. """
         self.action = action_url
+    
+    def __init__(self, **kwargs):
+        """ Override __init__ to set the title and description of the form based on class attributes. """
+        super().__init__(**kwargs)
+        self.title = getattr(self.__class__, "title", "Quiz Configuration")
+        self.description = getattr(self.__class__, "description", "")
+
+class LessonQuizConfigForm(QuizForm):
+    title = "Lesson Quiz Configuration"
+
+    max_questions = IntegerField(
+        "Max Questions",
+        validators=[NumberRange(min=5, max=50)],
+        default=10
+    )
+
+    lessons = SelectMultipleField(
+        "Lessons",
+        choices=[],
+        validators=[DataRequired()]
+    )
+
+    def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
+        self.lessons.choices = choices # type: ignore

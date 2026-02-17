@@ -1,6 +1,7 @@
 from functools import lru_cache
 import os
 import re
+import uuid
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
@@ -21,9 +22,17 @@ nihongo_bp = Blueprint(
 
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 
+# Server-side quiz cache: {quiz_id: {type, title, data}}
+# Initially, quizzes were stored in the session, but that
+# resulted in the session cookie becoming too large due to
+# the size of the quiz data. While it was not a fatal error,
+# caching data in a private variable on the server-side is
+# a better, risk-free approach.
+# Documented on 16 Feb 2026
+_quiz_cache = {}
+
 @nihongo_bp.route('/')
 @login_required
-@lru_cache() # Cache the home config to avoid rebuilding it on every request. Since the config is based on static data and user info that doesn't change often, this is a safe optimization.
 def home():
     # Since all of my home config setup data exists here,
     # the config gets rebuilt every time the home route
@@ -264,10 +273,18 @@ def quiz():
                     selected_lessons = form.lessons.data # type: ignore
                     max_questions = form.max_questions.data # type: ignore
                     quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
-                    session['active_quiz'] = {
+
+                    # Cache lesson slug
+                    _quiz_cache[quiz_data.get('slug')] = {
                         "type": quiz_type.name,
+                        "title": quiz_data.get('title', 'Quiz'),
                         "data": quiz_data
                     }
+                    
+                    # Store only the quiz ID in session for retrieval
+                    session['active_quiz_slug'] = quiz_data.get('slug')
+
+                    # Go to quiz session page
                     return redirect(url_for('nihongo.quiz_session'))
                 else:
                     flash("Quiz type not supported yet.", "error")
@@ -287,10 +304,12 @@ def quiz():
 @nihongo_bp.route('/quiz/session', methods=['GET'])
 @login_required
 def quiz_session():
-    payload = session.get('active_quiz')
-    if not payload or 'data' not in payload:
+    quiz_slug = session.get('active_quiz_slug')
+    if not quiz_slug or quiz_slug not in _quiz_cache:
         flash("No active quiz found. Generate one first.", "warning")
-        return redirect(url_for('nihongo.quiz'))
+        return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
+
+    payload = _quiz_cache[quiz_slug] # Retrieve quiz data
 
     return render_template(
         'quiz-session.html',
