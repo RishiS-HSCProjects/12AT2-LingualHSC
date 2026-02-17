@@ -1,5 +1,4 @@
-from enum import Enum, auto
-from typing_extensions import Self # Auto import required for childen to use auto() without importing it themselves.=
+from enum import Enum, auto # Auto import required for children to use auto() without importing it themselves.
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectMultipleField, SubmitField
 from wtforms.validators import DataRequired, NumberRange

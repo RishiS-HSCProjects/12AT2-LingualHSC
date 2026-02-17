@@ -1,7 +1,5 @@
-from functools import lru_cache
 import os
 import re
-import uuid
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
@@ -9,7 +7,7 @@ from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
-from lingual.utils.quiz_manager import QuizForm
+import uuid
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -45,6 +43,20 @@ def home():
     # As a result, I will use the lru_cache decorator,
     # similar to the lesson caching.
     # Documented on 12 Feb 2026
+
+    # However, the home config should be dynamic to some
+    # extent, since it includes user-specific data like
+    # recent lessons and the welcome message. After
+    # testing, it seems that the overhead of building the
+    # home config is not as significant as projected
+    # earlier on, so I will not implement a caching
+    # mechanism for the home config for now. Ideally, such
+    # configs should be built once on startup and stored
+    # similar to a Jinja2 template that can be rendered with
+    # data dynamically. However, due to time constraints, I
+    # will not be building this system for this project, but
+    # it is something I would like to implement in the future.
+    # Documented on 18 Feb 2026 
     from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
     from lingual.utils.languages import get_translatable
 
@@ -274,15 +286,16 @@ def quiz():
                     max_questions = form.max_questions.data # type: ignore
                     quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
 
-                    # Cache lesson slug
-                    _quiz_cache[quiz_data.get('slug')] = {
+                    quiz_id = str(uuid.uuid4()) # Unique identifier for the quiz session
+                    quiz_data['id'] = quiz_id 
+                    # Cache quiz by its unique ID
+                    _quiz_cache[quiz_id] = {
                         "type": quiz_type.name,
                         "title": quiz_data.get('title', 'Quiz'),
                         "data": quiz_data
                     }
-                    
                     # Store only the quiz ID in session for retrieval
-                    session['active_quiz_slug'] = quiz_data.get('slug')
+                    session['active_quiz_id'] = quiz_id
 
                     # Go to quiz session page
                     return redirect(url_for('nihongo.quiz_session'))
@@ -304,12 +317,12 @@ def quiz():
 @nihongo_bp.route('/quiz/session', methods=['GET'])
 @login_required
 def quiz_session():
-    quiz_slug = session.get('active_quiz_slug')
-    if not quiz_slug or quiz_slug not in _quiz_cache:
+    quiz_id = session.get('active_quiz_id')
+    if not quiz_id or quiz_id not in _quiz_cache:
         flash("No active quiz found. Generate one first.", "warning")
         return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
 
-    payload = _quiz_cache[quiz_slug] # Retrieve quiz data
+    payload = _quiz_cache[quiz_id] # Retrieve quiz data
 
     return render_template(
         'quiz-session.html',

@@ -11,7 +11,6 @@ class Element:
 
     def set_disabled(self, disabled: bool = True) -> None:
         self.disabled = disabled
-    pass
 
 class Form:
     """
@@ -19,7 +18,7 @@ class Form:
         To create modal forms, instantiate this class with a title and a list of elements, and pass
         it to the modal macro for rendering.    
     """
-    def __init__(self, title: str, action: str, method: str = None, elements: list[Element] = None): # type: ignore
+    def __init__(self, title: str, action: str, method: str|None = None, elements: list[Element]|None = None):
         self.title: str = title
         self.action: str = action
         self.method: str = method if method is not None else "POST"
@@ -95,7 +94,6 @@ class Input (Element):
     def __init__(self, label: str, placeholder: str = ""):
         super().__init__(label)
         self.placeholder: str = placeholder
-    pass
 
 class RadioSelect (Element):
     """ Radio select element for choosing one option from a set. """
@@ -109,7 +107,6 @@ class RadioSelect (Element):
         self.options: list[RadioSelect.RadioOption] = options
         self.allow_multiple: bool = allow_multiple
         self.allow_none: bool = allow_none
-    pass
 
 class Slider (Element):
     """ Slider element for selecting a value from a range. """
@@ -119,4 +116,3 @@ class Slider (Element):
         self.max_value: int = max_value
         self.step: int = step
         self.default_value: int = default if default is not None else min_value
-    pass
