@@ -1,6 +1,5 @@
 import os
 import re
-import uuid
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
@@ -8,7 +7,6 @@ from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
 from lingual.utils.languages import Languages
-from lingual.utils.lesson_processor import LessonFetchException
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -156,11 +154,7 @@ def home():
 
     config.register_section(recent)
 
-    def get_home_config() -> HomeConfig:
-        return config
-
-
-    return render_template('home.html', config=get_home_config())
+    return render_template('home.html', config=config)
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
@@ -286,16 +280,15 @@ def quiz():
                     max_questions = form.max_questions.data # type: ignore
                     quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
 
-                    quiz_id = str(uuid.uuid4()) # Unique identifier for the quiz session
-                    quiz_data['id'] = quiz_id 
+                    quiz_data['user_id'] = current_user.id
                     # Cache quiz by its unique ID
-                    _quiz_cache[quiz_id] = {
+                    _quiz_cache[current_user.id] = {
                         "type": quiz_type.name,
                         "title": quiz_data.get('title', 'Quiz'),
                         "data": quiz_data
                     }
                     # Store only the quiz ID in session for retrieval
-                    session['active_quiz_id'] = quiz_id
+                    session['quiz_session_uid'] = current_user.id
 
                     # Go to quiz session page
                     return redirect(url_for('nihongo.quiz_session'))
@@ -317,12 +310,12 @@ def quiz():
 @nihongo_bp.route('/quiz/session', methods=['GET'])
 @login_required
 def quiz_session():
-    quiz_id = session.get('active_quiz_id')
-    if not quiz_id or quiz_id not in _quiz_cache:
+    uid = session.get('quiz_session_uid')
+    if not uid or uid not in _quiz_cache:
         flash("No active quiz found. Please try again.", "warning")
         return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
 
-    payload = _quiz_cache[quiz_id] # Retrieve quiz data
+    payload = _quiz_cache[uid] # Retrieve quiz data
 
     return render_template(
         'quiz-session.html',

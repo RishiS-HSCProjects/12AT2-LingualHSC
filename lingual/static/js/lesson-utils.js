@@ -556,7 +556,7 @@ class QuizRenderer {
                 let missingGroups = [];
 
                 if (Array.isArray(q.includes) && q.includes.length) {
-                    // Run matchIncludes and respond based on it's response
+                    // Run matchIncludes and respond based on its response
                     const res = matchIncludes(userNorm, q.includes);
                     correct = res.correct; // Truthy/falsy value! You have no idea how much I love JS for this feature.
                     missingGroups = res.missing; // res.missing is always an array. Just need to override.
@@ -718,7 +718,7 @@ var quizSession = false;
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize directory panel and quiz renderer on page load
     new DirectoryPanel();
-    new QuizRenderer(quizSession ?? false);
+    new QuizRenderer({ quizSession: quizSession ?? false });
 
     if (window.location.hash) {
         const id = window.location.hash.slice(1); // Get ID from URL hash

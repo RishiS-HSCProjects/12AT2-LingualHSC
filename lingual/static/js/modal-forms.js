@@ -97,7 +97,8 @@ function openModal(modal) {
 }
 
 /**
- * Clases modal by id or element
+ * Closes active modal (if exists) and resets active modal id.
+ * Also puts focus back on last active element.
  */
 function closeActiveModal() {
 	const modal = resolveModal(activeModalId); // Get active modal from storage.
@@ -157,8 +158,8 @@ function initModalHandlers(modalElement, modalId) {
 
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.modal-container').forEach((modalElement) => saveModal(modalElement)); // Save all modals
-	document.querySelectorAll('[data-modal-auto-open="true"]').forEach((modalEl) => { // Get modals with auto-open set to true
-		const modalId = getModalId(modalEl);
+	document.querySelectorAll('[data-modal-auto-open="true"]').forEach((modalElement) => { // Get modals with auto-open set to true
+		const modalId = getModalId(modalElement);
 		if (modalId) openModal(modalId); // Open modal
 	});
 
