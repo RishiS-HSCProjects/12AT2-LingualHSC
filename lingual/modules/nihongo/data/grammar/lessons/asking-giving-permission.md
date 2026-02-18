@@ -1,7 +1,6 @@
 ---
 
 title: "Asking for and Giving Permission"
-slug: "asking-giving-permission"
 summary: "Learn how to ask for and give permission in Japanese."
 
 ---

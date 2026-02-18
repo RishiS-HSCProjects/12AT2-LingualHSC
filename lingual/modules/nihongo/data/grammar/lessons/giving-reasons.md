@@ -1,7 +1,6 @@
 ---
 
 title: "Giving Reasons"
-slug: "giving-reasons"
 summary: "Learn how to use the particles から, ので and し to give reasons in Japanese sentences."
 
 ---

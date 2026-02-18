@@ -154,7 +154,7 @@ def home():
 
     config.register_section(recent)
 
-    return render_template('home.html', config=config)
+    return render_template('nihongo-home.html', config=config)
 
 @nihongo_bp.route('/grammar/')
 @nihongo_bp.route('/grammar/<slug>')
@@ -173,13 +173,13 @@ def grammar(slug=None):
             return redirect(url_for('nihongo.grammar'))
 
         return render_template(
-            'lesson.html',
+            'nihongo-lesson.html',
             lesson=lesson_data,
             data_root=lesson_data.get("data_root")
         )
 
     lessons = get_processor().get_lessons() # Get all grammar lessons and categories
-    return render_template('grammar.html', lessons=lessons)
+    return render_template('nihongo-grammar.html', lessons=lessons)
 
 
 @nihongo_bp.route('/grammar/api/quiz/<lesson_slug>', methods=['GET'])
@@ -208,7 +208,7 @@ def get_quizzes(lesson_slug):
 @nihongo_bp.route('/kanji/')
 @login_required
 def kanji():
-    return render_template('kanji.html', prescribed=Kanji.get_prescribed_kanji())
+    return render_template('nihongo-kanji.html', prescribed=Kanji.get_prescribed_kanji())
 
 @nihongo_bp.route('/kanji/api/prefetch', methods=['POST'])
 @login_required
@@ -301,7 +301,7 @@ def quiz():
             flash("Invalid input. Please check your selections and try again.", "error")
 
     return render_template(
-        'quiz.html',
+        'nihongo-quiz.html',
         quiz_topics=quiz_utils.NihongoQuizTypes,
         quiz_type=quiz_type,
         auto_open_modal=bool(quiz_type)
@@ -318,7 +318,7 @@ def quiz_session():
     payload = _quiz_cache[uid] # Retrieve quiz data
 
     return render_template(
-        'quiz-session.html',
+        'nihongo-quiz-session.html',
         quiz_payload=payload['data'],
         quiz_title=payload.get('title', 'Quiz')
     )

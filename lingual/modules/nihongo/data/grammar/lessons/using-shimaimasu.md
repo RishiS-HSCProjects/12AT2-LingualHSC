@@ -1,7 +1,6 @@
 ---
 
 title: "Expressing Completion or Regret with 〜しまいます"
-slug: "using-shimaimasu"
 summary: "Learn how to use the 〜しまいます form in Japanese to express completion or regret."
 
 ---

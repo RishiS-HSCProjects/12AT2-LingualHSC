@@ -1,7 +1,6 @@
 ---
 
 title: Using 〜ないで to Express 'Without Doing Something'
-slug: using-naide
 summary: Learn how to use the 〜ないで form in Japanese to express 'without doing something' in sentences.
 
 ---

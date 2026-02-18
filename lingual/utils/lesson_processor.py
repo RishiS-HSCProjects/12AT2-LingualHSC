@@ -219,7 +219,7 @@ class BaseLessonProcessor:
             content=content_plain,
         )
 
-    @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
+    # @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
     def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
         """ Loads all lessons and organizes them by category based on the map.json file.
             Returns a list of dictionaries with category names and their corresponding lessons.

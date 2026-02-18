@@ -1,7 +1,6 @@
 ---
 
 title: "Making Comparisons"
-slug: "making-comparisons"
 summary: "Learn how to make comparisons in Japanese using various grammatical structures."
 
 ---

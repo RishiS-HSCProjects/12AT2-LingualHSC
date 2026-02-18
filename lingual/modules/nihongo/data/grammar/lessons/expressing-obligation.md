@@ -1,7 +1,6 @@
 ---
 
 title: "Expressing Obligation"
-slug: "expressing-obligation"
 summary: "Learn how to express obligation in Japanese using various grammatical structures."
 
 ---

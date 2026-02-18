@@ -1,7 +1,6 @@
 ---
 
 title: "Saying 'Only' using しか and だけ"
-slug: "only"
 summary: "Learn how to express 'only' in Japanese using various particles."
 
 ---

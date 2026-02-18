@@ -1,7 +1,6 @@
 ---
 
 title: "Using のに"
-slug: "using-noni"
 summary: "Learn how to use the Japanese conjunction のに to express contrast or unexpected outcomes in sentences."
 
 ---

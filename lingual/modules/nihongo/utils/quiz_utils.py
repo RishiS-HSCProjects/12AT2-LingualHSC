@@ -5,7 +5,6 @@ from typing import Any
 
 from flask import url_for
 from lingual.modules.nihongo.forms import GrammarQuizConfigForm, KanjiQuizConfigForm
-from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils import quiz_manager
 from .grammar_lesson_processor import get_processor
 

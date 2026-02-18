@@ -1,0 +1,15 @@
+{% extends 'tutorial-template.html' %}
+
+{% set title = "Home" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/module-home.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% from "home-container-macro.html" import home %}
+    {{ home(config) }}
+</div>
+{% endblock %}

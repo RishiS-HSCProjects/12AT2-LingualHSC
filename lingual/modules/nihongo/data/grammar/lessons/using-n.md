@@ -1,7 +1,6 @@
 ---
 
 title: "Using ～ん (の) to Soften"
-slug: "using-n"
 summary: "Learn about how to use the ～ん (の) to soften statements, ask questions, and provide explanations in Japanese."
 
 ---

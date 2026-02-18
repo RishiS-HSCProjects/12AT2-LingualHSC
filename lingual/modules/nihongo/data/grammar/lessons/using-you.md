@@ -1,7 +1,6 @@
 ---
 
 title: "Using 〜よう"
-slug: "using-you"
 summary: "Learn all the common uses of the 〜よう form in Japanese."
 
 ---

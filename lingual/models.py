@@ -28,8 +28,11 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def add_language(self, language_code: str):
-        if Languages.get_language_by_code(language_code) is None:
+        if (lang := Languages.get_language_by_code(language_code)) is None:
             raise ValueError(f"Language code '{language_code}' does not exist.")
+        
+        if language_code == Languages.TUTORIAL.obj().code:
+            raise ValueError("Cannot add tutorial as a language.")
         
         if not self.languages:
             self.languages = []

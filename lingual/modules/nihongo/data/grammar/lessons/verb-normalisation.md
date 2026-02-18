@@ -1,7 +1,6 @@
 ---
 
 title: "Normalising Verbs"
-slug: "verb-normalisation"
 summary: "Learn about verb normalisation in Japanese and how to use the plain form of verbs in various contexts."
 
 ---

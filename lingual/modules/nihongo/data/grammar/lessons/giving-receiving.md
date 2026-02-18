@@ -1,7 +1,6 @@
 ---
 
 title: Giving and Receiving
-slug: giving-receiving
 summary: Learn how to use the ～てくれる construction in Japanese to acknowledge favours done for you or others.
 
 ---

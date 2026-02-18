@@ -1,7 +1,6 @@
 ---
 
 title: "Expressing Intentions and Plans"
-slug: "intent-plans"
 summary: "Learn how to express intentions and plans in Japanese."
 
 --- 

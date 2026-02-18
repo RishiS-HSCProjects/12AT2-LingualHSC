@@ -1,7 +1,6 @@
 ---
 
 title: "Using すぎる to Indicate Excessiveness"
-slug: "sugiru"
 summary: "Learn how to use the auxiliary verb すぎる (sugiru) in Japanese to express the idea of 'too much' or 'excessiveness' with both verbs and adjectives."
 
 ---

@@ -1,0 +1,203 @@
+/**
+ * Tutorial Module Theme Overrides
+ * 
+ * This file contains ONLY the customizations specific to the Tutorial module.
+ * All base styles are inherited from the main static/styles files.
+ */
+
+/* || Theme Variables */
+
+:root {
+   --bg-main: #f6fff8;
+   --bg-card: #FAFFFE;
+   --bg-surface-muted: #F0FFF4;
+   --bg-option-1: #48A868;
+   --bg-option-2: #5A9FD4;
+   --color-primary: #1F2937;
+   --color-secondary: #6B7280;
+   --color-link: #48A868;
+   --color-link-hover: #3D8B56;
+   --color-accent: #48A868;
+   --color-accent-strong: #3D8B56;
+   --color-accent-soft: #E8F5ED;
+   --color-accent-amber: #FFB84D;
+   --color-thead: #2E7D44;
+   --shadow-card: 0 2px 4px rgba(72, 168, 104, 0.08);
+   --shadow-nav: 0 2px 12px rgba(72, 168, 104, 0.1);
+   --shadow-soft: 0 8px 24px rgba(72, 168, 104, 0.12);
+   --radius-medium: 10px;
+   --radius-round: 14px;
+   --gradient-soft-sunrise: linear-gradient(135deg, #fbfffb 0%, #f5fff7 45%, #fbfffb 100%);
+}
+
+/* || General Styles */
+
+html,
+body {
+   background: var(--gradient-soft-sunrise);
+   color: var(--color-primary);
+   min-height: 100vh;
+}
+
+nav {
+   background: var(--bg-surface);
+   border-bottom: 1px solid var(--border-subtle);
+   box-shadow: var(--shadow-nav);
+}
+
+nav #nav-logo {
+   letter-spacing: -0.02em;
+   color: var(--color-primary);
+   font-weight: 700;
+}
+
+nav #nav-opt a {
+   padding: 8px 16px;
+   border-radius: var(--radius-medium);
+   background-color: transparent;
+   transition: color var(--transition-base), background-color var(--transition-base);
+}
+
+nav #nav-opt a:hover {
+   color: var(--color-accent-strong);
+   background-color: var(--color-accent-soft);
+}
+
+nav #nav-opt img {
+   padding: 8px;
+   border-radius: var(--radius-pill);
+   background: var(--bg-surface-muted);
+   box-shadow: var(--shadow-card);
+   transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+nav #nav-opt .nav-account img {
+   padding: 0;
+   border-radius: 0;
+   background: transparent;
+   box-shadow: none;
+}
+
+nav #nav-opt img:hover {
+   background-color: var(--color-accent-soft);
+   transform: scale(1.08);
+   box-shadow: 0 4px 12px rgba(232, 81, 122, 0.15);
+}
+
+nav #nav-opt .nav-account img:hover {
+   background-color: transparent;
+   transform: none;
+   box-shadow: none;
+}
+
+#body {
+   max-width: 1200px;
+   margin: auto;
+   margin-top: calc(var(--nav-height) + 40px);
+}
+
+.lesson-item {
+   background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-muted) 100%);
+   border: 1px solid var(--border-subtle);
+   box-shadow: var(--shadow-card);
+   border-radius: var(--radius-round);
+   transition: all var(--transition-base);
+}
+
+.lesson-item:hover {
+   transform: translateY(-4px);
+   border-color: var(--color-accent);
+   box-shadow: 0 8px 24px rgba(232, 81, 122, 0.15);
+}
+
+#lesson-container {
+   background: var(--bg-card);
+   border: 1px solid var(--border-subtle);
+   border-radius: var(--radius-round);
+   box-shadow: var(--shadow-soft);
+   padding: 40px 3vw;
+}
+
+#lesson-container .lesson-title {
+   color: var(--color-primary);
+   letter-spacing: -0.02em;
+   font-weight: 700;
+}
+
+#lesson-container h1,
+#lesson-container h2,
+#lesson-container h3,
+#lesson-container h4 {
+   color: var(--color-primary);
+}
+
+#lesson-container .note {
+   border-radius: var(--radius-medium);
+   box-shadow: var(--shadow-card);
+}
+
+#lesson-container .note.info {
+   border-left-color: var(--color-accent);
+   background: #FFE4ED;
+}
+
+#lesson-container .note.tip {
+   border-left-color: var(--bg-option-1);
+   background: #E8F5E9;
+}
+
+#lesson-container .note.warning {
+   border-left-color: var(--color-accent-amber);
+   background: #FFF3E0;
+}
+
+#lesson-container .block.blockquote {
+   background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
+   border-color: #FFE4ED;
+   border-left-color: var(--color-accent);
+}
+
+#lesson-container .block.warning {
+   border-color: #FFB84D;
+   box-shadow: var(--shadow-soft);
+}
+
+.quiz {
+   border-color: var(--border-subtle);
+   background: var(--bg-surface);
+   box-shadow: var(--shadow-card);
+   border-radius: var(--radius-round);
+}
+
+.quiz button {
+   background: var(--color-accent);
+   box-shadow: 0 2px 8px rgba(232, 81, 122, 0.2);
+   font-weight: 600;
+   border: none;
+   border-radius: var(--radius-medium);
+   transition: all var(--transition-base);
+   color: #FFFFFF;
+}
+
+.quiz button:hover {
+   background: var(--color-accent-strong);
+   transform: translateY(-2px);
+   box-shadow: 0 8px 20px rgba(232, 81, 122, 0.3);
+}
+
+.quiz button:disabled {
+   background: var(--color-muted);
+   opacity: 0.6;
+}
+
+#directory-panel {
+   background: var(--bg-surface);
+   border: 1px solid var(--border-subtle);
+   border-radius: var(--radius-round);
+   box-shadow: var(--shadow-card);
+   padding: 16px;
+}
+
+#lesson-container ruby rt {
+   margin-top: 2px;
+}

@@ -1,7 +1,6 @@
 ---
 
 title: Setting Expectations using はず
-slug: setting-expectations
 summary: Learn how to express expectations and assumptions in Japanese using the particle はず.
 
 ---

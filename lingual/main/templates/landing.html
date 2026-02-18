@@ -19,7 +19,7 @@
         <div id="nav-menu">
             <ul id="nav-links">
                 {% if not current_user.is_authenticated %}
-                <li class="taster"><a href="">Get a FREE Taster!</a></li>
+                <li class="taster"><a href="{{ url_for('tutorial.home') }}">Get a FREE Taster!</a></li>
                 {% endif %}
                 <li><a onclick="whyUsScroll()">For HSC Students</a></li>
                 <li><a onclick="purposeScroll()">About Lingual</a></li>

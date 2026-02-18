@@ -1,7 +1,6 @@
 ---
 
 title: "Potential Form"
-slug: "potential-form"
 summary: "Learn how to express ability or possibility in Japanese using the potential form of verbs."
 
 ---

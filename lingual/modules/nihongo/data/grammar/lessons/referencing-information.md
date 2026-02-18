@@ -1,7 +1,6 @@
 ---
 
 title: "Referencing Information"
-slug: "referencing-information"
 summary: "Learn how to source and reference information."
 
 ---

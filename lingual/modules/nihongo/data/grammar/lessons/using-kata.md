@@ -1,7 +1,6 @@
 ---
 
 title: "Using ～方[かた]"
-slug: "using-kata"
 summary: "Learn how to use the ～方[かた] construction in Japanese to express 'the way of doing something.'"
 
 ---

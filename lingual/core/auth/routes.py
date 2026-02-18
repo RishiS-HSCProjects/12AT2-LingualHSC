@@ -77,11 +77,12 @@ def verify_email(reg = None):
         # This is a terrible idea for production code really.
         # The only reason this is here is to allow for user
         # testing via Render, which does not support SMTP
-        # email sending. I plan to migrate the mail service
-        # to another that supports Render in the future, 
-        # at which point this code will be removed.
+        # email sending. If this were a real system, I
+        # would plan to migrate the mailing service from
+        # Flask-Mail (which uses HTTP requests to an SMTP server)
+        # to a more secure third-party email API service.
 
-        # Documented on 8 Feb, 2026
+        # Documented on 8 Feb 2026
         return jsonify({"error": "Mail Service Disabled. OTP defaulted to 123456."}), 200
 
     # If email verification is required, send the OTP email
