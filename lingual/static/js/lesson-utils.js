@@ -143,6 +143,7 @@ class DirectoryPanel {
 
 class QuizRenderer {
     constructor({ // Default configuration options
+        quizSession = false,
         quizSelector = '.quiz',
         questionClass = 'quiz-question',
         optionClass = 'quiz-option',
@@ -151,6 +152,7 @@ class QuizRenderer {
         lockDelay = 500
     } = {}) {
         // Initialize configuration options
+        this.quizSession = quizSession
         this.quizSelector = quizSelector;
         this.questionClass = questionClass;
         this.optionClass = optionClass;
@@ -182,10 +184,23 @@ class QuizRenderer {
 
     // async definition allows for processes to run in the background without blocking the main thread.
     async loadQuiz(container) {
+        const payload = container.dataset.quizPayload; // Check for embedded quiz data in data attribute
+        if (payload) {
+            try {
+                const quiz = JSON.parse(payload); // Parse quiz data from JSON string in data attribute
+                if (quiz?.bank?.length) { // If quiz data is valid and contains questions, start the quiz immediately without needing to fetch from API
+                    this.startQuiz(container, quiz);
+                    return;
+                }
+            } catch (error) {
+                console.warn("Invalid quiz payload.", error);
+            }
+        }
+
         const { lesson, id } = container.dataset;
         if (!lesson || !id) return; // Required data attributes not found. Should never happen.
 
-        this.renderLoading(container);
+        this.renderLoading(container); // Show loading state while fetching quiz data
 
         try {
             if (!this.quizCache[lesson]) {
@@ -541,13 +556,14 @@ class QuizRenderer {
                 let missingGroups = [];
 
                 if (Array.isArray(q.includes) && q.includes.length) {
-                    // Run matchIncludes and respond based on it's response!
+                    // Run matchIncludes and respond based on its response
                     const res = matchIncludes(userNorm, q.includes);
                     correct = res.correct; // Truthy/falsy value! You have no idea how much I love JS for this feature.
                     missingGroups = res.missing; // res.missing is always an array. Just need to override.
                 } else if (Array.isArray(q.valid) && q.valid.length) {
                     // Checks that user answer matches one of the valid answers
                     correct = q.valid.some(v => normaliseAnswer(v) === userNorm);
+                    missingGroups = q.valid
                 } else {
                     correct = true; // No valid/includes specified, so all answers are correct!
                 }
@@ -560,16 +576,26 @@ class QuizRenderer {
                     if (!isReview) score.correct++; // Increment score if correct and not in review mode
                 } else {
                     markIncorrect(); // Record question as missed
-
                     // Show missing required elements if applicable
                     const answerBlock = document.createElement("div");
                     answerBlock.className = "quiz-valid-answers";
-                    answerBlock.innerHTML = `
-                    <div class="quiz-valid-label">Missing required elements:</div>
-                    <ul class="quiz-valid-list">
-                        ${missingGroups.map(g => `<li>${g.join(" / ")}</li>`).join("")}
-                    </ul>
-                `;
+
+                    if (q.includes) {
+                        answerBlock.innerHTML = `
+                            <div class="quiz-valid-label">Missing required elements:</div>
+                            <ul class="quiz-valid-list">
+                                ${missingGroups.map(g => `<li>${g.join(" / ")}</li>`).join("")}
+                            </ul>
+                        `;
+                    } else if (q.valid) {
+                        answerBlock.innerHTML = `
+                            <div class="quiz-valid-label">Valid answers:</div>
+                            <ul class="quiz-valid-list">
+                                ${missingGroups.map(g => `<li>${g}</li>`).join("")}
+                            </ul>
+                        `;
+                    }
+
                     input.parentElement.appendChild(answerBlock); // Append missing elements block
                 }
 
@@ -606,6 +632,19 @@ class QuizRenderer {
                 this.renderQuestion(container, quiz, score.missed, 0, score, true); // Start review of missed questions
             } else { // Quiz complete
                 this.renderSummary(container, quiz, score);
+                if (!this.quizSession) { // Flag to prevent last lesson updating when doing a quiz outside of a lesson (i.e. the Quizzes page)
+                    fetch('api/quiz-complete', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            lesson: window.location.pathname.split("/").filter(Boolean).pop(),
+                        })
+                    }).catch(e => {
+                        console.error("Failed to notify server of quiz completion.", e);
+                    });
+                }
             }
         });
     }
@@ -642,7 +681,9 @@ class QuizRenderer {
                     ${score.correct} / ${score.total}
                     <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--color-accent);">${percent}%</div>
                 </div>
-                <button class="quiz-restart-btn">Retry Quiz</button>
+                <div class="quiz-actions">
+                    <button class="quiz-restart-btn">Retry Quiz</button>
+                </div>
             </div>
         `;
 
@@ -672,10 +713,12 @@ function scrollToAnchorWithOffset(id) {
     });
 }
 
+var quizSession = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize directory panel and quiz renderer on page load
     new DirectoryPanel();
-    new QuizRenderer();
+    new QuizRenderer({ quizSession: quizSession ?? false });
 
     if (window.location.hash) {
         const id = window.location.hash.slice(1); // Get ID from URL hash

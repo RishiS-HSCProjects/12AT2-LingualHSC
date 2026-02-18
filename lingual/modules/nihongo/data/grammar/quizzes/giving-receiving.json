@@ -57,7 +57,7 @@
                 "question": "Translate the following sentence into Japanese:\n\nI cleaned my friend's house for them.",
                 "includes": [
                     ["友達", "ともだち", "tomodachi"],
-                    ["家", "いえ", "ie"],
+                    ["家", "いえ", "ie", "うち", "uchi"],
                     ["掃除して", "そうじして", "soujishite"],
                     ["あげました", "あげた", "agemashita", "ageta"]
                 ],

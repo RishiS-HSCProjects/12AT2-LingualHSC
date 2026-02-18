@@ -6,8 +6,7 @@
 {% macro home(config) %}
 <div id="home-container">
 
-    {% for section in config.get_build() %}
-
+    {% for section in config.get_build() if not section or section.items or section.__class__.__name__ == "HomeBanner" %}
         {# Separator (None) #}
         {% if section is none %}
             <hr class="home-separator">

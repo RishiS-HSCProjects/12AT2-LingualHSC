@@ -181,7 +181,7 @@ class Kanji:
         return file_path.exists()
 
     @staticmethod
-    def get_prescribed_kanji() -> list:
+    def get_prescribed_kanji() -> list[tuple[str, KanjiType]]:
         """
         Returns a list of kanji prescribed for study in the Japanese school system.
         """

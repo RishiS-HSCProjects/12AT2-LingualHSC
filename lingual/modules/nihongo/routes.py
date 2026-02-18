@@ -1,11 +1,12 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, json, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
-from lingual.utils.languages import Languages
+from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
+from lingual.utils.languages import Languages
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -18,22 +19,68 @@ nihongo_bp = Blueprint(
 
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 
+# Server-side quiz cache: {quiz_id: {type, title, data}}
+# Initially, quizzes were stored in the session, but that
+# resulted in the session cookie becoming too large due to
+# the size of the quiz data. While it was not a fatal error,
+# caching data in a private variable on the server-side is
+# a better, risk-free approach.
+# Documented on 16 Feb 2026
+_quiz_cache = {}
+
 @nihongo_bp.route('/')
 @login_required
 def home():
+    # Since all of my home config setup data exists here,
+    # the config gets rebuilt every time the home route
+    # is accessed. This unnecessarily adds overhead to
+    # the application. I wanted to move this logic to run
+    # on compile, but this solution did not work since
+    # certain functions like url_for and attributes like
+    # and current_user can not be resolved outside of a
+    # Flask context, which it is during initialisation.
+    # As a result, I will use the lru_cache decorator,
+    # similar to the lesson caching.
+    # Documented on 12 Feb 2026
+
+    # However, the home config should be dynamic to some
+    # extent, since it includes user-specific data like
+    # recent lessons and the welcome message. After
+    # testing, it seems that the overhead of building the
+    # home config is not as significant as projected
+    # earlier on, so I will not implement a caching
+    # mechanism for the home config for now. Ideally, such
+    # configs should be built once on startup and stored
+    # similar to a Jinja2 template that can be rendered with
+    # data dynamically. However, due to time constraints, I
+    # will not be building this system for this project, but
+    # it is something I would like to implement in the future.
+    # Documented on 18 Feb 2026 
     from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
     from lingual.utils.languages import get_translatable
+    from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
+    from lingual.modules.nihongo.utils.kanji_processor import Kanji
+
+    lang_code = Languages.JAPANESE.obj().code
+    # Ensure the user's Japanese stats are created if they don't exist
+    if not current_user.get_language_stats(lang_code):
+        current_user.create_language_stats(lang_code)
+        db.session.commit()
 
     config = HomeConfig()
 
     welcome_banner = HomeBanner(get_translatable('jp', 'home_welcome_text').replace("{first_name}", current_user.first_name))
     config.register_section(welcome_banner)
 
+    lessons_practised = (stats := current_user.get_language_stats(lang_code)) and stats.get_lessons_practised() or []
+
     quick_access = HomeSection("Quick Access")
     quick_access.add_items(
         ItemBox(
             title="Grammar",
-            body="Practise Practise Practise",
+            body=f"{len(lessons_practised)}/{sum(
+                len(category['lessons']) for category in get_processor().get_lessons()
+            )} Grammar Lessons Completed",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn",
@@ -41,14 +88,14 @@ def home():
                 ),
                 ItemBox.BoxButton(
                     text="Quiz",
-                    link=url_for('nihongo.grammar')
+                    link = url_for('nihongo.quiz', type=quiz_utils.NihongoQuizTypes.GRAMMAR.name)
                 )
             ],
             on_click=url_for('nihongo.grammar')
         ),
         ItemBox(
             title="Kanji",
-            body="0/XX Kanjis Mastered",
+            body=f"0/{len(Kanji.get_prescribed_kanji())} Kanji Mastered",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn",
@@ -56,7 +103,7 @@ def home():
                 ),
                 ItemBox.BoxButton(
                     text="Quiz",
-                    link="#"
+                    link = url_for('nihongo.quiz', type=quiz_utils.NihongoQuizTypes.KANJI.name)
                 )
             ],
             on_click=url_for('nihongo.kanji')
@@ -86,37 +133,24 @@ def home():
     # Assuming this is inside a method of a User class
     recent = HomeSection("Recently Viewed")
 
-    lang_code = Languages.JAPANESE.obj().code
+    recent_lessons = lessons_practised[-3:][::-1] if lessons_practised else None
 
-    # Ensure the user's Japanese stats are created if they don't exist
-    if not current_user.get_language_stats(lang_code):
-        current_user.create_language_stats(lang_code)
-        db.session.commit()
-
-    recent.add_items(
-        ItemBox(
-            title="Grammar: Te-Form",
-            body="The Basics of Japanese Grammar",
-            buttons=[
-                ItemBox.BoxButton(
-                    text="View",
-                    link=url_for('nihongo.grammar', slug='te-form')
+    if recent_lessons:
+        for lesson in recent_lessons:
+            lesson = get_processor().get_lesson(lesson)
+            recent.add_items(
+                ItemBox(
+                    title=lesson.title,
+                    body=lesson.summary,
+                    buttons=[
+                        ItemBox.BoxButton(
+                            text="View",
+                            link=url_for('nihongo.grammar', slug=lesson.slug)
+                        )
+                    ],
+                    on_click=url_for('nihongo.grammar', slug=lesson.slug)
                 )
-            ],
-            on_click=url_for('nihongo.grammar', slug='te-form')
-        ),
-        ItemBox(
-            title="Kanji: Lesson 3",
-            body="Mastering the First 20 Kanji",
-            buttons=[
-                ItemBox.BoxButton(
-                    text="View",
-                    link="#"
-                )
-            ],
-            on_click="#"
-        )
-    )
+            )
 
     config.register_section(recent)
 
@@ -161,28 +195,13 @@ def get_quizzes(lesson_slug):
     if not os.path.realpath(path).startswith(os.path.realpath(base_dir)):
         abort(400, description="Invalid path.")
 
-    if not os.path.exists(path):
-        return jsonify({"error": "Quiz not found."}), 404
-
     try:
-        with open(path, 'r', encoding='utf-8') as f:
-            data = json.load(f) # Validates JSON by attempting to load it
-
-            processor = get_processor()
-
-            def transform_quiz_text(data, processor):
-                if isinstance(data, dict):
-                    return {k: transform_quiz_text(v, processor) for k, v in data.items()} # Recursive transformation of all strings
-                elif isinstance(data, list):
-                    return [transform_quiz_text(item, processor) for item in data] 
-                elif isinstance(data, str):
-                    return processor.apply_transforms(data)
-                else:
-                    return data
-
-            data = transform_quiz_text(data, processor)
+        data = quiz_utils.load_quiz_data(lesson_slug)
     except Exception:
         return jsonify({"error": "Malformed quiz JSON."}), 500
+
+    if not data:
+        return jsonify({"error": "Quiz not found."}), 404
 
     return jsonify(data)
     
@@ -235,3 +254,86 @@ def kanji_batch():
         data_map[kanji_char] = kanji.data
 
     return jsonify({"status": "ready", "data": data_map})
+
+@nihongo_bp.route('/quiz', methods=['GET', 'POST'])
+@login_required
+def quiz():
+
+    quiz_type = request.args.get('type') or None
+    if quiz_type:
+        try:
+            quiz_type = quiz_utils.NihongoQuizTypes[quiz_type.upper()]
+            try:
+                quiz_type.get_modal() # Check if modal is implemented. If not, we will not auto open the modal since there is no configuration for the quiz.
+            except NotImplementedError:
+                flash(f"{quiz_type.name.title()} Quiz not implemented.", "warning")
+                quiz_type = None
+        except KeyError:
+            quiz_type = None
+
+    if request.method == 'POST' and quiz_type:
+        form = quiz_type.get_modal() # Get the form associated with the quiz type
+        if form.validate_on_submit():
+            try:
+                if quiz_type == quiz_utils.NihongoQuizTypes.GRAMMAR:
+                    selected_lessons = form.lessons.data # type: ignore
+                    max_questions = form.max_questions.data # type: ignore
+                    quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
+
+                    quiz_data['user_id'] = current_user.id
+                    # Cache quiz by its unique ID
+                    _quiz_cache[current_user.id] = {
+                        "type": quiz_type.name,
+                        "title": quiz_data.get('title', 'Quiz'),
+                        "data": quiz_data
+                    }
+                    # Store only the quiz ID in session for retrieval
+                    session['quiz_session_uid'] = current_user.id
+
+                    # Go to quiz session page
+                    return redirect(url_for('nihongo.quiz_session'))
+                else:
+                    flash("Quiz type not supported yet.", "error")
+            except Exception as e:
+                current_app.logger.error(f"Error generating quiz: {str(e)}")
+                flash("An error occurred while generating the quiz. Please try again.", "error")
+        else:
+            flash("Invalid input. Please check your selections and try again.", "error")
+
+    return render_template(
+        'quiz.html',
+        quiz_topics=quiz_utils.NihongoQuizTypes,
+        quiz_type=quiz_type,
+        auto_open_modal=bool(quiz_type)
+    )
+
+@nihongo_bp.route('/quiz/session', methods=['GET'])
+@login_required
+def quiz_session():
+    uid = session.get('quiz_session_uid')
+    if not uid or uid not in _quiz_cache:
+        flash("No active quiz found. Please try again.", "warning")
+        return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
+
+    payload = _quiz_cache[uid] # Retrieve quiz data
+
+    return render_template(
+        'quiz-session.html',
+        quiz_payload=payload['data'],
+        quiz_title=payload.get('title', 'Quiz')
+    )
+
+@nihongo_bp.route('/grammar/api/quiz-complete', methods=['POST'])
+@login_required
+def lesson_quiz_complete():
+    payload = request.get_json(silent=True) or {}
+    lesson_slug = payload.get("lesson")
+    if not lesson_slug:
+        abort(400, description="Missing lesson slug.")
+
+    # Update user's progress for the lesson
+    stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
+    stats.add_lesson_practised(lesson_slug)
+    db.session.commit()
+
+    return jsonify({"status": "success"})

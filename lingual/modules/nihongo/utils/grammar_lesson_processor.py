@@ -1,6 +1,6 @@
 import re
 from lingual.utils.languages import Languages
-from lingual.utils.lessons.lesson_processor import BaseLessonProcessor
+from lingual.utils.lesson_processor import BaseLessonProcessor
 
 FURIGANA_RE = re.compile(r'([一-龯々]+)\[([^\]]+)\]')
 

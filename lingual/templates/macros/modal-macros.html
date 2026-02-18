@@ -1,0 +1,100 @@
+<!-- Dependencies -->
+<!-- 
+    - modal-styles.css
+-->
+
+{% macro modal_form(form, close_function='closeActiveModal', auto_open=false) %}
+{% set modal_id = form.id if form.id else form.__class__.__name__ ~ 'Modal' %}
+<div class="modal-container" data-modal-id="{{ modal_id }}" role="dialog" aria-modal="true" aria-hidden="true" {% if auto_open %}data-modal-auto-open="true"{% endif %}>
+    <div class="modal-form">
+        <div class="modal-content">
+            <button class="close-button" type="button" data-modal-close="true" onclick="{{ close_function }}" aria-label="Close">&times;</button>
+
+            {% if form.title %}
+                <h2 class="modal-title">{{ form.title }}</h2>
+            {% endif %}
+
+            {% if form.description %}
+                <p class="modal-description">{{ form.description }}</p>
+            {% endif %}
+
+            <form action="{{ form.action if form.action else '' }}" 
+                method="{{ form.method if form.method else 'POST' }}" 
+                class="modal" 
+                id="{{ modal_id }}">
+
+                {{ form.hidden_tag() }}
+
+                {% for field in form %}
+                    {% if field.type in ['CSRFTokenField', 'SubmitField'] %}
+                        {# Skip rendering CSRF token and submit button here, as they are handled separately #}
+                    {% else %}
+                        <div class="form-group">
+                            <label for="{{ field.id }}">{{ field.label.text }}</label>
+                            
+                            {% if field.type == 'TextAreaField' %}
+                                <textarea id="{{ field.id }}" name="{{ field.name }}" {% if field.flags.required %}required{% endif %}>{{ field.data if field.data is not none else '' }}</textarea>
+                            {% elif field.type == 'SelectMultipleField' %}
+                                <div class="checkbox-group" role="group" aria-label="{{ field.label.text }}">
+                                    {% for choice in field.iter_choices() %}
+                                        {% set value = choice[0] %}
+                                        {% set label = choice[1] %}
+                                        {% set selected = choice[2] if choice|length > 2 else false %}
+                                        {% set option_id = field.id ~ '_' ~ loop.index %}
+                                        <label class="checkbox-option" for="{{ option_id }}">
+                                            <input class="checkbox-input" type="checkbox" id="{{ option_id }}" name="{{ field.name }}" value="{{ value }}" {% if selected %}checked{% endif %}>
+                                            <span class="checkbox-card">{{ label | safe }}</span>
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                            {% elif field.type == 'SelectField' %}
+                                <select id="{{ field.id }}" name="{{ field.name }}" {% if field.flags.required %}required{% endif %}>
+                                    {% for choice in field.iter_choices() %}
+                                        {% set value = choice[0] %}
+                                        {% set label = choice[1] %}
+                                        {% set selected = choice[2] if choice|length > 2 else false %}
+                                        <option value="{{ value }}" {% if selected %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            {% else %}
+                                {% set input_type = 'text' %}
+                                {% set min_value = none %}
+                                {% set max_value = none %}
+                                {% if field.type == 'IntegerField' %}
+                                    {% set input_type = 'number' %}
+                                {% elif field.type == 'FloatField' %}
+                                    {% set input_type = 'number' %}
+                                {% elif field.type == 'DecimalField' %}
+                                    {% set input_type = 'number' %}
+                                {% elif field.type == 'PasswordField' %}
+                                    {% set input_type = 'password' %}
+                                {% elif field.type == 'EmailField' %}
+                                    {% set input_type = 'email' %}
+                                {% elif field.type == 'DateField' %}
+                                    {% set input_type = 'date' %}
+                                {% elif field.type == 'TimeField' %}
+                                    {% set input_type = 'time' %}
+                                {% endif %}
+                                {% if input_type == 'number' %}
+                                    {% for validator in field.validators %}
+                                        {% if validator.__class__.__name__ == 'NumberRange' %}
+                                            {% set min_value = validator.min %}
+                                            {% set max_value = validator.max %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                <input type="{{ input_type }}" id="{{ field.id }}" name="{{ field.name }}" value="{{ field.data if field.data is not none else '' }}" {% if min_value is not none %}min="{{ min_value }}"{% endif %} {% if max_value is not none %}max="{{ max_value }}"{% endif %} {% if field.flags.required %}required{% endif %}>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="submit-button">{{ form.submit.label.text }}</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro render_modal(form, close_function='closeActiveModal', auto_open=false) %}
+    {{ modal_form(form, close_function, auto_open) }}
+{% endmacro %}

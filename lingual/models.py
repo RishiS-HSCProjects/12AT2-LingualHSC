@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
     last_login: Mapped[datetime | None] = mapped_column(db.DateTime)
 
-    languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list)
+    languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list, server_default="'[]'")
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
     def set_password(self, password: str):
@@ -169,12 +169,12 @@ class JapaneseStats(LanguageStatsBase):
     # recent_new_kanji will store the list of kanji characters the user has recently added
     # to their learned list which they haven't learned before. The order is static, showing
     # the most recently added kanji at the end of the list.
-    kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list)
+    kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="'[]'")
 
     # kanji_practised will store the list of kanji characters the user has practiced,
     # in the order they were last practiced. This allows features like "review old kanji"
     # or "see recently practiced kanji".
-    kanji_practised: Mapped[list[str]] = mapped_column(JSON, default=list)
+    kanji_practised: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="'[]'")
 
     def add_kanji_learned(self, kanji: str):
         """
@@ -271,12 +271,31 @@ class JapaneseStats(LanguageStatsBase):
         self.kanji_learned = list()
         self.kanji_practised = list()
 
+    # --- Lessons ---
+    
+    # lessons_practised will store the list of lesson slugs the user has practiced,
+    # in the order they were last practiced. A lesson is counted as practiced if 
+    # the user has completed a quiz associated with that lesson.
+    lessons_practised: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="'[]'")
+
+    def add_lesson_practised(self, lesson_slug: str):
+        """
+        Adds a lesson slug to the practised list to track which lessons the user has practiced.
+        """
+        practised_list = [l for l in self.lessons_practised if l != lesson_slug]
+        self.lessons_practised = practised_list + [lesson_slug]
+    
+    def get_lessons_practised(self) -> list:
+        """ Returns a list of lesson slugs in order of last practised (bottom) """
+        return self.lessons_practised
+
     def to_dict(self) -> dict:
         return {
             "id": self.id,
             "user_id": self.user_id,
             "kanji_learned": self.kanji_learned,
             "kanji_practised": self.kanji_practised,
+            "lessons_practised": self.lessons_practised,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat()
         }

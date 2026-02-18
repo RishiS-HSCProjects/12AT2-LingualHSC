@@ -41,7 +41,7 @@
                 "question": "Translate to Japanese: I ate too much.",
                 "includes": [
                     ["食べ", "たべ", "tabe"],
-                    ["すぎる", "sugiru"]
+                    ["すぎ", "sugi"]
                 ],
                 "sample_answer": "食べすぎました。"
             },
@@ -50,7 +50,7 @@
                 "question": "Translate to Japanese: It's too quiet.",
                 "includes": [
                     ["静か", "しずか", "shizuka"],
-                    ["すぎる", "sugiru"]
+                    ["すぎ", "sugi"]
                 ],
                 "sample_answer": "しずかすぎます。"
             },

@@ -165,8 +165,66 @@ class BaseLessonProcessor:
             "slug": slug,           # Lesson slug
             "data_root": self.data_root,
         }
+    
+    def get_lesson(self, slug: str) -> "Lesson":
+        # Load just the metadata and raw markdown content for search
+        lesson_path = self.data_root / "lessons" / f"{slug}.md"
+        if not lesson_path.exists(): raise LessonFetchException(f"Lesson file '{slug}' not found.")
+        
+        post = frontmatter.load(lesson_path)  # type: ignore
+        meta = post.metadata
 
+        if meta is None:
+            raise LessonFetchException(f"Lesson '{slug}' in category is missing metadata.")
+
+        # Run title & summary through the same transformation pipeline
+        title_raw = meta.get("title", "Untitled")
+        summary_raw = meta.get("summary", "")
+
+        title = self.apply_transforms(title_raw) # type: ignore -> Transform title
+        summary = self.apply_transforms(summary_raw) # type: ignore -> Transform summary
+        
+        # Get plain text content directly from markdown (before HTML conversion)
+        # Only extract content from within :::blockquote, :::warning, and similar blocks                    
+        content_plain = ""
+        raw_content = post.content
+        
+        # Extract content within ::: blocks (blockquote, warning, etc.)
+        block_pattern = r':::(?:blockquote|warning|note|tip)\s+(.*?):::'
+        matches = re.findall(block_pattern, raw_content, re.DOTALL)
+        
+        for match in matches:
+            # Clean up the extracted content
+            cleaned = match
+            # Remove custom markers like /i, /t, /w
+            cleaned = re.sub(r'/[itwb]\s+', '', cleaned)
+            # Remove color/formatting markers like ::blue{}, ::green{}
+            cleaned = re.sub(r'::[a-z]+\{([^}]*)\}', r'\1', cleaned)
+            # Remove ruby/furigana brackets but keep text
+            cleaned = re.sub(r'\[([^\]]+)\]', r'\1', cleaned)
+            # Remove markdown links but keep text
+            cleaned = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', cleaned)
+            # Remove markdown formatting
+            cleaned = re.sub(r'[*_`#]', '', cleaned)
+            
+            content_plain += " " + cleaned
+        
+        # Normalize whitespace
+        content_plain = re.sub(r'\s+', ' ', content_plain).strip()
+
+        return Lesson(
+            slug=slug,
+            title=title,
+            summary=summary,
+            content=content_plain,
+        )
+
+    @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
     def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
+        """ Loads all lessons and organizes them by category based on the map.json file.
+            Returns a list of dictionaries with category names and their corresponding lessons.
+            Each lesson includes its slug, title, summary, and plain text content for search indexing.
+        """
         lesson_slugs_path = self.data_root / "map.json"
 
         if lesson_slugs_path.exists():
@@ -183,69 +241,14 @@ class BaseLessonProcessor:
 
             for slug in slugs:
                 try:
-                    # Load just the metadata and raw markdown content for search
-                    lesson_path = self.data_root / "lessons" / f"{slug}.md"
-                    if not lesson_path.exists():
-                        current_app.logger.warning(
-                            f"Lesson file '{slug}' not found in category '{category_name}'."
-                        )
-                        continue
-                    
-                    post = frontmatter.load(lesson_path)  # type: ignore
-                    meta = post.metadata
-
-                    if meta is None:
-                        current_app.logger.warning(
-                            f"Lesson '{slug}' in category '{category_name}' is missing metadata."
-                        )
-                        continue
-
-                    # Run title & summary through the same transformation pipeline
-                    title_raw = meta.get("title", "Untitled")
-                    summary_raw = meta.get("summary", "")
-
-                    title = self.apply_transforms(title_raw) # type: ignore -> Transform title
-                    summary = self.apply_transforms(summary_raw) # type: ignore -> Transform summary
-                    
-                    # Get plain text content directly from markdown (before HTML conversion)
-                    # Only extract content from within :::blockquote, :::warning, and similar blocks                    
-                    content_plain = ""
-                    raw_content = post.content
-                    
-                    # Extract content within ::: blocks (blockquote, warning, etc.)
-                    block_pattern = r':::(?:blockquote|warning|note|tip)\s+(.*?):::'
-                    matches = re.findall(block_pattern, raw_content, re.DOTALL)
-                    
-                    for match in matches:
-                        # Clean up the extracted content
-                        cleaned = match
-                        # Remove custom markers like /i, /t, /w
-                        cleaned = re.sub(r'/[itwb]\s+', '', cleaned)
-                        # Remove color/formatting markers like ::blue{}, ::green{}
-                        cleaned = re.sub(r'::[a-z]+\{([^}]*)\}', r'\1', cleaned)
-                        # Remove ruby/furigana brackets but keep text
-                        cleaned = re.sub(r'\[([^\]]+)\]', r'\1', cleaned)
-                        # Remove markdown links but keep text
-                        cleaned = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', cleaned)
-                        # Remove markdown formatting
-                        cleaned = re.sub(r'[*_`#]', '', cleaned)
-                        
-                        content_plain += " " + cleaned
-                    
-                    # Normalize whitespace
-                    content_plain = re.sub(r'\s+', ' ', content_plain).strip()
-
-                    category_lessons.append(
-                        Lesson(
-                            slug=slug,
-                            title=title,
-                            summary=summary,
-                            content=content_plain,
-                        )
+                    category_lessons.append(self.get_lesson(slug))
+                except LessonFetchException as e:
+                    current_app.logger.warning(
+                        f"Failed to load lesson '{slug}' in category '{category_name}': {str(e)}"
                     )
                 except Exception as e:
                     current_app.logger.warning(
-                        f"Failed to load lesson '{slug}' in category '{category_name}': {str(e)}"
+                        f"An unknown error occured while fetching '{slug}' in category '{category_name}': {str(e)}"
                     )
 
             categories.append({
@@ -261,3 +264,7 @@ class Lesson:
     title: str
     summary: str
     content: str = ""
+
+class LessonFetchException(Exception):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)

@@ -102,7 +102,6 @@
     user-select: none;
 }
 
-/* || Box Title */
 .home-item-box .box-title {
     font-size: var(--font-size-header-3);
     font-weight: 600;
@@ -111,7 +110,6 @@
     line-height: 1.3;
 }
 
-/* || Box Body */
 .home-item-box .box-body {
     flex: 1;
     font-size: var(--font-size-body);
@@ -149,16 +147,12 @@
 }
 
 .home-item-box .box-button:active {
-    transform: translateY(0);
+    transform: translateY(1px);
 }
 
-/* Secondary button style (if needed) */
-.home-item-box .box-button.secondary {
-    background: var(--color-secondary);
-}
-
-.home-item-box .box-button.secondary:hover {
-    background: var(--color-contrast);
+.home-item-box .box-button:hover {
+    transform: translateY(-2px);
+    background: var(--color-accent-strong);
 }
 
 /* || Unknown Item Type */

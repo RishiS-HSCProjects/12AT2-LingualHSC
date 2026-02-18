@@ -1,0 +1,235 @@
+/* Modal container styling */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--shadow-soft); /* Semi-transparent background */
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    z-index: var(--z-index-modal);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+/* Show modal when active */
+.modal-container.is-active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Modal form styling */
+.modal-form {
+    background-color: #ffffff;
+    padding: 24px 24px 20px;
+    border-radius: 14px;
+    width: min(92vw, 720px);
+    height: min(86vh, 720px);
+    min-width: 320px;
+    min-height: 360px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(8px) scale(0.98);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    resize: both;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container.is-active .modal-form {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal close button styling */
+.modal-form > .modal-content > .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #2f3440;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-form > .modal-content > .close-button:hover {
+    color: #c0392b; /* Red on hover */
+}
+
+/* Modal title styling */
+.modal-form > .modal-content > .modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 36px 10px 0;
+    color: #1f2430;
+}
+
+/* Modal description styling */
+.modal-form > .modal-content > .modal-description {
+    font-size: 14px;
+    color: #5a6270;
+    margin: 0 0 18px 0;
+}
+
+.modal-form > .modal-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+}
+
+/* Form styling */
+.modal-form .modal-content > form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding-right: 4px;
+}
+
+/* Form group styling */
+.modal-form .modal-content > form > .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Label styling */
+.modal-form .modal-content > form > .form-group > label {
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #6a7280;
+}
+
+.modal-form .modal-content > form > .form-group > input,
+.modal-form .modal-content > form > .form-group > textarea,
+.modal-form .modal-content > form > .form-group > select {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #d6dbe3;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f8f9fc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Checkbox group for multi-select */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    padding: 8px;
+    border: 1px solid #d6dbe3;
+    border-radius: 10px;
+    background: #f6f7fb;
+    max-height: none;
+    overflow: auto;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 2px solid #c6cbd6;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkbox-input::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--color-accent-soft);
+    transform: scale(0);
+    transition: transform 0.15s ease;
+}
+
+.checkbox-input:checked {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.checkbox-input:checked::after {
+    transform: scale(1);
+}
+
+.checkbox-card {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: #ffffff;
+    color: #1f2430;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.checkbox-option:hover .checkbox-card {
+    border-color: #c9d2e3;
+    box-shadow: 0 6px 14px rgba(31, 35, 48, 0.08);
+    transform: translateY(-1px);
+}
+
+.checkbox-input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Input and select fields on focus */
+.modal-form .modal-content > form > .form-group > input:focus,
+.modal-form .modal-content > form > .form-group > select:focus,
+.modal-form .modal-content > form > .form-group > textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    background: #ffffff;
+    outline: none;
+}
+
+/* Textarea styling */
+.modal-form .modal-content > form > .form-group > textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit button styling */
+.modal-form .modal-content > form > .submit-button {
+    margin-top: 6px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--color-thead);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-form .modal-content > form > .submit-button:hover {
+    background-color: #1a5fd0;
+    transform: translateY(-1px);
+}

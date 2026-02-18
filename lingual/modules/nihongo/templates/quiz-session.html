@@ -1,0 +1,25 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = quiz_title %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/lesson.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="quiz" data-quiz-payload='{{ quiz_payload | tojson }}'></div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/lesson-utils.js') }}" defer></script>
+    <script>
+        // Source: https://stackoverflow.com/questions/14843454/are-you-sure-you-want-to-leave-this-page-functions-for-cancel-and-ok
+        window.onbeforeunload = function(e) {
+            return "Are you sure you want to leave? Your quiz progress will be lost.";
+        };
+
+        var quizSession = true;
+    </script>
+{% endblock %}

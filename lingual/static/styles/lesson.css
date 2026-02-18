@@ -643,7 +643,15 @@ body {
     width: 100%;
 }
 
+.quiz .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .quiz .quiz-restart-btn {
+    margin: 0 auto;
     padding: 1rem 0;
     width: 60%;
 }

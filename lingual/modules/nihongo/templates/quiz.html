@@ -1,0 +1,27 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = "Quiz" %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/modal-styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/quiz-page.css') }}">
+{% endblock %}
+
+{% block body %}
+{% from 'quiz-macros.html' import page %}
+{{ page(quiz_topics) }}
+
+{% if quiz_type %}
+    {% set modal = quiz_type.get_modal() %}
+    {% if modal %}
+        {% from 'macros/modal-macros.html' import modal_form %}
+        {{ modal_form(modal, auto_open=auto_open_modal) }}
+    {% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

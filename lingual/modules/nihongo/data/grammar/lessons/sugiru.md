@@ -28,4 +28,4 @@ To indicate that an action or quality is excessive in Japanese, you can use the 
 - 便利[べんり]すぎる → too convenient
 - 彼[かれ]は親切[しんせつ]すぎて、困[こま]ることもある。→ He is too kind, which can sometimes be troublesome.
 
-~quizzes:sugiru:quiz?shuffle~
+~quizzes:sugiru:quiz?shuffle&limit=5~

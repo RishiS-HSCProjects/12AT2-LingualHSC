@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Optional
 import re
 import html
 
-
 class FormError(Exception):
     """
     Custom exception class for form-related errors.
@@ -45,20 +44,17 @@ class FormError(Exception):
             'details': self.details
         }
 
-
 class FormSecurityError(FormError):
     """Specific exception for security-related form errors."""
     
     def __init__(self, message: str, field_name: Optional[str] = None, details: Optional[Dict[str, Any]] = None):
         super().__init__(message, field_name, error_code="SECURITY_ERROR", details=details)
 
-
 class FormValidationError(FormError):
     """Specific exception for validation-related form errors."""
     
     def __init__(self, message: str, field_name: Optional[str] = None, details: Optional[Dict[str, Any]] = None):
         super().__init__(message, field_name, error_code="VALIDATION_ERROR", details=details)
-
 
 class Form:
     """
@@ -374,7 +370,6 @@ class Form:
                 details={'exception': type(e).__name__}
             )
 
-
 # Utility functions for Flask-WTF integration
 
 def serialize_form_errors(form) -> Dict[str, List[str]]:
@@ -400,7 +395,6 @@ def serialize_form_errors(form) -> Dict[str, List[str]]:
             f"Failed to serialize form errors: {str(e)}",
             error_code="ERROR_SERIALIZATION_FAILED"
         )
-
 
 def serialize_form_data(form) -> Dict[str, Any]:
     """
@@ -430,7 +424,6 @@ def serialize_form_data(form) -> Dict[str, Any]:
             f"Failed to serialize form data: {str(e)}",
             error_code="DATA_SERIALIZATION_FAILED"
         )
-
 
 def repopulate_form(form, form_data: Optional[Dict[str, Any]] = None, form_errors: Optional[Dict[str, List[str]]] = None):
     """
@@ -505,7 +498,6 @@ def repopulate_form(form, form_data: Optional[Dict[str, Any]] = None, form_error
             error_code="FORM_REPOPULATION_FAILED"
         )
 
-
 def flash_form_errors(form, form_errors: Dict[str, List[str]]) -> None:
     """
     Flash form errors stored in serialized format.
@@ -533,7 +525,6 @@ def flash_form_errors(form, form_errors: Dict[str, List[str]]) -> None:
             error_code="ERROR_FLASH_FAILED"
         )
 
-
 def is_invalid_field(field_name: str, form_errors: Dict[str, List[str]]) -> bool:
     """
     Check if a form field has errors based on serialized form errors.
@@ -546,7 +537,6 @@ def is_invalid_field(field_name: str, form_errors: Dict[str, List[str]]) -> bool
         True if field has errors, False otherwise
     """
     return field_name in form_errors and len(form_errors[field_name]) > 0
-
 
 # === DRY Helper Functions for Common Form Operations ===
 
@@ -575,7 +565,6 @@ def save_form_to_session(form, session_obj, exclude_fields: Optional[List[str]] 
     
     session_obj['form_data'] = form_data
     session_obj['form_errors'] = serialize_form_errors(form)
-
 
 def restore_form_from_session(form, session_obj, flash_errors: bool = True, clear_session: bool = True) -> bool:
     """
@@ -612,7 +601,6 @@ def restore_form_from_session(form, session_obj, flash_errors: bool = True, clea
     
     return True
 
-
 def clear_form_session(session_obj) -> None:
     """
     Clear form data from session (DRY helper).
@@ -623,7 +611,6 @@ def clear_form_session(session_obj) -> None:
     """
     session_obj.pop('form_data', None)
     session_obj.pop('form_errors', None)
-
 
 def handle_form_success(session_obj) -> None:
     """
@@ -680,7 +667,6 @@ def validate_ajax_form(form_class, data: Dict[str, Any], field_mappings: Optiona
     
     return True, None, form
 
-
 def flash_all_form_errors(form) -> None:
     """
     Flash all errors from a form (DRY helper).
@@ -692,4 +678,3 @@ def flash_all_form_errors(form) -> None:
     for errors in form.errors.values():
         for error in errors:
             flash(error, "error")
-
