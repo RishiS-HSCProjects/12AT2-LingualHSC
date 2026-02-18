@@ -17,7 +17,7 @@
                 "type": "input",
                 "question": "Translate into Japanese: 'I will go home without eating dinner.'",
                 "includes": [
-                    ["家", "いえ", "ie"],
+                    ["家", "いえ", "うち", "ie", "uchi"],
                     ["帰る", "かえる", "kaeru"],
                     ["飯", "はん", "han"],
                     ["食べ", "たべ", "tabe"],

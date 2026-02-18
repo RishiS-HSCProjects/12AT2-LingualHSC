@@ -17,6 +17,7 @@
     {% if modal %}
         {% from 'macros/modal-macros.html' import modal_form %}
         {{ modal_form(modal, auto_open=auto_open_modal) }}
+    {% endif %}
 {% endif %}
 
 {% endblock %}

@@ -442,12 +442,13 @@
             },
             {
                 "type": "input",
-                "question": "Translate to English: この店[みせ]は安[やす]いし、店員[てんいん]も親切[しんせつ]だし、よく来ます。",
+                "question": "Translate to English: この店[みせ]は安[やす]いし、店[てん]員[いん]も親[しん]切[せつ]だし、よく来[き]ます。",
                 "includes": [
+                    ["often"],
                     ["since", "because", "as"],
                     ["cheap"],
-                    ["kind"],
-                    ["staff"]
+                    ["kind", "friendly", "nice"],
+                    ["staff", "worker", "employee", "shop"]
                 ],
                 "sample_answer": "I often come here because this shop is cheap and the staff are kind."
             },

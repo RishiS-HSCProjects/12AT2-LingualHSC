@@ -43,7 +43,7 @@ function saveModal(modalElement) {
 
 /**
  * Helper function to save modal to mapper by passing modal HTML.
- * This simplifies processes of finding an approrpriate element and getting its ID.
+ * This simplifies processes of finding an appropriate element and getting its ID.
  */
 function saveModalFromHtml(modalHtml) {
 	if (!modalHtml) return null; // Falsy html.
@@ -138,18 +138,18 @@ function resolveModal(modal) {
 /**
  * Initialise modal form handlers
 */
-function initModalHandlers(modelElement, modalId) {
-	if (!modelElement || modelElement.dataset.modalReady === 'true') return; // Exit early to avoid double registration
-	modelElement.dataset.modalReady = 'true'; // Set modal ready flag
+function initModalHandlers(modalElement, modalId) {
+	if (!modalElement || modalElement.dataset.modalReady === 'true') return; // Exit early to avoid double registration
+	modalElement.dataset.modalReady = 'true'; // Set modal ready flag
 
 	// If clicked outside, close modal
-	modelElement.addEventListener('click', (event) => {
-		if (event.target === modelElement) {
+	modalElement.addEventListener('click', (event) => {
+		if (event.target === modalElement) {
 			closeActiveModal();
 		}
 	});
 
-	const closeButtons = modelElement.querySelectorAll('[data-modal-close]'); // Get close buttons
+	const closeButtons = modalElement.querySelectorAll('[data-modal-close]'); // Get close buttons
 	closeButtons.forEach((btn) => {
 		btn.addEventListener('click', () => closeActiveModal()); // Add click listeners 
 	});

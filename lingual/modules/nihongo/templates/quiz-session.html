@@ -13,5 +13,13 @@
 
 {% block scripts %}
     {{ super() }}
-    <script src="{{ url_for('static', filename='js/lesson-utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lesson-utils.js') }}" defer></script>
+    <script>
+        // Source: https://stackoverflow.com/questions/14843454/are-you-sure-you-want-to-leave-this-page-functions-for-cancel-and-ok
+        window.onbeforeunload = function(e) {
+            return "Are you sure you want to leave? Your quiz progress will be lost.";
+        };
+
+        var quizSession = true;
+    </script>
 {% endblock %}

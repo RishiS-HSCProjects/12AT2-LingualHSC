@@ -1,13 +1,14 @@
 import os
 import re
+import uuid
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
-from lingual.utils.languages import Languages
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
-import uuid
+from lingual.utils.languages import Languages
+from lingual.utils.lesson_processor import LessonFetchException
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -59,17 +60,29 @@ def home():
     # Documented on 18 Feb 2026 
     from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
     from lingual.utils.languages import get_translatable
+    from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
+    from lingual.modules.nihongo.utils.kanji_processor import Kanji
+
+    lang_code = Languages.JAPANESE.obj().code
+    # Ensure the user's Japanese stats are created if they don't exist
+    if not current_user.get_language_stats(lang_code):
+        current_user.create_language_stats(lang_code)
+        db.session.commit()
 
     config = HomeConfig()
 
     welcome_banner = HomeBanner(get_translatable('jp', 'home_welcome_text').replace("{first_name}", current_user.first_name))
     config.register_section(welcome_banner)
 
+    lessons_practised = (stats := current_user.get_language_stats(lang_code)) and stats.get_lessons_practised() or []
+
     quick_access = HomeSection("Quick Access")
     quick_access.add_items(
         ItemBox(
             title="Grammar",
-            body="Practise Practise Practise",
+            body=f"{len(lessons_practised)}/{sum(
+                len(category['lessons']) for category in get_processor().get_lessons()
+            )} Grammar Lessons Completed",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn",
@@ -84,7 +97,7 @@ def home():
         ),
         ItemBox(
             title="Kanji",
-            body="0/XX Kanjis Mastered",
+            body=f"0/{len(Kanji.get_prescribed_kanji())} Kanji Mastered",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn",
@@ -122,37 +135,24 @@ def home():
     # Assuming this is inside a method of a User class
     recent = HomeSection("Recently Viewed")
 
-    lang_code = Languages.JAPANESE.obj().code
+    recent_lessons = lessons_practised[-3:][::-1] if lessons_practised else None
 
-    # Ensure the user's Japanese stats are created if they don't exist
-    if not current_user.get_language_stats(lang_code):
-        current_user.create_language_stats(lang_code)
-        db.session.commit()
-
-    recent.add_items(
-        ItemBox(
-            title="Grammar: Te-Form",
-            body="The Basics of Japanese Grammar",
-            buttons=[
-                ItemBox.BoxButton(
-                    text="View",
-                    link=url_for('nihongo.grammar', slug='te-form')
+    if recent_lessons:
+        for lesson in recent_lessons:
+            lesson = get_processor().get_lesson(lesson)
+            recent.add_items(
+                ItemBox(
+                    title=lesson.title,
+                    body=lesson.summary,
+                    buttons=[
+                        ItemBox.BoxButton(
+                            text="View",
+                            link=url_for('nihongo.grammar', slug=lesson.slug)
+                        )
+                    ],
+                    on_click=url_for('nihongo.grammar', slug=lesson.slug)
                 )
-            ],
-            on_click=url_for('nihongo.grammar', slug='te-form')
-        ),
-        ItemBox(
-            title="Kanji: Lesson 3",
-            body="Mastering the First 20 Kanji",
-            buttons=[
-                ItemBox.BoxButton(
-                    text="View",
-                    link="#"
-                )
-            ],
-            on_click="#"
-        )
-    )
+            )
 
     config.register_section(recent)
 
@@ -319,7 +319,7 @@ def quiz():
 def quiz_session():
     quiz_id = session.get('active_quiz_id')
     if not quiz_id or quiz_id not in _quiz_cache:
-        flash("No active quiz found. Generate one first.", "warning")
+        flash("No active quiz found. Please try again.", "warning")
         return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
 
     payload = _quiz_cache[quiz_id] # Retrieve quiz data
@@ -329,3 +329,18 @@ def quiz_session():
         quiz_payload=payload['data'],
         quiz_title=payload.get('title', 'Quiz')
     )
+
+@nihongo_bp.route('/grammar/api/quiz-complete', methods=['POST'])
+@login_required
+def lesson_quiz_complete():
+    payload = request.get_json(silent=True) or {}
+    lesson_slug = payload.get("lesson")
+    if not lesson_slug:
+        abort(400, description="Missing lesson slug.")
+
+    # Update user's progress for the lesson
+    stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
+    stats.add_lesson_practised(lesson_slug)
+    db.session.commit()
+
+    return jsonify({"status": "success"})

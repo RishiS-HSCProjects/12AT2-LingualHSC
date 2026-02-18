@@ -6,10 +6,10 @@
                 "type": "mc",
                 "question": "Which sentence correctly uses ～にくい to express difficulty?",
                 "options": [
-                    "この本は読み[よみ]にくいです。",
-                    "この本は読み[よみ]くにいです。",
-                    "この本は読み[よみ]にいいです。",
-                    "この本は読み[よみ]にくです。"
+                    "この本は読みにくいです。",
+                    "この本は読みくにいです。",
+                    "この本は読みにいいです。",
+                    "この本は読みにくです。"
                 ],
                 "answer": 0
             },
@@ -24,7 +24,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate the following sentence into English:\n\nこの漢字は書きにくいです。",
+                "question": "Translate the following sentence into English:\n\nこの漢[かん]字[じ]は書[か]きにくいです。",
                 "includes": [
                     ["kanji"],
                     ["difficult"],
