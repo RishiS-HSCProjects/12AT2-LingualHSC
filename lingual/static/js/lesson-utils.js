@@ -631,7 +631,6 @@ class QuizRenderer {
         function handleAudio() {
             let audio;
             if ((audio = q["audio-unconditional"]) ?? false) {
-                console.log("URL for audio:", `api/audio?id=${audio}`);
                 fetch(`api/audio?id=${audio}`, {
                     method: 'GET',
                     headers: {

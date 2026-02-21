@@ -33,7 +33,7 @@
 
 /* || Section */
 .home-section {
-    margin: 0 auto var(--gap-medium);
+    margin: 0 auto var(--gap-small);
     padding: 0 var(--gap-small);
     max-width: 1200px;
 }

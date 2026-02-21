@@ -39,17 +39,6 @@ def home():
             on_click=url_for('tutorial.lessons')
         ),
         ItemBox(
-            title="Return to Lingual Home",
-            body="Want to return to the main home page?",
-            buttons=[
-                ItemBox.BoxButton(
-                text="Take me back!",
-                link=url_for('main.landing')
-                )
-            ],
-            on_click=url_for('main.landing')
-        ),
-        ItemBox(
             title="Create an account",
             body="Like what you see? Create an account to start learning!",
             buttons=[
@@ -61,8 +50,25 @@ def home():
             on_click=url_for('main.register')
         ),
         ItemBox(
+            title="Return to Lingual Home",
+            body="Want to return to the main home page?",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Take me back!",
+                link=url_for('main.landing')
+                )
+            ],
+            on_click=url_for('main.landing')
+        )
+    )
+
+    config.register_section(quick_access)
+
+    dev = HomeSection("For Developers")
+    dev.add_items(
+        ItemBox(
             title="Create your own lessons!",
-            body="Lingual HSC is a collaborative project. This is where you should start if you want to contribute your own lessons and quizzes to the platform!",
+            body="Want to contribute to this open-source project? Start here!",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn More",
@@ -77,7 +83,7 @@ def home():
         ),
         ItemBox(
             title="Explore the codebase",
-            body="Interested in how this module works? Check out the code on GitHub!",
+            body="Interested in how this Lingual HSC works? Check out the project on GitHub!",
             buttons=[
                 ItemBox.BoxButton(
                 text="Open GitHub Repo",
@@ -88,7 +94,7 @@ def home():
         )
     )
 
-    config.register_section(quick_access)
+    config.register_section(dev)
 
     return render_template('tutorial-home.html', config=config)
 
