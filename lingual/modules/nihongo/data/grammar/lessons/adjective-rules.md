@@ -1,7 +1,6 @@
 ---
 
 title: Adjective Rules
-slug: adjective-rules
 summary: Learn the essential rules for using adjectives in Japanese, including their types, conjugations, and common usages.
 
 ---

@@ -1,7 +1,6 @@
 ---
 
 title: "Saying \"Better if you ...\""
-slug: "using-houga"
 summary: "Learn how to say 'had better' in Japanese using the ～ほうがいい structure."
 
 ---

@@ -1,6 +1,15 @@
 const FLASH_DURATION = 10000; // Flash alive duration in ms
 const FLASH_STAGGER = 500;    // Stagger in ms
 
+/**
+ * Defines the audio currently playing on the client.
+ * This way, audios can be stopped then overridden when a new one is
+ * played, preventing multiple audios from playing simultaneously.
+ * This variable is defined here so it can be accessed and modified 
+ * by any and all functions in Lingual HSC.
+*/
+var currentAudio = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     const messages = Array.from( // Get all flash messages
         document.querySelectorAll('#flash-container .flash-message')

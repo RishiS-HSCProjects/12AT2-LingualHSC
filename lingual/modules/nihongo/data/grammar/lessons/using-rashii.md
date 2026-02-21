@@ -1,7 +1,6 @@
 ---
 
 title: "Using らしい"
-slug: "using-rashii"
 summary: "Learn how to source and reference information."
 
 ---

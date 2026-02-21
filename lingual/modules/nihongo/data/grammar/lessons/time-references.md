@@ -1,7 +1,6 @@
 ---
 
 title: "Referencing Time"
-slug: "time-references"
 summary: "Learn how to use 前, 後, and 間 to reference time in Japanese."
 
 --- 

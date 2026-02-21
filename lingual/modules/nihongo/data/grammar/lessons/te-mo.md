@@ -1,7 +1,6 @@
 ---
 
 title: "Using ても"
-slug: "te-mo"
 summary: "Learn how to use the ても form in Japanese to express 'even if' or 'even though' in various contexts."
 
 ---

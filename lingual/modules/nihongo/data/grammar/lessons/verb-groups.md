@@ -1,7 +1,6 @@
 ---
 
 title: "The Verb Groups"
-slug: "verb-groups"
 summary: "Learn about the different verb groups in Japanese, which is essential for understanding how to conjugate verbs correctly."
 
 ---

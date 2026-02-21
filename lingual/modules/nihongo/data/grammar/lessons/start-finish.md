@@ -1,7 +1,6 @@
 ---
 
 title: "Saying When an Action Starts and Finishes"
-slug: "start-finish"
 summary: "Learn how to express the start and finish of actions in Japanese."
 
 ---

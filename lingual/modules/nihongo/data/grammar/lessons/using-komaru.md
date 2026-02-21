@@ -1,7 +1,6 @@
 ---
 
 title: Using ～困る to Express Difficulty
-slug: using-komaru
 summary: Learn how to use the ～こまる construction in Japanese to express difficulty or trouble in doing something.
 
 ---

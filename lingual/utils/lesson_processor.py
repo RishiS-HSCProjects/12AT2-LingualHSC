@@ -5,6 +5,7 @@ from flask import current_app, url_for
 import frontmatter
 import markdown
 import re
+from typing import Any
 from lingual.utils.languages import Language
 from werkzeug.routing import BuildError
 from markupsafe import escape
@@ -137,6 +138,15 @@ class BaseLessonProcessor:
             content = transform(content)
         return content
 
+    def transform_data(self, data: Any) -> Any:
+        if isinstance(data, dict):
+            return {key: self.transform_data(value) for key, value in data.items()}
+        if isinstance(data, list):
+            return [self.transform_data(item) for item in data]
+        if isinstance(data, str):
+            return self.apply_transforms(data)
+        return data
+
     # Cache up to 16 lessons in memory for performance
     # Has the issue of not updating if lesson files change on disk,
     # however, a "cache clear" mechanism can be implemented later.
@@ -219,7 +229,7 @@ class BaseLessonProcessor:
             content=content_plain,
         )
 
-    @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
+    # @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
     def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
         """ Loads all lessons and organizes them by category based on the map.json file.
             Returns a list of dictionaries with category names and their corresponding lessons.

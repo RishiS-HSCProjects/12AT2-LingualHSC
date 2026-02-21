@@ -1,7 +1,6 @@
 ---
 
 title: "Relative Clauses"
-slug: "relative-clauses"
 summary: "Learn how to form and use relative clauses in Japanese to describe nouns with additional information."
 
 ---

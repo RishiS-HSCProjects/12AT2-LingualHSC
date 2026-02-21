@@ -1,7 +1,6 @@
 ---
 
 title: "The Conditional Form"
-slug: "conditional-form"
 summary: "Learn how to use the 〜と and 〜ら constructions in Japanese to express 'when' and 'if' scenarios."
 
 ---

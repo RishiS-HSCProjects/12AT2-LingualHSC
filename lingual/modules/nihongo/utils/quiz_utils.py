@@ -1,24 +1,10 @@
 import json
 import random
 from pathlib import Path
-from typing import Any
-
 from flask import url_for
 from lingual.modules.nihongo.forms import GrammarQuizConfigForm, KanjiQuizConfigForm
-from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils import quiz_manager
 from .grammar_lesson_processor import get_processor
-
-def transform_quiz_text(data: Any) -> Any:
-    processor = get_processor()
-
-    if isinstance(data, dict):
-        return {k: transform_quiz_text(v) for k, v in data.items()}
-    if isinstance(data, list):
-        return [transform_quiz_text(item) for item in data]
-    if isinstance(data, str):
-        return processor.apply_transforms(data)
-    return data
 
 def load_quiz_data(lesson_slug: str) -> dict | None:
     base_dir = Path(get_processor().data_root) / "quizzes"
@@ -30,7 +16,7 @@ def load_quiz_data(lesson_slug: str) -> dict | None:
     with path.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
-    return transform_quiz_text(data)
+    return get_processor().transform_data(data)
 
 def get_grammar_lesson_choices() -> list[tuple[str, str]]:
     """

@@ -1,7 +1,6 @@
 ---
 
 title: Using なる
-slug: using-naru
 summary: Learn how to use なる to express change or transformation in Japanese sentences.
 
 ---

@@ -20,6 +20,7 @@ class Language:
         return f"Language(code={self.code!r}, name={self.name!r}, native_name={self.native_name!r}, app_code={self.app_code!r}, app_name={self.app_name!r})"
 
 class Languages(Enum):
+    TUTORIAL = Language(code='xx', name='Tutorial', native_name='xx', app_code='tutorial', app_name='Tutorial')
     JAPANESE = Language(code='jp', name='Japanese', native_name='日本語', app_code='nihongo', app_name='日本Go!')
 
     def obj(self) -> Language:

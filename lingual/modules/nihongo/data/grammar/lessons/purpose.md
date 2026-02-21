@@ -1,7 +1,6 @@
 ---
 
 title: "Expressing Purpose with ～ために"
-slug: "purpose"
 summary: "Learn how to express purpose in Japanese using the ～ために structure."
 
 ---

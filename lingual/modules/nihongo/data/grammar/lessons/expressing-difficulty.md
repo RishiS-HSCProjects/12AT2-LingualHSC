@@ -1,7 +1,6 @@
 ---
 
 title: Expressing Difficulty in Japanese using やさしい and にくい
-slug: expressing-difficulty
 summary: Learn how to express difficulty in Japanese using the adjectives やさしい and にくい.
 
 ---

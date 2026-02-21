@@ -1,7 +1,6 @@
 ---
 
 title: "Giving Descriptions"
-slug: "giving-descriptions"
 summary: "Learn how to describe something that looks or seems a certain way."
 
 ---

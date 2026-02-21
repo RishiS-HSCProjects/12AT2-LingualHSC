@@ -1,7 +1,6 @@
 ---
 
 title: "The Particle へ"
-slug: "particle-he"
 summary: "Learn about the Japanese particle へ, which indicates direction or destination in a sentence."
 
 ---

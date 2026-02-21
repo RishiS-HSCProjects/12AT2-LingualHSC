@@ -1,0 +1,26 @@
+{% extends "module-base.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/graphic-bg.css') }}">
+<link rel="stylesheet" href="{{ url_for('tutorial.static', filename='styles/tutorial.css') }}">
+
+{% endblock %}
+
+{% block header %}
+<div class="graphic-bg"></div>
+{{ super() }}
+{% endblock %}
+
+{% block nav_logo %}
+<a href="{{ url_for('tutorial.home') }}">Lingual Tutorial</a>
+{% endblock %}
+
+{% block nav_links %}
+<a href="{{ url_for('tutorial.lessons') }}">Lessons</a>
+<a href="{{ url_for('main.landing') }}">Back to Lingual HSC</a>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
