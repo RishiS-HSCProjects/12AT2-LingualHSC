@@ -62,7 +62,7 @@ def login():
             else:
                 resp = redirect(url_for('main.app'))
 
-            resp.set_cookie('has_account', 'true') # Add session cookie to indicate user has an account
+            resp.set_cookie('has_account', 'true', max_age=400*24*60*60) # Add persistent cookie to indicate user has an account
             return resp
         else:
             # Validation failed - save and display errors
@@ -98,7 +98,11 @@ def register():
     from flask_wtf import FlaskForm
     csrf_form = FlaskForm() # Form is only for FlaskWTF's inbuilt CSRF token protection
 
-    return render_template('register.html', languages=list(Languages), form=csrf_form)
+    return render_template(
+        'register.html',
+        languages=[lang for lang in Languages if lang.obj() != Languages.TUTORIAL.obj()], # Exclude tutorial from language options
+        form=csrf_form
+    )
 
 @main_bp.route('/register/u/<step>', methods=['POST'], strict_slashes=False)
 def register_util(step):

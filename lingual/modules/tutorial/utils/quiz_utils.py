@@ -12,4 +12,4 @@ def load_quiz_data(lesson_slug: str) -> dict | None:
     with path.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
-    return data
+    return get_processor().transform_data(data)

@@ -21,7 +21,8 @@
                     "True or False"
                 ],
                 "answer": 0,
-                "explanation": "Some questions may have explanations that provide more information about the correct answer, or why the other options are incorrect. This is a great way to help you learn from your mistakes and deepen your understanding of the material."
+                "explanation": "Some questions may have explanations that provide more information about the correct answer, or why the other options are incorrect. This is a great way to help you learn from your mistakes and deepen your understanding of the material.",
+                "audio-unconditional": "getting-started\\001.mp3"
             },
             {
                 "type": "input",
@@ -37,11 +38,10 @@
                 "type": "input",
                 "question": "The third type of question supported in quizzes is the \"Free Response\" type, where users can input any answer without restrictions. This allows for even more open-ended questions and encourages users to express their understanding in their own words. Correctness is determined by whether or not their response includes specific keywords or phrases that are defined in the quiz data.\n\nTry answering this question: What is your favourite colour and why?",
                 "includes": [
-                    ["favourite", "like", "love"],
-                    ["colour"],
                     ["because", "cuz", "bc", "as", "since"]
                 ],
                 "explanation": "Usually for free response questions, there are no strictly correct or incorrect answers. Instead, the goal is to encourage users to think critically and express their understanding in their own words. However, we include a \"sample answer\" for you to check out after you answer the question, which is a good example of an answer that would be marked as correct. The sample answer is not the only correct answer, but it can give you an idea of what a good answer might look like.",
+                "audio-unconditional": "getting-started\\002.mp3",
                 "sample_answer": "My favourite colour is blue because it reminds me of the ocean and makes me feel calm."
             },
             {
@@ -51,20 +51,22 @@
                     "4",
                     "four"
                 ],
-                "explanation": "Lingual will show you the missing expected elements that a correct answer should have included, so you can learn from your mistakes and understand why your answer was marked as incorrect. After you finish the first round of answering, you'll be given the chance to try answering this question again, and this time, you can use the feedback provided to help you get the correct answer!"
+                "explanation": "Lingual will show you the missing expected elements that a correct answer should have included, so you can learn from your mistakes and understand why your answer was marked as incorrect. After you finish the first round of answering, you'll be given the chance to try answering this question again, and this time, you can use the feedback provided to help you get the correct answer!",
+                "audio-unconditional": "getting-started\\003.mp3"
             },
             {
                 "type": "input",
-                "question": "The same logic applies for free response questions as well. If your answer doesn't include the expected keywords or phrases, Lingual will show you which ones you missed so you can learn from your mistakes and improve your understanding of the material.\n\nTry answering this question incorrectly on purpose: Why did the chicken cross the road?",
+                "question": "The same logic applies for free response questions as well. If your answer doesn't include the expected keywords or phrases, Lingual will show you which ones you missed so you can learn from your mistakes and improve your understanding of the material.\n\nTry answering this question: ||Why did the chicken cross the road||?",
                 "includes": [
                     ["chicken"],
                     ["cross", "go", "walk", "move"],
                     ["road", "street"],
                     ["because", "to", "cuz", "as", "since"],
-                    ["revenge", "vengance", "payback", "anger"]
+                    ["revenge", "vengeance", "payback", "anger"]
                 ],
-                "explanation": "After you answer, Lingual will show you which expected keywords or phrases you missed in your answer, so you can learn from your mistakes and improve your understanding of the material. In the case you believe your answer correct and Lingual marked it as incorrect, you can create an issue on our GitHub page to let us know about the problem so we can fix it and improve our quizzes!",
-                "sample_answer": "The chicken crossed the road because it wanted to get to the other side and seek revenge on the people who kept asking it that question."
+                "explanation": "After you answer, Lingual will show you which expected keywords or phrases you missed in your answer, so you can learn from your mistakes and improve your understanding of the material. In the case you believe your answer was falsely marked (for example, you believe your answer is correct, but Lingual marked it as incorrect), you can create an issue on our GitHub page to let us know about the problem so we can fix it and improve our quizzes! Our issues page also exists as a community forum where you can discuss quiz questions with other users and all learn together!",
+                "audio-unconditional": "getting-started\\004.mp3",
+                "sample_answer": "The chicken crossed the road because ||it wanted to get to the other side and seek revenge on the people who kept asking it that question||."
             },
             {
                 "type": "mc",
@@ -75,7 +77,8 @@
                     "I'm seeking revenge on the people who keep asking me why I crossed the road!"
                 ],
                 "answer": 0,
-                "explanation": "Well, the second option is certainly a valid answer, but if you chose the first option, you can head over to the sign up page and create an account to start your language learning journey with Lingual HSC! We have quizzes in all of our language modules that are designed to test your understanding of the material and help you learn more effectively. But first, let's revisit the questions you missed earlier..."
+                "explanation": "Well, the second option is certainly a valid answer, but if you chose the first option, you can head over to the sign up page and create an account to start your language learning journey with Lingual HSC! We have quizzes in all of our language modules that are designed to test your understanding of the material and help you learn more effectively. But first, let's revisit the questions you missed earlier...",
+                "audio-unconditional": "getting-started\\005.mp3"
             }
         ]
     }

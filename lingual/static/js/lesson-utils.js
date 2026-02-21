@@ -481,6 +481,8 @@ class QuizRenderer {
                     const explanation = container.querySelector(".quiz-explanation");
                     addResultIndicator(explanation, chosen === q.answer);
 
+                    handleAudio();
+
                     nextBtn.disabled = false; // Enable next button
 
                     // Add Enter key listener for next button (delayed to avoid same keypress)
@@ -602,6 +604,8 @@ class QuizRenderer {
                 const explanation = container.querySelector(".quiz-explanation");
                 addResultIndicator(explanation, correct); // Add correct/incorrect indicator to explanation
 
+                handleAudio();
+
                 nextBtn.disabled = false; // Enable next button
 
                 // Add Enter key listener for next button (delayed to avoid same keypress)
@@ -624,8 +628,43 @@ class QuizRenderer {
             });
         }
 
+        function handleAudio() {
+            let audio;
+            if ((audio = q["audio-unconditional"]) ?? false) {
+                console.log("URL for audio:", `api/audio?id=${audio}`);
+                fetch(`api/audio?id=${audio}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Audio API error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                    .then(data => {
+                        if (!data?.path) {
+                            throw new Error("Audio path not provided in response");
+                        }
+                        currentAudio = new Audio(data.path);
+                        currentAudio.play().catch(e => {
+                            console.warn("Failed to play audio. This may be due to browser restrictions.", e);
+                        });
+                    }).catch(e => {
+                    console.error("An error occurred while fetching or playing audio.", e);
+                });
+            }
+        }
+
         /* ---------- Navigation ---------- */
         nextBtn.addEventListener("click", () => {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.src = "";
+                currentAudio = null;
+            }
+
             if (index + 1 < questions.length) { // More questions remain
                 this.renderQuestion(container, quiz, questions, index + 1, score, isReview);
             } else if (!isReview && score.missed.length) {

@@ -1,6 +1,6 @@
 import os
 import re
-from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, url_for
+from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, url_for, make_response
 from lingual.modules.tutorial.utils import quiz_utils
 from lingual.modules.tutorial.utils.lessons_processor import get_processor
 from lingual.utils.languages import Languages
@@ -37,13 +37,7 @@ def home():
                 )
             ],
             on_click=url_for('tutorial.lessons')
-        )
-    )
-
-    config.register_section(quick_access)
-
-    actions = HomeSection("Actions")
-    actions.add_items(
+        ),
         ItemBox(
             title="Return to Lingual Home",
             body="Want to return to the main home page?",
@@ -67,6 +61,21 @@ def home():
             on_click=url_for('main.register')
         ),
         ItemBox(
+            title="Create your own lessons!",
+            body="Lingual HSC is a collaborative project. This is where you should start if you want to contribute your own lessons and quizzes to the platform!",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Learn More",
+                link=url_for('tutorial.lessons', slug="for-developers")
+                ),
+                ItemBox.BoxButton(
+                text="Fork Repo",
+                link="https://github.com/RishiS-HSCProjects/12AT2-LingualHSC/fork"
+                )
+            ],
+            on_click=url_for('tutorial.lessons', slug="for-developers")
+        ),
+        ItemBox(
             title="Explore the codebase",
             body="Interested in how this module works? Check out the code on GitHub!",
             buttons=[
@@ -79,7 +88,7 @@ def home():
         )
     )
 
-    config.register_section(actions)
+    config.register_section(quick_access)
 
     return render_template('tutorial-home.html', config=config)
 
@@ -103,11 +112,11 @@ def lessons(slug=None):
             data_root=lesson_data.get("data_root")
         )
 
-    lessons = get_processor().get_lessons() # Get all grammar lessons and categories
+    lessons = get_processor().get_lessons()
     return render_template('tutorial-lesson-directory.html', lessons=lessons)
 
 
-@tutorial_bp.route('/lessons/api/quiz/<lesson_slug>', methods=['GET'])
+@tutorial_bp.route('/lessons/api/quiz/<lesson_slug>', methods=['GET'], strict_slashes=False)
 def get_quizzes(lesson_slug):
     # Validate slug to prevent directory traversal attacks
     if not lesson_slug or not VALID_SLUG.match(lesson_slug):
@@ -130,9 +139,27 @@ def get_quizzes(lesson_slug):
 
     return jsonify(data)
 
-@tutorial_bp.route('/grammar/api/quiz-complete', methods=['POST'])
-def lesson_quiz_complete():
-    # Nothing to do here.
-    # Other modules may want to edit stats or something when a quiz is
-    # completed, so this endpoint can be used for that.
-    return jsonify({"status": "success"}) # Success response!
+@tutorial_bp.route('/lessons/api/audio', methods=['GET', 'OPTIONS'], strict_slashes=False)
+@tutorial_bp.route('/lessons/api/audio/', methods=['GET', 'OPTIONS'], strict_slashes=False)
+def get_audio():
+    # Handle CORS preflight requests
+    if request.method == 'OPTIONS':
+        response = make_response('', 204)
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+        return response
+    
+    audio_id = request.args.get('id')
+    if not audio_id:
+        abort(400, description="Missing audio ID.")
+
+    # Normalize Windows-style paths to URL-safe paths
+    audio_id = audio_id.replace("\\", "/")
+
+    response = make_response(jsonify({
+        "path": url_for('tutorial.static', filename=f'audio/{audio_id}')
+    }))
+    # Add CORS header to allow cross-origin requests
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response

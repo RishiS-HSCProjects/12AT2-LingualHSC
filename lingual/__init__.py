@@ -38,7 +38,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI         =      os.getenv('SQLALCHEMY_DATABASE_URI', f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}")
     SQLALCHEMY_TRACK_MODIFICATIONS  =      False
 
-    SERVER_NAME = 'localhost:5000'  # Default to localhost for local development
+    SERVER_NAME = None  # Unset for development to allow access from any hostname/IP (127.0.0.1, localhost, etc.)
     PREFERRED_URL_SCHEME = 'http'
 
 @login_manager.user_loader
@@ -71,5 +71,3 @@ def create_app():
     init_filters(app)
 
     return app
-
-

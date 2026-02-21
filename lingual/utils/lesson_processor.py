@@ -5,6 +5,7 @@ from flask import current_app, url_for
 import frontmatter
 import markdown
 import re
+from typing import Any
 from lingual.utils.languages import Language
 from werkzeug.routing import BuildError
 from markupsafe import escape
@@ -136,6 +137,15 @@ class BaseLessonProcessor:
         for transform in self.transformers:
             content = transform(content)
         return content
+
+    def transform_data(self, data: Any) -> Any:
+        if isinstance(data, dict):
+            return {key: self.transform_data(value) for key, value in data.items()}
+        if isinstance(data, list):
+            return [self.transform_data(item) for item in data]
+        if isinstance(data, str):
+            return self.apply_transforms(data)
+        return data
 
     # Cache up to 16 lessons in memory for performance
     # Has the issue of not updating if lesson files change on disk,

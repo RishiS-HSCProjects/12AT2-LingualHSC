@@ -13,7 +13,7 @@ Lingual HSC is a language learning web application curated for the New South Wal
 
 # Why Lingual HSC?
 
-If you read the landing page, you would have seen that Lingual HSC is designed to be a language learning application that focuses specifically on the New South Wales cirriculum for mastering the skills you will need for the HSC. It provides a comprehensive set of resources and tools to help students prepare for their language exams, including lessons, quizzes, and interactive content.
+If you read the landing page, you would have seen that Lingual HSC is designed to be a language learning application that focuses specifically on the New South Wales curriculum for mastering the skills you will need for the HSC. It provides a comprehensive set of resources and tools to help students prepare for their language exams, including lessons, quizzes, and interactive content.
 
 ## What we aren't
 
