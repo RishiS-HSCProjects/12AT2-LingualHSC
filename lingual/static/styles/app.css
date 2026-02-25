@@ -24,6 +24,12 @@
     --radius-large: 3.125rem;
 }
 
+#body {
+    margin: auto;
+    margin-top: calc(var(--nav-height) + 1rem);
+    width: 95%;
+}
+
 /* || Flash Messages */
 
 #flash-container {

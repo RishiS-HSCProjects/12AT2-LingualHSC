@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, SelectField, Valida
 from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 from lingual.core.auth.utils.utils import validate_email, validate_name, validate_password_strength
+from lingual.utils.modals import ModalForm
 
 class LoginForm(FlaskForm):
     """ Form for user login. """
@@ -112,3 +113,16 @@ class RegistrationPasswordForm(FlaskForm):
         
         err = validate_password_strength(password)
         if err: raise ValidationError(str(err))
+
+class DeleteAccountConfirmation(ModalForm):
+    """ Confirm the account should be deleted. """
+    title = "Delete Account"
+    description = "Are you sure you want to delete your account? This action can not be undone."
+    
+    txt = StringField("Please type 'delete my account'", validators=[DataRequired()])
+    password = PasswordField('Input current password', validators=[DataRequired()])
+    submit = SubmitField("Delete forever!")
+
+    def validate_txt(self, field):
+        if not field.data.lower() == "delete my account":
+            raise ValidationError()

@@ -28,7 +28,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def add_language(self, language_code: str):
-        if (lang := Languages.get_language_by_code(language_code)) is None:
+        if (Languages.get_language_by_code(language_code)) is None:
             raise ValueError(f"Language code '{language_code}' does not exist.")
         
         if language_code == Languages.TUTORIAL.obj().code:
@@ -110,12 +110,18 @@ class User(UserMixin, db.Model):
         # Reset all user stats related to language learning
         for lang_code in self.languages:
             self.remove_language_stats(lang_code)
+            self.create_language_stats(lang_code)
 
     def delete(self):
         # Delete associated language stats first to maintain referential integrity
         for lang_code in self.languages:
             self.remove_language_stats(lang_code)
         db.session.delete(self)
+    
+    def login(self):
+        self.last_login = datetime.now(timezone.utc)
+        from flask_login import login_user
+        login_user(self)
 
     @staticmethod
     def verify_reset_token(token):
@@ -169,10 +175,9 @@ class JapaneseStats(LanguageStatsBase):
         )
     )
 
-    # recent_new_kanji will store the list of kanji characters the user has recently added
-    # to their learned list which they haven't learned before. The order is static, showing
-    # the most recently added kanji at the end of the list.
     kanji_learned: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="[]")
+    """ Store the list of kanji characters the user has learned. The order is static,
+        showing the most recently added kanji at the end of the list. """
 
     # kanji_practised will store the list of kanji characters the user has practiced,
     # in the order they were last practiced. This allows features like "review old kanji"

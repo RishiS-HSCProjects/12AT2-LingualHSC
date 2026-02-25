@@ -258,7 +258,6 @@ def kanji_batch():
 @nihongo_bp.route('/quiz', methods=['GET', 'POST'])
 @login_required
 def quiz():
-
     quiz_type = request.args.get('type') or None
     if quiz_type:
         try:

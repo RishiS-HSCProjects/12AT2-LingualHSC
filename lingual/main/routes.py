@@ -1,7 +1,11 @@
+import traceback
+from werkzeug.exceptions import HTTPException
 from flask import jsonify, make_response, redirect, render_template, request, session, current_app, flash, url_for
 from flask.blueprints import Blueprint
 from flask_login import current_user, login_required
+from lingual import db
 from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
+from lingual.main.utils import AccountActionTypes
 from lingual.utils.languages import Languages, get_translatable
 from lingual.core.auth.utils.user_auth import RegUser, RegUserValueException, deserialize_RegUser
 from lingual.utils.form_manager import (
@@ -20,6 +24,11 @@ main_bp = Blueprint(
 @main_bp.route('/')
 def landing():
     return render_template('landing.html')
+
+@main_bp.route('/welcome')
+@login_required
+def welcome():
+    return render_template('welcome.html', title="Welcome to Lingual HSC")
 
 @main_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
@@ -43,7 +52,7 @@ def login():
             # Attempt to find and authenticate user
             from lingual.models import User
             user: User | None = User.query.filter_by(email=email.lower()).first() # type: ignore
-            if not user or not user.check_password(password):
+            if user is None or not user.check_password(password):
                 form.password.data = ''  # Clear password field
 
                 flash("Invalid email or password.", "error")
@@ -51,12 +60,15 @@ def login():
                 return redirect(url_for('main.login', next=request.args.get('next')))  # type: ignore
 
             # Login successful
-            from flask_login import login_user
-            login_user(user)
+            user.login() # Update last login time and log in user
             flash("Login successful!", "success")
             clear_form_session(session) # Clear saved data on success
 
             # Redirect to next page or default to app
+
+            if session.pop('new_user', False):
+                return render_template("welcome.html", title="Welcome to Lingual HSC") # Show welcome page if user just registered
+
             if 'next' in request.args:
                 resp = redirect(request.args.get('next'))  # type: ignore
             else:
@@ -100,7 +112,7 @@ def register():
 
     return render_template(
         'register.html',
-        languages=[lang for lang in Languages if lang.obj() != Languages.TUTORIAL.obj()], # Exclude tutorial from language options
+        languages=Languages.get_languages(), # Exclude tutorial from language options
         form=csrf_form
     )
 
@@ -343,7 +355,6 @@ def reset_token(token):
                 password = form.password.data
                 if password:  # Type guard
                     user.set_password(password)
-                    from lingual import db
                     db.session.commit() # Save changes to database
                     flash("Your password has been updated! You can now log in.", "success")
                     return redirect(url_for('main.login'))
@@ -402,12 +413,9 @@ def app():
     last_lang = current_user.get_last_language()
     
     if last_lang is None:  # No last language set
-        if current_user.get_languages():
-            # Set the first language as the last language if not set
-            current_user.set_last_language(current_user.languages[0])
-            from lingual import db
-            db.session.commit() # Save changes to database
-            last_lang = current_user.get_last_language()  # Retrieve the updated last language
+        if (len((user_langs := current_user.get_languages())) == 1):
+            return redirect(url_for('main.app_redirect', code=user_langs[0].code)) # Redirect to the only language they have
+        return redirect(url_for('main.app_directory')) # Redirect to app directory to choose a language
     
     if last_lang:
         # Now that we know last_lang is not None, perform the redirect
@@ -437,7 +445,77 @@ def app_redirect(code: str):
         return redirect(url_for('main.app_directory'))
 
     current_user.set_last_language(code)
-    from lingual import db
     db.session.commit() # Save changes to database
 
     return redirect(url_for('main.app'))
+
+@main_bp.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    action = request.args.get('action') or None
+    if action:
+        try:
+            action = AccountActionTypes[action.upper()]
+            try:
+                action = action.get_modal() # Check if modal is implemented. If not, we will not auto open the modal since there is no configuration for the quiz.
+            except NotImplementedError:
+                flash(f"{action.name.title()} Action not implemented.", "warning")
+                action = None
+        except KeyError:
+            action = None
+        
+    if action and request.method == 'POST':
+        if action.validate_on_submit():
+            if current_user.check_password(action.password.data):
+                current_user.delete()
+                db.session.commit()
+                flash("Successfully deleted account.", "success")
+                return redirect(url_for('main.landing'))
+            else:
+                flash("Password incorrect. Please try again.", "error")
+        else:
+            flash("Invalid input. Please check your selections and try again.", "error")
+
+    last_lang = current_user.get_last_language()
+    user_lang = current_user.get_languages()
+
+    return render_template(
+        'account.html',
+        lang_obj=last_lang,
+        user_lang=user_lang,
+        action_form=action,
+        auto_open_modal=bool(action)
+    )
+
+@main_bp.app_errorhandler(Exception)
+def handle_exception(e):
+    # Pass 500 as default if it's not a standard HTTP error
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code or 500
+
+    module = request.path.split('/')[1] if len(request.path.split('/')) > 1 else None
+    
+    # Get language code for error message translatables if error came from a language module,
+    # otherwise default to English.
+    lang_obj = Languages.get_language_by_app_code(module) if module else None
+    lang_code = 'en' # Default to English if we can't determine a language from the URL
+    if module and lang_obj: lang_code = lang_obj.code # If module valid and language found, get lang code
+    
+    if code == 403:
+        err_head = get_translatable(lang_code, "err_403_head")
+        err_msg = "You do not have permission to access this page."
+    elif code == 404:
+        err_head = get_translatable(lang_code, "err_404_head")
+        err_msg = "The page you are looking for does not exist!"
+    elif code == 500:
+        current_app.logger.error(f"Internal server error 500: {e}") # Log the error details for debugging
+        current_app.logger.error(traceback.format_exc())
+        err_head = "Internal Server Error"
+        err_msg = "An internal server error occurred."
+    else:
+        current_app.logger.error(f"Unexpected error ({code}): {e}") # Log unexpected errors for debugging
+        err_head = f"Error {code}"
+        err_msg = "An unexpected error occurred."
+
+    return render_template("error.html", lang_obj=lang_obj, err_head=err_head, err_msg=err_msg), code

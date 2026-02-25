@@ -28,6 +28,7 @@
    --radius-medium: 10px;
    --radius-round: 14px;
    --gradient-soft-sunrise: linear-gradient(135deg, #fffbfc 0%, #fff5f7 45%, #fffbfc 100%);
+   --line-height-title-lg: 3.5rem;
 }
 
 /* || General Styles */

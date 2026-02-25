@@ -1,0 +1,5 @@
+{% if lang_obj %}
+{% extends lang_obj.app_code ~ '-template.html' %}
+{% else %}
+{% extends 'lingual-template.html' %}
+{% endif %}

@@ -1,0 +1,109 @@
+:root {
+    --welcome-bg: var(--theme-page-gradient, var(--gradient-soft-sunrise));
+    --welcome-heading: var(--theme-text-primary, var(--color-primary));
+    --welcome-body: var(--theme-text-secondary, var(--color-secondary));
+    --welcome-button-bg: var(--theme-accent, var(--color-accent));
+    --welcome-button-bg-hover: var(--theme-accent-hover, var(--color-accent-strong));
+    --welcome-button-bg-active: var(--theme-accent-soft, var(--color-accent-soft));
+    --welcome-button-text: var(--theme-text-primary, var(--color-primary));
+    --welcome-focus: var(--theme-focus-ring, var(--color-accent-amber));
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--welcome-bg);
+}
+
+#body {
+    margin: 0;
+}
+
+#welcome-container {
+    max-width: 48rem;
+    min-height: calc(100vh - 6rem);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+#welcome-container h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--welcome-heading);
+}
+
+#welcome-container p {
+    margin: 0;
+    max-width: 36rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--welcome-body);
+}
+
+#welcome-container #buttons {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#welcome-container #tutorials,
+#welcome-container #continue {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#welcome-container a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--welcome-button-text);
+    text-decoration: none;
+    background-color: var(--welcome-button-bg);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#welcome-container a:hover {
+    background-color: var(--welcome-button-bg-hover);
+    transform: translateY(-1px);
+}
+
+#welcome-container a:active {
+    background-color: var(--welcome-button-bg-active);
+    transform: translateY(0);
+}
+
+#welcome-container a:focus-visible {
+    outline: 2px solid var(--welcome-focus);
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    #welcome-container {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    #welcome-container #tutorials,
+    #welcome-container #continue {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #welcome-container a {
+        width: 100%;
+    }
+}

@@ -1,0 +1,22 @@
+{% extends 'lingual-template.html' %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/welcome.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="welcome-container">
+        <h1>Welcome to Lingual!</h1>
+        <p>Want to learn how we work? Check out our Tutorial Module!</p>
+        <div id="buttons">
+            <div id="tutorials">
+                <a href="{{ url_for('tutorial.home') }}" class="button">Check Out a Lesson</a>
+                <a href="{{ url_for('tutorial.home') }}" class="button">Visit Tutorial Module</a>
+            </div>
+            <div id="continue">
+                <a href="{{ url_for('main.app') }}" class="button">Continue to App</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

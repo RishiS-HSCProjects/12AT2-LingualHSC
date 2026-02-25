@@ -227,8 +227,7 @@
                 "type": "input",
                 "question": "Translate to Japanese: I have become able to swim.",
                 "includes": [
-                    ["泳ぐ", "およぐ", "oyogu"],
-                    ["泳げる", "およげる", "oyogeru"],
+                    ["泳", "およ", "oyo"],
                     ["ように", "youni"],
                     ["なりました", "なった", "narimashita", "natta"]
                 ],

@@ -1,5 +1,7 @@
 from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
+
+from flask_login import current_user
 from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
 from lingual.core.auth.utils.user_auth import RegUserValueException, deserialize_RegUser
 from lingual.models import User
@@ -70,7 +72,7 @@ def verify_email(reg = None):
 
     # Documented on 27 Jan 2026
 
-    session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
+    session['otp'] = [hashpw(otp.encode(), gensalt()), time()] # Using same hashing system for OTPs as passwords.
 
     # Exit early if email verification is not required
     if not VERIFY_REQ:
@@ -200,6 +202,9 @@ def create_user(reg = None):
 
         current_app.logger.info(f"User created: {user.email}") # Log user creation event
         flash("Account created successfully! You can now log in.", "success")
+
+        session['new_user'] = True
+
         return jsonify({"error": None}), 200 # Success
     except FormValidationError as e:
         current_app.logger.error(f"Form validation error creating user: {e}\nReg: {reg}")

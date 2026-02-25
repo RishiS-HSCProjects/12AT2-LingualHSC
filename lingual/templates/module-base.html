@@ -16,10 +16,7 @@
         <div id="nav-opt">
             {% block nav_links %}
             {% endblock %}
-            <a class="nav-account" href="/logout" aria-label="Account">
-                <img src="/static/assets/account.svg" alt="Account" aria-hidden="true">
-                <span class="nav-account-label">Account</span>
-            </a>
+            <a href="{{ url_for('main.account') }}">Account</a>
         </div>
     </div>
 </nav>
