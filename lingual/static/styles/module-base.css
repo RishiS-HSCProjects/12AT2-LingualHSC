@@ -131,13 +131,6 @@ nav #nav-toggle svg {
     height: 1.5rem;
 }
 
-nav .nav-account-label {
-    display: none;
-    margin-left: 0.5rem;
-    font-size: 0.95em;
-    color: inherit;
-}
-
 nav.nav-collapsed #nav-opt {
     gap: 0.75rem;
 }
@@ -146,8 +139,7 @@ nav.nav-collapsed #nav-toggle {
     display: inline-flex;
 }
 
-nav.nav-collapsed #nav-opt a,
-nav.nav-collapsed #nav-opt .nav-account {
+nav.nav-collapsed #nav-opt a {
     display: none;
 }
 
@@ -166,15 +158,10 @@ nav.nav-collapsed.nav-open #nav-opt {
     z-index: calc(var(--z-index-nav) + 1);
 }
 
-nav.nav-collapsed.nav-open #nav-opt a,
-nav.nav-collapsed.nav-open #nav-opt .nav-account {
+nav.nav-collapsed.nav-open #nav-opt a {
     display: flex;
     align-items: center;
     width: 100%;
-}
-
-nav.nav-collapsed.nav-open .nav-account-label {
-    display: inline;
 }
 
 /* || Responsive Breakpoints */

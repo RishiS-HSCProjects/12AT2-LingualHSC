@@ -4,7 +4,7 @@
         "bank": [
             {
                 "type": "mc",
-                "question": "Which sentence would use やす?",
+                "question": "Which sentence would use やる?",
                 "options": [
                     "I gave my friend a birthday gift",
                     "I gave my teacher my homework",
@@ -12,7 +12,120 @@
                     "I watered my plants."
                 ],
                 "answer": 3,
-                "explanation": "やす is used for doing favours for children, animals, and plants."
+                "explanation": "やる is used for giving to plants, animals, or someone clearly younger/lower."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best fits あげる (not くれる or もらう)?",
+                "options": [
+                    "I gave my classmate a pen.",
+                    "My classmate gave me a pen.",
+                    "I received a pen from my classmate.",
+                    "My teacher kindly gave us homework advice."
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence should use くださる?",
+                "options": [
+                    "A close friend gave me a snack.",
+                    "My teacher gave me feedback.",
+                    "I gave my younger brother a toy.",
+                    "I received help from my friend."
+                ],
+                "answer": 1,
+                "explanation": "くださる is the respectful counterpart of くれる, used when the giver is senior/respected."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is from the receiver's viewpoint?",
+                "options": [
+                    "友[とも]達[だち]が私[わたし]に本[ほん]をくれました。",
+                    "私[わたし]は友[とも]達[だち]に本[ほん]をあげました。",
+                    "私[わたし]は友[とも]達[だち]に本[ほん]をもらいました。",
+                    "先生[せんせい]は私[わたし]に本[ほん]をくださいました。"
+                ],
+                "answer": 2,
+                "explanation": "もらう describes the event as receiving, so the sentence is from the receiver's viewpoint."
+            },
+            {
+                "type": "mc",
+                "question": "Choose the most natural pair.",
+                "options": [
+                    "先[せん]生[せい]にレポートをあげました。",
+                    "先[せん]生[せい]にレポートをさしあげました。",
+                    "先[せん]生[せい]にレポートをやりました。",
+                    "先[せん]生[せい]にレポートをもらいました。"
+                ],
+                "answer": 1,
+                "explanation": "When giving to a senior person, さしあげる is the respectful choice."
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nI gave my younger brother a dictionary.",
+                "includes": [
+                    ["弟", "おとうと", "otouto"],
+                    ["辞書", "じしょ", "jisho"],
+                    ["あげ", "やり", "agema", "yari"]
+                ],
+                "sample_answer": "私[わたし]は弟[おとうと]に辞[じ]書[しょ]をあげました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese (respectful):\n\nMy teacher gave me advice.",
+                "includes": [
+                    ["先生", "せんせい", "sensei"],
+                    ["私", "わたし", "watashi"],
+                    ["アドバイス", "助言", "じょげん", "adobaisu", "jogen"],
+                    ["くださ", "kudasa"]
+                ],
+                "sample_answer": "先[せん]生[せい]は私[わたし]にアドバイスをくださいました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n私[わたし]は先[せん]輩[ぱい]にノートを見[み]せてもらいました。",
+                "includes": [
+                    ["I"],
+                    ["senior", "upperclassman", "sempai", "senpai"],
+                    ["notes", "notebook"],
+                    ["show", "let", "allowed"]
+                ],
+                "sample_answer": "My senior let me see their notes."
+            },
+            {
+                "type": "mc",
+                "question": "Which option correctly completes the pattern for receiving a favour?\n\n[RECEIVER] は [GIVER] に [Verb て-form] ____",
+                "options": [
+                    "あげます",
+                    "くれます",
+                    "もらいます",
+                    "やります"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence is NOT appropriate?",
+                "options": [
+                    "犬[いぬ]に水[みず]をやりました。",
+                    "先[せん]生[せい]は私[わたし]に本[ほん]をくださいました。",
+                    "私[わたし]は先[せん]生[せい]に花[はな]をやりました。",
+                    "私[わたし]は友[とも]達[だち]に本[ほん]をあげました。"
+                ],
+                "answer": 2,
+                "explanation": "やる should not be used to give to a respected person like a teacher."
+            },
+            {
+                "type": "input",
+                "question": "Rewrite from the receiver's viewpoint:\n\n友[とも]達[だち]が私[わたし]にペンをくれました。",
+                "includes": [
+                    ["私", "わたし", "watashi"],
+                    ["友達", "ともだち", "tomodachi"],
+                    ["ペン", "ぺん", "pen"],
+                    ["もら"]
+                ],
+                "sample_answer": "私[わたし]は友[とも]達[だち]にペンをもらいました。"
             }
         ]
     },
@@ -58,11 +171,114 @@
                 "includes": [
                     ["友達", "ともだち", "tomodachi"],
                     ["家", "いえ", "ie", "うち", "uchi"],
-                    ["掃除して", "そうじして", "soujishite"],
+                    ["掃除", "そうじ", "souji"],
+                    ["して", "shite"],
                     ["あげました", "あげた", "agemashita", "ageta"]
                 ],
                 "sample_answer": "友[とも]達[だち]の家[いえ]を掃除[そうじ]してあげました。",
                 "explanation": "Remember to use ～てあげる when doing a favour for someone else."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly expresses 'My friend did me a favour and carried my bag'?",
+                "options": [
+                    "友[とも]達[だち]がかばんを持[も]ってあげました。",
+                    "友[とも]達[だち]が私[わたし]にかばんを持ってくれました。",
+                    "私が友達にかばんを持ってくれました。",
+                    "友達が私にかばんを持ってもらいました。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Choose the most natural way to thank someone for listening.",
+                "options": [
+                    "聞[き]いてあげてありがとう。",
+                    "聞いてもらってありがとう。",
+                    "聞いてくれてありがとう。",
+                    "聞いてくださってだめです。"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nMy dad drove me to school (as a favour).",
+                "includes": [
+                    ["父", "お父", "ちち", "otou", "chichi"],
+                    ["私", "わたし", "watashi"],
+                    ["学校", "がっこう", "gakkou"],
+                    ["送って", "おくって", "okutte"],
+                    ["くれ"]
+                ],
+                "sample_answer": "父[ちち]が私[わたし]を学[がっ]校[こう]へ送[おく]ってくれました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese (respectful):\n\nThe principal kindly explained the rules to us.",
+                "includes": [
+                    ["校長", "こうちょう", "kouchou"],
+                    ["私たち", "わたしたち", "watashitachi"],
+                    ["ルール", "規則", "きそく", "ruuru", "kisoku"],
+                    ["説明", "せつめい", "setsumei"],
+                    ["ください", "くださ", "kudasa"]
+                ],
+                "sample_answer": "校[こう]長[ちょう]先[せん]生[せい]は私[わたし]たちにルールを説[せつ]明[めい]してくださいました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n母[はは]に駅[えき]まで送[おく]ってもらいました。",
+                "includes": [
+                    ["mother", "mum", "mom"],
+                    ["station"],
+                    ["drove", "took", "dropped", "escorted"],
+                    ["me", "I"]
+                ],
+                "sample_answer": "My mother took me to the station."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence best avoids sounding boastful in daily conversation?",
+                "options": [
+                    "毎日[まいにち]、家[いえ]族[ぞく]に料[りょう]理[り]してあげます。",
+                    "毎日、家族に料理します。",
+                    "毎日、家族に料理してくれます。",
+                    "毎日、家族に料理してもらいます。"
+                ],
+                "answer": 1,
+                "explanation": "In many contexts, plain 料理します sounds more natural than emphasising ～てあげる."
+            },
+            {
+                "type": "mc",
+                "question": "Which is the correct polite favour expression from a senior giver?",
+                "options": [
+                    "部[ぶ]長[ちょう]が手伝ってくれました。",
+                    "部長が手伝ってくださいました。",
+                    "部長が手伝ってあげました。",
+                    "部長が手伝ってもらいました。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese:\n\nI helped my friend with homework.",
+                "includes": [
+                    ["友達", "ともだち", "tomodachi"],
+                    ["宿題", "しゅくだい", "shukudai"],
+                    ["手伝", "てつだ", "tetsuda"],
+                    ["あげ", "agema", "ageta"]
+                ],
+                "sample_answer": "私[わたし]は友[とも]達[だち]の宿[しゅく]題[だい]を手伝[てつだ]ってあげました。"
+            },
+            {
+                "type": "input",
+                "question": "Translate into Japanese from the receiver viewpoint:\n\nI had my friend explain the grammar to me.",
+                "includes": [
+                    ["友達", "ともだち", "tomodachi"],
+                    ["文法", "ぶんぽう", "bunpou"],
+                    ["説明", "せつめい", "setsumei"],
+                    ["もら"]
+                ],
+                "sample_answer": "私[わたし]は友[とも]達[だち]に文[ぶん]法[ぽう]を説[せつ]明[めい]してもらいました。"
             }
         ]
     }

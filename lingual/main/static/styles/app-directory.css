@@ -1,11 +1,5 @@
 /* || App Directory Page */
 
-#nav-spacer {
-    height: var(--nav-height);
-    width: 100%;
-    flex-shrink: 0;
-}
-
 #page-container {
     margin: auto;
     width: 90%;
@@ -18,7 +12,7 @@
     font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 48px;
-    color: #1F2937;
+    color: var(--color-text-primary);
     text-align: center;
 }
 
@@ -75,7 +69,7 @@
     font-family: "Poppins", Inter, Arial, sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: hsl(0, 0%, 20%);
+    color: var(--color-text-primary);
     margin-bottom: 8px;
     margin-top: 0;
 }
@@ -84,20 +78,20 @@
     font-family: "Inter", Arial, sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: hsl(0, 0%, 50%);
+    color: var(--color-text-secondary);
     margin-top: 0;
     line-height: 1.5;
 }
 
 .app-directory .app-card:hover h2,
 .app-directory .app-card:hover p {
-    color: hsl(0, 0%, 15%);
+    color: var(--color-text-primary);
 }
 
 .app-directory .app-card p.no-app-text {
     font-size: 1.05rem;
     font-weight: 500;
-    color: hsl(0, 0%, 40%);
+    color: var(--color-text-secondary);
     text-align: center;
     margin-top: 28px;
 }
@@ -105,7 +99,7 @@
 p.no-languages-text {
     font-size: 1.05rem;
     font-weight: 500;
-    color: hsl(0, 0%, 40%);
+    color: var(--color-text-secondary);
     margin-top: 28px;
     text-align: center;
 }

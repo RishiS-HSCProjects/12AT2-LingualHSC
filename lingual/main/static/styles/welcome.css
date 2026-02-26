@@ -1,22 +1,7 @@
-:root {
-    --welcome-bg: var(--theme-page-gradient, var(--gradient-soft-sunrise));
-    --welcome-heading: var(--theme-text-primary, var(--color-primary));
-    --welcome-body: var(--theme-text-secondary, var(--color-secondary));
-    --welcome-button-bg: var(--theme-accent, var(--color-accent));
-    --welcome-button-bg-hover: var(--theme-accent-hover, var(--color-accent-strong));
-    --welcome-button-bg-active: var(--theme-accent-soft, var(--color-accent-soft));
-    --welcome-button-text: var(--theme-text-primary, var(--color-primary));
-    --welcome-focus: var(--theme-focus-ring, var(--color-accent-amber));
-}
-
 body {
     min-height: 100vh;
     margin: 0;
-    background: var(--welcome-bg);
-}
-
-#body {
-    margin: 0;
+    background: var(--gradient-page);
 }
 
 #welcome-container {
@@ -35,14 +20,14 @@ body {
 #welcome-container h1 {
     margin: 0;
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--welcome-heading);
+    color: var(--color-text-primary);
 }
 
 #welcome-container p {
     margin: 0;
     max-width: 36rem;
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--welcome-body);
+    color: var(--color-text-secondary);
 }
 
 #welcome-container #buttons {
@@ -70,24 +55,24 @@ body {
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--welcome-button-text);
+    color: var(--color-text-primary);
     text-decoration: none;
-    background-color: var(--welcome-button-bg);
+    background-color: var(--color-primary);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 #welcome-container a:hover {
-    background-color: var(--welcome-button-bg-hover);
+    background-color: var(--color-accent-hover);
     transform: translateY(-1px);
 }
 
 #welcome-container a:active {
-    background-color: var(--welcome-button-bg-active);
+    background-color: var(--color-accent-soft);
     transform: translateY(0);
 }
 
 #welcome-container a:focus-visible {
-    outline: 2px solid var(--welcome-focus);
+    outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
 }
 

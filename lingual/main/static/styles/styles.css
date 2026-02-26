@@ -1,23 +1,51 @@
 :root {
     --color-bg-white: #ffffff;
     --color-bg-accent-1: #effcff;
-    --color-bg-accent-2: #e2f7ff;
 
     --color-primary: #2bda68;
     --color-secondary: #50c7ff;
     --color-soft-purple: #eff3ff;
+    --color-accent-hover: #25c05a;
+    --color-accent-soft: #e4f5e6;
 
-    --space-xs: 8px;
+    --color-text-primary: #1F2937;
+    --color-text-secondary: #6B7280;
+    --color-text-strong: #003C13;
+    --color-focus-ring: #a38eff;
+    --gradient-page: linear-gradient(135deg, #effcff 0%, #e2f7ff 100%);
+
+    --form-input-border: #BFAEFF;
+    --form-input-bg: #f7f4ff;
+    --form-input-bg-hover: #e8e0ff;
+    --form-input-bg-disabled: #f0ecf8;
+    --form-input-border-disabled: #d1c4e9;
+
+    --state-danger: #d73a49;
+    --state-danger-soft: #fff5f5;
+    --state-success: #34d058;
+    --state-success-strong: #269e42;
+    --state-success-soft: #f5fff5;
+
+    --color-violet: #8702C0;
+    --color-violet-dark: #29003c;
+    --cta-start: #DC89EA;
+    --cta-end: #B02CD9;
+    --cta-disabled-start: #b8a0d1;
+    --cta-disabled-end: #8b1db5;
+    --cta-alt-start: #a989ea;
+    --cta-alt-end: #542cd9;
+
     --space-sm: 16px;
     --space-md: 24px;
     --space-lg: 40px;
-    --space-xl: 70px;
 
     --font-heading: "Poppins", Inter, Arial, sans-serif;
-    --font-display: "Public Sans", Inter, Arial, sans-serif;
     --font-body: "Inter", Arial, sans-serif;
 
     --nav-height: 4.5rem;
+
+    --color-link: var(--color-primary);
+    --color-link-hover: var(--color-secondary);
 }
 
 html, body {
@@ -41,7 +69,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-nav);
     z-index: 999;
     background-color: var(--color-bg-accent-1);
 }
@@ -123,7 +151,7 @@ nav a#login-link {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1F2937;
+    color: var(--color-text-primary);
     line-height: 1.2;
 }
 
@@ -133,7 +161,7 @@ nav a#login-link {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 600;
-    color: #003C13;
+    color: var(--color-text-strong);
     line-height: 1.3;
 }
 
@@ -170,10 +198,10 @@ nav a#login-link {
     width: 100%;
     padding: 0.875rem 1.5rem;
     font-size: 1.125rem;
-    border: 2px solid #BFAEFF;
+    border: 2px solid var(--form-input-border);
     border-radius: 50px;
-    background-color: #f7f4ff;
-    color: #003C13;
+    background-color: var(--form-input-bg);
+    color: var(--color-text-strong);
     font-family: var(--font-body);
     transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -183,22 +211,22 @@ nav a#login-link {
 #form input[type="password"]:focus,
 #form select:focus {
     outline: none;
-    border-color: #a38eff;
-    background-color: #ffffff;
+    border-color: var(--color-focus-ring);
+    background-color: var(--color-bg-white);
     box-shadow: 0 0 8px rgba(163, 142, 255, 0.4);
 }
 
 #form input.error,
 #form select.error {
-    border-color: #d73a49;
-    background-color: #fff5f5;
+    border-color: var(--state-danger);
+    background-color: var(--state-danger-soft);
     animation: error-shake 0.4s;
 }
 
 #form input.success,
 #form select.success {
-    border-color: #34d058;
-    background-color: #f5fff5;
+    border-color: var(--state-success);
+    background-color: var(--state-success-soft);
 }
 
 /* || Buttons */
@@ -219,8 +247,8 @@ nav a#login-link {
 #form button.next {
     padding: 0.95rem 2.6rem;
     font-size: 1.25rem;
-    background: linear-gradient(145deg, #DC89EA, #B02CD9);
-    color: #ffffff;
+    background: linear-gradient(145deg, var(--cta-start), var(--cta-end));
+    color: var(--color-bg-white);
     font-weight: 700;
 }
 
@@ -231,28 +259,28 @@ nav a#login-link {
 
 #form button.next:disabled {
     box-shadow: none;
-    background: linear-gradient(145deg, #b8a0d1, #8b1db5);
+    background: linear-gradient(145deg, var(--cta-disabled-start), var(--cta-disabled-end));
     transform: scale(0.98);
 }
 
 #form button.option {
     padding: 0.85rem 1.75rem;
     font-size: 1.05rem;
-    border: 2px solid #BFAEFF;
-    background: #f7f4ff;
-    color: #8702C0;
+    border: 2px solid var(--form-input-border);
+    background: var(--form-input-bg);
+    color: var(--color-violet);
     font-weight: 600;
 }
 
 #form button.option:hover {
-    background: #e8e0ff;
-    border-color: #a38eff;
+    background: var(--form-input-bg-hover);
+    border-color: var(--color-focus-ring);
 }
 
 #form button.option:disabled {
-    border-color: #d1c4e9;
-    background: #f0ecf8;
-    color: #aaa;
+    border-color: var(--form-input-border-disabled);
+    background: var(--form-input-bg-disabled);
+    color: var(--color-text-secondary);
     transform: scale(0.98);
 }
 
@@ -263,25 +291,25 @@ nav a#login-link {
     text-align: center;
     font-size: 1.125rem;
     font-weight: 500;
-    color: #6B7280;
+    color: var(--color-text-secondary);
     line-height: 1.5;
 }
 
 #form .subtitle a {
-    color: #8702C0;
+    color: var(--color-violet);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 #form .subtitle a:hover {
-    color: #a38eff;
+    color: var(--color-focus-ring);
     text-decoration: underline;
 }
 
 #form small {
     font-size: 1rem;
-    color: #6B7280;
+    color: var(--color-text-secondary);
     text-align: center;
     line-height: 1.5;
     margin-top: 0.5rem;

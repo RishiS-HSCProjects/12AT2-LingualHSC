@@ -125,4 +125,4 @@ class DeleteAccountConfirmation(ModalForm):
 
     def validate_txt(self, field):
         if not field.data.lower() == "delete my account":
-            raise ValidationError()
+            raise ValidationError("Please type exactly 'delete my account' to confirm.")
