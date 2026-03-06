@@ -36,8 +36,6 @@
             <div id="account-info">
                 <p><strong>Email:</strong> {{ current_user.email }}</p>
                 <p><strong>Member since:</strong> {{ current_user.created_at.strftime('%B %d, %Y') }}</p>
-                <p><strong>Last login:</strong> {{ current_user.last_login.strftime('%B %d, %Y at %I:%M %p') if
-                    current_user.last_login else "Unknown" }}</p>
             </div>
             <div id="account-actions">
                 <button id="change-password-btn">Change Password</button>

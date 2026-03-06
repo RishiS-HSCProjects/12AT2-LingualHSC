@@ -6,7 +6,9 @@ from lingual import db
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
+from lingual.modules.nihongo.utils.particle_tiles_processor import ParticleTilesProcessor
 from lingual.utils.languages import Languages
+from lingual.utils.tiles_utils import TileSection
 
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
@@ -27,6 +29,7 @@ VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 # a better, risk-free approach.
 # Documented on 16 Feb 2026
 _quiz_cache = {}
+_particles_processor = ParticleTilesProcessor()
 
 @nihongo_bp.route('/')
 @login_required
@@ -56,7 +59,7 @@ def home():
     # will not be building this system for this project, but
     # it is something I would like to implement in the future.
     # Documented on 18 Feb 2026 
-    from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox
+    from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox, ItemParagraph
     from lingual.utils.languages import get_translatable
     from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
     from lingual.modules.nihongo.utils.kanji_processor import Kanji
@@ -70,15 +73,14 @@ def home():
     config = HomeConfig()
 
     welcome_banner = HomeBanner(get_translatable('jp', 'home_welcome_text').replace("{first_name}", current_user.first_name))
-    config.register_section(welcome_banner)
 
-    lessons_practised = (stats := current_user.get_language_stats(lang_code)) and stats.get_lessons_practised() or []
+    grammar_practised = (stats := current_user.get_language_stats(lang_code)) and stats.get_grammar_practised() or []
 
     quick_access = HomeSection("Quick Access")
     quick_access.add_items(
         ItemBox(
             title="Grammar",
-            body=f"{len(lessons_practised)}/{sum(
+            body=f"{len(grammar_practised)}/{sum(
                 len(category['lessons']) for category in get_processor().get_lessons()
             )} Grammar Lessons Completed",
             buttons=[
@@ -107,6 +109,23 @@ def home():
                 )
             ],
             on_click=url_for('nihongo.kanji')
+        )
+    )
+
+    indev = HomeSection("Indev")
+    indev.add_items(
+        ItemParagraph(
+            "These items are currently under development. If you encounter any issues, please make an issue on our GitHub Page!"
+        ),
+        ItemBox(
+            title="Particles",
+            body="Particle Cheat Sheet!",
+            buttons=[
+                ItemBox.BoxButton(
+                text="Try it out!",
+                link=url_for('nihongo.particles')
+                )
+            ]
         ),
         ItemBox(
             title="Vocab",
@@ -126,15 +145,9 @@ def home():
         )
     )
 
-    config.register_section(quick_access)
 
-    config.add_separator()
-
-    # Assuming this is inside a method of a User class
     recent = HomeSection("Recently Viewed")
-
-    recent_lessons = lessons_practised[-3:][::-1] if lessons_practised else None
-
+    recent_lessons = grammar_practised[-3:][::-1] if grammar_practised else None
     if recent_lessons:
         for lesson in recent_lessons:
             lesson = get_processor().get_lesson(lesson)
@@ -152,7 +165,11 @@ def home():
                 )
             )
 
+    config.register_section(welcome_banner)
+    config.register_section(quick_access)
+    config.add_separator()
     config.register_section(recent)
+    config.register_section(indev)
 
     return render_template('nihongo-home.html', config=config)
 
@@ -204,11 +221,32 @@ def get_quizzes(lesson_slug):
         return jsonify({"error": "Quiz not found."}), 404
 
     return jsonify(data)
+
+@nihongo_bp.route('/grammar/api/quiz-complete', methods=['POST'])
+@login_required
+def lesson_quiz_complete():
+    payload = request.get_json(silent=True) or {}
+    lesson_slug = payload.get("lesson")
+    if not lesson_slug:
+        abort(400, description="Missing lesson slug.")
+
+    # Update user's progress for the lesson
+    stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
+    stats.add_lesson_practised(lesson_slug)
+    db.session.commit()
+
+    return jsonify({"status": "success"})
     
 @nihongo_bp.route('/kanji/')
 @login_required
 def kanji():
-    return render_template('nihongo-kanji.html', prescribed=Kanji.get_prescribed_kanji())
+    section = TileSection(
+        id='kanji',
+        title='Prescribed Kanji',
+        description='Tap a character to reveal readings and meanings.'
+    ).add_tiles(Kanji.get_prescribed_kanji())
+
+    return render_template('nihongo-kanji.html', tile_section=section.to_dict())
 
 @nihongo_bp.route('/kanji/api/prefetch', methods=['POST'])
 @login_required
@@ -254,6 +292,30 @@ def kanji_batch():
         data_map[kanji_char] = kanji.data
 
     return jsonify({"status": "ready", "data": data_map})
+
+@nihongo_bp.route('/particles/')
+@login_required
+def particles():
+    section = _particles_processor.build_tile_section()
+    return render_template('nihongo-particles.html', tile_section=section.to_dict())
+
+@nihongo_bp.route('/particles/api/<slug>', methods=['GET'])
+@login_required
+def particles_lookup(slug):
+    if not slug or not VALID_SLUG.match(slug):
+        abort(400, description="Invalid particle slug.")
+
+    try:
+        payload = _particles_processor.load_particle(slug)
+    except FileNotFoundError:
+        abort(404, description="Particle note not found.")
+    except ValueError:
+        abort(400, description="Invalid particle slug.")
+    except Exception as e:
+        current_app.logger.error(f"Failed to load particle note for {slug}: {str(e)}")
+        abort(500, description="An error occurred while loading particle notes.")
+
+    return jsonify({"status": "ready", "data": payload})
 
 @nihongo_bp.route('/quiz', methods=['GET', 'POST'])
 @login_required
@@ -321,18 +383,3 @@ def quiz_session():
         quiz_payload=payload['data'],
         quiz_title=payload.get('title', 'Quiz')
     )
-
-@nihongo_bp.route('/grammar/api/quiz-complete', methods=['POST'])
-@login_required
-def lesson_quiz_complete():
-    payload = request.get_json(silent=True) or {}
-    lesson_slug = payload.get("lesson")
-    if not lesson_slug:
-        abort(400, description="Missing lesson slug.")
-
-    # Update user's progress for the lesson
-    stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
-    stats.add_lesson_practised(lesson_slug)
-    db.session.commit()
-
-    return jsonify({"status": "success"})

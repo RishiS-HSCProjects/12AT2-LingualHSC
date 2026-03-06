@@ -15,7 +15,6 @@ class User(UserMixin, db.Model):
     password_hash: Mapped[str] = mapped_column(db.String(256), nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
-    last_login: Mapped[datetime | None] = mapped_column(db.DateTime)
 
     languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list, server_default="[]")
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
@@ -279,23 +278,26 @@ class JapaneseStats(LanguageStatsBase):
         self.kanji_learned = list()
         self.kanji_practised = list()
 
-    # --- Lessons ---
+    # --- Grammar Lessons ---
     
-    # lessons_practised will store the list of lesson slugs the user has practiced,
+    # grammar_practised will store the list of lesson slugs the user has practiced,
     # in the order they were last practiced. A lesson is counted as practiced if 
     # the user has completed a quiz associated with that lesson.
-    lessons_practised: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="[]")
+    grammar_practised: Mapped[list[str]] = mapped_column(JSON, default=list, server_default="[]")
 
     def add_lesson_practised(self, lesson_slug: str):
         """
         Adds a lesson slug to the practised list to track which lessons the user has practiced.
         """
-        practised_list = [l for l in self.lessons_practised if l != lesson_slug]
-        self.lessons_practised = practised_list + [lesson_slug]
+        practised_list = [l for l in self.grammar_practised if l != lesson_slug] # Reconstruct
+        self.grammar_practised = practised_list + [lesson_slug] # Append lesson slug to end of list
     
-    def get_lessons_practised(self) -> list:
+    def get_grammar_practised(self) -> list:
         """ Returns a list of lesson slugs in order of last practised (bottom) """
-        return self.lessons_practised
+        return self.grammar_practised
+
+    def clear_grammar_practised(self) -> None:
+        self.grammar_practised = []
 
     def to_dict(self) -> dict:
         return {
@@ -303,7 +305,7 @@ class JapaneseStats(LanguageStatsBase):
             "user_id": self.user_id,
             "kanji_learned": self.kanji_learned,
             "kanji_practised": self.kanji_practised,
-            "lessons_practised": self.lessons_practised,
+            "grammar_practised": self.grammar_practised,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat()
         }

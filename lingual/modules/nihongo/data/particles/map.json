@@ -1,0 +1,36 @@
+{
+  "title": "Japanese Particles",
+  "description": "Tap a particle to open quick notes and examples.",
+  "categories": [
+    {
+      "name": "Main",
+      "items": [
+        {
+          "slug": "wa",
+          "tile": "は",
+          "title": "は: Topic Marker"
+        },
+        {
+          "slug": "ga",
+          "tile": "が",
+          "title": "が: Subject Marker"
+        },
+        {
+          "slug": "wo",
+          "tile": "を",
+          "title": "を: Direct Object Marker"
+        },
+        {
+          "slug": "ni",
+          "tile": "に",
+          "title": "に: Time / Target / Destination"
+        },
+        {
+          "slug": "de",
+          "tile": "で",
+          "title": "で: Place of Action / Means"
+        }
+      ]
+    }
+  ]
+}
