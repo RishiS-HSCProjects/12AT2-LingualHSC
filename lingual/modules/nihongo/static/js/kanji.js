@@ -16,25 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	const infoOnyomi = document.getElementById("kanji-info-onyomi");
 	const infoKunyomi = document.getElementById("kanji-info-kunyomi");
 
-	/* Whenever a kanji block is clicked, its data is fetched and displayed in the info panel.
-	   Since kanji data does not change often, we cache API data into nihongo/data/kanji/*.json
-	   files on the server side. However, to retrieve server-side cached data, we would have
-	   needed to make a new HTTP request to the server's API every time a kanji block is clicked.
-	   While server HTTP requests are efficient, to further optimise performance, repetitive
-	   requests create unnecessary overhead and result in slight latency, potentially impacting
-	   users across the application (even the ones not using the kanji module). To mitigate
-	   this, we implement a simple in-memory cache here on the client side to store fetched
-	   kanji data during the user's session. This way, once a kanji's data is fetched from
-	   the server, it can be quickly retrieved from the cache without additional HTTP requests.
-
-	   Since this logic is not exclusive to kanji storage and can be applied to other language
-	   models, this logic should be moved into a shared utility file in the future. In the case
-	   I decide to implement similar caching for vocabulary or grammar data, or implement other
-	   modules later on, I will spend time to move this caching logic into a shared utility file.
-
-	   Documented on 8 Feb 2026.
-	*/
-	const kanjiCache = new Map(); // In-memory cache to store fetched kanji data during the session
+	/** 
+	 * Client-side cache to store fetched kanji data during runtime.
+	 * @see Documentation D-AE04
+	 */
+	const kanjiCache = new Map();
 
 	if (!page || !grid || !blocks.length || !infoChar || !infoPrimary || !infoType || !infoMeanings || !infoOnyomi || !infoKunyomi) {
 		console.error("Essential kanji elements are missing from the DOM.");
@@ -131,24 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	};
 
-	/*
+	/**
 		This page uses a prefetch system to cache kanji elements before they are required for usage.
 		https://developer.mozilla.org/en-US/docs/Glossary/Prefetch
-
-		First, I tried caching all of the kanji to this Javascript file on DOM load. While it greatly optimised future
-		reloads and usages, it created an unnecessary delay when a user first opens up the page. Using javascript's native
-		async-await logic was also greatly conflicting with my previous code model, resulting me in scrapping that idea
-		in that stage.
-
-		The second idea I had was to pull kanji data after the tile was queried. While this approach made the webpage load 
-		very efficiently, there was about a 5 second delay for the information to show up (which sometimes went up to 15
-		seconds when trying to interact with it over the internet).
-
-		As a result, I researched this 'prefetch batch' method, which uses the IntersectionObserver to detect whether or
-		not a kanji has been loaded in view. Once it is in view, shown kanji would be batched and the information would be 
-		betched and cached into this file.
-
-		Documented on 28 Feb 2026
+		
+		@see Documentation D-AE06
 	*/
 
 	/** Limit to how many kanji can be fetched in one request (batch). Used to reduce number of API requests. */

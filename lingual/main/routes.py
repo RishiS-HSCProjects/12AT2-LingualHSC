@@ -269,7 +269,6 @@ def register_util(step):
         # If a RegUserValueException is raised, return the error message.
         # This is an expected error type for validation issues, thus not logged as server error.
         # Having this here avoids repetitive try-except blocks in each step.
-        # That is also why I rewrote this function to use exceptions for validation errors on 27 Jan 2026.
         return jsonify({"error": str(e)})
     except FormValidationError as e:
         # This is an expected exception raised by validate_ajax_form utility.
@@ -370,41 +369,7 @@ def reset_token(token):
 @main_bp.route('/app', strict_slashes=False)
 def app():
     if not current_user.is_authenticated:
-        # For simplicity, I only have one button on the landing page
-        # for sign in and sign up titled "Get Started". Initially,
-        # this button redirected the user to the login page since I
-        # believed that most users would already have an account, and
-        # those who don't would be able to easily navigate to the 
-        # registration page from there.
-        # However, upon user testing, I found that most testing users
-        # automatically attempted signing up from the login page,
-        # requiring me to steer them down to the registration page
-        # almost every time. I realised that the "Get Started" button
-        # likely gave users the subconscious expectation that it would
-        # take them to the registration page, resulting in them starting
-        # the sign up process without realising they were on the login page.
-        # I didn't want to change the landing page at this stage since I
-        # prefered having one button instead of two ("Login" and "Register")
-        # on the nav bar for simplicity and cleaner UI. As a result, I decided
-        # to make the "Get Started" button's (and, subsequently, all
-        # unauthenticated accesses to the app route) behaviour dynamic based
-        # on whether or not the device user has an account or not.
-        # This way, new years will be taken to the registration page, while
-        # returning users will be taken to the login page, which is the most
-        # likely page both user types will want to go to when they click "Get Started".
-        # Furthermore, existing users who are presented with the registration page
-        # are less likely to be confused since they'll remember the registration
-        # process from when they initially signed up.
-        # I am tracking user logins with a simple cookie that is set to "true" upon 
-        # a successful login. I am using a static cookie instead of a server-side
-        # session variable since I want this data to persist even after the session ends,
-        # allowing returning users to be recognised even if they haven't logged in for a while.
-        # Furthermore, since this cookie doesn't contain any sensitive data and is only used
-        # for improving UX by remembering if the user has an account, storing it encrypted 
-        # in a server-side session would be very unnecessary. Thus, a simple cookie is
-        # the best solution for this use case.
-
-        # Documented on 18 Feb 2026
+        # T-FE04
         if request.cookies.get('has_account', 'false') == 'true':
             return redirect(url_for('main.login'))
         else:

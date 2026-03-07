@@ -21,44 +21,16 @@ nihongo_bp = Blueprint(
 
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 
-# Server-side quiz cache: {quiz_id: {type, title, data}}
-# Initially, quizzes were stored in the session, but that
-# resulted in the session cookie becoming too large due to
-# the size of the quiz data. While it was not a fatal error,
-# caching data in a private variable on the server-side is
-# a better, risk-free approach.
-# Documented on 16 Feb 2026
+# T-FE03
 _quiz_cache = {}
+""" Server-side quiz cache: {quiz_id: {type, title, data}} """
+
 _particles_processor = ParticleTilesProcessor()
 
 @nihongo_bp.route('/')
 @login_required
 def home():
-    # Since all of my home config setup data exists here,
-    # the config gets rebuilt every time the home route
-    # is accessed. This unnecessarily adds overhead to
-    # the application. I wanted to move this logic to run
-    # on compile, but this solution did not work since
-    # certain functions like url_for and attributes like
-    # and current_user can not be resolved outside of a
-    # Flask context, which it is during initialisation.
-    # As a result, I will use the lru_cache decorator,
-    # similar to the lesson caching.
-    # Documented on 12 Feb 2026
-
-    # However, the home config should be dynamic to some
-    # extent, since it includes user-specific data like
-    # recent lessons and the welcome message. After
-    # testing, it seems that the overhead of building the
-    # home config is not as significant as projected
-    # earlier on, so I will not implement a caching
-    # mechanism for the home config for now. Ideally, such
-    # configs should be built once on startup and stored
-    # similar to a Jinja2 template that can be rendered with
-    # data dynamically. However, due to time constraints, I
-    # will not be building this system for this project, but
-    # it is something I would like to implement in the future.
-    # Documented on 18 Feb 2026 
+    # D-AE05
     from lingual.utils.home_config import HomeConfig, HomeSection, HomeBanner, ItemBox, ItemParagraph
     from lingual.utils.languages import get_translatable
     from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
