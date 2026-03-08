@@ -48,7 +48,8 @@
                     ["と", "to"],
                     ["言いました", "言った", "いいました", "いった", "iimashita"]
                 ],
-                "sample_answer": "父[とう]さんはバスはもっとべんりだと言いました。"
+                "sample_answer": "父[とう]さんはバスはもっとべんりだと言いました。",
+                "explanation": "Don't forget to include the 'だ'!"
             },
             {
                 "type": "input",

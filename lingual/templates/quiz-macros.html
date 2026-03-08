@@ -17,7 +17,9 @@
                             <p>{{ topic.description }}</p>
                         </div>
                         <div class="topic-actions">
-                            <a class="action-start" href="{{ url_for('nihongo.quiz', type=topic.name) }}">Start Quiz</a>
+                            {% if topic.get_modal() %}
+                                <a class="action-start" onclick="openModal({{ topic.get_modal().id }})">Start Quiz</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

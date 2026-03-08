@@ -1,0 +1,23 @@
+{% extends 'current-template.html' %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/errors.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="container">
+    <h1>Oh no!</h1>
+    {% if err_head %}
+        <h2>{{ err_head }}</h2>
+    {% endif %}
+    {% if err_msg %}
+        <p>{{ err_msg }}</p>
+    {% endif %}
+    <div id="options">
+        <button onclick="window.history.back()">Go back</button>
+        <a {% if lang_obj %}href="{{ url_for('main.app') }}"{% else %}href="{{ url_for('main.landing') }}"{% endif %}>Go to homepage</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -14,13 +14,17 @@
     --line-relaxed: 1.75;
 }
 
+#body {
+    width: 100%;
+}
+
 /* || Navigation */
 
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #e4f5e6;
+    background: var(--color-accent-soft);
     height: var(--nav-height);
     padding: 0 2rem;
     box-sizing: border-box;
@@ -37,7 +41,7 @@ nav a#logo {
     font-weight: 700;
     margin: 0;
     text-decoration: none;
-    color: #1F2937;
+    color: var(--color-text-primary);
     letter-spacing: -0.02em;
 }
 
@@ -63,12 +67,12 @@ nav ul#nav-links {
 nav ul#nav-links li a {
     font-size: var(--font-nav-link);
     text-decoration: none;
-    color: #1F2937;
+    color: var(--color-text-primary);
     transition: color 0.2s ease;
 }
 
 nav ul#nav-links li a:hover {
-    color: #111524;
+    color: var(--color-link-hover);
     cursor: pointer;
 }
 
@@ -76,7 +80,7 @@ nav ul#nav-links li.taster a {
     background: #FFB350;
     padding: 0.5rem 1rem;
     border-radius: 1.5rem;
-    color: #1F2937;
+    color: var(--color-text-primary);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -92,7 +96,7 @@ nav a#get-started-btn {
     font-size: var(--font-nav-link);
     text-align: center;
     text-decoration: none;
-    color: #1F2937;
+    color: var(--color-text-primary);
     font-weight: 600;
     transition: background 0.2s ease, transform 0.2s ease;
 }
@@ -144,7 +148,7 @@ nav.nav-collapsed.nav-open #nav-menu {
     right: 1rem;
     left: 1rem;
     padding: 0.75rem;
-    background: #e4f5e6;
+    background: var(--color-accent-soft);
     border: 1px solid rgba(31, 41, 55, 0.12);
     border-radius: 1rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -188,7 +192,7 @@ section#welcome h1 {
     font-size: var(--font-h1);
     line-height: var(--line-tight);
     margin: 0;
-    color: #1F2937;
+    color: var(--color-text-primary);
     font-weight: 700;
 }
 
@@ -198,7 +202,7 @@ section#welcome p.subtitle {
     line-height: var(--line-normal);
     max-width: 800px;
     margin-top: 1.5rem;
-    color: #6B7280;
+    color: var(--color-text-secondary);
 }
 
 section#welcome .cards {
@@ -224,7 +228,7 @@ section#welcome .cards .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     cursor: pointer;
-    color: #1F2937;
+    color: var(--color-text-primary);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -256,7 +260,7 @@ section#welcome .cards .card:hover {
 .info-section h2 {
     font-size: var(--font-section-h2);
     margin: 0;
-    color: #1F2937;
+    color: var(--color-text-primary);
     font-weight: 700;
     text-align: center;
 }
@@ -266,7 +270,7 @@ section#welcome .cards .card:hover {
     max-width: 800px;
     line-height: var(--line-relaxed);
     margin-top: 1.5rem;
-    color: #6B7280;
+    color: var(--color-text-secondary);
     text-align: center;
 }
 

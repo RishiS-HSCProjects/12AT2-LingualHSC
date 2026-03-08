@@ -16,5 +16,14 @@
     "home_welcome_text": {
         "en": "Ready to study, {first_name}?",
         "jp": "{first_name}さん、勉強しましょう!"
+    },
+
+    "err_403_head": {
+        "en": "Uh-oh! Access Denied!",
+        "jp": "入ってはダメ！"
+    },
+    "err_404_head": {
+        "en": "Oops! Page Not Found!",
+        "jp": "ページはどこ？"
     }
 }

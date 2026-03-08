@@ -38,58 +38,58 @@
    /* || Colors & Backgrounds */
 
    /* Main Background Colors */
-   --bg-main: #F8F9FB;
-   --bg-card: #FFFFFF;
+   --bg-main: #F4F8FC;
+   --bg-card: #FBFDFF;
 
-    /* Surface & Border Colors */
-    --bg-surface: #FFFFFF;
-    --bg-surface-muted: #F0F4F8;
-    --bg-surface-strong: #E9EEF5;
-    --border-subtle: #DDE4EB;
-    --border-strong: #C0CAD6;
+   /* Surface & Border Colors */
+   --bg-surface: #F8FBFF;
+   --bg-surface-muted: #EEF5FC;
+   --bg-surface-strong: #E3EEF9;
+   --border-subtle: #D5E2EF;
+   --border-strong: #B6C9DC;
 
    /* Option Colors (for interactive elements) */
-   --bg-option-1: #48A868;
+   --bg-option-1: #46A372;
    --bg-option-2: #5A9FD4;
 
-    /* Accent Palette */
-    --color-accent: #5B7CFF;
-    --color-accent-strong: #3D5CE8;
-    --color-accent-soft: #E8ECFF;
-    --color-accent-amber: #FFB84D;
+   /* Accent Palette */
+   --color-accent: #4F8FD8;
+   --color-accent-strong: #3C78BF;
+   --color-accent-soft: #E7F1FB;
+   --color-accent-amber: #F0B55A;
 
    /* Text Colors */
-   --color-primary: #1F2937;
-   --color-secondary: #6B7280;
-   --color-link: #5B7CFF;
-   --color-link-hover: #3D5CE8;
-    --color-muted: #9CA3AF;
-    --color-contrast: #111827;
+   --color-primary: #1F2D3D;
+   --color-secondary: #5F7388;
+   --color-link: #4F8FD8;
+   --color-link-hover: #3C78BF;
+    --color-muted: #8FA2B7;
+    --color-contrast: #132131;
 
    /* Quiz & Lesson Colors */
-   --color-quiz-correct: #34d058;
-   --color-quiz-incorrect: #d73a49;
-   --bg-quiz-correct: #d4f8e8;
-   --bg-quiz-incorrect: #ffeef0;
-   --color-thead: #374151;
+   --color-quiz-correct: #2F9E62;
+   --color-quiz-incorrect: #CF4E62;
+   --bg-quiz-correct: #DDF5E8;
+   --bg-quiz-incorrect: #FCECEF;
+   --color-thead: #2F4A66;
 
    /* Note Colors */
-   --bg-note-info: #e1f5fe;
-   --border-note-info: #03a9f4;
-   --bg-note-tip: #e8f5e9;
-   --border-note-tip: #4caf50;
-   --bg-note-warning: #fff3e0;
-   --border-note-warning: #ff9800;
+   --bg-note-info: #E6F2FB;
+   --border-note-info: #4F8FD8;
+   --bg-note-tip: #E7F4ED;
+   --border-note-tip: #46A372;
+   --bg-note-warning: #FFF3DF;
+   --border-note-warning: #F0B55A;
 
    /* Block Colors */
-   --bg-block-quote: #f6f8fa;
-   --border-block-quote: #d0d7de;
-   --bg-block-warning: #fff5b1;
-   --border-block-warning: #e9d570;
+   --bg-block-quote: #F1F6FB;
+   --border-block-quote: #CBDCEC;
+   --bg-block-warning: #FFF5D9;
+   --border-block-warning: #E8CF88;
 
    /* Gradients */
-   --gradient-soft-sunrise: linear-gradient(135deg, #f8f9fb 0%, #f0f4f8 45%, #f8f9fb 100%);
-   --gradient-highlight: linear-gradient(120deg, #e8ecff 0%, #f0f4f8 100%);
+   --gradient-soft-sunrise: linear-gradient(135deg, #f7fbff 0%, #edf4fb 45%, #f7fbff 100%);
+   --gradient-highlight: linear-gradient(120deg, #e7f1fb 0%, #eef5fc 100%);
 
    /* || Layout & Spacing */
 
@@ -114,12 +114,12 @@
    --radius-pill: 999px;
 
    /* Shadows */
-   --shadow-flash: 0 4px 12px rgba(31, 41, 55, 0.1);
-   --shadow-nav: 0 2px 12px rgba(31, 41, 55, 0.08);
-   --shadow-card: 0 2px 4px rgba(31, 41, 55, 0.06);
-   --shadow-warning: 0 3px 8px rgba(255, 152, 0, 0.12);
-   --shadow-soft: 0 8px 24px rgba(31, 41, 55, 0.1);
-   --shadow-strong: 0 12px 32px rgba(31, 41, 55, 0.15);
+   --shadow-flash: 0 4px 12px rgba(28, 51, 78, 0.12);
+   --shadow-nav: 0 2px 12px rgba(28, 51, 78, 0.1);
+   --shadow-card: 0 2px 4px rgba(28, 51, 78, 0.08);
+   --shadow-warning: 0 3px 8px rgba(240, 181, 90, 0.18);
+   --shadow-soft: 0 8px 24px rgba(28, 51, 78, 0.12);
+   --shadow-strong: 0 12px 32px rgba(28, 51, 78, 0.18);
 
    /* Motion */
    --transition-base: 0.2s ease;
@@ -133,4 +133,5 @@
    --z-index-modal: 1100;
    --z-index-flash: 1200;
    --z-index-god: 10000;
+
 }

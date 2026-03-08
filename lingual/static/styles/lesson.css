@@ -626,21 +626,8 @@ body {
     line-height: 1.6;
 }
 
-/* Quiz navigation buttons */
-.quiz .quiz-next-container {
-    text-align: right;
-    margin-right: 1rem;
-    width: 100%;
-}
-
 .quiz .quiz-next-btn {
     width: 40%;
-}
-
-.quiz .quiz-restart-container {
-    text-align: center;
-    margin-top: 1rem;
-    width: 100%;
 }
 
 .quiz .actions {
