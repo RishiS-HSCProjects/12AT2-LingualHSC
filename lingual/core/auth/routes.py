@@ -69,7 +69,6 @@ def verify_email(reg = None):
 
     # Exit early if email verification is not required
     if not VERIFY_REQ:
-        # D-AE03
         return jsonify({"error": "Mail Service Disabled. OTP defaulted to 123456."}), 200
 
     # If email verification is required, send the OTP email

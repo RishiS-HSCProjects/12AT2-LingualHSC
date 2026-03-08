@@ -6,6 +6,7 @@ from flask_login import current_user, login_required
 from lingual import db
 from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
 from lingual.main.utils import AccountActionTypes
+from lingual.utils.modals import ModalForm
 from lingual.utils.languages import Languages, get_translatable
 from lingual.core.auth.utils.user_auth import RegUser, RegUserValueException, deserialize_RegUser
 from lingual.utils.form_manager import (
@@ -414,32 +415,94 @@ def app_redirect(code: str):
 
     return redirect(url_for('main.app'))
 
+def _resolve_modal_id(form) -> str | None:
+    if not form:
+        return None
+    return getattr(form, 'id', None) or f"{form.__class__.__name__}Modal"
+
 @main_bp.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
     action = request.args.get('action') or None
+    action_type = None
+    action_form: ModalForm | None = None
+    account_modals: dict[AccountActionTypes, ModalForm] = {}
+
+    for modal_action in AccountActionTypes:
+        try:
+            modal_form = modal_action.get_modal()
+            if modal_form:
+                account_modals[modal_action] = modal_form
+        except NotImplementedError:
+            continue
+
     if action:
         try:
-            action = AccountActionTypes[action.upper()]
-            try:
-                action = action.get_modal() # Check if modal is implemented. If not, we will not auto open the modal since there is no configuration for the quiz.
-            except NotImplementedError:
-                flash(f"{action.name.title()} Action not implemented.", "warning")
-                action = None
+            # Convert query value to enum key format (e.g. "change-password" -> "CHANGE_PASSWORD")
+            action_type = AccountActionTypes[action.upper().replace('-', '_')]
+
+            action_form = account_modals.get(action_type)
+            if action_form is None:
+                flash(f"{action_type.name.title()} action not implemented.", "warning")
+                action_type = None
         except KeyError:
-            action = None
-        
-    if action and request.method == 'POST':
-        if action.validate_on_submit():
-            if current_user.check_password(action.password.data):
-                current_user.delete()
-                db.session.commit()
-                flash("Successfully deleted account.", "success")
-                return redirect(url_for('main.landing'))
-            else:
-                flash("Password incorrect. Please try again.", "error")
+            action_type = None
+
+    if request.method == 'POST' and action_type and action_form:
+        if action_form.validate_on_submit():
+            if action_type == AccountActionTypes.DELETE:
+                password = action_form.password.data # type: ignore
+                if not current_user.check_password(password):
+                    flash("Password incorrect. Please try again.", "error")
+                else:
+                    current_user.delete()
+                    db.session.commit()
+                    flash("Successfully deleted account.", "success")
+                    return redirect(url_for('main.landing'))
+
+            elif action_type == AccountActionTypes.CHANGE_PASSWORD:
+                current_password = action_form.current_password.data # type: ignore
+                if not current_user.check_password(current_password):
+                    flash("Current password is incorrect.", "error")
+                else:
+                    new_password = action_form.new_password.data # type: ignore
+                    current_user.set_password(new_password)
+                    db.session.commit()
+                    flash("Password updated successfully.", "success")
+                    return redirect(url_for('main.account', _anchor='your-account'))
+
+            elif action_type in {
+                AccountActionTypes.JP_RESET_GRAMMAR,
+                AccountActionTypes.JP_CLEAR_PRACTISED_KANJI,
+                AccountActionTypes.JP_CLEAR_KANJI_DATA,
+            }:
+                jp_stats = current_user.get_language_stats('jp')
+                if not jp_stats:
+                    current_user.create_language_stats('jp')
+                    db.session.commit()
+                    jp_stats = current_user.get_language_stats('jp')
+
+                if not jp_stats:
+                    flash("Unable to load Japanese stats for your account.", "error")
+                else:
+                    success_message = None
+                    if action_type == AccountActionTypes.JP_RESET_GRAMMAR:
+                        jp_stats.clear_grammar_practised()
+                        success_message = "Grammar progress reset."
+
+                    elif action_type == AccountActionTypes.JP_CLEAR_PRACTISED_KANJI:
+                        jp_stats.clear_practised_kanji()
+                        success_message = "Practised kanji cleared."
+
+                    elif action_type == AccountActionTypes.JP_CLEAR_KANJI_DATA:
+                        jp_stats.clear_kanji()
+                        success_message = "All kanji data cleared."
+
+                    db.session.commit()
+                    if success_message: flash(success_message, "success")
+                    return redirect(url_for('main.account', _anchor='jp-settings'))
         else:
-            flash("Invalid input. Please check your selections and try again.", "error")
+            flash_all_form_errors(action_form)
 
     last_lang = current_user.get_last_language()
     user_lang = current_user.get_languages()
@@ -448,8 +511,10 @@ def account():
         'account.html',
         lang_obj=last_lang,
         user_lang=user_lang,
-        action_form=action,
-        auto_open_modal=bool(action)
+        action_form=action_form,
+        auto_open_modal=bool(action_form),
+        auto_open_modal_id=_resolve_modal_id(action_form),
+        account_modals=list(account_modals.values())
     )
 
 @main_bp.app_errorhandler(Exception)

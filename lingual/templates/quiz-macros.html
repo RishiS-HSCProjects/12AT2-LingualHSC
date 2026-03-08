@@ -18,7 +18,7 @@
                         </div>
                         <div class="topic-actions">
                             {% if topic.get_modal() %}
-                                <a class="action-start" onclick="openModal({{ topic.get_modal().id }})">Start Quiz</a>
+                                <a class="action-start" onclick="openModal('{{ topic.get_modal().id }}')">Start Quiz</a>
                             {% endif %}
                         </div>
                     </div>

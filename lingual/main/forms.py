@@ -126,3 +126,48 @@ class DeleteAccountConfirmation(ModalForm):
     def validate_txt(self, field):
         if not field.data.lower() == "delete my account":
             raise ValidationError("Please type exactly 'delete my account' to confirm.")
+
+class ChangePasswordForm(ModalForm):
+    """ Change password while authenticated. """
+    title = "Change Password"
+    description = "Update your password. You will stay logged in after this change."
+
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    new_password = PasswordField(
+        'New Password',
+        validators=[
+            DataRequired(),
+            Length(min=8, message="Password must be at least 8 characters long")
+        ]
+    )
+    confirm_password = PasswordField(
+        'Confirm New Password',
+        validators=[
+            DataRequired(),
+            EqualTo('new_password', message='Passwords must match')
+        ]
+    )
+    submit = SubmitField("Save Password")
+
+    def validate_new_password(self, field):
+        err = validate_password_strength(field.data)
+        if err:
+            raise ValidationError(str(err))
+
+class ResetGrammarProgressForm(ModalForm):
+    """ Confirm reset of grammar progress. """
+    title = "Reset Learnt Grammar"
+    description = "This will clear your completed grammar lessons progress for Japanese."
+    submit = SubmitField("Reset Grammar Progress")
+
+class ClearPractisedKanjiForm(ModalForm):
+    """ Confirm clearing practised kanji list. """
+    title = "Clear Practised Kanji"
+    description = "This will clear your practised kanji list but keep your learnt kanji list."
+    submit = SubmitField("Clear Practised Kanji")
+
+class ClearKanjiDataForm(ModalForm):
+    """ Confirm clearing all kanji learning data. """
+    title = "Clear Kanji Data"
+    description = "This will clear both learnt and practised kanji progress."
+    submit = SubmitField("Clear Kanji Data")
