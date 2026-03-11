@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // (same logic as kanji.js. I'm not going to explain all of the elements again.)
     
-    const particleCache = new Map();// Map of paticle cache
+    const particleCache = new Map(); // Map of particle cache
     const setError = (message) => {
         content.innerHTML = `<p>${message}</p>`;
     };

@@ -68,7 +68,7 @@ def login():
             # Redirect to next page or default to app
 
             if session.pop('new_user', False):
-                return render_template("welcome.html", title="Welcome to Lingual HSC") # Show welcome page if user just registered
+                resp = redirect(url_for('main.welcome'))  # Show welcome page if user just registered
 
             if 'next' in request.args:
                 resp = redirect(request.args.get('next'))  # type: ignore
@@ -370,7 +370,7 @@ def reset_token(token):
 @main_bp.route('/app', strict_slashes=False)
 def app():
     if not current_user.is_authenticated:
-        # T-FE04
+        # T-FE04 --> Cookie set up in this file in the login route.
         if request.cookies.get('has_account', 'false') == 'true':
             return redirect(url_for('main.login'))
         else:
@@ -455,8 +455,10 @@ def account():
                 if not current_user.check_password(password):
                     flash("Password incorrect. Please try again.", "error")
                 else:
+                    from flask_login import logout_user
                     current_user.delete()
                     db.session.commit()
+                    logout_user()
                     flash("Successfully deleted account.", "success")
                     return redirect(url_for('main.landing'))
 

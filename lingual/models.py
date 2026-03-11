@@ -118,7 +118,6 @@ class User(UserMixin, db.Model):
         db.session.delete(self)
     
     def login(self):
-        self.last_login = datetime.now(timezone.utc)
         from flask_login import login_user
         login_user(self)
 

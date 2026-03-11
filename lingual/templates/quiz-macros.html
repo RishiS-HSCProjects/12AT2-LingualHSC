@@ -3,7 +3,7 @@
     - quiz-page.css
 -->
 
-{% macro page(quiz_topics) %}
+{% macro page(quiz_topics, quiz_modals) %}
     <div id="page-container">
         <h1>Lingual Quizzes</h1>
         <p>Test yourself by generating quizzes based on your preferences!</p>
@@ -17,8 +17,10 @@
                             <p>{{ topic.description }}</p>
                         </div>
                         <div class="topic-actions">
-                            {% if topic.get_modal() %}
-                                <a class="action-start" onclick="openModal('{{ topic.get_modal().id }}')">Start Quiz</a>
+                            {% set modal = quiz_modals.get(topic) %}
+                            {% if modal %}
+                                {% set modal_id = modal.id if modal.id else modal.__class__.__name__ ~ 'Modal' %}
+                                <a class="action-start" onclick="openModal('{{ modal_id }}')" tabindex="0" role="button">Start Quiz</a>
                             {% endif %}
                         </div>
                     </div>

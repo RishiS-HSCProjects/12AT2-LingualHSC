@@ -6,7 +6,7 @@ class TileItem:
     value: str
     category: str = ""
     label: str | None = None
-    payload: dict[str, Any] = field(default_factory=dict) # field(default_factory=dict) to avoid mutable default argument. Recommendation from Github Copilot.
+    payload: dict[str, Any] = field(default_factory=dict) # field(default_factory=dict) to avoid mutable default argument. Recommendation from GitHub Copilot.
 
     def to_dict(self) -> dict[str, Any]:
         data: dict[str, Any] = {

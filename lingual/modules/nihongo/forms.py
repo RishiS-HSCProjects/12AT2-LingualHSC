@@ -1,5 +1,4 @@
-from werkzeug.routing import ValidationError
-from wtforms import IntegerField, SelectMultipleField
+from wtforms import IntegerField, SelectMultipleField, ValidationError
 from wtforms.fields import Label
 from wtforms.validators import DataRequired, NumberRange
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
@@ -13,10 +12,14 @@ class GrammarQuizConfigForm(LessonQuizConfigForm):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.lessons.label = Label(self.lessons.id, "Grammar Points") # Assign this here too
+        self.learnt_lessons: set[str] = set() # Sets are used due to them being more efficient for lookups
     
     def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
         self.lessons.choices = choices # type: ignore
         self.lessons.data = [value for value, _ in choices]  # Select all by default
+
+    def set_learnt_lessons(self, lesson_slugs: list[str]) -> None:
+        self.learnt_lessons = set(lesson_slugs or [])
 
 class KanjiQuizConfigForm(QuizForm):
     title = "Kanji Quiz Configuration"

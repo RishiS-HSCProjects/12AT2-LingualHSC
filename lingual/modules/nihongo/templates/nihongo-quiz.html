@@ -10,14 +10,14 @@
 
 {% block body %}
 {% from 'quiz-macros.html' import page %}
-{{ page(quiz_topics) }}
+{{ page(quiz_topics, quiz_modals) }}
 
 {% if quiz_topics %}
     {% for type in quiz_topics %}
-    {% set modal = type.get_modal() %}
+    {% set modal = quiz_modals.get(type) %}
     {% if modal %}
         {% from 'modal-macros.html' import modal_form %}
-        {{ modal_form(modal, auto_open=auto_open_modal) }}
+        {{ modal_form(modal, auto_open=auto_open_modal and type == quiz_type) }}
     {% endif %}
     {% endfor %}
 {% endif %}

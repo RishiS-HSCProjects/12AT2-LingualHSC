@@ -3,10 +3,12 @@ import re
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
+from lingual.modules.nihongo.forms import GrammarQuizConfigForm
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
 from lingual.modules.nihongo.utils.particle_tiles_processor import ParticleTilesProcessor
+from lingual.utils.form_manager import flash_all_form_errors
 from lingual.utils.languages import Languages
 from lingual.utils.tiles_utils import TileSection
 
@@ -292,36 +294,55 @@ def particles_lookup(slug):
 @nihongo_bp.route('/quiz', methods=['GET', 'POST'])
 @login_required
 def quiz():
-    quiz_type = request.args.get('type') or None
-    if quiz_type:
+    quiz_topics = quiz_utils.NihongoQuizTypes
+    quiz_modals = {}
+    jp_stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
+    learnt_grammar_lessons = jp_stats.get_grammar_practised() if jp_stats else []
+
+    # Build quiz modal instances once so validation state is preserved on re-render.
+    for topic in quiz_topics:
         try:
-            quiz_type = quiz_utils.NihongoQuizTypes[quiz_type.upper()]
-            try:
-                quiz_type.get_modal() # Check if modal is implemented. If not, we will not auto open the modal since there is no configuration for the quiz.
-            except NotImplementedError:
-                flash(f"{quiz_type.name.title()} Quiz not implemented.", "warning")
-                quiz_type = None
+            modal = topic.get_modal() # Attempt to get the quiz modal
+            if modal:
+                if topic == quiz_utils.NihongoQuizTypes.GRAMMAR and isinstance(modal, GrammarQuizConfigForm):
+                    modal.set_learnt_lessons(learnt_grammar_lessons)
+                # Store modal instance if exists
+                quiz_modals[topic] = modal
+        except NotImplementedError:
+            continue # If modal not implemented, just skip it
+
+    quiz_type_query = request.args.get('type') or None
+    """ Requested quiz type """
+    quiz_type = None
+    """ QuizTypes value of the requested quiz type, or None if invalid or not requested. """
+
+    if quiz_type_query:
+        try:
+            selected_type = quiz_utils.NihongoQuizTypes[quiz_type_query.upper()]
+            if selected_type in quiz_modals:
+                quiz_type = selected_type
+            else:
+                flash(f"{selected_type.name.title()} Quiz not implemented.", "warning")
         except KeyError:
             quiz_type = None
 
-    if request.method == 'POST' and quiz_type:
-        form = quiz_type.get_modal() # Get the form associated with the quiz type
-        if form.validate_on_submit():
+    quiz_form = quiz_modals.get(quiz_type) if quiz_type else None
+
+    if request.method == 'POST' and quiz_type and quiz_form:
+        if quiz_form.validate_on_submit():
             try:
                 if quiz_type == quiz_utils.NihongoQuizTypes.GRAMMAR:
-                    selected_lessons = form.lessons.data # type: ignore
-                    max_questions = form.max_questions.data # type: ignore
+                    selected_lessons = quiz_form.lessons.data # type: ignore
+                    max_questions = quiz_form.max_questions.data # type: ignore
                     quiz_data = quiz_utils.build_grammar_quiz(selected_lessons, max_questions)
 
                     quiz_data['user_id'] = current_user.id
-                    # Cache quiz by its unique ID
+                    # Cache quiz by user's unique ID
                     _quiz_cache[current_user.id] = {
                         "type": quiz_type.name,
                         "title": quiz_data.get('title', 'Quiz'),
                         "data": quiz_data
                     }
-                    # Store only the quiz ID in session for retrieval
-                    session['quiz_session_uid'] = current_user.id
 
                     # Go to quiz session page
                     return redirect(url_for('nihongo.quiz_session'))
@@ -331,24 +352,24 @@ def quiz():
                 current_app.logger.error(f"Error generating quiz: {str(e)}")
                 flash("An error occurred while generating the quiz. Please try again.", "error")
         else:
-            flash("Invalid input. Please check your selections and try again.", "error")
+            flash_all_form_errors(quiz_form)
 
     return render_template(
         'nihongo-quiz.html',
-        quiz_topics=quiz_utils.NihongoQuizTypes,
+        quiz_topics=quiz_topics,
+        quiz_modals=quiz_modals,
         quiz_type=quiz_type,
-        auto_open_modal=bool(quiz_type)
+        auto_open_modal=bool(quiz_form)
     )
 
 @nihongo_bp.route('/quiz/session', methods=['GET'])
 @login_required
 def quiz_session():
-    uid = session.get('quiz_session_uid')
-    if not uid or uid not in _quiz_cache:
+    if current_user.id not in _quiz_cache:
         flash("No active quiz found. Please try again.", "warning")
         return redirect(url_for('nihongo.quiz')) # Redirect to quiz generation page if no active quiz is found
 
-    payload = _quiz_cache[uid] # Retrieve quiz data
+    payload = _quiz_cache[current_user.id] # Retrieve quiz data
 
     return render_template(
         'nihongo-quiz-session.html',
