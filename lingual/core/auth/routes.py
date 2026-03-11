@@ -1,5 +1,7 @@
 from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
+
+from flask_login import current_user
 from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
 from lingual.core.auth.utils.user_auth import RegUserValueException, deserialize_RegUser
 from lingual.models import User
@@ -49,7 +51,7 @@ def verify_email(reg = None):
 
     from bcrypt import hashpw, gensalt
     # Generate OTP
-    VERIFY_REQ = current_app.config.get('ALLOW_SEND_EMAILS', True)
+    VERIFY_REQ = current_app.config.get('ALLOW_SEND_EMAILS', True) # Default to true for security reasons
     if not VERIFY_REQ: # For testing, ALLOW_SEND_EMAILS may be disabled.
         otp = "123456"
     else:
@@ -60,29 +62,13 @@ def verify_email(reg = None):
         from secrets import choice 
         otp = ''.join(choice('0123456789') for _ in range(6)) # 6-digit numeric OTP
 
+    # D-AE01
+
     # Store the OTP in the session (hashed)
-    # Session is not the most secure place to store sensitive data like this, which is why we hash it.
-    # Session also stores time of generation to enforce expiry.
-    # However, that value can easily be tampered with by the user.
-    # In production, a more secure storage mechanism should be used (e.g., server-side database with proper security measures).
-    # That approach may be considered later on, however, this is sufficient for the current application's scope.
-    # Note will be made if this system is improved.
-
-    # Documented on 27 Jan 2026
-
-    session['otp'] = [hashpw(otp.encode(), gensalt()), time()]
+    session['otp'] = [hashpw(otp.encode(), gensalt()), time()] # Using same hashing system for OTPs as passwords.
 
     # Exit early if email verification is not required
     if not VERIFY_REQ:
-        # This is a terrible idea for production code really.
-        # The only reason this is here is to allow for user
-        # testing via Render, which does not support SMTP
-        # email sending. If this were a real system, I
-        # would plan to migrate the mailing service from
-        # Flask-Mail (which uses HTTP requests to an SMTP server)
-        # to a more secure third-party email API service.
-
-        # Documented on 8 Feb 2026
         return jsonify({"error": "Mail Service Disabled. OTP defaulted to 123456."}), 200
 
     # If email verification is required, send the OTP email
@@ -100,12 +86,7 @@ def verify_email(reg = None):
             )
 
     try:
-        # Initially, send_verification_email was called without all of this threading logic.
-        # However, sending emails synchronously led to the entire application halting while waiting for the email to send.
-        # This can be confusing for users, as they may think the application is unresponsive (even though it is just waiting for the email to send).
-        # As a result, I explored async options that allow for the email to be sent in the background.
-        # While this approach will result in the email potentially arriving slightly later, users will know an email will arrive eventually and not think the application is broken.
-
+        # D-AE02
         Thread(
             target=send_verification_email, # Anonymously call send_verification_email
             args=(current_app._get_current_object(), email, otp), # type: ignore
@@ -123,17 +104,9 @@ def verify_otp(otp_code: str) -> str | None:
     :rtype: str | None
     """
 
-    from bcrypt import checkpw # Use bcrypt's checkpw to compare hashed OTPs
+    # T-FE02
 
     # Retrieve OTP data from session
-    # This function initially popped the OTP data from the session.
-    # However, this caused issues if the user mistakenly entered an incorrect OTP, as they would have to request a new OTP each time.
-    # Now, the OTP data is only removed from the session upon successful verification.
-    # While this may have minor security implications (e.g., if someone else gains access to the session), it greatly improves user experience.
-    # In the event OTP logic is moved to a separate database, this security concern can be better addressed.
-    # As mentioned previously, documentation will be added if this system is improved.
-
-    # Documented on 27 Jan 2026
     otp_data = session.get('otp', None)
 
     if not otp_data: # No OTP data found in session. 
@@ -145,6 +118,7 @@ def verify_otp(otp_code: str) -> str | None:
     if time() - otp_data[1] > OTP_EXPIRY_SECONDS:
         return "OTP has expired. Please request a new one."
 
+    from bcrypt import checkpw # Use bcrypt's checkpw to compare hashed OTPs
     if checkpw(otp_code.encode(), otp_data[0]):
         session.pop('otp', None) # Remove OTP from session upon successful verification
         return None # None indicates success
@@ -200,6 +174,9 @@ def create_user(reg = None):
 
         current_app.logger.info(f"User created: {user.email}") # Log user creation event
         flash("Account created successfully! You can now log in.", "success")
+
+        session['new_user'] = True
+
         return jsonify({"error": None}), 200 # Success
     except FormValidationError as e:
         current_app.logger.error(f"Form validation error creating user: {e}\nReg: {reg}")

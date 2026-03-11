@@ -1,0 +1,19 @@
+{% extends 'lingual-template.html' %}
+
+{% block meta %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/welcome.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="welcome-shell" aria-labelledby="welcome-title">
+        <p id="welcome-ready">Ready to continue your HSC languages journey?</p>
+        <h1 id="welcome-title">WELCOME TO LINGUAL HSC</h1>
+        <p id="welcome-subtitle">Start with a guided lesson walkthrough or jump straight into your app.</p>
+
+        <div id="welcome-actions">
+            <a href="{{ url_for('tutorial.lessons', slug='getting-started') }}" class="welcome-action is-secondary">Lesson Tutorial</a>
+            <a href="{{ url_for('main.app') }}" class="welcome-action is-primary">Continue to App</a>
+        </div>
+    </section>
+{% endblock %}

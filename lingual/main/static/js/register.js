@@ -193,6 +193,13 @@ function handleEmailInput(submit = false) {
                     emailDisplayElement.textContent = data.email; // Display email
                 }
 
+                if (!data.allowSendEmails) {
+                    /**
+                        @see Documentation D-AE03
+                    */
+                    sendFlashMessage("Mail Service Disabled. OTP defaulted to 123456.", 'error');
+                }
+
                 spamPrevention(document.getElementById('resend-code-btn'), 120 * 1000); // Prevent clicking the resend button on page load
             }
         })
@@ -221,7 +228,7 @@ function resendVerificationCode() {
         .catch(error => {
             console.error("Error resending verification code:", error);
         }
-        );
+    );
 }
 
 function handleVerificationCodeInput(submit = false) {

@@ -12,7 +12,7 @@
 }
 
 #form .custom-dropdown.open #dropdown-arrow {
-    transform: rotate(180deg);
+    transform: rotate(180deg) scale(1.1);
     transition: transform 0.3s ease;
 }
 
@@ -20,9 +20,9 @@
     width: 100%;
     padding: 0.875rem 1.5rem;
     border-radius: 50px;
-    border: 2px solid #BFAEFF;
-    background: linear-gradient(145deg, #cbbaff, #a38eff);
-    color: #8702C0;
+    border: 2px solid var(--form-input-border);
+    background: linear-gradient(145deg, var(--color-soft-purple), var(--color-focus-ring));
+    color: var(--color-violet);
     font-size: 1.25rem;
     display: flex;
     justify-content: space-between;
@@ -59,17 +59,21 @@
 }
 
 #form .custom-dropdown .dropdown-toggle:hover #dropdown-arrow {
-    transform: scale(1.1);
-    transition: scale 0.3s ease;
+    transform: rotate(0deg) scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+#form .custom-dropdown.open .dropdown-toggle:hover #dropdown-arrow {
+    transform: rotate(180deg) scale(1.1);
 }
 
 #form .custom-dropdown .dropdown-toggle:focus {
     outline: none;
-    border-color: #a38eff;
+    border-color: var(--color-focus-ring);
 }
 
 #form .custom-dropdown .dropdown-toggle span.dropdown-label {
-    color: #29003c;
+    color: var(--color-violet-dark);
     font-weight: 500;
 }
 
@@ -78,7 +82,7 @@
     left: 0;
     width: 100%;
     border-radius: 30px;
-    border: 2px solid #BFAEFF;
+    border: 2px solid var(--form-input-border);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     max-height: 0;
@@ -101,19 +105,19 @@
 #form .custom-dropdown .dropdown-option {
     padding: 0.875rem 1.5rem;
     cursor: pointer;
-    background: #f7f4ff;
-    color: #003C13;
+    background: var(--form-input-bg);
+    color: var(--color-text-strong);
     font-size: 1.125rem;
     transition: background 0.2s ease;
     font-family: var(--font-body);
 }
 
 #form .custom-dropdown .dropdown-option:hover {
-    background: #e8e0ff;
+    background: var(--form-input-bg-hover);
 }
 
 #form .custom-dropdown .dropdown-option.selected {
-    background: #e8e0ff;
+    background: var(--form-input-bg-hover);
     font-weight: 600;
 }
 

@@ -75,17 +75,7 @@ p {
     transform: scale(1.05);
 }
 
-#topics .topics .topic .topic-actions .action-view {
-    margin-left: 1em;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-#topics .topics .topic .topic-actions .action-view img {
-    width: 3rem;
-    height: 3rem;
-}
-
-#topics .topics .topic .topic-actions .action-view:hover {
-    transform: scale(1.05);
+#topics .topics .topic .topic-actions .action-start.disabled {
+    background-color: var(--color-muted);
+    transform: none;
 }

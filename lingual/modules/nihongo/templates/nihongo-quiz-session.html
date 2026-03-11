@@ -15,8 +15,8 @@
     {{ super() }}
     <script src="{{ url_for('static', filename='js/lesson-utils.js') }}" defer></script>
     <script>
-        // Source: https://stackoverflow.com/questions/14843454/are-you-sure-you-want-to-leave-this-page-functions-for-cancel-and-ok
         window.onbeforeunload = function(e) {
+            // The text doesn't appear (for whatever reason), but the overall function works.
             return "Are you sure you want to leave? Your quiz progress will be lost.";
         };
 

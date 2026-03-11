@@ -1,0 +1,224 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-medium);
+    background-color: var(--bg-surface-muted);
+    border: 1px solid var(--border-subtle);
+    position: sticky;
+    top: calc(var(--nav-height) + 1rem);
+}
+
+aside > #nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+aside a {
+    display: block;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--radius-small);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    background-color: var(--bg-surface);
+    transition: var(--transition-base);
+}
+
+aside a:hover {
+    background-color: var(--bg-surface-strong);
+    color: var(--color-link);
+}
+
+aside a.active {
+    background-color: var(--color-link);
+    color: var(--bg-surface);
+}
+
+aside a.active:hover {
+    background-color: var(--color-link-hover);
+}
+
+aside > #nav > #danger-zone {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+aside > #actions {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#logout-link {
+    color: var(--color-quiz-incorrect);
+}
+
+#account-container {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem;
+    min-height: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+#account-container h1,
+#account-container h2 {
+    margin: 0;
+    color: var(--color-primary);
+}
+
+#account-container p {
+    margin: 0;
+    color: var(--color-secondary);
+    line-height: var(--line-height-body);
+}
+
+#your-account,
+.language-settings,
+#danger-zone-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-medium);
+    background-color: var(--bg-surface-muted);
+    scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+}
+
+#account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#account-info strong {
+    color: var(--color-primary);
+}
+
+#account-actions {
+    margin-top: 0.5rem;
+}
+
+#account-container hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    margin: 0;
+}
+
+.lang-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.9rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-small);
+}
+
+.setting-group.disabled {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.setting-group h3 {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+}
+
+.setting-group a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface-muted);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.setting-group a:hover {
+    border-color: var(--color-link);
+    color: var(--color-link);
+    background-color: var(--color-accent-soft);
+}
+
+#account-container button {
+    font-family: var(--font-family-main);
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    padding: 0.7rem 1.15rem;
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-card);
+}
+
+#change-password-btn {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-link-hover) 100%);
+    color: var(--bg-surface);
+}
+
+#change-password-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+#delete-account-btn {
+    background-color: var(--bg-quiz-incorrect);
+    color: var(--color-quiz-incorrect);
+    border-color: rgba(215, 58, 73, 0.3);
+}
+
+#delete-account-btn:hover {
+    border-color: var(--color-quiz-incorrect);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    #container {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: static;
+    }
+}

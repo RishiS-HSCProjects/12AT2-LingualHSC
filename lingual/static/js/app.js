@@ -15,10 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('#flash-container .flash-message')
     );
 
-    messages.forEach((msg, index) => initFlashMessage(msg, index)); // Initialize each message
+    messages.forEach((msg, index) => initFlashMessage(msg, index)); // initialise each message
     initHelpTooltips();
 });
 
+/**
+ * initialises a flash message with display and timing logic.
+ * This includes showing the message, handling the auto-dismiss timer,
+ * and adding interactivity for pausing/resuming the timer on hover and
+ * click.
+ */
 function initFlashMessage(msg, index = 0) {
     // Set initial display and styling
     setTimeout(() => {
@@ -30,7 +36,7 @@ function initFlashMessage(msg, index = 0) {
         msg.style.opacity = '0.95';
         msg.style.transform = 'scale(1)';
 
-        // Initialize internal state
+        // initialise internal state
         msg.remaining = FLASH_DURATION;
         msg.lastTick = Date.now();
         msg.fadeOutStarted = false;
@@ -138,16 +144,16 @@ function sendFlashMessage(message, category = 'info') {
     }
 
     /* This solution of creating a new element and appending
-       it to the existing flash-container was suggested by AI. */
-    // Refer to AI declaration.
+       it to the existing flash-container was suggested by AI.
+       Refer to the AI declaration.
+    */
     const msg = document.createElement('div');
     msg.className = `flash-message ${category}`;
     msg.textContent = message;
 
     container.appendChild(msg);
 
-    // Initialize immediately to handle display and timing
-    initFlashMessage(msg);
+    initFlashMessage(msg); // Initialise flash logic
 }
 
 function scrollToId(id) {
@@ -172,16 +178,16 @@ function initHelpTooltips() {
             // This check prevents initializing the tooltip multiple times on the same element,
             // which could lead to duplicate tooltips and event listeners. By marking elements
             // that have already been processed with a custom data attribute (data-help-ready),
-            // we can ensure that each element is only initialized once, improving performance
+            // we can ensure that each element is only initialised once, improving performance
             // and preventing potential bugs.
             return;
         }
 
-        target.dataset.helpReady = 'true'; // Mark this element as initialized
+        target.dataset.helpReady = 'true'; // Mark this element as initialised
 
         const helpText = (target.dataset.help || '').trim();
         if (!helpText) {
-            console.warn('Help tooltip initialized on element without help text:', target);
+            console.warn('Help tooltip initialised on element without help text:', target);
             return; // Skip elements that don't have any help text to show
         }
 

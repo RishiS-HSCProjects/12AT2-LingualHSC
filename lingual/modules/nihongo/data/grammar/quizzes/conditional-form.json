@@ -91,8 +91,8 @@
                 "question": "Translate to Japanese: If it's sunny tomorrow, we will go to the beach.",
                 "includes": [
                     ["明日", "あした", "ashita"],
-                    ["晴れる", "はれる", "hareru"],
-                    ["ら"],
+                    ["晴れ", "はれ", "hare"],
+                    ["たら", "tara"],
                     ["海", "うみ", "ビーチ", "umi", "biichi"],
                     ["行きます", "いきます", "ikimasu"]
                 ],

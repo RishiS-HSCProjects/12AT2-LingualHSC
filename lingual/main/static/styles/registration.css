@@ -6,7 +6,7 @@
     padding: var(--space-md);
     background-color: var(--color-bg-accent-1);
     border-radius: 15px;
-    border: 1px solid #BFAEFF;
+    border: 1px solid var(--form-input-border);
     width: 100%;
 }
 
@@ -23,7 +23,7 @@
 #form #password-requirements li {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #d73a49;
+    color: var(--state-danger);
     list-style: none;
     position: relative;
     padding-left: 1.5rem;
@@ -35,20 +35,20 @@
     content: "✗";
     position: absolute;
     left: 0;
-    color: #d73a49;
+    color: var(--state-danger);
     font-weight: bold;
     transition: color 0.5s ease, content 0.5s ease;
 }
 
 #form #password-requirements li.valid {
-    color: #269e42;
+    color: var(--state-success-strong);
     font-size: 0.95rem;
 }
 
 /* Requirement checkmark - valid state */
 #form #password-requirements li.valid::before {
     content: "✓";
-    color: #34d058;
+    color: var(--state-success);
 }
 
 /* Button groups */

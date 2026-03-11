@@ -1,0 +1,50 @@
+{% extends 'nihongo-template.html' %}
+
+{% set title = "Particles" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tiles.css') }}">
+<link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/particles.css') }}">
+{% endblock %}
+
+{% import 'tiles-macro.html' as tile_macros %}
+
+{% block body %}
+    {% call(part, item, index) tile_macros.render_tiles_page(
+        title=tile_section.title,
+        description=tile_section.description,
+        tiles=tile_section.tiles,
+        page_id='particles-page',
+        page_class='tiles-page particles-page',
+        list_id='particles-list',
+        list_class='tiles-list particles-list',
+        grid_id='particles-grid',
+        grid_class='tiles-grid particles-grid',
+        menu_id='particles-info',
+        menu_class='tiles-menu particles-info',
+        menu_title='Particle Notes',
+        menu_aria_label='Particle information',
+        menu_close_label='Close',
+        tile_value_attr='particle',
+        tile_class='tile particles-block',
+        custom_tile_renderer=false,
+        layout_open='3fr 2fr'
+    ) %}
+        {% if part == 'menu' %}
+            <div class="particles-info-body">
+                <h2 id="particles-info-title">Select a particle</h2>
+                <p id="particles-info-category" class="particles-category"></p>
+                <div id="particles-info-content" class="particles-markdown-content">
+                    <p>Tap any particle tile to load its quick markdown notes.</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endcall %}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/tiles.js') }}"></script>
+    <script src="{{ url_for('nihongo.static', filename='js/particles.js') }}"></script>
+{% endblock %}

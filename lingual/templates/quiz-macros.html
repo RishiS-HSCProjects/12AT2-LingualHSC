@@ -3,7 +3,7 @@
     - quiz-page.css
 -->
 
-{% macro page(quiz_topics) %}
+{% macro page(quiz_topics, quiz_modals) %}
     <div id="page-container">
         <h1>Lingual Quizzes</h1>
         <p>Test yourself by generating quizzes based on your preferences!</p>
@@ -17,7 +17,14 @@
                             <p>{{ topic.description }}</p>
                         </div>
                         <div class="topic-actions">
-                            <a class="action-start" href="{{ url_for('nihongo.quiz', type=topic.name) }}">Start Quiz</a>
+                            {% set modal = quiz_modals.get(topic) %}
+                            {% if modal %}
+                                {% set modal_id = modal.id if modal.id else modal.__class__.__name__ ~ 'Modal' %}
+                                {% set enabled = topic.is_enabled %}
+                                <a class="action-start {{ 'disabled' if not enabled else '' }}" onclick="openModal('{{ modal_id }}')" tabindex="0" role="button" aria-disabled="{{ 'true' if not enabled else 'false' }}"">
+                                    {{'Start Quiz' if enabled else 'Quiz Unavailable'}}
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
