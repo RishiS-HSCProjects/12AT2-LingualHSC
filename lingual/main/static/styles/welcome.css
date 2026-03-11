@@ -1,94 +1,129 @@
 body {
-    min-height: 100vh;
     margin: 0;
-    background: var(--gradient-page);
+    padding: 0;
+    background: var(--gradient-soft-sunrise);
+    color: #1F2937;
+    height: calc(100vh - var(--nav-height));
 }
 
-#welcome-container {
-    max-width: 48rem;
-    min-height: calc(100vh - 6rem);
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+#welcome-shell {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1.25rem;
+    height: 100%;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    max-width: 48rem;
+    margin: 0 auto;
 }
 
-#welcome-container h1 {
+#welcome-ready {
     margin: 0;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6B7280;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.3s forwards;
 }
 
-#welcome-container p {
+#welcome-title {
     margin: 0;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #1F2937;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.6s forwards;
+}
+
+#welcome-subtitle {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    color: #6B7280;
     max-width: 36rem;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--color-text-secondary);
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.9s forwards;
 }
 
-#welcome-container #buttons {
-    margin-top: 0.5rem;
-    width: 100%;
+#welcome-actions {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1rem;
-}
-
-#welcome-container #tutorials,
-#welcome-container #continue {
-    display: flex;
-    gap: 0.875rem;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 1.4s forwards;
 }
 
-#welcome-container a {
+.welcome-action {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-pill);
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-text-primary);
     text-decoration: none;
-    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-#welcome-container a:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-1px);
+.welcome-action.is-primary {
+    background: linear-gradient(145deg, #DC89EA, #B02CD9);
+    color: #ffffff;
 }
 
-#welcome-container a:active {
-    background-color: var(--color-accent-soft);
-    transform: translateY(0);
+.welcome-action.is-primary:hover {
+    background: linear-gradient(145deg, #C678D6, #9B1BC4);
+    transform: translateY(-2px);
 }
 
-#welcome-container a:focus-visible {
-    outline: 2px solid var(--color-focus-ring);
+.welcome-action.is-secondary {
+    background: #ffffff;
+    color: #2bda68;
+    border: 2px solid #2bda68;
+}
+
+.welcome-action.is-secondary:hover {
+    background: #f0f9f0;
+    transform: translateY(-2px);
+}
+
+.welcome-action:focus-visible {
+    outline: 2px solid #2bda68;
     outline-offset: 2px;
 }
 
+@keyframes welcome-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 640px) {
-    #welcome-container {
+    #welcome-shell {
         padding: 1.5rem 1rem;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
-    #welcome-container #tutorials,
-    #welcome-container #continue {
-        width: 100%;
+    #welcome-actions {
         flex-direction: column;
+        width: 100%;
     }
 
-    #welcome-container a {
+    .welcome-action {
         width: 100%;
     }
 }

@@ -8,6 +8,11 @@ function purposeScroll() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initLandingNav();
+
+  if (window.matchMedia("(any-pointer:coarse)").matches) {
+    // Show alert if user is on a mobile device, as the service is not yet optimised for mobile use
+    alert("Welcome to Lingual HSC! This service is yet to be optimised for mobile devices. For the best experience, please log on using a computer.")
+  }
 });
 
 function initLandingNav() {

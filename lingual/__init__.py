@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
+load_dotenv() # Load environment variables from .env file
 
 mail = Mail() # Initialize main module
 db = SQLAlchemy() # Placeholder for database instance

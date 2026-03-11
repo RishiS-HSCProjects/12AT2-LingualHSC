@@ -6,17 +6,14 @@
 {% endblock %}
 
 {% block body %}
-    <div id="welcome-container">
-        <h1>Welcome to Lingual!</h1>
-        <p>Want to learn how we work? Check out our Tutorial Module!</p>
-        <div id="buttons">
-            <div id="tutorials">
-                <a href="{{ url_for('tutorial.home') }}" class="button">Check Out a Lesson</a>
-                <a href="{{ url_for('tutorial.home') }}" class="button">Visit Tutorial Module</a>
-            </div>
-            <div id="continue">
-                <a href="{{ url_for('main.app') }}" class="button">Continue to App</a>
-            </div>
+    <section id="welcome-shell" aria-labelledby="welcome-title">
+        <p id="welcome-ready">Ready to continue your HSC languages journey?</p>
+        <h1 id="welcome-title">WELCOME TO LINGUAL HSC</h1>
+        <p id="welcome-subtitle">Start with a guided lesson walkthrough or jump straight into your app.</p>
+
+        <div id="welcome-actions">
+            <a href="{{ url_for('tutorial.lessons', slug='getting-started') }}" class="welcome-action is-secondary">Lesson Tutorial</a>
+            <a href="{{ url_for('main.app') }}" class="welcome-action is-primary">Continue to App</a>
         </div>
-    </div>
+    </section>
 {% endblock %}

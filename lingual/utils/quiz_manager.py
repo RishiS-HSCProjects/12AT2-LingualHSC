@@ -41,6 +41,13 @@ class TypeEnum(Enum):
             Override in subclasses if needed. """
         return ""
 
+    @property
+    def is_enabled(self) -> bool:
+        """ Optional method to indicate if the quiz type is currently enabled or not.
+            This can be used to disable quiz types that are not yet implemented or temporarily unavailable.
+            Override in subclasses if needed. By default, all quiz types are enabled. """
+        return True
+
     def get_modal(self) -> "QuizForm":
         """ Method to return a modal form for quiz configuration.
         Override in subclasses if specific configuration is needed for the quiz type.

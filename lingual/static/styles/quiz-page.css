@@ -75,3 +75,7 @@ p {
     transform: scale(1.05);
 }
 
+#topics .topics .topic .topic-actions .action-start.disabled {
+    background-color: var(--color-muted);
+    transform: none;
+}

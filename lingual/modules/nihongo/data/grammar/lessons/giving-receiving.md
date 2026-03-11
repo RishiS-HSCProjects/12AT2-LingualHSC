@@ -135,4 +135,4 @@ For example:
 
 /t This last phrase is really handy to remember if you ever need to give a speech for an assessment! \
 
-~quizzes:giving-receiving:favours?shuffle~
+~quizzes:giving-receiving:favours?shuffle?limit=5~

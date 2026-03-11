@@ -1,6 +1,6 @@
 import traceback
 from werkzeug.exceptions import HTTPException
-from flask import jsonify, make_response, redirect, render_template, request, session, current_app, flash, url_for
+from flask import jsonify, redirect, render_template, request, session, current_app, flash, url_for
 from flask.blueprints import Blueprint
 from flask_login import current_user, login_required
 from lingual import db
@@ -68,15 +68,14 @@ def login():
             # Redirect to next page or default to app
 
             if session.pop('new_user', False):
-                resp = redirect(url_for('main.welcome'))  # Show welcome page if user just registered
-
-            if 'next' in request.args:
+                resp = redirect(url_for('main.welcome'))   # Show welcome page if user just registered
+            elif 'next' in request.args:
                 resp = redirect(request.args.get('next'))  # type: ignore
             else:
                 resp = redirect(url_for('main.app'))
 
             resp.set_cookie('has_account', 'true', max_age=400*24*60*60) # Add persistent cookie to indicate user has an account
-            return resp
+            return resp # Return response with cookie set
         else:
             # Validation failed - save and display errors
             save_form_to_session(form, session)
@@ -460,7 +459,9 @@ def account():
                     db.session.commit()
                     logout_user()
                     flash("Successfully deleted account.", "success")
-                    return redirect(url_for('main.landing'))
+                    resp = redirect(url_for('main.landing'))
+                    resp.delete_cookie('has_account')
+                    return resp
 
             elif action_type == AccountActionTypes.CHANGE_PASSWORD:
                 current_password = action_form.current_password.data # type: ignore

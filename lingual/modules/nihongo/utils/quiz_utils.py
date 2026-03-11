@@ -66,9 +66,16 @@ class NihongoQuizTypes(quiz_manager.TypeEnum):
     def description(self) -> str:
         descriptions = {
             self.GRAMMAR: "Collate quizzes on HSC Japanese grammar points, customisable by your preference!",
-            self.KANJI: "Quizzes on kanji characters, including readings and meanings! Mastering kanji will start to remove the furigana from the grammar lessons and quizzes!"
+            self.KANJI: "Quizzes on kanji characters, including readings and meanings! While not yet released, click below to see a preview of what Kanji Quizzes will entail!"
         }
         return descriptions.get(self, "")
+    
+    @property
+    def is_enabled(self) -> bool:
+        enabled_status = {
+            self.KANJI: False # Disable kanji quiz for now until it's implemented
+        }
+        return enabled_status.get(self, True) # Enabled by default unless specified otherwise in the dictionary
 
     def get_modal(self) -> quiz_manager.QuizForm:
         if self == self.GRAMMAR:

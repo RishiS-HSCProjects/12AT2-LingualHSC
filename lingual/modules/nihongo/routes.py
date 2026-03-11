@@ -304,8 +304,6 @@ def quiz():
         try:
             modal = topic.get_modal() # Attempt to get the quiz modal
             if modal:
-                if topic == quiz_utils.NihongoQuizTypes.GRAMMAR and isinstance(modal, GrammarQuizConfigForm):
-                    modal.set_learnt_lessons(learnt_grammar_lessons)
                 # Store modal instance if exists
                 quiz_modals[topic] = modal
         except NotImplementedError:

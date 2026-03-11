@@ -156,12 +156,34 @@ function initModalHandlers(modalElement, modalId) {
 	});
 }
 
+/**
+ * Removes query parameters related to modals (action and type) from the URL without reloading the page.
+ * 
+ * @see Documentation T-FE06
+ */
+function clearModalQueryParams() {	
+	const url = new URL(window.location.href);
+	const originalSearch = url.search;
+
+	url.searchParams.delete('action');
+	url.searchParams.delete('type');
+
+	if (url.search !== originalSearch) {
+		window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.modal-container').forEach((modalElement) => saveModal(modalElement)); // Save all modals
-	document.querySelectorAll('[data-modal-auto-open="true"]').forEach((modalElement) => { // Get modals with auto-open set to true
+	const autoOpenModals = document.querySelectorAll('[data-modal-auto-open="true"]');
+	autoOpenModals.forEach((modalElement) => { // Get modals with auto-open set to true
 		const modalId = getModalId(modalElement);
 		if (modalId) openModal(modalId); // Open modal
 	});
+
+	if (autoOpenModals.length > 0) {
+		clearModalQueryParams();
+	}
 
 	document.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape' && activeModalId) {
