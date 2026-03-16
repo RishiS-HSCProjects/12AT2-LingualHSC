@@ -167,6 +167,7 @@ function clearModalQueryParams() {
 
 	url.searchParams.delete('action');
 	url.searchParams.delete('type');
+	url.searchParams.delete('lang');
 
 	if (url.search !== originalSearch) {
 		window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);

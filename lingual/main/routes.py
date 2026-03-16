@@ -441,33 +441,66 @@ def _resolve_modal_id(form) -> str | None:
 @login_required
 def account():
     action = request.args.get('action') or None
-    action_type = None
+    action_language_code = request.args.get('lang') or None
+    action_type: AccountActionTypes | None = None
     action_form: ModalForm | None = None
-    account_modals: dict[AccountActionTypes, ModalForm] = {}
+    account_modals: dict[str, ModalForm] = {}
+    user_lang = current_user.get_languages()
 
+    from lingual.main.forms import DeleteAppConfirmation
     for modal_action in AccountActionTypes:
         try:
+            if modal_action == AccountActionTypes.DELETE_APP:
+                for lang in user_lang:
+                    delete_app_form = modal_action.get_modal()
+                    if isinstance(delete_app_form, DeleteAppConfirmation):
+                        delete_app_form.set_app_name(lang.app_name)
+                        setattr(delete_app_form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
+                        delete_app_form.set_action(
+                            url_for('main.account', action=modal_action.value, lang=lang.code)
+                        )
+                        account_modals[f"{modal_action.value}:{lang.code}"] = delete_app_form
+                continue
+
             modal_form = modal_action.get_modal()
             if modal_form:
-                account_modals[modal_action] = modal_form
+                account_modals[modal_action.value] = modal_form
         except NotImplementedError:
             continue
 
     if action:
         try:
-            # Convert query value to enum key format (e.g. "change-password" -> "CHANGE_PASSWORD")
-            action_type = AccountActionTypes[action.upper().replace('-', '_')]
+            action_type = AccountActionTypes(action)
+        except ValueError:
+            action_type = None
 
-            action_form = account_modals.get(action_type)
+        if action_type == AccountActionTypes.DELETE_APP:
+            if action_language_code:
+                action_form = account_modals.get(f"{action_type.value}:{action_language_code}")
+            if action_form is None:
+                flash("App removal action is unavailable.", "warning")
+        elif action_type:
+            action_form = account_modals.get(action_type.value)
             if action_form is None:
                 flash(f"{action_type.name.title()} action not implemented.", "warning")
                 action_type = None
-        except KeyError:
-            action_type = None
 
     if request.method == 'POST' and action_type and action_form:
         if action_form.validate_on_submit():
-            if action_type == AccountActionTypes.DELETE:
+            if action_type == AccountActionTypes.DELETE_APP:
+                if not action_language_code:
+                    flash("No app was selected for removal.", "error")
+                else:
+                    target_language = Languages.get_language_by_code(action_language_code)
+                    if target_language is None or action_language_code not in current_user.get_language_codes():
+                        flash("You do not have access to that app.", "error")
+                    else:
+                        current_user.remove_language(action_language_code)
+                        db.session.commit()
+                        flash(f"{target_language.app_name} removed from your account.", "success")
+                        return redirect(url_for('main.app_directory'))
+
+            elif action_type == AccountActionTypes.DELETE:
                 password = action_form.password.data # type: ignore
                 if not current_user.check_password(password):
                     flash("Password incorrect. Please try again.", "error")
@@ -493,6 +526,15 @@ def account():
                     db.session.commit()
                     flash("Password updated successfully.", "success")
                     return redirect(url_for('main.account', _anchor='your-account'))
+
+            elif action_type == AccountActionTypes.UPDATE_INFO:
+                new_first_name = action_form.first_name.data # type: ignore
+
+                if new_first_name: current_user.first_name = new_first_name
+
+                db.session.commit()
+                flash("Information updated successfully.", "success")
+                return redirect(url_for('main.account', _anchor='your-account'))
 
             elif action_type in {
                 AccountActionTypes.JP_RESET_GRAMMAR,
@@ -528,7 +570,6 @@ def account():
             flash_all_form_errors(action_form)
 
     last_lang = current_user.get_last_language()
-    user_lang = current_user.get_languages()
 
     return render_template(
         'account.html',

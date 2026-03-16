@@ -4,13 +4,19 @@
     - lesson-directory.css
 -->
 
-{% macro lesson_directory(lessons, app_code, route, title) %}
+{% macro lesson_directory(lessons, app_code, route, title, subtitle) %}
 <div id="lesson-directory-wrapper">
-    {% if title %}
-    <h1>{{ title }}</h1>
-    {% else %}
-    <h1>Directory</h1>
-    {% endif %}
+    <div id="lesson-header">    
+        {% if title %}
+        <h1>{{ title }}</h1>
+        {% else %}
+        <h1>Directory</h1>
+        {% endif %}
+        
+        {% if subtitle %}
+        <p class="lesson-subtitle">{{ subtitle }}</p>
+        {% endif %}
+    </div>
 
     <div id="lesson-search-box">
         <input type="text" id="lesson-search-input" placeholder="Search lessons by title or content...">

@@ -1,6 +1,7 @@
 {% extends "tutorial-template.html" %}
 
 {% set title = "Tutorials" %}
+{% set subtitle = "The how-tos and introductions to using Lingual!" %}
 
 {% block meta %}
 {{ super() }}
@@ -15,5 +16,5 @@
 {% from "lesson-directory-macro.html" import lesson_directory %}
 
 {% block body %}
-    {{ lesson_directory(lessons, 'tutorial', 'lessons', title) }}
+    {{ lesson_directory(lessons, 'tutorial', 'lessons', title, subtitle) }}
 {% endblock %}

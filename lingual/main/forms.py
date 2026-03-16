@@ -130,6 +130,21 @@ class DeleteAccountConfirmation(ModalForm):
         if not field.data.lower() == "delete my account":
             raise ValidationError("Please type exactly 'delete my account' to confirm.")
 
+class DeleteAppConfirmation(ModalForm):
+    """ Confirm a language app should be removed from the account. """
+    title = "Remove App"
+    description = "Are you sure you want to remove {APP_NAME} from your account? This will delete your progress for this app."
+
+    txt = StringField("Please type 'remove app'", validators=[DataRequired()])
+    submit = SubmitField("Remove App")
+
+    def set_app_name(self, app_name: str):
+        self.description = self.description.replace("{APP_NAME}", app_name)
+
+    def validate_txt(self, field):
+        if field.data.lower() != "remove app":
+            raise ValidationError("Please type exactly 'remove app' to confirm.")
+
 class ChangePasswordForm(ModalForm):
     """ Change password while authenticated. """
     title = "Change Password"
@@ -156,6 +171,31 @@ class ChangePasswordForm(ModalForm):
         err = validate_password_strength(field.data)
         if err:
             raise ValidationError(str(err))
+
+class UpdateInfoForm(ModalForm):
+    """ Update account information such as name. """
+    title = "Update Information"
+    description = "Update your account information."
+
+    first_name = StringField(
+        'First Name',
+        validators=[
+            DataRequired(),
+            Length(min=1, max=50, message="First name must be between 1 and 50 characters")
+        ],
+        default="{FIRST_NAME}"
+    )
+
+    submit = SubmitField("Save Changes")
+
+    def set_first_name(self, first_name):
+        self.first_name.default = first_name
+        self.first_name.data = first_name
+
+    def validate_first_name(self, field):
+        """Validate name contains only letters, spaces, hyphens, and apostrophes."""
+        err = validate_name(field.data)
+        if err: raise ValidationError(str(err))
 
 class ResetGrammarProgressForm(ModalForm):
     """ Confirm reset of grammar progress. """

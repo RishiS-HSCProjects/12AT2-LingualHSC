@@ -27,6 +27,7 @@
             <a href="{{ url_for('main.landing') }}">Back to Lingual</a>
             <a href="{{ url_for('main.app_directory') }}">App Directory</a>
             <a href="{{ url_for('tutorial.home') }}">Helpdesk</a>
+            <a href="https://github.com/RishiS-HSCProjects/12AT2-LingualHSC/issues" target="_blank">Feedback</a>
             <a href="{{ url_for('main.logout') }}" id="logout-link">Logout</a>
         </div>
     </aside>
@@ -38,6 +39,11 @@
                 <p><strong>Member since:</strong> {{ current_user.created_at.strftime('%B %d, %Y') }}</p>
             </div>
             <div id="account-actions">
+                <button id="update-info-btn"
+                        type="button"
+                        onclick="openModal('UpdateInfoFormModal')">
+                    Update Information
+                </button>
                 <button id="change-password-btn"
                         type="button"
                         onclick="openModal('ChangePasswordFormModal')">
@@ -64,6 +70,13 @@
                 {% else %}
                     <p>No settings available for {{ lang.name }}.</p>
                 {% endif %}
+
+                <div class="lang-settings">
+                    <div class="setting-group">
+                        <h3>App Access</h3>
+                        <a class="danger-action" onclick="openModal('DeleteAppConfirmation-{{ lang.code }}Modal')">Remove {{ lang.app_name }} App</a>
+                    </div>
+                </div>
             </div>
         {% endfor %}
         <hr>
