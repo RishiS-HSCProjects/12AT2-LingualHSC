@@ -10,21 +10,36 @@
 :root {
    --bg-main: #FFF8FA;
    --bg-card: #FFFAFC;
+   --bg-surface: #FFF7FB;
    --bg-surface-muted: #FFF0F5;
+   --bg-surface-strong: #FFE4ED;
+   --bg-note-info: #FFE4ED;
+   --bg-note-tip: #E8F5E9;
+   --bg-note-warning: #FFF3E0;
+   --bg-block-quote: #FFF5F7;
+   --border-block-quote: #FFE4ED;
+   --border-block-warning: #FFB84D;
+
    --bg-option-1: #48A868;
    --bg-option-2: #5A9FD4;
-   --color-primary: #1F2937;
-   --color-secondary: #6B7280;
-   --color-link: #E8517A;
-   --color-link-hover: #D63A6A;
-   --color-accent: #E8517A;
-   --color-accent-strong: #D63A6A;
-   --color-accent-soft: #FFE4ED;
-   --color-accent-amber: #FFB84D;
-   --color-thead: #794784;
+
+   --colour-link: #E8517A;
+   --colour-link-hover: #D63A6A;
+   --colour-accent: #E8517A;
+   --colour-accent-strong: #D63A6A;
+   --colour-accent-soft: #FFE4ED;
+   --colour-accent-amber: #FFB84D;
+   --colour-table-head: #794784;
+   --colour-thead: var(--colour-table-head);
+
    --shadow-card: 0 2px 4px rgba(232, 81, 122, 0.08);
    --shadow-nav: 0 2px 12px rgba(232, 81, 122, 0.1);
    --shadow-soft: 0 8px 24px rgba(232, 81, 122, 0.12);
+   --shadow-card-hover: 0 4px 12px rgba(232, 81, 122, 0.15);
+   --shadow-item-hover: 0 8px 24px rgba(232, 81, 122, 0.15);
+   --shadow-quiz-button: 0 2px 8px rgba(232, 81, 122, 0.2);
+   --shadow-quiz-button-hover: 0 8px 20px rgba(232, 81, 122, 0.3);
+
    --radius-medium: 10px;
    --radius-round: 14px;
    --gradient-soft-sunrise: linear-gradient(135deg, #fffbfc 0%, #fff5f7 45%, #fffbfc 100%);
@@ -36,7 +51,7 @@
 html,
 body {
    background: var(--gradient-soft-sunrise);
-   color: var(--color-primary);
+   color: var(--colour-primary);
    min-height: 100vh;
 }
 
@@ -48,7 +63,7 @@ nav {
 
 nav #nav-logo {
    letter-spacing: -0.02em;
-   color: var(--color-primary);
+   color: var(--colour-primary);
    font-weight: 700;
 }
 
@@ -60,8 +75,8 @@ nav #nav-opt a {
 }
 
 nav #nav-opt a:hover {
-   color: var(--color-accent-strong);
-   background-color: var(--color-accent-soft);
+   color: var(--colour-accent-strong);
+   background-color: var(--colour-accent-soft);
 }
 
 nav #nav-opt img {
@@ -73,9 +88,9 @@ nav #nav-opt img {
 }
 
 nav #nav-opt img:hover {
-   background-color: var(--color-accent-soft);
+   background-color: var(--colour-accent-soft);
    transform: scale(1.08);
-   box-shadow: 0 4px 12px rgba(232, 81, 122, 0.15);
+   box-shadow: var(--shadow-card-hover);
 }
 
 #body {
@@ -94,8 +109,8 @@ nav #nav-opt img:hover {
 
 .lesson-item:hover {
    transform: translateY(-4px);
-   border-color: var(--color-accent);
-   box-shadow: 0 8px 24px rgba(232, 81, 122, 0.15);
+   border-color: var(--colour-accent);
+   box-shadow: var(--shadow-item-hover);
 }
 
 #lesson-container {
@@ -107,7 +122,7 @@ nav #nav-opt img:hover {
 }
 
 #lesson-container .lesson-title {
-   color: var(--color-primary);
+   color: var(--colour-primary);
    letter-spacing: -0.02em;
    font-weight: 700;
 }
@@ -116,7 +131,7 @@ nav #nav-opt img:hover {
 #lesson-container h2,
 #lesson-container h3,
 #lesson-container h4 {
-   color: var(--color-primary);
+   color: var(--colour-primary);
 }
 
 #lesson-container .note {
@@ -125,28 +140,28 @@ nav #nav-opt img:hover {
 }
 
 #lesson-container .note.info {
-   border-left-color: var(--color-accent);
-   background: #FFE4ED;
+   border-left-color: var(--colour-accent);
+   background: var(--bg-note-info);
 }
 
 #lesson-container .note.tip {
    border-left-color: var(--bg-option-1);
-   background: #E8F5E9;
+   background: var(--bg-note-tip);
 }
 
 #lesson-container .note.warning {
-   border-left-color: var(--color-accent-amber);
-   background: #FFF3E0;
+   border-left-color: var(--colour-accent-amber);
+   background: var(--bg-note-warning);
 }
 
 #lesson-container .block.blockquote {
-   background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
-   border-color: #FFE4ED;
-   border-left-color: var(--color-accent);
+   background: linear-gradient(135deg, var(--bg-block-quote) 0%, var(--colour-surface-white) 100%);
+   border-color: var(--border-block-quote);
+   border-left-color: var(--colour-accent);
 }
 
 #lesson-container .block.warning {
-   border-color: #FFB84D;
+   border-color: var(--border-block-warning);
    box-shadow: var(--shadow-soft);
 }
 
@@ -158,23 +173,23 @@ nav #nav-opt img:hover {
 }
 
 .quiz button {
-   background: var(--color-accent);
-   box-shadow: 0 2px 8px rgba(232, 81, 122, 0.2);
+   background: var(--colour-accent);
+   box-shadow: var(--shadow-quiz-button);
    font-weight: 600;
    border: none;
    border-radius: var(--radius-medium);
    transition: all var(--transition-base);
-   color: #FFFFFF;
+   color: var(--colour-text-on-accent);
 }
 
 .quiz button:hover {
-   background: var(--color-accent-strong);
+   background: var(--colour-accent-strong);
    transform: translateY(-2px);
-   box-shadow: 0 8px 20px rgba(232, 81, 122, 0.3);
+   box-shadow: var(--shadow-quiz-button-hover);
 }
 
 .quiz button:disabled {
-   background: var(--color-muted);
+   background: var(--colour-muted);
    opacity: 0.6;
 }
 

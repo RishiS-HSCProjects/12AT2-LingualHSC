@@ -33,13 +33,13 @@
 .tile-header > h1 {
     font-size: clamp(2rem, 4vw, var(--font-size-title-lg));
     margin: 0 0 6px;
-    color: var(--color-primary);
+    color: var(--colour-primary);
     letter-spacing: 0.02em;
 }
 
 .tile-header > .tile-subtitle {
     margin: 0;
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     font-size: var(--font-size-body);
 }
 
@@ -79,7 +79,7 @@
 
 .tile-char {
     font-size: clamp(2rem, 3.4vw, 3.6rem);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     font-weight: 600;
     transition: color var(--tile-transition), transform var(--tile-transition);
 }
@@ -87,7 +87,7 @@
 .tile:hover {
     transform: translateY(-6px) scale(1.03);
     box-shadow: var(--shadow-soft);
-    border-color: var(--color-accent);
+    border-color: var(--colour-accent);
 }
 
 .tile:active {
@@ -95,14 +95,14 @@
 }
 
 .tile.is-active {
-    background: var(--color-accent-soft);
-    border-color: var(--color-accent-strong);
+    background: var(--colour-accent-soft);
+    border-color: var(--colour-accent-strong);
     box-shadow: var(--shadow-strong);
     transform: translateY(-4px) scale(1.05);
 }
 
 .tile.is-active > .tile-char {
-    color: var(--color-accent-strong);
+    color: var(--colour-accent-strong);
     transform: scale(1.04);
 }
 
@@ -155,13 +155,13 @@
 .tiles-menu-header > h2 {
     margin: 0;
     font-size: clamp(1.3rem, 3vw, 1.8rem);
-    color: var(--color-primary);
+    color: var(--colour-primary);
 }
 
 .tiles-menu-close {
     border: 1px solid var(--border-subtle);
     background: transparent;
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     padding: 8px 16px;
     border-radius: var(--radius-pill);
     cursor: pointer;
@@ -172,8 +172,8 @@
 }
 
 .tiles-menu-close:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent-strong);
+    border-color: var(--colour-accent);
+    color: var(--colour-accent-strong);
     transform: translateY(-1px);
 }
 

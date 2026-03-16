@@ -12,7 +12,7 @@
     font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 48px;
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
     text-align: center;
 }
 
@@ -30,9 +30,9 @@
 /* || App Cards */
 
 .app-directory .app-card {
-    background-color: hsl(0, 0%, 0%, 0.03);
+    background-color: var(--colour-overlay-soft);
     border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--colour-overlay-medium);
     padding: 18px 22px;
     text-align: center;
     display: flex;
@@ -46,7 +46,7 @@
 .app-directory .app-card:hover {
     transform: translateY(-5px);
     /* Lift effect on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px var(--colour-overlay-strong);
     user-select: none;
     cursor: pointer;
 }
@@ -69,7 +69,7 @@
     font-family: "Poppins", Inter, Arial, sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
     margin-bottom: 8px;
     margin-top: 0;
 }
@@ -78,20 +78,20 @@
     font-family: "Inter", Arial, sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     margin-top: 0;
     line-height: 1.5;
 }
 
 .app-directory .app-card:hover h2,
 .app-directory .app-card:hover p {
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
 }
 
 .app-directory .app-card p.no-app-text {
     font-size: 1.05rem;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     text-align: center;
     margin-top: 28px;
 }
@@ -99,7 +99,7 @@
 p.no-languages-text {
     font-size: 1.05rem;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     margin-top: 28px;
     text-align: center;
 }

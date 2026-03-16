@@ -7,12 +7,12 @@
     border: none;
     border-radius: 50px;
     background: linear-gradient(145deg, var(--cta-alt-start), var(--cta-alt-end));
-    color: var(--color-bg-white);
+    color: var(--auth-colour-bg-white);
     cursor: pointer;
     transition: box-shadow 0.25s ease, background-color 0.35s ease;
 }
 
 #form section button.next:hover {
     filter: brightness(0.95);
-    box-shadow: 0 0 8px rgba(220, 137, 234, 0.6);
+    box-shadow: var(--auth-shadow-cta);
 }

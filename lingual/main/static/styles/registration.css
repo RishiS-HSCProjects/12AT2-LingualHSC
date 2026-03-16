@@ -2,9 +2,9 @@
 
 /* Password help section */
 #form #password-help {
-    margin-top: var(--space-md);
-    padding: var(--space-md);
-    background-color: var(--color-bg-accent-1);
+    margin-top: var(--gap-small);
+    padding: var(--gap-small);
+    background-color: var(--auth-colour-bg-accent-1);
     border-radius: 15px;
     border: 1px solid var(--form-input-border);
     width: 100%;
@@ -13,7 +13,7 @@
 /* Password requirements list */
 #form #password-requirements {
     margin: 0;
-    padding-left: var(--space-md);
+    padding-left: var(--gap-small);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -53,7 +53,7 @@
 
 /* Button groups */
 #form .next-btn {
-    margin-top: var(--space-md);
+    margin-top: var(--gap-small);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -61,9 +61,9 @@
 
 #form .presubmit-options {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--gap-small);
     justify-content: center;
-    margin-top: var(--space-md);
+    margin-top: var(--gap-small);
     flex-wrap: wrap;
 }
 

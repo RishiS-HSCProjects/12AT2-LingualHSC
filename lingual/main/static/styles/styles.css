@@ -1,18 +1,23 @@
 :root {
-    --color-bg-white: #ffffff;
-    --color-bg-accent-1: #effcff;
 
-    --color-primary: #2bda68;
-    --color-secondary: #50c7ff;
-    --color-soft-purple: #eff3ff;
-    --color-accent-hover: #25c05a;
-    --color-accent-soft: #e4f5e6;
+    /* Auth colours are those used in authentication pages (login/registration/password) */
+    
+    --auth-colour-bg-white: #ffffff;
+    --auth-colour-bg-accent-1: #effcff;
 
-    --color-text-primary: #1F2937;
-    --color-text-secondary: #6B7280;
-    --color-text-strong: #003C13;
-    --color-focus-ring: #a38eff;
-    --gradient-page: linear-gradient(135deg, #effcff 0%, #e2f7ff 100%);
+    --auth-colour-link-hover: var(--colour-link-hover);
+    --auth-colour-soft-purple: #eff3ff;
+    --auth-colour-accent-soft: #e4f5e6;
+
+    --colour-text-primary: #1F2937;
+    --colour-text-secondary: #6B7280;
+    --colour-text-strong: #003C13;
+    --auth-colour-focus-ring: #a38eff;
+
+    --auth-shadow-focus: 0 0 8px rgba(163, 142, 255, 0.4);
+    --auth-shadow-focus-strong: 0 0 8px rgba(163, 142, 255, 0.6);
+    --auth-shadow-cta: 0 0 8px rgba(220, 137, 234, 0.6);
+
 
     --form-input-border: #BFAEFF;
     --form-input-bg: #f7f4ff;
@@ -20,38 +25,34 @@
     --form-input-bg-disabled: #f0ecf8;
     --form-input-border-disabled: #d1c4e9;
 
-    --state-danger: #d73a49;
+    /* Generic states */
+    --state-danger: #B4233D;
     --state-danger-soft: #fff5f5;
-    --state-success: #34d058;
-    --state-success-strong: #269e42;
+    --state-success: #2F7A4E;
+    --state-success-strong: #25633F;
     --state-success-soft: #f5fff5;
 
-    --color-violet: #8702C0;
-    --color-violet-dark: #29003c;
-    --cta-start: #DC89EA;
+    --auth-colour-violet: #8702C0;
+    --auth-colour-violet-dark: #29003c;
+
+    /* CTA Gradients */
+    --cta-start: #AA4AC2;
     --cta-end: #B02CD9;
     --cta-disabled-start: #b8a0d1;
     --cta-disabled-end: #8b1db5;
-    --cta-alt-start: #a989ea;
+    --cta-alt-start: #8555CF;
     --cta-alt-end: #542cd9;
-
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 40px;
 
     --font-heading: "Poppins", Inter, Arial, sans-serif;
     --font-body: "Inter", Arial, sans-serif;
 
     --nav-height: 4.5rem;
-
-    --color-link: var(--color-primary);
-    --color-link-hover: var(--color-secondary);
 }
 
 html, body {
     margin: 0;
     padding: 0;
-    background-color: var(--color-bg-accent-1);
+    background-color: var(--auth-colour-bg-accent-1);
     font-family: var(--font-body);
     height: 100%;
 }
@@ -71,14 +72,14 @@ nav {
     box-sizing: border-box;
     box-shadow: var(--shadow-nav);
     z-index: 999;
-    background-color: var(--color-bg-accent-1);
+    background-color: var(--auth-colour-bg-accent-1);
 }
 
 nav a {
     font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
-    color: black;
+    color: var(--colour-text-primary);
     white-space: nowrap;
 }
 
@@ -106,7 +107,7 @@ nav a#login-link {
 
     /* Hide scrollbar*/
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    scrollbar-color: var(--colour-overlay-medium) transparent;
 }
 
 /* Hide scrollbar for Chrome, Safari, Edge */
@@ -119,12 +120,12 @@ nav a#login-link {
 }
 
 #form::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--colour-overlay-medium);
     border-radius: 4px;
 }
 
 #form::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--colour-overlay-strong);
 }
 
 #form section {
@@ -137,8 +138,8 @@ nav a#login-link {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     box-sizing: border-box;
-    padding: var(--space-lg);
-    gap: var(--space-md);
+    padding: var(--gap-medium);
+    gap: var(--gap-small);
 }
 
 #form section.active {
@@ -146,22 +147,22 @@ nav a#login-link {
 }
 
 #form h1 {
-    margin: 0 0 var(--space-md);
+    margin: 0 0 var(--gap-small);
     text-align: center;
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
     line-height: 1.2;
 }
 
 #form h2 {
-    margin: 0 0 var(--space-md);
+    margin: 0 0 var(--gap-small);
     text-align: center;
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 600;
-    color: var(--color-text-strong);
+    color: var(--colour-text-strong);
     line-height: 1.3;
 }
 
@@ -179,14 +180,14 @@ nav a#login-link {
     align-items: center;
     width: 90%;
     max-width: 500px;
-    gap: var(--space-md);
+    gap: var(--gap-small);
 }
 
 #form .group-fields {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: var(--space-md);
+    gap: var(--gap-small);
 }
 
 /* || Inputs */
@@ -201,7 +202,7 @@ nav a#login-link {
     border: 2px solid var(--form-input-border);
     border-radius: 50px;
     background-color: var(--form-input-bg);
-    color: var(--color-text-strong);
+    color: var(--colour-text-strong);
     font-family: var(--font-body);
     transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -211,9 +212,9 @@ nav a#login-link {
 #form input[type="password"]:focus,
 #form select:focus {
     outline: none;
-    border-color: var(--color-focus-ring);
-    background-color: var(--color-bg-white);
-    box-shadow: 0 0 8px rgba(163, 142, 255, 0.4);
+    border-color: var(--auth-colour-focus-ring);
+    background-color: var(--auth-colour-bg-white);
+    box-shadow: var(--auth-shadow-focus);
 }
 
 #form input.error,
@@ -248,13 +249,13 @@ nav a#login-link {
     padding: 0.95rem 2.6rem;
     font-size: 1.25rem;
     background: linear-gradient(145deg, var(--cta-start), var(--cta-end));
-    color: var(--color-bg-white);
+    color: var(--auth-colour-bg-white);
     font-weight: 700;
 }
 
 #form button.next:hover:not(:disabled) {
     filter: brightness(0.95);
-    box-shadow: 0 0 8px rgba(220, 137, 234, 0.6);
+    box-shadow: var(--auth-shadow-cta);
 }
 
 #form button.next:disabled {
@@ -268,48 +269,48 @@ nav a#login-link {
     font-size: 1.05rem;
     border: 2px solid var(--form-input-border);
     background: var(--form-input-bg);
-    color: var(--color-violet);
+    color: var(--auth-colour-violet);
     font-weight: 600;
 }
 
 #form button.option:hover {
     background: var(--form-input-bg-hover);
-    border-color: var(--color-focus-ring);
+    border-color: var(--auth-colour-focus-ring);
 }
 
 #form button.option:disabled {
     border-color: var(--form-input-border-disabled);
     background: var(--form-input-bg-disabled);
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     transform: scale(0.98);
 }
 
 /* || Text Elements */
 
 #form .subtitle {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--gap-small);
     text-align: center;
     font-size: 1.125rem;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     line-height: 1.5;
 }
 
 #form .subtitle a {
-    color: var(--color-violet);
+    color: var(--auth-colour-violet);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 #form .subtitle a:hover {
-    color: var(--color-focus-ring);
+    color: var(--auth-colour-link-hover);
     text-decoration: underline;
 }
 
 #form small {
     font-size: 1rem;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     text-align: center;
     line-height: 1.5;
     margin-top: 0.5rem;
@@ -340,7 +341,7 @@ nav a#login-link {
 
     #form section {
         min-height: auto;
-        padding: var(--space-md) var(--space-sm);
+        padding: var(--gap-small) var(--gap-xsmall);
         scroll-snap-align: none;
         scroll-snap-stop: normal;
     }

@@ -31,7 +31,7 @@ aside a {
     display: block;
     padding: 0.6rem 0.9rem;
     border-radius: var(--radius-small);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     text-decoration: none;
     font-weight: 500;
     background-color: var(--bg-surface);
@@ -40,16 +40,16 @@ aside a {
 
 aside a:hover {
     background-color: var(--bg-surface-strong);
-    color: var(--color-link);
+    color: var(--colour-link);
 }
 
 aside a.active {
-    background-color: var(--color-link);
+    background-color: var(--colour-link);
     color: var(--bg-surface);
 }
 
 aside a.active:hover {
-    background-color: var(--color-link-hover);
+    background-color: var(--colour-link-hover);
 }
 
 aside > #nav > #danger-zone {
@@ -68,7 +68,7 @@ aside > #actions {
 }
 
 #logout-link {
-    color: var(--color-quiz-incorrect);
+    color: var(--colour-quiz-incorrect);
 }
 
 #account-container {
@@ -85,12 +85,12 @@ aside > #actions {
 #account-container h1,
 #account-container h2 {
     margin: 0;
-    color: var(--color-primary);
+    color: var(--colour-primary);
 }
 
 #account-container p {
     margin: 0;
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     line-height: var(--line-height-body);
 }
 
@@ -114,7 +114,7 @@ aside > #actions {
 }
 
 #account-info strong {
-    color: var(--color-primary);
+    color: var(--colour-primary);
 }
 
 #account-actions {
@@ -151,7 +151,7 @@ aside > #actions {
 
 .setting-group h3 {
     margin: 0;
-    color: var(--color-primary);
+    color: var(--colour-primary);
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
 }
@@ -166,7 +166,7 @@ aside > #actions {
     border-radius: var(--radius-pill);
     border: 1px solid var(--border-subtle);
     background-color: var(--bg-surface-muted);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
@@ -174,9 +174,22 @@ aside > #actions {
 }
 
 .setting-group a:hover {
-    border-color: var(--color-link);
-    color: var(--color-link);
-    background-color: var(--color-accent-soft);
+    border-color: var(--colour-link);
+    color: var(--colour-link);
+    background-color: var(--colour-accent-soft);
+}
+
+.setting-group a.danger-action {
+    border-color: var(--colour-danger);
+    color: var(--colour-quiz-incorrect);
+    background-color: var(--bg-quiz-incorrect);
+}
+
+.setting-group a.danger-action:hover {
+    border-color: var(--colour-quiz-incorrect);
+    color: var(--colour-quiz-incorrect);
+    background-color: var(--bg-quiz-incorrect);
+    transform: translateY(-1px);
 }
 
 #account-container button {
@@ -192,24 +205,24 @@ aside > #actions {
     box-shadow: var(--shadow-card);
 }
 
-#change-password-btn {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-link-hover) 100%);
+#account-actions > button {
+    background: linear-gradient(135deg, var(--colour-accent) 0%, var(--colour-link-hover) 100%);
     color: var(--bg-surface);
 }
 
-#change-password-btn:hover {
+#account-actions > button:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-soft);
 }
 
 #delete-account-btn {
     background-color: var(--bg-quiz-incorrect);
-    color: var(--color-quiz-incorrect);
-    border-color: rgba(215, 58, 73, 0.3);
+    color: var(--colour-quiz-incorrect);
+    border-color: var(--colour-danger-border-soft);
 }
 
 #delete-account-btn:hover {
-    border-color: var(--color-quiz-incorrect);
+    border-color: var(--colour-quiz-incorrect);
     transform: translateY(-1px);
 }
 

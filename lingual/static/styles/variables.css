@@ -53,33 +53,67 @@
    --bg-option-2: #5A9FD4;
 
    /* Accent Palette */
-   --color-accent: #4F8FD8;
-   --color-accent-strong: #3C78BF;
-   --color-accent-soft: #E7F1FB;
-   --color-accent-amber: #F0B55A;
+   --colour-accent: #4F8FD8;
+   --colour-accent-strong: #3C78BF;
+   --colour-accent-soft: #E7F1FB;
+   --colour-accent-amber: #F0B55A;
 
-   /* Text Colors */
-   --color-primary: #1F2D3D;
-   --color-secondary: #5F7388;
-   --color-link: #4F8FD8;
-   --color-link-hover: #3C78BF;
-    --color-muted: #8FA2B7;
-    --color-contrast: #132131;
+   /* Text Colours */
+   --colour-text-primary: #1F2D3D;
+   --colour-text-secondary: #5F7388;
+   --colour-text-muted: #8FA2B7;
+   --colour-text-contrast: #132131;
+   --colour-text-on-accent: #FFFFFF;
+   --colour-text: var(--colour-text-primary);
 
-   /* Quiz & Lesson Colors */
-   --color-quiz-correct: #2F9E62;
-   --color-quiz-incorrect: #CF4E62;
+   /* Shared neutral and overlay colours */
+   --colour-surface-white: #FFFFFF;
+   --colour-overlay-soft: rgba(0, 0, 0, 0.04);
+   --colour-overlay-medium: rgba(0, 0, 0, 0.1);
+   --colour-overlay-strong: rgba(0, 0, 0, 0.15);
+   --colour-overlay-modal: rgba(0, 0, 0, 0.35);
+   --colour-overlay-modal-strong: rgba(0, 0, 0, 0.4);
+   --colour-overlay-light: rgba(255, 255, 255, 0.7);
+   --colour-overlay-light-strong: rgba(255, 255, 255, 0.9);
+   --colour-border-overlay: rgba(31, 41, 55, 0.12);
+
+   /* Focus and interactive emphasis */
+   --colour-focus: #3B82F6;
+   --colour-focus-strong: #1A5FD0;
+   --colour-focus-ring: rgba(59, 130, 246, 0.2);
+   --colour-focus-ring-strong: rgba(59, 130, 246, 0.25);
+
+   /* Link Colours */
+   --colour-link: #4F8FD8;
+   --colour-link-hover: #3C78BF;
+
+   /* Compatibility aliases for existing styles */
+   --colour-primary: var(--colour-text-primary);
+   --colour-secondary: var(--colour-text-secondary);
+   --colour-muted: var(--colour-text-muted);
+   --colour-contrast: var(--colour-text-contrast);
+
+   /* Quiz & Lesson Colours */
+   --colour-success: #2F9E62;
+   --colour-success-strong: #2F7A4E;
+   --colour-danger: #CF4E62;
+   --colour-danger-border-soft: rgba(215, 58, 73, 0.3);
+   --colour-danger-strong: #B4233D;
+   --colour-status-neutral: #6B7280;
+   --colour-quiz-correct: var(--colour-success);
+   --colour-quiz-incorrect: var(--colour-danger);
    --bg-quiz-correct: #DDF5E8;
    --bg-quiz-incorrect: #FCECEF;
-   --color-thead: #2F4A66;
+   --colour-table-head: #2F4A66;
+   --colour-thead: var(--colour-table-head);
 
    /* Note Colors */
    --bg-note-info: #E6F2FB;
-   --border-note-info: #4F8FD8;
+   --border-note-info: var(--colour-accent);
    --bg-note-tip: #E7F4ED;
-   --border-note-tip: #46A372;
+   --border-note-tip: var(--bg-option-1);
    --bg-note-warning: #FFF3DF;
-   --border-note-warning: #F0B55A;
+   --border-note-warning: var(--colour-accent-amber);
 
    /* Block Colors */
    --bg-block-quote: #F1F6FB;

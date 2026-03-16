@@ -1,25 +1,25 @@
 #particles-info-title {
     margin: 0;
     font-size: clamp(1.8rem, 4vw, 2.4rem);
-    color: var(--color-primary);
+    color: var(--colour-primary);
 }
 
 .particles-category {
     margin: 0;
-    color: var(--color-muted);
+    color: var(--colour-muted);
     font-size: var(--font-size-nav-link);
 }
 
 .particles-markdown-content {
     margin-top: 6px;
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     line-height: var(--line-height-body);
     display: grid;
     gap: 12px;
 }
 
 .particles-markdown-content > :is(h1, h2, h3, h4) {
-    color: var(--color-primary);
+    color: var(--colour-primary);
     margin-bottom: 4px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .particles-markdown-content blockquote {
-    border-left: 3px solid var(--color-accent);
+    border-left: 3px solid var(--colour-accent);
     padding-left: 12px;
-    color: var(--color-muted);
+    color: var(--colour-muted);
 }

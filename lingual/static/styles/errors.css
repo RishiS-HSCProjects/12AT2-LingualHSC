@@ -23,8 +23,8 @@
 
 #container #options button, #container #options a {
     padding: 0.5em 1em;
-    background-color: var(--color-link);
-    color: white;
+    background-color: var(--colour-link-hover);
+    color: var(--colour-text-on-accent);
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -32,6 +32,6 @@
 }
 
 #container #options button:hover, #container #options a:hover {
-    background-color: var(--color-link-hover);
+    background-color: var(--colour-table-head);
     cursor: pointer;
 }

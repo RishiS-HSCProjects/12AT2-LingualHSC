@@ -10,13 +10,13 @@
 
 .kanji-char {
 	font-size: clamp(2rem, 3.4vw, 3.6rem);
-	color: var(--color-primary);
+	color: var(--colour-primary);
 }
 
 #kanji-info-char {
 	margin: 0 0 8px;
 	font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-	color: var(--color-primary);
+	color: var(--colour-primary);
 }
 
 .kanji-info-body {
@@ -36,34 +36,34 @@
 	gap: 6px;
 	padding: 6px 14px;
 	border-radius: var(--radius-pill);
-	background: var(--color-accent-soft);
-	color: var(--color-accent-strong);
+	background: var(--colour-accent-soft);
+	color: var(--colour-accent-strong);
 	font-weight: 600;
 	letter-spacing: 0.02em;
 }
 
 .kanji-tag#kanji-info-type {
-	color: white;
-	background-color: rgb(167, 167, 167);
+	color: var(--colour-text-on-accent);
+	background-color: var(--colour-status-neutral);
 }
 
 .kanji-tag#kanji-info-type.type-active {
-	background: rgb(0, 175, 0);
+	background: var(--colour-success-strong);
 }
 
 .kanji-tag#kanji-info-type.type-recognition {
-	background: rgb(234, 32, 32);
+	background: var(--colour-danger-strong);
 }
 
 .kanji-info-block > h3 {
 	margin: 0 0 6px;
 	font-size: var(--font-size-header-4);
-	color: var(--color-primary);
+	color: var(--colour-primary);
 }
 
 .kanji-info-block > p {
 	margin: 0;
-	color: var(--color-secondary);
+	color: var(--colour-secondary);
 	font-size: var(--font-size-body);
 	line-height: var(--line-height-body);
 }
