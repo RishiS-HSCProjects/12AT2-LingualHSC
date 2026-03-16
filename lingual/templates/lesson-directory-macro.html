@@ -30,7 +30,7 @@
                         data-title="{{ lesson.title | e }}" 
                         data-summary="{{ lesson.summary | e }}"
                         data-content="{{ lesson.content | e }}"
-                        data-keywords="{{ lesson.keyword_tags | e }}">
+                        data-keywords="{{ lesson.query_tags | e }}">
                         <h3 class="lesson-title">{{ lesson.title | sanitise | safe }}</h3>
                         <p class="lesson-summary">{{ lesson.summary | sanitise | safe }}</p>
                     </div>

@@ -14,7 +14,7 @@ summary: "Learn how to source and reference information."
 - その映画[えいが]は面白[おもしろ]い**らしい**です → I heard that the movie is interesting.
 - 彼[かの]女[じょ]は日本語が上[じょう]手[ず]**らしい**です → It seems that she is good at Japanese.
 
-らしい holds a nuance of uncertainty or hearsay, indicating that the information is not directly confirmed by the speaker but is based on what they have heard or observed. It is often used when the speaker wants to convey information that they are not entirely sure about or when they want to express an impression based on indirect evidence.
+らしい holds a nuance of uncertainty or hearsay, indicating that the information is not directly confirmed by the speaker but is based on what they have heard or observed. It is often used when the speaker wants to convey information that they are not entirely sure about or when they want to exbpress an impression based on indirect evidence.
 
 # Using らしい for similarities (like)
 

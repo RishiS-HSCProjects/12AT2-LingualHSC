@@ -15,7 +15,7 @@ class BaseTilePage {
         // Add event listeners for tiles to allow keyboard interaction and navigation.
         this.tiles.forEach((tile) => {
             tile.tabIndex = 0; // Make tiles focusable
-            tile.role = 'button'; // Announce as button
+            tile.setAttribute('role', 'button') // Announce as button
 
             tile.addEventListener('click', () => this.selectTile(tile));
             tile.addEventListener('keydown', (event) => {
