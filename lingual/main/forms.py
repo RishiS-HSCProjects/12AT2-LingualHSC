@@ -117,11 +117,14 @@ class RegistrationPasswordForm(FlaskForm):
 class DeleteAccountConfirmation(ModalForm):
     """ Confirm the account should be deleted. """
     title = "Delete Account"
-    description = "Are you sure you want to delete your account? This action can not be undone."
+    description = "Are you sure you want to delete your account {EMAIL}? This action can not be undone."
     
     txt = StringField("Please type 'delete my account'", validators=[DataRequired()])
     password = PasswordField('Input current password', validators=[DataRequired()])
     submit = SubmitField("Delete forever!")
+
+    def set_email(self, email):
+        self.description = self.description.replace("{EMAIL}", email)
 
     def validate_txt(self, field):
         if not field.data.lower() == "delete my account":

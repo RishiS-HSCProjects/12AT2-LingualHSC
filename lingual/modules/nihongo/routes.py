@@ -3,7 +3,6 @@ import re
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 from lingual import db
-from lingual.modules.nihongo.forms import GrammarQuizConfigForm
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor

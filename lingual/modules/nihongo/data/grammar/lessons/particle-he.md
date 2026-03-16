@@ -42,11 +42,11 @@ The following structure uses へ and に together to describe the **intent** of 
 - The final verb is the ::red{[Action]} performed at the destination.  
   Common verbs include 行く, 来[く]る, and 帰[かえ]る, though other movement verbs can appear.
 
-### Examples of Describe Intent Structure
+### Examples of Describing Intent Structure
 - ::blue{学校}へ ::green{勉[べん]強[きょう]}に ::red{行きます} → I am ::red{going} to ::blue{school} to ::green{study}.
 - ::green{買い物[もの]}に ::blue{スーパー}へ ::red{行きます} → To do some ::green{shopping}, I am ::red{going} to the ::blue{supermarket}.
-- ::blue{友達[だち]}へ ::green{遊[あそ]び}に ::red{行きます} → ||I am ::red{going} to my ::blue{friend} to ::green{hang out}.||
-- ::blue{図[と]書[しょう]館[かん]}へ ::green{本をかり}に ::red{行きます} → ||I am ::red{going} to the ::blue{library} to ::green{borrow books}.||
-- 犬[いぬ]と::green{さんぽ}に ::blue{家[いえ]}へ もっと早[はや]く ::red{帰[かえ]ります} → ||I will ::red{return} ::blue{home} earlier to ::green{walk with my dog}.||
+- ::blue{友達[ともだち]の家[いえ]}へ ::green{遊[あそ]び}に ::red{行きます} → ||I am ::red{going} to my ::blue{friend's house} to ::green{hang out}.||
+- ::blue{図[と]書[しょ]館[かん]}へ ::green{本[ほん]を借[か]り}に ::red{行きます} → ||I am ::red{going} to the ::blue{library} to ::green{borrow books}.||
+- ::blue{家[いえ]}へ ::green{犬[いぬ]とさんぽし}に もっと早[はや]く ::red{帰[かえ]ります} → ||I will ::red{return} ::blue{home} earlier to ::green{walk with my dog}.||
 
 ~quizzes:particle-he:intent~

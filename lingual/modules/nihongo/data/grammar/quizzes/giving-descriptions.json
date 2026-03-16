@@ -50,7 +50,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate to Japanese:\n\n'It looks she will come early.'",
+                "question": "Translate to Japanese:\n\n'It looks like she will come early.'",
                 "includes": [
                         ["早く", "はやく", "hayaku"],
                         ["来", "き", "ki"],

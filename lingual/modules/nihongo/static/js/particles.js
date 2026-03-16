@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** Asynchronously fetch particle payload from API */
     const fetchParticle = async (slug) => {
-        const response = await fetch(`api/${encodeURIComponent(slug)}`); // todo: document why I needed to use encodeURIComponent()
+        const response = await fetch(`api/${encodeURIComponent(slug)}`); // TODO: document why I needed to use encodeURIComponent()
         if (!response.ok) {
             throw new Error(`Failed to load particle markdown: ${response.status}`);
         }

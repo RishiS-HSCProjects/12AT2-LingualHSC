@@ -316,7 +316,7 @@ class QuizRenderer {
             // Keeping styling inline here to avoid needing extra CSS rules for an element used only once.
             resultIndicator.style.cssText = "font-weight: 700; font-size: 1.125rem; margin-bottom: 0.75rem; padding: 0.5rem; border-radius: 0.5rem; text-align: center;";
             
-            // Not using var(--color-quiz-correct) or var(--color-quiz-incorrect) here as to provide sufficient contrast with the correct/incorrect option stylings.
+            // Not using var(--colour-quiz-correct) or var(--colour-quiz-incorrect) here as to provide sufficient contrast with the correct/incorrect option stylings.
             if (isCorrect) {
                 resultIndicator.textContent = "✓ Correct!";
                 resultIndicator.style.color = "#34d058";
@@ -711,7 +711,7 @@ class QuizRenderer {
                 <p class="quiz-subtitle">${subtitle}</p>
                 <div class="quiz-score">
                     ${score.correct} / ${score.total}
-                    <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--color-accent);">${percent}%</div>
+                    <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--colour-accent);">${percent}%</div>
                 </div>
                 <div class="quiz-actions">
                     <button class="quiz-restart-btn">Retry Quiz</button>

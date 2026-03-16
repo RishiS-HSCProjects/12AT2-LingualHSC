@@ -1,12 +1,12 @@
 from dataclasses import dataclass, field
 from typing import Any, Iterable
 
-@dataclass(frozen=True)
+@dataclass()
 class TileItem:
     value: str
     category: str = ""
     label: str | None = None
-    payload: dict[str, Any] = field(default_factory=dict) # field(default_factory=dict) to avoid mutable default argument. Recommendation from GitHub Copilot.
+    payload: dict[str, Any] = field(default_factory=dict) # field(default_factory=dict) to avoid mutable default argument
 
     def to_dict(self) -> dict[str, Any]:
         data: dict[str, Any] = {

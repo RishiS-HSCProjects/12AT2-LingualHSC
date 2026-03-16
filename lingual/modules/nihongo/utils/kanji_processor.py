@@ -6,7 +6,7 @@ from pathlib import Path
 from enum import Enum
 
 # Environment variable for WaniKani API Key
-# todo: Allow users to input their own API key in the future
+# TODO: Allow users to input their own API key in the future
 # for a more intergrated experience with their WaniKani account,
 # and to avoid hitting rate limits on a shared API key.
 WANIKANI_API_KEY = os.getenv("WANIKANI_API_KEY", None)

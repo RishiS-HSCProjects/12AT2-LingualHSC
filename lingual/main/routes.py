@@ -4,7 +4,7 @@ from flask import jsonify, redirect, render_template, request, session, current_
 from flask.blueprints import Blueprint
 from flask_login import current_user, login_required
 from lingual import db
-from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
+from lingual.core.auth.utils.exceptions import EmailSendingDisabledException, VerificationEmailError
 from lingual.main.utils import AccountActionTypes
 from lingual.utils.modals import ModalForm
 from lingual.utils.languages import Languages, get_translatable
@@ -61,7 +61,7 @@ def login():
                 return redirect(url_for('main.login', next=request.args.get('next')))  # type: ignore
 
             # Login successful
-            user.login() # Update last login time and log in user
+            user.login()
             flash("Login successful!", "success")
             clear_form_session(session) # Clear saved data on success
 
@@ -213,12 +213,26 @@ def register_util(step):
                 # Since we haven't yet submitted the form, just return success.
                 return jsonify({})
 
+            email_error = None
             try:
-                from lingual.core.auth.routes import verify_email
-                verify_email() # Send verification email
+                from lingual.core.auth.routes import queue_verification_email
+                queue_verification_email(session.get('reg_user'))
+            except EmailSendingDisabledException as e:
+                # Disabled email mode still allows OTP verification with fallback code.
+                current_app.logger.info(f"Email sending disabled for OTP flow: {e}")
+                email_error = None
+            except VerificationEmailError.NoReg as e:
+                current_app.logger.warning(f"Registration Info Missing: {e}")
+                email_error = "Your registration session is invalid. Please refresh and try again."
+            except VerificationEmailError.SMTPConfig as e:
+                current_app.logger.warning(f"SMTP Misconfigured: {e}")
+                email_error = str(e)
+            except VerificationEmailError.SendFailure as e:
+                current_app.logger.error(f"Verification email send failed: {e}")
+                email_error = str(e)
             except Exception as e:
                 current_app.logger.error(f"Error in verify_email: {e}")
-                return jsonify({"error": "Error while sending verification email"}), 400
+                email_error = "A fatal error occurred while sending the verification email." # For Flash
 
             # The following code is responsible for returning a redacted version of the email for display.
             # Sending unredacted emails back to the client could be at risk of interception.
@@ -233,7 +247,11 @@ def register_util(step):
 
             redacted_email = f"{redacted_local}@{domain}" # Reconstruct redacted email
 
-            return jsonify({"email": redacted_email}) # Return redacted email if all other processes are successful
+            return jsonify({
+                "allowSendEmails": current_app.config.get('ALLOW_SEND_EMAILS', True),
+                "email": redacted_email,
+                "error": email_error
+            })
 
         elif step == "verify_otp": # Handles OTP verification and password prompt
             code = data.get("code", "").strip() # Strip to allow following falsy test
@@ -369,7 +387,7 @@ def reset_token(token):
 @main_bp.route('/app', strict_slashes=False)
 def app():
     if not current_user.is_authenticated:
-        # T-FE04 --> Cookie set up in this file in the login route.
+        # T-FE04 -> Cookie set up in this file in the login route.
         if request.cookies.get('has_account', 'false') == 'true':
             return redirect(url_for('main.login'))
         else:
@@ -454,10 +472,12 @@ def account():
                 if not current_user.check_password(password):
                     flash("Password incorrect. Please try again.", "error")
                 else:
+                    from lingual.models import User
+                    user: User = User.query.get(current_user.id) # type: ignore -> get user instance
                     from flask_login import logout_user
-                    current_user.delete()
-                    db.session.commit()
                     logout_user()
+                    user.delete()
+                    db.session.commit()
                     flash("Successfully deleted account.", "success")
                     resp = redirect(url_for('main.landing'))
                     resp.delete_cookie('has_account')

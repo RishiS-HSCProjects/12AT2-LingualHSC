@@ -20,8 +20,8 @@ Remember, ら is used when the result is not automatic or inevitable.
 :::blockquote Verb (た-Form) + ら + outcome/choice :::
 
 - 宿題[しゅくだい]が終[お]わっ**たら**、遊[あそ]びに行きましょう → When you finish your homework, let's go play.
-- 七時**ら**、朝ご飯[はん]を食[た]べます → When it is seven o'clock, I eat breakfast.
-- 買わなかった**ら**、うれしがっている。 → If you don't buy it, you will be happy.
+- 七時**になったら**、朝ご飯[はん]を食[た]べます → When it becomes seven o'clock, I eat breakfast.
+- 買[か]わなかった**ら**、うれしいです。 → If you don't buy it, you will be happy.
 
 :::blockquote Adjective (past-tense) + ら + outcome/choice :::
 

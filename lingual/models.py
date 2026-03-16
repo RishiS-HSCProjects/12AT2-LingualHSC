@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import hashlib
 from flask import current_app
 from flask_login import UserMixin
 from sqlalchemy.orm import Mapped, mapped_column
@@ -77,7 +78,8 @@ class User(UserMixin, db.Model):
         from datetime import timedelta
         s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
         expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp()
-        return s.dumps({'user_id': self.id, 'expires_at': expires_at})
+        pwd_sig = hashlib.sha256(self.password_hash.encode('utf-8')).hexdigest() # Create a signature based on the current password hash to invalidate tokens if the password changes
+        return s.dumps({'user_id': self.id, 'expires_at': expires_at, 'pwd_sig': pwd_sig})
 
     def create_language_stats(self, language_code: str):
         # Dynamically create stats for any language
@@ -128,7 +130,24 @@ class User(UserMixin, db.Model):
             data = s.loads(token)
             if datetime.now(timezone.utc).timestamp() > data['expires_at']:
                 return None
-            return db.session.get(User, data['user_id'])
+
+            user_id = data.get('user_id')
+            token_signature = data.get('pwd_sig')
+
+            if not isinstance(user_id, int) or not isinstance(token_signature, str):
+                # If the token data is not in the expected format, return None
+                return None
+
+            user = db.session.get(User, user_id)
+            if not user: # If user not found, return None
+                return None
+
+            expected_signature = hashlib.sha256(user.password_hash.encode('utf-8')).hexdigest()
+            if token_signature != expected_signature:
+                # If the password signature does not match, it means the password has changed since the token was issued, so we should invalidate the token and return None
+                return None
+
+            return user # Return the user if everything checks out
         except Exception:
             return None
 

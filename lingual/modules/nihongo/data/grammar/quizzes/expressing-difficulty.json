@@ -1,6 +1,6 @@
 {
     "quiz": {
-        "title": "Expressing Difficulty with ～にくい",
+        "title": "Expressing Ease and Difficulty with ～やすい and ～にくい",
         "bank": [
             {
                 "type": "mc",
@@ -10,6 +10,18 @@
                     "この本は読みくにいです。",
                     "この本は読みにいいです。",
                     "この本は読みにくです。"
+                ],
+                "answer": 0,
+                "explanation": "To use the ～にくい form, attach にくい directly to the verb stem."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence correctly uses ～やすい to express ease?",
+                "options": [
+                    "この本は読みやすいです。",
+                    "この本は読みやしいです。",
+                    "この本は読みにやすいです。",
+                    "この本は読むやすいです。"
                 ],
                 "answer": 0
             },

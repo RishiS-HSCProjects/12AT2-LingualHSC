@@ -39,10 +39,9 @@ class AccountActionTypes(Enum):
             return form
 
         if self == self.DELETE:
-            form = DeleteAccountConfirmation(
-                title = "Delete Account",
-                description = "Are you sure you want to delete your account?"
-            )
+            form = DeleteAccountConfirmation()
+            from flask_login import current_user
+            form.set_email(current_user.email) # type: ignore
             form.set_action(url_for('main.account', action=self.value))
             return form
 

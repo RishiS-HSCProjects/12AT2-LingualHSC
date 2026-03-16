@@ -32,14 +32,16 @@ class Config:
     MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
     ALLOW_SEND_EMAILS               =      os.getenv('ALLOW_SEND_EMAILS', 'true').lower() in ['true', '1', 'yes'] # Set to True to send OTP emails on registration. False sets OTP to 123456.
+    ASYNC_EMAIL_ERROR_WAIT_SECONDS  =      1.5 # Seconds to wait for async email errors before giving up and proceeding
 
     WANIKANI_API_KEY                =      os.getenv('WANIKANI_API_KEY', None)  # API key for WaniKani integration
 
     SQLALCHEMY_DATABASE_URI         =      os.getenv('SQLALCHEMY_DATABASE_URI', f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'core', 'data', 'lingual.db')}")
     SQLALCHEMY_TRACK_MODIFICATIONS  =      False
 
-    SERVER_NAME = None  # Unset for development to allow access from any hostname/IP (127.0.0.1, localhost, etc.)
-    PREFERRED_URL_SCHEME = 'http'
+    PUBLIC_BASE_URL                 =      os.getenv('PUBLIC_BASE_URL', 'http://127.0.0.1:5000').rstrip('/')
+    SERVER_NAME                     =      os.getenv('SERVER_NAME') or None  # Keep unset in development unless explicitly needed
+    PREFERRED_URL_SCHEME            =      'https' if PUBLIC_BASE_URL.startswith('https://') else 'http'
 
 @login_manager.user_loader
 def load_user(user_id):
