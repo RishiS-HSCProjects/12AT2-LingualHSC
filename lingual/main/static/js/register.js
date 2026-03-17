@@ -299,14 +299,6 @@ function submitRegistrationForm() {
         );
 }
 
-/**
- * Influenced by:
- *  - https://medium.com/@kyleducharme/developing-custom-dropdowns-with-vanilla-js-css-in-under-5-minutes-e94a953cee75
- *  - https://developers.knowivate.com/old/@kheersagar/designing-a-custom-select-dropdown-with-html-css-and-javascript
- * 
- * My adaptation was refined by AI to fix visual issues and meet my requirements. Refer to AI declaration.
- */ // TODO: Add to AI Declaration
-
 document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("language-dropdown");
     if (!dropdown) return; // Exit if dropdown not found

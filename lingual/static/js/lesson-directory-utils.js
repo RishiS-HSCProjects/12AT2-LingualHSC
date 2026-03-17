@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach(item => {
         item.addEventListener("click", () => {
             const slug = item.dataset.slug;
-            const url = lessonUrl.replace("__SLUG__", encodeURIComponent(slug));
+            const url = lessonUrl.replace("__SLUG__", encodeURIComponent(slug)); /** @see Documentation D-AE07 */
             window.location.href = url;
         });
     });

@@ -38,10 +38,6 @@ class User(UserMixin, db.Model):
             self.languages = []
 
         if language_code not in self.languages:
-            # Reassign list so SQLAlchemy tracks JSON column changes reliably.
-            # Fixed an issue where appending to the list directly did not trigger SQLAlchemy change tracking, resulting in language deletions not being reflected on the database.
-            # Includes issue with remove_language where the list was being modified in place instead of reassigned, causing the same problem. Both add_language and remove_language now reassign the entire list to ensure changes are detected and saved to the database correctly. This is a common pattern when working with mutable types like lists in SQLAlchemy JSON columns. 16/03/26
-            # TODO: Document 16/03/26
             self.languages = [*self.languages, language_code]
 
             self.create_language_stats(language_code)

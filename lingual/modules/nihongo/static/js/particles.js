@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** Asynchronously fetch particle payload from API */
     const fetchParticle = async (slug) => {
-        const response = await fetch(`api/${encodeURIComponent(slug)}`); // TODO: document why I needed to use encodeURIComponent()
+        // Fetch particle markdown data from API, encoding slug to ensure special characters are handled safely in the URL.
+        const response = await fetch(`api/${encodeURIComponent(slug)}`);
         if (!response.ok) {
             throw new Error(`Failed to load particle markdown: ${response.status}`);
         }
