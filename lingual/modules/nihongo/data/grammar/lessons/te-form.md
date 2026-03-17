@@ -36,7 +36,7 @@ If the plain verb ends with:
 | 書[か]く | 書いて | to write |
 | 話[は]す | 話して | to speak |
 | 飲[の]む | 飲んで | to drink |
-| 歩[ある]く | 歩って | to walk |
+| 歩[ある]く | 歩いて | to walk |
 | 泳[およ]ぐ | 泳いで | to swim |
 ~quizzes:te-form:group1?shuffle~
 

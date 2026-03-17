@@ -14,7 +14,7 @@
             },
             {
                 "type": "mc",
-                "question": "Quizzes support three types of questions. Which type is this?",
+                "question": "Quizzes support three types of questions. Which type of question is this one?",
                 "options": [
                     "Multiple Choice",
                     "Fill in the Blank",
@@ -26,7 +26,7 @@
             },
             {
                 "type": "input",
-                "question": "The second type of question supported in quizzes is the \"Valid Answer\" type, where users are required to input an answer that matches one of the valid answers specified in the quiz data. This allows for more open-ended questions and encourages users to recall information rather than just recognising it from a list of options.\n\nLet's try it out! What is the name of the subject that studies numbers?",
+                "question": "The second type of question supported in quizzes is the \"Valid Answer\" type, where users are required to input an answer that matches one of the valid answers specified in the quiz data. This allows for more open-ended questions and encourages users to recall information rather than just recognising it from a list of options.\n\nLet's try it out! What is the name of the subject in which you study numbers?",
                 "valid": [
                     "Math",
                     "Maths",

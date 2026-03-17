@@ -2,14 +2,17 @@
 
 title: "Using ～ん (の) to Soften"
 summary: "Learn about how to use the ～ん (の) to soften statements, ask questions, and provide explanations in Japanese."
+keywords:
+  - n
+  - no
 
 ---
 
-ん (の) です is is sometimes used to express the speaker’s idea emotively or to soften the nuance of the statement, similar to how English speakers might use phrases like 'you see' or 'it is that...' to soften clarifications.
+ん (の) です is sometimes used to express the speaker’s idea emotively or to soften the nuance of the statement, similar to how English speakers might use phrases like 'you see' or 'it is that...' to soften clarifications.
 
 :::blockquote Verb in Plain Form (any tense) + ん (の) です :::
-:::blockquote Verb in い-adjective (any tense) + ん (の) です :::
-:::blockquote Verb in Noun / な-adjective + な + ん (の) です :::
+:::blockquote い-adjective (any tense) + ん (の) です :::
+:::blockquote Noun / な-adjective + な + ん (の) です :::
 
 /t The choice between ん and の is mostly interchangeable, with の being slightly more formal. In spoken Japanese, ん is more commonly used. \
 

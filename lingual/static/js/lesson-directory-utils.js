@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Build searchable data from lesson items
     const lessonsData = Array.from(items).map(item => { // Map DOM elements to data objects
         const content = item.dataset.content || "";
+        const keywords = item.dataset.keywords || "";
 
         // Objects include slug, title, summary, content, and the original element
         return {
@@ -13,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
             title: item.dataset.title || "",
             summary: item.dataset.summary || "",
             content: content,
+            keywords: keywords,
             element: item
         };
     });
 
-    // Initialize Fuse.js for fuzzy search on lessons
-    const fuse = new Fuse(lessonsData, {
+    const fuseOptions = {
 
         // The weight attribute allows us to order results by possible relevance.
         // Higher weight = more likely to be the intended match.
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         keys: [
             { name: "title", weight: 2 },
+            { name: "keywords", weight: 1.75 },
             { name: "summary", weight: 1.5 },
             { name: "content", weight: 1 }
         ],
@@ -44,14 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                         it unnecessarily makes the search slower. */
         findAllMatches: false,       // Stops at the first match as we only need to know if it matches or not.
         shouldSort: true             // Sorts by score / relevance
-    });
+    };
+
+    // Initialize Fuse.js for fuzzy search on lessons
+    const fuse = new Fuse(lessonsData, fuseOptions);
 
     // Add click event listeners to lesson items
     // If a lesson item is clicked, navigate to the lesson page.
     items.forEach(item => {
         item.addEventListener("click", () => {
             const slug = item.dataset.slug;
-            const url = lessonUrl.replace("__SLUG__", encodeURIComponent(slug));
+            const url = lessonUrl.replace("__SLUG__", encodeURIComponent(slug)); /** @see Documentation D-AE07 */
             window.location.href = url;
         });
     });
@@ -109,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Perform fuzzy search and get scores
                 const results = fuse.search(query);
                 const resultMap = new Map(results.map(r => [r.item.slug, r.score || 1]));
 

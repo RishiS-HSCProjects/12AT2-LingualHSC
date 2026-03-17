@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--gradient-soft-sunrise);
+    color: var(--colour-text-primary);
+    height: calc(100vh - var(--nav-height));
+}
+
+#body {
+    margin-top: calc(var(--nav-height));
+}
+
+#welcome-shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 5rem 1.5rem;
+    gap: 2rem;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+#welcome-ready {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--colour-text-secondary);
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.3s forwards;
+}
+
+#welcome-title {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--colour-text-primary);
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.6s forwards;
+}
+
+#welcome-subtitle {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--colour-text-secondary);
+    max-width: 36rem;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 0.9s forwards;
+}
+
+#welcome-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: welcome-fade-in-up 0.6s ease-out 1.4s forwards;
+}
+
+.welcome-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.welcome-action.is-primary {
+    background: linear-gradient(145deg, var(--cta-start), var(--cta-end));
+    color: var(--colour-text-on-accent);
+}
+
+.welcome-action.is-primary:hover {
+    background: linear-gradient(145deg, var(--cta-alt-start), var(--cta-alt-end));
+    transform: translateY(-2px);
+}
+
+.welcome-action.is-secondary {
+    background: var(--colour-surface-white);
+    color: var(--colour-success-strong);
+    border: 2px solid var(--colour-success-strong);
+}
+
+.welcome-action.is-secondary:hover {
+    background: var(--state-success-soft);
+    transform: translateY(-2px);
+}
+
+.welcome-action:focus-visible {
+    outline: 2px solid var(--colour-success-strong);
+    outline-offset: 2px;
+}
+
+@keyframes welcome-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    #welcome-shell {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    #welcome-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .welcome-action {
+        width: 100%;
+    }
+}

@@ -57,7 +57,7 @@ nav #nav-logo {
     font-family: var(--font-family-title);
     font-size: var(--font-size-nav);
     line-height: var(--line-height-nav);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     text-decoration: none;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -93,7 +93,7 @@ nav a {
     font-size: var(--font-size-nav-link);
     font-weight: 500;
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--colour-primary);
     white-space: nowrap;
     padding: 0.5rem 1rem;
     border-radius: var(--radius-medium);
@@ -101,8 +101,8 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--color-accent);
-    background-color: var(--color-accent-soft);
+    color: var(--colour-accent);
+    background-color: var(--colour-accent-soft);
 }
 
 /* || Responsive Navigation */
@@ -122,20 +122,13 @@ nav #nav-toggle {
 }
 
 nav #nav-toggle:hover {
-    background-color: var(--color-accent-soft);
+    background-color: var(--colour-accent-soft);
     transform: scale(1.05);
 }
 
 nav #nav-toggle svg {
     width: 1.5rem;
     height: 1.5rem;
-}
-
-nav .nav-account-label {
-    display: none;
-    margin-left: 0.5rem;
-    font-size: 0.95em;
-    color: inherit;
 }
 
 nav.nav-collapsed #nav-opt {
@@ -146,8 +139,7 @@ nav.nav-collapsed #nav-toggle {
     display: inline-flex;
 }
 
-nav.nav-collapsed #nav-opt a,
-nav.nav-collapsed #nav-opt .nav-account {
+nav.nav-collapsed #nav-opt a {
     display: none;
 }
 
@@ -166,15 +158,10 @@ nav.nav-collapsed.nav-open #nav-opt {
     z-index: calc(var(--z-index-nav) + 1);
 }
 
-nav.nav-collapsed.nav-open #nav-opt a,
-nav.nav-collapsed.nav-open #nav-opt .nav-account {
+nav.nav-collapsed.nav-open #nav-opt a {
     display: flex;
     align-items: center;
     width: 100%;
-}
-
-nav.nav-collapsed.nav-open .nav-account-label {
-    display: inline;
 }
 
 /* || Responsive Breakpoints */

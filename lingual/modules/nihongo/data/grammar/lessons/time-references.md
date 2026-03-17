@@ -54,7 +54,7 @@ The word 前[まえ] means "before" and is used to indicate that one action occu
 # 間 (During)
 The word 間[あいだ] means "during" or "while" and is used to indicate that one action occurs while another action is happening.
 
-/w The pronounciation of 間 is あいだ, NOT かん! \
+/w The pronunciation of 間 is あいだ, NOT かん! \
 
 :::blockquote Verb (て-form) + いる + 間 :::
 
@@ -106,7 +106,7 @@ Both 間 and ながら can be used to express simultaneous actions, but they hav
 ---
 
 # うちに (While/Before)
-This structure is used to express doing something while a certain condition holds true, often before that condition changes. This is usually used when is expected to occur within a vague/unknown timeframe.
+This structure is used to express doing something while a certain condition holds true, often before that condition changes. This is usually used when something is expected to occur within a vague/unknown timeframe.
 
 :::blockquote Verb (て-form) + いる + うちに :::
 
@@ -173,7 +173,7 @@ The particles まで and までに are used to indicate the endpoint of an actio
 
 :::blockquote Verb (plain form) + まで :::
 - 学校は午[ご]後[ご]3時[じ]までです → School is until 3 PM.
-- 映[えい]画[が]は夜[よる]九時まで始[はじ]まります → The movie starts until 9 PM.
+- 映[えい]画[が]は夜[よる]九時[くじ]まで続[つづ]きます → The movie continues until 9 PM.
 
 :::blockquote Verb (plain form) + までに :::
 - 宿[しゅく]題[だい]は明日[あした]までに出[だ]してください → Please submit the homework by tomorrow.

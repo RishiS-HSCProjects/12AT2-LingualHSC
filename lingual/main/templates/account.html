@@ -1,0 +1,104 @@
+{% extends "current-template.html" %}
+
+{% set title = "Account" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='styles/account.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/modal-styles.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('main.static', filename='js/account.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+    <aside>
+        <div id="nav">
+            <a href="#your-account" class="active">Your Account</a>
+            {% for lang in user_lang %}
+                <a href="#{{ lang.code }}-settings">{{ lang.app_name }} Settings</a>
+            {% endfor %}
+            <a id="danger-zone" href="#danger-zone-section">Danger Zone</a>
+        </div>
+        <div id="actions">
+            <a href="{{ url_for('main.landing') }}">Back to Lingual</a>
+            <a href="{{ url_for('main.app_directory') }}">App Directory</a>
+            <a href="{{ url_for('tutorial.home') }}">Helpdesk</a>
+            <a href="https://github.com/RishiS-HSCProjects/12AT2-LingualHSC/issues" target="_blank">Feedback</a>
+            <a href="{{ url_for('main.logout') }}" id="logout-link">Logout</a>
+        </div>
+    </aside>
+    <div id="account-container">
+        <h1 id="welcome-message">Welcome, {{ current_user.first_name }}!</h1>
+        <div id="your-account">
+            <h1>Your Account</h1>
+            <div id="account-info">
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+                <p><strong>Member since:</strong> {{ current_user.created_at.strftime('%B %d, %Y') }}</p>
+            </div>
+            <div id="account-actions">
+                <button id="update-info-btn"
+                        type="button"
+                        onclick="openModal('UpdateInfoFormModal')">
+                    Update Information
+                </button>
+                <button id="change-password-btn"
+                        type="button"
+                        onclick="openModal('ChangePasswordFormModal')">
+                    Change Password
+                </button>
+            </div>
+        </div>
+        <hr>
+        {% for lang in user_lang %}
+            <div id="{{ lang.code }}-settings" class="language-settings">
+                <h2>{{ lang.app_name }} Settings</h2>
+                <p>Manage your {{ lang.name }} learning preferences and progress.</p>
+                
+                {% from 'settings-macros.html' import settings_jp %}
+                
+                {% set macro_dict = {
+                    'jp': settings_jp
+                } %}
+
+                {% set settings_macro = macro_dict.get(lang.code) %}
+                
+                {% if settings_macro %}
+                    {{ settings_macro(lang) }}
+                {% else %}
+                    <p>No settings available for {{ lang.name }}.</p>
+                {% endif %}
+
+                <div class="lang-settings">
+                    <div class="setting-group">
+                        <h3>App Access</h3>
+                        <a class="danger-action" onclick="openModal('DeleteAppConfirmation-{{ lang.code }}Modal')">Remove {{ lang.app_name }} App</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <hr>
+        <div id="danger-zone-section">
+            <h2>Danger Zone</h2>
+            <p>Be careful! These actions cannot be undone.</p>
+            <button id="delete-account-btn"
+                    type="button"
+                    onclick="openModal('DeleteAccountConfirmationModal')">
+                Delete Account
+            </button>
+        </div>
+    </div>
+</div>
+
+{% if account_modals %}
+    {% from 'modal-macros.html' import modal_form %}
+    {% for modal in account_modals %}
+        {% set modal_id = modal.id if modal.id else modal.__class__.__name__ ~ 'Modal' %}
+        {{ modal_form(modal, auto_open=(auto_open_modal_id == modal_id)) }}
+    {% endfor %}
+{% endif %}
+
+{% endblock body %}

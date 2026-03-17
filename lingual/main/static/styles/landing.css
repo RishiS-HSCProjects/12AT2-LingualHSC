@@ -12,6 +12,20 @@
     --line-tight: 1.2;
     --line-normal: 1.5;
     --line-relaxed: 1.75;
+
+    --landing-colour-taster: #FFB350;
+    --landing-colour-taster-hover: #FFA500;
+    --landing-gradient-start: rgba(162, 226, 159, 0.5);
+    --landing-gradient-end: rgba(21, 182, 13, 0.5);
+    --landing-gradient-start-hover: rgba(162, 226, 159, 0.7);
+    --landing-gradient-end-hover: rgba(21, 182, 13, 0.7);
+    --landing-card-method-bg: #C5EDFF;
+    --landing-card-why-bg: #FFDFC5;
+    --landing-section-why-bg: #fff0e4;
+}
+
+#body {
+    width: 100%;
 }
 
 /* || Navigation */
@@ -20,11 +34,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #e4f5e6;
+    background: var(--auth-colour-accent-soft);
     height: var(--nav-height);
     padding: 0 2rem;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--colour-overlay-medium);
     position: fixed;
     width: 100%;
     top: 0;
@@ -37,7 +51,7 @@ nav a#logo {
     font-weight: 700;
     margin: 0;
     text-decoration: none;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     letter-spacing: -0.02em;
 }
 
@@ -63,42 +77,50 @@ nav ul#nav-links {
 nav ul#nav-links li a {
     font-size: var(--font-nav-link);
     text-decoration: none;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     transition: color 0.2s ease;
 }
 
 nav ul#nav-links li a:hover {
-    color: #111524;
+    color: var(--auth-colour-link-hover);
     cursor: pointer;
 }
 
+nav ul#nav-links li a:focus-visible,
+nav ul#nav-links li.taster a:focus-visible,
+nav a#get-started-btn:focus-visible,
+nav #nav-toggle:focus-visible {
+    outline: 2px solid var(--colour-focus);
+    outline-offset: 2px;
+}
+
 nav ul#nav-links li.taster a {
-    background: #FFB350;
+    background: var(--landing-colour-taster);
     padding: 0.5rem 1rem;
     border-radius: 1.5rem;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 nav ul#nav-links li.taster a:hover {
-    background: #FFA500;
+    background: var(--landing-colour-taster-hover);
     transform: scale(1.05);
 }
 
 nav a#get-started-btn {
-    background: linear-gradient(90deg, rgba(162,226,159,0.5), rgba(21,182,13,0.5));
+    background: linear-gradient(90deg, var(--landing-gradient-start), var(--landing-gradient-end));
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
     font-size: var(--font-nav-link);
     text-align: center;
     text-decoration: none;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     font-weight: 600;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
 nav a#get-started-btn:hover {
-    background: linear-gradient(90deg, rgba(162,226,159,0.7), rgba(21,182,13,0.7));
+    background: linear-gradient(90deg, var(--landing-gradient-start-hover), var(--landing-gradient-end-hover));
     transform: scale(1.05);
 }
 
@@ -111,13 +133,13 @@ nav #nav-toggle {
     padding: 0.25rem;
     border: none;
     border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--colour-overlay-light);
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 nav #nav-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--colour-overlay-light-strong);
     transform: scale(1.05);
 }
 
@@ -144,10 +166,10 @@ nav.nav-collapsed.nav-open #nav-menu {
     right: 1rem;
     left: 1rem;
     padding: 0.75rem;
-    background: #e4f5e6;
-    border: 1px solid rgba(31, 41, 55, 0.12);
+    background: var(--auth-colour-accent-soft);
+    border: 1px solid var(--colour-border-overlay);
     border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px var(--colour-overlay-medium);
     z-index: calc(var(--z-index-nav) + 1);
 }
 
@@ -172,7 +194,7 @@ nav.nav-collapsed.nav-open a#get-started-btn {
 /* || Landing Section */
 
 section#welcome {
-    background: var(--color-bg-accent-1);
+    background: var(--auth-colour-bg-accent-1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,7 +210,7 @@ section#welcome h1 {
     font-size: var(--font-h1);
     line-height: var(--line-tight);
     margin: 0;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     font-weight: 700;
 }
 
@@ -198,7 +220,7 @@ section#welcome p.subtitle {
     line-height: var(--line-normal);
     max-width: 800px;
     margin-top: 1.5rem;
-    color: #6B7280;
+    color: var(--colour-text-secondary);
 }
 
 section#welcome .cards {
@@ -224,21 +246,21 @@ section#welcome .cards .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     cursor: pointer;
-    color: #1F2937;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: var(--colour-text-primary);
+    box-shadow: 0 2px 8px var(--colour-overlay-soft);
 }
 
 section#welcome .cards .card.method {
-    background: #C5EDFF;
+    background: var(--landing-card-method-bg);
 }
 
 section#welcome .cards .card.why {
-    background: #FFDFC5;
+    background: var(--landing-card-why-bg);
 }
 
 section#welcome .cards .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 16px var(--colour-overlay-medium);
 }
 
 /* || Shared Section Styles */
@@ -256,7 +278,7 @@ section#welcome .cards .card:hover {
 .info-section h2 {
     font-size: var(--font-section-h2);
     margin: 0;
-    color: #1F2937;
+    color: var(--colour-text-primary);
     font-weight: 700;
     text-align: center;
 }
@@ -266,18 +288,18 @@ section#welcome .cards .card:hover {
     max-width: 800px;
     line-height: var(--line-relaxed);
     margin-top: 1.5rem;
-    color: #6B7280;
+    color: var(--colour-text-secondary);
     text-align: center;
 }
 
 /* || Individual Sections */
 
 #purpose {
-    background: var(--color-soft-purple);
+    background: var(--auth-colour-soft-purple);
 }
 
 #why-lingual {
-    background: #fff0e4;
+    background: var(--landing-section-why-bg);
 }
 
 /* || Responsive Breakpoints */

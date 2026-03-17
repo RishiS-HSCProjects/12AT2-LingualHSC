@@ -112,6 +112,9 @@ def lessons(slug=None):
             flash(f"An error occurred while loading the lesson.", "error")
             return redirect(url_for('tutorial.lessons'))
 
+        from lingual.modules.tutorial import GIT_TUTORIAL_DIRECTORY
+        lesson_data['source_url'] = f"{GIT_TUTORIAL_DIRECTORY}/lessons/{slug}.md"
+
         return render_template(
             'tutorial-lesson.html',
             lesson=lesson_data,

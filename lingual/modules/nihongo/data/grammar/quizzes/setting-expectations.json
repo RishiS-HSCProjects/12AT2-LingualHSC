@@ -75,8 +75,6 @@
                 "type": "input",
                 "question": "Translate to Japanese: She was supposed to be kind.",
                 "includes": [
-                    ["彼", "かれ", "kare"],
-                    ["女", "じょ", "jo"],
                     ["やさ", "yasa"],
                     ["はず"]
                 ],

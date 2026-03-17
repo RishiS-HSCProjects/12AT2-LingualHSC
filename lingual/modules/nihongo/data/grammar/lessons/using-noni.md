@@ -19,7 +19,7 @@ summary: "Learn how to use the Japanese conjunction のに to express contrast o
 
 :::blockquote な-adjective + な のに :::
 
-- ギーターを引[ひ]くのは上手[じょうず]なのに、ぜんぜんパフォーマンスしない → Even though he is good at playing the guitar, he doesn't perform at all.
+- ギターを弾[ひ]くのは上手[じょうず]なのに、ぜんぜんパフォーマンスしない → Even though he is good at playing the guitar, he doesn't perform at all.
 - 静[しず]かなのに、彼女はよく怒[おこ]る → Even though she is quiet, she often gets angry.
 
 :::blockquote Noun + な のに :::

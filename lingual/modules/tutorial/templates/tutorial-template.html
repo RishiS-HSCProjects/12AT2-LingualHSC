@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/graphic-bg.css') }}">
 <link rel="stylesheet" href="{{ url_for('tutorial.static', filename='styles/tutorial.css') }}">
 
+<style>
+    :root {
+        --graphic-bg-url: url("{{ url_for('tutorial.static', filename='app_assets/book-bg.png') }}");
+    }
+</style>
+
 {% endblock %}
 
 {% block header %}

@@ -47,7 +47,7 @@ In Japanese, there are several particles that can be used to express the concept
 :::blockquote Noun A + だけでなく + Noun B + も + Verb :::
 
 - 英[えい]語[ご]**だけでなく**、日本語も話せます。→ I can speak not only English, but also Japanese.
-- 彼[かの]女[じょ]は美[うつく]しい**だけでなく**、あたまも良[よ]いです。→ My girlfriend is not only beautiful, but also smart. (ooo lala)
+- 彼[かの]女[じょ]は美[うつく]しい**だけでなく**、あたまも良[よ]いです。→ She is not only beautiful, but also smart.
 - この本[ほん]は面[おも]白[しろ]い**だけでなく**、ためになります。→ This book is not only interesting, but also informative.
 
 ~quizzes:only:dakedenaku?shuffle&limit=5~

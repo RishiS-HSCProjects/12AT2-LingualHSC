@@ -28,7 +28,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate the following sentence into Japanese:\n\nI intend to practice kanji more this year.",
+                "question": "Translate the following sentence into Japanese:\n\nI intend to practise kanji more this year.",
                 "includes": [
                     ["今年", "ことし", "kotoshi"],
                     ["漢字", "かんじ", "kanji"],
@@ -95,7 +95,8 @@
                     "すみません、勉[べん]強[きょう]し予[よ]定[てい]なんです。",
                     "すみません、勉[べん]強[きょう]す予[よ]定[てい]なんです。"
                 ],
-                "answer": 1
+                "answer": 0,
+                "explanation": "Recall that 予[よ]定[てい] is a noun. Thus, you may also use が予[よ]定[てい] to express 'there is a plan for...'."
             }
         ]
     }

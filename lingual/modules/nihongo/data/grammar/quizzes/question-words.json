@@ -1,0 +1,116 @@
+{
+    "quiz": {
+        "title": "Question Words with か, も, and でも",
+        "bank": [
+            {
+                "type": "mc",
+                "question": "What does だれか mean?",
+                "options": [
+                    "someone",
+                    "no one",
+                    "anyone",
+                    "everyone"
+                ],
+                "answer": 0,
+                "explanation": "Question word + か gives an unspecified meaning like someone/something/somewhere."
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence means 'I want to eat something'?",
+                "options": [
+                    "何[なに]か食[た]べたい。",
+                    "何も食べたい。",
+                    "何でも食べたくない。",
+                    "何も食べます。"
+                ],
+                "answer": 0
+            },
+            {
+                "type": "mc",
+                "question": "With question word + も, what does the pattern usually mean in negative sentences?",
+                "options": [
+                    "every/all",
+                    "some/one",
+                    "no/not any",
+                    "free choice"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "mc",
+                "question": "Which sentence means 'No one came yesterday'?",
+                "options": [
+                    "昨日[きのう]だれか来ました。",
+                    "昨日[きのう]だれも来ませんでした。",
+                    "昨日[きのう]だれでも来ました。",
+                    "昨日[きのう]だれも来ました。"
+                ],
+                "answer": 1
+            },
+            {
+                "type": "mc",
+                "question": "Which expression means 'anywhere'?",
+                "options": [
+                    "どこか",
+                    "どこも",
+                    "どこでも",
+                    "どこへ"
+                ],
+                "answer": 2
+            },
+            {
+                "type": "input",
+                "question": "Fill in the blank: どこ___いいです。",
+                "valid": [
+                    "でも",
+                    "demo"
+                ],
+                "sample_answer": "どこでもいいです。",
+                "explanation": "Question word + でも gives the meaning of free choice: 'anywhere is fine'."
+            },
+            {
+                "type": "input",
+                "question": "Translate into English:\n\n何[なに]も分[わ]かりません。",
+                "includes": [
+                    ["understand"],
+                    ["anything", "nothing"]
+                ],
+                "sample_answer": "I don't understand anything right now. <em>OR</em> I understand nothing right now."
+            },
+            {
+                "type": "mc",
+                "question": "What is the key difference between question word + か and question word + でも?",
+                "options": [
+                    "They are exactly the same.",
+                    "か means free choice, while でも means unknown one.",
+                    "か means some/unknown one, while でも means any/free choice.",
+                    "か is only for negatives, while でも is only for positives."
+                ],
+                "answer": 2,
+                "explanation": "Question word + か is used for an unknown or unspecified one, while question word + でも is used to express free choice."
+            },
+            {
+                "type": "input",
+                "question": "Translate to Japanese:\n\nI want to go to Japan someday.",
+                "includes": [
+                    ["いつか", "itsuka"],
+                    ["日本", "にほん", "nihon"],
+                    ["行きたい", "いきたい", "ikitai"]
+                ],
+                "sample_answer": "いつか日本に行きたいです。"
+            },
+            {
+                "type": "mc",
+                "question": "Fill in the blank: 今[いま]___話[はな]したくない。",
+                "options": [
+                    "だれかと",
+                    "だれとも",
+                    "だれでも",
+                    "だれも"
+                ],
+                "answer": 1,
+                "explanation": "だれとも + negative is used for 'with anyone' in negative statements."
+            }
+        ]
+    }
+}

@@ -305,15 +305,9 @@ class QuizRenderer {
          * Adds a correct/incorrect result indicator to an explanation block.
          * @param {HTMLElement} explanation - The explanation element to add the indicator to.
          * @param {boolean} isCorrect - Whether the answer was correct.
+         * @see Documentation T-FE01 
          */
         const addResultIndicator = (explanation, isCorrect) => {
-            // During intial user testing, I found some users incorrectly believing that they got a question wrong because a grey explanation box appeared.
-            // I learnt that the use of a neutral styling for the explanation block is rather confusing, and I needed to improve the quiz's UI's clarity.
-            // I still wanted to always show the 'explanation' block since it may contain useful information, especially since the 'sample answer' may clarify the
-            // correct option in case the user was unsure or got it wrong (even if the system marked it as correct).
-            // As a result, I have decided to add a correct/incorrect indicator to the top of the explanation block to make it abundantly clear whether the user got the question right or wrong.
-            // This should improve UX and reduce confusion when reviewing answers.
-            // Documented on 27 Jan 2026.
  
             if (!explanation) return;
 
@@ -322,7 +316,7 @@ class QuizRenderer {
             // Keeping styling inline here to avoid needing extra CSS rules for an element used only once.
             resultIndicator.style.cssText = "font-weight: 700; font-size: 1.125rem; margin-bottom: 0.75rem; padding: 0.5rem; border-radius: 0.5rem; text-align: center;";
             
-            // Not using var(--color-quiz-correct) or var(--color-quiz-incorrect) here as to provide sufficient contrast with the correct/incorrect option stylings.
+            // Not using var(--colour-quiz-correct) or var(--colour-quiz-incorrect) here as to provide sufficient contrast with the correct/incorrect option stylings.
             if (isCorrect) {
                 resultIndicator.textContent = "✓ Correct!";
                 resultIndicator.style.color = "#34d058";
@@ -717,7 +711,7 @@ class QuizRenderer {
                 <p class="quiz-subtitle">${subtitle}</p>
                 <div class="quiz-score">
                     ${score.correct} / ${score.total}
-                    <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--color-accent);">${percent}%</div>
+                    <div style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--colour-accent);">${percent}%</div>
                 </div>
                 <div class="quiz-actions">
                     <button class="quiz-restart-btn">Retry Quiz</button>

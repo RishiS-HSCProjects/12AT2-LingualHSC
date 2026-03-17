@@ -53,7 +53,7 @@ You can say something "looks like" or "seems like" a certain way in Japanese thr
 
 # Using みたい
 
-みたいな is used to express that something seems like or looks like a certain way by converting a noun or verb into an 'adjective-like' form. みたい is used in casual conversations.
+みたい is used to express that something seems like or looks like a certain way by converting a noun or verb into an 'adjective-like' form. みたい is used in casual conversations.
 
 :::blockquote Noun ・ い-adjective ・ な-adjective (remove な) ・ Verb (plain form) + **みたい** :::
 
@@ -71,10 +71,12 @@ You can say something "looks like" or "seems like" a certain way in Japanese thr
 :::blockquote Noun + ***の*よう** :::
 /w Do not forget to include the の before よう when using nouns! \
 
-- あの人の行[こう]動[どう]はいしゃの行[こう]動[どう]**のよう**です → That person's behavior seems like a doctor's behavior.
-- そのすしはたかいようです → That sushi looks expensive.
-- あの人は書くのは上[じょう]手[ず]ようです。
-- べんごしは毎[まい]日[にち]働[はたら]くようです → It seems like the lawyer works every day.
+- あの人の行[こう]動[どう]は医[い]者[しゃ]の行[こう]動[どう]**のよう**です → That person's behaviour seems like a doctor's behaviour.
+- そのすしは高[たか]いようです → That sushi looks expensive.
+- あの人は書[か]くのが上[じょう]手[ず]**のよう**です → That person seems to be good at writing.
+- 弁[べん]護[ご]士[し]は毎[まい]日[にち]働[はたら]くようです → It seems like the lawyer works every day.
+
+/t The Kanji for よう is actually one of your prescribed Kanji: 様. This is the same Kanji used for the respectful honorific 'さま'. But don't worry! This is a recognition-only Kanji, so you will not be required to write 様[よう] or 様[さま] at all! Phew! \
 
 # Describing Nouns with みたい and ような
 

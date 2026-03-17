@@ -193,6 +193,13 @@ function handleEmailInput(submit = false) {
                     emailDisplayElement.textContent = data.email; // Display email
                 }
 
+                if (!data.allowSendEmails) {
+                    /**
+                        @see Documentation D-AE03
+                    */
+                    sendFlashMessage("Mail Service Disabled. OTP defaulted to 123456.", 'error');
+                }
+
                 spamPrevention(document.getElementById('resend-code-btn'), 120 * 1000); // Prevent clicking the resend button on page load
             }
         })
@@ -221,7 +228,7 @@ function resendVerificationCode() {
         .catch(error => {
             console.error("Error resending verification code:", error);
         }
-        );
+    );
 }
 
 function handleVerificationCodeInput(submit = false) {
@@ -291,14 +298,6 @@ function submitRegistrationForm() {
         }
         );
 }
-
-/**
- * Influenced by:
- *  - https://medium.com/@kyleducharme/developing-custom-dropdowns-with-vanilla-js-css-in-under-5-minutes-e94a953cee75
- *  - https://developers.knowivate.com/old/@kheersagar/designing-a-custom-select-dropdown-with-html-css-and-javascript
- * 
- * My adaptation was refined by AI to fix visual issues and meet my requirements. Refer to AI declaration.
- */ // TODO: Add to AI Declaration
 
 document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("language-dropdown");

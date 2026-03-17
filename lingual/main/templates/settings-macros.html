@@ -1,0 +1,18 @@
+{# Create language settings macros as needed. #}
+
+{% macro settings_jp(language) %}
+    <div class="lang-settings">
+        <div class="setting-group">
+            <h3>Grammar</h3>
+            
+            <a onclick="openModal('ResetGrammarProgressFormModal')">Reset Learnt Grammar</a>
+        </div>
+        <div title="Kanji data coming soon!" style="cursor: not-allowed;"> {# This is a really ugly solution, but it will make do for now. #}
+            <div class="setting-group disabled">
+                <h3>Kanji Learning</h3>
+                <a onclick="openModal('ClearPractisedKanjiFormModal')">Clear Practised Kanji</a>
+                <a onclick="openModal('ClearKanjiDataFormModal')">Clear Kanji Data</a>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

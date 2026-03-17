@@ -85,7 +85,7 @@
                 "question": "Translate to English: 時[じ]間[かん]がないから、朝[あさ]ご飯[はん]を食[た]べませんでした。",
                 "includes": [
                     ["time"],
-                    ["no", "didn't"],
+                    ["no", "didn't", "didnt"],
                     ["breakfast"]
                 ],
                 "sample_answer": "Because I had no time, I didn’t eat breakfast."
@@ -104,8 +104,8 @@
                 "type": "input",
                 "question": "Translate to Japanese using から: I didn’t go to the beach because it was cold.",
                 "includes": [
-                    ["海", "うみ", "umi"],
-                    ["さむい", "samui"],
+                    ["海", "うみ", "ビーチ", "umi", "bi-chi"],
+                    ["寒", "さむ", "samu"],
                     ["から", "kara"]
                 ],
                 "sample_answer": "さむかったから、海[うみ]に行きませんでした。"
@@ -127,7 +127,7 @@
                 "question": "Translate to English: 今日は部活[ぶかつ]があるから、早[はや]く帰[かえ]ります。",
                 "includes": [
                     ["today"],
-                    ["club", "activity"],
+                    ["club", "activity", "activities"],
                     ["early", "fast"],
                     ["home", "return", "leave", "go"]
                 ],
@@ -189,7 +189,7 @@
                 "type": "input",
                 "question": "Translate to Japanese: I didn’t sleep well because it was noisy.",
                 "includes": [
-                    ["うるさい", "urusai"],
+                    ["うるさ", "urusa"],
                     ["から", "kara"]
                 ],
                 "sample_answer": "うるさかったから、よく寝[ね]られませんでした。"
@@ -243,7 +243,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate to Japanese: Because the wind is strong, please close the window.",
+                "question": "Translate to Japanese using ので: Because the wind is strong, please close the window.",
                 "includes": [
                     ["風", "かぜ", "kaze"],
                     ["強い", "つよい", "tsuyoi"],
@@ -266,7 +266,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate to Japanese: I will go home early because I have work tomorrow.",
+                "question": "Translate to Japanese using ので: I will go home early because I have work tomorrow.",
                 "includes": [
                     ["明日", "あした", "ashita"],
                     ["仕事", "しごと", "shigoto"],
@@ -299,7 +299,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate to Japanese: I didn’t go jogging because it was too hot.",
+                "question": "Translate to Japanese using ので: I didn’t go jogging because it was too hot.",
                 "includes": [
                     ["暑", "あつ", "atsu"],
                     ["すぎた", "sugita"],
@@ -320,7 +320,7 @@
             },
             {
                 "type": "input",
-                "question": "Translate to Japanese: I will study at the library because it is quiet.",
+                "question": "Translate to Japanese using ので: I will study at the library because it is quiet.",
                 "includes": [
                     ["静か", "しずか", "shizuka"],
                     ["ので", "node"],

@@ -37,7 +37,7 @@ function initResponsiveNav() {
 
     const closeMenu = () => { // Close menu anonymous function
         nav.classList.remove('nav-open');
-        toggleBtn.setAttribute('aria-expanded', 'false'); // Accessibility (I'm very inconsistent with this. todo: add accessibility everywhere)
+        toggleBtn.setAttribute('aria-expanded', 'false'); // Accessibility (I'm very inconsistent with this. TODO: add accessibility everywhere)
     };
 
     toggleBtn.addEventListener('click', () => {
@@ -63,7 +63,7 @@ function initResponsiveNav() {
 
         // Expand and collapse temporarily to measure overflow. 
         // This makes it stutter slightly on resize, but it's "good enough" for now.
-        // todo: fix attitude.
+        // TODO: fix attitude.
         nav.classList.remove('nav-collapsed');
         nav.classList.remove('nav-open');
         toggleBtn.setAttribute('aria-expanded', 'false'); // Reset toggle button state for accurate measurement

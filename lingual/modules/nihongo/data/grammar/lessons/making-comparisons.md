@@ -71,7 +71,7 @@ This structure can be translated to "[Noun A] is [adjective A], **but** [Noun B]
 
 For example:
 
-- 日本語は発[はつ]音[おん]はやさしいが、文[ぶん]保[ほ]はむずかしいです → Japanese pronunciation is easy, **but** grammar is difficult.
+- 日本語は発[はつ]音[おん]はやさしいが、文[ぶん]法[ぽう]はむずかしいです → Japanese pronunciation is easy, **but** grammar is difficult.
 - ぞうは鼻[はな]は長[なが]いが、しっぽは短[みじか]いです → Elephants have a long nose (trunk), **but** a short tail.
 
 # Supporting も - し - も Pattern

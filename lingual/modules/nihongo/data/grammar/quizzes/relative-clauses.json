@@ -45,7 +45,7 @@
                     ["delicious", "tasty"]
                 ],
                 "sample_answer": "The cake made by my friend who said they liked the movie I watched yesterday was very delicious.",
-                "explanation": "This complex sentence contains multiple relative clauses.\n - '私が昨日見た映画' describes the movie I watched yesterday.\n - '好きだと言った友だち' describes the friend who said they liked that movie.\n - '友だちが作ったケーキ' describes the cake made by that friend.\n The overall meaning is that the cake made by my friend, who expressed their liking for the movie I watched yesterday, was very delicious."
+                "explanation": "This complex sentence contains multiple relative clauses.\n - '私が昨日見た映画' describes the movie I watched yesterday.\n - '好きだと言った友だち' describes the friend who said they liked that movie.\n - '友だちが作ったケーキ' describes the cake made by that friend."
             },
             {
                 "type": "input",
@@ -57,7 +57,7 @@
                     ["who"],
                     ["played", "played"],
                     ["the game"],
-                    ["the teacher"],
+                    ["teacher", "prof"],
                     ["talked about", "spoke about"],
                     ["yesterday"],
                     ["became", "become"],

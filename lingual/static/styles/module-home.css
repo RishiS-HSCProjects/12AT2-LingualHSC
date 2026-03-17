@@ -6,7 +6,7 @@
 
 /* || Banner */
 .home-banner {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+    background: linear-gradient(135deg, var(--colour-accent) 0%, var(--colour-accent-strong) 100%);
     color: white;
     padding: var(--gap-medium) var(--gap-small);
     margin: 0 0 var(--gap-small) 0;
@@ -42,9 +42,9 @@
     font-size: var(--font-size-header-2);
     font-weight: 600;
     margin-bottom: var(--padding-section);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--color-accent);
+    border-bottom: 3px solid var(--colour-accent);
     display: inline-block;
 }
 
@@ -73,7 +73,7 @@
     background: var(--bg-surface-muted);
     border-radius: var(--radius-medium);
     line-height: var(--line-height-body);
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     font-size: var(--font-size-body);
 }
 
@@ -106,7 +106,7 @@
     font-size: var(--font-size-header-3);
     font-weight: 600;
     margin: 0 0 var(--gap-xsmall) 0;
-    color: var(--color-primary);
+    color: var(--colour-primary);
     line-height: 1.3;
 }
 
@@ -114,7 +114,7 @@
     flex: 1;
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     margin: 0 0 var(--padding-section) 0;
 }
 
@@ -129,19 +129,19 @@
 .home-item-box .box-button {
     flex: 1;
     padding: 0.75rem 1.25rem;
-    background: var(--color-accent);
-    color: white;
+    background: var(--colour-accent-strong);
+    color: var(--colour-text-on-accent);
     text-decoration: none;
     border-radius: var(--radius-medium);
     text-align: center;
     font-weight: 500;
     font-size: 0.95rem;
     transition: background var(--transition-base), transform 0.1s ease;
-    box-shadow: 0 2px 4px rgba(91, 124, 255, 0.2);
+    box-shadow: 0 2px 4px var(--colour-focus-ring);
 }
 
 .home-item-box.disabled .box-button {
-    background: gray;
+    background: var(--colour-status-neutral);
     cursor: default;
     pointer-events: none;
 }
@@ -152,7 +152,7 @@
 
 .home-item-box .box-button:hover {
     transform: translateY(-2px);
-    background: var(--color-accent-strong);
+    background: var(--colour-table-head);
 }
 
 /* || Unknown Item Type */
@@ -161,7 +161,7 @@
     background: var(--bg-block-warning);
     border: 2px dashed var(--border-block-warning);
     border-radius: var(--radius-medium);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     font-weight: 500;
 }
 

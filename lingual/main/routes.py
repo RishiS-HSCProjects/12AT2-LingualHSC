@@ -1,9 +1,14 @@
-from flask import jsonify, make_response, redirect, render_template, request, session, current_app, flash, url_for
+import traceback
+from werkzeug.exceptions import HTTPException
+from flask import jsonify, redirect, render_template, request, session, current_app, flash, url_for
 from flask.blueprints import Blueprint
 from flask_login import current_user, login_required
-from lingual.core.auth.utils.exceptions import EmailSendingDisabledException
+from lingual import db
+from lingual.utils.mail_utils import EmailError
+from lingual.main.utils import AccountActionTypes
+from lingual.utils.modals import ModalForm
 from lingual.utils.languages import Languages, get_translatable
-from lingual.core.auth.utils.user_auth import RegUser, RegUserValueException, deserialize_RegUser
+from lingual.core.auth.utils.user_auth import RegNotFoundException, RegUser, RegUserValueException, deserialize_RegUser
 from lingual.utils.form_manager import (
     save_form_to_session, restore_form_from_session, clear_form_session,
     validate_ajax_form, flash_all_form_errors, FormValidationError
@@ -20,6 +25,11 @@ main_bp = Blueprint(
 @main_bp.route('/')
 def landing():
     return render_template('landing.html')
+
+@main_bp.route('/welcome')
+@login_required
+def welcome():
+    return render_template('welcome.html', title="Welcome to Lingual HSC")
 
 @main_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
@@ -43,7 +53,7 @@ def login():
             # Attempt to find and authenticate user
             from lingual.models import User
             user: User | None = User.query.filter_by(email=email.lower()).first() # type: ignore
-            if not user or not user.check_password(password):
+            if user is None or not user.check_password(password):
                 form.password.data = ''  # Clear password field
 
                 flash("Invalid email or password.", "error")
@@ -51,19 +61,21 @@ def login():
                 return redirect(url_for('main.login', next=request.args.get('next')))  # type: ignore
 
             # Login successful
-            from flask_login import login_user
-            login_user(user)
+            user.login()
             flash("Login successful!", "success")
             clear_form_session(session) # Clear saved data on success
 
             # Redirect to next page or default to app
-            if 'next' in request.args:
+
+            if session.pop('new_user', False):
+                resp = redirect(url_for('main.welcome'))   # Show welcome page if user just registered
+            elif 'next' in request.args:
                 resp = redirect(request.args.get('next'))  # type: ignore
             else:
                 resp = redirect(url_for('main.app'))
 
             resp.set_cookie('has_account', 'true', max_age=400*24*60*60) # Add persistent cookie to indicate user has an account
-            return resp
+            return resp # Return response with cookie set
         else:
             # Validation failed - save and display errors
             save_form_to_session(form, session)
@@ -100,7 +112,7 @@ def register():
 
     return render_template(
         'register.html',
-        languages=[lang for lang in Languages if lang.obj() != Languages.TUTORIAL.obj()], # Exclude tutorial from language options
+        languages=Languages.get_languages(), # Exclude tutorial from language options
         form=csrf_form
     )
 
@@ -201,12 +213,26 @@ def register_util(step):
                 # Since we haven't yet submitted the form, just return success.
                 return jsonify({})
 
+            email_error = None
             try:
-                from lingual.core.auth.routes import verify_email
-                verify_email() # Send verification email
+                from lingual.core.auth.routes import send_verification_email
+                send_verification_email(session.get('reg_user'))
+            except EmailError.EmailSendingDisabled as e:
+                # Disabled email mode still allows OTP verification with fallback code.
+                current_app.logger.info(f"Email sending disabled for OTP flow: {e}")
+                email_error = None
+            except RegNotFoundException as e:
+                current_app.logger.warning(f"Registration Info Missing: {e}")
+                email_error = "Your registration session is invalid. Please refresh and try again."
+            except EmailError.SMTPConfig as e:
+                current_app.logger.warning(f"SMTP Misconfigured: {e}")
+                email_error = str(e)
+            except EmailError.SendFailure as e:
+                current_app.logger.error(f"Verification email send failed: {e}")
+                email_error = str(e)
             except Exception as e:
                 current_app.logger.error(f"Error in verify_email: {e}")
-                return jsonify({"error": "Error while sending verification email"}), 400
+                email_error = "A fatal error occurred while sending the verification email." # For Flash
 
             # The following code is responsible for returning a redacted version of the email for display.
             # Sending unredacted emails back to the client could be at risk of interception.
@@ -221,7 +247,11 @@ def register_util(step):
 
             redacted_email = f"{redacted_local}@{domain}" # Reconstruct redacted email
 
-            return jsonify({"email": redacted_email}) # Return redacted email if all other processes are successful
+            return jsonify({
+                "allowSendEmails": current_app.config.get('ALLOW_SEND_EMAILS', True),
+                "email": redacted_email,
+                "error": email_error
+            })
 
         elif step == "verify_otp": # Handles OTP verification and password prompt
             code = data.get("code", "").strip() # Strip to allow following falsy test
@@ -257,7 +287,6 @@ def register_util(step):
         # If a RegUserValueException is raised, return the error message.
         # This is an expected error type for validation issues, thus not logged as server error.
         # Having this here avoids repetitive try-except blocks in each step.
-        # That is also why I rewrote this function to use exceptions for validation errors on 27 Jan 2026.
         return jsonify({"error": str(e)})
     except FormValidationError as e:
         # This is an expected exception raised by validate_ajax_form utility.
@@ -292,10 +321,10 @@ def reset():
                     # Send password reset email
                     from lingual.core.auth.routes import send_password_reset_email
                     send_password_reset_email(user)
-                except EmailSendingDisabledException:
+                except EmailError.EmailSendingDisabled:
                     # Email sending is disabled in config
                     # While this is expected, we log it for awareness.
-                    current_app.logger.warning("Password reset email sending attempted but is disabled in configuration.")
+                    current_app.logger.warning("Password reset attempted but email sending is disabled in configuration.")
                     flash("Email sending is currently disabled in the application configuration.", "warning")
                     return redirect(url_for('main.reset'))
                 except Exception as e:
@@ -303,11 +332,12 @@ def reset():
                     current_app.logger.error(f"Error sending password reset email: {e}") # Log unexpected errors
                     flash("An error occurred while attempting to send the reset email. Please try again later.", "error")
                     return redirect(url_for('main.reset'))
-            
-            # Generic success message (don't reveal if user exists)
-            # This prevents "email enumeration" attacks.
-            flash("If an account with that email exists, a reset link has been sent.", "info")
-            return redirect(url_for('main.login'))
+                else:
+                    # Generic success message (don't reveal if user exists)
+                    # This prevents "email enumeration" attacks.
+                    flash("If an account with that email exists, a reset link has been sent.", "info")
+                    return redirect(url_for('main.login'))
+
         else:
             # Validation failed - flash errors
             flash_all_form_errors(form)
@@ -343,7 +373,6 @@ def reset_token(token):
                 password = form.password.data
                 if password:  # Type guard
                     user.set_password(password)
-                    from lingual import db
                     db.session.commit() # Save changes to database
                     flash("Your password has been updated! You can now log in.", "success")
                     return redirect(url_for('main.login'))
@@ -359,41 +388,7 @@ def reset_token(token):
 @main_bp.route('/app', strict_slashes=False)
 def app():
     if not current_user.is_authenticated:
-        # For simplicity, I only have one button on the landing page
-        # for sign in and sign up titled "Get Started". Initially,
-        # this button redirected the user to the login page since I
-        # believed that most users would already have an account, and
-        # those who don't would be able to easily navigate to the 
-        # registration page from there.
-        # However, upon user testing, I found that most testing users
-        # automatically attempted signing up from the login page,
-        # requiring me to steer them down to the registration page
-        # almost every time. I realised that the "Get Started" button
-        # likely gave users the subconscious expectation that it would
-        # take them to the registration page, resulting in them starting
-        # the sign up process without realising they were on the login page.
-        # I didn't want to change the landing page at this stage since I
-        # prefered having one button instead of two ("Login" and "Register")
-        # on the nav bar for simplicity and cleaner UI. As a result, I decided
-        # to make the "Get Started" button's (and, subsequently, all
-        # unauthenticated accesses to the app route) behaviour dynamic based
-        # on whether or not the device user has an account or not.
-        # This way, new years will be taken to the registration page, while
-        # returning users will be taken to the login page, which is the most
-        # likely page both user types will want to go to when they click "Get Started".
-        # Furthermore, existing users who are presented with the registration page
-        # are less likely to be confused since they'll remember the registration
-        # process from when they initially signed up.
-        # I am tracking user logins with a simple cookie that is set to "true" upon 
-        # a successful login. I am using a static cookie instead of a server-side
-        # session variable since I want this data to persist even after the session ends,
-        # allowing returning users to be recognised even if they haven't logged in for a while.
-        # Furthermore, since this cookie doesn't contain any sensitive data and is only used
-        # for improving UX by remembering if the user has an account, storing it encrypted 
-        # in a server-side session would be very unnecessary. Thus, a simple cookie is
-        # the best solution for this use case.
-
-        # Documented on 18 Feb 2026
+        # T-FE04 -> Cookie set up in this file in the login route.
         if request.cookies.get('has_account', 'false') == 'true':
             return redirect(url_for('main.login'))
         else:
@@ -402,12 +397,9 @@ def app():
     last_lang = current_user.get_last_language()
     
     if last_lang is None:  # No last language set
-        if current_user.get_languages():
-            # Set the first language as the last language if not set
-            current_user.set_last_language(current_user.languages[0])
-            from lingual import db
-            db.session.commit() # Save changes to database
-            last_lang = current_user.get_last_language()  # Retrieve the updated last language
+        if (len((user_langs := current_user.get_languages())) == 1):
+            return redirect(url_for('main.app_redirect', code=user_langs[0].code)) # Redirect to the only language they have
+        return redirect(url_for('main.app_directory')) # Redirect to app directory to choose a language
     
     if last_lang:
         # Now that we know last_lang is not None, perform the redirect
@@ -437,7 +429,188 @@ def app_redirect(code: str):
         return redirect(url_for('main.app_directory'))
 
     current_user.set_last_language(code)
-    from lingual import db
     db.session.commit() # Save changes to database
 
     return redirect(url_for('main.app'))
+
+def _resolve_modal_id(form) -> str | None:
+    if not form:
+        return None
+    return getattr(form, 'id', None) or f"{form.__class__.__name__}Modal"
+
+@main_bp.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    action = request.args.get('action') or None
+    action_language_code = request.args.get('lang') or None
+    action_type: AccountActionTypes | None = None
+    action_form: ModalForm | None = None
+    account_modals: dict[str, ModalForm] = {}
+    user_lang = current_user.get_languages()
+
+    from lingual.main.forms import DeleteAppConfirmation
+    for modal_action in AccountActionTypes:
+        try:
+            if modal_action == AccountActionTypes.DELETE_APP:
+                for lang in user_lang:
+                    delete_app_form = modal_action.get_modal()
+                    if isinstance(delete_app_form, DeleteAppConfirmation):
+                        delete_app_form.set_app_name(lang.app_name)
+                        setattr(delete_app_form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
+                        delete_app_form.set_action(
+                            url_for('main.account', action=modal_action.value, lang=lang.code)
+                        )
+                        account_modals[f"{modal_action.value}:{lang.code}"] = delete_app_form
+                continue
+
+            modal_form = modal_action.get_modal()
+            if modal_form:
+                account_modals[modal_action.value] = modal_form
+        except NotImplementedError:
+            continue
+
+    if action:
+        try:
+            action_type = AccountActionTypes(action)
+        except ValueError:
+            action_type = None
+
+        if action_type == AccountActionTypes.DELETE_APP:
+            if action_language_code:
+                action_form = account_modals.get(f"{action_type.value}:{action_language_code}")
+            if action_form is None:
+                flash("App removal action is unavailable.", "warning")
+        elif action_type:
+            action_form = account_modals.get(action_type.value)
+            if action_form is None:
+                flash(f"{action_type.name.title()} action not implemented.", "warning")
+                action_type = None
+
+    if request.method == 'POST' and action_type and action_form:
+        if action_form.validate_on_submit():
+            if action_type == AccountActionTypes.DELETE_APP:
+                if not action_language_code:
+                    flash("No app was selected for removal.", "error")
+                else:
+                    target_language = Languages.get_language_by_code(action_language_code)
+                    if target_language is None or action_language_code not in current_user.get_language_codes():
+                        flash("You do not have access to that app.", "error")
+                    else:
+                        current_user.remove_language(action_language_code)
+                        db.session.commit()
+                        flash(f"{target_language.app_name} removed from your account.", "success")
+                        return redirect(url_for('main.app_directory'))
+
+            elif action_type == AccountActionTypes.DELETE:
+                password = action_form.password.data # type: ignore
+                if not current_user.check_password(password):
+                    flash("Password incorrect. Please try again.", "error")
+                else:
+                    from lingual.models import User
+                    user: User = User.query.get(current_user.id) # type: ignore -> get user instance
+                    from flask_login import logout_user
+                    logout_user()
+                    user.delete()
+                    db.session.commit()
+                    flash("Successfully deleted account.", "success")
+                    resp = redirect(url_for('main.landing'))
+                    resp.delete_cookie('has_account')
+                    return resp
+
+            elif action_type == AccountActionTypes.CHANGE_PASSWORD:
+                current_password = action_form.current_password.data # type: ignore
+                if not current_user.check_password(current_password):
+                    flash("Current password is incorrect.", "error")
+                else:
+                    new_password = action_form.new_password.data # type: ignore
+                    current_user.set_password(new_password)
+                    db.session.commit()
+                    flash("Password updated successfully.", "success")
+                    return redirect(url_for('main.account', _anchor='your-account'))
+
+            elif action_type == AccountActionTypes.UPDATE_INFO:
+                new_first_name = action_form.first_name.data # type: ignore
+
+                if new_first_name: current_user.first_name = new_first_name
+
+                db.session.commit()
+                flash("Information updated successfully.", "success")
+                return redirect(url_for('main.account', _anchor='your-account'))
+
+            elif action_type in {
+                AccountActionTypes.JP_RESET_GRAMMAR,
+                AccountActionTypes.JP_CLEAR_PRACTISED_KANJI,
+                AccountActionTypes.JP_CLEAR_KANJI_DATA,
+            }:
+                jp_stats = current_user.get_language_stats('jp')
+                if not jp_stats:
+                    current_user.create_language_stats('jp')
+                    db.session.commit()
+                    jp_stats = current_user.get_language_stats('jp')
+
+                if not jp_stats:
+                    flash("Unable to load Japanese stats for your account.", "error")
+                else:
+                    success_message = None
+                    if action_type == AccountActionTypes.JP_RESET_GRAMMAR:
+                        jp_stats.clear_grammar_practised()
+                        success_message = "Grammar progress reset."
+
+                    elif action_type == AccountActionTypes.JP_CLEAR_PRACTISED_KANJI:
+                        jp_stats.clear_practised_kanji()
+                        success_message = "Practised kanji cleared."
+
+                    elif action_type == AccountActionTypes.JP_CLEAR_KANJI_DATA:
+                        jp_stats.clear_kanji()
+                        success_message = "All kanji data cleared."
+
+                    db.session.commit()
+                    if success_message: flash(success_message, "success")
+                    return redirect(url_for('main.account', _anchor='jp-settings'))
+        else:
+            flash_all_form_errors(action_form)
+
+    last_lang = current_user.get_last_language()
+
+    return render_template(
+        'account.html',
+        lang_obj=last_lang,
+        user_lang=user_lang,
+        action_form=action_form,
+        auto_open_modal=bool(action_form),
+        auto_open_modal_id=_resolve_modal_id(action_form),
+        account_modals=list(account_modals.values())
+    )
+
+@main_bp.app_errorhandler(Exception)
+def handle_exception(e):
+    # Pass 500 as default if it's not a standard HTTP error
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code or 500
+
+    module = request.path.split('/')[1] if len(request.path.split('/')) > 1 else None
+    
+    # Get language code for error message translatables if error came from a language module,
+    # otherwise default to English.
+    lang_obj = Languages.get_language_by_app_code(module) if module else None
+    lang_code = 'en' # Default to English if we can't determine a language from the URL
+    if module and lang_obj: lang_code = lang_obj.code # If module valid and language found, get lang code
+    
+    if code == 403:
+        err_head = get_translatable(lang_code, "err_403_head")
+        err_msg = "You do not have permission to access this page."
+    elif code == 404:
+        err_head = get_translatable(lang_code, "err_404_head")
+        err_msg = "The page you are looking for does not exist!"
+    elif code == 500:
+        current_app.logger.error(f"Internal server error 500: {e}") # Log the error details for debugging
+        current_app.logger.error(traceback.format_exc())
+        err_head = "Internal Server Error"
+        err_msg = "An internal server error occurred."
+    else:
+        current_app.logger.error(f"Unexpected error ({code}): {e}") # Log unexpected errors for debugging
+        err_head = f"Error {code}"
+        err_msg = "An unexpected error occurred."
+
+    return render_template("error.html", lang_obj=lang_obj, err_head=err_head, err_msg=err_msg), code

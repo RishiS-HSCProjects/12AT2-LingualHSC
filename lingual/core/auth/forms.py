@@ -61,4 +61,3 @@ class EmailVerificationRequestForm(FlaskForm):
     """Form for requesting email verification."""
     # No fields needed, just CSRF protection
     submit = SubmitField('Send Verification Code')
-

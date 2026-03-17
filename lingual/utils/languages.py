@@ -27,9 +27,20 @@ class Languages(Enum):
         return self.value
 
     @classmethod
+    def get_languages(cls):
+        return [lang for lang in Languages if lang is not Languages.TUTORIAL]
+    
+    @classmethod
     def get_language_by_code(cls, code: str) -> Language | None:
         for lang in cls:
             if lang.value.code == code:
+                return lang.value
+        return None
+    
+    @classmethod
+    def get_language_by_app_code(cls, app_code: str) -> Language | None:
+        for lang in cls:
+            if lang.value.app_code == app_code:
                 return lang.value
         return None
 

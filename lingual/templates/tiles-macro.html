@@ -1,0 +1,67 @@
+{% macro render_tile(item, index, tile_value_attr='tile', tile_delay_step=18, tile_class='tile') %}
+{% set value = item.value if item.value is defined else item[0] %}
+{% set category = item.category if item.category is defined else (item[1] if item|length > 1 else '') %}
+{% set label = item.label if item.label is defined and item.label is not none else value %}
+
+<div class="{{ tile_class }}" data-tile-trigger="true" data-{{ tile_value_attr }}="{{ value }}" data-loaded="false"
+    data-category="{{ category }}" aria-label="{{ label }}" style="--tile-delay: {{ index * tile_delay_step }}ms;">
+    <div class="tile-char">{{ label }}</div>
+</div>
+{% endmacro %}
+
+{% macro render_tiles_page(
+    title,
+    description,
+    tiles,
+    page_id='tiles-page',
+    page_class='tiles-page',
+    list_id='tile-list',
+    list_class='tiles-list',
+    grid_id='tile-grid',
+    grid_class='tiles-grid',
+    menu_id='tile-menu',
+    menu_class='tiles-menu',
+    menu_title='Tile Info',
+    menu_aria_label='Tile Information',
+    menu_close_label='Close',
+    tile_value_attr='tile',
+    tile_delay_step=18,
+    tile_class='tile',
+    custom_tile_renderer=true,
+    layout_open='3fr 1fr',
+    layout_closed='1fr 0fr'
+) %}
+<div id="{{ page_id }}" class="{{ page_class }}" data-tiles-page="true" data-tile-value-attr="{{ tile_value_attr }}"
+    style="--tiles-layout-open: {{ layout_open }};">
+    <section id="{{ list_id }}" class="{{ list_class }}" aria-label="{{ title }}">
+        <div class="tile-header">
+            <h1>{{ title }}</h1>
+            <p class="tile-subtitle">{{ description }}</p>
+        </div>
+
+        <div id="{{ grid_id }}" class="{{ grid_class }}">
+            {% for item in tiles %}
+            {% if caller and custom_tile_renderer %}
+            {{ caller('tile', item, loop.index) }}
+            {% else %}
+            {{ render_tile(item, loop.index, tile_value_attr, tile_delay_step, tile_class) }}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <aside id="{{ menu_id }}" class="{{ menu_class }}" aria-hidden="true" aria-label="{{ menu_aria_label }}">
+        <div class="tiles-menu-header">
+            <h2>{{ menu_title }}</h2>
+            <button class="tiles-menu-close" type="button" data-tile-close="true" aria-label="{{ menu_close_label }}">
+                {{ menu_close_label }}
+            </button>
+        </div>
+        <div class="tiles-menu-body">
+            {% if caller %}
+            {{ caller('menu', none, none) }}
+            {% endif %}
+        </div>
+    </aside>
+</div>
+{% endmacro %}

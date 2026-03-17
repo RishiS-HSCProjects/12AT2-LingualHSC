@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, SelectField, Valida
 from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 from lingual.core.auth.utils.utils import validate_email, validate_name, validate_password_strength
+from lingual.utils.modals import ModalForm
 
 class LoginForm(FlaskForm):
     """ Form for user login. """
@@ -112,3 +113,104 @@ class RegistrationPasswordForm(FlaskForm):
         
         err = validate_password_strength(password)
         if err: raise ValidationError(str(err))
+
+class DeleteAccountConfirmation(ModalForm):
+    """ Confirm the account should be deleted. """
+    title = "Delete Account"
+    description = "Are you sure you want to delete your account {EMAIL}? This action can not be undone."
+    
+    txt = StringField("Please type 'delete my account'", validators=[DataRequired()])
+    password = PasswordField('Confirm Password', validators=[DataRequired()])
+    submit = SubmitField("Delete forever!")
+
+    def set_email(self, email):
+        self.description = self.description.replace("{EMAIL}", email)
+
+    def validate_txt(self, field):
+        if not field.data.lower() == "delete my account":
+            raise ValidationError("Please type exactly 'delete my account' to confirm.")
+
+class DeleteAppConfirmation(ModalForm):
+    """ Confirm a language app should be removed from the account. """
+    title = "Remove App"
+    description = "Are you sure you want to remove {APP_NAME} from your account? This will delete your progress for this app."
+
+    txt = StringField("Please type 'remove app'", validators=[DataRequired()])
+    submit = SubmitField("Remove App")
+
+    def set_app_name(self, app_name: str):
+        self.description = self.description.replace("{APP_NAME}", app_name)
+
+    def validate_txt(self, field):
+        if field.data.lower() != "remove app":
+            raise ValidationError("Please type exactly 'remove app' to confirm.")
+
+class ChangePasswordForm(ModalForm):
+    """ Change password while authenticated. """
+    title = "Change Password"
+    description = "Update your password. You will stay logged in after this change."
+
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    new_password = PasswordField(
+        'New Password',
+        validators=[
+            DataRequired(),
+            Length(min=8, message="Password must be at least 8 characters long")
+        ]
+    )
+    confirm_password = PasswordField(
+        'Confirm New Password',
+        validators=[
+            DataRequired(),
+            EqualTo('new_password', message='Passwords must match')
+        ]
+    )
+    submit = SubmitField("Save Password")
+
+    def validate_new_password(self, field):
+        err = validate_password_strength(field.data)
+        if err:
+            raise ValidationError(str(err))
+
+class UpdateInfoForm(ModalForm):
+    """ Update account information such as name. """
+    title = "Update Information"
+    description = "Update your account information."
+
+    first_name = StringField(
+        'First Name',
+        validators=[
+            DataRequired(),
+            Length(min=1, max=50, message="First name must be between 1 and 50 characters")
+        ],
+        default="{FIRST_NAME}"
+    )
+
+    submit = SubmitField("Save Changes")
+
+    def set_first_name(self, first_name):
+        self.first_name.default = first_name
+        self.first_name.data = first_name
+
+    def validate_first_name(self, field):
+        """Validate name contains only letters, spaces, hyphens, and apostrophes."""
+        err = validate_name(field.data)
+        if err: raise ValidationError(str(err))
+
+class ResetGrammarProgressForm(ModalForm):
+    """ Confirm reset of grammar progress. """
+    title = "Reset Learnt Grammar"
+    description = "This will clear your completed grammar lessons progress for Japanese."
+    submit = SubmitField("Reset Grammar Progress")
+
+class ClearPractisedKanjiForm(ModalForm):
+    """ Confirm clearing practised kanji list. """
+    title = "Clear Practised Kanji"
+    description = "This will clear your practised kanji list but keep your learnt kanji list."
+    submit = SubmitField("Clear Practised Kanji")
+
+class ClearKanjiDataForm(ModalForm):
+    """ Confirm clearing all kanji learning data. """
+    title = "Clear Kanji Data"
+    description = "This will clear both learnt and practised kanji progress."
+    submit = SubmitField("Clear Kanji Data")

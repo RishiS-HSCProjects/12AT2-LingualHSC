@@ -28,7 +28,7 @@ To conjugate a verb into the present positive plain form, remove the ます and.
 - For Group 3 verbs, use the irregular forms.
 
     - します → する (to do)
-    - 来[く]ます → 来[く]る (to come)
+    - 来[き]ます → 来[く]る (to come)
     - 行きます → 行く (to go)
 
 /i Verbs created from adding します to nouns use する in their plain form. If you are confused, try the below quiz! \
@@ -50,7 +50,7 @@ To conjugate a verb into the present negative plain form, follow these rules:
 
 - For Group 3 verbs, use the irregular forms.
     - します → し**ない** (not to do)
-    - 来[く]ます → 来[こ]**ない** (not to come)
+    - 来[き]ます → 来[こ]**ない** (not to come)
     - 行きます → 行か**ない** (not to go)
 
 /w Note that くる (to come) becomes こない in its negative plain form. The Kanji 来 is used for both. \

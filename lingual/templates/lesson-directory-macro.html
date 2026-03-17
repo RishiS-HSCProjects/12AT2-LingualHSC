@@ -4,13 +4,19 @@
     - lesson-directory.css
 -->
 
-{% macro lesson_directory(lessons, app_code, route, title) %}
+{% macro lesson_directory(lessons, app_code, route, title, subtitle) %}
 <div id="lesson-directory-wrapper">
-    {% if title %}
-    <h1>{{ title }}</h1>
-    {% else %}
-    <h1>Directory</h1>
-    {% endif %}
+    <div id="lesson-header">    
+        {% if title %}
+        <h1>{{ title }}</h1>
+        {% else %}
+        <h1>Directory</h1>
+        {% endif %}
+        
+        {% if subtitle %}
+        <p class="lesson-subtitle">{{ subtitle }}</p>
+        {% endif %}
+    </div>
 
     <div id="lesson-search-box">
         <input type="text" id="lesson-search-input" placeholder="Search lessons by title or content...">
@@ -26,10 +32,11 @@
                     <!-- Store lesson slug in data attribute to prevent XSS attacks. -->
                     <!-- | e 'escapes' the string to make it safe for HTML attribute context -->
                     <div class="lesson-item" 
-                         data-slug="{{ lesson.slug | e }}" 
-                         data-title="{{ lesson.title | e }}" 
-                         data-summary="{{ lesson.summary | e }}"
-                         data-content="{{ lesson.content | e }}">
+                        data-slug="{{ lesson.slug | e }}" 
+                        data-title="{{ lesson.title | e }}" 
+                        data-summary="{{ lesson.summary | e }}"
+                        data-content="{{ lesson.content | e }}"
+                        data-keywords="{{ lesson.query_tags | e }}">
                         <h3 class="lesson-title">{{ lesson.title | sanitise | safe }}</h3>
                         <p class="lesson-summary">{{ lesson.summary | sanitise | safe }}</p>
                     </div>

@@ -1,6 +1,5 @@
-{% import 'macros/modal-macros.html' as modal_macros %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 
 <head>
     <meta charset="UTF-8">
@@ -56,6 +55,7 @@
     </div>
 
     {% if modals %}
+    {% import 'modal-macros.html' as modal_macros %}
     {% for modal in modals %}
     {{ modal_macros.render_modal(modal, modal.close_function or 'closeActiveModal') }}
     {% endfor %}

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from functools import lru_cache
 from flask import current_app, url_for
@@ -133,6 +133,29 @@ class BaseLessonProcessor:
         """
         self.transformers.append(transform)
 
+    def normalise_keywords(self, raw: Any) -> list[str]:
+        """ Normalise YAML keywords to a python list """
+        if raw is None:
+            return []
+
+        if isinstance(raw, list):
+            candidates = [str(part).strip() for part in raw]
+        else:
+            return []
+
+        cleaned: list[str] = []
+        seen: set[str] = set()
+        for keyword in candidates:
+            if not keyword: continue
+            norm = re.sub(r'\s+', ' ', keyword).strip().lower() # Normalised regex
+            if not norm or norm in seen:
+                # Avoid invalid or duplicate entries
+                continue
+            cleaned.append(norm)
+            seen.add(norm)
+
+        return cleaned # Returned cleaned keywords
+
     def apply_transforms(self, content: str) -> str:
         for transform in self.transformers:
             content = transform(content)
@@ -150,7 +173,7 @@ class BaseLessonProcessor:
     # Cache up to 16 lessons in memory for performance
     # Has the issue of not updating if lesson files change on disk,
     # however, a "cache clear" mechanism can be implemented later.
-    # @lru_cache(maxsize=16) todo: enable
+    @lru_cache(maxsize=16)
     def load(self, slug: str) -> dict:
         if not re.fullmatch(r"[A-Za-z0-9\-]+", slug):
             raise ValueError("Invalid lesson slug.")
@@ -190,9 +213,11 @@ class BaseLessonProcessor:
         # Run title & summary through the same transformation pipeline
         title_raw = meta.get("title", "Untitled")
         summary_raw = meta.get("summary", "")
+        keywords_raw = meta.get("keywords", [])
 
         title = self.apply_transforms(title_raw) # type: ignore -> Transform title
         summary = self.apply_transforms(summary_raw) # type: ignore -> Transform summary
+        keywords = self.normalise_keywords(keywords_raw) # Normalise keywords into clean tags
         
         # Get plain text content directly from markdown (before HTML conversion)
         # Only extract content from within :::blockquote, :::warning, and similar blocks                    
@@ -227,6 +252,8 @@ class BaseLessonProcessor:
             title=title,
             summary=summary,
             content=content_plain,
+            keywords=keywords,
+            query_tags=" ".join(keywords),
         )
 
     # @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
@@ -274,6 +301,8 @@ class Lesson:
     title: str
     summary: str
     content: str = ""
+    keywords: list[str] = field(default_factory=list)
+    query_tags: str = ""
 
 class LessonFetchException(Exception):
     def __init__(self, *args: object) -> None:

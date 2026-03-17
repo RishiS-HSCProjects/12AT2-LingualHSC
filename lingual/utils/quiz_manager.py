@@ -3,6 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectMultipleField, SubmitField
 from wtforms.validators import DataRequired, NumberRange
 
+from lingual.utils.modals import ModalForm
+
 class TypeEnum(Enum):
     """
     Base enum for quiz types. Each quiz type should inherit from this and define its own members.
@@ -39,6 +41,13 @@ class TypeEnum(Enum):
             Override in subclasses if needed. """
         return ""
 
+    @property
+    def is_enabled(self) -> bool:
+        """ Optional method to indicate if the quiz type is currently enabled or not.
+            This can be used to disable quiz types that are not yet implemented or temporarily unavailable.
+            Override in subclasses if needed. By default, all quiz types are enabled. """
+        return True
+
     def get_modal(self) -> "QuizForm":
         """ Method to return a modal form for quiz configuration.
         Override in subclasses if specific configuration is needed for the quiz type.
@@ -48,23 +57,17 @@ class TypeEnum(Enum):
 
         raise NotImplementedError(f"No modal implemented for quiz type: {self.name}")
 
-class QuizForm(FlaskForm):
+class QuizForm(ModalForm):
     """ Base form for quiz configuration. Specific quiz types can extend this form to add more fields as needed. """
     title = "QUIZ_TITLE"
     description = "QUIZ_DESCRIPTION"
-    action = ""
 
     submit = SubmitField("Generate Quiz")
-
-    def set_action(self, action_url: str) -> None:
-        """ Method to set the form action URL. This allows dynamic setting of the form's target endpoint. """
-        self.action = action_url
     
     def __init__(self, **kwargs):
         """ Override __init__ to set the title and description of the form based on class attributes. """
         super().__init__(**kwargs)
         self.title = getattr(self.__class__, "title", "Quiz Configuration")
-        self.description = getattr(self.__class__, "description", "")
 
 class LessonQuizConfigForm(QuizForm):
     title = "Lesson Quiz Configuration"

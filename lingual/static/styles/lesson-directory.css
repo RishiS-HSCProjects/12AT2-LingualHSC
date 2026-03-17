@@ -13,10 +13,21 @@
     margin: 0 auto;
 }
 
-#lesson-directory-wrapper > h1 {
-    font-size: 2.5rem;
+#lesson-directory-wrapper > #lesson-header {
     margin-bottom: 2rem;
     text-align: center;
+}
+
+#lesson-directory-wrapper > #lesson-header > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#lesson-directory-wrapper > #lesson-header > p {
+    font-size: 1.1rem;
+    color: var(--colour-secondary);
+    margin-top: 0;
+    line-height: 1.5;
 }
 
 /* || Lesson Search Box */
@@ -35,18 +46,18 @@
     border: 2px solid var(--border-subtle);
     border-radius: var(--radius-medium);
     background-color: var(--bg-surface);
-    color: var(--color-primary);
+    color: var(--colour-primary);
     transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 #lesson-search-input::placeholder {
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
 }
 
 #lesson-search-input:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-soft);
+    border-color: var(--colour-accent);
+    box-shadow: 0 0 0 3px var(--colour-accent-soft);
 }
 
 /* || Lesson Categories */
@@ -54,7 +65,7 @@
 .lesson-category {
     font-size: 1.75rem;
     margin: 2rem 0 1rem 0;
-    color: var(--color-accent);
+    color: var(--colour-accent);
     border-bottom: 2px solid var(--border-subtle);
     padding-bottom: 0.5rem;
 }
@@ -102,7 +113,7 @@
         padding: 1rem;
     }
     
-    #lesson-directory-wrapper > h1 {
+    #lesson-directory-wrapper > #lesson-header > h1 {
         font-size: 2rem;
     }
     
@@ -116,7 +127,7 @@
         padding: 0.75rem;
     }
 
-    #lesson-directory-wrapper > h1 {
+    #lesson-directory-wrapper > #lesson-header > h1 {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
     }
@@ -157,7 +168,7 @@
 
 .lesson-item:hover {
     background: linear-gradient(135deg, var(--bg-surface-muted) 0%, var(--bg-surface) 100%);
-    border-color: var(--color-accent);
+    border-color: var(--colour-accent);
     transform: scale(1.02);
     box-shadow: var(--shadow-soft);
 }
@@ -166,13 +177,13 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 0.75rem 0;
-    color: var(--color-primary);
+    color: var(--colour-primary);
 }
 
 .lesson-summary {
     font-size: 0.95rem;
     line-height: 1.5;
-    color: var(--color-secondary);
+    color: var(--colour-secondary);
     margin: 0;
     flex-grow: 1;
 }
