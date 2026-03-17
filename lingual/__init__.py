@@ -5,6 +5,8 @@ from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
+GIT_REPO_URL = "https://github.com/RishiS-HSCProjects/12AT2-LingualHSC" # Base URL for the GitHub repository, used for linking to source files and resources
+
 from dotenv import load_dotenv
 load_dotenv() # Load environment variables from .env file
 

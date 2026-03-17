@@ -37,6 +37,59 @@ body {
     box-shadow: var(--shadow-soft);
 }
 
+.edit-page-link {
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: calc(var(--z-index-nav) + 1);
+    width: 2.75rem;
+    height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+    color: var(--colour-accent-strong);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.edit-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+}
+
+.lesson-footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--colour-muted);
+}
+
+.mobile-edit-link {
+    display: none;
+    color: var(--colour-accent-strong);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mobile-edit-link:hover {
+    text-decoration: underline;
+}
+
+.lesson-copyright {
+    margin: 0.5rem 0 0;
+}
+
 /* || Typography */
 
 #lesson-container .lesson-title {
@@ -693,6 +746,14 @@ body {
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
+    }
+
+    .edit-page-link {
+        display: none;
+    }
+
+    .mobile-edit-link {
+        display: inline;
     }
 
     #lesson-content-wrapper {

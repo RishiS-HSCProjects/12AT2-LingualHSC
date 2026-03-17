@@ -7,7 +7,17 @@
 {% macro lesson_content(lesson) %}
     <div id="lesson-content-wrapper">
         <div id="lesson-container">
-            <h1 class="lesson-title">{{ lesson.meta.title }}</h1>
+            <div class="lesson-header">
+                <h1 class="lesson-title">{{ lesson.meta.title }}</h1>
+                {% if lesson.source_url %}
+                    <a href="{{ lesson.source_url }}" class="edit-page-link" title="Edit this page on GitHub" target="_blank" rel="noopener noreferrer">
+                        <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </a>
+                {% endif %}
+            </div>
             <div class="lesson-content">
                 {{ lesson.content | safe }}
             </div>
@@ -19,4 +29,10 @@
             <div id="directory-results"></div>
         </div>
     </div>
+    <footer class="lesson-footer">
+        {% if lesson.source_url %}
+            <a href="{{ lesson.source_url }}" class="mobile-edit-link" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+        {% endif %}
+        <p class="lesson-copyright">&copy; 2026 Lingual HSC. All rights reserved.</p>
+    </footer>
 {% endmacro %}

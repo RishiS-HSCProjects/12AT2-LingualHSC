@@ -161,6 +161,9 @@ def grammar(slug=None):
             current_app.logger.error(f"An error occurred while loading the lesson {slug}: {str(e)}")
             flash(f"An error occurred while loading the lesson.", "error")
             return redirect(url_for('nihongo.grammar'))
+        
+        from lingual.modules.nihongo import GIT_GRAMMAR_DIRECTORY
+        lesson_data['source_url'] = f"{GIT_GRAMMAR_DIRECTORY}/lessons/{slug}.md"
 
         return render_template(
             'nihongo-lesson.html',
