@@ -6,6 +6,10 @@ body {
     height: calc(100vh - var(--nav-height));
 }
 
+#body {
+    margin-top: calc(var(--nav-height));
+}
+
 #welcome-shell {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,7 @@ body {
     align-items: center;
     text-align: center;
     height: 100%;
-    padding: 2rem 1.5rem;
+    padding: 5rem 1.5rem;
     gap: 2rem;
     max-width: 48rem;
     margin: 0 auto;

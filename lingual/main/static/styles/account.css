@@ -94,6 +94,12 @@ aside > #actions {
     line-height: var(--line-height-body);
 }
 
+#welcome-message {
+    color: var(--colour-primary);
+    text-align: center;
+    font-size: var(--font-size-header-1);
+}
+
 #your-account,
 .language-settings,
 #danger-zone-section {

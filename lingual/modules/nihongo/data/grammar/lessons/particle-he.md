@@ -14,6 +14,7 @@ The particle へ specifically highlights the **direction** of movement rather th
 /w The Term <i>::blue{Destination}</i> can be rather misleading, as へ does not emphasise the destination itself, but rather the direction towards it. This is the nuance between going somewhere (に) and heading there (へ). \
 
 ### Examples of Highlighting Direction
+/t Before you reveal the answer, try to first translate it yourself! \
 - ::blue{空[そら]}へ ::red{飛[と]びます} → I will ::red{fly} towards the ::blue{sky}.
 - ねこは::blue{彼[かの]女[じょ]}へ ::red{見ています} → ||The cat is ::red{looking} towards ::blue{her}||.
 - 子[こ]供[ども]たちは::blue{遊[あそ]び場[ば]}へ ::red{走[はし]っています} → ||The children are ::red{running} towards the ::blue{playground}||.
