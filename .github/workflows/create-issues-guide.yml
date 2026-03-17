@@ -1,0 +1,67 @@
+name: Create Issues Guide
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  create-guide-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create and pin Issues Guide
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ISSUE_TITLE = 'How to Create an Issue on This Repo';
+
+            // Check if the issue already exists to keep this idempotent
+            const { data: search } = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue in:title "${ISSUE_TITLE}"`,
+            });
+
+            const found = search.items.find(i => i.title === ISSUE_TITLE);
+            if (found) {
+              console.log(`Issue already exists: #${found.number} — skipping.`);
+              return;
+            }
+
+            // Create the issue
+            const { data: issue } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: ISSUE_TITLE,
+              body: [
+                '## 📝 How to Open an Issue',
+                '',
+                'Have a bug to report, a feature to suggest, or a question to ask? Follow these steps:',
+                '',
+                '1. Click the **Issues** tab at the top of this page.',
+                '2. Hit the green **New issue** button.',
+                '3. Write a short, descriptive **title**.',
+                '4. Fill in the **body** with details — what happened, what you expected, or what you\'d like to see.',
+                '5. (Optional) Add **labels**, assign it, or link a milestone using the right-hand panel.',
+                '6. Click **Submit new issue** — done! 🎉',
+                '',
+                '> **Tip:** The more context you provide, the faster your issue can be resolved.',
+              ].join('\n'),
+            });
+
+            console.log(`Created issue #${issue.number}: "${issue.title}"`);
+
+            // Pin the issue (requires repo admin/write access via GITHUB_TOKEN)
+            try {
+              await github.graphql(`
+                mutation($issueId: ID!) {
+                  pinIssue(input: { issueId: $issueId }) {
+                    issue { number title }
+                  }
+                }
+              `, { issueId: issue.node_id });
+              console.log(`Pinned issue #${issue.number}`);
+            } catch (err) {
+              console.warn(`Could not pin issue (may need admin rights): ${err.message}`);
+            }
