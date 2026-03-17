@@ -53,7 +53,6 @@
 
 /* Button groups */
 #form .next-btn {
-    margin-top: var(--gap-small);
     width: 100%;
     display: flex;
     justify-content: center;

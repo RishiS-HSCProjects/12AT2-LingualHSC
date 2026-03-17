@@ -4,11 +4,11 @@ from flask import jsonify, redirect, render_template, request, session, current_
 from flask.blueprints import Blueprint
 from flask_login import current_user, login_required
 from lingual import db
-from lingual.core.auth.utils.exceptions import EmailSendingDisabledException, VerificationEmailError
+from lingual.utils.mail_utils import EmailError
 from lingual.main.utils import AccountActionTypes
 from lingual.utils.modals import ModalForm
 from lingual.utils.languages import Languages, get_translatable
-from lingual.core.auth.utils.user_auth import RegUser, RegUserValueException, deserialize_RegUser
+from lingual.core.auth.utils.user_auth import RegNotFoundException, RegUser, RegUserValueException, deserialize_RegUser
 from lingual.utils.form_manager import (
     save_form_to_session, restore_form_from_session, clear_form_session,
     validate_ajax_form, flash_all_form_errors, FormValidationError
@@ -215,19 +215,19 @@ def register_util(step):
 
             email_error = None
             try:
-                from lingual.core.auth.routes import queue_verification_email
-                queue_verification_email(session.get('reg_user'))
-            except EmailSendingDisabledException as e:
+                from lingual.core.auth.routes import send_verification_email
+                send_verification_email(session.get('reg_user'))
+            except EmailError.EmailSendingDisabled as e:
                 # Disabled email mode still allows OTP verification with fallback code.
                 current_app.logger.info(f"Email sending disabled for OTP flow: {e}")
                 email_error = None
-            except VerificationEmailError.NoReg as e:
+            except RegNotFoundException as e:
                 current_app.logger.warning(f"Registration Info Missing: {e}")
                 email_error = "Your registration session is invalid. Please refresh and try again."
-            except VerificationEmailError.SMTPConfig as e:
+            except EmailError.SMTPConfig as e:
                 current_app.logger.warning(f"SMTP Misconfigured: {e}")
                 email_error = str(e)
-            except VerificationEmailError.SendFailure as e:
+            except EmailError.SendFailure as e:
                 current_app.logger.error(f"Verification email send failed: {e}")
                 email_error = str(e)
             except Exception as e:
@@ -321,10 +321,10 @@ def reset():
                     # Send password reset email
                     from lingual.core.auth.routes import send_password_reset_email
                     send_password_reset_email(user)
-                except EmailSendingDisabledException:
+                except EmailError.EmailSendingDisabled:
                     # Email sending is disabled in config
                     # While this is expected, we log it for awareness.
-                    current_app.logger.warning("Password reset email sending attempted but is disabled in configuration.")
+                    current_app.logger.warning("Password reset attempted but email sending is disabled in configuration.")
                     flash("Email sending is currently disabled in the application configuration.", "warning")
                     return redirect(url_for('main.reset'))
                 except Exception as e:
@@ -332,11 +332,12 @@ def reset():
                     current_app.logger.error(f"Error sending password reset email: {e}") # Log unexpected errors
                     flash("An error occurred while attempting to send the reset email. Please try again later.", "error")
                     return redirect(url_for('main.reset'))
-            
-            # Generic success message (don't reveal if user exists)
-            # This prevents "email enumeration" attacks.
-            flash("If an account with that email exists, a reset link has been sent.", "info")
-            return redirect(url_for('main.login'))
+                else:
+                    # Generic success message (don't reveal if user exists)
+                    # This prevents "email enumeration" attacks.
+                    flash("If an account with that email exists, a reset link has been sent.", "info")
+                    return redirect(url_for('main.login'))
+
         else:
             # Validation failed - flash errors
             flash_all_form_errors(form)

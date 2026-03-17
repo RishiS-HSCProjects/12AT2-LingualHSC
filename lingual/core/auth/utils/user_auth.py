@@ -86,3 +86,7 @@ def deserialize_RegUser(data: dict) -> RegUser:
 class RegUserValueException(Exception):
     def __init__(self, message: str):
         super().__init__(message)
+
+class RegNotFoundException(Exception):
+    def __init__(self, message: str = "Registration information not found. Please try again."):
+        super().__init__(message)

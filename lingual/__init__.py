@@ -42,7 +42,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS  =      False
 
     PUBLIC_BASE_URL                 =      os.getenv('PUBLIC_BASE_URL', 'http://127.0.0.1:5000').rstrip('/')
-    SERVER_NAME                     =      os.getenv('SERVER_NAME') or None  # Keep unset in development unless explicitly needed
+    SERVER_NAME                     =      None # Keep unset to prevent CORS issues
     PREFERRED_URL_SCHEME            =      'https' if PUBLIC_BASE_URL.startswith('https://') else 'http'
 
 @login_manager.user_loader

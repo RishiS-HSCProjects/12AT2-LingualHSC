@@ -1,13 +1,8 @@
 from flask import Blueprint, current_app, redirect, session, request, jsonify, url_for, flash
 from time import time
-from lingual.core.auth.utils.exceptions import (
-    EmailSendingDisabledException,
-    VerificationEmailError,
-)
-from lingual.core.auth.utils.user_auth import RegUserValueException, deserialize_RegUser
+from lingual.utils.mail_utils import EmailError
+from lingual.core.auth.utils.user_auth import RegNotFoundException, RegUserValueException, deserialize_RegUser
 from lingual.models import User
-from threading import Thread
-from queue import Empty, Queue
 from lingual.utils.form_manager import validate_ajax_form, FormValidationError
 from lingual.utils.url_builder import build_external_url
 from functools import wraps
@@ -40,10 +35,12 @@ def validate_reg_user():
 def verify_email(reg = None):
     # Decorator ensures reg is present
     try:
-        queue_verification_email(reg)
-    except EmailSendingDisabledException as e:
+        send_verification_email(reg)
+    except EmailError.EmailSendingDisabled as e:
         return jsonify({"error": str(e)}), 200
-    except VerificationEmailError.Base as e:
+    except RegNotFoundException as e:
+        return jsonify({"error": str(e)}), 400
+    except EmailError.Base as e:
         return jsonify({"error": str(e)}), e.status_code
     except Exception as e:
         current_app.logger.error(f"Unexpected error when sending verification code: {e}")
@@ -51,29 +48,25 @@ def verify_email(reg = None):
 
     return jsonify({"error": None}), 200
 
-def prepare_otp(reg: dict | None) -> tuple[str, str, bool]:
+def prepare_otp(reg: dict | None) -> tuple[str, str]:
     """Validate registration state and prepare OTP data for verification email."""
     if not reg:
-        raise VerificationEmailError.NoReg()
+        raise RegNotFoundException()
 
     try:
         email = deserialize_RegUser(reg).email # Deserialize session data to get RegUser object and access email
     except RegUserValueException as e:
-        raise VerificationEmailError.NoReg(str(e)) from e
+        raise RegNotFoundException(str(e)) from e
     except Exception as e:
-        current_app.logger.error(f"Error deserializing RegUser for email verification: {e}\nReg: {reg}") # Log detailed error
-        raise VerificationEmailError.NoReg("Registration information corrupted. Please try again.") from e # Raise dedicated exception, chaining the original 'e'
-
-    from bcrypt import hashpw, gensalt
+        current_app.logger.error(f"Error deserializing RegUser for email verification: {e}\nReg: {reg}")
+        raise RegNotFoundException("Registration information corrupted. Please try again.") from e
+    
     # Generate OTP
-    VERIFY_REQ = current_app.config.get('ALLOW_SEND_EMAILS', True) # Default to true for security reasons
-    if not VERIFY_REQ: # For testing, ALLOW_SEND_EMAILS may be disabled.
+    from bcrypt import hashpw, gensalt #
+    ALLOW_SEND_EMAILS = current_app.config.get('ALLOW_SEND_EMAILS', True) # Default to true for security reasons
+    if not ALLOW_SEND_EMAILS: # For testing, ALLOW_SEND_EMAILS may be disabled.
         otp = "123456"
     else:
-        # Validate required config before attempting to send OTP emails.
-        if not current_app.config.get('MAIL_DEFAULT_SENDER'):
-            raise VerificationEmailError.SMTPConfig("Email service is not configured correctly. Missing default sender.")
-
         # Create secure, random OTP generation.
         # secrets module is used since it is designed for cryptographic security.
         # Overkill for this task? yes. But, this is the best practice if this were production code.
@@ -85,71 +78,27 @@ def prepare_otp(reg: dict | None) -> tuple[str, str, bool]:
     # Store the OTP in the session (hashed)
     session['otp'] = [hashpw(otp.encode(), gensalt()), time()] # Using same hashing system for OTPs as passwords.
 
-    return email, otp, VERIFY_REQ # Return packaged tuple of required data
+    return email, otp # Return packaged tuple of required data
 
-def queue_verification_email(reg: dict | None) -> None:
+def send_verification_email(reg: dict | None) -> None:
     """Queue OTP email sending.
 
     Raises typed exceptions for validation/config/send failures so callers can
     handle errors consistently in routes/utilities.
     """
-    email, otp, VERIFY_REQ = prepare_otp(reg)
 
-    # Exit early if email verification is not required
-    if not VERIFY_REQ:
-        raise EmailSendingDisabledException("Mail Service Disabled. OTP defaulted to 123456.")
+    email, otp = prepare_otp(reg) # May raise RegNotFoundException or EmailError.SMTPConfig
 
-    # If email verification is required, send the OTP email
-    send_result_queue: Queue[VerificationEmailError.SendFailure | None] = Queue(maxsize=1) # Capture one async result/error.
-
-    def send_otp_email(app, email, otp, result_queue: Queue[VerificationEmailError.SendFailure | None]):
-        """Prepare and send an OTP email in a background thread."""
-        try:
-            with app.app_context():
-                from lingual import mail
-                mail.send_message(
-                    subject=f"Your Verification Code is {otp}",
-                    recipients=[email],
-                    body=(
-                        f"Your verification code is: {otp}.\n\n"
-                        "This code will expire in 5 minutes. "
-                        "If you did not request this code, please ignore this email."
-                    )
-                )
-                result_queue.put_nowait(None)
-        except Exception as e:
-            app.logger.error(f"Threaded email send failed for {email}: {e}")
-            try:
-                result_queue.put_nowait(VerificationEmailError.SendFailure("Unable to send verification email. Check your internet connection and try again."))
-            except Exception:
-                pass
-
-    try:
-        Thread(
-            target=send_otp_email, # Anonymously call send_otp_email
-            args=(current_app._get_current_object(), email, otp, send_result_queue), # type: ignore -> Pass required values into async worker.
-            daemon=True # Makes asynchronous to not halt application flow while sending email
-        ).start()
-    except Exception as e:
-        current_app.logger.error(f"Error when starting verification email thread: {e}")
-        raise VerificationEmailError.SendFailure("Something went wrong when sending the verification code.") from e
-
-    # Briefly wait for fast failures; otherwise continue asynchronously.
-    wait_seconds = current_app.config.get('ASYNC_EMAIL_ERROR_WAIT_SECONDS', 1.5)
-    if wait_seconds > 0: # Only attempt to wait if configured to do so. (set in Config.)
-        try:
-            thread_error = send_result_queue.get(timeout=wait_seconds)
-            if thread_error:
-                raise thread_error
-        except Empty: # Exception raised when no result is available within wait time.
-            # No result from thread within wait time.
-            # This is not necessarily an error, as email sending can be slow.
-
-            # Log this occurrence for monitoring but proceed without raising an exception, allowing the email sending to continue asynchronously.
-            current_app.logger.warning(f"No result from email thread after {wait_seconds} seconds for {email}. Proceeding without confirmation of email send success.")
-            pass
-
-    return None # Explicitly return None on success for clarity
+    from lingual.utils.mail_utils import queue_email
+    queue_email(
+        recipients=[email],
+        subject=f"Your Verification Code is {otp}",
+        body=(
+            f"Your verification code is: {otp}.\n\n"
+            "This code will expire in 5 minutes. "
+            "If you did not request this code, please ignore this email."
+        )
+    )
 
 def verify_otp(otp_code: str) -> str | None:
     """    
@@ -240,34 +189,15 @@ def create_user(reg = None):
 
 def send_password_reset_email(user: 'User'):
     """Send a password reset email to the specified user."""
-    if current_app.config.get('ALLOW_SEND_EMAILS', True) is False:
-        raise EmailSendingDisabledException() # Email sending is disabled in config
+    from lingual.utils.mail_utils import queue_email
 
-    def send_verification_email(app, email, token):
-        with app.app_context():
-            from lingual import mail
-            reset_link = build_external_url('main.reset_token', token=token)
-            mail.send_message(
-                subject="Password Reset Request",
-                recipients=[email],
-                body=(
-                    f"To reset your password, visit the following link: {reset_link}\n\n"
-                    "This link will expire in 30 minutes.\n\n"
-                    "If you did not make this request, simply ignore this email."
-                )
-            )
-
-    try:
-        # Send password reset email asynchronously
-        # Refer to comments in verify_email for reasoning behind asynchronous email sending.
-        Thread(
-            target=send_verification_email,
-            args=(current_app._get_current_object(), user.email, user.get_reset_token()),  # type: ignore
-            daemon=True # Makes asynchronous to not halt application flow while sending email
-        ).start()
-    except EmailSendingDisabledException: # Handle case where email sending is disabled
-        current_app.logger.warning(f"Email sending is disabled. Skipping password reset email for user: {user.email}")
-        return jsonify({"error": "Email sending is currently disabled."}), 400
-    except Exception as e: # Catch all other exceptions
-        current_app.logger.error(f"Error when sending password reset email: {e}\nUser: {user.email}")
-        return jsonify({"error": "Something went wrong when sending the password reset email."}), 400
+    reset_link = build_external_url('main.reset_token', token=user.get_reset_token())
+    queue_email(
+        recipients=[user.email],
+        subject="Password Reset Request",
+        body=(
+            f"To reset your password, visit the following link: {reset_link}\n\n"
+            "This link will expire in 30 minutes.\n\n"
+            "If you did not make this request, simply ignore this email."
+        )
+    )

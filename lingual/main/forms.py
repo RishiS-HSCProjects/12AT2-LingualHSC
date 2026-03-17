@@ -120,7 +120,7 @@ class DeleteAccountConfirmation(ModalForm):
     description = "Are you sure you want to delete your account {EMAIL}? This action can not be undone."
     
     txt = StringField("Please type 'delete my account'", validators=[DataRequired()])
-    password = PasswordField('Input current password', validators=[DataRequired()])
+    password = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField("Delete forever!")
 
     def set_email(self, email):
