@@ -25,14 +25,6 @@
                 "explanation": "The correct answer is そう, as the information is coming from a reliable source (the newspaper) and is being reported by the speaker directly."
             },
             {
-                "type": "input",
-                "question": "What nuance is carried in the following sentence?\n\nこの都[と]市[し]はさいきんとても安[あん]全[ぜん]になったらしいです。",
-                "includes": [
-                    ["uncertain", "unreliable", "hearsay", "sure", "direct"]
-                ],
-                "sample_answer": "/i The sentence translates to \"This city has recently become very safe.\" \\\nThe speaker is conveying hearsay information about the city's safety, indicating that they have heard this from others."
-            },
-            {
                 "type": "mc",
                 "question": "If you were to say \"I heard the tickets are selling out quickly,\" which ending would you use and why?",
                 "options": [

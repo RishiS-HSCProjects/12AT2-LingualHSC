@@ -133,7 +133,7 @@
                     ["行く", "いく", "iku", "行きます", "いきます", "ikimasu"]
                 ],
                 "sample_answer": "勉[べん]強[きょう]ができるように図書館[としょかん]に行[い]きます。",
-                "explanation": "Remember, you should use the potential form of the verb before ように when expressing purpose. /i The potential form of する is できる. \\"                
+                "explanation": "Remember, you should use the potential form of the verb before ように when expressing purpose. (<b>Recall</b>: The potential form of する is できる)"                
             },
             {
                 "type": "input",

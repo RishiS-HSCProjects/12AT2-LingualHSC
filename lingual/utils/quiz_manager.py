@@ -1,8 +1,6 @@
 from enum import Enum, auto # Auto import required for children to use auto() without importing it themselves.
-from flask_wtf import FlaskForm
-from wtforms import IntegerField, SelectMultipleField, SubmitField
-from wtforms.validators import DataRequired, NumberRange
-
+from wtforms import IntegerField, SelectMultipleField, SubmitField, ValidationError
+from wtforms.validators import DataRequired
 from lingual.utils.modals import ModalForm
 
 class TypeEnum(Enum):
@@ -74,7 +72,7 @@ class LessonQuizConfigForm(QuizForm):
 
     max_questions = IntegerField(
         "Max Questions",
-        validators=[NumberRange(min=5, max=50)],
+        validators=[DataRequired()],
         default=10
     )
 
@@ -86,3 +84,7 @@ class LessonQuizConfigForm(QuizForm):
 
     def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
         self.lessons.choices = choices # type: ignore
+
+    def validate_max_questions(self, field):
+        if ((data := field.data) < 5) or (data > 50):
+            raise ValidationError("Max questions must be between 5 and 50.")

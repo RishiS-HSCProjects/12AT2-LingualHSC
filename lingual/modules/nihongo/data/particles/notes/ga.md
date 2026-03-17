@@ -5,11 +5,9 @@ The particle **が** marks the **subject** doing the action or the thing being i
 - Common in answers to "who/what" questions.
 
 ## Example
-- だれ**が**来ましたか。
-- Who came?
 
-- 田中さん**が**来ました。
-- Tanaka came.
+- だれ**が**来ましたか → Who came?
+- 田中さん**が**来ました → Tanaka came.
 
 ## HSC Tip
 If you need to highlight *who/what specifically*, **が** is usually a strong choice.

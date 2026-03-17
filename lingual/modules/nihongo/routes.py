@@ -70,15 +70,11 @@ def home():
         ),
         ItemBox(
             title="Kanji",
-            body=f"0/{len(Kanji.get_prescribed_kanji())} Kanji Mastered",
+            body=f"Your quick kanji reference sheet!",
             buttons=[
                 ItemBox.BoxButton(
                 text="Learn",
-                link="#"
-                ),
-                ItemBox.BoxButton(
-                    text="Quiz",
-                    link = url_for('nihongo.quiz', type=quiz_utils.NihongoQuizTypes.KANJI.name)
+                link=url_for('nihongo.kanji')
                 )
             ],
             on_click=url_for('nihongo.kanji')

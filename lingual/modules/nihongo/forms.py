@@ -1,6 +1,6 @@
 from wtforms import IntegerField, SelectMultipleField, ValidationError
 from wtforms.fields import Label
-from wtforms.validators import DataRequired, NumberRange
+from wtforms.validators import DataRequired
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.quiz_manager import QuizForm, LessonQuizConfigForm
 
@@ -24,7 +24,7 @@ class KanjiQuizConfigForm(QuizForm):
 
     max_questions = IntegerField(
         "Max Questions",
-        validators=[NumberRange(min=5, max=50)],
+        validators=[DataRequired()],
         default=10
     )
 

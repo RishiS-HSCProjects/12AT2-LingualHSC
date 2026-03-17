@@ -28,7 +28,7 @@ For example:
 
 ## Example Sentences
 
-- 週[しゅう]末[まつ]は公[こう]園[えん]に行っ**たり**、テニスをし**たり**、本を読[よ]んだりします。
+- 週[しゅう]末[まつ]は公[こう]園[えん]に行っ**たり**、テニスをし**たり**、本を読[よ]ん**だり**します。
     Over the weekend, I do things like go to the park, play tennis, and read books.
 - 夏[なつ]休[やす]みには海[うみ]で泳[およ]い**だり**、山[やま]に登[のぼ]っ**たり**しました。
     During summer vacation, I did things like swim in the ocean and climb mountains.
