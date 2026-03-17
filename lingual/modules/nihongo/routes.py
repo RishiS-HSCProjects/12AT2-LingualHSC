@@ -298,8 +298,6 @@ def particles_lookup(slug):
 def quiz():
     quiz_topics = quiz_utils.NihongoQuizTypes
     quiz_modals = {}
-    jp_stats = current_user.get_language_stats(Languages.JAPANESE.obj().code)
-    learnt_grammar_lessons = jp_stats.get_grammar_practised() if jp_stats else []
 
     # Build quiz modal instances once so validation state is preserved on re-render.
     for topic in quiz_topics:

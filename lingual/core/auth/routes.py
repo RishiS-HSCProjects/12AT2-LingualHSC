@@ -76,7 +76,7 @@ def prepare_otp(reg: dict | None) -> tuple[str, str]:
 
     # D-AE01
     # Store the OTP in the session (hashed)
-    session['otp'] = [hashpw(otp.encode(), gensalt()), time()] # Using same hashing system for OTPs as passwords.
+    session['otp'] = [hashpw(otp.encode(), gensalt()).decode('utf-8'), time()] # Using same hashing system for OTPs as passwords.
 
     return email, otp # Return packaged tuple of required data
 
@@ -121,7 +121,7 @@ def verify_otp(otp_code: str) -> str | None:
         return "OTP has expired. Please request a new one."
 
     from bcrypt import checkpw # Use bcrypt's checkpw to compare hashed OTPs
-    if checkpw(otp_code.encode(), otp_data[0]):
+    if checkpw(otp_code.encode(), otp_data[0].encode('utf-8')):
         session.pop('otp', None) # Remove OTP from session upon successful verification
         return None # None indicates success
 
