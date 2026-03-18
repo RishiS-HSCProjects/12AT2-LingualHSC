@@ -448,26 +448,34 @@ def account():
     account_modals: dict[str, ModalForm] = {}
     user_lang = current_user.get_languages()
 
-    from lingual.main.forms import DeleteAppConfirmation
+    from lingual.main.forms import DeleteAppConfirmation, UpdateInfoForm
     for modal_action in AccountActionTypes:
         try:
+            form = modal_action.get_modal()
+
+            # Handle custom setup modals
             if modal_action == AccountActionTypes.DELETE_APP:
                 for lang in user_lang:
-                    delete_app_form = modal_action.get_modal()
-                    if isinstance(delete_app_form, DeleteAppConfirmation):
-                        delete_app_form.set_app_name(lang.app_name)
-                        setattr(delete_app_form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
-                        delete_app_form.set_action(
+                    if isinstance(form, DeleteAppConfirmation):
+                        form.set_app_name(lang.app_name)
+                        setattr(form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
+                        form.set_action(
                             url_for('main.account', action=modal_action.value, lang=lang.code)
                         )
-                        account_modals[f"{modal_action.value}:{lang.code}"] = delete_app_form
+                        account_modals[f"{modal_action.value}:{lang.code}"] = form
                 continue
 
-            modal_form = modal_action.get_modal()
-            if modal_form:
-                account_modals[modal_action.value] = modal_form
+            if modal_action == AccountActionTypes.UPDATE_INFO:
+                if isinstance(form, UpdateInfoForm):
+                    if request.method == 'GET':
+                        form.set_first_name(current_user.first_name)
+                    account_modals[modal_action.value] = form
+                continue
+
+            # Handle regular modals
+            if form: account_modals[modal_action.value] = form
         except NotImplementedError:
-            continue
+            continue # Skip unimplemented modals
 
     if action:
         try:

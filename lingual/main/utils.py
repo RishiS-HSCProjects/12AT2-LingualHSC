@@ -28,9 +28,7 @@ class AccountActionTypes(Enum):
             return form
 
         if self == self.UPDATE_INFO:
-            from flask_login import current_user
             form = UpdateInfoForm()
-            form.set_first_name(current_user.first_name)
             form.set_action(url_for('main.account', action=self.value))
             return form
 
