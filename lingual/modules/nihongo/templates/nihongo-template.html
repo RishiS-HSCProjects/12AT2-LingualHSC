@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/graphic-bg.css') }}">
 <link rel="stylesheet" href="{{ url_for('nihongo.static', filename='styles/nihongo.css') }}">
 
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('nihongo.static', filename='app_assets/icon/favicon-180x180.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('nihongo.static', filename='app_assets/icon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('nihongo.static', filename='app_assets/icon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('nihongo.static', filename='app_assets/icon/site.webmanifest') }}">
+
 <style>
     :root {
         --graphic-bg-url: url("{{ url_for('nihongo.static', filename='app_assets/sakura-tree.png') }}");
