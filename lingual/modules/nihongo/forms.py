@@ -12,10 +12,6 @@ class GrammarQuizConfigForm(LessonQuizConfigForm):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.lessons.label = Label(self.lessons.id, "Grammar Points") # Assign this here too
-    
-    def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
-        self.lessons.choices = choices # type: ignore
-        self.lessons.data = [value for value, _ in choices]  # Select all by default
 
 class KanjiQuizConfigForm(QuizForm):
     title = "Kanji Quiz Configuration"

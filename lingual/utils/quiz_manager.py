@@ -84,7 +84,28 @@ class LessonQuizConfigForm(QuizForm):
 
     def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
         self.lessons.choices = choices # type: ignore
+        lesson_values = [value for value, _ in choices] # Build a new list of choice values, omitting the labels
+
+        # Default to all lessons only when opening the form initially.
+        selected_values = self.lessons.data or [] # Get the currently selected values (if any)
+        if not self.is_submitted() and not selected_values: # Ensure form has not been submitted to avoid overwriting selections
+            self.lessons.data = lesson_values # Select all lessons by default if no selections have been made yet.
+            return
+
+        if not selected_values:
+            # If the form was submitted but no lessons were selected, we should not default to all lessons.
+            self.lessons.data = []
+            return # Exit and allow for validation error
+
+        # Keep only values that still exist in the configured choices.
+        if any(value not in lesson_values for value in selected_values): # If any value is not in the new choice list, choices need to be reset
+            # This prevents edge cases where a user might have selected lessons that are no longer available due to changes in the lesson list.
+            self.lessons.data = [value for value in selected_values if value in lesson_values]
 
     def validate_max_questions(self, field):
+        """ Overwrite this method in subclasses to provide specific validation for max questions if needed. """
+
+        # No integer validation is needed here since WTForms can handle that.
         if ((data := field.data) < 5) or (data > 50):
+            # Ensure max questions are between 5 and 50 
             raise ValidationError("Max questions must be between 5 and 50.")
