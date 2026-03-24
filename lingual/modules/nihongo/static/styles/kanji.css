@@ -1,5 +1,5 @@
 :root {
-	--tile-panel-width: 30%; /* Width of the kanji info panel */
+	--tile-panel-width: 28vw; /* Width of the kanji info panel */
 }
 
 #body {
@@ -9,61 +9,119 @@
 }
 
 .kanji-char {
-	font-size: clamp(2rem, 3.4vw, 3.6rem);
+	font-size: 3rem;
 	color: var(--colour-primary);
 }
 
-#kanji-info-char {
-	margin: 0 0 8px;
-	font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+#kanji-info .kanji-heading-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.4rem;
+	min-width: 0;
+}
+
+#kanji-info .kanji-heading-row > #kanji-info-char {
+	margin: 0;
+	font-size: 3rem;
 	color: var(--colour-primary);
 }
 
-.kanji-info-body {
+#kanji-info .kanji-heading-row > #kanji-info-char.is-link {
+	cursor: pointer;
+}
+
+#kanji-info .kanji-heading-row > .kanji-attribution {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+	font-size: var(--font-size-small);
+	line-height: var(--line-height-small);
+	color: var(--colour-muted);
+	text-align: right;
+	white-space: nowrap;
+}
+
+#kanji-info .kanji-heading-row > .kanji-attribution > #wanikani-logo {
+	height: 20px;
+	width: auto;
+	border-radius: var(--radius-small);
+	display: block;
+}
+
+#kanji-info .kanji-heading-row > .kanji-attribution > a {
+	color: var(--colour-link);
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+#kanji-info .kanji-heading-row > .kanji-attribution > a:hover,
+#kanji-info .kanji-heading-row > .kanji-attribution > a:focus-visible {
+	color: var(--colour-link-hover);
+}
+
+#kanji-info .kanji-info-body {
 	display: grid;
-	gap: clamp(14px, 2vw, 22px);
+	gap: 16px;
 }
 
-.kanji-tag-row {
+#kanji-info .kanji-info-body > .kanji-tag-row {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
 }
 
-.kanji-tag {
+#kanji-info .kanji-info-body .kanji-tag {
 	display: inline-flex;
 	align-items: center;
-	gap: 6px;
+	gap: 4px;
 	padding: 6px 14px;
 	border-radius: var(--radius-pill);
 	background: var(--colour-accent-soft);
 	color: var(--colour-accent-strong);
 	font-weight: 600;
-	letter-spacing: 0.02em;
 }
 
-.kanji-tag#kanji-info-type {
+#kanji-info .kanji-info-body .kanji-tag#kanji-info-type {
 	color: var(--colour-text-on-accent);
 	background-color: var(--colour-status-neutral);
 }
 
-.kanji-tag#kanji-info-type.type-active {
+#kanji-info .kanji-info-body .kanji-tag#kanji-info-type.type-active {
 	background: var(--colour-success-strong);
 }
 
-.kanji-tag#kanji-info-type.type-recognition {
+#kanji-info .kanji-info-body .kanji-tag#kanji-info-type.type-recognition {
 	background: var(--colour-danger-strong);
 }
 
-.kanji-info-block > h3 {
-	margin: 0 0 6px;
+#kanji-info .kanji-info-body > .kanji-info-block > h3 {
+	margin: 0 0 4px;
 	font-size: var(--font-size-header-4);
 	color: var(--colour-primary);
 }
 
-.kanji-info-block > p {
+#kanji-info .kanji-info-body > .kanji-info-block > p {
 	margin: 0;
 	color: var(--colour-secondary);
 	font-size: var(--font-size-body);
 	line-height: var(--line-height-body);
+}
+
+@media (max-width: 520px) {
+	#kanji-info .kanji-heading-row {
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	#kanji-info .kanji-heading-row > .kanji-attribution {
+		text-align: left;
+		margin-left: 0;
+	}
+
+	#kanji-info .kanji-heading-row > #kanji-info-char,
+	.kanji-char {
+		font-size: 2.4rem;
+	}
 }

@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	const infoMeanings = document.getElementById("kanji-info-meanings");
 	const infoOnyomi = document.getElementById("kanji-info-onyomi");
 	const infoKunyomi = document.getElementById("kanji-info-kunyomi");
-
+	const infoNanori = document.getElementById("kanji-info-nanori");
 	/** 
 	 * Client-side cache to store fetched kanji data during runtime.
 	 * @see Documentation D-AE04
 	 */
 	const kanjiCache = new Map();
 
-	if (!page || !grid || !blocks.length || !infoChar || !infoPrimary || !infoType || !infoMeanings || !infoOnyomi || !infoKunyomi) {
+	if (!page || !grid || !blocks.length || !infoChar || !infoPrimary || !infoType || !infoMeanings || !infoOnyomi || !infoKunyomi || !infoNanori) {
 		console.error("Essential kanji elements are missing from the DOM.");
 		return; // Essential elements are missing, so we exit early to avoid errors.
 	}
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoMeanings.textContent = "";
 		infoOnyomi.textContent = "";
 		infoKunyomi.textContent = "";
+		infoNanori.textContent = "";
 	};
 
 	/**
@@ -58,9 +59,21 @@ document.addEventListener("DOMContentLoaded", () => {
 		const kunyomi = Array.isArray(data?.readings)
 			? data.readings.filter((r) => r.type === "kunyomi").map((r) => r.reading).filter(Boolean) // Filter out any falsy values
 			: []; // Default to empty array if readings is not an array
+		const nanori = Array.isArray(data?.readings)
+			? data.readings.filter((r) => r.type === "nanori").map((r) => r.reading).filter(Boolean) // Filter out any falsy values
+			: []; // Default to empty array if readings is not an array
+		const url = data?.document_url || "#"; // Fallback to "#" if URL is not provided
 
 		// Set info content
 		infoChar.textContent = kanji;
+		if (url && url !== "#") {
+			infoChar.classList.add("is-link");
+			infoChar.title = "Click to view on WaniKani";
+			infoChar.addEventListener("click", () => {
+				// Open the kanji's document URL in a new tab if it exists
+					window.open(url, "_blank");
+			});
+		}
 		infoPrimary.textContent = primaryMeaning ? `Primary: ${primaryMeaning}` : "Primary: N/A";
 
 		let typeLabel = infoType.querySelector(".kanji-type-label");
@@ -97,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoMeanings.textContent = meanings.length ? meanings.join(", ") : "No meanings listed.";
 		infoOnyomi.textContent = onyomi.length ? onyomi.join(" ・ ") : "No on'yomi recorded.";
 		infoKunyomi.textContent = kunyomi.length ? kunyomi.join(" ・ ") : "No kun'yomi recorded.";
+		infoNanori.textContent = nanori.length ? nanori.join(" ・ ") : "No nanori recorded.";
 	};
 
 	/**

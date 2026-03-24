@@ -57,6 +57,7 @@ class ReadingType(Enum):
     """ Enum representing the reading type (onyomi or kunyomi) """
     ON = 'onyomi'
     KUN = 'kunyomi'
+    NANORI = 'nanori'
 
 class Kanji:
     """Represents a Kanji character with associated information fetched from the WaniKani API."""
@@ -101,12 +102,21 @@ class Kanji:
     def on_readings(self) -> list:
         """Returns the 'on' readings of the kanji."""
         return self._get_readings_by_type(ReadingType.ON.value)
-    
+
+    @property
+    def nanori_readings(self) -> list:
+        """Returns the 'nanori' readings of the kanji."""
+        return self._get_readings_by_type(ReadingType.NANORI.value)
+
     @property
     def type(self) -> KanjiType:
         """ Returns the type of the kanji (ACTIVE, RECOGNITION, or PASSIVE). """
         type = self.data.get("type", KanjiType.PASSIVE.name).lower()
         return KanjiType(type) if type in KanjiType._value2member_map_ else KanjiType.PASSIVE
+
+    @property
+    def url(self) -> str:
+        return self.data.get("document_url", "")
 
     def get_primary_meaning(self) -> str:
         """
