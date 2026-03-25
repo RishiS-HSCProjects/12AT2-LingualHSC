@@ -27,10 +27,38 @@ document.addEventListener("DOMContentLoaded", () => {
 		return; // Essential elements are missing, so we exit early to avoid errors.
 	}
 
+	/**
+	 * Helper function to extract readings of a specific type from kanji data.
+	 */
+	const getReadingsByType = (data, type) => (
+		Array.isArray(data?.readings)
+			? data.readings.filter((reading) => reading.type === type).map((reading) => reading.reading).filter(Boolean)
+			: []
+	);
+
+	/**
+	 * Sets the kanji character in the information panel and optionally makes it a clickable link to WaniKani if a valid URL is provided.
+	 */
+	const setInfoCharLink = (url) => {
+		infoChar.onclick = null;
+		infoChar.classList.remove("is-link");
+		infoChar.title = "";
+
+		if (!url || url === "#") return;
+
+		infoChar.classList.add("is-link");
+		infoChar.title = "Click to view on WaniKani";
+		infoChar.onclick = () => {
+			// noopener and noreferrer prevent the new page from being able to access the window.opener property and ensure it runs in a separate process for security reasons.
+			window.open(url, "_blank", "noopener,noreferrer");
+		};
+	};
+
 	/** Updates the information panel with data from the selected kanji block */
 	const setLoadingPanel = (kanji) => {
 		// Default loading state.
 		infoChar.textContent = kanji;
+		setInfoCharLink(""); // Remove link during loading/error state
 		infoPrimary.textContent = "Data not available yet. Please try again in a moment.";
 		infoType.hidden = true;
 		const label = infoType.querySelector(".kanji-type-label");
@@ -53,27 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		const primaryMeaning = Array.isArray(data?.meanings)
 			? (data.meanings.find((m) => m.primary)?.meaning || "")
 			: ""; // Default to empty string if meanings is not an array
-		const onyomi = Array.isArray(data?.readings)
-			? data.readings.filter((r) => r.type === "onyomi").map((r) => r.reading).filter(Boolean) // Filter out any falsy values
-			: []; // Default to empty array if readings is not an array
-		const kunyomi = Array.isArray(data?.readings)
-			? data.readings.filter((r) => r.type === "kunyomi").map((r) => r.reading).filter(Boolean) // Filter out any falsy values
-			: []; // Default to empty array if readings is not an array
-		const nanori = Array.isArray(data?.readings)
-			? data.readings.filter((r) => r.type === "nanori").map((r) => r.reading).filter(Boolean) // Filter out any falsy values
-			: []; // Default to empty array if readings is not an array
+		const onyomi = getReadingsByType(data, "onyomi");
+		const kunyomi = getReadingsByType(data, "kunyomi");
+		const nanori = getReadingsByType(data, "nanori");
 		const url = data?.document_url || "#"; // Fallback to "#" if URL is not provided
 
 		// Set info content
 		infoChar.textContent = kanji;
-		if (url && url !== "#") {
-			infoChar.classList.add("is-link");
-			infoChar.title = "Click to view on WaniKani";
-			infoChar.addEventListener("click", () => {
-				// Open the kanji's document URL in a new tab if it exists
-					window.open(url, "_blank");
-			});
-		}
+		setInfoCharLink(url); // Set link to WaniKani if URL is valid
 		infoPrimary.textContent = primaryMeaning ? `Primary: ${primaryMeaning}` : "Primary: N/A";
 
 		let typeLabel = infoType.querySelector(".kanji-type-label");
