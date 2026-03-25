@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const infoOnyomi = document.getElementById("kanji-info-onyomi");
 	const infoKunyomi = document.getElementById("kanji-info-kunyomi");
 	const infoNanori = document.getElementById("kanji-info-nanori");
+	const infoNanoriBlock = infoNanori?.closest(".kanji-info-block") || null;
 	/** 
 	 * Client-side cache to store fetched kanji data during runtime.
 	 * @see Documentation D-AE04
@@ -32,9 +33,32 @@ document.addEventListener("DOMContentLoaded", () => {
 	 */
 	const getReadingsByType = (data, type) => (
 		Array.isArray(data?.readings)
-			? data.readings.filter((reading) => reading.type === type).map((reading) => reading.reading).filter(Boolean)
+			? data.readings
+				.filter((reading) => String(reading?.type || "").trim().toLowerCase() === type)
+				.map((reading) => reading.reading)
+				.filter(Boolean)
 			: []
 	);
+
+	const getNanoriReadings = (data) => {
+		const fromReadings = getReadingsByType(data, "nanori");
+		if (fromReadings.length) return fromReadings;
+
+		// Fallbacks for alternate payload formats.
+		if (Array.isArray(data?.nanori_readings)) {
+			return data.nanori_readings
+				.map((item) => (typeof item === "string" ? item : item?.reading))
+				.filter(Boolean);
+		}
+
+		if (Array.isArray(data?.nanori)) {
+			return data.nanori
+				.map((item) => (typeof item === "string" ? item : item?.reading))
+				.filter(Boolean);
+		}
+
+		return [];
+	};
 
 	/**
 	 * Sets the kanji character in the information panel and optionally makes it a clickable link to WaniKani if a valid URL is provided.
@@ -67,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoOnyomi.textContent = "";
 		infoKunyomi.textContent = "";
 		infoNanori.textContent = "";
+		if (infoNanoriBlock) infoNanoriBlock.hidden = true;
 	};
 
 	/**
@@ -83,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			: ""; // Default to empty string if meanings is not an array
 		const onyomi = getReadingsByType(data, "onyomi");
 		const kunyomi = getReadingsByType(data, "kunyomi");
-		const nanori = getReadingsByType(data, "nanori");
+		const nanori = getNanoriReadings(data);
 		const url = data?.document_url || "#"; // Fallback to "#" if URL is not provided
 
 		// Set info content
@@ -125,7 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoMeanings.textContent = meanings.length ? meanings.join(", ") : "No meanings listed.";
 		infoOnyomi.textContent = onyomi.length ? onyomi.join(" ・ ") : "No on'yomi recorded.";
 		infoKunyomi.textContent = kunyomi.length ? kunyomi.join(" ・ ") : "No kun'yomi recorded.";
-		infoNanori.textContent = nanori.length ? nanori.join(" ・ ") : "No nanori recorded.";
+		if (infoNanoriBlock) infoNanoriBlock.hidden = !nanori.length;
+		infoNanori.textContent = nanori.length ? nanori.join(" ・ ") : "";
 	};
 
 	/**
