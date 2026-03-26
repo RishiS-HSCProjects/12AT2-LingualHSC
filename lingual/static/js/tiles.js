@@ -87,6 +87,7 @@ class BaseTilePage {
             inline: 'center'
         });
 
+        /* Custom event called when a tile is selected */
         this.page.dispatchEvent(new CustomEvent('tiles:select', {
             bubbles: true,
             detail: {

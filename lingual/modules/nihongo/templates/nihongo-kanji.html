@@ -29,11 +29,18 @@
         tile_value_attr='kanji',
         tile_class='tile kanji-block',
         custom_tile_renderer=false,
-        layout_open='3fr 1fr'
+        layout_width='0.4fr'
     ) %}
         {% if part == 'menu' %}
             <div class="kanji-info-body">
-                <h2 id="kanji-info-char"></h2>
+                <div class="kanji-heading-row">
+                    <h2 id="kanji-info-char"></h2>
+                    <div class="kanji-attribution" role="note" aria-label="Data source attribution">
+                        Powered by
+                        <a href="https://www.wanikani.com" target="_blank" rel="noopener noreferrer">WaniKani</a>
+                        <img src="{{ url_for('nihongo.static', filename='app_assets/wanikani.jpeg') }}" alt="" aria-hidden="true" id="wanikani-logo">
+                    </div>
+                </div>
                 <div class="kanji-tag-row">
                     <span id="kanji-info-primary" class="kanji-tag"></span>
                     <span id="kanji-info-type" class="kanji-tag" data-help-icon="false"></span>
@@ -49,6 +56,10 @@
                 <div class="kanji-info-block">
                     <h3 data-help="Japanese native readings of the kanji. Often used when the kanji appears alone or in native Japanese words.">Kun'yomi</h3>
                     <p id="kanji-info-kunyomi"></p>
+                </div>
+                <div class="kanji-info-block">
+                    <h3 data-help="Name readings of the kanji, often used in names and sometimes in place of kun'yomi.">Nanori</h3>
+                    <p id="kanji-info-nanori"></p>
                 </div>
             </div>
         {% endif %}

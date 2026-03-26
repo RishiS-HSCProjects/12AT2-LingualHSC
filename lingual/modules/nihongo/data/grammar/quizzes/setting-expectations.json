@@ -163,7 +163,8 @@
                     "Making an inference from facts",
                     "Giving a command"
                 ],
-                "answer": 2
+                "answer": 2,
+                "explanation": "はずだ is used for setting expectations. Such expectations can be inferences made from facts."
             },
             {
                 "type": "mc",

@@ -1,6 +1,5 @@
 from flask import current_app, has_request_context, url_for
 
-
 def build_external_url(endpoint: str, **values) -> str:
     """Build an absolute URL without requiring SERVER_NAME in development.
 
