@@ -54,7 +54,7 @@ class KanjiType(Enum):
     PASSIVE = 2  # Non-standard type for kanji that are not part of the prescribed lists. Used as a catch-all for any kanji that doesn't fit into the other categories.
 
 class ReadingType(Enum):
-    """ Enum representing the reading type (onyomi or kunyomi) """
+    """ Enum representing the reading type (onyomi, kunyomi, and nanori) """
     ON = 'onyomi'
     KUN = 'kunyomi'
     NANORI = 'nanori'

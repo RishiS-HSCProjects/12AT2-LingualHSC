@@ -28,11 +28,11 @@
     tile_delay_step=18,
     tile_class='tile',
     custom_tile_renderer=true,
-    layout_open='3fr 1fr',
+    layout_width='0.5fr',
     layout_closed='1fr 0fr'
 ) %}
 <div id="{{ page_id }}" class="{{ page_class }}" data-tiles-page="true" data-tile-value-attr="{{ tile_value_attr }}"
-    style="--tiles-layout-open: {{ layout_open }};">
+    style="--tile-panel-width: {{ layout_width }};">
     <section id="{{ list_id }}" class="{{ list_class }}" aria-label="{{ title }}">
         <div class="tile-header">
             <h1>{{ title }}</h1>

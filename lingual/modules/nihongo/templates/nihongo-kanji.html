@@ -29,7 +29,7 @@
         tile_value_attr='kanji',
         tile_class='tile kanji-block',
         custom_tile_renderer=false,
-        layout_open='3fr 1fr'
+        layout_width='0.4fr'
     ) %}
         {% if part == 'menu' %}
             <div class="kanji-info-body">
@@ -38,7 +38,7 @@
                     <div class="kanji-attribution" role="note" aria-label="Data source attribution">
                         Powered by
                         <a href="https://www.wanikani.com" target="_blank" rel="noopener noreferrer">WaniKani</a>
-                        <img src="{{ url_for('nihongo.static', filename='app_assets/wanikani.jpeg') }}" alt="WaniKani Logo" id="wanikani-logo">
+                        <img src="{{ url_for('nihongo.static', filename='app_assets/wanikani.jpeg') }}" alt="" aria-hidden="true" id="wanikani-logo">
                     </div>
                 </div>
                 <div class="kanji-tag-row">
