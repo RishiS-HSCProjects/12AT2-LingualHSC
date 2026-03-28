@@ -30,11 +30,12 @@ class Config:
     MAIL_PORT                       =      587
     MAIL_USE_TLS                    =      True
     MAIL_USE_SSL                    =      False
-    MAIL_USERNAME                   =      os.getenv('MAIL_USERNAME')
-    MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
     ALLOW_SEND_EMAILS               =      os.getenv('ALLOW_SEND_EMAILS', 'true').lower() in ['true', '1', 'yes'] # Set to True to send OTP emails on registration. False sets OTP to 123456.
-    ASYNC_EMAIL_ERROR_WAIT_SECONDS  =      1.5 # Seconds to wait for async email errors before giving up and proceeding
+    if ALLOW_SEND_EMAILS: # Only configure username/password/etc if emails to be sent. 
+        MAIL_USERNAME                   =      os.getenv('MAIL_USERNAME')
+        MAIL_PASSWORD                   =      os.getenv('MAIL_PASSWORD')
+        MAIL_DEFAULT_SENDER             =      os.getenv('MAIL_DEFAULT_SENDER')
+        ASYNC_EMAIL_ERROR_WAIT_SECONDS  =      1.5 # Seconds to wait for async email errors before giving up and proceeding
 
     WANIKANI_API_KEY                =      os.getenv('WANIKANI_API_KEY', None)  # API key for WaniKani integration
 
@@ -54,7 +55,8 @@ def create_app():
     app = Flask(__name__, template_folder='templates', static_folder='static') # Create app instance
     app.config.from_object(Config) # Attach config
 
-    mail.init_app(app)
+    if app.config.get('ALLOW_SEND_EMAILS'):
+        mail.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
     migrate.init_app(app, db)
