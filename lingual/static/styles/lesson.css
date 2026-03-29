@@ -535,6 +535,25 @@ body {
     min-height: 3rem;
 }
 
+.quiz ul li .quiz-option-text {
+    display: block;
+    width: 100%;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.quiz ul li ruby {
+    ruby-position: over;
+    ruby-align: center;
+    white-space: nowrap;
+}
+
+.quiz ul li ruby rt {
+    font-size: 0.66em;
+    line-height: 1;
+    margin-top: 0;
+}
+
 .quiz ul li:hover {
     background-color: var(--bg-surface-muted);
     border-color: var(--colour-accent);

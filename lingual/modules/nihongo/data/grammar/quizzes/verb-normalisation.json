@@ -21,7 +21,7 @@
                     ["食べる", "たべる", "taberu"],
                     ["の", "こと", "no", "koto"],
                     ["は", "が", "ha", "ga"],
-                    ["嫌い", "きらい", "kirai"]
+                    ["嫌い", "きらい", "kirai", "じゃない", "janai"]
                 ],
                 "sample_answer": "野[や]菜[さい]を食べるのが嫌[きら]いです。"
             },
@@ -29,7 +29,7 @@
                 "type": "input",
                 "question": "Translate to English: おどるのが好きじゃないです。",
                 "includes": [
-                    ["like", "dislike", "don't like", "dont like"],
+                    ["like", "dislike", "don't", "dont"],
                     ["dancing", "dance"]
                 ],
                 "sample_answer": "I don't like dancing."
@@ -218,7 +218,7 @@
                     ["泳ぐ", "およぐ", "oyogu"],
                     ["の", "こと", "no", "koto"],
                     ["が", "は", "ga", "ha"],
-                    ["嫌い", "きらい", "kirai"]
+                    ["嫌い", "きらい", "kirai", "じゃない", "janai"]
                 ],
                 "sample_answer": "泳[およ]ぐのが嫌[きら]いです。"
             },

@@ -382,7 +382,7 @@ class QuizRenderer {
                 ${shuffledOptions.map(opt => `
                     <li class="${this.optionClass}"
                         data-original-index="${opt.originalIndex}">
-                        ${opt.text}
+                        <span class="quiz-option-text">${opt.text}</span>
                     </li>
                 `).join("")}
             </ul>

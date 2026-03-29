@@ -63,7 +63,7 @@
                 "includes": [
                     ["しか"],
                     ["ケーキ", "keeki"],
-                    ["食べました", "食べた", "たべました", "たべた", "tabemashita", "tabeta"]
+                    ["食べませんでした", "食べなかった", "たべませんでした", "たべなかった", "tabemassendeshita", "tabemasusendeshita", "tabenakatta"]
                 ],
                 "sample_answer": "ケーキしか食べませんでした。"
             },

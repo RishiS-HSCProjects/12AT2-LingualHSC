@@ -56,7 +56,7 @@
             },
             {
                 "type": "input",
-                "question": "The same logic applies for free response questions as well. If your answer doesn't include the expected keywords or phrases, Lingual will show you which ones you missed so you can learn from your mistakes and improve your understanding of the material.\n\nTry answering this question: ||Why did the chicken cross the road||?",
+                "question": "The same logic applies for free response questions as well. If your answer doesn't include the expected keywords or phrases, Lingual will show you which ones you missed so you can learn from your mistakes and improve your understanding of the material.\n\nTry answering this question (Note: You might need to remove the spoiler first!): ||Why did the chicken cross the road||?",
                 "includes": [
                     ["chicken"],
                     ["cross", "go", "walk", "move"],

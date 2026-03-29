@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const infoOnyomi = document.getElementById("kanji-info-onyomi");
 	const infoKunyomi = document.getElementById("kanji-info-kunyomi");
 	const infoNanori = document.getElementById("kanji-info-nanori");
-	const infoNanoriBlock = infoNanori?.closest(".kanji-info-block") || null;
 	/** 
 	 * Client-side cache to store fetched kanji data during runtime.
 	 * @see Documentation D-AE04
@@ -91,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoOnyomi.textContent = "";
 		infoKunyomi.textContent = "";
 		infoNanori.textContent = "";
-		if (infoNanoriBlock) infoNanoriBlock.hidden = true;
 	};
 
 	/**
@@ -150,8 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoMeanings.textContent = meanings.length ? meanings.join(", ") : "No meanings listed.";
 		infoOnyomi.textContent = onyomi.length ? onyomi.join(" ・ ") : "No on'yomi recorded.";
 		infoKunyomi.textContent = kunyomi.length ? kunyomi.join(" ・ ") : "No kun'yomi recorded.";
-		if (infoNanoriBlock) infoNanoriBlock.hidden = !nanori.length;
-		infoNanori.textContent = nanori.length ? nanori.join(" ・ ") : "";
+		infoNanori.textContent = nanori.length ? nanori.join(" ・ ") : "No nanori recorded.";
 	};
 
 	/**
