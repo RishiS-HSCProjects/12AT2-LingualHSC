@@ -1,0 +1,32 @@
+{% extends "module-base.html" %}
+
+{% block meta %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/graphic-bg.css') }}">
+<link rel="stylesheet" href="{{ url_for('french.static', filename='styles/french.css') }}">
+
+<style>
+    :root {
+        --graphic-bg-url: url("{{ url_for('french.static', filename='app_assets/book-bg.png') }}");
+    }
+</style>
+
+{% endblock %}
+
+{% block header %}
+<div class="graphic-bg"></div>
+{{ super() }}
+{% endblock %}
+
+{% block nav_logo %}
+<a href="{{ url_for('french.home') }}">French</a>
+{% endblock %}
+
+{% block nav_links %}
+<a href="{{ url_for('french.lessons') }}">Lessons</a>
+<a href="{{ url_for('main.landing') }}">Back to Lingual HSC</a>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

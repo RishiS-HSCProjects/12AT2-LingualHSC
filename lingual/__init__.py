@@ -64,11 +64,13 @@ def create_app():
     # Register all blueprints
     from lingual.core.auth.routes import auth_bp
     from lingual.main.routes import main_bp
+    from lingual.modules.french.routes import french_bp
     from lingual.modules.nihongo.routes import nihongo_bp
     from lingual.modules.tutorial.routes import tutorial_bp
 
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(main_bp, url_prefix='/')
+    app.register_blueprint(french_bp, url_prefix='/french')
     app.register_blueprint(nihongo_bp, url_prefix='/nihongo')
     app.register_blueprint(tutorial_bp, url_prefix='/tutorial')
 
