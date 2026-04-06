@@ -24,7 +24,7 @@ main_bp = Blueprint(
 
 @main_bp.route('/')
 def landing():
-    return render_template('landing.html')
+    return render_template('landing.html', get_translatable=get_translatable)
 
 @main_bp.route('/welcome')
 @login_required
@@ -400,7 +400,7 @@ def app():
         if (len((user_langs := current_user.get_languages())) == 1):
             return redirect(url_for('main.app_redirect', code=user_langs[0].code)) # Redirect to the only language they have
         return redirect(url_for('main.app_directory')) # Redirect to app directory to choose a language
-    
+
     if last_lang:
         # Now that we know last_lang is not None, perform the redirect
         return redirect(url_for(last_lang.app_code + '.home'))
