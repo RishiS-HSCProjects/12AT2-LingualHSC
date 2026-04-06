@@ -1,4 +1,11 @@
 {
+    "hero_jump_text":
+    {
+        "en": "Ready to continue your {language} journey?",
+        "jp": "もっと日本語を学びたいですか？"
+    },
+
+
     "signup_welcome_text": {
         "en": "Hello there!",
         "jp": "ようこそ！"

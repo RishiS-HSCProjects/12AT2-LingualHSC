@@ -26,6 +26,13 @@
 <a href="{{ url_for('tutorial.lessons') }}">Lessons</a>
 <a href="{{ url_for('main.landing') }}">Back to Lingual HSC</a>
 {% endblock %}
+{% block account_link %}
+{% if current_user.is_authenticated %}
+{{ super() }}
+{% else %}
+<a href="{{ url_for('main.app') }}" id="start-learning-btn">Start Learning</a>
+{% endif %}
+{% endblock %}
 
 {% block body %}
 

@@ -161,6 +161,15 @@ class QuizRenderer {
         this.lockDelay = lockDelay;
 
         this.quizCache = {};
+        this.currentAudio = null;
+        this.audioStorageKey = "lingual-quiz-audio-muted";
+        this.isAudioMuted = false;
+
+        try {
+            this.isAudioMuted = sessionStorage.getItem(this.audioStorageKey) === "true";
+        } catch (_) {
+            this.isAudioMuted = false;
+        }
 
         this.init();
     }
@@ -408,14 +417,49 @@ class QuizRenderer {
         ${bodyHTML}
         ${explanationHTML}
         <div class="quiz-controls">
-            <span class="quiz-progress">
-                ${index + 1} / ${questions.length}
-            </span>
+            <div class="quiz-controls-left">
+                <span class="quiz-progress">
+                    ${index + 1} / ${questions.length}
+                </span>
+                <button class="quiz-audio-toggle" type="button"></button>
+            </div>
             <button class="quiz-next-btn" disabled>
                 ${index + 1 < questions.length ? "Next" : "Finish"}
             </button>
         </div>
     `;
+
+        const audioToggleBtn = container.querySelector(".quiz-audio-toggle");
+
+        const syncAudioToggle = () => {
+            if (!audioToggleBtn) return;
+
+            audioToggleBtn.classList.toggle("is-muted", this.isAudioMuted);
+            audioToggleBtn.setAttribute("aria-pressed", String(this.isAudioMuted));
+            audioToggleBtn.setAttribute("aria-label", this.isAudioMuted ? "Unmute quiz audio" : "Mute quiz audio");
+            audioToggleBtn.setAttribute("title", this.isAudioMuted ? "Unmute audio" : "Mute audio");
+            audioToggleBtn.textContent = this.isAudioMuted ? "🔇" : "🔊";
+        };
+
+        syncAudioToggle();
+
+        audioToggleBtn?.addEventListener("click", () => {
+            this.isAudioMuted = !this.isAudioMuted;
+
+            try {
+                sessionStorage.setItem(this.audioStorageKey, String(this.isAudioMuted));
+            } catch (_) {
+                // Ignore storage failures; mute still works for this page instance.
+            }
+
+            if (this.isAudioMuted && this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio.src = "";
+                this.currentAudio = null;
+            }
+
+            syncAudioToggle();
+        });
 
         if (index !== 0 && q.type === "input") {
             // Focus input if user is working through a specific quiz
@@ -622,7 +666,9 @@ class QuizRenderer {
             });
         }
 
-        function handleAudio() {
+        const handleAudio = () => {
+            if (this.isAudioMuted) return;
+
             let audio;
             if ((audio = q["audio-unconditional"]) ?? false) {
                 fetch(`api/audio?id=${audio}`, {
@@ -640,22 +686,22 @@ class QuizRenderer {
                         if (!data?.path) {
                             throw new Error("Audio path not provided in response");
                         }
-                        currentAudio = new Audio(data.path);
-                        currentAudio.play().catch(e => {
+                        this.currentAudio = new Audio(data.path);
+                        this.currentAudio.play().catch(e => {
                             console.warn("Failed to play audio. This may be due to browser restrictions.", e);
                         });
                     }).catch(e => {
                     console.error("An error occurred while fetching or playing audio.", e);
                 });
             }
-        }
+        };
 
         /* ---------- Navigation ---------- */
         nextBtn.addEventListener("click", () => {
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.src = "";
-                currentAudio = null;
+            if (this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio.src = "";
+                this.currentAudio = null;
             }
 
             if (index + 1 < questions.length) { // More questions remain
@@ -701,7 +747,7 @@ class QuizRenderer {
             subtitle = "Consider rereading the material.";
         } else {
             header = "Needs Improvement";
-            subtitle = "Review the lesson and retry.";
+            subtitle = "Review the lesson and try again.";
         }
 
         // Render summary HTML
