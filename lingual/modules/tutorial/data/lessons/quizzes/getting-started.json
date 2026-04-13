@@ -52,7 +52,7 @@
                     "four"
                 ],
                 "explanation": "Lingual will show you the missing expected elements that a correct answer should have included, so you can learn from your mistakes and understand why your answer was marked as incorrect. After you finish the first round of answering, you'll be given the chance to try answering this question again, and this time, you can use the feedback provided to help you get the correct answer!",
-                "audio-unconditional": "getting-started\\003.mp3"
+                "audio-incorrect": "getting-started\\003.mp3"
             },
             {
                 "type": "input",
@@ -65,7 +65,7 @@
                     ["revenge", "vengeance", "payback", "anger"]
                 ],
                 "explanation": "After you answer, Lingual will show you which expected keywords or phrases you missed in your answer, so you can learn from your mistakes and improve your understanding of the material. In the case you believe your answer was falsely marked (for example, you believe your answer is correct, but Lingual marked it as incorrect), you can create an issue on our GitHub page to let us know about the problem so we can fix it and improve our quizzes! Our issues page also exists as a community forum where you can discuss quiz questions with other users and all learn together!",
-                "audio-unconditional": "getting-started\\004.mp3",
+                "audio-incorrect": "getting-started\\004.mp3",
                 "sample_answer": "The chicken crossed the road because ||it wanted to get to the other side and seek revenge on the people who kept asking it that question||."
             },
             {

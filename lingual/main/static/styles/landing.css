@@ -21,7 +21,8 @@
     --landing-gradient-end-hover: rgba(21, 182, 13, 0.7);
     --landing-card-method-bg: #C5EDFF;
     --landing-card-use-lingual-bg: #FFDFC5;
-    --landing-section-use-lingual-bg: #fff0e4;
+    --landing-section-why-lingual-bg: #fff0e4;
+    --landing-section-use-lingual-bg: #e8f5ef;
     --landing-section-cta-bg: #eef5ff;
 }
 
@@ -300,6 +301,10 @@ section#welcome .cards .card:hover {
 }
 
 #why-lingual {
+    background: var(--landing-section-why-lingual-bg);
+}
+
+#use-lingual {
     background: var(--landing-section-use-lingual-bg);
 }
 

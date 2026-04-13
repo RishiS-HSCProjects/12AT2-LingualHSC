@@ -2,6 +2,10 @@
 
 title: "Particle は vs が"
 summary: "Learn about the differences between the particles は and が in Japanese and how to use them correctly."
+keywords:
+    - ha
+    - ga
+    - wa
 
 ---
 

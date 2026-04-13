@@ -479,13 +479,72 @@ class QuizRenderer {
 
         const nextBtn = container.querySelector(".quiz-next-btn");
         let answered = false;
-        let locked = true;
-        setTimeout(() => locked = false, this.lockDelay); // Lock inputs briefly to prevent accidental double-clicks
+        let locked = true; // Lock to prevent interactions during rendering and setup to prevent accidental double-clicks or key presses
+        setTimeout(() => locked = false, this.lockDelay); // Unlock after predetermined delay
 
         const markIncorrect = () => {
             // Mark question as incorrect in score tracking
             // Pushes question object to missed array for review later
             if (!isReview) score.missed.push(q);
+        };
+
+        /**
+         * Anonymous function for handling audio playback for the current question.
+         */
+        const handleAudio = (isCorrect) => {
+            if (this.isAudioMuted) return; // Do not play audio if muted
+
+            const playAudioById = (audioId) => {
+                if (!audioId) return; // Return null audio
+
+                if (this.currentAudio) { // Stop and clear any currently playing audio before starting new one
+                    this.currentAudio.pause();
+                    this.currentAudio.src = "";
+                    this.currentAudio = null;
+                }
+
+                fetch(`api/audio?id=${audioId}`, { // Fetch audio path from API using audio ID. This is necessary to prevent exposing direct audio file paths in the frontend, which could lead to unauthorized access through file traversal attacks.
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(response => {
+                    if (!response.ok) {
+                        // Throw error if audio fail to fetch
+                        throw new Error(`Audio API error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json(); // Get JSON response object
+                })
+                    .then(data => {
+                        if (!data?.path) { // Validate that response contains audio path
+                            throw new Error("Audio path not provided in response");
+                        }
+                        this.currentAudio = new Audio(data.path); // Create new Audio object with fetched path
+                        this.currentAudio.play().catch(e => {
+                            // Play audio catching any errors that occur during playback
+                            console.warn("Failed to play audio. This may be due to browser restrictions.", e);
+                        });
+                    }).catch(e => {
+                        // Log any errors that occur during fetch or playback to console for debugging
+                    console.error("An error occurred while fetching or playing audio.", e);
+                });
+            };
+
+            let audio = null;
+
+            // First determine audio based on correctness
+            if (isCorrect === true) {
+                audio = q["audio-correct"] ?? null;
+            } else if (isCorrect === false) {
+                audio = q["audio-incorrect"] ?? null;
+            }
+
+            // If no specific audio for correctness, check for unconditional audio
+            if (!audio) {
+                audio = q["audio-unconditional"] ?? null;
+            }
+
+            playAudioById(audio); // Play the determined audio. Function ignores null audio
         };
 
         /* ---------- MC handling ---------- */
@@ -519,7 +578,7 @@ class QuizRenderer {
                     const explanation = container.querySelector(".quiz-explanation");
                     addResultIndicator(explanation, chosen === q.answer);
 
-                    handleAudio();
+                    handleAudio(chosen === q.answer);
 
                     nextBtn.disabled = false; // Enable next button
 
@@ -642,7 +701,7 @@ class QuizRenderer {
                 const explanation = container.querySelector(".quiz-explanation");
                 addResultIndicator(explanation, correct); // Add correct/incorrect indicator to explanation
 
-                handleAudio();
+                handleAudio(correct);
 
                 nextBtn.disabled = false; // Enable next button
 
@@ -665,36 +724,6 @@ class QuizRenderer {
                 }, 100);
             });
         }
-
-        const handleAudio = () => {
-            if (this.isAudioMuted) return;
-
-            let audio;
-            if ((audio = q["audio-unconditional"]) ?? false) {
-                fetch(`api/audio?id=${audio}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }).then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Audio API error: ${response.status} ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                    .then(data => {
-                        if (!data?.path) {
-                            throw new Error("Audio path not provided in response");
-                        }
-                        this.currentAudio = new Audio(data.path);
-                        this.currentAudio.play().catch(e => {
-                            console.warn("Failed to play audio. This may be due to browser restrictions.", e);
-                        });
-                    }).catch(e => {
-                    console.error("An error occurred while fetching or playing audio.", e);
-                });
-            }
-        };
 
         /* ---------- Navigation ---------- */
         nextBtn.addEventListener("click", () => {

@@ -77,7 +77,7 @@ def login():
             resp.set_cookie('has_account', 'true', max_age=400*24*60*60) # Add persistent cookie to indicate user has an account
             return resp # Return response with cookie set
         else:
-            # Validation failed - save and display errors
+            # Validation failed: save and display errors
             save_form_to_session(form, session)
             flash_all_form_errors(form)
 
@@ -141,7 +141,7 @@ def register_util(step):
             if not language:
                 # If language is missing, exit.
                 # This can happen if the user tampers with the request.
-                return jsonify({"error": "Language is required"}), 400
+                return jsonify({"error": "Language is required"}), 400 # 400 Bad Request
             
             user.set_language(language) # Validate and set language. Raises RegUserValueException on error.
 
@@ -199,7 +199,7 @@ def register_util(step):
                 {'email': email}
             )
             if not success:
-                return jsonify({"error": error})
+                return jsonify({"error": error}), 400
 
             user.set_email(email) # Validate and set email. Raises RegUserValueException on error.
 
@@ -222,8 +222,9 @@ def register_util(step):
                 current_app.logger.info(f"Email sending disabled for OTP flow: {e}")
                 email_error = None
             except RegNotFoundException as e:
+                # Likely a session timeout issue, but still logged just in case
                 current_app.logger.warning(f"Registration Info Missing: {e}")
-                email_error = "Your registration session is invalid. Please refresh and try again."
+                email_error = "Your registration session has timed-out. Please refresh and try again."
             except EmailError.SMTPConfig as e:
                 current_app.logger.warning(f"SMTP Misconfigured: {e}")
                 email_error = str(e)
@@ -231,7 +232,9 @@ def register_util(step):
                 current_app.logger.error(f"Verification email send failed: {e}")
                 email_error = str(e)
             except Exception as e:
-                current_app.logger.error(f"Error in verify_email: {e}")
+                # Log unexpected errors
+                current_app.logger.error(f"Error in verify_email: {e}") # Attach detailed error log for debugging
+                current_app.logger.error(traceback.format_exc()) # Attach traceback
                 email_error = "A fatal error occurred while sending the verification email." # For Flash
 
             # The following code is responsible for returning a redacted version of the email for display.
@@ -248,7 +251,7 @@ def register_util(step):
             redacted_email = f"{redacted_local}@{domain}" # Reconstruct redacted email
 
             return jsonify({
-                "allowSendEmails": current_app.config.get('ALLOW_SEND_EMAILS', True),
+                "allowSendEmails": current_app.config.get('ALLOW_SEND_EMAILS', True), # Send config value for client-side warning
                 "email": redacted_email,
                 "error": email_error
             })
@@ -265,17 +268,18 @@ def register_util(step):
                 {'code': code}
             )
             if not success:
-                return jsonify({"error": error})
+                return jsonify({"error": error}), 400
 
             try:
                 from lingual.core.auth.routes import verify_otp
                 response = verify_otp(code) # Attempt to verify OTP. Returns str error message on failure, None on success.
             except Exception as e:
-                current_app.logger.error(f"Error in verify_otp: {e}")
+                current_app.logger.error(f"Error in verify_otp: {e}") # Attach detailed error log for debugging
+                current_app.logger.error(traceback.format_exc()) # Attach traceback
                 return jsonify({"error": "Error during OTP verification"}), 400
 
             if response: # OTP verification failed
-                return jsonify({"error": response})
+                return jsonify({"error": response}), 400
 
             secret_text = get_translatable(user.language or 'en', "signup_password_title") # Get translatable text for password prompt
             return jsonify({"error": None, "secret_text": secret_text}) # Return success with password prompt text
@@ -296,6 +300,7 @@ def register_util(step):
         # All expected error types are custom built.
         # All Flask or Python default errors are unexpected and thus logged.
         current_app.logger.error(f"Error processing request: {e}") # Detailed error log for debugging
+        current_app.logger.error(traceback.format_exc()) # Attach traceback
         return jsonify({"error": "Internal server error"}), 500 # Generic error message for unexpected errors
 
 @main_bp.route('/login/reset', methods=['GET', 'POST'], strict_slashes=False)
@@ -330,6 +335,7 @@ def reset():
                 except Exception as e:
                     # Expected errors are handled by custom exceptions
                     current_app.logger.error(f"Error sending password reset email: {e}") # Log unexpected errors
+                    current_app.logger.error(traceback.format_exc()) # Attach traceback
                     flash("An error occurred while attempting to send the reset email. Please try again later.", "error")
                     return redirect(url_for('main.reset'))
                 else:
@@ -339,7 +345,7 @@ def reset():
                     return redirect(url_for('main.login'))
 
         else:
-            # Validation failed - flash errors
+            # Validation failed: flash errors
             flash_all_form_errors(form)
 
     return render_template('reset.html', form=form) # Render password reset request template
@@ -376,11 +382,16 @@ def reset_token(token):
                     db.session.commit() # Save changes to database
                     flash("Your password has been updated! You can now log in.", "success")
                     return redirect(url_for('main.login'))
+            except ValueError as e:
+                # Log password validation errors
+                flash(str(e), "error")
             except Exception as e:
+                # Log unexpected errors during password update
                 current_app.logger.error(f"Error updating password: {e}")
+                current_app.logger.error(traceback.format_exc())
                 flash("An error occurred while updating your password. Please try again.", "error")
         else:
-            # Validation failed - flash errors
+            # Validation failed: flash errors
             flash_all_form_errors(form)
 
     return render_template('reset-token.html', user=user, token=token, form=form) # Render password reset form template
@@ -395,21 +406,22 @@ def app():
             return redirect(url_for('main.register'))
     
     last_lang = current_user.get_last_language()
-    
-    if last_lang is None:  # No last language set
+    if last_lang is None: # No last language set
         if (len((user_langs := current_user.get_languages())) == 1):
+            # If only one language, redirect to that language's app directly for convenience
             return redirect(url_for('main.app_redirect', code=user_langs[0].code)) # Redirect to the only language they have
         return redirect(url_for('main.app_directory')) # Redirect to app directory to choose a language
 
     if last_lang:
         # Now that we know last_lang is not None, perform the redirect
-        return redirect(url_for(last_lang.app_code + '.home'))
-    
+        return redirect(url_for(last_lang.app_code + '.home')) # Redirect to last language's app (standard naming conventions)
+
     return f"<h1>Hello {current_user.first_name}</h1>\nNo languages available for your profile."
 
 @main_bp.route('/app/directory', strict_slashes=False)
 @login_required
 def app_directory():
+    # Get all languages (except tutorial) and user's languages to display in app directory
     languages = [lang.obj() for lang in Languages if lang.obj().code != Languages.TUTORIAL.obj().code] # Exclude tutorial from app directory
     user_languages = current_user.get_languages()
 
@@ -428,19 +440,22 @@ def app_redirect(code: str):
         flash("The requested language app does not exist.", "error")
         return redirect(url_for('main.app_directory'))
 
-    current_user.set_last_language(code)
+    current_user.set_last_language(code) # Update last language to the one just accessed
     db.session.commit() # Save changes to database
 
     return redirect(url_for('main.app'))
 
 def _resolve_modal_id(form) -> str | None:
-    if not form:
-        return None
+    """ Utility to resolve the HTML id attribute for a given modal form.
+        This is used to determine which modal to auto-open on page load based on URL parameters.
+    """
+    if not form: return None # If no form provided, return None
     return getattr(form, 'id', None) or f"{form.__class__.__name__}Modal"
 
 @main_bp.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
+    # Get metadata from URL
     action = request.args.get('action') or None
     action_language_code = request.args.get('lang') or None
     action_type: AccountActionTypes | None = None
@@ -456,6 +471,7 @@ def account():
             # Handle custom setup modals
             if modal_action == AccountActionTypes.DELETE_APP:
                 for lang in user_lang:
+                    # Create a separate DeleteAppConfirmation form for each language app the user has, with custom app name and form action URL.
                     if isinstance(form, DeleteAppConfirmation):
                         form.set_app_name(lang.app_name)
                         setattr(form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
@@ -478,52 +494,75 @@ def account():
             continue # Skip unimplemented modals
 
     if action:
+        # If an action is specified in the URL, attempt to resolve it to a modal form.
         try:
-            action_type = AccountActionTypes(action)
-        except ValueError:
-            action_type = None
+            action_type = AccountActionTypes(action) # Find matching action type from enum
+        except ValueError as e:
+            # If no type found, cancel the action and log.
+            flash(f"Something went wrong.", "error") # General user error
+            current_app.logger.warning(f"Unrecognized account action attempted: {action}")
+            current_app.logger.warning(f"Error details: {e}")
+            current_app.logger.warning(traceback.format_exc()) # Log the error details for debugging
+            action_type = None # Cancel type
 
         if action_type == AccountActionTypes.DELETE_APP:
+            # Configure delete app form
             if action_language_code:
                 action_form = account_modals.get(f"{action_type.value}:{action_language_code}")
             if action_form is None:
+                # If form not found, alert
                 flash("App removal action is unavailable.", "warning")
+                action_type = None
         elif action_type:
+            # Get form
             action_form = account_modals.get(action_type.value)
             if action_form is None:
+                # If form not found, alert
                 flash(f"{action_type.name.title()} action not implemented.", "warning")
                 action_type = None
 
+    # Handle form submissions for each action type (granted a valid type and form)
     if request.method == 'POST' and action_type and action_form:
-        if action_form.validate_on_submit():
+        if action_form.validate_on_submit(): # Handle submit
             if action_type == AccountActionTypes.DELETE_APP:
                 if not action_language_code:
                     flash("No app was selected for removal.", "error")
                 else:
+                    # Check if user has an app
                     target_language = Languages.get_language_by_code(action_language_code)
                     if target_language is None or action_language_code not in current_user.get_language_codes():
                         flash("You do not have access to that app.", "error")
                     else:
+                        # Remove language and commit to db
                         current_user.remove_language(action_language_code)
                         db.session.commit()
                         flash(f"{target_language.app_name} removed from your account.", "success")
-                        return redirect(url_for('main.app_directory'))
+
+                        # If deleted current language, redirect to app directory
+                        if current_user.get_last_language() == action_language_code:
+                            return redirect(url_for('main.app_directory'))
+                        else: # Otherwise, redirect to account
+                            return redirect(url_for('main.account'))
 
             elif action_type == AccountActionTypes.DELETE:
                 password = action_form.password.data # type: ignore
                 if not current_user.check_password(password):
+                    # Ensure password is correct
                     flash("Password incorrect. Please try again.", "error")
                 else:
+                    # Delete account
                     from lingual.models import User
                     user: User = User.query.get(current_user.id) # type: ignore -> get user instance
                     from flask_login import logout_user
-                    logout_user()
-                    user.delete()
-                    db.session.commit()
-                    flash("Successfully deleted account.", "success")
+                    logout_user() # First logout to prevent any issues
+                    user.delete() # Delete
+                    db.session.commit() # Update DB
+                    flash("Successfully deleted account.", "success") # Send success msg
+
+                    # Create response, redirecting to the landing page and removing has_account cookie to reset flow
                     resp = redirect(url_for('main.landing'))
                     resp.delete_cookie('has_account')
-                    return resp
+                    return resp # Return response
 
             elif action_type == AccountActionTypes.CHANGE_PASSWORD:
                 current_password = action_form.current_password.data # type: ignore
@@ -531,35 +570,50 @@ def account():
                     flash("Current password is incorrect.", "error")
                 else:
                     new_password = action_form.new_password.data # type: ignore
-                    current_user.set_password(new_password)
-                    db.session.commit()
+                    try:
+                        # Method handles encryption and strength verification
+                        current_user.set_password(new_password) # Set password
+                    except ValueError as e:
+                        flash(str(e), "error")
+                        return redirect(url_for('main.account', _anchor='your-account'))
+
+                    db.session.commit() # Update db
                     flash("Password updated successfully.", "success")
-                    return redirect(url_for('main.account', _anchor='your-account'))
+                    return redirect(url_for('main.account', _anchor='your-account')) # Refresh page and anchor to the account section
 
             elif action_type == AccountActionTypes.UPDATE_INFO:
-                new_first_name = action_form.first_name.data # type: ignore
+                new_first_name = action_form.first_name.data.strip().title() # type: ignore -> Get first name from form
 
-                if new_first_name: current_user.first_name = new_first_name
+                try:
+                    if new_first_name: current_user.set_first_name(new_first_name) # Update first name
+                except ValueError as e:
+                    flash(str(e), "error")
+                    return redirect(url_for('main.account', _anchor='your-account'))
 
-                db.session.commit()
+                db.session.commit() # Commit to db
+
+                # Send success message and refresh page to display changes
                 flash("Information updated successfully.", "success")
                 return redirect(url_for('main.account', _anchor='your-account'))
 
+            # Japanese-specific settings
             elif action_type in {
                 AccountActionTypes.JP_RESET_GRAMMAR,
                 AccountActionTypes.JP_CLEAR_PRACTISED_KANJI,
                 AccountActionTypes.JP_CLEAR_KANJI_DATA,
             }:
                 jp_stats = current_user.get_language_stats('jp')
-                if not jp_stats:
+                if not jp_stats: # Ensure jp_stats exists for the user, create if not
                     current_user.create_language_stats('jp')
                     db.session.commit()
-                    jp_stats = current_user.get_language_stats('jp')
+                    jp_stats = current_user.get_language_stats('jp') # Attempt fetching again
 
                 if not jp_stats:
+                    # If jp_stats still can't be retrieved, something went wrong with the creation process. Alert the user.
                     flash("Unable to load Japanese stats for your account.", "error")
                 else:
-                    success_message = None
+                    # Perform the relevant action and commit to db. Each action type corresponds to a different method on the jp_stats object.
+                    success_message = None # Initialise success message
                     if action_type == AccountActionTypes.JP_RESET_GRAMMAR:
                         jp_stats.clear_grammar_practised()
                         success_message = "Grammar progress reset."
@@ -572,24 +626,27 @@ def account():
                         jp_stats.clear_kanji()
                         success_message = "All kanji data cleared."
 
-                    db.session.commit()
-                    if success_message: flash(success_message, "success")
-                    return redirect(url_for('main.account', _anchor='jp-settings'))
+                    db.session.commit() # Commit to db
+                    if success_message: flash(success_message, "success") # Flash success (if exists)
+                    return redirect(url_for('main.account', _anchor='jp-settings')) # Refresh
         else:
+            # Flash any and all form errors
             flash_all_form_errors(action_form)
 
-    last_lang = current_user.get_last_language()
+    last_lang = current_user.get_last_language() # Get last language
 
+    # Render template passing through all required elements
     return render_template(
         'account.html',
         lang_obj=last_lang,
         user_lang=user_lang,
         action_form=action_form,
-        auto_open_modal=bool(action_form),
+        auto_open_modal=bool(action_form), # Force truthy/falsy value to bool
         auto_open_modal_id=_resolve_modal_id(action_form),
         account_modals=list(account_modals.values())
     )
 
+# Add error handlers website-wide
 @main_bp.app_errorhandler(Exception)
 def handle_exception(e):
     # Pass 500 as default if it's not a standard HTTP error
@@ -597,6 +654,7 @@ def handle_exception(e):
     if isinstance(e, HTTPException):
         code = e.code or 500
 
+    # Find module from url (e.g. nihongo) for error form styling
     module = request.path.split('/')[1] if len(request.path.split('/')) > 1 else None
     
     # Get language code for error message translatables if error came from a language module,
@@ -605,6 +663,7 @@ def handle_exception(e):
     lang_code = 'en' # Default to English if we can't determine a language from the URL
     if module and lang_obj: lang_code = lang_obj.code # If module valid and language found, get lang code
     
+    # Get translatables headers and set error messages
     if code == 403:
         err_head = get_translatable(lang_code, "err_403_head")
         err_msg = "You do not have permission to access this page."
@@ -621,4 +680,5 @@ def handle_exception(e):
         err_head = f"Error {code}"
         err_msg = "An unexpected error occurred."
 
+    # Render error template, passing through custom information and the status code
     return render_template("error.html", lang_obj=lang_obj, err_head=err_head, err_msg=err_msg), code

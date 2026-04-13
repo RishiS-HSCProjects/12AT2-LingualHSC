@@ -20,9 +20,19 @@ class User(UserMixin, db.Model):
     languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list, server_default="[]")
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
+    def set_first_name(self, first_name: str):
+        from lingual.core.auth.utils.utils import validate_name
+        first_name = first_name.strip().title() # Remove extra spaces and add title case for consistency and correct validation 
+        if validate_name(first_name): # If name does not meet validation requirements
+            raise ValueError("Invalid name format.")
+
+        self.first_name = first_name # Set first name
+
     def set_password(self, password: str):
-        # Todo: add password strength validation
-        self.password_hash = generate_password_hash(password)
+        from lingual.core.auth.utils.utils import validate_password_strength
+        if validate_password_strength(password): # If password does not meet strength requirements
+            raise ValueError("Password does not meet strength requirements.")
+        self.password_hash = generate_password_hash(password) # Save hashed pwd to db
 
     def check_password(self, password: str) -> bool:
         return check_password_hash(self.password_hash, password)

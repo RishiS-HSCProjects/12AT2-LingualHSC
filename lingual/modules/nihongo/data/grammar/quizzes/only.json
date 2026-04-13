@@ -51,7 +51,7 @@
                 "type": "input",
                 "question": "Translate to Japanese: I spent only 500 yen.",
                 "includes": [
-                    ["だけ"],
+                    ["だけ", "dake"],
                     ["五百円", "ごひゃくえん", "gohyakuen", "500"],
                     ["使いました", "使った", "つかいました", "つかった", "tsukaimashita", "tsukatta"]
                 ],
@@ -61,8 +61,8 @@
                 "type": "input",
                 "question": "Translate to Japanese: I ate nothing but cake.",
                 "includes": [
-                    ["しか"],
-                    ["ケーキ", "keeki"],
+                    ["しか", "shika"],
+                    ["ケーキ", "keeki", "ke-ki"],
                     ["食べませんでした", "食べなかった", "たべませんでした", "たべなかった", "tabemassendeshita", "tabemasusendeshita", "tabenakatta"]
                 ],
                 "sample_answer": "ケーキしか食べませんでした。"
@@ -120,9 +120,12 @@
                 "type": "input",
                 "question": "Translate to Japanese: Not only can she sing, but she can also dance.",
                 "includes": [
-                    ["だけでなく"],
+                    ["だけ", "dake"],
+                    ["で", "de"],
+                    ["なく", "naku"],
                     ["歌", "うた", "uta"],
-                    ["踊", "おど", "odo", "ダンス", "dansu"]
+                    ["踊", "おど", "odo", "ダンス", "dansu"],
+                    ["も", "mo"]
                 ],
                 "sample_answer": "彼女はうたえるだけでなく、おどることもできます。"
             },
@@ -153,7 +156,7 @@
                 "type": "input",
                 "question": "Translate to English: 東[とう]京[きょう]に行くだけでなく、大[おお]阪[さか]にも行ったことがあります。",
                 "includes": [
-                    ["Not only", "not only"],
+                    ["not only", "not just"],
                     ["also", "too", "as well"],
                     ["went", "been", "go", "have"],
                     ["Osaka"],
