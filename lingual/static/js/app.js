@@ -94,11 +94,12 @@ function tick(msg) {
     msg.remaining -= elapsed;
 
     if (msg.remaining <= 0) {
+        // Time's up, fade out the message
         fadeOut(msg);
         return;
     }
 
-    msg.timer = requestAnimationFrame(() => tick(msg));
+    msg.timer = requestAnimationFrame(() => tick(msg)); // Schedule the next tick
 }
 
 function pauseTimer(msg) { // Don't think I need to explain this one
@@ -115,6 +116,11 @@ function resumeTimer(msg) { // Or this
     }
 }
 
+/**
+ * Fades out a flash message.
+ * @param {HTMLDivElement} msg - The flash message element to fade out.
+
+ */
 function fadeOut(msg) {
     if (msg.fadeOutStarted) return;
 
@@ -204,7 +210,7 @@ function initHelpTooltips() {
             icon.setAttribute('role', 'button'); // Accessibility: make it focusable and announce as a button for screen readers (Yes, this was Copilot's suggestion.)
             icon.setAttribute('tabindex', '0'); // Accessibility: allow keyboard navigation to the icon (Also Copilot's idea)
             icon.setAttribute('aria-label', 'Info'); // Accessibility: provide a label for screen readers (You guessed it, Copilot again. Love code suggestions)
-            icon.textContent = '?'; // ? text
+            icon.textContent = '?'; // `?` HELP text
 
             icon.appendChild(tooltip); // Nest the tooltip inside the icon for better positioning and to ensure it appears when the icon is hovered or focused
             target.appendChild(icon); // Add the icon (with the tooltip inside) to the target element

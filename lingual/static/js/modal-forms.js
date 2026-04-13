@@ -165,6 +165,7 @@ function clearModalQueryParams() {
 	const url = new URL(window.location.href);
 	const originalSearch = url.search;
 
+	// Remove modal-related query parameters for clean URLs after auto-opening modals
 	url.searchParams.delete('action');
 	url.searchParams.delete('type');
 	url.searchParams.delete('lang');

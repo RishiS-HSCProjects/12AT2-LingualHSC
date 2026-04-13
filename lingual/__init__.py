@@ -48,18 +48,23 @@ class Config:
 
 @login_manager.user_loader
 def load_user(user_id):
+    # Callback used by Flask-Login to load a user from the database given their user ID.
     from lingual.models import User
     return User.query.get(int(user_id))
 
 def create_app():
+    # Factory function to create and configure the Flask application instance
     app = Flask(__name__, template_folder='templates', static_folder='static') # Create app instance
     app.config.from_object(Config) # Attach config
 
-    if app.config.get('ALLOW_SEND_EMAILS'):
-        mail.init_app(app)
+    # Initialise extensions with the app instance.
     db.init_app(app)
     login_manager.init_app(app)
     migrate.init_app(app, db)
+    if app.config.get('ALLOW_SEND_EMAILS'):
+    # Mail is only initialised if email sending is allowed
+    # to avoid unnecessary setup in environments where email is not used.
+        mail.init_app(app)
 
     # Register all blueprints
     from lingual.core.auth.routes import auth_bp

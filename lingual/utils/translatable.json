@@ -1,11 +1,4 @@
 {
-    "hero_jump_text":
-    {
-        "en": "Ready to continue your {language} journey?",
-        "jp": "もっと日本語を学びたいですか？"
-    },
-
-
     "signup_welcome_text": {
         "en": "Hello there!",
         "jp": "ようこそ！"
@@ -24,6 +17,7 @@
         "en": "Ready to study, {first_name}?",
         "jp": "{first_name}さん、勉強しましょう!"
     },
+
 
     "err_403_head": {
         "en": "Uh-oh! Access Denied!",

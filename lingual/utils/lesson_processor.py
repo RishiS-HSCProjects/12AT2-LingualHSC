@@ -18,6 +18,7 @@ MARKDOWN_EXTENSIONS = [
     "attr_list",
     "md_in_html",
 ]
+""" List of markdown extensions to enable for lesson content. """
 
 # REGEX PATTERNS
 LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)(?:#([\w\-]+))?\)') # [label](route:slug#anchor) Optional anchor
@@ -47,12 +48,14 @@ class BaseLessonProcessor:
 
     def transform_links(self, text: str) -> str:
         def repl(match):
+            # Deconstruct the regex match into components
             label = match.group(1)
             route = match.group(2)
             slug = match.group(3)
             anchor = match.group(4)
 
             try:
+                # Attempt to build the URL for the given route and slug, with optional anchor
                 href = url_for(f"{self.language.app_code}.{route}", slug=slug) # Build URL for route
                 if anchor: href += f"#{anchor}" # Append anchor if present
             except BuildError:
@@ -62,7 +65,7 @@ class BaseLessonProcessor:
 
             return f'<a href="{href}">{label}</a>' # Return HTML anchor tag
 
-        return LINK_RE.sub(repl, text)
+        return LINK_RE.sub(repl, text) # Replace markdown links with HTML anchor tags
 
     def transform_quizzes(self, text: str) -> str:
         def repl(match):
@@ -77,27 +80,30 @@ class BaseLessonProcessor:
                         attrs += f' data-{param}="true"' # Boolean attribute
             return f'<div class="quiz" data-lesson="{lesson}" data-id="{quiz}"{attrs}></div>' # Quiz content dynamically loaded via JS
 
-        return QUIZ_RE.sub(repl, text)
+        return QUIZ_RE.sub(repl, text) # Replace quiz markers with HTML divs
 
     def transform_notes(self, text: str) -> str:
         def repl(match):
+            # Deconstruct the regex match into components
             note_type = match.group(1)
             content = match.group(2)
 
             mapping = {
-                "i": ("info", "Info"),
-                "w": ("warning", "Warning"),
+                "i": ("info", "Note"),
+                "w": ("warning", "Heads up!"),
                 "t": ("tip", "Tip"),
             }
 
+            # Get the corresponding CSS class and label for the note type, defaulting to "info" if the type is unrecognized
             css_class, label = mapping.get(note_type, ("info", "Note"))
 
-            return f'\n<div class="note {css_class}"><strong class="label">{label}:</strong><p>{content}</p></div>\n'
+            return f'\n<div class="note {css_class}"><strong class="label">{label}:</strong><p>{content}</p></div>\n' # Return formatted HTML for the note block
 
-        return NOTE_RE.sub(repl, text)
+        return NOTE_RE.sub(repl, text) # Replace note markers with styled HTML blocks based on their type (info, warning, tip)
     
     def transform_formatting(self, text: str):
         def repl(match):
+            # Deconstruct the regex match into components
             formatting = match.group(1)
             content = match.group(2)
 
@@ -109,21 +115,21 @@ class BaseLessonProcessor:
 
             return f'<span style="color:{formatting}">{escape(content)}</span>' # Assume colour
 
-        return FORMAT_RE.sub(repl, text)
+        return FORMAT_RE.sub(repl, text) # Replace formatting markers with corresponding HTML tags
 
     def transform_blocks(self, text: str) -> str:
         def repl(match):
             block_type = match.group(1)
             content = match.group(2)
-            return f'<div class="block {block_type}">{content}</div>'
+            return f'<div class="block {block_type}">{content}</div>' # Return formatted HTML for the block
 
-        return BLOCK_RE.sub(repl, text)
-    
+        return BLOCK_RE.sub(repl, text) # Replace block markers with styled HTML blocks
+
     def transform_spoilers(self, text: str) -> str:
         def repl(match):
             content = match.group(1)
             return f'<span class="spoiler" title="Click to reveal">{content}</span>'
-        return SPOILER_RE.sub(repl, text)
+        return SPOILER_RE.sub(repl, text) # Replace spoiler markers with styled HTML spans
 
     def add_transform(self, transform) -> None:
         """
@@ -146,6 +152,7 @@ class BaseLessonProcessor:
         cleaned: list[str] = []
         seen: set[str] = set()
         for keyword in candidates:
+            # Iterate through each keyword, normalise whitespace, and convert to lowercase for consistent searching.
             if not keyword: continue
             norm = re.sub(r'\s+', ' ', keyword).strip().lower() # Normalised regex
             if not norm or norm in seen:
@@ -157,11 +164,17 @@ class BaseLessonProcessor:
         return cleaned # Returned cleaned keywords
 
     def apply_transforms(self, content: str) -> str:
+        """ Applies all registered transformations to the given content string in sequence."""
         for transform in self.transformers:
             content = transform(content)
-        return content
+        return content # Return the fully transformed content after applying all transformations
 
     def transform_data(self, data: Any) -> Any:
+        """ 
+            Recursively applies transformations to all string values within a nested data structure (dicts, lists, strings).
+
+            Used within quizzes 
+        """
         if isinstance(data, dict):
             return {key: self.transform_data(value) for key, value in data.items()}
         if isinstance(data, list):
@@ -188,7 +201,7 @@ class BaseLessonProcessor:
         # Convert MD to HTML
         html = markdown.markdown( 
             content,
-            extensions=MARKDOWN_EXTENSIONS,  #                 Install extensions
+            extensions=MARKDOWN_EXTENSIONS,  # Install extensions
             output_format="html5",           # type: ignore -> HTML5 output
         )
 
@@ -244,7 +257,7 @@ class BaseLessonProcessor:
             
             content_plain += " " + cleaned
         
-        # Normalize whitespace
+        # Normalise whitespace
         content_plain = re.sub(r'\s+', ' ', content_plain).strip()
 
         return Lesson(
@@ -256,7 +269,7 @@ class BaseLessonProcessor:
             query_tags=" ".join(keywords),
         )
 
-    # @lru_cache(maxsize=128) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
+    @lru_cache(maxsize=16) # Cache the list of lessons for performance, since it is used frequently for quizzes and navigation.
     def get_lessons(self) -> list[dict[str, list["Lesson"]]]:
         """ Loads all lessons and organizes them by category based on the map.json file.
             Returns a list of dictionaries with category names and their corresponding lessons.
@@ -277,6 +290,7 @@ class BaseLessonProcessor:
             category_lessons: list[Lesson] = [] # Lessons in this category
 
             for slug in slugs:
+                # Iterate through slugs and attempt to load each lesson, logging any issues
                 try:
                     category_lessons.append(self.get_lesson(slug))
                 except LessonFetchException as e:
@@ -293,10 +307,11 @@ class BaseLessonProcessor:
                 "lessons": category_lessons
             })
 
-        return categories
+        return categories # Return the list of categories with their lessons
 
 @dataclass
 class Lesson:
+    """ Represents a lesson with its metadata and content. """
     slug: str
     title: str
     summary: str
@@ -305,5 +320,6 @@ class Lesson:
     query_tags: str = ""
 
 class LessonFetchException(Exception):
+    """ Custom exception for errors during lesson fetching and processing. """
     def __init__(self, *args: object) -> None:
         super().__init__(*args)

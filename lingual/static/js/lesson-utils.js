@@ -431,6 +431,9 @@ class QuizRenderer {
 
         const audioToggleBtn = container.querySelector(".quiz-audio-toggle");
 
+        /**
+         * Synchronises the state of the audio toggle button with the current mute state.
+         */
         const syncAudioToggle = () => {
             if (!audioToggleBtn) return;
 
@@ -444,6 +447,8 @@ class QuizRenderer {
         syncAudioToggle();
 
         audioToggleBtn?.addEventListener("click", () => {
+            // If the toggle is clicked, update mute state
+
             this.isAudioMuted = !this.isAudioMuted;
 
             try {
@@ -490,6 +495,7 @@ class QuizRenderer {
 
         /**
          * Anonymous function for handling audio playback for the current question.
+         * @param {boolean} isCorrect - Whether the user's answer was correct, used to determine which audio to play.
          */
         const handleAudio = (isCorrect) => {
             if (this.isAudioMuted) return; // Do not play audio if muted
@@ -632,12 +638,8 @@ class QuizRenderer {
                 for (const group of includes) { // Iterates over each group of required elements
                     const groupArr = Array.isArray(group) ? group : [group]; // Ensure group is an array
                     const ok = groupArr.some(p => userNorm.includes(normaliseAnswer(p))); // Check if any element in group is included in user answer
-                    if (!ok) { // People ask me if I'm fine and I say I'm fine but I'm not really fine... I say I'm ` {!ok} `...
-                        // For legal reasons, that was a joke. Hope you got a good eye roll from reviewing that.
-                        // If you didn't understand it, please ignore it. It's a meme :)
-                        /** @see https://www.youtube.com/watch?v=aS0-P4JR9PU */
-
-                        missing.push(groupArr); // Anyways, this line adds the missing group to the list
+                    if (!ok) {
+                        missing.push(groupArr); // Add the missing group to the list
                     }
                 }
 
@@ -679,6 +681,7 @@ class QuizRenderer {
                     const answerBlock = document.createElement("div");
                     answerBlock.className = "quiz-valid-answers";
 
+                    // Attach includes / valid blocks if needed
                     if (q.includes) {
                         answerBlock.innerHTML = `
                             <div class="quiz-valid-label">Missing required elements:</div>
@@ -746,9 +749,12 @@ class QuizRenderer {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
+                            // Post request to server to notify of quiz completion
+                            // Updates user's stats
                             lesson: window.location.pathname.split("/").filter(Boolean).pop(),
                         })
                     }).catch(e => {
+                        sendFlashMessage("Something went wrong while updating your stats.", "warning");
                         console.error("Failed to notify server of quiz completion.", e);
                     });
                 }
@@ -820,6 +826,11 @@ function scrollToAnchorWithOffset(id) {
     });
 }
 
+/**
+ * Global flag to indicate if the current quiz is being taken within outside of a lesson context.
+ * Flag is to be set in the session HTML when rendering quizzes that are not part of a lesson, such as on the Quizzes page.
+ * Used to prevent updating of last lesson completed when doing quizzes outside of lessons.
+ */
 var quizSession = false;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -832,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Delay ensures content + headings are fully rendered
         setTimeout(() => {
             scrollToAnchorWithOffset(id);
-        }, 0);
+        }, 500);
     }
 });
 

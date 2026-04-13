@@ -13,8 +13,10 @@ tutorial_bp = Blueprint(
     static_folder='static',
     static_url_path='/modules/tutorial/static'
 )
+""" Blueprint for the Tutorial module, which provides routes for tutorial lessons and quizzes. """
 
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
+""" Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal attacks. """
 
 @tutorial_bp.route('/')
 def home():
@@ -22,7 +24,7 @@ def home():
 
     config = HomeConfig()
 
-    welcome_banner = HomeBanner("Welcome to the tutorial module!")
+    welcome_banner = HomeBanner("Welcome to the tutorial module!") # Simple banner section to welcome users
     config.register_section(welcome_banner)
 
     quick_access = HomeSection("Quick Access")
@@ -103,26 +105,31 @@ def home():
 def lessons(slug=None):
     if slug and VALID_SLUG.match(slug):
         try:
+            # Attempt to load the lesson data using the processor.
+            # This will raise a FileNotFoundError if the lesson doesn't exist, which we catch to show a user-friendly error message.
             lesson_data = get_processor().load(slug)
         except FileNotFoundError:
             flash("Lesson not found.", "error")
             return redirect(url_for('tutorial.lessons'))
         except Exception as e:
+            # Log any unexpected errors
             current_app.logger.error(f"An error occurred while loading the lesson {slug}: {str(e)}")
             flash(f"An error occurred while loading the lesson.", "error")
             return redirect(url_for('tutorial.lessons'))
 
+        # Add the source URL to the lesson data so it can be displayed in the template.
         from lingual.modules.tutorial import GIT_TUTORIAL_DIRECTORY
         lesson_data['source_url'] = f"{GIT_TUTORIAL_DIRECTORY}/lessons/{slug}.md"
 
         return render_template(
+            # Render lesson template with the loaded lesson data.
             'tutorial-lesson.html',
             lesson=lesson_data,
             data_root=lesson_data.get("data_root")
         )
 
-    lessons = get_processor().get_lessons()
-    return render_template('tutorial-lesson-directory.html', lessons=lessons)
+    lessons = get_processor().get_lessons() # Get all lessons
+    return render_template('tutorial-lesson-directory.html', lessons=lessons) # Render the lesson directory template
 
 
 @tutorial_bp.route('/lessons/api/quiz/<lesson_slug>', methods=['GET'], strict_slashes=False)
@@ -146,7 +153,7 @@ def get_quizzes(lesson_slug):
     if not data:
         return jsonify({"error": "Quiz not found."}), 404
 
-    return jsonify(data)
+    return jsonify(data) # Return the quiz data as JSON
 
 @tutorial_bp.route('/lessons/api/audio', methods=['GET', 'OPTIONS'], strict_slashes=False)
 @tutorial_bp.route('/lessons/api/audio/', methods=['GET', 'OPTIONS'], strict_slashes=False)
@@ -160,12 +167,13 @@ def get_audio():
         return response
     
     audio_id = request.args.get('id')
-    if not audio_id:
+    if not audio_id: # If no audio ID is provided, return error 400 Bad Request
         abort(400, description="Missing audio ID.")
 
-    # Normalize Windows-style paths to URL-safe paths
+    # Normalize paths to URL-safe paths
     audio_id = audio_id.replace("\\", "/")
 
+    # Create a response that allows CORS requests from any origin, so that audio can be accessed by clients hosted on different domains (required to support both development & production environments)
     response = make_response(jsonify({
         "path": url_for('tutorial.static', filename=f'audio/{audio_id}')
     }))

@@ -1,5 +1,6 @@
 class BaseTilePage {
     constructor(page) {
+        // Get elements from page and store as properties for later use.
         this.page = page;
         this.list = page.querySelector('.tiles-list');
         this.menu = page.querySelector('.tiles-menu');
@@ -27,15 +28,13 @@ class BaseTilePage {
         });
 
         // Add event listener for the escape key to close any open menu (if it exists).
-        // This is purely because I kept trying to close the menu with escape and got annoyed
-        // when it wasn't closing.
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && this.page.classList.contains('menu-open')) {
                 this.closeMenu();
             }
         });
 
-        this.bindVisibilityObserver();
+        this.bindVisibilityObserver(); // Add observer for tile visibility (for animation purposes)
     }
 
     getTileValue(tile) {
@@ -53,6 +52,7 @@ class BaseTilePage {
         this.page.classList.add('menu-open');
         this.menu.setAttribute('aria-hidden', 'false');
 
+        // Call custom event to notify of menu opening, passing page and menu elements for reference.
         this.page.dispatchEvent(new CustomEvent('tiles:open', {
             bubbles: true,
             detail: {
@@ -67,6 +67,7 @@ class BaseTilePage {
         this.menu.setAttribute('aria-hidden', 'true');
         this.tiles.forEach((tile) => tile.classList.remove('is-active'));
 
+        // Call custom event to notify of menu closing, passing page and menu elements for reference.
         this.page.dispatchEvent(new CustomEvent('tiles:close', {
             bubbles: true,
             detail: {
@@ -108,6 +109,7 @@ class BaseTilePage {
         }
 
         const observer = new IntersectionObserver(
+            // When tiles come into view, add 'is-visible' class for animation and unobserve them to prevent future triggers.
             (entries, entryObserver) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
@@ -130,5 +132,5 @@ class BaseTilePage {
 document.addEventListener('DOMContentLoaded', () => {
     // Run this logic for any page that is a tiles page (set by data attribute)
     const pages = Array.from(document.querySelectorAll('[data-tiles-page="true"]'));
-    pages.forEach((page) => new BaseTilePage(page));
+    pages.forEach((page) => new BaseTilePage(page)); // Add event listeners and functionality to each page
 });
