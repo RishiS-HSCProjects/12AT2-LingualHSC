@@ -82,7 +82,7 @@ function initResponsiveNav() {
         return shouldCollapse;
     };
 
-    /** Update nav bar state dependaing on overflow */
+    /** Update nav bar state depending on overflow */
     const updateNav = () => {
         const wasOpen = nav.classList.contains('nav-open');
         const shouldCollapse = isOverflowing();

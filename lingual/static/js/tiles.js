@@ -119,6 +119,7 @@ class BaseTilePage {
                 });
             },
             {
+                // Use the tiles list as the root for intersection to trigger when tiles come into view within the list, with some margin to trigger slightly before they are fully in view.
                 root: this.list,
                 rootMargin: '60px',
                 threshold: 0.2

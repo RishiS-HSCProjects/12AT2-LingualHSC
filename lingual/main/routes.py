@@ -539,7 +539,7 @@ def account():
                         flash(f"{target_language.app_name} removed from your account.", "success")
 
                         # If deleted current language, redirect to app directory
-                        if current_user.get_last_language() == action_language_code:
+                        if current_user.last_language == action_language_code:
                             return redirect(url_for('main.app_directory'))
                         else: # Otherwise, redirect to account
                             return redirect(url_for('main.account'))

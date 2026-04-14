@@ -62,8 +62,8 @@ def create_app():
     login_manager.init_app(app)
     migrate.init_app(app, db)
     if app.config.get('ALLOW_SEND_EMAILS'):
-    # Mail is only initialised if email sending is allowed
-    # to avoid unnecessary setup in environments where email is not used.
+        # Mail is only initialised if email sending is allowed
+        # to avoid unnecessary setup in environments where email is not used.
         mail.init_app(app)
 
     # Register all blueprints
