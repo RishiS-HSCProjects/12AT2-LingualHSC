@@ -10,6 +10,7 @@ from lingual.utils.languages import Language
 from werkzeug.routing import BuildError
 from markupsafe import escape
 
+# List of markdown extensions to enable for lesson content
 MARKDOWN_EXTENSIONS = [
     "extra",
     "tables",
@@ -18,7 +19,6 @@ MARKDOWN_EXTENSIONS = [
     "attr_list",
     "md_in_html",
 ]
-""" List of markdown extensions to enable for lesson content. """
 
 # REGEX PATTERNS
 LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)(?:#([\w\-]+))?\)') # [label](route:slug#anchor) Optional anchor

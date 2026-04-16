@@ -5,6 +5,7 @@ from lingual.modules.tutorial.utils import quiz_utils
 from lingual.modules.tutorial.utils.lessons_processor import get_processor
 from lingual.utils.languages import Languages
 
+# Blueprint for the Tutorial module, which provides routes for tutorial lessons and quizzes.
 tutorial_bp = Blueprint(
     Languages.TUTORIAL.obj().app_code,
     __name__,
@@ -13,7 +14,6 @@ tutorial_bp = Blueprint(
     static_folder='static',
     static_url_path='/modules/tutorial/static'
 )
-""" Blueprint for the Tutorial module, which provides routes for tutorial lessons and quizzes. """
 
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
 """ Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal attacks. """

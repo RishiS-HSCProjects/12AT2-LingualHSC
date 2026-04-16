@@ -49,8 +49,8 @@ class Languages(Enum):
                 return lang.obj()
         return None
 
+# Global variable to cache translatable strings loaded from JSON file for efficient access.
 _TRANSLATABLES = None
-""" Translatable cache storing contents of translatable.json in memory after the first load to improve performance. """
 
 def _load_translatables() -> dict:
     """

@@ -11,6 +11,7 @@ from lingual.utils.form_manager import flash_all_form_errors
 from lingual.utils.languages import Languages
 from lingual.utils.tiles_utils import TileSection
 
+# Blueprint for the Nihongo module, handling routes related to Japanese language learning, including grammar lessons, kanji reference, and quizzes.
 nihongo_bp = Blueprint(
     Languages.JAPANESE.obj().app_code,
     __name__,
@@ -19,14 +20,12 @@ nihongo_bp = Blueprint(
     static_folder='static',
     static_url_path='/modules/nihongo/static'
 )
-""" Blueprint for the Nihongo module, handling routes related to Japanese language learning, including grammar lessons, kanji reference, and quizzes. """
 
+# Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal and ensure valid slugs.
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
-""" Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal and ensure valid slugs. """
 
-# T-FE03
+# T-FE03 --> Server-side quiz cache: {quiz_id: {type, title, data}}
 _quiz_cache = {}
-""" Server-side quiz cache: {quiz_id: {type, title, data}} """
 
 _particles_processor = ParticleTilesProcessor()
 
@@ -321,10 +320,11 @@ def quiz():
         except NotImplementedError:
             continue # If modal not implemented, just skip it
 
-    quiz_type_query = request.args.get('type') or None
-    """ Requested quiz type """
+    quiz_type_query = request.args.get('type') or None # Requested quiz type
+
+    # quiz_type: QuizTypes value of the quiz type to be rendered, if valid and requested.
+    # None if no valid type requested or on initial GET request without query parameters.
     quiz_type = None
-    """ QuizTypes value of the requested quiz type, or None if invalid or not requested. """
 
     if quiz_type_query:
         # Auto-opens quiz modal if a valid quiz type is provided in the query parameters

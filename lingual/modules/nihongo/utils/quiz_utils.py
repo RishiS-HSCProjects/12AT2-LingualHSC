@@ -14,8 +14,8 @@ def load_quiz_data(lesson_slug: str) -> dict | None:
         # If the quiz data file doesn't exist for the given lesson slug, return None to indicate no quiz data is available
         return None
 
-    with path.open("r", encoding="utf-8") as f: #
-        data = json.load(f)
+    with path.open("r", encoding="utf-8") as f: # Open the quiz data file for the specified lesson slug
+        data = json.load(f) # Load the quiz data from the JSON file into a Python dictionary
 
     return get_processor().transform_data(data) # Apply any necessary transformations to the quiz data using the lesson processor's transformers (e.g. furigana transformation)
 

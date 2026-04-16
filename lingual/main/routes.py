@@ -526,6 +526,7 @@ def account():
         if action_form.validate_on_submit(): # Handle submit
             if action_type == AccountActionTypes.DELETE_APP:
                 if not action_language_code:
+                    # Ensure app code provided
                     flash("No app was selected for removal.", "error")
                 else:
                     # Check if user has an app
@@ -533,13 +534,17 @@ def account():
                     if target_language is None or action_language_code not in current_user.get_language_codes():
                         flash("You do not have access to that app.", "error")
                     else:
+                        # Store last language
+                        last_lang = current_user.get_last_language()
+
                         # Remove language and commit to db
+                        # Sets last language to None
                         current_user.remove_language(action_language_code)
-                        db.session.commit()
+                        db.session.commit() # Update db
                         flash(f"{target_language.app_name} removed from your account.", "success")
 
                         # If deleted current language, redirect to app directory
-                        if current_user.last_language == action_language_code:
+                        if last_lang == action_language_code:
                             return redirect(url_for('main.app_directory'))
                         else: # Otherwise, redirect to account
                             return redirect(url_for('main.account'))

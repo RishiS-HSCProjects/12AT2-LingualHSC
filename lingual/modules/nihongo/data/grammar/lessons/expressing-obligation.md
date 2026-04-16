@@ -1,7 +1,14 @@
 ---
 
 title: "Expressing Obligation"
-summary: "Learn how to express obligation in Japanese using various grammatical structures."
+summary: "Learn how to express obligation in Japanese using なければ～ and ないと～."
+keywords:
+    - nakereba
+    - nakerebanarimasen
+    - nakerebanaranai
+    - naito
+    - naitoikemasen
+    - naitoikenai
 
 ---
 
