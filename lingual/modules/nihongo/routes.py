@@ -95,7 +95,7 @@ def home():
             body="Particle Cheat Sheet!",
             buttons=[
                 ItemBox.BoxButton(
-                text="Try it out!",
+                text="Open Demo",
                 link=url_for('nihongo.particles')
                 )
             ]

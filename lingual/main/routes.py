@@ -338,11 +338,11 @@ def reset():
                     current_app.logger.error(traceback.format_exc()) # Attach traceback
                     flash("An error occurred while attempting to send the reset email. Please try again later.", "error")
                     return redirect(url_for('main.reset'))
-                else:
-                    # Generic success message (don't reveal if user exists)
-                    # This prevents "email enumeration" attacks.
-                    flash("If an account with that email exists, a reset link has been sent.", "info")
-                    return redirect(url_for('main.login'))
+
+            # Generic success message (don't reveal if user exists)
+            # This prevents "email enumeration" attacks.
+            flash(f"A reset link has been sent to {email}.", "info")
+            return redirect(url_for('main.login'))
 
         else:
             # Validation failed: flash errors
