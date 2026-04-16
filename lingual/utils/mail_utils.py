@@ -16,17 +16,21 @@ def queue_email(
         - body: Body text of the email.
     """
 
+    # Get email configuration from app
     allow_send_emails = current_app.config.get('ALLOW_SEND_EMAILS', True)
     mail_default_sender = current_app.config.get('MAIL_DEFAULT_SENDER')
 
+    # Exit early if email sending is disabled or not properly configured
     if not allow_send_emails:
         raise EmailError.EmailSendingDisabled()
 
     if not mail_default_sender:
         raise EmailError.SMTPConfig("Email service is not configured correctly. Missing default sender.")
 
+    # Create a queue to receive the result of the email send operation from the background thread.
     send_result_queue: Queue[EmailError.SendFailure | None] = Queue(maxsize=1) # Capture one async result/error.
 
+    # Send the email in a background thread to avoid blocking the main application flow, especially since email sending can be slow.
     def send_email(app, result_queue: Queue[EmailError.SendFailure | None]):
         from lingual import mail
         with app.app_context():
@@ -40,6 +44,7 @@ def queue_email(
             except Exception as e:
                 app.logger.error(f"Threaded email send failed for {recipients}: {e}")
                 try:
+                    # Attempt to report the error back to the main thread via the queue
                     result_queue.put_nowait(EmailError.SendFailure("Unable to send email. Confirm the server has an active internet connection and try again."))
                 except Exception:
                     pass # If the queue is full, we can't report the error back, but the email send failure is already logged.
@@ -51,9 +56,11 @@ def queue_email(
             daemon=True # Makes asynchronous to not halt application flow while sending email
         ).start()
     except Exception as e:
+        # Catch any exceptions that occur when starting the thread and log them, then raise a SendFailure error to indicate the email could not be sent.
         current_app.logger.error(f"Error when starting verification email thread: {e}")
         raise EmailError.SendFailure("Something went wrong when sending the verification code.") from e
     
+    # Wait for the result of the email send operation with a timeout
     cooldown = current_app.config.get('ASYNC_EMAIL_ERROR_WAIT_SECONDS', 1.5)
 
     if cooldown > 0:

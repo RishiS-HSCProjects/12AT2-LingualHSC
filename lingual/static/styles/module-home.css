@@ -73,7 +73,8 @@
     background: var(--bg-surface-muted);
     border-radius: var(--radius-medium);
     line-height: var(--line-height-body);
-    color: var(--colour-secondary);
+    color: var(--colour-status-neutral);
+    font-weight: 500;
     font-size: var(--font-size-body);
 }
 

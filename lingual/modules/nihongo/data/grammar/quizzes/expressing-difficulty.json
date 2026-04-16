@@ -39,7 +39,7 @@
                 "question": "Translate the following sentence into English:\n\nこの漢[かん]字[じ]は書[か]きにくいです。",
                 "includes": [
                     ["kanji"],
-                    ["difficult"],
+                    ["difficult", "hard", "challenging"],
                     ["write"]
                 ],
                 "sample_answer": "This kanji is difficult to write."

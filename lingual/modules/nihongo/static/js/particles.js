@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         content.innerHTML = '<p>Loading markdown notes...</p>';
 
         try {
-            const payload = await fetchParticle(slug);
-            particleCache.set(slug, payload);
-            renderParticle(payload);
+            const payload = await fetchParticle(slug); // Get particle markdown payload from API
+            particleCache.set(slug, payload); // Cache the payload for performance
+            renderParticle(payload); // Render the particle info based on the fetched payload
         } catch (error) {
             console.error('Particle markdown fetch failed:', error);
             setError('Unable to load particle notes right now. Please try again.');

@@ -2,6 +2,10 @@
 
 title: "Making Comparisons"
 summary: "Learn how to make comparisons in Japanese using various grammatical structures."
+keywords:
+    - dochira
+    - yori
+    - hodo
 
 ---
 

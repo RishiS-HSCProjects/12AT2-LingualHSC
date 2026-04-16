@@ -5,6 +5,11 @@ from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.utils.quiz_manager import QuizForm, LessonQuizConfigForm
 
 class GrammarQuizConfigForm(LessonQuizConfigForm):
+    """
+        Grammar quiz configuration form, allowing users to select grammar points and configure the quiz.
+        Preset with grammar lessons as choices for the quiz configuration
+    """
+
     title = "Grammar Quiz Configuration"
     description = "Configure your grammar quiz by selecting the grammar points you want to be quizzed on and the maximum number of questions. The quiz will be generated based on the selected grammar points, so choose wisely to focus on areas you want to improve!"
     id = 'grammar_conf_form'
@@ -14,6 +19,11 @@ class GrammarQuizConfigForm(LessonQuizConfigForm):
         self.lessons.label = Label(self.lessons.id, "Grammar Points") # Assign this here too
 
 class KanjiQuizConfigForm(QuizForm):
+    """
+        Kanji quiz configuration form, allowing users to select kanji characters and configure the quiz.
+        Preset with all prescribed kanji characters as choices for the quiz configuration.
+    """
+
     title = "Kanji Quiz Configuration"
     description = "Configure your kanji quiz by selecting the kanji characters you want to be quizzed on and the maximum number of questions. The quiz will include questions on readings and meanings of the selected kanji, so choose characters you want to master!"
     id = 'kanji_conf_form'
@@ -36,7 +46,6 @@ class KanjiQuizConfigForm(QuizForm):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.kanji_characters.label = Label(self.kanji_characters.id, "Kanji Characters")
-        kanji_list = [(kanji, kanji) for kanji, _ in Kanji.get_prescribed_kanji()]
+        kanji_list = [(kanji, kanji) for kanji, _ in Kanji.get_prescribed_kanji()] # Get the list of prescribed kanji characters and create a list of tuples for the choices in the format (kanji, kanji) since we want to display the kanji character itself as the choice
         self.kanji_characters.choices = kanji_list # type: ignore
         self.kanji_characters.data = [kanji for kanji, _ in kanji_list]  # Select all by default
-

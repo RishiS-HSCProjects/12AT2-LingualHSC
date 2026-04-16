@@ -2,6 +2,10 @@
 
 title: "Saying 'Only' using しか and だけ"
 summary: "Learn how to express 'only' in Japanese using various particles."
+keywords:
+    - shika
+    - dake
+    - also
 
 ---
 
@@ -37,7 +41,7 @@ In Japanese, there are several particles that can be used to express the concept
 だけ used to describe a situation that does not involve a personal feeling from the speaker. There is no judgement and the intended meaning from the speaker is neutral.
 
 - ケーキ**だけ**食べました → I only ate cake. (neutral statement of fact)
-- ケーキ**しか**食べませんでした → I ate nothing but cake. (implies that the speaker is dissatisfied with only eating cake)
+- ケーキ**しか**食べませんでした → I ate nothing but cake. (could imply that the speaker is emphasising the exclusivity of eating cake, both positively and negatively.)
 
 ~quizzes:only:quiz?shuffle&limit=5~
 
