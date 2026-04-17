@@ -21,7 +21,16 @@ MARKDOWN_EXTENSIONS = [
 ]
 
 # REGEX PATTERNS
-LINK_RE = re.compile(r'\[([^\]]+)\]\((\w+):([\w\-]+)(?:#([\w\-]+))?\)') # [label](route:slug#anchor) Optional anchor
+LINK_RE = re.compile(
+    r'\[([^\]]+)\]'                         # 1. label in the form [label], allows for markdown formatting within the label
+    r'\('
+        r'('                                # 2. target (internal or external)
+            r'(?:\w+:[\w\-]+(?:#[\w\-]+)?)' # internal links in the form (route:slug#anchor)
+            r'|' + r'https?://[^\s)]+' +    # external links starting with http:// or https://
+        r')'
+    r'\)'
+    r'(?:\{\s*([^}]+)\s*\})?'               # 3. attributes in the form {key=value key2=value2 :flag}
+)
 QUIZ_RE = re.compile(r'~quizzes:([\w\-]+):([\w\-]+)(?:\?([^\~]+))?~') # ~quizzes:lesson:quiz?param1=value1&param2=value2~
 NOTE_RE = re.compile(r'/([iwt])\s+(.*?)\\', re.DOTALL) # /type text\, either i (info), w (warning), t (tip)
 FORMAT_RE = re.compile(r'::([a-zA-Z]+|#[0-9a-fA-F]{3,6})\{([^}]+)\}') # ::color{text} / ::bold/italic{text}
@@ -48,22 +57,71 @@ class BaseLessonProcessor:
 
     def transform_links(self, text: str) -> str:
         def repl(match):
-            # Deconstruct the regex match into components
-            label = match.group(1)
-            route = match.group(2)
-            slug = match.group(3)
-            anchor = match.group(4)
+            label = escape(match.group(1)) # Displayed text for the link, escaped to prevent XSS. Can include markdown formatting.
+            target = match.group(2) # Either internal (route:slug#anchor) OR external (https://...)
+            raw_attrs = match.group(3) or "" # Optional raw attributes string (e.g. 'target="_blank" class="my-class" ) which will be parsed into HTML attributes.
 
-            try:
-                # Attempt to build the URL for the given route and slug, with optional anchor
-                href = url_for(f"{self.language.app_code}.{route}", slug=slug) # Build URL for route
-                if anchor: href += f"#{anchor}" # Append anchor if present
-            except BuildError:
-                # In case of BuildError, fallback to empty URL and log warning
-                href = "#"
-                current_app.logger.warning(f"Failed to build URL for route '{route}' with slug '{slug}'")
+            href = "#" # Initial href value
+            attrs = "" # Initialise attributes string
+            rel_parts = set(["nofollow"]) # List to prevent duplicates. Forces nofollow for security.
 
-            return f'<a href="{href}">{label}</a>' # Return HTML anchor tag
+            # Test if the target is an internal link (route:slug#anchor)
+            internal_match = re.match(r'^(\w+):([\w\-]+)(?:#([\w\-]+))?$', target)
+            if internal_match:
+                route, slug, anchor = internal_match.groups()
+                try:
+                    # Attempt to build the URL for the given route and slug, with optional anchor
+                    href = url_for(f"{self.language.app_code}.{route}", slug=slug) # Build URL for route
+                    if anchor: href += f"#{anchor}" # Append anchor if present
+                except BuildError:
+                    # Build errors occur when the route or slug does not exist.
+                    # Log a warning and return a non-functional link to avoid breaking the page, while indicating that there is an issue with the link configuration.
+                    href = "#" # Fallback href to prevent broken links
+                    current_app.logger.warning(f"Failed to build URL for route '{route}' with slug '{slug}'")
+
+            else: # Non-internal links are treated as external
+                href = target
+                rel_parts.update(["noopener", "noreferrer"]) # External links need stricter security defaults
+
+            if raw_attrs: # Raw attributes present
+                # Find :flag OR key="value" OR key=value pairs in the raw attributes
+                parts = re.findall(r'(:\w+|\w+="[^"]*"|\w+=[^\s}]+)', raw_attrs)
+
+                for part in parts: # Iterate through each part to parse attributes
+                    # Custom flags
+                    if part == ":newtab":
+                        # Indicate link should open in a new tab
+                        attrs += ' target="_blank"' # Open in new tab
+                        rel_parts.update(["noopener", "noreferrer"]) # Add security rel attributes for new tabs
+
+                    # Normal attributes
+                    elif "=" in part:
+                        key, value = part.split("=", 1)
+
+                        if key == 'rel':
+                            # Rel attributes need to be merged with the default and NOT overwritten
+                            rel_parts.update(value.strip('"').split()) # Add rel attributes to the set
+                        else:
+                            attrs += f' {key}={value}' # Add other attributes as-is (e.g. class="my-class")
+
+                    # Standalone attributes (e.g. "disabled", "primary")
+                    else:
+                        if part != "rel":
+                            # Escape rel as a standalone attribute
+                            attrs += f' {part}'
+                        else:
+                            current_app.logger.warning(
+                                f"Invalid use of 'rel' in link attributes: '{raw_attrs}' (must be in the form rel=...)"
+                            )
+
+            # Default external behaviour (only if not overridden)
+            if re.match(r'^https?://', href):
+                if "target=" not in attrs: attrs += ' target="_blank"' # Default to opening external links in a new tab
+                rel_parts.update(["noopener", "noreferrer"]) # Default rel attributes for external links to prevent security vulnerabilities
+
+            rel = " ".join(sorted(rel_parts)) # Combine rel attributes into a single string, sorted for consistency
+
+            return f'<a href="{href}"{attrs} rel="{rel}">{label}</a>' # Return the final anchor tag with all attributes and the escaped label
 
         return LINK_RE.sub(repl, text) # Replace markdown links with HTML anchor tags
 
@@ -90,7 +148,7 @@ class BaseLessonProcessor:
 
             mapping = {
                 "i": ("info", "Note"),
-                "w": ("warning", "Heads up!"),
+                "w": ("warning", "Heads up"),
                 "t": ("tip", "Tip"),
             }
 
@@ -196,7 +254,7 @@ class BaseLessonProcessor:
             raise FileNotFoundError(f"Lesson not found: {path}")
 
         post = frontmatter.load(path) # type: ignore -> Separates YAML metadata from MD content
-        content = self.apply_transforms(post.content)  # Applies custom transformations
+        content = self.apply_transforms(post.content) # Applies custom transformations
 
         # Convert MD to HTML
         html = markdown.markdown( 

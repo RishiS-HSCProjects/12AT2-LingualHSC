@@ -29,7 +29,7 @@ Here are some of the most commonly used markdown syntaxes that you can use in yo
 | `-` | • Unordered list |
 | `1.` | ➀ Ordered list |
 | `>` | > Quote |
-| `[text](url)` | [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) |
+| `[text](url)` | [Link *label* that **supports Markdown**](https://www.youtube.com/watch?v=dQw4w9WgXcQ) |
 | `![alt text](image_url)` | ![Image](fake image for symbol) |
 | `---` | 一 Horizontal rule |
 | `` `code` `` | `Inline code` |

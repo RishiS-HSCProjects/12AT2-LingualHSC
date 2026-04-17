@@ -2,6 +2,13 @@
 
 title: "Using 〜よう"
 summary: "Learn all the common uses of the 〜よう form in Japanese."
+keywords:
+    - you
+    - youni
+    - younishimasu
+    - younisuru
+    - youninarimasu
+    - youninaru
 
 ---
 
@@ -26,7 +33,7 @@ You can use the 〜ように form to express the purpose of an action, similar t
 
 You will need to know two variations of this structure.
 
-:::blockquote (Undesired) Verb (ない form) + ように + (Action):::
+:::blockquote [Undesired] Verb (ない form) + ように + (Action):::
 
 This structure is used when you want to express doing something in order to avoid or prevent an undesired outcome.
 
@@ -37,7 +44,7 @@ This structure is used when you want to express doing something in order to avoi
     - Here, the undesired outcome is getting a stomachache.
     - To prevent this, the action of not eating quickly is advised.
 
-:::blockquote Verb (plain form, present tense) + ように :::
+:::blockquote [Desired] Verb (plain form, present tense) + ように :::
 
 This structure is used when you want to express doing something in order to achieve a desired outcome. The use of potential form makes the translation like "in order for the ability to do X, Y is done".
 
