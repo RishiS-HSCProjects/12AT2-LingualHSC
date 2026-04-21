@@ -1,6 +1,7 @@
 import os
 import re
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, url_for, make_response
+from flask_login import current_user
 from lingual.modules.tutorial.utils import quiz_utils
 from lingual.modules.tutorial.utils.lessons_processor import get_processor
 from lingual.utils.languages import Languages
@@ -15,8 +16,8 @@ tutorial_bp = Blueprint(
     static_url_path='/modules/tutorial/static'
 )
 
+# Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal attacks and ensure valid slugs.
 VALID_SLUG = re.compile(r'^[a-zA-Z0-9\-]+$')
-""" Regular expression to validate lesson slugs, allowing only alphanumeric characters and hyphens to prevent directory traversal attacks. """
 
 @tutorial_bp.route('/')
 def home():
@@ -31,7 +32,7 @@ def home():
     quick_access.add_items(
         ItemBox(
             title="Lessons",
-            body="Want to know how our lessons work?",
+            body="Want to know how our Lingual HSC works? Check out our tutorial lessons to learn about the features of this app!",
             buttons=[
                 ItemBox.BoxButton(
                 text="Click here!",
@@ -39,18 +40,41 @@ def home():
                 )
             ],
             on_click=url_for('tutorial.lessons')
-        ),
-        ItemBox(
-            title="Create an account",
-            body="Like what you see? Create an account to start learning!",
-            buttons=[
-                ItemBox.BoxButton(
-                text="Sign Up",
-                link=url_for('main.register')
-                )
-            ],
-            on_click=url_for('main.register')
-        ),
+        )
+    )
+    if not current_user.is_authenticated: # Only show account creation prompt to unauthenticated users
+        quick_access.add_items(
+            ItemBox(
+                title="Create an account",
+                body="Like what you see? Create an account to start learning!",
+                buttons=[
+                    ItemBox.BoxButton(
+                    text="Sign Up",
+                    link=url_for('main.register')
+                    )
+                ],
+                on_click=url_for('main.register')
+            )
+        )
+    elif (lang := current_user.get_last_language()): # If the user is authenticated and has a last used language, show a quick access button to return to that language's home page
+        quick_access.add_items(
+            ItemBox(
+                title=f"Go to {lang.app_name}",
+                body=f"Shall we continue our {lang.name} learning journey?",
+                buttons=[
+                    ItemBox.BoxButton(
+                    text="Take me there!",
+                    link=url_for(f'{lang.app_code}.home')
+                    ),
+                    ItemBox.BoxButton(
+                        text=f"Go To App Directory",
+                        link=url_for('main.app_directory')
+                    )
+                ],
+                on_click=url_for(f'{lang.app_code}.home')
+            )
+        )
+    quick_access.add_items(
         ItemBox(
             title="Return to Lingual Home",
             body="Want to return to the main home page?",

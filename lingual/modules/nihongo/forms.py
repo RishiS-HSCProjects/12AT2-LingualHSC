@@ -16,7 +16,7 @@ class GrammarQuizConfigForm(LessonQuizConfigForm):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.lessons.label = Label(self.lessons.id, "Grammar Points") # Assign this here too
+        self.lessons.label = Label(self.lessons.id, "Grammar Points (All Selected by Default)") # Assign this here too
 
 class KanjiQuizConfigForm(QuizForm):
     """
@@ -39,13 +39,12 @@ class KanjiQuizConfigForm(QuizForm):
             raise ValidationError("Max quiz questions must be between 5 and 50.")
 
     kanji_characters = SelectMultipleField(
-        "Kanji Characters",
         validators=[DataRequired()]
     )
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.kanji_characters.label = Label(self.kanji_characters.id, "Kanji Characters")
+        self.kanji_characters.label = Label(self.kanji_characters.id, "Kanji Characters (All Selected by Default)")
         kanji_list = [(kanji, kanji) for kanji, _ in Kanji.get_prescribed_kanji()] # Get the list of prescribed kanji characters and create a list of tuples for the choices in the format (kanji, kanji) since we want to display the kanji character itself as the choice
         self.kanji_characters.choices = kanji_list # type: ignore
         self.kanji_characters.data = [kanji for kanji, _ in kanji_list]  # Select all by default

@@ -97,7 +97,8 @@ def home():
                 text="Open Demo",
                 link=url_for('nihongo.particles')
                 )
-            ]
+            ],
+            on_click=url_for('nihongo.particles')
         ),
         ItemBox(
             title="Vocab",

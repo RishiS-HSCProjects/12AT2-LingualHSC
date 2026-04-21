@@ -86,8 +86,8 @@ function openModal(modal) {
 	lastActiveElement = document.activeElement; // Set last active
 	activeModalId = modalId; // Store modal ID
 
-	modalElement.classList.add('is-active'); // Add active class
 	modalElement.setAttribute('aria-hidden', 'false'); // Make screenreaders see this
+	modalElement.classList.add('is-active'); // Add active class
 
 	// If an element can be focused on, focus on it.
 	const focusElement = modalElement.querySelector('input, select, textarea, button');
@@ -105,7 +105,7 @@ function closeActiveModal() {
 	if (!modal) return; // Could not find modal
 
 	modal.classList.remove('is-active'); // Set inactive
-	modal.setAttribute('aria-hidden', 'true');
+	modal.setAttribute('aria-hidden', 'true'); // Hide from screenreaders again
 
 	if (activeModalId && getModalId(modal) === activeModalId) {
 		activeModalId = null; // Reset active modal id

@@ -49,11 +49,12 @@ Valid types include `blockquote`, `subject`, and `warning`.
 :::subject subjects are used to emphasise important concepts :::
 :::warning warnings are used to alert users to important information :::
 
+/t All of the syntax definitions use subject blocks! \
+
 :::subject ꞉꞉colour{text} :::
 
 The colour can be any valid CSS colour, including hex codes, RGB values, or colour names. This syntax is used to change the colour of the text within the curly braces. For example, `꞉꞉red{This text is red}` will render like "::red{This text is red}". Or if you want more fancy colours, `꞉꞉#8D51AE{This is a nice, custom hybrid between light purple and pink}` becomes "::#8D51AE{This is a nice, custom hybrid between light purple and pink}".
 
-/t All of the syntax definitions use subject blocks! \
 
 :::subject [text](lessons꞉lesson-id#anchor) :::
 
