@@ -470,15 +470,16 @@ def account():
 
             # Handle custom setup modals
             if modal_action == AccountActionTypes.DELETE_APP:
-                for lang in user_lang:
+                if isinstance(form, DeleteAppConfirmation):
                     # Create a separate DeleteAppConfirmation form for each language app the user has, with custom app name and form action URL.
-                    if isinstance(form, DeleteAppConfirmation):
-                        form.set_app_name(lang.app_name)
-                        setattr(form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
-                        form.set_action(
+                    for lang in user_lang:
+                        lang_form = DeleteAppConfirmation()
+                        lang_form.set_app_name(lang.app_name)
+                        setattr(lang_form, 'id', f"DeleteAppConfirmation-{lang.code}Modal")
+                        lang_form.set_action(
                             url_for('main.account', action=modal_action.value, lang=lang.code)
                         )
-                        account_modals[f"{modal_action.value}:{lang.code}"] = form
+                        account_modals[f"{modal_action.value}:{lang.code}"] = lang_form
                 continue
 
             if modal_action == AccountActionTypes.UPDATE_INFO:
