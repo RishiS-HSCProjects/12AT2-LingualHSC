@@ -37,7 +37,7 @@ function initResponsiveNav() {
 
     const closeMenu = () => { // Close menu anonymous function
         nav.classList.remove('nav-open');
-        toggleBtn.setAttribute('aria-expanded', 'false'); // Accessibility (I'm very inconsistent with this. TODO: add accessibility everywhere)
+        toggleBtn.setAttribute('aria-expanded', 'false'); // Accessibility
     };
 
     toggleBtn.addEventListener('click', () => {
@@ -82,6 +82,7 @@ function initResponsiveNav() {
         return shouldCollapse;
     };
 
+    /** Update nav bar state depending on overflow */
     const updateNav = () => {
         const wasOpen = nav.classList.contains('nav-open');
         const shouldCollapse = isOverflowing();

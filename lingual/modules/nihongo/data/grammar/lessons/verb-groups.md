@@ -52,6 +52,54 @@ There are only two main irregular verbs in Japanese: する (suru - to do) and �
 
 /i 行[い]く is sometimes counted as an irregular verb as it takes the rules of the other Godan verbs in some cases and decides to do its own thing in others. E.g. 行く in て-form becomes 行って, not 行いて. \
 
+# Transitive vs Intransitive Verbs
+When using sites like [Jisho.org](https://jisho.org), you may have noticed that some verbs are labeled as "transitive" while others are labeled as "intransitive", and you might be wondering *what on Earth does that mean?*. Learning this distinction is important for understanding how to use verbs correctly in sentences, and it will help you avoid common mistakes when constructing complex sentences in Japanese.
+
+## Transitive Verbs
+Transitive verbs are action verbs that require a direct object to complete their meaning. They describe actions that are performed by a subject and affect an object.
+
+/t In Japanese, transitive verbs often have a corresponding intransitive verb that describes the same action without a direct object \
+
+### Examples of Transitive Verbs
+
+- パンを食[た]べる - I will eat bread.
+    - The verb 食べる is transitive because it requires the direct object パン (bread) to complete its meaning.
+    - The subject (I) performs the action of eating, and the object (bread) is affected by that action.
+    - Note: 食べる does not have a true intransitive counterpart, since you can not talk about eating without specifying what you are eating. You can say "食[しょく]事[じ]をする" (to have a meal) to describe the act of eating without specifying the object, but this is not a true intransitive verb.
+
+- ドアを開[あ]ける - I will open the door.
+    - The verb 開[あ]ける is transitive because it requires the direct object ドア (door) to complete its meaning.
+    - The subject (I) performs the action of opening, and the object (door) is affected by that action.
+    - The intransitive counterpart of 開[あ]ける (ichidan verb) is 開[あ]く (godan verb), which describes the door opening without specifying who is opening it.
+
+- 電[でん]話[わ]をかける - I will make a phone call.
+    - The verb かける is transitive because it requires the direct object 電[でん]話[わ] (phone call) to complete its meaning.
+    - The subject (I) performs the action of making, and the object (phone call) is affected by that action.
+    - The intransitive counterpart of かける (ichidan verb) is かかる (godan verb), which describes the phone call happening without specifying who is making it.
+
+## Intransitive Verbs
+Intransitive verbs describe actions or states that do not require a direct object. They often describe things that happen on their own or states of being. Intransitive verbs can be used to describe actions that occur without a specific agent or to express conditions and states, and will never take direct objects (particle を).
+
+/w When using intransitive verbs, you cannot employ object-marking particles like を with verbs such as なる, 起[お]こる, 変[か]わる, or 進[すす]む, because these verbs do not take direct objects. It does not make sense to say "ドアが開[あ]けるようになった" because 開[あ]ける is a transitive verb and requires an agent capable of performing the action. You would pretty much be implying that "the [sentient] door has come to be able to open [on its own accord]", which is likely not what you intend. \
+
+Here are some structures that intransitive verbs can NOT take:
+
+- [なる](grammar:using-naru){ :newtab } (to become)
+- [～たり～たり](grammar:tari-tari){ :newtab } (to do things like ~ and ~)
+- [～ながら](grammar:time-references#nagara){ :newtab } (while doing ~)
+
+### Examples of Intransitive Verbs
+
+- ドアが開[あ]く - The door will open.
+    - The verb 開[あ]く is intransitive because it does not require a direct object.
+    - The action occurs without a specific agent performing it.
+
+- 電話が鳴[な]る - The phone will ring.
+    - The verb 鳴[な]る is intransitive because it describes a state or action that happens on its own.
+
+- 雨が降[ふ]る - It will rain.
+    - The verb 降[ふ]る is intransitive because it describes a natural occurrence without requiring an object.
+
 # Summary
 Understanding the three verb groups in Japanese is crucial for mastering verb conjugation. Each group has its own set of rules and patterns that you will need to learn to use verbs correctly in various contexts.
 By familiarizing yourself with Godan, Ichidan, and Irregular verbs, you'll be well on your way to becoming proficient in Japanese verb usage!

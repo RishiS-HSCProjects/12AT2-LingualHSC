@@ -7,11 +7,6 @@
 <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/app-directory.css') }}">
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
-<script src="{{ url_for('main.static', filename='js/app-directory.js') }}" defer></script>
-{% endblock %}
-
 {% block body %}
 <div id="page-container">
     <h1>Your Apps</h1>

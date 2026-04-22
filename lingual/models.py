@@ -20,14 +20,28 @@ class User(UserMixin, db.Model):
     languages: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list, server_default="[]")
     last_language: Mapped[str | None] = mapped_column(db.String(10), nullable=True)
 
+    def set_first_name(self, first_name: str):
+        from lingual.core.auth.utils.utils import validate_name
+        first_name = first_name.strip().title() # Remove extra spaces and add title case for consistency and correct validation 
+        if validate_name(first_name): # If name does not meet validation requirements
+            raise ValueError("Invalid name format.")
+
+        self.first_name = first_name # Set first name
+
     def set_password(self, password: str):
-        # Todo: add password strength validation
-        self.password_hash = generate_password_hash(password)
+        from lingual.core.auth.utils.utils import validate_password_strength
+        if validate_password_strength(password): # If password does not meet strength requirements
+            raise ValueError("Password does not meet strength requirements.")
+        self.password_hash = generate_password_hash(password) # Save hashed pwd to db
 
     def check_password(self, password: str) -> bool:
+        """ Check if pwd matches the stored hash. """
         return check_password_hash(self.password_hash, password)
 
     def add_language(self, language_code: str):
+        """ Add a language to the user's list of languages if it's not already there.
+        
+        Also creates associated stats for the language. """
         if (Languages.get_language_by_code(language_code)) is None:
             raise ValueError(f"Language code '{language_code}' does not exist.")
         
@@ -38,8 +52,10 @@ class User(UserMixin, db.Model):
             self.languages = []
 
         if language_code not in self.languages:
+            # Override user list
             self.languages = [*self.languages, language_code]
 
+            # Create associated stats for the language
             self.create_language_stats(language_code)
 
     def get_last_language(self) -> Language | None:
@@ -55,18 +71,22 @@ class User(UserMixin, db.Model):
 
     def remove_language(self, language_code: str):
         if language_code in self.languages:
+            # Override user list without the 'removed' language
             self.languages = [code for code in self.languages if code != language_code]
         if self.last_language == language_code:
             self.last_language = None
-        self.remove_language_stats(language_code)
+        self.remove_language_stats(language_code) # Remove associated stats for the language
 
     def get_language_codes(self) -> list[str]:
+        """ Returns a list of language codes the user is learning. """
         return self.languages
 
     def get_languages(self) -> list['Language']:
+        """ Returns a list of Language objects the user is learning. """
         langs = []
         if self.languages:
             for code in self.languages:
+                # Iterate through the codes and convert them to Language objects
                 lang = Languages.get_language_by_code(code)
                 if lang:
                     langs.append(lang)
@@ -76,11 +96,12 @@ class User(UserMixin, db.Model):
         return f"<User {self.email} ({len(self.languages)} languages)>"
 
     def get_reset_token(self, expires_seconds=1800) -> str:
+        """ Generate a password reset token that expires after a certain number of seconds. """
         from datetime import timedelta
-        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
-        expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp()
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token') # Generate url safe token
+        expires_at = (datetime.now(timezone.utc) + timedelta(seconds=expires_seconds)).timestamp() # Add expiry timestamp to the token data
         pwd_sig = hashlib.sha256(self.password_hash.encode('utf-8')).hexdigest() # Create a signature based on the current password hash to invalidate tokens if the password changes
-        return s.dumps({'user_id': self.id, 'expires_at': expires_at, 'pwd_sig': pwd_sig})
+        return s.dumps({'user_id': self.id, 'expires_at': expires_at, 'pwd_sig': pwd_sig}) # Return the generated token containing the user ID, expiry timestamp, and password signature
 
     def create_language_stats(self, language_code: str):
         # Dynamically create stats for any language
@@ -101,7 +122,7 @@ class User(UserMixin, db.Model):
                 db.session.delete(jp_stats)  # type: ignore[arg-type]
 
     def get_language_stats(self, language_code: str):
-        if not Languages.get_language_by_code(language_code):  # Validate language code
+        if not Languages.get_language_by_code(language_code): # Validate language code
             raise ValueError(f"Language code '{language_code}' does not exist.")
         
         stats_attr = f"{language_code}_stats"
@@ -118,20 +139,26 @@ class User(UserMixin, db.Model):
         # Delete associated language stats first to maintain referential integrity
         for lang_code in self.languages:
             self.remove_language_stats(lang_code)
+        
+        # Delete the user itself
         db.session.delete(self)
     
     def login(self):
+        """ Log the user in through Flask-Login """
         from flask_login import login_user
         login_user(self)
 
     @staticmethod
     def verify_reset_token(token):
-        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token')
+        """ Verify a password reset token and return the associated user if valid, or None if invalid or expired. """
+        s = URLSafe(current_app.config['SECRET_KEY'], salt='password-reset-token') # Create a URLSafe serializer with the same secret key and salt used for generating the token to ensure we can decode it correctly.
         try:
-            data = s.loads(token)
+            data = s.loads(token) # Attempt to decode the token. This will raise an exception if the token is invalid or has been tampered with.
             if datetime.now(timezone.utc).timestamp() > data['expires_at']:
+                # Ensure that the token has not expired
                 return None
 
+            # Get user id and pwd signature from the token data
             user_id = data.get('user_id')
             token_signature = data.get('pwd_sig')
 
@@ -143,17 +170,17 @@ class User(UserMixin, db.Model):
             if not user: # If user not found, return None
                 return None
 
-            expected_signature = hashlib.sha256(user.password_hash.encode('utf-8')).hexdigest()
+            expected_signature = hashlib.sha256(user.password_hash.encode('utf-8')).hexdigest() # Recreate the expected signature based on the user's current password hash. If the password has been changed since the token was issued, the signature will not match, and we should invalidate the token.
             if token_signature != expected_signature:
                 # If the password signature does not match, it means the password has changed since the token was issued, so we should invalidate the token and return None
                 return None
 
             return user # Return the user if everything checks out
         except Exception:
-            return None
+            return None # If any error occurs (invalid token, tampering, etc), return None to indicate the token is not valid.
 
 class LanguageStatsBase(db.Model):
-    __abstract__ = True
+    __abstract__ = True # This model will not be created as its own table, but other language-specific stats models will inherit from it.
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(
@@ -189,7 +216,7 @@ class JapaneseStats(LanguageStatsBase):
         backref=db.backref(
             "jp_stats",
             uselist=False,
-            passive_deletes=True
+            passive_deletes=True # Ensure that if the user is deleted, the associated stats are also deleted
         )
     )
 

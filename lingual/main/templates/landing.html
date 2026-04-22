@@ -19,8 +19,8 @@
         <div id="nav-menu">
             <ul id="nav-links">
                 <li class="taster"><a href="{{ url_for('tutorial.home') }}">Open Tutorial Module</a></li>
-                <li><a onclick="whyUsScroll()">For HSC Students</a></li>
-                <li><a onclick="purposeScroll()">About Lingual</a></li>
+                <li><a onclick="scrollToId('purpose');">About Lingual</a></li>
+                <li><a onclick="scrollToId('use-lingual');">Using Lingual</a></li>
             </ul>
 
             <a href="{{ url_for('main.app') }}" id="get-started-btn">{% if current_user.is_authenticated %}Go to App{% else %}Get Started{% endif %}</a>
@@ -50,11 +50,10 @@
         {% endif %}
 
         <div class="cards">
-            <div class="card method" onclick="purposeScroll()">Learn More</div>
-            <div class="card why" onclick="whyUsScroll()">Why Us?</div>
+            <div class="card method" onclick="scrollToId('purpose')" type="button">Learn More</div>
+            <div class="card use-lingual" onclick="scrollToId('use-lingual')" type="button">Using Lingual</div>
         </div>
     </section>
-
 
     <section id="purpose" class="info-section">
         <h2>OUR MISSION</h2>
@@ -87,6 +86,37 @@
         </p>
     </section>
 
+    <section id="use-lingual" class="info-section">
+        <h2>HOW TO USE LINGUAL</h2>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>1. Pick your language app</h3>
+                <p><a href="{{ url_for('main.register') }}">Register</a> for a free account and follow syllabus-aligned content designed for HSC progression.</p>
+            </article>
+            <article class="feature-card">
+                <h3>2. Study in short focused blocks</h3>
+                <p>Work through targeted lessons for grammar, vocabulary and exam-style understanding.</p>
+            </article>
+            <article class="feature-card">
+                <h3>3. Improve the course!</h3>
+                <p>Lingual HSC thrives by the passion of students like yourself developing the platform further. Learn more <a href="{{ url_for('tutorial.lessons', slug='for-developers') }}">here</a>.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="final-cta" class="info-section">
+        <h2>READY TO START?</h2>
+        <p>
+            {% if current_user.is_authenticated %}
+            Continue your language study and keep your momentum going.
+            {% else %}
+            Create an account, choose your language and start learning with purpose.
+            {% endif %}
+        </p>
+        <a class="cta-btn" href="{{ url_for('main.app') }}">
+            {% if current_user.is_authenticated %}Go to App{% else %}Get Started!{% endif %}
+        </a>
+    </section>
 
 </div>
 

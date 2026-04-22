@@ -78,8 +78,7 @@ class LessonQuizConfigForm(QuizForm):
 
     lessons = SelectMultipleField(
         "Lessons",
-        choices=[],
-        validators=[DataRequired()]
+        choices=[]
     )
 
     def set_lesson_choices(self, choices: list[tuple[str, str]]) -> None:
@@ -109,3 +108,8 @@ class LessonQuizConfigForm(QuizForm):
         if ((data := field.data) < 5) or (data > 50):
             # Ensure max questions are between 5 and 50 
             raise ValidationError("Max questions must be between 5 and 50.")
+
+    def validate_lessons(self, field):
+        """ Validate that at least one lesson is selected. """
+        if not field.data:
+            raise ValidationError("Please select at least one lesson.")

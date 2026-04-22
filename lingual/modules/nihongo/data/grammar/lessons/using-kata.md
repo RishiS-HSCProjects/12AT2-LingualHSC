@@ -1,7 +1,10 @@
 ---
 
-title: "Using ～方[かた]"
-summary: "Learn how to use the ～方[かた] construction in Japanese to express 'the way of doing something.'"
+title: "Using ～方"
+summary: "Learn how to use the ～方 construction in Japanese to express 'the way of doing something.'"
+keywords:
+    - kata
+    - かた
 
 ---
 
@@ -18,10 +21,10 @@ This is used to describe how to do something or the method of performing an acti
 
 For example:
 
-- 日本[にほん]語[ご]の勉強[べんきょう]の仕方[しかた]を教[おし]えてください。→ Please teach me the way of studying Japanese (Please teach me how you study Japanese).
-- この料理[りょう][り]の作[つく]り方[かた]を知[し]っていますか。→ Do you know how to make this dish?
+- 日[に]本[ほん]語[ご]の勉強[べんきょう]し方[かた]を教[おし]えてください。→ Please teach me the way of studying Japanese (Please teach me how you study Japanese).
+- この料[りょう]理[り]の作[つく]り方[かた]を知[し]っていますか。→ Do you know how to make this dish?
 - パソコンの使[つか]い方[かた]を学[まな]びたいです。→ I want to learn how to use a computer.
 
-/w Note that 方[かた] is pronounced かた, NOT ほう! \
+/w 方 is pronounced かた, NOT ほう, in this structure. \
 
 ~quizzes:using-kata:quiz?shuffle&limit=5~

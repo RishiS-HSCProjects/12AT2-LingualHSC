@@ -70,12 +70,22 @@ nav #nav-opt a {
    padding: 8px 16px;
    border-radius: var(--radius-medium);
    background-color: transparent;
-   transition: color var(--transition-base), background-color var(--transition-base);
+   transition: color var(--transition-base), background-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 nav #nav-opt a:hover {
    color: var(--colour-accent-strong);
    background-color: var(--colour-accent-soft);
+}
+
+nav #nav-opt a#start-learning-btn {
+   background-color: color-mix(in srgb, var(--colour-accent-amber) 40%, transparent);
+   color: var(--colour-primary);
+}
+
+nav #nav-opt a#start-learning-btn:hover {
+   background-color: color-mix(in srgb, var(--colour-accent-amber) 80%, transparent);
+   box-shadow: var(--shadow-quiz-button);
 }
 
 nav #nav-opt img {

@@ -2,6 +2,11 @@
 
 title: "Giving Reasons"
 summary: "Learn how to use the particles から, ので and し to give reasons in Japanese sentences."
+keywords:
+    - kara
+    - dakara
+    - node
+    - shi    
 
 ---
 
@@ -33,11 +38,19 @@ For example:
 
 :::blockquote Verb/い-Adjective + ので :::
 
-/w *Similar to **から**, when using **ので** with **nouns** and **な-adjectives**, **だ** is generally required in **formal speech**. In **casual speech**, **だ** is often dropped, especially with **な-adjectives** (like ひま), but it is typically retained with **identity nouns** (like 学生). \
+/w *Similar to <strong>から</strong>, when using <strong>ので</strong> with <strong>nouns</strong> and <strong>な-adjectives</strong>, <strong>だ</strong> is generally required in <strong>formal speech</strong>. In <strong>casual speech</strong>, <strong>だ</strong> is often dropped, especially with <strong>な-adjectives</strong> (like ひま), but it is typically retained with <strong>identity nouns</strong> (like 学生). \
 
 :::blockquote Noun + だ + ので :::  
-:::blockquote な-Adjective + だ + ので (formal/polite) :::  
-:::blockquote な-Adjective + な + ので (casual) :::
+
+- 学生**だので**、チケットはもっと安[やす]かったです。→ Because I am a student, the tickets were cheaper.  
+    - Here, **だ** is used because **学生** is an **identity noun**.
+    - **だ** can be dropped in casual speech, conveying the same meaning, but more casually: **学生なので**.
+
+:::blockquote な-Adjective + だ + ので (formal/polite) :::
+
+- ひま**だので**、遊[あそ]びに行きませんか？→ Because I am free, shall we go out?  
+    - Here, **だ** is used in formal speech.
+    - In casual speech, **だ** is often dropped: **ひまなので**.
 
 For example:
 
