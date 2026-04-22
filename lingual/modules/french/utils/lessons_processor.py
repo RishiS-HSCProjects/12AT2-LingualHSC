@@ -6,8 +6,8 @@ FURIGANA_RE = re.compile(r'([一-龯々]+)\[([^\]]+)\]')
 
 class FrenchLessonProcessor(BaseLessonProcessor):
     """
-    Lesson processor for Tutorial module.
-    Registers additional transformers specific to Tutorial lessons.
+    Lesson processor for French module.
+    Registers additional transformers specific to French lessons.
     """
 
     def __init__(self):
