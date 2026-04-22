@@ -22,10 +22,12 @@ class TutorialLessonProcessor(BaseLessonProcessor):
             data_root = DIR
         )
     
-_PROCESSOR: TutorialLessonProcessor | None = None
+_PROCESSOR: TutorialLessonProcessor | None = None # Singleton instance of TutorialLessonProcessor
 
 def get_processor() -> TutorialLessonProcessor:
+    """ Returns the singleton instance of TutorialLessonProcessor. """
     global _PROCESSOR
     if _PROCESSOR is None:
+        # Initialize the processor if it hasn't been created yet
         _PROCESSOR = TutorialLessonProcessor()
     return _PROCESSOR

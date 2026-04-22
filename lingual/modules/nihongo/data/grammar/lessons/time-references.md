@@ -2,8 +2,19 @@
 
 title: "Referencing Time"
 summary: "Learn how to use 前, 後, and 間 to reference time in Japanese."
+keywords:
+    - toki
+    - mae
+    - aida
+    - nagara
+    - uchi
+    - uchini
+    - naiuchi
+    - naiuchini
+    - made
+    - madeni
 
---- 
+---
 
 In Japanese, you can reference time to indicate when an action takes place in relation to other events.
 

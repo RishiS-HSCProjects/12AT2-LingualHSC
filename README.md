@@ -11,24 +11,25 @@ Lingual HSC is a Flask-based language learning web application built for HSC stu
 	pip install -r requirements.txt
 	```
 
-3. **Setup environment variables**: Create a `.env` file and locate it in the folder's root (i.e. same folder as the `__init__.py` and `models.py` files). Then, copy the below snippet into the `.env` file. Fill all info variables with valid values. Remove square brackets (included to be placeholders).
+3. **Setup environment variables**: Create a `.env` file and locate it in the folder's root (i.e. same folder as the `__init__.py` and `models.py` files). Then, copy the below snippet into the `.env` file. Fill all info variables with valid values.
 	```env
-	DEBUG = [BOOL]
-	FLASK_ENV = ['production'. 'development']
-	SECRET_KEY = ['abc123']
+	DEBUG = 'true' / 'false'
+	FLASK_ENV = 'production' / 'development'
+	SECRET_KEY = 'abc123-secret456-key789'
 	SQLALCHEMY_DATABASE_URI = 'postgresql://[URI]' # Remove if you choose to use a local database. See below
 
 	# MAIL
-	MAIL_USERNAME = ['lingualhsc@gmail.com']
-	MAIL_PASSWORD = ['1234 5678 9012 3456']
+	MAIL_USERNAME = 'lingualhsc@gmail.com'
+	MAIL_PASSWORD = '1234 5678 9012 3456'
 	MAIL_DEFAULT_SENDER = ('Lingual HSC', 'lingualhsc@gmail.com')
 	ALLOW_SEND_EMAILS = True # Switch to false if you do not want to use the mail server.
+	# Note: If ALLOW_SEND_EMAILS is set to false, you do not need to provide valid MAIL_USERNAME and MAIL_PASSWORD credentials.
 
 	# SERVER
-	PUBLIC_BASE_URL = ['http://127.0.0.1:5000']
+	PUBLIC_BASE_URL = 'http://127.0.0.1:5000'
 
 	# API KEYS
-	WANIKANI_API_KEY = ['we-pull-from-wanikanis-api']
+	WANIKANI_API_KEY = 'we-pull-from-wanikanis-api'
 	# Note: The WANIKANI_API_KEY is optional. The 201 prescribed kanji are cached in the repository. Use the API key only if you need to fetch details for non-prescribed kanji or refresh cached data.
 	```
 

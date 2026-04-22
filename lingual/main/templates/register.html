@@ -41,8 +41,8 @@
                         </button>
                         <ul class="dropdown-menu">
                             {% for lang in languages %}
-                            <li class="dropdown-option" data-value="{{ lang.value.code }}">
-                                {{ lang.value.name }}
+                            <li class="dropdown-option" data-value="{{ lang.code }}">
+                                {{ lang.name }}
                             </li>
                             {% endfor %}
                         </ul>

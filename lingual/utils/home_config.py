@@ -1,4 +1,5 @@
 class HomeConfig:
+    """ Base class for home page configuration. """
     def __init__(self) -> None:
         self.build: list["HomeSection | None"] = []
 
@@ -13,6 +14,7 @@ class HomeConfig:
         self.build.append(None) # type: ignore -> None elements become separators.
 
 class HomeSection:
+    """ Section config """
     def __init__(
         self,
         title: str = '',
@@ -21,6 +23,7 @@ class HomeSection:
         self.items: list["HomeItem"] = []
     
     def add_items(self, *items: "HomeItem"):
+        """ Adds items to section. Items are rendered in order of registration. """
         for item in items:
             if not isinstance(item, HomeItem):
                 raise HomeConfigException("Attempted to add item of type " + str(type(item)) + ". home_config::HomeItem expected.")
@@ -28,14 +31,16 @@ class HomeSection:
         self.items.extend([*items])
 
 class HomeBanner (HomeSection):
+    """ Banner section; rendered with special styling, usually at the top of the page. """
     def __init__(self, content: str = "") -> None:
         super().__init__()
         self.content: str = content
 
 class HomeItem :
+    """ Base class for items within sections. """
     def __init__(self) -> None:
         self.classes: str = "" # Custom CSS classes to add to the item container.
-        self.disabled = False # Not disabled (no reason given)
+        self.disabled: tuple[str, str] | None = None # Not disabled (no reason given)
 
     def add_classes(self, *classes: str) -> "HomeItem":
         self.classes += " " + " ".join(classes)
@@ -60,6 +65,7 @@ class ItemParagraph (HomeItem):
         self.content = content
 
 class ItemBox(HomeItem):
+    """ Box element, with optional buttons and click action. """
     def __init__(
         self,
         title: str,
@@ -73,6 +79,8 @@ class ItemBox(HomeItem):
         self.title = title
         self.body = body
         self.buttons: list["ItemBox.BoxButton"] = list(buttons) if buttons else []
+
+        # If disabled reason provided, disable the item and set on_click to None to prevent interactions.
         if disabled_reason:
             self.set_disabled(disabled_reason, disabled_flash_category or "info")
             self.on_click = None
@@ -82,6 +90,7 @@ class ItemBox(HomeItem):
         if not disabled_reason and on_click: self.add_classes("clickable")
 
     class BoxButton:
+        """ Button element within ItemBox. """
         def __init__(self, text: str, link: str) -> None:
             self.text = text
             self.link = link

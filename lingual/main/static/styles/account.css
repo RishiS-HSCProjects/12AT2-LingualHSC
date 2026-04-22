@@ -113,6 +113,41 @@ aside > #actions {
     scroll-margin-top: calc(var(--nav-height) + 1.5rem);
 }
 
+.lang-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.lang-head h2 {
+    margin: 0;
+}
+
+.lang-head a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-card);
+    color: var(--colour-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.lang-head a:hover {
+    border-color: var(--colour-link);
+    color: var(--colour-link);
+    background-color: var(--colour-accent-soft);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+}
+
 #account-info {
     display: flex;
     flex-direction: column;

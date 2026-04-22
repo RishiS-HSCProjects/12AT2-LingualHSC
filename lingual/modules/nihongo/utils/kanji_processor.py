@@ -28,13 +28,13 @@ def validate_kanji(kanji: str) -> str:
     Ensures the input is exactly one character and safe for use in URLs and filesystem paths.
     """
 
-    if not isinstance(kanji, str):
+    if not isinstance(kanji, str): # Ensure the input is a string
         raise ValueError("Kanji must be a string.")
 
-    if len(kanji) != 1:
+    if len(kanji) != 1: # Ensure the input is exactly one character long (a single kanji character)
         raise ValueError("Kanji must be exactly one character.")
 
-    ch = kanji[0]
+    ch = kanji[0] # Get the single character from the string
 
     # Reject whitespace, control chars, path separators, null byte
     if ch.isspace() or ch in {"/", "\\", "\x00"}:
@@ -45,19 +45,19 @@ def validate_kanji(kanji: str) -> str:
     if category.startswith("C"):
         raise ValueError("Invalid character.")
 
-    return ch
+    return ch # Return the validated kanji character
 
 class KanjiType(Enum):
-    """Enum representing the types of kanji usage (e.g., ACTIVE or RECOGNITION)."""
+    """ Enum representing the types of kanji usage (e.g., ACTIVE or RECOGNITION). """
     ACTIVE = 0  # Actively used kanji that students are expected to be able to read and write.
     RECOGNITION = 1  # Recognition-only kanji.
-    PASSIVE = 2  # Non-standard type for kanji that are not part of the prescribed lists. Used as a catch-all for any kanji that doesn't fit into the other categories.
+    PASSIVE = 2  # Non-standard type for kanji that is not part of the prescribed lists. Used as a catch-all for any kanji that doesn't fit into the other categories.
 
 class ReadingType(Enum):
     """ Enum representing the reading type (onyomi, kunyomi, and nanori) """
     ON = 'onyomi'
     KUN = 'kunyomi'
-    NANORI = 'nanori'
+    NANORI = 'nanori' # Uncommon
 
 class Kanji:
     """Represents a Kanji character with associated information fetched from the WaniKani API."""
@@ -100,12 +100,12 @@ class Kanji:
 
     @property
     def on_readings(self) -> list:
-        """Returns the 'on' readings of the kanji."""
+        """ Returns the 'on' readings of the kanji. """
         return self._get_readings_by_type(ReadingType.ON.value)
 
     @property
     def nanori_readings(self) -> list:
-        """Returns the 'nanori' readings of the kanji."""
+        """ Returns the 'nanori' readings of the kanji. """
         return self._get_readings_by_type(ReadingType.NANORI.value)
 
     @property
@@ -116,16 +116,15 @@ class Kanji:
 
     @property
     def url(self) -> str:
+        """ Returns the URL to the WaniKani page for this kanji. """
         return self.data.get("document_url", "")
 
     def get_primary_meaning(self) -> str:
-        """
-        Retrieves the primary meaning of the kanji.
-        """
+        """ Retrieves the primary meaning of the kanji. """
         for meaning in self.meanings:
             if meaning.get("primary"):
                 return meaning.get("meaning", "")
-        return ""
+        return "" # Return an empty string if no primary meaning is found
 
     @staticmethod
     def _fetch_kanji_data(kanji: str) -> dict:
@@ -133,7 +132,7 @@ class Kanji:
         Fetches kanji data from the WaniKani API and stores it locally.
         """
 
-        CHECK_KEY()  # Ensure API key is set
+        CHECK_KEY() # Ensure API key is set
 
         kanji = validate_kanji(kanji)
 
@@ -162,7 +161,7 @@ class Kanji:
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(kanji_data, file, ensure_ascii=False, indent=4)
 
-        return kanji_data
+        return kanji_data # Return the fetched data for use in constructing the Kanji object
 
     @staticmethod
     def get_kanji(kanji: str) -> "Kanji":
@@ -173,22 +172,23 @@ class Kanji:
         kanji = validate_kanji(kanji) # Set kanji to validated character
         file_path = DATA_DIRECTORY / f"{kanji}.json"
 
+        # Check if the kanji data is already cached locally.
         if Kanji.is_cache_available(kanji):
+            # If cached, load the data from the local JSON file.
             with open(file_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
         else:
+            # If not cached, fetch the data from the WaniKani API and save it locally.
             data = Kanji._fetch_kanji_data(kanji)
 
         return Kanji(kanji, data)
 
     @staticmethod
     def is_cache_available(kanji: str) -> bool:
-        """
-        Checks if data for the specified kanji is already available locally.
-        """
+        """ Checks if data for the specified kanji is already available locally. """
         kanji = validate_kanji(kanji) # Set kanji to validated character
-        file_path = DATA_DIRECTORY / f"{kanji}.json"
-        return file_path.exists()
+        file_path = DATA_DIRECTORY / f"{kanji}.json" # Construct the expected file path for the kanji data
+        return file_path.exists() # Return True if the file exists (cache is available), otherwise False
 
     @staticmethod
     def get_prescribed_kanji() -> list[tuple[str, KanjiType]]:
@@ -204,10 +204,10 @@ class Kanji:
                 data = json.load(file) # Get the raw data as a dictionary of kanji to type mappings
             PRESCRIBED_KANJI = [(kanji, KanjiType(type_)) for kanji, type_ in data.items()] # Convert to a list of tuples containing the kanji character and its corresponding type as a KanjiType enum member
         
-        return PRESCRIBED_KANJI
+        return PRESCRIBED_KANJI # Return the cached list of prescribed kanji
 
     def __str__(self):
-        """Returns a string representation of the Kanji object."""
+        """ Returns a string representation of the Kanji object. """
         primary_meaning = self.get_primary_meaning()
         primary_reading = self.on_readings[0]["reading"] if self.on_readings else "N/A"
         return f"Kanji: {self.kanji_char}, Meaning: {primary_meaning}, Primary Reading: {primary_reading}, Stroke Count: {self.stroke_count}"

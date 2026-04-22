@@ -32,7 +32,6 @@
         {% else %}
             {% set app_code = None %}
         {% endif %}
-
     {% else %}
         {% set last_language = None %}
     {% endif %}
@@ -40,7 +39,7 @@
     {% block header %}
     {% endblock header %}
 
-    <div id="body">
+    <div id="body" role="main">
         {% block body %}
         {% endblock %}
     </div>

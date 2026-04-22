@@ -49,10 +49,10 @@ class PasswordResetForm(FlaskForm):
         confirm_password = field.data
 
         err = validate_password_strength(confirm_password)
-        if err: raise ValidationError(str(err))        
+        if err: raise ValidationError(str(err)) # Raise validation error if any found
 
 class RegistrationLanguageForm(FlaskForm):
-    """Form for selecting language during registration."""
+    """ Form for selecting language during registration. """
     language = SelectField(
         'Preferred Language',
         validators=[DataRequired()],
@@ -60,7 +60,7 @@ class RegistrationLanguageForm(FlaskForm):
     )
 
 class RegistrationNameForm(FlaskForm):
-    """Form for entering name during registration."""
+    """ Form for entering name during registration. """
     first_name = StringField(
         'First Name',
         validators=[
@@ -75,7 +75,7 @@ class RegistrationNameForm(FlaskForm):
         if err: raise ValidationError(str(err))
 
 class RegistrationEmailForm(FlaskForm):
-    """Form for entering email during registration."""
+    """ Form for entering email during registration. """
     email = StringField(
         'Email',
         validators=[
@@ -91,7 +91,7 @@ class RegistrationEmailForm(FlaskForm):
         if err: raise ValidationError(str(err))
 
 class RegistrationPasswordForm(FlaskForm):
-    """Form for setting password during registration."""
+    """ Form for setting password during registration. """
     password = PasswordField(
         'Password',
         validators=[
@@ -124,11 +124,12 @@ class DeleteAccountConfirmation(ModalForm):
     submit = SubmitField("Delete forever!")
 
     def set_email(self, email):
+        # Replace placeholder with actual email in the description
         self.description = self.description.replace("{EMAIL}", email)
 
     def validate_txt(self, field):
-        if not field.data.lower() == "delete my account":
-            raise ValidationError("Please type exactly 'delete my account' to confirm.")
+        if not field.data.lower().strip() == "delete my account":
+            raise ValidationError("Please type 'delete my account' exactly to confirm.")
 
 class DeleteAppConfirmation(ModalForm):
     """ Confirm a language app should be removed from the account. """
@@ -142,18 +143,19 @@ class DeleteAppConfirmation(ModalForm):
         self.description = self.description.replace("{APP_NAME}", app_name)
 
     def validate_txt(self, field):
-        if field.data.lower() != "remove app":
-            raise ValidationError("Please type exactly 'remove app' to confirm.")
+        if field.data.lower().strip() != "remove app":
+            raise ValidationError("Please type 'remove app' exactly to confirm.")
 
 class ChangePasswordForm(ModalForm):
     """ Change password while authenticated. """
     title = "Change Password"
     description = "Update your password. You will stay logged in after this change."
 
-    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    current_password = PasswordField('Current Password', validators=[DataRequired()]) # Not much validation here as it will be checked in the route logic
     new_password = PasswordField(
         'New Password',
         validators=[
+            # Quick validation
             DataRequired(),
             Length(min=8, message="Password must be at least 8 characters long")
         ]
@@ -161,6 +163,7 @@ class ChangePasswordForm(ModalForm):
     confirm_password = PasswordField(
         'Confirm New Password',
         validators=[
+            # Quick validation
             DataRequired(),
             EqualTo('new_password', message='Passwords must match')
         ]
@@ -168,6 +171,8 @@ class ChangePasswordForm(ModalForm):
     submit = SubmitField("Save Password")
 
     def validate_new_password(self, field):
+        # Full password strength validation for the new password
+        # Validation for confirm not required as it must match new_password which is already validated
         err = validate_password_strength(field.data)
         if err:
             raise ValidationError(str(err))
@@ -183,12 +188,13 @@ class UpdateInfoForm(ModalForm):
             DataRequired(),
             Length(min=1, max=50, message="First name must be between 1 and 50 characters")
         ],
-        default="{FIRST_NAME}"
+        default="{FIRST_NAME}" # Placeholder
     )
 
     submit = SubmitField("Save Changes")
 
     def set_first_name(self, first_name):
+        """ Update first name placeholder and default value. """
         self.first_name.default = first_name
         self.first_name.data = first_name
 

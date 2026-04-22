@@ -20,17 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const fuseOptions = {
-
         // The weight attribute allows us to order results by possible relevance.
         // Higher weight = more likely to be the intended match.
         /* This is a very simple configuration, however, sufficient for the basic
             searching of small lesson datasets. */
 
         keys: [
-            { name: "title", weight: 2 },
-            { name: "keywords", weight: 1.75 },
-            { name: "summary", weight: 1.5 },
-            { name: "content", weight: 1 }
+            { name: "title", weight: 2 }, // Title is the most important factor in search relevance
+            { name: "keywords", weight: 1.75 }, // Keywords are likely the romaji of important parts of a lesson, so they are also very important for relevance
+            { name: "summary", weight: 1.5 }, // Less important, but still very relevant as it gives a brief overview of the lesson content
+            { name: "content", weight: 1 } // Least important, as it may contain a lot of text that isn't directly relevant to the search query.
         ],
 
         // Fuzzy search allows for typos and partial matches to deliver a result.

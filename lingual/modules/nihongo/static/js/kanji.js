@@ -1,7 +1,7 @@
 // PLEASE NOTE
-// Some of the concept and structures were generated using AI.
-// Specifically, smoothness logic and the Intersection Observer implementation were
-// written with the help of ChatGPT. Refer to AI declaration.
+// Some of the code in this file has been written with the help of AI,
+// specifically, smoothness logic and the Intersection Observer implementation.
+// Refer to AI declaration.
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Assign DOM elements to constants for faster access
@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			: []
 	);
 
+	/**
+	 * Helper function to extract nanori readings from kanji data, with support for multiple payload formats.
+	 */
 	const getNanoriReadings = (data) => {
 		const fromReadings = getReadingsByType(data, "nanori");
 		if (fromReadings.length) return fromReadings;
@@ -67,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoChar.classList.remove("is-link");
 		infoChar.title = "";
 
-		if (!url || url === "#") return;
+		if (!url || url === "#") return; // No valid URL provided, so we don't set up a link.
 
 		infoChar.classList.add("is-link");
 		infoChar.title = "Click to view on WaniKani";
@@ -85,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		infoPrimary.textContent = "Data not available yet. Please try again in a moment.";
 		infoType.hidden = true;
 		const label = infoType.querySelector(".kanji-type-label");
+		// Clear any existing type label text
 		if (label) label.textContent = "";
 		infoMeanings.textContent = "";
 		infoOnyomi.textContent = "";
@@ -114,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		setInfoCharLink(url); // Set link to WaniKani if URL is valid
 		infoPrimary.textContent = primaryMeaning ? `Primary: ${primaryMeaning}` : "Primary: N/A";
 
+		// Ensure the type label (active, recognition, passive) exists and update its text and styling based on the kanji type.
 		let typeLabel = infoType.querySelector(".kanji-type-label");
 		if (!typeLabel) {
 			typeLabel = document.createElement("span");
@@ -122,12 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		typeLabel.textContent = type
-			? `${type.toLowerCase().charAt(0).toUpperCase() + type.toLowerCase().slice(1)}`
+			? `${type.toLowerCase().charAt(0).toUpperCase() + type.toLowerCase().slice(1)}` // Title case for display
 			: "Passive"; // Fallback. Implemented in case we want to add more kanji in the future.
 
 		infoType.hidden = !primaryMeaning; // Hide if data not fetched
 		infoType.classList.remove("type-active", "type-recognition");
-		if (type) infoType.classList.add(`type-${type.toLowerCase()}`);
+		if (type) infoType.classList.add(`type-${type.toLowerCase()}`); // Add class for styling based on type
 
 		/** Help text when hovering over kanji type. */
 		const helpTextMap = {
@@ -135,14 +140,15 @@ document.addEventListener("DOMContentLoaded", () => {
 			recognition: "You are expected to recognise this kanji, but not necessarily write it."
 		};
 
+		// Set help text based on type, default to passive
 		const helpText = helpTextMap[type?.toLowerCase()] || "You are not expected to actively know this kanji. It may be included for reference or future learning.";
-		infoType.setAttribute("data-help", helpText);
+		infoType.setAttribute("data-help", helpText); // Set help attribute
 
 		const tooltip = infoType.querySelector(".help-tooltip");
 		if (tooltip) {
 			tooltip.textContent = helpText;
 		} else if (typeof window.initHelpTooltips === "function") {
-			window.initHelpTooltips();
+			window.initHelpTooltips(); // Initialize tooltips
 		}
 
 		infoMeanings.textContent = meanings.length ? meanings.join(", ") : "No meanings listed.";

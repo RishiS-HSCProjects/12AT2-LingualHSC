@@ -1,36 +1,36 @@
 {
-  "title": "Japanese Particles",
-  "description": "This page is still under development. Tap a particle to open quick notes and examples.",
-  "categories": [
-    {
-      "name": "Main",
-      "items": [
-        {
-          "slug": "wa",
-          "tile": "は",
-          "title": "は: Topic Marker"
-        },
-        {
-          "slug": "ga",
-          "tile": "が",
-          "title": "が: Subject Marker"
-        },
-        {
-          "slug": "wo",
-          "tile": "を",
-          "title": "を: Direct Object Marker"
-        },
-        {
-          "slug": "ni",
-          "tile": "に",
-          "title": "に: Time / Target / Destination"
-        },
-        {
-          "slug": "de",
-          "tile": "で",
-          "title": "で: Place of Action / Means"
-        }
-      ]
-    }
-  ]
+	"title": "Japanese Particles",
+	"description": "WARNING: This page is still under development. As a result, information may be incomplete, unformatted, or inaccurate.\nTap a particle to open quick notes and examples.",
+	"categories": [
+		{
+			"name": "Main",
+			"items": [
+				{
+					"slug": "wa",
+					"tile": "は",
+					"title": "は: Topic Marker"
+				},
+				{
+					"slug": "ga",
+					"tile": "が",
+					"title": "が: Subject Marker"
+				},
+				{
+					"slug": "wo",
+					"tile": "を",
+					"title": "を: Direct Object Marker"
+				},
+				{
+					"slug": "ni",
+					"tile": "に",
+					"title": "に: Time / Target / Destination"
+				},
+				{
+					"slug": "de",
+					"tile": "で",
+					"title": "で: Place of Action / Means"
+				}
+			]
+		}
+	]
 }

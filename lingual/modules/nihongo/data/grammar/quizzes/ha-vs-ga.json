@@ -75,13 +75,6 @@
                 "explanation": "は presents the moon as a familiar topic and makes a general comment."
             },
             {
-                "type": "mc",
-                "question": "Which particle is commonly used to contrast two topics (Aは…, Bは…)?",
-                "options": ["が", "は", "を", "で"],
-                "answer": 1,
-                "explanation": "は is frequently used to contrast topics, since it changes the 'topic' of the sentence."
-            },
-            {
                 "type": "input",
                 "question": "Translate to Japanese: 'There is a dog.'",
                 "includes": [

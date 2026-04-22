@@ -161,6 +161,15 @@ class QuizRenderer {
         this.lockDelay = lockDelay;
 
         this.quizCache = {};
+        this.currentAudio = null;
+        this.audioStorageKey = "lingual-quiz-audio-muted";
+        this.isAudioMuted = false;
+
+        try {
+            this.isAudioMuted = sessionStorage.getItem(this.audioStorageKey) === "true";
+        } catch (_) {
+            this.isAudioMuted = false;
+        }
 
         this.init();
     }
@@ -408,14 +417,54 @@ class QuizRenderer {
         ${bodyHTML}
         ${explanationHTML}
         <div class="quiz-controls">
-            <span class="quiz-progress">
-                ${index + 1} / ${questions.length}
-            </span>
+            <div class="quiz-controls-left">
+                <span class="quiz-progress">
+                    ${index + 1} / ${questions.length}
+                </span>
+                <button class="quiz-audio-toggle" type="button"></button>
+            </div>
             <button class="quiz-next-btn" disabled>
                 ${index + 1 < questions.length ? "Next" : "Finish"}
             </button>
         </div>
     `;
+
+        const audioToggleBtn = container.querySelector(".quiz-audio-toggle");
+
+        /**
+         * Synchronises the state of the audio toggle button with the current mute state.
+         */
+        const syncAudioToggle = () => {
+            if (!audioToggleBtn) return;
+
+            audioToggleBtn.classList.toggle("is-muted", this.isAudioMuted);
+            audioToggleBtn.setAttribute("aria-pressed", String(this.isAudioMuted));
+            audioToggleBtn.setAttribute("aria-label", this.isAudioMuted ? "Unmute quiz audio" : "Mute quiz audio");
+            audioToggleBtn.setAttribute("title", this.isAudioMuted ? "Unmute audio" : "Mute audio");
+            audioToggleBtn.textContent = this.isAudioMuted ? "🔇" : "🔊";
+        };
+
+        syncAudioToggle();
+
+        audioToggleBtn?.addEventListener("click", () => {
+            // If the toggle is clicked, update mute state
+
+            this.isAudioMuted = !this.isAudioMuted;
+
+            try {
+                sessionStorage.setItem(this.audioStorageKey, String(this.isAudioMuted));
+            } catch (_) {
+                // Ignore storage failures; mute still works for this page instance.
+            }
+
+            if (this.isAudioMuted && this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio.src = "";
+                this.currentAudio = null;
+            }
+
+            syncAudioToggle();
+        });
 
         if (index !== 0 && q.type === "input") {
             // Focus input if user is working through a specific quiz
@@ -435,13 +484,73 @@ class QuizRenderer {
 
         const nextBtn = container.querySelector(".quiz-next-btn");
         let answered = false;
-        let locked = true;
-        setTimeout(() => locked = false, this.lockDelay); // Lock inputs briefly to prevent accidental double-clicks
+        let locked = true; // Lock to prevent interactions during rendering and setup to prevent accidental double-clicks or key presses
+        setTimeout(() => locked = false, this.lockDelay); // Unlock after predetermined delay
 
         const markIncorrect = () => {
             // Mark question as incorrect in score tracking
             // Pushes question object to missed array for review later
             if (!isReview) score.missed.push(q);
+        };
+
+        /**
+         * Anonymous function for handling audio playback for the current question.
+         * @param {boolean} isCorrect - Whether the user's answer was correct, used to determine which audio to play.
+         */
+        const handleAudio = (isCorrect) => {
+            if (this.isAudioMuted) return; // Do not play audio if muted
+
+            const playAudioById = (audioId) => {
+                if (!audioId) return; // Return null audio
+
+                if (this.currentAudio) { // Stop and clear any currently playing audio before starting new one
+                    this.currentAudio.pause();
+                    this.currentAudio.src = "";
+                    this.currentAudio = null;
+                }
+
+                fetch(`api/audio?id=${audioId}`, { // Fetch audio path from API using audio ID. This is necessary to prevent exposing direct audio file paths in the frontend, which could lead to unauthorized access through file traversal attacks.
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(response => {
+                    if (!response.ok) {
+                        // Throw error if audio fail to fetch
+                        throw new Error(`Audio API error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json(); // Get JSON response object
+                })
+                    .then(data => {
+                        if (!data?.path) { // Validate that response contains audio path
+                            throw new Error("Audio path not provided in response");
+                        }
+                        this.currentAudio = new Audio(data.path); // Create new Audio object with fetched path
+                        this.currentAudio.play().catch(e => {
+                            // Play audio catching any errors that occur during playback
+                            console.warn("Failed to play audio. This may be due to browser restrictions.", e);
+                        });
+                    }).catch(e => {
+                        // Log any errors that occur during fetch or playback to console for debugging
+                    console.error("An error occurred while fetching or playing audio.", e);
+                });
+            };
+
+            let audio = null;
+
+            // First determine audio based on correctness
+            if (isCorrect === true) {
+                audio = q["audio-correct"] ?? null;
+            } else if (isCorrect === false) {
+                audio = q["audio-incorrect"] ?? null;
+            }
+
+            // If no specific audio for correctness, check for unconditional audio
+            if (!audio) {
+                audio = q["audio-unconditional"] ?? null;
+            }
+
+            playAudioById(audio); // Play the determined audio. Function ignores null audio
         };
 
         /* ---------- MC handling ---------- */
@@ -475,7 +584,7 @@ class QuizRenderer {
                     const explanation = container.querySelector(".quiz-explanation");
                     addResultIndicator(explanation, chosen === q.answer);
 
-                    handleAudio();
+                    handleAudio(chosen === q.answer);
 
                     nextBtn.disabled = false; // Enable next button
 
@@ -529,12 +638,8 @@ class QuizRenderer {
                 for (const group of includes) { // Iterates over each group of required elements
                     const groupArr = Array.isArray(group) ? group : [group]; // Ensure group is an array
                     const ok = groupArr.some(p => userNorm.includes(normaliseAnswer(p))); // Check if any element in group is included in user answer
-                    if (!ok) { // People ask me if I'm fine and I say I'm fine but I'm not really fine... I say I'm ` {!ok} `...
-                        // For legal reasons, that was a joke. Hope you got a good eye roll from reviewing that.
-                        // If you didn't understand it, please ignore it. It's a meme :)
-                        /** @see https://www.youtube.com/watch?v=aS0-P4JR9PU */
-
-                        missing.push(groupArr); // Anyways, this line adds the missing group to the list
+                    if (!ok) {
+                        missing.push(groupArr); // Add the missing group to the list
                     }
                 }
 
@@ -576,6 +681,7 @@ class QuizRenderer {
                     const answerBlock = document.createElement("div");
                     answerBlock.className = "quiz-valid-answers";
 
+                    // Attach includes / valid blocks if needed
                     if (q.includes) {
                         answerBlock.innerHTML = `
                             <div class="quiz-valid-label">Missing required elements:</div>
@@ -598,7 +704,7 @@ class QuizRenderer {
                 const explanation = container.querySelector(".quiz-explanation");
                 addResultIndicator(explanation, correct); // Add correct/incorrect indicator to explanation
 
-                handleAudio();
+                handleAudio(correct);
 
                 nextBtn.disabled = false; // Enable next button
 
@@ -622,40 +728,12 @@ class QuizRenderer {
             });
         }
 
-        function handleAudio() {
-            let audio;
-            if ((audio = q["audio-unconditional"]) ?? false) {
-                fetch(`api/audio?id=${audio}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }).then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Audio API error: ${response.status} ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                    .then(data => {
-                        if (!data?.path) {
-                            throw new Error("Audio path not provided in response");
-                        }
-                        currentAudio = new Audio(data.path);
-                        currentAudio.play().catch(e => {
-                            console.warn("Failed to play audio. This may be due to browser restrictions.", e);
-                        });
-                    }).catch(e => {
-                    console.error("An error occurred while fetching or playing audio.", e);
-                });
-            }
-        }
-
         /* ---------- Navigation ---------- */
         nextBtn.addEventListener("click", () => {
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.src = "";
-                currentAudio = null;
+            if (this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio.src = "";
+                this.currentAudio = null;
             }
 
             if (index + 1 < questions.length) { // More questions remain
@@ -671,9 +749,12 @@ class QuizRenderer {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
+                            // Post request to server to notify of quiz completion
+                            // Updates user's stats
                             lesson: window.location.pathname.split("/").filter(Boolean).pop(),
                         })
                     }).catch(e => {
+                        sendFlashMessage("Something went wrong while updating your stats.", "warning");
                         console.error("Failed to notify server of quiz completion.", e);
                     });
                 }
@@ -701,7 +782,7 @@ class QuizRenderer {
             subtitle = "Consider rereading the material.";
         } else {
             header = "Needs Improvement";
-            subtitle = "Review the lesson and retry.";
+            subtitle = "Review the lesson and try again.";
         }
 
         // Render summary HTML
@@ -745,6 +826,11 @@ function scrollToAnchorWithOffset(id) {
     });
 }
 
+/**
+ * Global flag to indicate if the current quiz is being taken within outside of a lesson context.
+ * Flag is to be set in the session HTML when rendering quizzes that are not part of a lesson, such as on the Quizzes page.
+ * Used to prevent updating of last lesson completed when doing quizzes outside of lessons.
+ */
 var quizSession = false;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -757,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Delay ensures content + headings are fully rendered
         setTimeout(() => {
             scrollToAnchorWithOffset(id);
-        }, 0);
+        }, 500);
     }
 });
 
