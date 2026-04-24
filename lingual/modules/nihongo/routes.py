@@ -2,7 +2,7 @@ import os
 import re
 from flask import Blueprint, abort, current_app, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
-from lingual import db
+from lingual import db, GIT_REPO_URL
 from lingual.modules.nihongo.utils.kanji_processor import Kanji
 from lingual.modules.nihongo.utils import quiz_utils
 from lingual.modules.nihongo.utils.grammar_lesson_processor import get_processor
@@ -87,7 +87,7 @@ def home():
     indev = HomeSection("Indev")
     indev.add_items(
         ItemParagraph(
-            "These items are currently under development. If you encounter any issues, please make an issue on our GitHub Page!"
+            f"These items are currently under development. If you encounter any issues, please make an issue on our <a href='{GIT_REPO_URL}' target='_blank'>GitHub Page</a>!"
         ),
         ItemBox(
             title="Particles",
