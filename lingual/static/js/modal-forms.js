@@ -159,7 +159,7 @@ function initModalHandlers(modalElement, modalId) {
 /**
  * Removes query parameters related to modals (action and type) from the URL without reloading the page.
  * 
- * @see Documentation T-FE06
+ * @see Documentation T-FE05
  */
 function clearModalQueryParams() {	
 	const url = new URL(window.location.href);

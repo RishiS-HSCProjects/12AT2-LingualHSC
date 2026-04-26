@@ -79,7 +79,7 @@ body {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* T-FE07 */
+/* T-FE06 */
 .welcome-action.is-primary {
     background: linear-gradient(145deg, #05950c, #0fa817);
     color: var(--colour-text-on-accent);
