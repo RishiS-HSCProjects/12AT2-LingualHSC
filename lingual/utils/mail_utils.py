@@ -2,6 +2,8 @@ from queue import Empty, Queue
 from threading import Thread
 from flask import current_app
 
+# D-AE02
+
 def queue_email(
     recipients: list[str],
     subject: str,
