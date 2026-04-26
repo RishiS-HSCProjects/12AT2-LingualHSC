@@ -41,6 +41,13 @@ def login():
     from lingual.main.forms import LoginForm
     form = LoginForm()
 
+    # Get next attribute from url
+    next_url = request.form.get('next', type=str) or request.args.get('next', type=str)
+    if next_url and not next_url.startswith('/'):
+        # Ensure valid next_url to prevent open redirect vulnerabilities
+        # Only allows relational links
+        next_url = None # Unset if invalid
+
     if request.method == 'GET':
         # Restore form from previous failed attempt (if any)
         restore_form_from_session(form, session, flash_errors=True)
@@ -58,7 +65,11 @@ def login():
 
                 flash("Invalid email or password.", "error")
                 save_form_to_session(form, session)  # Save for retry
-                return redirect(url_for('main.login', next=request.args.get('next')))  # type: ignore
+
+                if next_url:
+                    # If next_url exists, pass it as a query parameter to the login page for referral after successful login
+                    return redirect(url_for('main.login', next=next_url))
+                return redirect(url_for('main.login'))
 
             # Login successful
             user.login()
@@ -69,9 +80,11 @@ def login():
 
             if session.pop('new_user', False):
                 resp = redirect(url_for('main.welcome'))   # Show welcome page if user just registered
-            elif 'next' in request.args:
-                resp = redirect(request.args.get('next'))  # type: ignore
+            elif next_url:
+                # If next_url exists, redirect there
+                resp = redirect(next_url)
             else:
+                # In all other cases, go right back to the app route
                 resp = redirect(url_for('main.app'))
 
             resp.set_cookie('has_account', 'true', max_age=400*24*60*60) # Add persistent cookie to indicate user has an account
@@ -81,7 +94,8 @@ def login():
             save_form_to_session(form, session)
             flash_all_form_errors(form)
 
-    return render_template('login.html', form=form)
+    # Pass next_url to the template for future referral
+    return render_template('login.html', form=form, next_url=next_url)
 
 @main_bp.route('/logout', strict_slashes=False)
 def logout():

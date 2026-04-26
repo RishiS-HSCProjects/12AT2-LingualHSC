@@ -16,6 +16,9 @@
 {% block body %}
 <form id="form" action="{{ url_for('main.login') }}" method="POST">
     {{ form.hidden_tag() }}
+    {% if next_url %}
+    <input type="hidden" name="next" value="{{ next_url }}">
+    {% endif %}
     <section class="active">
         <h1>Welcome Back!</h1>
         <div class="form-body">
