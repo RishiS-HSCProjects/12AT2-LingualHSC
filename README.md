@@ -69,7 +69,31 @@ Lingual HSC is a Flask-based language learning web application built for HSC stu
 - If you want to use the WaniKani API features for kanji details, you will need a valid `WANIKANI_API_KEY` in your `.env`. The app includes cached data for the 201 prescribed kanji, so the API key is only necessary if you want to fetch details for non-prescribed kanji or refresh cached data.
 - After setting up the database, you may want to create a test user account by registering through the app's registration page. This will allow you to explore authenticated features and progress tracking.
 
-You are now ready to explore the features of Lingual HSC!
+### **IMPORTANT**: frontmatter
+It is likely you'll encounter the following error when attempting to run this project:
+```shell
+WARNING in lesson_processor: An unknown error occured while fetching 'verb-groups' in category 'senior-structures': module 'frontmatter' has no attribute 'load'
+WARNING in lesson_processor: An unknown error occured while fetching 'te-form' in category 'senior-structures': module 'frontmatter' has no attribute 'load'
+WARNING in lesson_processor: An unknown error occured while fetching 'plain-form' in category 'senior-structures': module 'frontmatter' has no attribute 'load'
+WARNING in lesson_processor: An unknown error occured while fetching 'particle-he' in category 'senior-structures': module 'frontmatter' has no attribute 'load'
+
+// And so forth
+```
+
+This error exists due to the package `frontmatter` likely already being installed on your machine, forcing itself into the virtual environment. To resolve this error:
+
+- Within the virtual environment, run the following command.
+  ```shell
+  pip uninstall frontmatter python-frontmatter
+  ```
+  This removes any instance of frontmatter in the environment you are currently using.
+- Reinstall **python-frontmatter**
+  ```shell
+  pip install python-frontmatter
+  ```
+- Start the server.
+
+Now, you should be ready to explore the features of Lingual HSC!
 
 # Main Features
 
