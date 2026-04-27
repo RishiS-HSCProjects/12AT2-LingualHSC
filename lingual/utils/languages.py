@@ -25,6 +25,7 @@ class Languages(Enum):
     # Register languages here.
     TUTORIAL = Language(code='xx', name='Tutorial', native_name='xx', app_code='tutorial', app_name='Tutorial')
     JAPANESE = Language(code='jp', name='Japanese', native_name='日本語', app_code='nihongo', app_name='日本Go!')
+    FRENCH   = Language(code='fr', name='French', native_name='le français', app_code='french', app_name='French')
 
     def obj(self) -> Language:
         """ Returns the Language object associated with the enum member. """
