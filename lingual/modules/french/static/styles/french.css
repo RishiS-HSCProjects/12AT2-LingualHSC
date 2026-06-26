@@ -1,0 +1,198 @@
+/**
+ * French Module Theme Overrides
+ * 
+ * This file contains ONLY the customizations specific to the French module.
+ * All base styles are inherited from the main static/styles files.
+ */
+
+/* || Theme Variables */
+
+:root {
+   --bg-main: #F5F8FF;
+   --bg-card: #FFFFFF;
+   --bg-surface: #FDFEFF;
+   --bg-surface-muted: #EDF3FF;
+   --bg-surface-strong: #DFEAFD;
+   --bg-note-info: #EAF1FF;
+   --bg-note-tip: #ECF7FF;
+   --bg-note-warning: #FFECEC;
+   --bg-block-quote: #F2F6FF;
+   --border-block-quote: #DCE8FF;
+   --border-block-warning: #EF4135;
+
+   --bg-option-1: #0055A4;
+   --bg-option-2: #EF4135;
+
+   --colour-link: #0055A4;
+   --colour-link-hover: #003D76;
+   --colour-accent: #0055A4;
+   --colour-accent-strong: #003D76;
+   --colour-accent-soft: #E7F0FF;
+   --colour-accent-amber: #EF4135;
+   --colour-table-head: #003D76;
+   --colour-thead: var(--colour-table-head);
+
+   --shadow-card: 0 2px 4px rgba(0, 85, 164, 0.08);
+   --shadow-nav: 0 2px 12px rgba(0, 85, 164, 0.12);
+   --shadow-soft: 0 8px 24px rgba(0, 85, 164, 0.12);
+   --shadow-card-hover: 0 4px 12px rgba(239, 65, 53, 0.15);
+   --shadow-item-hover: 0 8px 24px rgba(239, 65, 53, 0.15);
+   --shadow-quiz-button: 0 2px 8px rgba(0, 85, 164, 0.2);
+   --shadow-quiz-button-hover: 0 8px 20px rgba(0, 85, 164, 0.3);
+
+   --radius-medium: 10px;
+   --radius-round: 14px;
+   --gradient-soft-sunrise: linear-gradient(135deg, #F7FAFF 0%, #FFFFFF 50%, #FFF4F4 100%);
+}
+
+/* || General Styles */
+
+html,
+body {
+   background: var(--bg-main);
+   color: var(--colour-primary);
+   min-height: 100vh;
+}
+
+nav {
+   background: var(--bg-surface);
+   border-bottom: 1px solid var(--border-subtle);
+   box-shadow: var(--shadow-nav);
+}
+
+nav #nav-logo {
+   letter-spacing: -0.02em;
+   color: var(--colour-primary);
+   font-weight: 700;
+}
+
+nav #nav-opt a {
+   padding: 8px 16px;
+   border-radius: var(--radius-medium);
+   background-color: transparent;
+   transition: color var(--transition-base), background-color var(--transition-base);
+}
+
+nav #nav-opt a:hover {
+   color: var(--colour-accent-strong);
+   background-color: var(--colour-accent-soft);
+}
+
+nav #nav-opt img {
+   padding: 8px;
+   border-radius: var(--radius-pill);
+   background: var(--bg-surface-muted);
+   box-shadow: var(--shadow-card);
+   transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+nav #nav-opt img:hover {
+   background-color: var(--colour-accent-soft);
+   box-shadow: var(--shadow-card-hover);
+}
+
+#body {
+   max-width: 1200px;
+   margin: auto;
+   margin-top: calc(var(--nav-height) + 40px);
+}
+
+.lesson-item {
+   background: var(--bg-surface);
+   border: 1px solid var(--border-subtle);
+   box-shadow: var(--shadow-card);
+   border-radius: var(--radius-round);
+   transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.lesson-item:hover {
+   border-color: var(--colour-accent);
+   box-shadow: var(--shadow-item-hover);
+}
+
+#lesson-container {
+   background: var(--bg-card);
+   border: 1px solid var(--border-subtle);
+   border-radius: var(--radius-round);
+   box-shadow: var(--shadow-soft);
+   padding: 40px 3vw;
+}
+
+#lesson-container .lesson-title {
+   color: var(--colour-primary);
+   letter-spacing: -0.02em;
+   font-weight: 700;
+}
+
+#lesson-container h1,
+#lesson-container h2,
+#lesson-container h3,
+#lesson-container h4 {
+   color: var(--colour-primary);
+}
+
+#lesson-container .note {
+   border-radius: var(--radius-medium);
+   box-shadow: var(--shadow-card);
+}
+
+#lesson-container .note.info {
+   border-left-color: var(--colour-accent);
+   background: var(--bg-note-info);
+}
+
+#lesson-container .note.tip {
+   border-left-color: var(--bg-option-1);
+   background: var(--bg-note-tip);
+}
+
+#lesson-container .note.warning {
+   border-left-color: var(--colour-accent-amber);
+   background: var(--bg-note-warning);
+}
+
+#lesson-container .block.blockquote {
+   background: var(--bg-block-quote);
+   border-color: var(--border-block-quote);
+   border-left-color: var(--colour-accent);
+}
+
+#lesson-container .block.warning {
+   border-color: var(--border-block-warning);
+   box-shadow: var(--shadow-soft);
+}
+
+.quiz {
+   border-color: var(--border-subtle);
+   background: var(--bg-surface);
+   box-shadow: var(--shadow-card);
+   border-radius: var(--radius-round);
+}
+
+.quiz button {
+   background: var(--colour-accent);
+   box-shadow: var(--shadow-quiz-button);
+   font-weight: 600;
+   border: none;
+   border-radius: var(--radius-medium);
+   transition: all var(--transition-base);
+   color: var(--colour-text-on-accent);
+}
+
+.quiz button:hover {
+   background: var(--colour-accent-strong);
+   box-shadow: var(--shadow-quiz-button-hover);
+}
+
+.quiz button:disabled {
+   background: var(--colour-muted);
+   opacity: 0.6;
+}
+
+#directory-panel {
+   background: var(--bg-surface);
+   border: 1px solid var(--border-subtle);
+   border-radius: var(--radius-round);
+   box-shadow: var(--shadow-card);
+   padding: 16px;
+}
